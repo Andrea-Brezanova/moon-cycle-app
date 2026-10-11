@@ -1,6 +1,9 @@
 // Checks one architecture rule: code in any `domain/` folder under lib/ is
-// pure Dart. It must not import Flutter, Riverpod, Drift or Supabase, so the
-// business logic (cycle maths, shopping merge) stays easy to test and reuse.
+// pure Dart, so the business logic (cycle maths, shopping merge) stays easy to
+// test and reuse:
+// - it must not import Flutter, Riverpod, Drift or Supabase;
+// - it must not read the clock with `DateTime.now(`. Domain code always
+//   receives "today" as a parameter.
 //
 // Run: dart run tool/check_layers.dart   (CI runs it on every push)
 
@@ -34,6 +37,10 @@ void main() {
     final lines = file.readAsLinesSync();
     for (var i = 0; i < lines.length; i++) {
       final line = lines[i].trim();
+      if (line.startsWith('//')) continue; // comments may mention anything
+      if (line.contains('DateTime.now(')) {
+        violations.add('${file.path}:${i + 1}  $line  (pass "today" in)');
+      }
       if (!line.startsWith('import ') && !line.startsWith('export ')) continue;
       for (final prefix in forbidden) {
         if (line.contains("'$prefix") || line.contains('"$prefix')) {

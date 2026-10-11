@@ -2,6 +2,16 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 2 (cycle domain)
+- **Pure Dart, "today" passed in:** the domain never reads the clock; `check_layers` rejects `DateTime.now(` in `domain/`.
+- **Reference parity:** phase ranges are an exact port of `design/code/cycle.ts`, checked against a committed fixture for all 1,575 valid combinations. This proves parity with the approved reference algorithm only; it does not validate the algorithm's medical assumptions.
+- **Estimates:** phases, the ovulatory window and the next-period date are calculated estimates. Field names say so (`estimatedNextPeriodDate`, `estimatedNextPhaseDate`), and later UI copy must not present estimated ovulation as a confirmed biological event.
+- **Limits:** cycle 21–45 (default 28), period 2–10 (default 5), luteal 10–16 (default 14). Stored values outside the limits are clamped when calculating; input outside them is rejected by `checkCycleInput`.
+- **Late period:** past the cycle length with no new period, the phase stays luteal, the cycle day keeps counting, the orbit marker and phase day stay on the last day, `daysToNextPhase` is 0 and `daysLate` counts up. When Home shows the "Has your period started?" card is a UI decision (the design says from 3 days late).
+- **Long gaps:** a last period start of any past date is valid. More than 90 days ago is only flagged (`CycleInputWarning.lastPeriodStartOver90DaysAgo`, `CycleState.isLongGap`) so the UI can handle it later.
+- **Future start dates are invalid:** `checkCycleInput` reports `lastPeriodStartInFuture`, and `calculateCycleState` throws `ArgumentError` rather than guessing.
+- **History averages later:** the calculator only takes `CycleLengths`. Averages from logged periods will be a second way of building them (`LengthsSource.historyAverage`), added with period logging.
+
 ## 11 October 2026: Milestone 1
 - **Baseline:** Flutter 3.47.7 stable, Dart 3.13.5, Xcode 26.3. CI pins the same Flutter version (`.github/workflows/ci.yaml`).
 - **Flavours:** `dev` (`app.mooncycle.mobile.dev`, "Moon Cycle Dev") and `prod` (`app.mooncycle.mobile`, "Moon Cycle"). No `stg` until Supabase arrives in v1.1, because a local-only app has no distinct staging configuration.

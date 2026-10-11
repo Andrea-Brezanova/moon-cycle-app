@@ -58,10 +58,10 @@ flutter test
 | `design/` | **Read-only** Editorial v3 handoff: spec, screen PNGs (the visual source of truth), reference tokens and assets. Don't edit or regenerate these files |
 | `docs/` | `architecture.md`, `decisions.md`, `technical-plan.md` (milestones) |
 | `env/` | Per-flavour build settings. Only the `*.example.json` templates are committed |
-| `tool/` | `check_layers.dart`: keeps `domain/` code free of Flutter and database imports |
+| `tool/` | `check_layers.dart`: keeps `domain/` code free of Flutter and database imports, and of `DateTime.now(` |
 | `android/`, `ios/` | Native projects, with the flavours configured |
 
 The handoff's PDFs and zip aren't in this repository; they're archived with the design files outside it.
 
 ## Status
-Milestone 1 (foundation) is in place. The next milestone is the cycle domain; see `docs/technical-plan.md`.
+Milestones 1 (foundation) and 2 (cycle domain) are in place. The next milestone is the Editorial design system; see `docs/technical-plan.md`.

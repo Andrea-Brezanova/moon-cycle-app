@@ -12,10 +12,10 @@ lib/
     router/            go_router setup                         (Milestone 4)
     shell/             five-tab shell and tab bar              (Milestone 4)
   core/                shared by every feature
-    domain/            Phase, LocalDate: pure Dart             (Milestone 2)
+    domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
     design/            Editorial tokens, theme, shared widgets (Milestone 3)
     database/          Drift database and tables, encrypted    (Milestone 5)
-    time/              clock and "today"                       (Milestone 2)
+    time/              "today" provider, midnight refresh      (Milestone 7)
   features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
     domain/            entities and rules: pure Dart
     data/              repositories (Drift today, Supabase later)
@@ -37,7 +37,13 @@ page (presentation) → provider (application) → repository (data) → Drift
 1. `domain/` is pure Dart: no Flutter, Riverpod, Drift or Supabase imports. `tool/check_layers.dart` enforces this in CI.
 2. `presentation → application → domain ← data`. A feature may use another feature's `domain` and `application`, never its `presentation`.
 3. Shared visual components live in `core/design/` and know nothing about features.
-4. Domain code never reads the clock directly; time is passed in, so cycle calculations are testable.
+4. Domain code never reads the clock: "today" is always passed in as a `LocalDate`, so cycle calculations are testable. `tool/check_layers.dart` rejects `DateTime.now(` in `domain/`.
+
+## Cycle domain (`lib/features/cycle/domain/`)
+- `calculateCycleState(lastPeriodStart, lengths, today)` returns a `CycleState`: cycle day, phase, phase day, next phase, the estimated next period, and late and long-gap flags.
+- `phaseRangesFor(lengths)` is an exact port of `design/code/cycle.ts`, proven against it for all 1,575 valid inputs (`test/fixtures/`).
+- `CycleLengths` is the only input the calculator needs about lengths. Today it comes from `CycleLengths.fromProfile`; period-history averages will add a second source later without changing the calculator.
+- Phases and dates are **estimates**. UI copy must not present them, estimated ovulation in particular, as confirmed biological events.
 
 ## Where things live
 | What | Where |
@@ -45,7 +51,7 @@ page (presentation) → provider (application) → repository (data) → Drift
 | Visual source of truth (spec, screen PNGs, reference values) | `design/`: read-only, never edited |
 | Design tokens in Dart (colours, type, spacing, hero and orbit values) | `lib/core/design/tokens/` (Milestone 3) |
 | Fonts, icons, logo | `assets/fonts/`, `assets/icons/`, `assets/logo/` (Milestone 3), copied from `design/assets/` |
-| Cycle calculation | `lib/features/cycle/domain/` (Milestone 2), ported from `design/code/cycle.ts` |
+| Cycle calculation | `lib/features/cycle/domain/` ✓ Milestone 2, ported from `design/code/cycle.ts` |
 | App content (foods, recipes, phase copy) | `content/` → bundled into `assets/content/` (Milestone 6) |
 
 ## Flavours
