@@ -1,0 +1,235 @@
+{
+  "_about": "Audit of the 12 implemented Emergent recipes. Stored categories unchanged; displayCategory is the interim UI mapping (lunch/dinner → Meals).",
+  "recipes": [
+    {
+      "phase": "menstrual",
+      "name": "Miso Mushroom & Kale Soup",
+      "storedCategory": "dinner",
+      "displayCategory": "Meals",
+      "tags": [
+        "Kombu",
+        "Mushrooms (button, shiitake)",
+        "Kale",
+        "Miso",
+        "Tamari",
+        "Buckwheat (kasha)",
+        "Sesame seeds"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "A broth with buckwheat, mushrooms and greens, stored as dinner, is served as a main-course soup.",
+      "confidence": "Medium",
+      "needsReview": "No",
+      "notes": "Protein is light (no tofu or seafood tagged), so it eats like a lighter main. Still Meals, not a snack. Tagged Kombu and Tamari: check the salt and iodine per serving."
+    },
+    {
+      "phase": "menstrual",
+      "name": "Beet & Adzuki Wild Rice Bowl",
+      "storedCategory": "lunch",
+      "displayCategory": "Meals",
+      "tags": [
+        "Wild rice",
+        "Beets",
+        "Adzuki bean",
+        "Kale",
+        "Tamari",
+        "Sesame seeds",
+        "Blueberry"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "A grain-and-legume bowl with vegetables is a complete main meal.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": ""
+    },
+    {
+      "phase": "menstrual",
+      "name": "Warm Blueberry Buckwheat Porridge",
+      "storedCategory": "breakfast",
+      "displayCategory": "Breakfast",
+      "tags": [
+        "Buckwheat (kasha)",
+        "Blueberry",
+        "Blackberry",
+        "Sesame seeds",
+        "Sunflower seeds"
+      ],
+      "proposedCategory": "Breakfast",
+      "rationale": "A warm porridge with fruit and seeds is a classic breakfast.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": ""
+    },
+    {
+      "phase": "follicular",
+      "name": "Zesty Lentil & Broccoli Bowl",
+      "storedCategory": "lunch",
+      "displayCategory": "Meals",
+      "tags": [
+        "Green lentil",
+        "Broccoli",
+        "Zucchini",
+        "Lemon",
+        "Parsley",
+        "Pumpkin seeds",
+        "Sauerkraut"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "A lentil-and-vegetable bowl with seeds is built as a main dish.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": ""
+    },
+    {
+      "phase": "follicular",
+      "name": "Citrus Oat Breakfast Bowl",
+      "storedCategory": "breakfast",
+      "displayCategory": "Breakfast",
+      "tags": [
+        "Oat",
+        "Flaxseeds",
+        "Orange",
+        "Pomegranate",
+        "Nut butter",
+        "Cashew"
+      ],
+      "proposedCategory": "Breakfast",
+      "rationale": "An oat bowl with fruit and seeds; the name itself says breakfast.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": "Tagged “Nut butter”: name the nut for allergy filtering (see data-quality flags)."
+    },
+    {
+      "phase": "follicular",
+      "name": "Lemon Herb Chicken with Artichoke & Peas",
+      "storedCategory": "dinner",
+      "displayCategory": "Meals",
+      "tags": [
+        "Chicken",
+        "Artichoke",
+        "Green pea",
+        "Lemon",
+        "Parsley",
+        "Barley"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "Chicken with vegetables and barley is a complete main course.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": "The design mock-up shows a different, invented recipe (“Lemon Herb Chicken & Barley Bowl”, with zucchini, Dijon and garlic). Replace it with this real recipe."
+    },
+    {
+      "phase": "ovulatory",
+      "name": "Quinoa Salmon Power Bowl",
+      "storedCategory": "dinner",
+      "displayCategory": "Meals",
+      "tags": [
+        "Salmon",
+        "Quinoa",
+        "Spinach",
+        "Red bell pepper",
+        "Asparagus",
+        "Almond",
+        "Turmeric"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "Salmon, quinoa and vegetables make a complete main meal.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": ""
+    },
+    {
+      "phase": "ovulatory",
+      "name": "Berry Coconut Amaranth Porridge",
+      "storedCategory": "breakfast",
+      "displayCategory": "Breakfast",
+      "tags": [
+        "Amaranth",
+        "Coconut",
+        "Strawberry",
+        "Raspberry",
+        "Pistachio",
+        "Chocolate"
+      ],
+      "proposedCategory": "Breakfast",
+      "rationale": "A grain porridge with fruit and nuts is a breakfast format.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": "Tagged “Chocolate”: specify dark chocolate and a small amount."
+    },
+    {
+      "phase": "ovulatory",
+      "name": "Red Lentil, Spinach & Tomato Dal",
+      "storedCategory": "lunch",
+      "displayCategory": "Meals",
+      "tags": [
+        "Red lentil",
+        "Spinach",
+        "Tomato",
+        "Turmeric",
+        "Coconut",
+        "Scallion"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "A lentil dal is a main dish, usually served with rice or bread.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": "Consider suggesting a whole grain on the side; no change made."
+    },
+    {
+      "phase": "luteal",
+      "name": "Roasted Sweet Potato & Chickpea Tray",
+      "storedCategory": "dinner",
+      "displayCategory": "Meals",
+      "tags": [
+        "Sweet potato",
+        "Cauliflower",
+        "Chickpea",
+        "Garlic",
+        "Sesame seeds",
+        "Brown rice",
+        "Watercress"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "A tray bake with chickpeas, vegetables and brown rice is a complete main.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": ""
+    },
+    {
+      "phase": "luteal",
+      "name": "Ginger Pumpkin Soup",
+      "storedCategory": "lunch",
+      "displayCategory": "Meals",
+      "tags": [
+        "Pumpkin",
+        "Leek",
+        "Onion",
+        "Ginger",
+        "Sunflower seeds"
+      ],
+      "proposedCategory": "Meals",
+      "rationale": "Stored as lunch and eaten as a bowl of soup, it works as a light main rather than a between-meals snack.",
+      "confidence": "Medium",
+      "needsReview": "No",
+      "notes": "No protein source beyond sunflower seeds, so it's a light meal. Don't relabel it Snacks; a pairing suggestion such as bread or beans would be a content decision."
+    },
+    {
+      "phase": "luteal",
+      "name": "Baked Apple & Pear Millet Bowl",
+      "storedCategory": "breakfast",
+      "displayCategory": "Breakfast",
+      "tags": [
+        "Millet",
+        "Apple",
+        "Pear",
+        "Walnut",
+        "Date"
+      ],
+      "proposedCategory": "Breakfast",
+      "rationale": "A warm millet bowl with baked fruit and nuts is a breakfast format.",
+      "confidence": "High",
+      "needsReview": "No",
+      "notes": "Could double as a dessert, but its stored category and grain base support Breakfast."
+    }
+  ]
+}

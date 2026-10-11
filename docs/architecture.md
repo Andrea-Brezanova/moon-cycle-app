@@ -1,0 +1,52 @@
+# Architecture
+
+Moon Cycle is a local-first Flutter app (v1 has no backend). This page is the map: where code goes and which way dependencies point. The full reasoning is in `technical-plan.md`.
+
+## Folder map
+```
+lib/
+  main.dart            entry point: resolves AppConfig, starts ProviderScope
+  app/
+    app.dart           root widget (MaterialApp)
+    config/            AppConfig: flavour and build-time settings
+    router/            go_router setup                         (Milestone 4)
+    shell/             five-tab shell and tab bar              (Milestone 4)
+  core/                shared by every feature
+    domain/            Phase, LocalDate: pure Dart             (Milestone 2)
+    design/            Editorial tokens, theme, shared widgets (Milestone 3)
+    database/          Drift database and tables, encrypted    (Milestone 5)
+    time/              clock and "today"                       (Milestone 2)
+  features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
+    domain/            entities and rules: pure Dart
+    data/              repositories (Drift today, Supabase later)
+    application/       Riverpod providers and notifiers
+    presentation/      pages and widgets
+```
+A feature only gets the folders it needs; no empty folders.
+
+## How a screen gets its data
+```
+page (presentation) → provider (application) → repository (data) → Drift
+         ↑ rebuilds when the provider's value changes
+```
+- **Riverpod** connects the layers. Repositories are exposed as providers, so tests swap them for fakes with `ProviderScope(overrides: …)`.
+- **Drift** is the only place data is stored. The UI never talks to Drift directly.
+- **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
+
+## Dependency rules
+1. `domain/` is pure Dart: no Flutter, Riverpod, Drift or Supabase imports. `tool/check_layers.dart` enforces this in CI.
+2. `presentation → application → domain ← data`. A feature may use another feature's `domain` and `application`, never its `presentation`.
+3. Shared visual components live in `core/design/` and know nothing about features.
+4. Domain code never reads the clock directly; time is passed in, so cycle calculations are testable.
+
+## Where things live
+| What | Where |
+|---|---|
+| Visual source of truth (spec, screen PNGs, reference values) | `design/`: read-only, never edited |
+| Design tokens in Dart (colours, type, spacing, hero and orbit values) | `lib/core/design/tokens/` (Milestone 3) |
+| Fonts, icons, logo | `assets/fonts/`, `assets/icons/`, `assets/logo/` (Milestone 3), copied from `design/assets/` |
+| Cycle calculation | `lib/features/cycle/domain/` (Milestone 2), ported from `design/code/cycle.ts` |
+| App content (foods, recipes, phase copy) | `content/` → bundled into `assets/content/` (Milestone 6) |
+
+## Flavours
+`dev` and `prod` only in v1 (see `decisions.md`). The flavour is set by `--flavor`; per-environment values come from `env/<flavour>.json`. `AppConfig` refuses to start if they don't match.

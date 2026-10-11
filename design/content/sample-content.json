@@ -1,0 +1,740 @@
+{
+ "_note": "Content shown in the final design, built from the Emergent export (content-model/source-emergent-export.md). Ingredient-sheet copy, cautions and evidence notes: content-model/ingredients.json. Recipe quantities, method, intro, servings and most times aren't in the export (null) and must come from the app repository.",
+ "sheetLabel": "Recommended for your {phase} phase",
+ "phases": [
+  {
+   "phase": "menstrual",
+   "season": "Inner winter",
+   "tagline": "Rest, warm and replenish",
+   "focus": "Replenish iron and minerals lost during bleeding. Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
+   "cooking": "Slow-cooked soups, stews and broths.",
+   "homeDescription": "Replenish iron and minerals lost during bleeding.",
+   "focusBody": "Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
+   "categories": [
+    {
+     "name": "Grains",
+     "foods": [
+      "Buckwheat (kasha)",
+      "Wild rice"
+     ]
+    },
+    {
+     "name": "Vegetables",
+     "foods": [
+      "Beets",
+      "Burdock",
+      "Dulse",
+      "Hijiki",
+      "Kale",
+      "Kelp",
+      "Kombu",
+      "Mushrooms (button, shiitake)",
+      "Wakame",
+      "Water chestnut"
+     ]
+    },
+    {
+     "name": "Fruit",
+     "foods": [
+      "Blackberry",
+      "Blueberry",
+      "Concord grape",
+      "Watermelon"
+     ]
+    },
+    {
+     "name": "Legumes",
+     "foods": [
+      "Adzuki bean",
+      "Black soybean",
+      "Black turtle bean",
+      "Kidney bean"
+     ]
+    },
+    {
+     "name": "Nuts & seeds",
+     "foods": [
+      "Chestnut",
+      "Sesame seeds",
+      "Sunflower seeds"
+     ]
+    },
+    {
+     "name": "Meat",
+     "foods": [
+      "Duck",
+      "Pork"
+     ]
+    },
+    {
+     "name": "Seafood",
+     "foods": [
+      "Catfish",
+      "Clam",
+      "Crab",
+      "Lobster",
+      "Mussel",
+      "Octopus",
+      "Oyster",
+      "Sardine",
+      "Scallop",
+      "Squid"
+     ]
+    },
+    {
+     "name": "Other",
+     "foods": [
+      "Bancha tea",
+      "Decaf coffee",
+      "Miso",
+      "Salt",
+      "Tamari"
+     ]
+    }
+   ]
+  },
+  {
+   "phase": "follicular",
+   "season": "Inner spring",
+   "tagline": "Fresh, light and energising",
+   "focus": "Estrogen is rising and energy returns. Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
+   "cooking": "Light steaming, quick sautés and fresh salads.",
+   "homeDescription": "Estrogen is rising and energy returns.",
+   "focusBody": "Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
+   "categories": [
+    {
+     "name": "Grains",
+     "foods": [
+      "Barley",
+      "Oat",
+      "Rye",
+      "Wheat"
+     ]
+    },
+    {
+     "name": "Vegetables",
+     "foods": [
+      "Artichoke",
+      "Broccoli",
+      "Carrot",
+      "Lettuce (Bibb, Boston, romaine)",
+      "Parsley",
+      "Green pea",
+      "Rhubarb",
+      "String bean",
+      "Zucchini"
+     ]
+    },
+    {
+     "name": "Fruit",
+     "foods": [
+      "Avocado",
+      "Grapefruit",
+      "Lemon",
+      "Lime",
+      "Orange",
+      "Plum",
+      "Pomegranate",
+      "Sour cherry"
+     ]
+    },
+    {
+     "name": "Legumes",
+     "foods": [
+      "Black-eyed pea",
+      "Green lentil",
+      "Lima bean",
+      "Mung bean",
+      "Split pea"
+     ]
+    },
+    {
+     "name": "Nuts & seeds",
+     "foods": [
+      "Brazil nut",
+      "Cashew",
+      "Flaxseeds",
+      "Lychee",
+      "Pumpkin seeds"
+     ]
+    },
+    {
+     "name": "Meat",
+     "foods": [
+      "Chicken",
+      "Eggs"
+     ]
+    },
+    {
+     "name": "Seafood",
+     "foods": [
+      "Fresh-water clam",
+      "Soft-shell crab",
+      "Trout"
+     ]
+    },
+    {
+     "name": "Other",
+     "foods": [
+      "Nut butter",
+      "Olives",
+      "Pickles",
+      "Sauerkraut",
+      "Vinegar"
+     ]
+    }
+   ]
+  },
+  {
+   "phase": "ovulatory",
+   "season": "Inner summer",
+   "tagline": "Vibrant, fibre-rich and cooling",
+   "focus": "Energy peaks. Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
+   "cooking": "Raw, lightly grilled or quick-cooked meals.",
+   "homeDescription": "Energy peaks.",
+   "focusBody": "Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
+   "categories": [
+    {
+     "name": "Grains",
+     "foods": [
+      "Amaranth",
+      "Corn",
+      "Quinoa"
+     ]
+    },
+    {
+     "name": "Vegetables",
+     "foods": [
+      "Asparagus",
+      "Red bell pepper",
+      "Brussels sprouts",
+      "Chard",
+      "Chicory",
+      "Chive",
+      "Dandelion",
+      "Eggplant",
+      "Endive",
+      "Escarole",
+      "Okra",
+      "Scallion",
+      "Spinach",
+      "Tomato"
+     ]
+    },
+    {
+     "name": "Fruit",
+     "foods": [
+      "Apricot",
+      "Cantaloupe",
+      "Coconut",
+      "Fig",
+      "Guava",
+      "Persimmon",
+      "Raspberry",
+      "Strawberry"
+     ]
+    },
+    {
+     "name": "Legumes",
+     "foods": [
+      "Red lentil"
+     ]
+    },
+    {
+     "name": "Nuts & seeds",
+     "foods": [
+      "Almond",
+      "Flaxseeds",
+      "Pecan",
+      "Pistachio",
+      "Pumpkin seeds"
+     ]
+    },
+    {
+     "name": "Meat",
+     "foods": [
+      "Lamb"
+     ]
+    },
+    {
+     "name": "Seafood",
+     "foods": [
+      "Salmon",
+      "Shrimp",
+      "Tuna"
+     ]
+    },
+    {
+     "name": "Other",
+     "foods": [
+      "Alcohol (moderate)",
+      "Chocolate",
+      "Coffee",
+      "Ketchup",
+      "Turmeric"
+     ]
+    }
+   ]
+  },
+  {
+   "phase": "luteal",
+   "season": "Inner autumn",
+   "tagline": "Grounding, steady and nourishing",
+   "focus": "Progesterone rises and cravings may appear. Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
+   "cooking": "Roasting and baking for comforting, grounding meals.",
+   "homeDescription": "Progesterone rises and cravings may appear.",
+   "focusBody": "Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
+   "categories": [
+    {
+     "name": "Grains",
+     "foods": [
+      "Brown rice",
+      "Millet"
+     ]
+    },
+    {
+     "name": "Vegetables",
+     "foods": [
+      "Cabbage",
+      "Cauliflower",
+      "Celery",
+      "Collard",
+      "Cucumber",
+      "Daikon",
+      "Garlic",
+      "Ginger",
+      "Leek",
+      "Mustard greens",
+      "Onion",
+      "Parsnip",
+      "Pumpkin",
+      "Radish",
+      "Squash",
+      "Sweet potato",
+      "Watercress"
+     ]
+    },
+    {
+     "name": "Fruit",
+     "foods": [
+      "Apple",
+      "Date",
+      "Peach",
+      "Pear",
+      "Raisin"
+     ]
+    },
+    {
+     "name": "Legumes",
+     "foods": [
+      "Chickpea",
+      "Great northern bean",
+      "Navy bean"
+     ]
+    },
+    {
+     "name": "Nuts & seeds",
+     "foods": [
+      "Hickory",
+      "Pine nut",
+      "Sesame seeds",
+      "Sunflower seeds",
+      "Walnut"
+     ]
+    },
+    {
+     "name": "Meat",
+     "foods": [
+      "Beef",
+      "Turkey"
+     ]
+    },
+    {
+     "name": "Seafood",
+     "foods": [
+      "Cod",
+      "Flounder",
+      "Halibut"
+     ]
+    },
+    {
+     "name": "Other",
+     "foods": [
+      "Mint",
+      "Peppermint",
+      "Spirulina"
+     ]
+    }
+   ]
+  }
+ ],
+ "recipes": [
+  {
+   "name": "Miso Mushroom & Kale Soup",
+   "phase": "menstrual",
+   "storedCategory": "dinner",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Kombu",
+    "Mushrooms (button, shiitake)",
+    "Kale",
+    "Miso",
+    "Tamari",
+    "Buckwheat (kasha)",
+    "Sesame seeds"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Beet & Adzuki Wild Rice Bowl",
+   "phase": "menstrual",
+   "storedCategory": "lunch",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Wild rice",
+    "Beets",
+    "Adzuki bean",
+    "Kale",
+    "Tamari",
+    "Sesame seeds",
+    "Blueberry"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Warm Blueberry Buckwheat Porridge",
+   "phase": "menstrual",
+   "storedCategory": "breakfast",
+   "mealType": "Breakfast",
+   "ingredientTags": [
+    "Buckwheat (kasha)",
+    "Blueberry",
+    "Blackberry",
+    "Sesame seeds",
+    "Sunflower seeds"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Zesty Lentil & Broccoli Bowl",
+   "phase": "follicular",
+   "storedCategory": "lunch",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Green lentil",
+    "Broccoli",
+    "Zucchini",
+    "Lemon",
+    "Parsley",
+    "Pumpkin seeds",
+    "Sauerkraut"
+   ],
+   "minutes": 25,
+   "image": "assets/sample-images/grain-bowl-photo.jpg",
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Citrus Oat Breakfast Bowl",
+   "phase": "follicular",
+   "storedCategory": "breakfast",
+   "mealType": "Breakfast",
+   "ingredientTags": [
+    "Oat",
+    "Flaxseeds",
+    "Orange",
+    "Pomegranate",
+    "Nut butter",
+    "Cashew"
+   ],
+   "minutes": 10,
+   "image": "assets/sample-images/citrus-oat-photo.jpg",
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Lemon Herb Chicken with Artichoke & Peas",
+   "phase": "follicular",
+   "storedCategory": "dinner",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Chicken",
+    "Artichoke",
+    "Green pea",
+    "Lemon",
+    "Parsley",
+    "Barley"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Quinoa Salmon Power Bowl",
+   "phase": "ovulatory",
+   "storedCategory": "dinner",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Salmon",
+    "Quinoa",
+    "Spinach",
+    "Red bell pepper",
+    "Asparagus",
+    "Almond",
+    "Turmeric"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Berry Coconut Amaranth Porridge",
+   "phase": "ovulatory",
+   "storedCategory": "breakfast",
+   "mealType": "Breakfast",
+   "ingredientTags": [
+    "Amaranth",
+    "Coconut",
+    "Strawberry",
+    "Raspberry",
+    "Pistachio",
+    "Chocolate"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Red Lentil, Spinach & Tomato Dal",
+   "phase": "ovulatory",
+   "storedCategory": "lunch",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Red lentil",
+    "Spinach",
+    "Tomato",
+    "Turmeric",
+    "Coconut",
+    "Scallion"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Roasted Sweet Potato & Chickpea Tray",
+   "phase": "luteal",
+   "storedCategory": "dinner",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Sweet potato",
+    "Cauliflower",
+    "Chickpea",
+    "Garlic",
+    "Sesame seeds",
+    "Brown rice",
+    "Watercress"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Ginger Pumpkin Soup",
+   "phase": "luteal",
+   "storedCategory": "lunch",
+   "mealType": "Meals",
+   "ingredientTags": [
+    "Pumpkin",
+    "Leek",
+    "Onion",
+    "Ginger",
+    "Sunflower seeds"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  },
+  {
+   "name": "Baked Apple & Pear Millet Bowl",
+   "phase": "luteal",
+   "storedCategory": "breakfast",
+   "mealType": "Breakfast",
+   "ingredientTags": [
+    "Millet",
+    "Apple",
+    "Pear",
+    "Walnut",
+    "Date"
+   ],
+   "minutes": null,
+   "image": null,
+   "serves": null,
+   "intro": null,
+   "quantities": null,
+   "steps": null
+  }
+ ],
+ "sampleShoppingList": [
+  {
+   "name": "Avocado",
+   "aisle": "Produce",
+   "sources": [
+    "Phase staple"
+   ],
+   "done": false
+  },
+  {
+   "name": "Broccoli",
+   "aisle": "Produce",
+   "sources": [
+    "Phase staple"
+   ],
+   "done": false
+  },
+  {
+   "name": "Lemon",
+   "aisle": "Produce",
+   "sources": [
+    "Phase staple",
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Artichoke",
+   "aisle": "Produce",
+   "sources": [
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Parsley",
+   "aisle": "Produce",
+   "sources": [
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Green pea",
+   "aisle": "Produce",
+   "sources": [
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Chicken",
+   "aisle": "Protein",
+   "sources": [
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Rye bread",
+   "aisle": "Grains",
+   "sources": [
+    "Phase staple"
+   ],
+   "done": true
+  },
+  {
+   "name": "Barley",
+   "aisle": "Grains",
+   "sources": [
+    "Lemon Herb Chicken with Artichoke & Peas"
+   ],
+   "done": false
+  },
+  {
+   "name": "Sauerkraut",
+   "aisle": "Fermented",
+   "sources": [
+    "Phase staple"
+   ],
+   "done": true
+  },
+  {
+   "name": "Oat milk",
+   "aisle": "Dairy & alternatives",
+   "sources": [
+    "Added by you"
+   ],
+   "done": true
+  }
+ ],
+ "aisleOrder": [
+  "Produce",
+  "Protein",
+  "Grains",
+  "Fermented",
+  "Dairy & alternatives",
+  "Pantry",
+  "Other"
+ ],
+ "sampleCycle": {
+  "lastPeriodStart": "2026-09-28",
+  "cycleLength": 28,
+  "periodLength": 5,
+  "today": "2026-10-04",
+  "expected": {
+   "cycleDay": 7,
+   "phase": "follicular",
+   "phaseDay": 2,
+   "phaseLength": 6,
+   "nextPeriod": "2026-10-26",
+   "nextPhase": "ovulatory",
+   "daysToNextPhase": 5
+  }
+ },
+ "sampleSettings": {
+  "foodPreference": "Omnivore",
+  "avoid": [
+   "Peanuts",
+   "Shellfish"
+  ],
+  "notifications": "On",
+  "account": "[your email]",
+  "subscription": "[Plan name]"
+ }
+}
