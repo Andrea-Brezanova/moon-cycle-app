@@ -13,7 +13,7 @@ lib/
     shell/             five-tab shell and tab bar              (Milestone 4)
   core/                shared by every feature
     domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
-    design/            Editorial tokens, theme, shared widgets (Milestone 3)
+    design/            Editorial tokens, theme, shared widgets ✓ Milestone 3
     database/          Drift database and tables, encrypted    (Milestone 5)
     time/              "today" provider, midnight refresh      (Milestone 7)
   features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
@@ -49,10 +49,18 @@ page (presentation) → provider (application) → repository (data) → Drift
 | What | Where |
 |---|---|
 | Visual source of truth (spec, screen PNGs, reference values) | `design/`: read-only, never edited |
-| Design tokens in Dart (colours, type, spacing, hero and orbit values) | `lib/core/design/tokens/` (Milestone 3) |
-| Fonts, icons, logo | `assets/fonts/`, `assets/icons/`, `assets/logo/` (Milestone 3), copied from `design/assets/` |
+| Design tokens in Dart (colours, type, spacing, hero and orbit values) | `lib/core/design/tokens/` ✓ Milestone 3 |
+| Fonts, wordmark, lockups, phase-ring mark | `assets/fonts/`, `assets/logo/`, `assets/mark/` ✓ Milestone 3, copied from `design/assets/` |
+| Line icons | `lib/core/design/icons/moon_icon_paths.dart`: the paths of `design/assets/icons/*.svg`, embedded so each use can set its stroke width |
+| Places where the app differs from the design | `docs/design-deviations.md` |
 | Cycle calculation | `lib/features/cycle/domain/` ✓ Milestone 2, ported from `design/code/cycle.ts` |
 | App content (foods, recipes, phase copy) | `content/` → bundled into `assets/content/` (Milestone 6) |
+
+## Design system (`lib/core/design/`)
+- `moon_theme.dart` builds the light and dark `ThemeData`; widgets read the Editorial colours with `context.moon` and never use raw hex values.
+- `tokens/` holds colours (with a palette per phase), type (`fraunces()` picks the 72 pt or 24 pt cut by size), spacing, radii, sizes, and the hero and orbit values.
+- `widgets/` holds the shared components: buttons, text link, phase selector, chips and pills, checkbox, toggle, list rows, sub-screen header, stepper, month calendar, bottom sheet, Undo toast, empty state, info note, text field, recipe photo, brand marks, the hero background and the moon orbit. They know nothing about features: the moon takes a `MoonOrbitSpec`, which Home builds from the cycle state.
+- `debug/component_gallery.dart` shows every component in both themes. It is reachable only in debug builds.
 
 ## Flavours
 `dev` and `prod` only in v1 (see `decisions.md`). The flavour is set by `--flavor`; per-environment values come from `env/<flavour>.json`. `AppConfig` refuses to start if they don't match.

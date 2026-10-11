@@ -47,8 +47,16 @@ flutter analyze
 dart run tool/check_layers.dart
 ```
 ```bash
-flutter test
+flutter test --exclude-tags golden
 ```
+
+Golden screenshot tests run locally on macOS (CI skips them):
+```bash
+flutter test --tags golden
+```
+After an intentional visual change, regenerate them with `flutter test --tags golden --update-goldens` and check the images in `test/goldens/goldens/`.
+
+To look at every component: run the dev flavour and tap **Component gallery** (debug builds only).
 
 ## Repository map
 | Path | What it is |
@@ -56,7 +64,8 @@ flutter test
 | `lib/` | App code. See `docs/architecture.md` for the folder map and dependency rules |
 | `test/` | Tests, mirroring `lib/` |
 | `design/` | **Read-only** Editorial v3 handoff: spec, screen PNGs (the visual source of truth), reference tokens and assets. Don't edit or regenerate these files |
-| `docs/` | `architecture.md`, `decisions.md`, `technical-plan.md` (milestones) |
+| `docs/` | `architecture.md`, `decisions.md`, `design-deviations.md`, `technical-plan.md` (milestones) |
+| `assets/` | Fonts, wordmark, lockups and phase-ring mark, copied from `design/assets/` |
 | `env/` | Per-flavour build settings. Only the `*.example.json` templates are committed |
 | `tool/` | `check_layers.dart`: keeps `domain/` code free of Flutter and database imports, and of `DateTime.now(` |
 | `android/`, `ios/` | Native projects, with the flavours configured |
@@ -64,4 +73,4 @@ flutter test
 The handoff's PDFs and zip aren't in this repository; they're archived with the design files outside it.
 
 ## Status
-Milestones 1 (foundation) and 2 (cycle domain) are in place. The next milestone is the Editorial design system; see `docs/technical-plan.md`.
+Milestones 1 (foundation), 2 (cycle domain) and 3 (Editorial design system) are in place. The next milestone is the app shell and navigation; see `docs/technical-plan.md`.

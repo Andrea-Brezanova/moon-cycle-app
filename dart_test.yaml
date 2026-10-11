@@ -1,0 +1,3 @@
+tags:
+  golden:
+    description: Golden screenshots, made on macOS. CI skips them.

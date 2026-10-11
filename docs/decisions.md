@@ -2,6 +2,16 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 3 (design system)
+- **Tokens:** ported value for value from `design/code/theme.ts`. The hero orbit colours equal the phase palettes, so the orbit reads the theme's palettes rather than a second copy.
+- **Fonts bundled, never downloaded:** families `Fraunces72` (40 pt and up), `Fraunces24` (below 40), `DMSans` and `Gwendolyn`. `fraunces()` asserts if a weight the static cuts don't have is requested. Every Editorial style uses even leading (CSS-like line height) and no decoration.
+- **Icons in code:** the 23 line icons are embedded from `design/assets/icons`, because the design draws them with different stroke widths per use. The wordmark, lockups and phase-ring mark stay SVG assets.
+- **One new package:** `flutter_svg`.
+- **Text size:** body text scales with the system up to 1.5×, headings up to 1.3×.
+- **Golden tests** are made on macOS and tagged `golden`; CI runs `flutter test --exclude-tags golden`. Regenerate after an intentional visual change with `flutter test --tags golden --update-goldens`.
+- **Undesigned states** (disabled, pressed, long labels) and font approximations are listed in `design-deviations.md` for sign-off.
+- **Component gallery:** a debug-only screen (linked from the placeholder in debug builds) for comparing components with the design.
+
 ## 11 October 2026: Milestone 2 (cycle domain)
 - **Pure Dart, "today" passed in:** the domain never reads the clock; `check_layers` rejects `DateTime.now(` in `domain/`.
 - **Reference parity:** phase ranges are an exact port of `design/code/cycle.ts`, checked against a committed fixture for all 1,575 valid combinations. This proves parity with the approved reference algorithm only; it does not validate the algorithm's medical assumptions.

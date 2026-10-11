@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^3.4.3
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +20,47 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Copied from design/assets (the read-only Editorial v3 handoff).
+  assets:
+    - assets/logo/
+    - assets/mark/
+
+  # Static cuts from the handoff. Fraunces is cut at SOFT 50, WONK 0, in two
+  # optical sizes: Fraunces72 for 40 pt and up, Fraunces24 below that.
+  fonts:
+    - family: Fraunces72
+      fonts:
+        - asset: assets/fonts/Fraunces_72pt-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Fraunces_72pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Fraunces_72pt-Italic.ttf
+          weight: 400
+          style: italic
+    - family: Fraunces24
+      fonts:
+        - asset: assets/fonts/Fraunces_24pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Fraunces_24pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Fraunces_24pt-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Fraunces_24pt-MediumItalic.ttf
+          weight: 500
+          style: italic
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans_14pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/DMSans_14pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DMSans_14pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/DMSans_14pt-Bold.ttf
+          weight: 700
+    - family: Gwendolyn
+      fonts:
+        - asset: assets/fonts/Gwendolyn-Bold.ttf
+          weight: 700

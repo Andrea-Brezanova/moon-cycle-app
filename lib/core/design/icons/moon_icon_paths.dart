@@ -1,0 +1,60 @@
+// Generated once from design/assets/icons/*.svg (Editorial v3 handoff), verbatim.
+// The path markup is kept as-is; MoonIcon supplies colour and stroke width.
+// If the handoff icons ever change, regenerate this file from them.
+
+/// The Editorial line icons (24 × 24 view box, stroked, no fill).
+enum MoonIconName {
+  account,
+  arrow,
+  avoid,
+  back,
+  bell,
+  card,
+  check,
+  chev,
+  clock,
+  close,
+  cycle,
+  down,
+  foods,
+  help,
+  home,
+  lock,
+  minus,
+  pan,
+  plus,
+  recipes,
+  search,
+  settings,
+  shop,
+}
+
+/// SVG markup inside the `<svg>` element, per icon.
+const Map<MoonIconName, String> moonIconPaths = {
+  MoonIconName.account: '<circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c1.4-3.7 4.3-5.5 7.5-5.5s6.1 1.8 7.5 5.5"></path>',
+  MoonIconName.arrow:
+      '<path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path>',
+  MoonIconName.avoid:
+      '<circle cx="12" cy="12" r="8.5"></circle><path d="M6 6l12 12"></path>',
+  MoonIconName.back: '<path d="M15 6l-6 6 6 6"></path>',
+  MoonIconName.bell: '<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path>',
+  MoonIconName.card: '<rect x="3.5" y="6" width="17" height="12" rx="2.5"></rect><path d="M3.5 10h17"></path>',
+  MoonIconName.check: '<path d="M5 12.5l4.5 4.5L19 7.5"></path>',
+  MoonIconName.chev: '<path d="M9 6l6 6-6 6"></path>',
+  MoonIconName.clock: '<circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path>',
+  MoonIconName.close:
+      '<path d="M6 6l12 12"></path><path d="M18 6L6 18"></path>',
+  MoonIconName.cycle: '<path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v4h-4"></path>',
+  MoonIconName.down: '<path d="M6 9l6 6 6-6"></path>',
+  MoonIconName.foods: '<path d="M5 19c0-8.3 5.7-14 14-14 0 8.3-5.7 14-14 14z"></path><path d="M5 19l8-8"></path>',
+  MoonIconName.help: '<circle cx="12" cy="12" r="8.5"></circle><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4"></path><path d="M12 16.8v.2"></path>',
+  MoonIconName.home: '<path d="M4 10.5L12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"></path>',
+  MoonIconName.lock: '<rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path>',
+  MoonIconName.minus: '<path d="M5 12h14"></path>',
+  MoonIconName.pan: '<path d="M3 11h14v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"></path><path d="M17 12h4"></path>',
+  MoonIconName.plus: '<path d="M12 5v14"></path><path d="M5 12h14"></path>',
+  MoonIconName.recipes: '<path d="M3.5 11h17a8.5 8.5 0 0 1-17 0z"></path><path d="M9 20.5h6"></path><path d="M10 7.5c0-1.2 1-1.6 1-2.8"></path><path d="M14 7.5c0-1.2 1-1.6 1-2.8"></path>',
+  MoonIconName.search: '<circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path>',
+  MoonIconName.settings: '<path d="M4 7h9"></path><path d="M17 7h3"></path><circle cx="15" cy="7" r="2"></circle><path d="M4 17h3"></path><path d="M11 17h9"></path><circle cx="9" cy="17" r="2"></circle>',
+  MoonIconName.shop: '<path d="M5 8h14l-1.2 12H6.2L5 8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path>',
+};

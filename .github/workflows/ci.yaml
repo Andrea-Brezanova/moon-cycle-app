@@ -27,7 +27,8 @@ jobs:
       - run: dart format --output=none --set-exit-if-changed lib test tool
       - run: flutter analyze
       - run: dart run tool/check_layers.dart
-      - run: flutter test
+      # Golden screenshots are made on macOS; font rendering differs on Linux.
+      - run: flutter test --exclude-tags golden
 
   android-dev-build:
     name: Android build (dev, debug)
