@@ -1,0 +1,3 @@
+// Moon Cycle · prod flavour. The only place the iOS bundle ID and display name are set.
+PRODUCT_BUNDLE_IDENTIFIER = app.mooncycle.mobile
+APP_DISPLAY_NAME = Moon Cycle

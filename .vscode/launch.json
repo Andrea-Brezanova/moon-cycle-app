@@ -1,0 +1,29 @@
+{
+  // Run configurations for Cursor / VS Code. Each one passes the flavour and
+  // its matching env file; AppConfig refuses to start if they don't match.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Moon Cycle (dev)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "dev", "--dart-define-from-file=env/dev.json"]
+    },
+    {
+      "name": "Moon Cycle (prod)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "prod", "--dart-define-from-file=env/prod.json"]
+    },
+    {
+      "name": "Moon Cycle (prod, profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "profile",
+      "args": ["--flavor", "prod", "--dart-define-from-file=env/prod.json"]
+    }
+  ]
+}
