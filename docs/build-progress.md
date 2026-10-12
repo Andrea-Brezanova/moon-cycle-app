@@ -19,7 +19,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 11 | Recipes, Cook with… and recipe detail | DONE | `71576b1` |
 | 12 | Shop | DONE | `e749aa1` |
 | 13 | Settings, preferences and privacy | DONE | `24507d0` |
-| 14 | Local reminders | DONE | (this commit) |
+| 14 | Local reminders | DONE | `0af1848` |
 | 15 | Hardening and internal beta | NOT STARTED | |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
 | 19 | Analytics | NOT STARTED: optional, recommended "not at launch" | |
