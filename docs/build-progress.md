@@ -17,7 +17,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 9 | Shopping domain and repository | DONE | `c982c2f` |
 | 10 | Foods and ingredient sheet | DONE | `cda7306` |
 | 11 | Recipes, Cook with… and recipe detail | DONE | `71576b1` |
-| 12 | Shop | DONE | see below |
+| 12 | Shop | DONE | `e749aa1` |
 | 13 | Settings, preferences and privacy | IN PROGRESS | |
 | 14 | Local reminders | NOT STARTED | |
 | 15 | Hardening and internal beta | NOT STARTED | |
@@ -29,6 +29,11 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 13: Settings — IN PROGRESS (paused: usage limit)
+- **Done so far:** design measurements read from the canvas (`EdSettingsV1`, `EdMyCycle`, `EdFoodPrefs`); no code yet. The Settings tab is still the placeholder (with the debug gallery link).
+- **Next steps:** Settings root (v1 groups, row icons cycle/foods/avoid/bell/card/lock/help, "Delete my data" text button, lockup + version); My Cycle (next period, values with history averages from plan §6.2, history rows, Log a period sheet, estimates note); Food Preferences; Allergies (chips, avoid-food search sheet, removable chips, "Always check labels" note); Notifications (toggles, saved now; scheduling in M14); Subscription (launch-free date: needs your date, open question); Privacy & Data (export JSON via share sheet; policy links); Help (FAQ, contact, disclaimer); Delete my data (wipe database file, key, preferences); feature-gate scaffold. Packages planned: `share_plus`, `url_launcher`, `package_info_plus`.
+- **Then:** M14 local reminders, M15 hardening/beta, final report.
 
 ## Milestone 12: Shop — DONE
 - **What:** the Shop tab: summary count, progress line, add field, To buy by aisle with source lines and Merged tags, ×, Done (collapsed, expandable) with Clear all and the 8-second Undo toast, and the empty state.
