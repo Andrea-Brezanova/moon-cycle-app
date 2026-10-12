@@ -11,6 +11,7 @@ class Pressable extends StatefulWidget {
     required this.onTap,
     this.isButton = true,
     this.selected,
+    this.semanticLabel,
   });
 
   final Widget child;
@@ -21,6 +22,10 @@ class Pressable extends StatefulWidget {
 
   /// For toggle-like controls (phase selector, chips): the selected state.
   final bool? selected;
+
+  /// Replaces what the child would announce (for icon-and-text content that
+  /// reads better as one phrase). The tap action stays available.
+  final String? semanticLabel;
 
   @override
   State<Pressable> createState() => _PressableState();
@@ -37,19 +42,24 @@ class _PressableState extends State<Pressable> {
   Widget build(BuildContext context) {
     final enabled = widget.onTap != null;
     return Semantics(
+      container: true,
       button: widget.isButton,
       enabled: enabled,
       selected: widget.selected,
+      label: widget.semanticLabel,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: widget.onTap,
         onTapDown: enabled ? (_) => _set(true) : null,
         onTapUp: enabled ? (_) => _set(false) : null,
         onTapCancel: enabled ? () => _set(false) : null,
-        child: AnimatedOpacity(
-          opacity: _pressed ? 0.7 : 1,
-          duration: const Duration(milliseconds: 90),
-          child: widget.child,
+        child: ExcludeSemantics(
+          excluding: widget.semanticLabel != null,
+          child: AnimatedOpacity(
+            opacity: _pressed ? 0.7 : 1,
+            duration: const Duration(milliseconds: 90),
+            child: widget.child,
+          ),
         ),
       ),
     );

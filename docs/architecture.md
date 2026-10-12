@@ -9,8 +9,9 @@ lib/
   app/
     app.dart           root widget (MaterialApp)
     config/            AppConfig: flavour and build-time settings
-    router/            go_router setup                         (Milestone 4)
-    shell/             five-tab shell and tab bar              (Milestone 4)
+    router/            go_router setup and route names         ✓ Milestone 4
+    shell/             five-tab shell and tab bar              ✓ Milestone 4
+    placeholders/      stand-in pages until each screen is built (removed screen by screen)
   core/                shared by every feature
     domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
     design/            Editorial tokens, theme, shared widgets ✓ Milestone 3
@@ -32,6 +33,15 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Riverpod** connects the layers. Repositories are exposed as providers, so tests swap them for fakes with `ProviderScope(overrides: …)`.
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
+
+## Navigation (`lib/app/router/`, `lib/app/shell/`) ✓ Milestone 4
+- **Routes:** `/onboarding`; the tabs `/home`, `/foods`, `/recipes`, `/shop`, `/settings`; `/recipes/:recipeId`; `/settings/<page>` (`SettingsPage` in `routes.dart`). Unknown paths go to Home.
+- **Tabs:** a `StatefulShellRoute.indexedStack`. Each tab keeps its own stack and scroll position; switching tabs is instant. Tapping the active tab returns to its first screen, or scrolls to the top if it's already there.
+- **Pushed pages** use the platform transition (iOS slide with swipe-back). Every route builds a `MaterialPage` explicitly: go_router 18 looks for the `material_ui` package's `MaterialApp`, which this app doesn't use, and would otherwise use pages without platform transitions.
+- **Tab bar or not:** pages inside a tab keep the tab bar. "Delete my data" covers it (spec), so it opens on the root navigator. Onboarding and the debug gallery are outside the shell.
+- **Android back:** inside a tab, one screen back; on the first screen of Foods, Recipes, Shop or Settings, to Home; on Home, the app closes. (`PopScope` in `MainShell`.)
+- **Onboarding gate:** the router's redirect reads `onboardingCompletedProvider`. Until Milestone 7 it is a stub that starts as completed.
+- **Debug gallery** (`/debug/gallery`) is added only when `kDebugMode`, a compile-time constant, so release and profile builds contain neither the route nor the gallery code.
 
 ## Dependency rules
 1. `domain/` is pure Dart: no Flutter, Riverpod, Drift or Supabase imports. `tool/check_layers.dart` enforces this in CI.
@@ -59,8 +69,9 @@ page (presentation) → provider (application) → repository (data) → Drift
 ## Design system (`lib/core/design/`)
 - `moon_theme.dart` builds the light and dark `ThemeData`; widgets read the Editorial colours with `context.moon` and never use raw hex values.
 - `tokens/` holds colours (with a palette per phase), type (`fraunces()` picks the 72 pt or 24 pt cut by size), spacing, radii, sizes, and the hero and orbit values.
+- `Pressable` is the one tap target: dims while pressed, and is its own screen-reader node. `semanticLabel` replaces what the content would read (for example "Back to Settings") while keeping the button role and tap action.
 - `widgets/` holds the shared components: buttons, text link, phase selector, chips and pills, checkbox, toggle, list rows, sub-screen header, stepper, month calendar, bottom sheet, Undo toast, empty state, info note, text field, recipe photo, brand marks, the hero background and the moon orbit. They know nothing about features: the moon takes a `MoonOrbitSpec`, which Home builds from the cycle state.
-- `debug/component_gallery.dart` shows every component in both themes. It is reachable only in debug builds.
+- `debug/component_gallery.dart` shows every component in both themes. It is reachable only in debug builds (see Navigation).
 
 ## Flavours
 `dev` and `prod` only in v1 (see `decisions.md`). The flavour is set by `--flavor`; per-environment values come from `env/<flavour>.json`. `AppConfig` refuses to start if they don't match.

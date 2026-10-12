@@ -191,20 +191,18 @@ class MoonRemovableChip extends StatelessWidget {
             ),
           ),
           SizedBox(width: prefix == null ? 4 : 8),
-          Semantics(
-            label: removeLabel,
-            child: Pressable(
-              onTap: onRemove,
-              child: SizedBox(
-                width: 32,
-                height: 32,
-                child: Center(
-                  child: MoonIcon(
-                    MoonIconName.close,
-                    size: prefix == null ? 14 : 15,
-                    color: c.text,
-                    strokeWidth: 2.2,
-                  ),
+          Pressable(
+            onTap: onRemove,
+            semanticLabel: removeLabel,
+            child: SizedBox(
+              width: 32,
+              height: 32,
+              child: Center(
+                child: MoonIcon(
+                  MoonIconName.close,
+                  size: prefix == null ? 14 : 15,
+                  color: c.text,
+                  strokeWidth: 2.2,
                 ),
               ),
             ),

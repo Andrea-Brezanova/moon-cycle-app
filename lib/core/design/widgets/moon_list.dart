@@ -153,34 +153,31 @@ class SubScreenHeader extends StatelessWidget {
         children: [
           Transform.translate(
             offset: const Offset(-8, 0),
-            child: Semantics(
-              label: 'Back to $backLabel',
-              excludeSemantics: true,
-              child: Pressable(
-                onTap: onBack,
-                child: SizedBox(
-                  height: 44,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      MoonIcon(
-                        MoonIconName.back,
-                        size: 20,
+            child: Pressable(
+              onTap: onBack,
+              semanticLabel: 'Back to $backLabel',
+              child: SizedBox(
+                height: 44,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    MoonIcon(
+                      MoonIconName.back,
+                      size: 20,
+                      color: c.text,
+                      strokeWidth: 2,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      backLabel,
+                      style: dmSans(
+                        15,
+                        weight: FontWeight.w500,
+                        height: 1,
                         color: c.text,
-                        strokeWidth: 2,
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        backLabel,
-                        style: dmSans(
-                          15,
-                          weight: FontWeight.w500,
-                          height: 1,
-                          color: c.text,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

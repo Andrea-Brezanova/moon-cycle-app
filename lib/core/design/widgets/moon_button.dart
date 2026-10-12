@@ -228,23 +228,21 @@ class RoundIconButton extends StatelessWidget {
     final c = context.moon;
     final bg = background ?? (ochre ? c.ochre : c.sand);
     final fg = foreground ?? (ochre ? c.onOchre : c.text);
-    return Semantics(
-      label: semanticLabel,
-      child: Pressable(
-        onTap: onPressed,
-        child: Opacity(
-          opacity: onPressed == null ? 0.4 : 1,
-          child: Container(
-            width: size,
-            height: size,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-            child: MoonIcon(
-              icon,
-              size: iconSize,
-              color: fg,
-              strokeWidth: strokeWidth,
-            ),
+    return Pressable(
+      onTap: onPressed,
+      semanticLabel: semanticLabel,
+      child: Opacity(
+        opacity: onPressed == null ? 0.4 : 1,
+        child: Container(
+          width: size,
+          height: size,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+          child: MoonIcon(
+            icon,
+            size: iconSize,
+            color: fg,
+            strokeWidth: strokeWidth,
           ),
         ),
       ),

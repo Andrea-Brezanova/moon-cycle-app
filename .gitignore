@@ -58,3 +58,6 @@ key.properties
 *.p8
 *.p12
 *.mobileprovision
+
+# Flutter golden-test diff output
+**/failures/

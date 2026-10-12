@@ -2,6 +2,16 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 4 (shell and navigation)
+- **One new package:** `go_router`.
+- **Android back:** inside a tab, one screen back; on the first screen of Foods, Recipes, Shop or Settings, to Home; on Home, Android may close the app.
+- **Transitions:** tab switches are instant, with no animation. Pages pushed inside a tab use the platform's standard transition, including iOS swipe-back.
+- **Onboarding status is a stub** that starts as completed during development, so the app opens on Home. Both paths of the redirect are tested. Milestone 7 replaces it with the saved status.
+- **"Delete my data" has no tab bar** (spec), so it opens above the shell; its back link still returns to Settings.
+- **Debug gallery cannot ship:** its route exists only when `kDebugMode`, a compile-time constant, so release and profile builds drop the route and the gallery code. Checked by searching the prod release APK's compiled code: the gallery's text and class names are absent.
+- **Screen-reader fix found while testing:** wrapping a `Pressable` in `Semantics(excludeSemantics: true)` also removed its tap action, and the sub-screen back link merged with the page title. `Pressable` now takes a `semanticLabel` and is always its own node; the back link, tab items, round icon buttons and chip remove buttons use it.
+- **Golden diff images** (`failures/`) are git-ignored; eight committed by mistake in Milestone 3 are removed.
+
 ## 11 October 2026: Milestone 3 (design system)
 - **Tokens:** ported value for value from `design/code/theme.ts`. The hero orbit colours equal the phase palettes, so the orbit reads the theme's palettes rather than a second copy.
 - **Fonts bundled, never downloaded:** families `Fraunces72` (40 pt and up), `Fraunces24` (below 40), `DMSans` and `Gwendolyn`. `fraunces()` asserts if a weight the static cuts don't have is requested. Every Editorial style uses even leading (CSS-like line height) and no decoration.

@@ -9,6 +9,7 @@ import 'package:moon_cycle/core/design/widgets/moon_button.dart';
 import 'package:moon_cycle/core/design/widgets/moon_chip.dart';
 import 'package:moon_cycle/core/design/widgets/moon_controls.dart';
 import 'package:moon_cycle/core/design/widgets/moon_icon.dart';
+import 'package:moon_cycle/core/design/widgets/moon_list.dart';
 import 'package:moon_cycle/core/design/widgets/number_stepper.dart';
 import 'package:moon_cycle/core/design/widgets/phase_selector.dart';
 import 'package:moon_cycle/core/design/widgets/text_link.dart';
@@ -166,6 +167,36 @@ void main() {
     final mondayHeader = tester.getCenter(find.text('M'));
     final firstDay = tester.getCenter(find.text('1'));
     expect(firstDay.dx, closeTo(mondayHeader.dx, 0.5));
+  });
+
+  testWidgets('sub-screen back link: its own button, apart from the title', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    var backs = 0;
+    await pump(
+      tester,
+      SubScreenHeader(
+        backLabel: 'Settings',
+        title: 'My Cycle',
+        onBack: () => backs++,
+      ),
+    );
+    final back = find.bySemanticsLabel('Back to Settings');
+    expect(
+      tester.getSemantics(back),
+      isSemantics(
+        label: 'Back to Settings',
+        isButton: true,
+        hasTapAction: true,
+        hasEnabledState: true,
+        isEnabled: true,
+      ),
+    );
+    expect(find.bySemanticsLabel('My Cycle'), findsOneWidget);
+    tester.semantics.tap(find.semantics.byLabel('Back to Settings'));
+    expect(backs, 1);
+    handle.dispose();
   });
 
   testWidgets('editorial heading sets *words* in italic', (tester) async {

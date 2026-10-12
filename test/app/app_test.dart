@@ -1,22 +1,12 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moon_cycle/app/app.dart';
-import 'package:moon_cycle/app/config/app_config.dart';
+import 'package:moon_cycle/app/router/routes.dart';
+
+import '../helpers/pump_app.dart';
 
 void main() {
-  testWidgets('the app starts with the given flavour', (tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appConfigProvider.overrideWithValue(
-            const AppConfig(flavor: Flavor.dev),
-          ),
-        ],
-        child: const MoonCycleApp(),
-      ),
-    );
-
-    expect(find.text('Moon Cycle'), findsOneWidget);
+  testWidgets('the app starts on Home with the given flavour', (tester) async {
+    await pumpApp(tester);
+    expect(find.text(AppTab.home.label), findsWidgets);
     expect(find.text('Flavour: dev'), findsOneWidget);
   });
 }

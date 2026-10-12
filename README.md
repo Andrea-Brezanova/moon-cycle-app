@@ -73,4 +73,4 @@ To look at every component: run the dev flavour and tap **Component gallery** (d
 The handoff's PDFs and zip aren't in this repository; they're archived with the design files outside it.
 
 ## Status
-Milestones 1 (foundation), 2 (cycle domain) and 3 (Editorial design system) are in place. The next milestone is the app shell and navigation; see `docs/technical-plan.md`.
+Milestones 1 (foundation), 2 (cycle domain), 3 (Editorial design system) and 4 (shell and navigation, with placeholder screens) are in place. The next milestone is the local database; see `docs/technical-plan.md`.
