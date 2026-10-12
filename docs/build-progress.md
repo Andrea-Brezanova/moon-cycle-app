@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 14, Local reminders. **NOT STARTED**
+**Now:** Milestone 15, Hardening and internal beta. **NOT STARTED**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -19,7 +19,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 11 | Recipes, Cook with… and recipe detail | DONE | `71576b1` |
 | 12 | Shop | DONE | `e749aa1` |
 | 13 | Settings, preferences and privacy | DONE | `24507d0` |
-| 14 | Local reminders | NOT STARTED | |
+| 14 | Local reminders | DONE | (this commit) |
 | 15 | Hardening and internal beta | NOT STARTED | |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
 | 19 | Analytics | NOT STARTED: optional, recommended "not at launch" | |
@@ -29,6 +29,13 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 14: Local reminders — DONE
+- **What:** phase-change and period reminders, planned and scheduled on the phone; the Notifications switches drive them; permission is asked when Reminders is turned on; Delete my data cancels them.
+- **Files added:** `lib/features/reminders/{domain/reminder_plan.dart, domain/reminder_copy.dart, data/reminder_scheduler.dart, application/reminder_providers.dart}`; Android manifest receivers and boot permission, desugaring, `res/raw/keep.xml`; iOS notification delegate.
+- **Tests:** `reminder_plan_test` (9: off, order, horizon, today, each switch, late, 35/7, ids, copy), `reminder_sync_test` (5: off, on/off, recompute after a period log, no needless reschedule, wipe cancels), Notifications permission granted/refused widget tests. Totals: 322 tests plus 88 goldens, all passing.
+- **Devices:** iOS Simulator: the system prompt on turning Reminders on, then the test reminder delivered as a banner. Android emulator: the Android 13+ prompt, the alarms registered with the system, and the test reminder posted on the "Reminders" channel (private on the lock screen).
+- **Deviations:** 37–39. **Open question:** 11 (reminder wording and lock-screen privacy).
 
 ## Milestone 13: Settings — DONE
 - **What:** Settings root (v1), My Cycle (next period, values with history averages, history, edit period, lengths sheet, Log a period), Food Preferences, Allergies & foods to avoid, Notifications (saved; scheduling in M14), Subscription (launch promo), Privacy & Data (export), Help (FAQ, Contact support, disclaimer), Delete my data (wipe and restart at onboarding). Entitlement scaffold. Content now clips below the status bar on the tab roots.

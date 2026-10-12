@@ -2,6 +2,14 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 12 October 2026: Milestone 14 (Local reminders)
+- **Planner** (`reminders/domain/reminder_plan.dart`, pure): phase starts (the first day of each phase) and "before your period" (2 days before each estimated start), for the current cycle and 3 more, after today only, at 9:00 local time. Nothing while reminders are off or the period is late (later estimates aren't meaningful until a period is logged). At most 20 pending, far below iOS's 64. Ids are stable per day and kind.
+- **Sync** (`reminderSyncProvider`, watched by the app root): reschedules everything whenever the plan changes, i.e. on a period log, a length change, a settings change or a new day; an unchanged plan isn't rescheduled.
+- **Scheduler** (`LocalReminderScheduler`): `flutter_local_notifications` with `timezone` and `flutter_timezone`, scheduled in the phone's zone so daylight-saving changes keep 9:00. Android uses inexact alarms (no exact-alarm permission), restores them after a reboot or update, and the channel is "Reminders"; notifications are private on the lock screen. Permission is asked only when the user turns Reminders on.
+- **Delete my data** cancels every scheduled reminder first.
+- **Debug only:** "Test reminder in 10 s" under the Component gallery link shows the next reminder's text, to check delivery on a device.
+- **Packages:** `flutter_local_notifications` (with core library desugaring on Android), `timezone`, `flutter_timezone`, as planned in §18.
+
 ## 12 October 2026: Milestone 13 (Settings)
 - **Settings** is the v1 local-only variant: Personalisation, App, Account (Subscription, Privacy & Data; no Account row), Support, then "Delete my data" and the footer with the version. The debug Component gallery link sits under the footer in debug builds only. The placeholder pages are gone.
 - **Cycle history averages** (`cycle/domain/cycle_history.dart`, plan §6.2): at least 3 completed cycles; gaps outside 21–45 days and gaps next to an estimated ("I'm not sure") start don't count; the 6 most recent valid gaps are averaged and rounded. Period length works the same way from periods with an end date in completed cycles (the current period doesn't count, matching the design's "last 3 periods" with 4 logged). `cycleStateProvider` now calculates with `effectiveLengths`; the user can switch averages off in the lengths sheet.

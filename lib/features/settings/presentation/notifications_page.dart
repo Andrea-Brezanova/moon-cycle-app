@@ -6,11 +6,12 @@ import '../../../core/design/widgets/moon_list.dart';
 import '../../preferences/application/preference_providers.dart';
 import '../../preferences/data/preferences_repository.dart';
 import '../../preferences/domain/reminder_settings.dart';
+import '../../reminders/application/reminder_providers.dart';
 import 'widgets/settings_widgets.dart';
 
 /// Settings › Notifications (`29-settings-notifications`). The switches are
-/// saved straight away; the reminders themselves are scheduled on the phone
-/// (Milestone 14).
+/// saved straight away and the reminders are rescheduled on the phone
+/// (`reminderSyncProvider`).
 class NotificationsPage extends ConsumerWidget {
   const NotificationsPage({super.key});
 
@@ -50,8 +51,26 @@ class NotificationsPage extends ConsumerWidget {
               label: 'Reminders',
               subtitle: 'Phase and period reminders',
               value: settings.enabled,
-              onChanged: (v) =>
-                  repository.saveReminders(settings.copyWith(enabled: v)),
+              onChanged: (v) async {
+                // Turning reminders on asks for the system permission first.
+                if (v &&
+                    !await ref
+                        .read(reminderSchedulerProvider)
+                        .requestPermission()) {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Notifications are off for Moon Cycle. You can '
+                          'turn them on in your phone’s settings.',
+                        ),
+                      ),
+                    );
+                  }
+                  return;
+                }
+                await repository.saveReminders(settings.copyWith(enabled: v));
+              },
             ),
             // The detail switches only apply while reminders are on.
             toggle(

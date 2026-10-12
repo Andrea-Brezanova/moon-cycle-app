@@ -11,8 +11,10 @@ import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
 import 'package:moon_cycle/features/onboarding/presentation/welcome_page.dart';
 import 'package:moon_cycle/features/privacy/data/local_data_wiper.dart';
+import 'package:moon_cycle/features/reminders/application/reminder_providers.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
 
+import '../helpers/fake_reminders.dart';
 import '../helpers/golden_screen.dart';
 import '../helpers/memory_key_store.dart';
 import '../helpers/pump_app.dart';
@@ -55,6 +57,7 @@ void main() {
           appVersionProvider.overrideWithValue('1.0.0'),
           clockProvider.overrideWithValue(designNow),
           localDataWiperProvider.overrideWithValue(wiper),
+          reminderSchedulerProvider.overrideWithValue(FakeReminderScheduler()),
         ],
         session: [
           appDatabaseProvider.overrideWithValue(first),

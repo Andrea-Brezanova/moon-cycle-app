@@ -9,7 +9,9 @@ import 'package:moon_cycle/app/config/app_version.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
+import 'package:moon_cycle/features/reminders/application/reminder_providers.dart';
 
+import 'fake_reminders.dart';
 import 'test_catalogue.dart';
 
 /// A fresh in-memory database, closed when the test ends. Query streams
@@ -32,6 +34,7 @@ Future<ProviderContainer> pumpApp(
   WidgetTester tester, {
   bool onboarded = true,
   AppDatabase? database,
+  FakeReminderScheduler? reminders,
   List<Override> overrides = const [],
 }) async {
   await tester.pumpWidget(
@@ -44,6 +47,9 @@ Future<ProviderContainer> pumpApp(
         initialOnboardingCompletedProvider.overrideWithValue(onboarded),
         catalogueProvider.overrideWithValue(testCatalogue),
         appVersionProvider.overrideWithValue('1.0.0'),
+        reminderSchedulerProvider.overrideWithValue(
+          reminders ?? FakeReminderScheduler(),
+        ),
         ...overrides,
       ],
       child: const MoonCycleApp(),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/design/moon_theme.dart';
+import '../features/reminders/application/reminder_providers.dart';
 import 'config/app_config.dart';
 import 'router/app_router.dart';
 
@@ -14,6 +15,8 @@ class MoonCycleApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final config = ref.watch(appConfigProvider);
+    // Keeps scheduled reminders up to date for as long as the app runs.
+    ref.watch(reminderSyncProvider);
     return MaterialApp.router(
       title: config.appName,
       debugShowCheckedModeBanner: !config.isProduction,

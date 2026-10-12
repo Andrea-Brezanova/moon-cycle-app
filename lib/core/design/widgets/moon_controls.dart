@@ -94,31 +94,35 @@ class MoonToggle extends StatelessWidget {
       label: semanticLabel,
       child: GestureDetector(
         onTap: onChanged == null ? null : () => onChanged!(!value),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
-          width: MoonSize.toggleWidth,
-          height: MoonSize.toggleHeight,
-          padding: const EdgeInsets.all(3),
-          decoration: ShapeDecoration(
-            color: value ? c.inverseBg : c.line,
-            shape: const StadiumBorder(),
-          ),
-          child: AnimatedAlign(
+        // Disabled: 40% like every other disabled control (deviation 1).
+        child: Opacity(
+          opacity: onChanged == null ? 0.4 : 1,
+          child: AnimatedContainer(
             duration: const Duration(milliseconds: 150),
-            alignment: value ? Alignment.centerRight : Alignment.centerLeft,
-            child: Container(
-              width: 25,
-              height: 25,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: value ? c.bg : offKnob,
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0x33000000),
-                    blurRadius: 2,
-                    offset: Offset(0, 1),
-                  ),
-                ],
+            width: MoonSize.toggleWidth,
+            height: MoonSize.toggleHeight,
+            padding: const EdgeInsets.all(3),
+            decoration: ShapeDecoration(
+              color: value ? c.inverseBg : c.line,
+              shape: const StadiumBorder(),
+            ),
+            child: AnimatedAlign(
+              duration: const Duration(milliseconds: 150),
+              alignment: value ? Alignment.centerRight : Alignment.centerLeft,
+              child: Container(
+                width: 25,
+                height: 25,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: value ? c.bg : offKnob,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0x33000000),
+                      blurRadius: 2,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

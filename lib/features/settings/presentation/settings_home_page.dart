@@ -18,6 +18,7 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../preferences/application/preference_providers.dart';
+import '../../reminders/application/reminder_providers.dart';
 import '../application/settings_copy.dart';
 
 /// The Settings tab, v1 local-only variant (`25-settings-v1-local`): no
@@ -142,10 +143,28 @@ class SettingsHomePage extends ConsumerWidget {
       ),
       if (kDebugMode)
         Center(
-          child: TextLink(
-            'Component gallery',
-            size: 14,
-            onTap: () => context.push(Routes.debugGallery),
+          child: Column(
+            children: [
+              TextLink(
+                'Component gallery',
+                size: 14,
+                onTap: () => context.push(Routes.debugGallery),
+              ),
+              const SizedBox(height: 16),
+              // Checks delivery on a device: the next planned reminder's
+              // text, 10 seconds from now.
+              TextLink(
+                'Test reminder in 10 s',
+                size: 14,
+                onTap: () {
+                  final next = ref.read(reminderPlanProvider)?.firstOrNull;
+                  if (next == null) return;
+                  ref
+                      .read(reminderSchedulerProvider)
+                      .debugShowSoon(next, const Duration(seconds: 10));
+                },
+              ),
+            ],
           ),
         ),
     ];

@@ -4,6 +4,7 @@ Only decisions that are genuinely yours. Each has the default the build uses unt
 
 | # | Question | Default in the build | Needed before |
 |---|---|---|---|
+| 11 | **Reminder wording and privacy.** The notification text (deviation 39) is new copy and says which phase or that a period is due; it can appear on the lock screen. Android hides it on a secure lock screen by default; iOS shows it unless the user hides previews. Approve the wording, or prefer discreet text (e.g. "Moon Cycle · New foods for today")? Time of day is 9:00. | The wording in deviation 39, at 9:00 | Release |
 | 10 | **Which features are Plus** after the launch promo (plan §10, §20)? The gates exist (`lib/features/entitlements/domain/entitlements.dart`). | Every feature is free, so nothing can lock by accident | Subscriptions (v1.x) |
 | 9 | **Help answers.** Only "How is my phase worked out?" is drawn. Three answers reuse approved copy from My Cycle and Privacy & Data or describe the filters; "What if my cycle is irregular?" has no answer. Please supply or approve all five (spec §11.5). | "[Answer needs content review]" for the irregular-cycle answer | Release |
 | 8 | **Launch-free end date** (spec §11.4): the one date the promo ends for everyone. | The designed placeholder "[launch-free end date]"; the promo has no end | Release |

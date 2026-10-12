@@ -11,7 +11,9 @@ import 'package:moon_cycle/features/preferences/data/preferences_repository.dart
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import 'package:moon_cycle/features/preferences/domain/reminder_settings.dart';
+import 'package:moon_cycle/features/reminders/domain/reminder_plan.dart';
 
+import '../../helpers/fake_reminders.dart';
 import '../../helpers/golden_screen.dart';
 import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
@@ -22,6 +24,7 @@ void main() {
   Future<(ProviderContainer, AppDatabase)> pumpSettings(
     WidgetTester tester, {
     Future<void> Function(AppDatabase db)? seed,
+    FakeReminderScheduler? reminders,
   }) async {
     tester.view.physicalSize = const Size(390, 844) * 3;
     tester.view.devicePixelRatio = 3;
@@ -36,6 +39,7 @@ void main() {
     final container = await pumpApp(
       tester,
       database: db,
+      reminders: reminders,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
     await tester.tap(find.byKey(const ValueKey('tab-settings')));
@@ -203,7 +207,8 @@ void main() {
   testWidgets('Notifications: switches are saved; details need reminders on', (
     tester,
   ) async {
-    final (container, _) = await pumpSettings(tester);
+    final reminders = FakeReminderScheduler();
+    final (container, _) = await pumpSettings(tester, reminders: reminders);
     await open(tester, 'Notifications');
     // Off: the detail switches can't be changed.
     await tapAndSave(tester, find.text('Before your period'));
@@ -217,6 +222,28 @@ void main() {
       container.read(reminderSettingsProvider).value,
       const ReminderSettings(enabled: true, beforePeriod: false),
     );
+    expect(reminders.permissionRequests, 1);
+    // The phase reminders for the next three cycles are scheduled.
+    expect(reminders.scheduled, isNotEmpty);
+    expect(
+      reminders.scheduled.every((r) => r.kind == ReminderKind.phaseStart),
+      isTrue,
+    );
+  });
+
+  testWidgets('Notifications: permission refused keeps reminders off', (
+    tester,
+  ) async {
+    final reminders = FakeReminderScheduler(permission: false);
+    final (container, _) = await pumpSettings(tester, reminders: reminders);
+    await open(tester, 'Notifications');
+    await tapAndSave(tester, find.text('Reminders'));
+    expect(
+      container.read(reminderSettingsProvider).value,
+      const ReminderSettings(),
+    );
+    expect(find.textContaining('Notifications are off'), findsOneWidget);
+    expect(reminders.scheduled, isEmpty);
   });
 
   testWidgets('Subscription: the launch promo, with the date placeholder', (
