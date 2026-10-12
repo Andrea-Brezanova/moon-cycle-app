@@ -15,7 +15,7 @@ lib/
   core/                shared by every feature
     domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
     design/            Editorial tokens, theme, shared widgets ✓ Milestone 3
-    database/          Drift database and tables, encrypted    (Milestone 5)
+    database/          Drift database and tables, encrypted    ✓ Milestone 5
     time/              "today" provider, midnight refresh      (Milestone 7)
   features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
     domain/            entities and rules: pure Dart
@@ -34,13 +34,22 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
 
+## Local database (`lib/core/database/`) ✓ Milestone 5
+- **One encrypted SQLite file**, `moon_cycle.db` in Application Support. `package:sqlite3` bundles SQLite3MultipleCiphers (set under `hooks:` in `pubspec.yaml`); the opener refuses to run on a SQLite build without encryption.
+- **The key** is 32 random bytes in the iOS Keychain / Android Keystore (`EncryptionKeyStore`). No file yet means a new key, which also replaces a key a previous install left in the Keychain. A file the stored key can't open is moved aside (`.unreadable-…`) and a fresh database starts.
+- **Opened before the first frame** in `main()`; the onboarding gate's first value comes from the database.
+- **Tables** (`tables.dart`) follow plan §8.3. User tables have a client id, `created_at`, `updated_at` and a `deleted_at` tombstone, ready for sync. Dates are `YYYY-MM-DD` text; timestamps ISO-8601 text.
+- **Repositories** are plain classes over `AppDatabase` in each feature's `data/` folder (`CycleRepository`, `PreferencesRepository`, `AppStateRepository`), each with a provider. Tests run them on an in-memory database; `RowStamp` lets tests fix ids and the clock.
+- **Migrations:** `schemaVersion` plus `drift_schemas/` snapshots (see README).
+- **No backups:** Android backup and device transfer are off (the Keystore key can't move, so a copy would be unreadable).
+
 ## Navigation (`lib/app/router/`, `lib/app/shell/`) ✓ Milestone 4
 - **Routes:** `/onboarding`; the tabs `/home`, `/foods`, `/recipes`, `/shop`, `/settings`; `/recipes/:recipeId`; `/settings/<page>` (`SettingsPage` in `routes.dart`). Unknown paths go to Home.
 - **Tabs:** a `StatefulShellRoute.indexedStack`. Each tab keeps its own stack and scroll position; switching tabs is instant. Tapping the active tab returns to its first screen, or scrolls to the top if it's already there.
 - **Pushed pages** use the platform transition (iOS slide with swipe-back). Every route builds a `MaterialPage` explicitly: go_router 18 looks for the `material_ui` package's `MaterialApp`, which this app doesn't use, and would otherwise use pages without platform transitions.
 - **Tab bar or not:** pages inside a tab keep the tab bar. "Delete my data" covers it (spec), so it opens on the root navigator. Onboarding and the debug gallery are outside the shell.
 - **Android back:** inside a tab, one screen back; on the first screen of Foods, Recipes, Shop or Settings, to Home; on Home, the app closes. (`PopScope` in `MainShell`.)
-- **Onboarding gate:** the router's redirect reads `onboardingCompletedProvider`. Until Milestone 7 it is a stub that starts as completed.
+- **Onboarding gate:** the router's redirect reads `onboardingCompletedProvider`, which starts from the stored state (`app_states.onboarding_completed_at`).
 - **Debug gallery** (`/debug/gallery`) is added only when `kDebugMode`, a compile-time constant, so release and profile builds contain neither the route nor the gallery code.
 
 ## Dependency rules

@@ -2,6 +2,19 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 5 (local persistence)
+- **Packages:** `drift`, `sqlite3`, `flutter_secure_storage`, `path_provider`, `uuid`; `drift_dev` and `build_runner` for development. All are the standard, actively maintained choices for Drift.
+- **Encryption: SQLite3MultipleCiphers, not `sqlcipher_flutter_libs`.** The plan named SQLCipher through `sqlcipher_flutter_libs`, which is end-of-life: `package:sqlite3` 3.x now bundles its own SQLite builds, chosen in `pubspec.yaml`. Of its two encrypting builds, SQLite3MultipleCiphers is the one its documentation recommends; it tracks current SQLite and needs no OpenSSL on Android. Same protection (256-bit key, `PRAGMA key`). Export compliance: standard encryption either way.
+- **No `drift_flutter`:** the app opens the database itself, because the key must be read from secure storage first, and the opener checks the encrypting build is present.
+- **Keychain item** uses "after first unlock", so reminders can read the database in the background, and the key moves to a new iPhone inside an encrypted backup together with the database.
+- **Android backup and device transfer are off** for the app's data: the Keystore key never leaves the device, so a backed-up database couldn't be opened, and cycle data stays on the phone unless exported.
+- **Lost key:** an unreadable database is moved aside and a fresh one starts, instead of the app failing to open.
+- **Schema v1 has every user table** of plan §8.3, including shopping, so later milestones need no migration. **Not added yet:** the sync outbox and `lastPulledAt` (with sync in v1.1, as a v2 migration) and an entitlements table (v1's launch promo is a bundled date).
+- **Period logs carry `isEstimated`** (the onboarding "I'm not sure" date) instead of a profile-level flag: it's the date that is uncertain.
+- **Repositories are concrete classes** over Drift, tested on an in-memory database; no interface layer until a second implementation exists.
+- **Onboarding state is stored from now on** (planned for M7): the gate's first value is read from the database before the first frame. The M4 stub is gone.
+- **Generated code is committed** (`*.g.dart`), so CI and a fresh checkout build without running `build_runner`.
+
 ## 11 October 2026: Milestone 4 (shell and navigation)
 - **One new package:** `go_router`.
 - **Android back:** inside a tab, one screen back; on the first screen of Foods, Recipes, Shop or Settings, to Home; on Home, Android may close the app.

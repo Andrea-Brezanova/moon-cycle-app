@@ -1,22 +1,26 @@
+import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/app.dart';
 import 'package:moon_cycle/app/config/app_config.dart';
+import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
 
-class _OnboardingStatus extends OnboardingStatus {
-  _OnboardingStatus(this.initial);
-
-  final bool initial;
-
-  @override
-  bool build() => initial;
+/// A fresh in-memory database, closed when the test ends.
+AppDatabase testDatabase() {
+  final db = AppDatabase(NativeDatabase.memory());
+  addTearDown(db.close);
+  return db;
 }
 
-/// Pumps the whole app (dev flavour) and returns its provider container.
+/// Pumps the whole app (dev flavour) on an in-memory database and returns
+/// its provider container.
 Future<ProviderContainer> pumpApp(
   WidgetTester tester, {
   bool onboarded = true,
+  AppDatabase? database,
+  List<Override> overrides = const [],
 }) async {
   await tester.pumpWidget(
     ProviderScope(
@@ -24,9 +28,9 @@ Future<ProviderContainer> pumpApp(
         appConfigProvider.overrideWithValue(
           const AppConfig(flavor: Flavor.dev),
         ),
-        onboardingCompletedProvider.overrideWith(
-          () => _OnboardingStatus(onboarded),
-        ),
+        appDatabaseProvider.overrideWithValue(database ?? testDatabase()),
+        initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+        ...overrides,
       ],
       child: const MoonCycleApp(),
     ),
