@@ -1,0 +1,17 @@
+# Launch screens (spec §10: background #FCFAF5, dark #1B152E, the ring
+# mark). Regenerate with:
+#   dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#FCFAF5"
+  color_dark: "#1B152E"
+  image: "design/assets/app-icon/png/android-adaptive-foreground-1024.png"
+  image_dark: "design/assets/app-icon/png/splash-icon-1024.png"
+  android_12:
+    color: "#FCFAF5"
+    color_dark: "#1B152E"
+    image: "design/assets/app-icon/png/android-adaptive-foreground-1024.png"
+    image_dark: "design/assets/app-icon/png/splash-icon-1024.png"
+  ios: true
+  android: true
+  web: false
+  fullscreen: false

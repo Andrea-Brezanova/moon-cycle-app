@@ -6,6 +6,7 @@ import '../../../../core/design/tokens/moon_typography.dart';
 import '../../../../core/design/widgets/moon_controls.dart';
 import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
+import '../../../../core/design/widgets/tap_target.dart';
 import '../../../../core/domain/phase.dart';
 import '../../domain/shopping_item.dart';
 
@@ -124,17 +125,24 @@ class ShopRow extends StatelessWidget {
           ),
           Transform.translate(
             offset: const Offset(10, 0),
-            child: Pressable(
-              onTap: onRemove,
-              semanticLabel: 'Remove ${item.name}',
-              child: SizedBox.square(
-                dimension: 40,
-                child: Center(
-                  child: MoonIcon(
-                    MoonIconName.close,
-                    size: 18,
-                    color: c.removeIcon,
-                    strokeWidth: 2,
+            // Drawn 40 pt; the touch target is 44.
+            child: ExpandedTapTarget(
+              extra: const EdgeInsets.all(2),
+              child: Pressable(
+                onTap: onRemove,
+                semanticLabel: 'Remove ${item.name}',
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: SizedBox.square(
+                    dimension: 40,
+                    child: Center(
+                      child: MoonIcon(
+                        MoonIconName.close,
+                        size: 18,
+                        color: c.removeIcon,
+                        strokeWidth: 2,
+                      ),
+                    ),
                   ),
                 ),
               ),

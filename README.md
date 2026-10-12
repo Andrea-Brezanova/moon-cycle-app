@@ -69,6 +69,24 @@ After an intentional visual change, regenerate them with `flutter test --tags go
 
 To look at every component: run the dev flavour and tap **Component gallery** (debug builds only).
 
+## Icons and splash
+Generated from `design/assets/app-icon/png/` and committed. After changing them:
+```bash
+dart run flutter_launcher_icons
+dart run flutter_native_splash:create
+```
+Both tools also rewrite unrelated files; restore `android/app/src/main/AndroidManifest.xml` (it drops the portrait lock), `ios/Runner/Info.plist` and `ios/Runner.xcodeproj/project.pbxproj` with `git checkout` afterwards.
+
+## Release builds
+Release builds are obfuscated; keep the symbol files to read crash reports:
+```bash
+flutter build appbundle --flavor prod --dart-define-from-file=env/prod.json --obfuscate --split-debug-info=build/symbols/android
+```
+```bash
+flutter build ipa --flavor prod --dart-define-from-file=env/prod.json --obfuscate --split-debug-info=build/symbols/ios
+```
+Crash reporting (Sentry) is on only when `SENTRY_DSN` is set in `env/prod.json`. Uploading the symbols to Sentry needs a Sentry auth token, which belongs in CI secrets, never in the repository. Signing needs your Apple and Google accounts (`docs/open-questions.md`).
+
 ## Repository map
 | Path | What it is |
 |---|---|

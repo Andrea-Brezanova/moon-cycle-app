@@ -7,6 +7,7 @@ import 'package:sqlite3/sqlite3.dart';
 import 'app/app_root.dart';
 import 'app/config/app_config.dart';
 import 'app/config/app_version.dart';
+import 'core/crash/crash_reporting.dart';
 import 'core/database/app_database.dart';
 import 'core/database/database_opener.dart';
 import 'core/database/encryption_key_store.dart';
@@ -38,17 +39,21 @@ Future<void> main() async {
     ];
   }
 
-  runApp(
-    AppRoot(
-      overrides: [
-        appConfigProvider.overrideWithValue(config),
-        catalogueProvider.overrideWithValue(catalogue),
-        appVersionProvider.overrideWithValue(version),
-        databaseDirectoryProvider.overrideWithValue(directory),
-        encryptionKeyStoreProvider.overrideWithValue(keys),
-      ],
-      session: await openSession(),
-      openSession: openSession,
+  final session = await openSession();
+  await runWithCrashReporting(
+    config,
+    () => runApp(
+      AppRoot(
+        overrides: [
+          appConfigProvider.overrideWithValue(config),
+          catalogueProvider.overrideWithValue(catalogue),
+          appVersionProvider.overrideWithValue(version),
+          databaseDirectoryProvider.overrideWithValue(directory),
+          encryptionKeyStoreProvider.overrideWithValue(keys),
+        ],
+        session: session,
+        openSession: openSession,
+      ),
     ),
   );
 }

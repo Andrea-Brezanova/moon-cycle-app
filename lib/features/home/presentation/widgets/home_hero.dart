@@ -69,14 +69,24 @@ class HomeHero extends ConsumerWidget {
                     excludeSemantics: true,
                     child: Wordmark(xHeight: 12, color: text),
                   ),
-                  const Spacer(),
-                  Text(
-                    DateText.short(today),
-                    style: dmSans(
-                      13,
-                      weight: FontWeight.w500,
-                      height: 1,
-                      color: muted,
+                  const SizedBox(width: 12),
+                  // Right-aligned; shrinks rather than overflows on narrow
+                  // phones at large text sizes.
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          DateText.short(today),
+                          style: dmSans(
+                            13,
+                            weight: FontWeight.w500,
+                            height: 1,
+                            color: muted,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],

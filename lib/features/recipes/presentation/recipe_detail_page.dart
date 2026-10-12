@@ -274,13 +274,15 @@ class _Intro extends StatelessWidget {
               strokeWidth: 1.8,
             ),
             const SizedBox(width: 8),
-            Text(
-              '${recipe.minutes} min · Serves ${recipe.serves}',
-              style: dmSans(
-                14,
-                weight: FontWeight.w500,
-                height: 1,
-                color: c.textMuted,
+            Flexible(
+              child: Text(
+                '${recipe.minutes} min · Serves ${recipe.serves}',
+                style: dmSans(
+                  14,
+                  weight: FontWeight.w500,
+                  height: 1,
+                  color: c.textMuted,
+                ),
               ),
             ),
           ],

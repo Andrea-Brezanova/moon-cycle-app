@@ -5,6 +5,7 @@ import '../tokens/moon_layout.dart';
 import '../tokens/moon_typography.dart';
 import 'moon_icon.dart';
 import 'pressable.dart';
+import 'tap_target.dart';
 
 enum MoonButtonVariant {
   /// Ochre: the single main action on a screen.
@@ -228,21 +229,29 @@ class RoundIconButton extends StatelessWidget {
     final c = context.moon;
     final bg = background ?? (ochre ? c.ochre : c.sand);
     final fg = foreground ?? (ochre ? c.onOchre : c.text);
-    return Pressable(
-      onTap: onPressed,
-      semanticLabel: semanticLabel,
-      child: Opacity(
-        opacity: onPressed == null ? 0.4 : 1,
-        child: Container(
-          width: size,
-          height: size,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-          child: MoonIcon(
-            icon,
-            size: iconSize,
-            color: fg,
-            strokeWidth: strokeWidth,
+    // Smaller buttons (the 40 pt calendar arrows) keep a 44 pt target.
+    final slop = tapTargetSlop(width: size, height: size);
+    return ExpandedTapTarget(
+      extra: slop,
+      child: Pressable(
+        onTap: onPressed,
+        semanticLabel: semanticLabel,
+        child: Padding(
+          padding: slop,
+          child: Opacity(
+            opacity: onPressed == null ? 0.4 : 1,
+            child: Container(
+              width: size,
+              height: size,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+              child: MoonIcon(
+                icon,
+                size: iconSize,
+                color: fg,
+                strokeWidth: strokeWidth,
+              ),
+            ),
           ),
         ),
       ),

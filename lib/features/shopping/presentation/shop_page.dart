@@ -263,20 +263,26 @@ class _Summary extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  '$toBuy',
-                  style: MoonType.shopCount.copyWith(color: c.text),
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  'to buy',
-                  style: fraunces(20, italic: true, color: c.text),
-                ),
-              ],
+            // Unchanged at 390 pt; shrinks on narrow phones at large text.
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text(
+                    '$toBuy',
+                    style: MoonType.shopCount.copyWith(color: c.text),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'to buy',
+                    style: fraunces(20, italic: true, color: c.text),
+                  ),
+                ],
+              ),
             ),
           ),
           if (showDone)

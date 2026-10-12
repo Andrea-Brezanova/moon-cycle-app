@@ -2,6 +2,14 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 12 October 2026: Milestone 15 (Hardening, local part)
+- **Accessibility guidelines in tests** (`test/a11y/accessibility_test.dart`): every screen (all tabs, recipe detail, every Settings page, onboarding before the reveal) must meet the 44 pt tap-target, labelled-target and text-contrast guidelines, and fit a 320 × 568 pt phone at 1.5× text without overflow.
+- **44 pt targets without moving the design:** `ExpandedTapTarget` lays a control out larger by the missing amount but reports its drawn size, and the extra area is padding inside the control's tap area. Used by the phase selector, chips, the chip and Shop ×, switches, calendar days and small round buttons.
+- **Crash reporting** (`core/crash/crash_reporting.dart`): `sentry_flutter` 10, only when `SENTRY_DSN` is set. No user, no breadcrumbs, no screenshots, no performance tracing, dates in messages masked; `sendDefaultPii` off. Native crashes (rare in Flutter) are reported by the native SDKs without the Dart scrubbing. 8.x didn't compile with Android Gradle Plugin 9, hence 10.
+- **Release builds** are obfuscated with split debug info (`README.md`). A prod release APK and an unsigned iOS release build were built and the APK run on the emulator (icon, splash, onboarding).
+- **Icons and splash** generated from the handoff (`flutter_launcher_icons`, `flutter_native_splash`, dev-only tools). Their side effects on the manifest, Info.plist and Xcode project are reverted (README).
+- **Not done here** (needs devices, people or accounts): frame timing of the Home hero on a real mid-range phone, a manual VoiceOver/TalkBack pass, TestFlight / Play closed testing (`open-questions.md` 12, 13).
+
 ## 12 October 2026: Milestone 14 (Local reminders)
 - **Planner** (`reminders/domain/reminder_plan.dart`, pure): phase starts (the first day of each phase) and "before your period" (2 days before each estimated start), for the current cycle and 3 more, after today only, at 9:00 local time. Nothing while reminders are off or the period is late (later estimates aren't meaningful until a period is logged). At most 20 pending, far below iOS's 64. Ids are stable per day and kind.
 - **Sync** (`reminderSyncProvider`, watched by the app root): reschedules everything whenever the plan changes, i.e. on a period log, a length change, a settings change or a new day; an unchanged plan isn't rescheduled.

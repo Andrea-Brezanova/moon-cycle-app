@@ -9,6 +9,7 @@ import '../tokens/moon_typography.dart';
 import 'moon_button.dart';
 import 'moon_icon.dart';
 import 'pressable.dart';
+import 'tap_target.dart';
 
 /// The month calendar (onboarding "last period" and "Log a period"; spec
 /// §7.1): a raised card with month navigation and a Monday-first grid.
@@ -197,25 +198,44 @@ class _Day extends StatelessWidget {
         : future
         ? colors.textMuted
         : colors.text;
-    return Opacity(
-      opacity: future ? 0.45 : 1,
-      child: Pressable(
-        onTap: future ? null : () => onSelect(date),
-        selected: isSelected,
-        child: Container(
-          decoration: ShapeDecoration(color: bg, shape: const StadiumBorder()),
-          alignment: Alignment.center,
-          child: Text(
-            '${date.day}',
-            style: dmSans(
-              15,
-              weight: isSelected ? FontWeight.w700 : FontWeight.w500,
-              height: 1,
-              color: fg,
+    // Days are drawn 42 pt; the touch target reaches into the gaps around
+    // them to make 44.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final slop = tapTargetSlop(
+          width: constraints.maxWidth,
+          height: constraints.maxHeight,
+        );
+        return ExpandedTapTarget(
+          extra: slop,
+          child: Opacity(
+            opacity: future ? 0.45 : 1,
+            child: Pressable(
+              onTap: future ? null : () => onSelect(date),
+              selected: isSelected,
+              child: Padding(
+                padding: slop,
+                child: Container(
+                  decoration: ShapeDecoration(
+                    color: bg,
+                    shape: const StadiumBorder(),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${date.day}',
+                    style: dmSans(
+                      15,
+                      weight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                      height: 1,
+                      color: fg,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

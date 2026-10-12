@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 15, Hardening and internal beta. **NOT STARTED**
+**Now:** v1 build complete up to the beta; waiting on accounts (Milestone 15 beta upload, 20). Final report: `final-build-report.md`.
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -20,7 +20,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 12 | Shop | DONE | `e749aa1` |
 | 13 | Settings, preferences and privacy | DONE | `24507d0` |
 | 14 | Local reminders | DONE | `0af1848` |
-| 15 | Hardening and internal beta | NOT STARTED | |
+| 15 | Hardening and internal beta | DONE (in-repo part) · BLOCKED (beta upload: needs your accounts) | (this commit) |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
 | 19 | Analytics | NOT STARTED: optional, recommended "not at launch" | |
 | 20 | Store release | NOT STARTED: needs your Apple/Google accounts | |
@@ -29,6 +29,14 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 15: Hardening and internal beta — DONE (in-repo) · BLOCKED (beta upload)
+- **What:** accessibility pass (44 pt targets everywhere, labels, contrast), small-phone and large-text pass, dark mode (every screen has dark goldens), crash reporting (off until a DSN), app icons and launch screens, obfuscated release builds.
+- **Fixes found by the new checks:** phase selector, chips, ×, switches, calendar targets under 44 pt; overflows at 320 pt / 1.5× in the Home header, recipe detail time line, Shop count and Settings values.
+- **Files added:** `lib/core/design/widgets/tap_target.dart`, `lib/core/crash/crash_reporting.dart`, `flutter_launcher_icons.yaml`, `flutter_native_splash.yaml`, generated icons and splash resources; tests `test/a11y/accessibility_test.dart` (36), `test/core/crash/crash_reporting_test.dart` (3). Totals: 361 tests plus 88 goldens, all passing.
+- **Devices:** prod release APK (R8, obfuscated) installed and run on the Android emulator: splash, new adaptive icon, onboarding. iOS release build (unsigned) compiles.
+- **Blocked:** TestFlight and Play closed testing (accounts, signing; `open-questions.md` 13); Sentry DSN (`open-questions.md` 12). **Not done:** Home-hero frame timing on a real phone and a manual VoiceOver/TalkBack pass; both need physical devices.
+- **Deviations:** 40–43.
 
 ## Milestone 14: Local reminders — DONE
 - **What:** phase-change and period reminders, planned and scheduled on the phone; the Notifications switches drive them; permission is asked when Reminders is turned on; Delete my data cancels them.

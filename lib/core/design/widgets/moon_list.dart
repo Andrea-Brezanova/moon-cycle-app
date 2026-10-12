@@ -75,7 +75,18 @@ class MoonListRow extends StatelessWidget {
             ),
             if (value != null) ...[
               const SizedBox(width: 14),
-              Text(value!, style: dmSans(16, height: 1.2, color: c.textMuted)),
+              // At most 40% of the row, so a large text size wraps the
+              // value instead of pushing the row off the screen.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.4,
+                ),
+                child: Text(
+                  value!,
+                  textAlign: TextAlign.right,
+                  style: dmSans(16, height: 1.2, color: c.textMuted),
+                ),
+              ),
             ],
             if (trailing != null) ...[
               const SizedBox(width: 14),
