@@ -5,7 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/app.dart';
 import 'package:moon_cycle/app/config/app_config.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
+
+import 'test_catalogue.dart';
 
 /// A fresh in-memory database, closed when the test ends.
 AppDatabase testDatabase() {
@@ -30,6 +33,7 @@ Future<ProviderContainer> pumpApp(
         ),
         appDatabaseProvider.overrideWithValue(database ?? testDatabase()),
         initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+        catalogueProvider.overrideWithValue(testCatalogue),
         ...overrides,
       ],
       child: const MoonCycleApp(),

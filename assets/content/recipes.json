@@ -1,0 +1,834 @@
+{
+ "recipes": [
+  {
+   "id": "miso-mushroom-kale-soup",
+   "title": "Miso Mushroom & Kale Soup",
+   "phase": "menstrual",
+   "category": "dinner",
+   "minutes": 30,
+   "serves": 2,
+   "intro": "A warming, mineral-rich broth with shiitake, kombu and kale.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "kombu",
+    "mushrooms",
+    "kale",
+    "miso",
+    "tamari",
+    "buckwheat",
+    "sesame-seeds"
+   ],
+   "ingredients": [
+    {
+     "label": "Kombu",
+     "food": "kombu",
+     "amount": 1,
+     "unit": "strip"
+    },
+    {
+     "label": "Shiitake mushrooms",
+     "food": "mushrooms",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Kale",
+     "food": "kale",
+     "amount": 2,
+     "unit": "handful"
+    },
+    {
+     "label": "White miso",
+     "food": "miso",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Tamari",
+     "food": "tamari",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Buckwheat noodles",
+     "food": "buckwheat",
+     "amount": 100,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "label": "Sesame seeds",
+     "food": "sesame-seeds",
+     "amount": 1,
+     "unit": "tsp"
+    }
+   ],
+   "steps": [
+    "Simmer kombu in 1 litre of water for 10 minutes, then remove.",
+    "Add sliced shiitake and simmer for 8 minutes.",
+    "Cook buckwheat noodles separately and rinse.",
+    "Stir in kale until wilted, then turn off the heat.",
+    "Dissolve miso and tamari in a ladle of broth and stir back in.",
+    "Serve over noodles, topped with sesame seeds."
+   ]
+  },
+  {
+   "id": "beet-adzuki-wild-rice-bowl",
+   "title": "Beet & Adzuki Wild Rice Bowl",
+   "phase": "menstrual",
+   "category": "lunch",
+   "minutes": 45,
+   "serves": 2,
+   "intro": "Earthy roasted beets, adzuki beans and wild rice with a tamari dressing.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "wild-rice",
+    "beets",
+    "adzuki-bean",
+    "kale",
+    "tamari",
+    "sesame-seeds",
+    "blueberry"
+   ],
+   "ingredients": [
+    {
+     "label": "Wild rice",
+     "food": "wild-rice",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Beets",
+     "food": "beets",
+     "amount": 2,
+     "unit": "piece"
+    },
+    {
+     "label": "Adzuki beans",
+     "food": "adzuki-bean",
+     "amount": 1,
+     "unit": "can"
+    },
+    {
+     "label": "Kale",
+     "food": "kale",
+     "amount": 1,
+     "unit": "handful"
+    },
+    {
+     "label": "Tamari",
+     "food": "tamari",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Sesame seeds",
+     "food": "sesame-seeds",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Blueberries",
+     "food": "blueberry",
+     "qtyText": "to serve"
+    }
+   ],
+   "steps": [
+    "Cook wild rice according to the packet.",
+    "Roast cubed beets at 200°C for 30 minutes.",
+    "Massage kale with a pinch of salt.",
+    "Warm the adzuki beans with tamari.",
+    "Assemble bowls and finish with sesame seeds and blueberries."
+   ]
+  },
+  {
+   "id": "blueberry-buckwheat-porridge",
+   "title": "Warm Blueberry Buckwheat Porridge",
+   "phase": "menstrual",
+   "category": "breakfast",
+   "minutes": 20,
+   "serves": 2,
+   "intro": "A cosy, iron-supporting breakfast with buckwheat, dark berries and seeds.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1517673400267-0251440c45dc",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "buckwheat",
+    "blueberry",
+    "blackberry",
+    "sesame-seeds",
+    "sunflower-seeds"
+   ],
+   "ingredients": [
+    {
+     "label": "Buckwheat groats",
+     "food": "buckwheat",
+     "amount": 100,
+     "unit": "g"
+    },
+    {
+     "label": "Plant milk",
+     "amount": 400,
+     "unit": "ml",
+     "aisle": "dairy-alternatives",
+     "allergens": [
+      "soy",
+      "tree-nut",
+      "gluten"
+     ]
+    },
+    {
+     "label": "Blueberries",
+     "food": "blueberry",
+     "amount": 1,
+     "unit": "handful"
+    },
+    {
+     "label": "Blackberries",
+     "food": "blackberry",
+     "amount": 1,
+     "unit": "handful"
+    },
+    {
+     "label": "Sesame seeds",
+     "food": "sesame-seeds",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Sunflower seeds",
+     "food": "sunflower-seeds",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Salt",
+     "amount": 1,
+     "unit": "pinch",
+     "aisle": "pantry"
+    }
+   ],
+   "steps": [
+    "Rinse buckwheat and simmer in plant milk with a pinch of salt for 15 minutes.",
+    "Stir in half of the berries and let them burst.",
+    "Top with remaining berries and toasted seeds."
+   ]
+  },
+  {
+   "id": "zesty-lentil-broccoli-bowl",
+   "title": "Zesty Lentil & Broccoli Bowl",
+   "phase": "follicular",
+   "category": "lunch",
+   "minutes": 25,
+   "serves": 2,
+   "intro": "Fresh green lentils, steamed broccoli and zucchini with lemon and parsley.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "green-lentil",
+    "broccoli",
+    "zucchini",
+    "lemon",
+    "parsley",
+    "pumpkin-seeds",
+    "sauerkraut"
+   ],
+   "ingredients": [
+    {
+     "label": "Green lentils",
+     "food": "green-lentil",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Broccoli",
+     "food": "broccoli",
+     "amount": 1,
+     "unit": "head"
+    },
+    {
+     "label": "Zucchini",
+     "food": "zucchini",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Lemon",
+     "food": "lemon",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Parsley",
+     "food": "parsley",
+     "amount": 1,
+     "unit": "bunch"
+    },
+    {
+     "label": "Pumpkin seeds",
+     "food": "pumpkin-seeds",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Olive oil",
+     "amount": 2,
+     "unit": "tbsp",
+     "aisle": "pantry"
+    },
+    {
+     "label": "Sauerkraut",
+     "food": "sauerkraut",
+     "qtyText": "to serve"
+    }
+   ],
+   "steps": [
+    "Simmer lentils for 20 minutes until tender, then drain.",
+    "Lightly steam broccoli florets and sliced zucchini for 4 minutes.",
+    "Whisk lemon juice, olive oil and chopped parsley.",
+    "Toss everything together and top with pumpkin seeds and sauerkraut."
+   ]
+  },
+  {
+   "id": "citrus-oat-breakfast-bowl",
+   "title": "Citrus Oat Breakfast Bowl",
+   "phase": "follicular",
+   "category": "breakfast",
+   "minutes": 10,
+   "serves": 1,
+   "intro": "Creamy oats with orange, pomegranate and cashew butter.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "oat",
+    "flaxseeds",
+    "orange",
+    "pomegranate",
+    "nut-butter",
+    "cashew"
+   ],
+   "ingredients": [
+    {
+     "label": "Rolled oats",
+     "food": "oat",
+     "amount": 50,
+     "unit": "g"
+    },
+    {
+     "label": "Flaxseeds",
+     "food": "flaxseeds",
+     "amount": 1,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Orange",
+     "food": "orange",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Pomegranate seeds",
+     "food": "pomegranate",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Cashew butter",
+     "food": "nut-butter",
+     "amount": 1,
+     "unit": "tbsp"
+    }
+   ],
+   "steps": [
+    "Cook oats with water or plant milk for 5 minutes.",
+    "Stir in ground flaxseeds.",
+    "Top with orange segments, pomegranate and cashew butter."
+   ]
+  },
+  {
+   "id": "lemon-herb-chicken-artichoke",
+   "title": "Lemon Herb Chicken with Artichoke & Peas",
+   "phase": "follicular",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "intro": "Light, bright chicken with artichoke hearts, green peas and barley.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1532550907401-a500c9a57435",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "chicken",
+    "artichoke",
+    "green-pea",
+    "lemon",
+    "parsley",
+    "barley"
+   ],
+   "ingredients": [
+    {
+     "label": "Chicken breasts",
+     "food": "chicken",
+     "amount": 2,
+     "unit": "breast"
+    },
+    {
+     "label": "Artichoke hearts",
+     "food": "artichoke",
+     "amount": 1,
+     "unit": "jar"
+    },
+    {
+     "label": "Green peas",
+     "food": "green-pea",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Lemon",
+     "food": "lemon",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Parsley",
+     "food": "parsley",
+     "amount": 1,
+     "unit": "bunch"
+    },
+    {
+     "label": "Pearl barley",
+     "food": "barley",
+     "amount": 120,
+     "unit": "g"
+    },
+    {
+     "label": "Olive oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "aisle": "pantry"
+    }
+   ],
+   "steps": [
+    "Simmer barley for 25 minutes until tender.",
+    "Season chicken with lemon zest, salt and oil; pan-fry 6 minutes per side.",
+    "Add artichokes and peas to the pan for the last 3 minutes.",
+    "Finish with lemon juice and chopped parsley; serve over barley."
+   ]
+  },
+  {
+   "id": "quinoa-salmon-bowl",
+   "title": "Quinoa Salmon Power Bowl",
+   "phase": "ovulatory",
+   "category": "dinner",
+   "minutes": 25,
+   "serves": 2,
+   "intro": "Seared salmon, quinoa, spinach, red pepper and asparagus.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1611599537845-1c7aca0091c0",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "salmon",
+    "quinoa",
+    "spinach",
+    "red-bell-pepper",
+    "asparagus",
+    "almond",
+    "turmeric"
+   ],
+   "ingredients": [
+    {
+     "label": "Salmon fillets",
+     "food": "salmon",
+     "amount": 2,
+     "unit": "fillet"
+    },
+    {
+     "label": "Quinoa",
+     "food": "quinoa",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Spinach",
+     "food": "spinach",
+     "amount": 2,
+     "unit": "handful"
+    },
+    {
+     "label": "Red bell pepper",
+     "food": "red-bell-pepper",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Asparagus",
+     "food": "asparagus",
+     "amount": 1,
+     "unit": "bunch"
+    },
+    {
+     "label": "Almonds",
+     "food": "almond",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Turmeric",
+     "food": "turmeric",
+     "amount": 1,
+     "unit": "tsp"
+    }
+   ],
+   "steps": [
+    "Rinse and cook quinoa for 15 minutes.",
+    "Season salmon with turmeric and sear 4 minutes per side.",
+    "Quickly grill asparagus and sliced pepper.",
+    "Serve on spinach with quinoa and chopped almonds."
+   ]
+  },
+  {
+   "id": "berry-coconut-amaranth",
+   "title": "Berry Coconut Amaranth Porridge",
+   "phase": "ovulatory",
+   "category": "breakfast",
+   "minutes": 25,
+   "serves": 2,
+   "intro": "Light coconut amaranth with strawberries, raspberries and pistachios.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "amaranth",
+    "coconut",
+    "strawberry",
+    "raspberry",
+    "pistachio",
+    "chocolate"
+   ],
+   "ingredients": [
+    {
+     "label": "Amaranth",
+     "food": "amaranth",
+     "amount": 100,
+     "unit": "g"
+    },
+    {
+     "label": "Coconut milk",
+     "food": "coconut",
+     "amount": 250,
+     "unit": "ml"
+    },
+    {
+     "label": "Strawberries",
+     "food": "strawberry",
+     "amount": 1,
+     "unit": "handful"
+    },
+    {
+     "label": "Raspberries",
+     "food": "raspberry",
+     "amount": 1,
+     "unit": "handful"
+    },
+    {
+     "label": "Pistachios",
+     "food": "pistachio",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Dark chocolate",
+     "food": "chocolate"
+    }
+   ],
+   "steps": [
+    "Simmer amaranth in coconut milk and water for 20 minutes.",
+    "Stir until creamy.",
+    "Top with berries, chopped pistachios and chocolate."
+   ]
+  },
+  {
+   "id": "red-lentil-spinach-dal",
+   "title": "Red Lentil, Spinach & Tomato Dal",
+   "phase": "ovulatory",
+   "category": "lunch",
+   "minutes": 25,
+   "serves": 3,
+   "intro": "A quick, fibre-rich dal with turmeric, tomato and wilted spinach.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "red-lentil",
+    "spinach",
+    "tomato",
+    "turmeric",
+    "coconut",
+    "scallion"
+   ],
+   "ingredients": [
+    {
+     "label": "Red lentils",
+     "food": "red-lentil",
+     "amount": 200,
+     "unit": "g"
+    },
+    {
+     "label": "Tomatoes",
+     "food": "tomato",
+     "amount": 2,
+     "unit": "piece"
+    },
+    {
+     "label": "Spinach",
+     "food": "spinach",
+     "amount": 2,
+     "unit": "handful"
+    },
+    {
+     "label": "Turmeric",
+     "food": "turmeric",
+     "amount": 1,
+     "unit": "tsp"
+    },
+    {
+     "label": "Coconut milk",
+     "food": "coconut",
+     "amount": 200,
+     "unit": "ml"
+    },
+    {
+     "label": "Scallions",
+     "food": "scallion",
+     "amount": 2,
+     "unit": "piece"
+    }
+   ],
+   "steps": [
+    "Rinse lentils and simmer with turmeric and chopped tomatoes for 15 minutes.",
+    "Stir in coconut milk and cook 5 more minutes.",
+    "Fold in spinach until wilted and top with sliced scallions."
+   ]
+  },
+  {
+   "id": "sweet-potato-chickpea-tray",
+   "title": "Roasted Sweet Potato & Chickpea Tray",
+   "phase": "luteal",
+   "category": "dinner",
+   "minutes": 40,
+   "serves": 2,
+   "intro": "Grounding roasted sweet potato, cauliflower and chickpeas on brown rice.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "sweet-potato",
+    "cauliflower",
+    "chickpea",
+    "garlic",
+    "sesame-seeds",
+    "brown-rice",
+    "watercress"
+   ],
+   "ingredients": [
+    {
+     "label": "Sweet potatoes",
+     "food": "sweet-potato",
+     "amount": 2,
+     "unit": "piece"
+    },
+    {
+     "label": "Cauliflower",
+     "food": "cauliflower",
+     "amount": 0.5,
+     "unit": "piece"
+    },
+    {
+     "label": "Chickpeas",
+     "food": "chickpea",
+     "amount": 1,
+     "unit": "can"
+    },
+    {
+     "label": "Garlic",
+     "food": "garlic",
+     "amount": 3,
+     "unit": "clove"
+    },
+    {
+     "label": "Tahini",
+     "food": "sesame-seeds",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Brown rice",
+     "food": "brown-rice",
+     "amount": 150,
+     "unit": "g"
+    },
+    {
+     "label": "Watercress",
+     "food": "watercress",
+     "amount": 1,
+     "unit": "handful"
+    }
+   ],
+   "steps": [
+    "Heat oven to 200°C.",
+    "Toss cubed sweet potato, cauliflower, chickpeas and garlic with oil and salt.",
+    "Roast for 30 minutes, turning once.",
+    "Cook brown rice meanwhile.",
+    "Serve with watercress and a tahini drizzle."
+   ]
+  },
+  {
+   "id": "ginger-pumpkin-soup",
+   "title": "Ginger Pumpkin Soup",
+   "phase": "luteal",
+   "category": "lunch",
+   "minutes": 35,
+   "serves": 3,
+   "intro": "Velvety pumpkin and leek soup with fresh ginger and toasted seeds.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "pumpkin",
+    "leek",
+    "onion",
+    "ginger",
+    "sunflower-seeds"
+   ],
+   "ingredients": [
+    {
+     "label": "Pumpkin",
+     "food": "pumpkin",
+     "amount": 600,
+     "unit": "g"
+    },
+    {
+     "label": "Leek",
+     "food": "leek",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Onion",
+     "food": "onion",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Ginger",
+     "food": "ginger",
+     "amount": 1,
+     "unit": "thumb"
+    },
+    {
+     "label": "Vegetable stock",
+     "amount": 750,
+     "unit": "ml",
+     "aisle": "pantry",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "label": "Sunflower seeds",
+     "food": "sunflower-seeds",
+     "amount": 2,
+     "unit": "tbsp"
+    }
+   ],
+   "steps": [
+    "Sauté onion, leek and ginger for 5 minutes.",
+    "Add cubed pumpkin and stock, simmer 20 minutes.",
+    "Blend until smooth and season.",
+    "Top with toasted sunflower seeds."
+   ]
+  },
+  {
+   "id": "baked-apple-pear-millet",
+   "title": "Baked Apple & Pear Millet Bowl",
+   "phase": "luteal",
+   "category": "breakfast",
+   "minutes": 30,
+   "serves": 2,
+   "intro": "Grounding warm millet with baked fruit, walnuts and dates to steady cravings.",
+   "image": {
+    "url": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
+    "licence": "Unsplash License"
+   },
+   "keyFoods": [
+    "millet",
+    "apple",
+    "pear",
+    "walnut",
+    "date"
+   ],
+   "ingredients": [
+    {
+     "label": "Millet",
+     "food": "millet",
+     "amount": 100,
+     "unit": "g"
+    },
+    {
+     "label": "Apple",
+     "food": "apple",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Pear",
+     "food": "pear",
+     "amount": 1,
+     "unit": "piece"
+    },
+    {
+     "label": "Walnuts",
+     "food": "walnut",
+     "amount": 2,
+     "unit": "tbsp"
+    },
+    {
+     "label": "Dates",
+     "food": "date",
+     "amount": 2,
+     "unit": "piece"
+    },
+    {
+     "label": "Cinnamon",
+     "amount": 1,
+     "unit": "tsp",
+     "aisle": "pantry"
+    }
+   ],
+   "steps": [
+    "Toast millet in a dry pan, then simmer in 300 ml water for 20 minutes.",
+    "Bake sliced apple and pear with cinnamon at 190°C for 15 minutes.",
+    "Serve millet topped with baked fruit, chopped dates and walnuts."
+   ]
+  }
+ ]
+}

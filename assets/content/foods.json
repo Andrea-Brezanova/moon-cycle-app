@@ -1,0 +1,2816 @@
+{
+ "foods": [
+  {
+   "id": "buckwheat",
+   "name": "Buckwheat (kasha)",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "kasha"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "A gluten-free seed cooked like a grain, with fibre, magnesium and a warm, nutty flavour.",
+     "detail": "Buckwheat isn't related to wheat and is naturally gluten-free. It provides fibre, magnesium, manganese and copper, and it makes a comforting porridge or pilaf. Kasha is toasted buckwheat."
+    }
+   }
+  },
+  {
+   "id": "wild-rice",
+   "name": "Wild rice",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "A whole grain with a little more protein than regular rice, plus fibre and zinc.",
+     "detail": "Wild rice is the seed of an aquatic grass. Compared with white rice it provides more protein, fibre, zinc and B vitamins. It's naturally gluten-free and suits warm bowls and soups."
+    }
+   }
+  },
+  {
+   "id": "beets",
+   "name": "Beets",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "beetroot",
+    "beet"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Earthy beets provide folate and fibre, plus natural nitrates.",
+     "detail": "Beets are a source of folate and manganese and provide fibre and potassium. They contain natural nitrates; studies mostly using beetroot juice show modest short-term drops in blood pressure. Pink urine after eating beets is harmless."
+    }
+   }
+  },
+  {
+   "id": "burdock",
+   "name": "Burdock",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Burdock root (gobo) adds earthy crunch and fibre to slow-cooked dishes.",
+     "detail": "Burdock root is a vegetable widely used in Japanese cooking. It provides fibre, including inulin, plus potassium and some magnesium. Scrub, slice thinly and cook it in soups or braises."
+    }
+   }
+  },
+  {
+   "id": "dulse",
+   "name": "Dulse",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Iodine varies, so use small amounts"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A soft red seaweed that adds a savoury, salty note and provides iodine.",
+     "detail": "Dulse provides iodine, which contributes to normal thyroid function, along with potassium and some iron. Seaweed iodine varies a lot, so a sprinkle is plenty. People with thyroid conditions should check with their doctor."
+    }
+   }
+  },
+  {
+   "id": "hijiki",
+   "name": "Hijiki",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": false,
+   "cautions": [
+    "High in inorganic arsenic"
+   ],
+   "why": {}
+  },
+  {
+   "id": "kale",
+   "name": "Kale",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Kale provides vitamin K, vitamin C and calcium your body absorbs well.",
+     "detail": "Kale is a source of vitamins K, C and A, and its calcium is well absorbed compared with high-oxalate greens like spinach. It also contains some iron; pair it with vitamin C-rich foods to help absorb it."
+    }
+   }
+  },
+  {
+   "id": "kelp",
+   "name": "Kelp",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Can exceed the safe iodine limit",
+    "Thyroid conditions: check with a doctor"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A seaweed used in small amounts for savoury depth. A very rich source of iodine.",
+     "detail": "Kelp provides iodine, which contributes to normal thyroid function, but its content is extremely high and variable. Regularly eating kelp can exceed safe iodine limits. Use it sparingly, and avoid kelp supplements unless advised."
+    }
+   }
+  },
+  {
+   "id": "kombu",
+   "name": "Kombu",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Can exceed the safe iodine limit",
+    "Thyroid conditions: check with a doctor"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Kombu gives broths deep, savoury flavour. Use a small piece, as it's very rich in iodine.",
+     "detail": "Kombu is the base of dashi broth. It's the most iodine-rich common seaweed, and its content varies widely. One piece for a pot of broth is the usual use; eating large amounts regularly can exceed safe iodine intake."
+    }
+   }
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms (button, shiitake)",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "mushroom",
+    "shiitake"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Mushrooms add savoury depth, B vitamins and selenium to soups and stews.",
+     "detail": "Mushrooms provide riboflavin, niacin, selenium, copper and potassium. UV-exposed mushrooms can also provide vitamin D. They're not a notable source of iron, despite sometimes being described as mineral-rich."
+    }
+   }
+  },
+  {
+   "id": "wakame",
+   "name": "Wakame",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Iodine: normal portions"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A tender seaweed for miso soup and salads that provides iodine and folate.",
+     "detail": "Wakame provides iodine, folate, magnesium and some calcium. Its iodine is lower than kelp or kombu but still varies, so normal portions in soup or salad are the way to enjoy it."
+    }
+   }
+  },
+  {
+   "id": "water-chestnut",
+   "name": "Water chestnut",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Crunchy water chestnuts add texture, fibre and potassium to warm dishes.",
+     "detail": "Chinese water chestnuts are low in energy and provide fibre, potassium and some B6. They stay crisp even when cooked, which makes them great in stir-fries and broths."
+    }
+   }
+  },
+  {
+   "id": "blackberry",
+   "name": "Blackberry",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Blackberries provide plenty of fibre, plus vitamin C and vitamin K.",
+     "detail": "Blackberries are among the most fibre-rich fruits, and they provide vitamin C, vitamin K and manganese, along with anthocyanins. Vitamin C in the same meal helps you absorb iron from plant foods."
+    }
+   }
+  },
+  {
+   "id": "blueberry",
+   "name": "Blueberry",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Blueberries add sweetness, fibre and anthocyanins to warm porridge.",
+     "detail": "Blueberries provide fibre, vitamin K, vitamin C and manganese, and they get their colour from anthocyanins. Much of the research on blueberries and health is promising but still developing, so Moon Cycle keeps to what they provide."
+    }
+   }
+  },
+  {
+   "id": "concord-grape",
+   "name": "Concord grape",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Deep-purple Concord grapes provide polyphenols and natural sweetness.",
+     "detail": "Concord grapes provide vitamin K, some vitamin C and polyphenols, including anthocyanins, in their dark skins. Enjoy them whole; grape juice keeps the sugar and loses most of the fibre."
+    }
+   }
+  },
+  {
+   "id": "watermelon",
+   "name": "Watermelon",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Juicy and hydrating, watermelon provides vitamin C and lycopene.",
+     "detail": "Watermelon is over 90% water and provides vitamin C, vitamin A (from beta-carotene) and lycopene, the pigment that makes it red."
+    }
+   }
+  },
+  {
+   "id": "adzuki-bean",
+   "name": "Adzuki bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Small red beans that provide plant protein, fibre, folate and iron.",
+     "detail": "Adzuki beans provide plant protein, fibre, folate, potassium and iron. Plant iron is absorbed less well than iron from meat or fish, so add vitamin C-rich foods to the meal."
+    }
+   }
+  },
+  {
+   "id": "black-soybean",
+   "name": "Black soybean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "soy"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Soy allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Black soybeans provide complete plant protein, fibre and iron.",
+     "detail": "Soybeans contain all essential amino acids, and black soybeans also provide fibre, iron, magnesium and folate. Soy isoflavones are often discussed in relation to hormones; human evidence on cycle effects is mixed, so Moon Cycle doesn't make that claim."
+    }
+   }
+  },
+  {
+   "id": "black-turtle-bean",
+   "name": "Black turtle bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Black beans provide plant protein, fibre, folate and iron. Perfect in stews.",
+     "detail": "Black turtle beans provide plant protein, plenty of fibre, folate, magnesium and iron. Pair them with tomatoes, peppers or citrus for vitamin C, which helps you absorb the iron."
+    }
+   }
+  },
+  {
+   "id": "kidney-bean",
+   "name": "Kidney bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Dried beans: boil hard for 10 minutes; don't slow-cook from raw"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Kidney beans provide plant protein, fibre and iron. Ideal in slow-cooked stews.",
+     "detail": "Kidney beans provide plant protein, fibre, folate, potassium and iron. Dried kidney beans must be soaked and boiled hard for at least 10 minutes before slow cooking, because undercooked beans contain a natural toxin. Canned beans are already cooked."
+    }
+   }
+  },
+  {
+   "id": "chestnut",
+   "name": "Chestnut",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Sweet, starchy chestnuts are low in fat and provide fibre and vitamin C.",
+     "detail": "Unlike most nuts, chestnuts are mostly starch and very low in fat. They provide fibre, vitamin C, potassium and copper. Roasted chestnuts make a warming snack or addition to stews."
+    }
+   }
+  },
+  {
+   "id": "sesame-seeds",
+   "name": "Sesame seeds",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "sesame"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Sesame allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Sesame seeds add nutty crunch, plus calcium, iron and copper.",
+     "detail": "Whole sesame seeds and tahini provide calcium, iron, copper, magnesium and zinc. A tablespoon adds a useful amount of iron to a plant-based meal. Sesame is a major allergen."
+    },
+    "luteal": {
+     "short": "Sesame seeds add nutty crunch, plus calcium, iron and copper.",
+     "detail": "Whole sesame seeds and tahini provide calcium, iron, copper, magnesium and zinc. Sesame is a major allergen."
+    }
+   }
+  },
+  {
+   "id": "sunflower-seeds",
+   "name": "Sunflower seeds",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Sunflower seeds provide vitamin E, selenium and magnesium.",
+     "detail": "A small handful of sunflower seeds provides most of your daily vitamin E, which helps protect cells from oxidative stress, plus selenium, magnesium and folate. Choose unsalted seeds."
+    },
+    "luteal": {
+     "short": "Sunflower seeds provide vitamin E, selenium and magnesium.",
+     "detail": "A small handful of sunflower seeds provides most of your daily vitamin E, which helps protect cells from oxidative stress, plus selenium, magnesium and folate. Choose unsalted."
+    }
+   }
+  },
+  {
+   "id": "duck",
+   "name": "Duck",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Duck provides protein and well-absorbed (haem) iron, plus B vitamins.",
+     "detail": "Duck meat provides protein, haem iron (the form your body absorbs most easily), zinc, selenium and B vitamins. Most of the fat is in the skin, so remove it for a leaner dish."
+    }
+   }
+  },
+  {
+   "id": "pork",
+   "name": "Pork",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "menstrual": {
+     "short": "Lean pork provides protein, thiamin (vitamin B1), selenium and zinc.",
+     "detail": "Lean, unprocessed pork is a source of protein and is especially rich in thiamin, which contributes to normal energy-yielding metabolism. It also provides selenium, zinc and some iron. Processed pork like bacon, ham and sausages is best eaten rarely."
+    }
+   }
+  },
+  {
+   "id": "catfish",
+   "name": "Catfish",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A mild, lean fish that provides protein and vitamin B12, and it's low in mercury.",
+     "detail": "Catfish provides lean protein, vitamin B12, phosphorus and selenium, and it's on the FDA/EPA list of fish lowest in mercury. Farmed catfish also provides some vitamin D."
+    }
+   }
+  },
+  {
+   "id": "clam",
+   "name": "Clam",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Cook thoroughly",
+    "Mollusc allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Clams provide iron and are one of the richest sources of vitamin B12.",
+     "detail": "Clams provide iron, a very large amount of vitamin B12, selenium and lean protein. Vitamin B12 and iron both contribute to normal red blood cell formation. Cook clams thoroughly, and discard any that don't open."
+    }
+   }
+  },
+  {
+   "id": "crab",
+   "name": "Crab",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Crustacean allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Crab provides lean protein, vitamin B12, zinc and selenium.",
+     "detail": "Crab meat provides protein, vitamin B12, zinc, copper and selenium. Zinc contributes to normal immune function. Crab is a crustacean, a major allergen group."
+    }
+   }
+  },
+  {
+   "id": "lobster",
+   "name": "Lobster",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Crustacean allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Lobster provides lean protein, copper, zinc and selenium.",
+     "detail": "Lobster provides lean protein, copper, zinc, selenium and vitamin B12. It sits in the FDA/EPA “good choice” group for mercury, so it's fine for most people once or twice a week."
+    }
+   }
+  },
+  {
+   "id": "mussel",
+   "name": "Mussel",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Cook thoroughly",
+    "Mollusc allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Mussels provide iron, vitamin B12, selenium and some omega-3 fats.",
+     "detail": "Mussels are a good source of iron and a very rich source of vitamin B12, along with manganese, selenium and some omega-3 fats. They're also low in mercury. Cook them through and discard any that stay closed."
+    }
+   }
+  },
+  {
+   "id": "octopus",
+   "name": "Octopus",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Mollusc allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Octopus provides lean protein, iron, vitamin B12 and selenium.",
+     "detail": "Cooked octopus provides lean protein, iron, a lot of vitamin B12, selenium and copper. Slow braising makes it tender, which suits this phase's slow-cooked style."
+    }
+   }
+  },
+  {
+   "id": "oyster",
+   "name": "Oyster",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Mollusc allergen",
+    "Raw oysters: food-safety risk"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Oysters are exceptionally rich in zinc and provide iron and vitamin B12.",
+     "detail": "Oysters provide more zinc than any other common food, plus iron, vitamin B12, copper and selenium. Raw oysters carry a food-safety risk; cook them if you're pregnant or have a weakened immune system."
+    }
+   }
+  },
+  {
+   "id": "sardine",
+   "name": "Sardine",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Sardines provide omega-3 fats, vitamin D and, with their soft bones, calcium.",
+     "detail": "Sardines are an oily fish that provides EPA and DHA (which contribute to normal heart function at about 250 mg a day), vitamin D, vitamin B12 and calcium from the edible bones. They're among the lowest-mercury fish."
+    }
+   }
+  },
+  {
+   "id": "scallop",
+   "name": "Scallop",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Mollusc allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Scallops provide lean protein, vitamin B12 and selenium.",
+     "detail": "Scallops are a very lean protein that provides vitamin B12, selenium, phosphorus and zinc. They cook in a couple of minutes."
+    }
+   }
+  },
+  {
+   "id": "squid",
+   "name": "Squid",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Mollusc allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Squid provides lean protein, copper, selenium and vitamin B12.",
+     "detail": "Squid provides lean protein, copper, selenium, vitamin B12 and riboflavin. Grilled or stewed squid keeps it light; deep-fried calamari adds a lot of fat."
+    }
+   }
+  },
+  {
+   "id": "bancha-tea",
+   "name": "Bancha tea",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Reduces plant-iron absorption with meals"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A gentle, low-caffeine Japanese green tea. Best enjoyed between meals.",
+     "detail": "Bancha is a green tea made from later-harvest leaves and is naturally lower in caffeine. Like other teas, its polyphenols reduce absorption of plant iron when drunk with a meal, so in this iron-focused phase enjoy it between meals."
+    }
+   }
+  },
+  {
+   "id": "decaf-coffee",
+   "name": "Decaf coffee",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Reduces plant-iron absorption with meals"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A low-caffeine comfort drink. Best enjoyed between meals, not with them.",
+     "detail": "Decaf keeps coffee's flavour with very little caffeine. Its polyphenols still reduce plant-iron absorption when drunk with food, so have it between meals during this phase."
+    }
+   }
+  },
+  {
+   "id": "miso",
+   "name": "Miso",
+   "aisle": "fermented",
+   "animalSource": "none",
+   "allergens": [
+    "gluten",
+    "soy"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in salt",
+    "Soy allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "Miso adds deep, savoury flavour to soups. A little goes a long way.",
+     "detail": "Miso is fermented soybean paste. Unpasteurised miso contains live cultures if it isn't boiled, but it's high in salt, so a spoonful per bowl is plenty."
+    }
+   }
+  },
+  {
+   "id": "salt",
+   "name": "Salt",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": false,
+   "cautions": [],
+   "why": {}
+  },
+  {
+   "id": "tamari",
+   "name": "Tamari",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "gluten",
+    "soy"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Check gluten-free label",
+    "High in salt",
+    "Soy allergen"
+   ],
+   "why": {
+    "menstrual": {
+     "short": "A rich, savoury soy sauce, usually wheat-free. Use a splash for depth.",
+     "detail": "Tamari is a Japanese soy sauce that's usually made without wheat; check the label if you avoid gluten. Like all soy sauces it's high in salt, so a splash is plenty."
+    }
+   }
+  },
+  {
+   "id": "barley",
+   "name": "Barley",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [
+    "gluten"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Contains gluten"
+   ],
+   "why": {
+    "follicular": {
+     "short": "A chewy whole grain that provides fibre, including beta-glucan. A great base for fresh grain bowls.",
+     "detail": "Barley is a source of fibre, including beta-glucan, a soluble fibre. Eating about 3 g of barley beta-glucan a day helps maintain normal blood cholesterol levels. Barley also provides manganese and selenium."
+    }
+   }
+  },
+  {
+   "id": "oat",
+   "name": "Oat",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [
+    "gluten"
+   ],
+   "synonyms": [
+    "oats",
+    "rolled oats"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Gluten-free only if certified"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Oats provide beta-glucan, a soluble fibre, plus whole-grain carbohydrate for an easy breakfast.",
+     "detail": "Oat beta-glucan helps maintain normal blood cholesterol at about 3 g a day, and it can reduce the rise in blood sugar after a meal. Oats also provide manganese, phosphorus and some plant protein. Rolled or steel-cut oats are a better everyday choice than sweetened instant versions."
+    }
+   }
+  },
+  {
+   "id": "rye",
+   "name": "Rye",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [
+    "gluten"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Contains gluten"
+   ],
+   "why": {
+    "follicular": {
+     "short": "A whole grain with plenty of fibre. Try rye bread with fresh toppings.",
+     "detail": "Rye fibre contributes to normal bowel function, which is an authorised EU health claim. Whole-grain rye also provides magnesium, phosphorus and B vitamins."
+    }
+   }
+  },
+  {
+   "id": "wheat",
+   "name": "Wheat",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [
+    "gluten"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Contains gluten"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Choose whole wheat for fibre and B vitamins in breads, pasta and grain salads.",
+     "detail": "Whole-grain wheat keeps the bran and germ, which provide fibre, B vitamins, iron and magnesium. Wheat bran fibre contributes to faecal bulk. Refined white flour provides much less fibre."
+    }
+   }
+  },
+  {
+   "id": "artichoke",
+   "name": "Artichoke",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "One of the more fibre-rich vegetables, including inulin, a fibre your gut bacteria can use.",
+     "detail": "Artichokes provide fibre, folate, vitamin K and magnesium. Part of their fibre is inulin, which gut bacteria ferment. Eating plenty of fibre from varied plants is one of the best-supported ways to look after your gut."
+    }
+   }
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Broccoli provides vitamin C, vitamin K and fibre, and it's lovely lightly steamed.",
+     "detail": "An 80 g portion of broccoli provides most of an adult's daily vitamin C, plus vitamin K, folate and fibre. Like other cruciferous vegetables it contains glucosinolates. Some cycle-syncing sources say these help the body process estrogen; human evidence is limited, so Moon Cycle doesn't make that claim."
+    }
+   }
+  },
+  {
+   "id": "carrot",
+   "name": "Carrot",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Carrots provide beta-carotene, which your body turns into vitamin A.",
+     "detail": "Vitamin A contributes to normal vision, skin and immune function. Carrots also add fibre and crunch to fresh salads, and a little fat in the meal helps you absorb the beta-carotene."
+    }
+   }
+  },
+  {
+   "id": "lettuce",
+   "name": "Lettuce (Bibb, Boston, romaine)",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Crisp and hydrating, with vitamin K. An easy base for fresh salads.",
+     "detail": "Lettuce is mostly water and very low in energy. Romaine and butterhead (Bibb, Boston) provide vitamin K, folate and vitamin A; darker leaves generally provide more than pale ones."
+    }
+   }
+  },
+  {
+   "id": "parsley",
+   "name": "Parsley",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "follicular": {
+     "short": "A handful of parsley adds fresh flavour, vitamin C and lots of vitamin K.",
+     "detail": "Parsley is very rich in vitamin K and also provides vitamin C and folate. Vitamin K contributes to normal blood clotting, so if you take warfarin, keep your intake consistent."
+    }
+   }
+  },
+  {
+   "id": "green-pea",
+   "name": "Green pea",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "peas",
+    "pea"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Sweet green peas provide plant protein, fibre, vitamin C and folate.",
+     "detail": "Green peas are higher in protein than most vegetables and provide fibre, vitamin C, vitamin K, folate and thiamin. Frozen peas are just as nutritious as fresh, and they're quick to add to sautés."
+    }
+   }
+  },
+  {
+   "id": "rhubarb",
+   "name": "Rhubarb",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in oxalate",
+    "Leaves are poisonous: stalks only"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Tart rhubarb stalks add fibre and vitamin K. Lovely gently stewed.",
+     "detail": "Rhubarb stalks are low in energy and provide vitamin K, fibre and some calcium, though oxalates limit how much calcium you absorb. Only eat the stalks, because the leaves are poisonous. It's usually cooked with sugar, so go easy on the sweetening."
+    }
+   }
+  },
+  {
+   "id": "string-bean",
+   "name": "String bean",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "green bean",
+    "green beans"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Green beans provide vitamin K and fibre, with some vitamin C. They cook in minutes.",
+     "detail": "String beans (green beans) are a source of vitamin K and provide fibre, folate and a little vitamin C. Quick steaming or sautéing keeps them bright and crisp."
+    }
+   }
+  },
+  {
+   "id": "zucchini",
+   "name": "Zucchini",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "courgette"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Light and hydrating, with vitamin C. Perfect for quick sautés.",
+     "detail": "Zucchini is mostly water and low in energy, and it provides vitamin C with some potassium and vitamin B6. It cooks in minutes, which suits this phase's light cooking style."
+    }
+   }
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Creamy avocado provides fibre, potassium and mostly unsaturated fats.",
+     "detail": "Half an avocado provides several grams of fibre, plus folate, vitamin K and vitamin E. Its fat is mostly monounsaturated, and replacing saturated fats with unsaturated ones helps maintain normal blood cholesterol."
+    }
+   }
+  },
+  {
+   "id": "grapefruit",
+   "name": "Grapefruit",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Can interact with some medicines"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Juicy and tart, grapefruit is a source of vitamin C.",
+     "detail": "Half a grapefruit provides around half of your daily vitamin C, along with some fibre. Grapefruit can interact with a number of medicines, including some statins and blood-pressure drugs. If you take regular medication, check with your pharmacist."
+    }
+   }
+  },
+  {
+   "id": "lemon",
+   "name": "Lemon",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "lemons"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Lemon adds vitamin C and brightness, and vitamin C helps your body absorb iron from plant foods.",
+     "detail": "Vitamin C increases iron absorption, which is an authorised EU health claim. That makes lemon a smart partner for lentils, beans and whole grains. A squeeze also lifts salads and quick sautés without heavy sauces."
+    }
+   }
+  },
+  {
+   "id": "lime",
+   "name": "Lime",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "limes"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Lime adds zesty flavour and a little vitamin C, which helps you absorb iron from plant foods.",
+     "detail": "Lime juice provides some vitamin C, and vitamin C increases iron absorption from plant foods like beans and lentils. It adds flavour to fresh dishes without much salt or sugar."
+    }
+   }
+  },
+  {
+   "id": "orange",
+   "name": "Orange",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "One orange provides most of your daily vitamin C, plus fibre and folate.",
+     "detail": "A medium orange provides most of an adult's daily vitamin C. Vitamin C contributes to normal immune function and increases iron absorption. Whole oranges also provide fibre and folate, which juice largely lacks."
+    }
+   }
+  },
+  {
+   "id": "plum",
+   "name": "Plum",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Sweet and juicy, plums contain fibre and polyphenols.",
+     "detail": "Fresh plums provide some fibre, vitamin C and vitamin K, along with polyphenols. Dried plums (prunes) are much more concentrated, and eating about 100 g of prunes a day contributes to normal bowel function."
+    }
+   }
+  },
+  {
+   "id": "pomegranate",
+   "name": "Pomegranate",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Pomegranate seeds add crunch, fibre and polyphenols to bowls and breakfasts.",
+     "detail": "Pomegranate seeds provide fibre, vitamin K and some vitamin C and folate, along with polyphenols. Most research on pomegranate's health effects uses juice or extracts, so Moon Cycle keeps to what the fruit provides."
+    }
+   }
+  },
+  {
+   "id": "sour-cherry",
+   "name": "Sour cherry",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Tart cherries get their deep colour from anthocyanins, a type of polyphenol.",
+     "detail": "Sour (tart) cherries contain anthocyanins and some vitamin C and vitamin A. Studies on tart cherry juice for sleep or exercise recovery are small and mixed, so Moon Cycle doesn't make those claims."
+    }
+   }
+  },
+  {
+   "id": "black-eyed-pea",
+   "name": "Black-eyed pea",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "black-eyed peas"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Black-eyed peas provide plant protein, fibre and plenty of folate.",
+     "detail": "A cooked portion of black-eyed peas provides plant protein, fibre and a large share of your daily folate, plus iron and potassium. Folate contributes to normal blood formation."
+    }
+   }
+  },
+  {
+   "id": "green-lentil",
+   "name": "Green lentil",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Lentils provide plant protein, fibre, folate and iron. Add lemon to help absorb the iron.",
+     "detail": "Green lentils are a source of plant protein, fibre, folate and iron, and they hold their shape well in salads. Iron from plants is absorbed less well than iron from meat, and vitamin C in the same meal helps."
+    }
+   }
+  },
+  {
+   "id": "lima-bean",
+   "name": "Lima bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Always cook thoroughly"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Lima beans provide plant protein, fibre and potassium.",
+     "detail": "Cooked lima beans provide plant protein, fibre, potassium, iron and folate. Potassium contributes to normal blood pressure. Always cook lima beans thoroughly; raw ones contain natural compounds that cooking breaks down."
+    }
+   }
+  },
+  {
+   "id": "mung-bean",
+   "name": "Mung bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Raw sprouts: food-safety risk"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Mung beans provide plant protein, fibre and folate, and their sprouts add fresh crunch.",
+     "detail": "Cooked mung beans provide plant protein, fibre and folate. Mung bean sprouts link to the “sprouted” foods in the phase copy. Raw sprouts carry a food-safety risk, so cook them if you're pregnant or have a weakened immune system."
+    }
+   }
+  },
+  {
+   "id": "split-pea",
+   "name": "Split pea",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Split peas provide plant protein and fibre, and they cook down quickly into soups and dals.",
+     "detail": "Cooked split peas provide plant protein, plenty of fibre, folate and potassium. Unlike most dried legumes they don't need soaking."
+    }
+   }
+  },
+  {
+   "id": "brazil-nut",
+   "name": "Brazil nut",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Limit to 1–2 nuts a day",
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Just one or two Brazil nuts can provide a full day's selenium.",
+     "detail": "Selenium contributes to normal thyroid function and helps protect cells from oxidative stress. Brazil nuts are so rich in selenium, and so variable, that one or two a day is plenty. Regularly eating many more can push intake above the safe upper limit."
+    }
+   }
+  },
+  {
+   "id": "cashew",
+   "name": "Cashew",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Creamy cashews provide magnesium, copper and zinc, plus plant protein.",
+     "detail": "Cashews provide mostly unsaturated fats, plant protein, magnesium, copper, zinc and iron. Unsalted cashews are the better everyday choice."
+    }
+   }
+  },
+  {
+   "id": "flaxseeds",
+   "name": "Flaxseeds",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Ground flaxseed provides fibre and ALA, a plant omega-3 fat.",
+     "detail": "Flaxseed is a source of fibre and alpha-linolenic acid (ALA). ALA contributes to maintaining normal blood cholesterol at about 2 g a day. Grind the seeds so your body can use the nutrients."
+    },
+    "ovulatory": {
+     "short": "Ground flaxseed provides fibre and ALA, a plant omega-3 fat.",
+     "detail": "Flaxseed is a source of fibre and alpha-linolenic acid (ALA). ALA contributes to maintaining normal blood cholesterol at about 2 g a day. Grind the seeds so your body can use the nutrients."
+    }
+   }
+  },
+  {
+   "id": "lychee",
+   "name": "Lychee",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Fragrant lychees are a juicy source of vitamin C.",
+     "detail": "Fresh lychees provide plenty of vitamin C, plus some copper and potassium. Enjoy them ripe and fresh as a sweet, fragrant addition to fruit bowls."
+    }
+   }
+  },
+  {
+   "id": "pumpkin-seeds",
+   "name": "Pumpkin seeds",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "Pumpkin seeds provide magnesium, zinc and iron, plus a satisfying crunch.",
+     "detail": "A small handful (30 g) of pumpkin seeds provides a good share of your daily magnesium, plus zinc and iron. Magnesium contributes to reducing tiredness and fatigue, and zinc to normal immune function."
+    },
+    "ovulatory": {
+     "short": "Pumpkin seeds provide magnesium, zinc and iron, plus a satisfying crunch.",
+     "detail": "A small handful (30 g) of pumpkin seeds provides a good share of your daily magnesium, plus zinc and iron. Magnesium contributes to reducing tiredness and fatigue, and zinc to normal immune function."
+    }
+   }
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "A lean, versatile source of protein, plus B vitamins like niacin and B6.",
+     "detail": "Chicken breast provides high-quality protein, which contributes to maintaining muscle mass, and it's low in fat. It also provides niacin, vitamin B6, selenium and phosphorus. Cook it through to 74 °C (165 °F) in the thickest part."
+    }
+   }
+  },
+  {
+   "id": "eggs",
+   "name": "Eggs",
+   "aisle": "protein",
+   "animalSource": "egg",
+   "allergens": [
+    "egg"
+   ],
+   "synonyms": [
+    "egg"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Egg allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Eggs provide complete protein, choline, vitamin B12 and some vitamin D.",
+     "detail": "Eggs are an easy source of high-quality protein and provide choline, vitamin B12, selenium and a little vitamin D. They suit quick breakfasts and light meals."
+    }
+   }
+  },
+  {
+   "id": "fresh-water-clam",
+   "name": "Fresh-water clam",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Cook thoroughly",
+    "Mollusc allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Clams provide iron and are one of the richest sources of vitamin B12.",
+     "detail": "Clams provide lean protein, iron, a very large amount of vitamin B12, and selenium. Cook them thoroughly and discard any that don't open."
+    }
+   }
+  },
+  {
+   "id": "soft-shell-crab",
+   "name": "Soft-shell crab",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Crustacean allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Soft-shell crab provides lean protein, vitamin B12, zinc and selenium.",
+     "detail": "Soft-shell crabs are crabs eaten whole just after moulting. They provide protein, vitamin B12, zinc and selenium. Pan-frying keeps them lighter than deep-frying."
+    }
+   }
+  },
+  {
+   "id": "trout",
+   "name": "Trout",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Trout provides protein and omega-3 fats (EPA and DHA), plus vitamin D.",
+     "detail": "Trout is an oily fish, and EPA and DHA contribute to normal heart function at about 250 mg a day. A portion of farmed rainbow trout also provides most of your daily vitamin D, plus vitamin B12 and selenium. It's low in mercury."
+    }
+   }
+  },
+  {
+   "id": "nut-butter",
+   "name": "Nut butter",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "peanut",
+    "tree-nut"
+   ],
+   "synonyms": [
+    "peanut butter",
+    "almond butter",
+    "cashew butter"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut or peanut allergen, depending on type"
+   ],
+   "why": {
+    "follicular": {
+     "short": "A spoonful of nut butter adds creaminess, plant protein and mostly unsaturated fats.",
+     "detail": "Nut butters provide plant protein, mostly unsaturated fats, vitamin E and magnesium. Choose ones made only from nuts (and maybe salt), without added sugar or palm oil."
+    }
+   }
+  },
+  {
+   "id": "olives",
+   "name": "Olives",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in salt"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Olives add savoury flavour, mostly unsaturated fats and vitamin E.",
+     "detail": "Olives provide mostly monounsaturated fat, vitamin E and polyphenols. They're cured in brine, so they're high in salt; a handful is plenty."
+    }
+   }
+  },
+  {
+   "id": "pickles",
+   "name": "Pickles",
+   "aisle": "fermented",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in salt"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Tangy pickles add crunch and brightness. Choose naturally fermented ones for live cultures.",
+     "detail": "Pickles are low in energy and add flavour without fat. Most supermarket pickles are made with vinegar and contain no live cultures; only brine-fermented pickles (usually chilled) do. They're high in salt."
+    }
+   }
+  },
+  {
+   "id": "sauerkraut",
+   "name": "Sauerkraut",
+   "aisle": "fermented",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in salt"
+   ],
+   "why": {
+    "follicular": {
+     "short": "Unpasteurised sauerkraut contains live cultures, plus vitamin C and fibre.",
+     "detail": "Sauerkraut is fermented cabbage that provides fibre, vitamin C and vitamin K. Only unpasteurised (chilled) sauerkraut contains live bacteria. Early research suggests fermented-food diets may increase gut microbiome diversity, but the evidence is still developing. It's high in salt."
+    }
+   }
+  },
+  {
+   "id": "vinegar",
+   "name": "Vinegar",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "follicular": {
+     "short": "A splash of vinegar brightens salads and dressings without adding fat or salt.",
+     "detail": "Vinegar adds acidity and flavour with almost no energy. Small studies show vinegar with a starchy meal can slightly lower the blood-sugar rise afterwards, but the evidence is limited. It contains no live cultures, even though it's made by fermentation."
+    }
+   }
+  },
+  {
+   "id": "amaranth",
+   "name": "Amaranth",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "A gluten-free ancient grain with plant protein, magnesium and iron.",
+     "detail": "Amaranth is a seed cooked like a grain. It's naturally gluten-free and provides plant protein, fibre, magnesium, manganese and iron. It cooks into a creamy porridge or can be popped like tiny popcorn."
+    }
+   }
+  },
+  {
+   "id": "corn",
+   "name": "Corn",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Sweetcorn adds natural sweetness, fibre and the yellow pigments lutein and zeaxanthin.",
+     "detail": "Corn provides fibre, some B vitamins and, in yellow varieties, lutein and zeaxanthin. It's naturally gluten-free. Fresh, frozen or whole-grain corn (like popcorn) beats highly processed corn snacks."
+    }
+   }
+  },
+  {
+   "id": "quinoa",
+   "name": "Quinoa",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Quinoa provides complete plant protein, fibre, magnesium and folate.",
+     "detail": "Quinoa contains all essential amino acids, which is unusual for a plant food. It also provides fibre, magnesium, folate and iron, and it's naturally gluten-free. Rinse it before cooking to remove its bitter coating."
+    }
+   }
+  },
+  {
+   "id": "asparagus",
+   "name": "Asparagus",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Asparagus provides folate and vitamin K, and it's lovely lightly grilled.",
+     "detail": "Asparagus is a source of folate and vitamin K, and it provides fibre, including some inulin. Folate contributes to normal blood formation."
+    }
+   }
+  },
+  {
+   "id": "red-bell-pepper",
+   "name": "Red bell pepper",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "red pepper",
+    "bell pepper"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Red peppers are one of the richest vegetable sources of vitamin C.",
+     "detail": "A single red bell pepper provides well over a day's vitamin C, plus vitamin A (from beta-carotene) and vitamin B6. Vitamin C contributes to normal immune function and helps you absorb iron from plant foods."
+    }
+   }
+  },
+  {
+   "id": "brussels-sprouts",
+   "name": "Brussels sprouts",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Brussels sprouts provide vitamin C, vitamin K and fibre.",
+     "detail": "Brussels sprouts are rich in vitamin C and vitamin K and provide fibre and folate. Like other cruciferous vegetables they contain glucosinolates. Claims that these help the body process estrogen aren't well supported in humans, so Moon Cycle doesn't make them."
+    }
+   }
+  },
+  {
+   "id": "chard",
+   "name": "Chard",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "swiss chard"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "High in oxalate",
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Chard provides lots of vitamin K, plus vitamin A and magnesium.",
+     "detail": "Swiss chard is very rich in vitamin K and provides vitamin A, vitamin C and magnesium. Its oxalates reduce calcium and iron absorption, so it's not a good calcium source despite its content."
+    }
+   }
+  },
+  {
+   "id": "chicory",
+   "name": "Chicory",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Pleasantly bitter chicory leaves add crunch, vitamin K and folate to salads.",
+     "detail": "Chicory greens are low in energy and provide vitamin K, vitamin A and folate. Chicory root is a major source of inulin fibre, which is used as a food ingredient."
+    }
+   }
+  },
+  {
+   "id": "chive",
+   "name": "Chive",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Fresh chives add mild onion flavour and a little vitamin K.",
+     "detail": "Chives are a herb, used in small amounts, so their nutrient contribution is small. They do provide vitamin K and vitamin C, and they add flavour without salt."
+    }
+   }
+  },
+  {
+   "id": "dandelion",
+   "name": "Dandelion",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Peppery dandelion greens provide vitamin K, vitamin A and calcium.",
+     "detail": "Dandelion greens are rich in vitamin K and vitamin A and provide vitamin C, calcium and iron. Buy them from a grocer rather than foraging from areas that may be sprayed."
+    }
+   }
+  },
+  {
+   "id": "eggplant",
+   "name": "Eggplant",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "aubergine"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Silky when grilled, eggplant adds fibre with very few calories.",
+     "detail": "Eggplant is low in energy and provides fibre, potassium and manganese, plus anthocyanins in its purple skin. It soaks up oil, so grill or roast it with a light brush of oil."
+    }
+   }
+  },
+  {
+   "id": "endive",
+   "name": "Endive",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Crisp, slightly bitter endive provides folate and vitamin K.",
+     "detail": "Endive is low in energy and provides folate, vitamin K, vitamin A and fibre. Its crisp leaves are great raw, which suits this phase's light, raw cooking style."
+    }
+   }
+  },
+  {
+   "id": "escarole",
+   "name": "Escarole",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Escarole provides vitamin K, vitamin A and folate, and it's good raw or lightly wilted.",
+     "detail": "Escarole is a broad-leafed endive that provides vitamin K, vitamin A, folate and fibre with very little energy. Use the pale inner leaves raw and the outer leaves wilted."
+    }
+   }
+  },
+  {
+   "id": "okra",
+   "name": "Okra",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Okra provides fibre, vitamin C and vitamin K, and it thickens soups and stews.",
+     "detail": "Okra provides fibre, including a soluble, gel-like fibre, plus vitamin C, vitamin K, folate and magnesium. Quick grilling or roasting keeps it less slippery."
+    }
+   }
+  },
+  {
+   "id": "scallion",
+   "name": "Scallion",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "spring onion",
+    "green onion"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Spring onions add fresh flavour and vitamin K to raw and quick-cooked dishes.",
+     "detail": "Scallions (spring onions) provide vitamin K and some vitamin C and folate. They're usually used in small amounts, mostly for flavour."
+    }
+   }
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "High in oxalate",
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Spinach provides folate, vitamin K and vitamin A, plus some iron.",
+     "detail": "Spinach is rich in vitamin K and vitamin A and provides folate and magnesium. It contains iron, but oxalates limit how much you absorb, so vitamin C in the same meal helps. It's not a good calcium source for the same reason."
+    }
+   }
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "tomatoes"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Tomatoes provide vitamin C, potassium and lycopene, especially when cooked with a little oil.",
+     "detail": "Tomatoes provide vitamin C, potassium and lycopene, the red pigment. Cooking tomatoes with a little oil makes lycopene easier to absorb."
+    }
+   }
+  },
+  {
+   "id": "apricot",
+   "name": "Apricot",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Apricots provide beta-carotene, fibre and some vitamin C.",
+     "detail": "Fresh apricots provide vitamin A (from beta-carotene), fibre, vitamin C and potassium. Dried apricots are more concentrated in fibre, potassium and iron, and in sugar."
+    }
+   }
+  },
+  {
+   "id": "cantaloupe",
+   "name": "Cantaloupe",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Wash the rind before cutting"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Juicy cantaloupe provides vitamin C and beta-carotene.",
+     "detail": "Cantaloupe provides vitamin C and vitamin A (from beta-carotene), plus potassium and lots of water. Wash the rind before cutting, as melons can carry bacteria on their skin."
+    }
+   }
+  },
+  {
+   "id": "coconut",
+   "name": "Coconut",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [
+    "coconut milk"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Coconut adds creamy texture, fibre and manganese. Its fat is mostly saturated.",
+     "detail": "Coconut flesh provides fibre and manganese, but its fat is mostly saturated. Replacing saturated fats with unsaturated ones helps maintain normal cholesterol, so use coconut and coconut milk as a flavour rather than an everyday fat."
+    }
+   }
+  },
+  {
+   "id": "fig",
+   "name": "Fig",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Figs provide fibre and potassium, with natural sweetness.",
+     "detail": "Fresh figs provide fibre, potassium and some calcium and vitamin K. Dried figs are more concentrated in fibre and calcium, and in sugar."
+    }
+   }
+  },
+  {
+   "id": "guava",
+   "name": "Guava",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Guava is exceptionally rich in vitamin C and provides plenty of fibre.",
+     "detail": "A single guava provides more than a day's vitamin C, plus fibre, folate and potassium. Vitamin C contributes to normal immune function."
+    }
+   }
+  },
+  {
+   "id": "persimmon",
+   "name": "Persimmon",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Sweet persimmons provide fibre, vitamin A and vitamin C.",
+     "detail": "Persimmons provide fibre, vitamin A (from beta-carotene), vitamin C and manganese. Eat astringent varieties (like Hachiya) only when fully soft and ripe."
+    }
+   }
+  },
+  {
+   "id": "raspberry",
+   "name": "Raspberry",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Raspberries are one of the most fibre-rich fruits, with vitamin C too.",
+     "detail": "Raspberries provide plenty of fibre, vitamin C and manganese, and they get their colour from anthocyanins."
+    }
+   }
+  },
+  {
+   "id": "strawberry",
+   "name": "Strawberry",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "A handful of strawberries provides most of your daily vitamin C.",
+     "detail": "Strawberries are rich in vitamin C and provide folate, manganese and fibre. About 150 g covers most of an adult's daily vitamin C."
+    }
+   }
+  },
+  {
+   "id": "red-lentil",
+   "name": "Red lentil",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Red lentils provide plant protein, fibre, folate and iron, and they cook in 15 minutes.",
+     "detail": "Red lentils provide plant protein, fibre, folate and iron, and they need no soaking. Pair them with tomatoes or a squeeze of lemon; vitamin C helps you absorb their iron."
+    }
+   }
+  },
+  {
+   "id": "almond",
+   "name": "Almond",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Almonds provide vitamin E, magnesium, fibre and plant protein.",
+     "detail": "A small handful of almonds provides a good share of your daily vitamin E, which helps protect cells from oxidative stress, plus magnesium, fibre and plant protein. Choose unsalted."
+    }
+   }
+  },
+  {
+   "id": "pecan",
+   "name": "Pecan",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Buttery pecans provide mostly unsaturated fats, fibre and manganese.",
+     "detail": "Pecans provide mostly unsaturated fats, fibre, manganese, copper and zinc. A small handful is a good portion."
+    }
+   }
+  },
+  {
+   "id": "pistachio",
+   "name": "Pistachio",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Pistachios provide plant protein, fibre and vitamin B6.",
+     "detail": "Pistachios provide plant protein, fibre, vitamin B6, potassium, thiamin and copper, plus lutein, which gives them their green colour. Choose unsalted."
+    }
+   }
+  },
+  {
+   "id": "lamb",
+   "name": "Lamb",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Lamb provides protein, well-absorbed iron, zinc and vitamin B12.",
+     "detail": "Lamb provides protein, haem iron, zinc and vitamin B12. It's a red meat, so health guidance suggests keeping red meat to about 350–500 g cooked a week and choosing leaner cuts."
+    }
+   }
+  },
+  {
+   "id": "salmon",
+   "name": "Salmon",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Salmon provides omega-3 fats (EPA and DHA), vitamin D and protein.",
+     "detail": "Salmon is an oily fish rich in EPA and DHA, which contribute to normal heart function at about 250 mg a day. A portion also provides vitamin D, vitamin B12 and selenium, and salmon is low in mercury."
+    }
+   }
+  },
+  {
+   "id": "shrimp",
+   "name": "Shrimp",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "synonyms": [
+    "prawn",
+    "prawns"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Crustacean allergen"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Shrimp provide lean protein, selenium, vitamin B12 and iodine.",
+     "detail": "Shrimp are a lean protein that provides selenium, vitamin B12, phosphorus and iodine, and they're low in mercury. They cook in a couple of minutes."
+    }
+   }
+  },
+  {
+   "id": "tuna",
+   "name": "Tuna",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen",
+    "Mercury: prefer light/skipjack"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Tuna provides lean protein, selenium and vitamin B12. Choose light or skipjack most often.",
+     "detail": "Tuna provides protein, selenium, niacin, vitamin B12 and some vitamin D, and fresh tuna provides omega-3 fats. Larger tuna like albacore and bigeye contain more mercury, so light or skipjack tuna is the better everyday choice, especially if you're pregnant or trying to conceive."
+    }
+   }
+  },
+  {
+   "id": "alcohol",
+   "name": "Alcohol (moderate)",
+   "aisle": "other",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": false,
+   "cautions": [],
+   "why": {}
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate",
+   "aisle": "pantry",
+   "animalSource": "dairy",
+   "allergens": [
+    "dairy",
+    "soy"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "A square or two of dark chocolate provides iron, magnesium and cocoa flavanols.",
+     "detail": "Dark chocolate (70% cocoa or more) provides iron, magnesium and copper, plus cocoa flavanols. The authorised claim that cocoa flavanols help maintain the elasticity of blood vessels needs 200 mg of flavanols a day, which usually comes from specially processed high-flavanol cocoa rather than ordinary chocolate. It's also high in sugar and saturated fat, so a little goes a long way."
+    }
+   }
+  },
+  {
+   "id": "coffee",
+   "name": "Coffee",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Caffeine: limit to 200 mg/day if pregnant"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Enjoy coffee in moderation: up to about 4 cups a day is fine for most adults.",
+     "detail": "Coffee provides caffeine and polyphenols. Up to 400 mg of caffeine a day (about 4 cups of brewed coffee) is considered safe for most adults, or 200 mg if pregnant. Coffee with meals reduces absorption of plant iron."
+    }
+   }
+  },
+  {
+   "id": "ketchup",
+   "name": "Ketchup",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": false,
+   "cautions": [
+    "High in sugar and salt"
+   ],
+   "why": {
+    "ovulatory": {
+     "short": "Tomato ketchup adds some lycopene, but it's high in sugar and salt, so use a little.",
+     "detail": "Ketchup contains lycopene from tomatoes, but a tablespoon also adds about a teaspoon of sugar and noticeable salt."
+    }
+   }
+  },
+  {
+   "id": "turmeric",
+   "name": "Turmeric",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "ovulatory": {
+     "short": "Turmeric adds earthy warmth and golden colour to dals, grains and roasted vegetables.",
+     "detail": "Turmeric is a spice used in small amounts. Its curcumin is studied mainly as a high-dose supplement, and even there the evidence is limited, so Moon Cycle treats turmeric as a flavour, not a remedy. Curcumin supplements have been linked to rare liver injury."
+    }
+   }
+  },
+  {
+   "id": "brown-rice",
+   "name": "Brown rice",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "rice"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Vary grains (arsenic in rice)"
+   ],
+   "why": {
+    "luteal": {
+     "short": "A whole grain that provides fibre, magnesium and manganese for satisfying, grounding meals.",
+     "detail": "Brown rice keeps its bran, so it provides more fibre, magnesium, manganese and selenium than white rice. Rice can contain inorganic arsenic, so vary your grains and cook rice in plenty of water, then drain."
+    }
+   }
+  },
+  {
+   "id": "millet",
+   "name": "Millet",
+   "aisle": "grains",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "A mild, gluten-free grain that provides magnesium, phosphorus and B vitamins.",
+     "detail": "Millet is naturally gluten-free and provides magnesium, phosphorus, manganese and B vitamins. It cooks into a soft porridge or a fluffy side, which suits comforting baked dishes."
+    }
+   }
+  },
+  {
+   "id": "cabbage",
+   "name": "Cabbage",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Cabbage provides vitamin C, vitamin K and fibre, and it's delicious roasted in wedges.",
+     "detail": "Cabbage is low in energy and a source of vitamin C and vitamin K, with fibre and folate. Like other cruciferous vegetables it contains glucosinolates; claims about these and hormones aren't well supported in humans."
+    }
+   }
+  },
+  {
+   "id": "cauliflower",
+   "name": "Cauliflower",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Cauliflower provides vitamin C, folate and fibre, and it turns nutty and sweet when roasted.",
+     "detail": "Cauliflower is a source of vitamin C and provides folate, vitamin K, fibre and choline. Roasting brings out its sweetness, which fits this phase's cooking style."
+    }
+   }
+  },
+  {
+   "id": "celery",
+   "name": "Celery",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Celery allergen (EU)"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Crunchy, hydrating celery provides vitamin K and potassium.",
+     "detail": "Celery is mostly water and provides vitamin K, potassium and folate. It's one of the 14 major food allergens in the EU, which matters for allergy filtering."
+    }
+   }
+  },
+  {
+   "id": "collard",
+   "name": "Collard",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "collard greens"
+   ],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Collard greens provide calcium, vitamin K and vitamin A.",
+     "detail": "Collard greens are a good plant source of well-absorbed calcium, which is needed to maintain normal bones, and they're rich in vitamin K and vitamin A."
+    }
+   }
+  },
+  {
+   "id": "cucumber",
+   "name": "Cucumber",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Cool, crisp cucumber is hydrating and adds a little vitamin K.",
+     "detail": "Cucumber is over 95% water and very low in energy, with some vitamin K and potassium. It adds freshness alongside roasted dishes."
+    }
+   }
+  },
+  {
+   "id": "daikon",
+   "name": "Daikon",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Mild daikon radish provides vitamin C and adds crunch raw or softness when braised.",
+     "detail": "Daikon is low in energy and provides vitamin C, some folate and potassium. It's lovely braised, roasted or grated raw."
+    }
+   }
+  },
+  {
+   "id": "garlic",
+   "name": "Garlic",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Garlic adds deep flavour, so you need less salt.",
+     "detail": "Garlic is used in small amounts, so it contributes flavour more than nutrients. Its sulphur compounds are widely studied, but most health findings come from supplements, so Moon Cycle treats garlic as a flavour."
+    }
+   }
+  },
+  {
+   "id": "ginger",
+   "name": "Ginger",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Warming ginger adds a gentle kick to soups, roasts and teas.",
+     "detail": "Ginger is used as a spice and flavouring. If you get period pain, some small studies suggest powdered ginger taken in the first days of your period may help, but the evidence is low quality. It isn't a substitute for medical advice."
+    }
+   }
+  },
+  {
+   "id": "leek",
+   "name": "Leek",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Mild, sweet leeks provide vitamin K and folate, plus prebiotic fibre.",
+     "detail": "Leeks provide vitamin K, folate, vitamin A and manganese, and some prebiotic fibre (fructans). They soften beautifully in soups and bakes."
+    }
+   }
+  },
+  {
+   "id": "mustard-greens",
+   "name": "Mustard greens",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Peppery mustard greens provide vitamin K, vitamin A, vitamin C and calcium.",
+     "detail": "Mustard greens are rich in vitamin K, vitamin A and vitamin C and provide folate and calcium. They're great wilted into warm dishes."
+    }
+   }
+  },
+  {
+   "id": "onion",
+   "name": "Onion",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "onions"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Onions add sweetness when roasted, plus vitamin C and prebiotic fibre.",
+     "detail": "Onions provide vitamin C, B6 and folate, along with quercetin (a plant compound) and prebiotic fibre (fructans)."
+    }
+   }
+  },
+  {
+   "id": "parsnip",
+   "name": "Parsnip",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Sweet roasted parsnips provide fibre, vitamin C and folate.",
+     "detail": "Parsnips provide plenty of fibre, plus vitamin C, folate, potassium and vitamin K. Their natural sweetness deepens when roasted."
+    }
+   }
+  },
+  {
+   "id": "pumpkin",
+   "name": "Pumpkin",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Pumpkin provides beta-carotene, fibre and potassium. Perfect for soups and bakes.",
+     "detail": "Pumpkin provides vitamin A (from beta-carotene), fibre, vitamin C and potassium. Vitamin A contributes to normal vision and immune function."
+    }
+   }
+  },
+  {
+   "id": "radish",
+   "name": "Radish",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Peppery radishes add crunch and vitamin C with very few calories.",
+     "detail": "Radishes are low in energy and provide vitamin C and some folate and potassium. Roasting mellows their bite."
+    }
+   }
+  },
+  {
+   "id": "squash",
+   "name": "Squash",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "butternut squash"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Winter squash provides beta-carotene, fibre and vitamin C.",
+     "detail": "Winter squashes like butternut provide vitamin A (from beta-carotene), fibre, vitamin C and potassium, and they turn sweet and silky when roasted."
+    }
+   }
+  },
+  {
+   "id": "sweet-potato",
+   "name": "Sweet potato",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "sweet potatoes"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Sweet potatoes provide fibre and beta-carotene, and they make a satisfying, grounding base.",
+     "detail": "Sweet potatoes are rich in vitamin A (from beta-carotene) and provide fibre, vitamin C, vitamin B6 and potassium. Eating the skin adds more fibre."
+    }
+   }
+  },
+  {
+   "id": "watercress",
+   "name": "Watercress",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Very high vitamin K: keep intake consistent if taking warfarin"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Peppery watercress provides vitamin K, vitamin C and calcium.",
+     "detail": "Watercress is very rich in vitamin K and provides vitamin C, vitamin A and calcium with almost no energy."
+    }
+   }
+  },
+  {
+   "id": "apple",
+   "name": "Apple",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "apples"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Apples provide fibre, including pectin, and they're lovely baked with cinnamon.",
+     "detail": "Apples provide fibre, including pectin, a soluble fibre, plus some vitamin C and polyphenols. Keep the skin on for the most fibre."
+    }
+   }
+  },
+  {
+   "id": "date",
+   "name": "Date",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Dates provide fibre and potassium, with rich natural sweetness.",
+     "detail": "Dates provide fibre, potassium, magnesium and copper. They're high in natural sugars, so two or three make a satisfying sweet treat."
+    }
+   }
+  },
+  {
+   "id": "peach",
+   "name": "Peach",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Juicy peaches provide vitamin C, vitamin A and fibre.",
+     "detail": "Peaches provide vitamin C, vitamin A (from beta-carotene), fibre and potassium. Baked or roasted peaches suit this phase's cooking style."
+    }
+   }
+  },
+  {
+   "id": "pear",
+   "name": "Pear",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Pears are one of the more fibre-rich fruits, especially with the skin on.",
+     "detail": "Pears provide plenty of fibre, plus vitamin C, vitamin K and copper. Baked pears make a warm, naturally sweet dessert."
+    }
+   }
+  },
+  {
+   "id": "raisin",
+   "name": "Raisin",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Raisins provide fibre, potassium and some iron, with concentrated sweetness.",
+     "detail": "Raisins provide fibre, potassium, iron and copper, but their sugar is concentrated, so a small handful is a portion."
+    }
+   }
+  },
+  {
+   "id": "chickpea",
+   "name": "Chickpea",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [
+    "garbanzo bean",
+    "chickpeas"
+   ],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Chickpeas provide plant protein, fibre, folate and iron, and they roast up crispy.",
+     "detail": "Chickpeas provide plant protein, fibre, folate, manganese and iron. Their protein and fibre make meals more filling, which can help when appetite runs higher in this phase."
+    }
+   }
+  },
+  {
+   "id": "great-northern-bean",
+   "name": "Great northern bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Creamy white beans provide plant protein, fibre, folate and iron.",
+     "detail": "Great northern beans provide plant protein, fibre, folate, potassium, magnesium and iron. Use canned beans or cook dried ones thoroughly."
+    }
+   }
+  },
+  {
+   "id": "navy-bean",
+   "name": "Navy bean",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Navy beans are especially high in fibre and provide plant protein and folate.",
+     "detail": "Navy beans are among the most fibre-rich beans and provide plant protein, folate, magnesium and iron. Baked beans are navy beans; choose reduced-sugar, reduced-salt versions."
+    }
+   }
+  },
+  {
+   "id": "hickory",
+   "name": "Hickory",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Hickory nuts provide mostly unsaturated fats, manganese and thiamin.",
+     "detail": "Hickory nuts provide mostly unsaturated fats, manganese, thiamin, magnesium and zinc, similar to their close relative, the pecan."
+    }
+   }
+  },
+  {
+   "id": "pine-nut",
+   "name": "Pine nut",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Pine nuts provide manganese, zinc and vitamin E, and they're lovely toasted.",
+     "detail": "Pine nuts provide mostly unsaturated fats, manganese, zinc, magnesium and vitamin E. Rarely, some pine nuts cause a temporary bitter or metallic taste (“pine mouth”) that goes away on its own."
+    }
+   }
+  },
+  {
+   "id": "walnut",
+   "name": "Walnut",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [
+    "tree-nut"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Tree-nut allergen"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Walnuts provide ALA, a plant omega-3 fat, plus magnesium and copper.",
+     "detail": "Walnuts are the richest common nut source of ALA, a plant omega-3 fat. Eating 30 g of walnuts a day contributes to the elasticity of blood vessels, which is an authorised EU health claim. They also provide magnesium, copper and manganese."
+    }
+   }
+  },
+  {
+   "id": "beef",
+   "name": "Beef",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Lean beef provides protein, well-absorbed iron, zinc and vitamin B12.",
+     "detail": "Beef provides protein, haem iron, zinc and vitamin B12, which contribute to normal red blood cell formation and immune function. Health guidance suggests limiting red meat to about 350–500 g cooked a week, choosing lean cuts and keeping processed meat to a minimum."
+    }
+   }
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "aisle": "protein",
+   "animalSource": "meat",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Turkey provides lean protein, niacin, vitamin B6 and selenium.",
+     "detail": "Skinless turkey is a lean protein that provides niacin, vitamin B6, selenium, zinc and phosphorus. It contains tryptophan, but no more than other poultry, and it doesn't make you sleepy."
+    }
+   }
+  },
+  {
+   "id": "cod",
+   "name": "Cod",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Cod provides lean protein, iodine, vitamin B12 and selenium.",
+     "detail": "Cod is a white fish that's very low in fat and a good source of protein, iodine (needed for normal thyroid function), vitamin B12 and selenium. It's low in mercury."
+    }
+   }
+  },
+  {
+   "id": "flounder",
+   "name": "Flounder",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Delicate flounder provides lean protein, vitamin B12 and selenium.",
+     "detail": "Flounder is a lean white fish that provides protein, vitamin B12, selenium and phosphorus. It's among the lowest-mercury fish and bakes in minutes."
+    }
+   }
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "aisle": "protein",
+   "animalSource": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Fish allergen",
+    "Moderate mercury: about 1 serving a week if pregnant"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Halibut provides lean protein, selenium, niacin and vitamin B6.",
+     "detail": "Halibut is a firm, lean fish that provides protein, selenium, niacin, vitamin B6 and phosphorus. It's in the FDA/EPA “good choice” group for mercury, so one serving a week is the guidance in pregnancy."
+    }
+   }
+  },
+  {
+   "id": "mint",
+   "name": "Mint",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Fresh mint brightens roasted dishes and makes a soothing caffeine-free tea.",
+     "detail": "Mint is used in small amounts, mainly for flavour. Mint tea is a caffeine-free alternative to coffee and black tea. Peppermint can worsen heartburn in some people."
+    }
+   }
+  },
+  {
+   "id": "peppermint",
+   "name": "Peppermint",
+   "aisle": "produce",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [],
+   "why": {
+    "luteal": {
+     "short": "Peppermint tea is a refreshing, caffeine-free drink.",
+     "detail": "Peppermint tea is caffeine-free. Peppermint oil capsules have some evidence for IBS symptoms, but tea hasn't been shown to have the same effect. Peppermint can worsen heartburn in some people."
+    }
+   }
+  },
+  {
+   "id": "spirulina",
+   "name": "Spirulina",
+   "aisle": "pantry",
+   "animalSource": "none",
+   "allergens": [],
+   "synonyms": [],
+   "shipReady": true,
+   "cautions": [
+    "Contamination risk: tested brands only",
+    "Pregnancy or autoimmune conditions: check with doctor"
+   ],
+   "why": {
+    "luteal": {
+     "short": "Spirulina is a blue-green algae powder that provides protein and iron. Choose tested brands.",
+     "detail": "Spirulina provides protein, iron and some B vitamins, but it isn't a reliable source of vitamin B12, despite claims. Products can be contaminated with toxins or heavy metals, so choose third-party-tested brands. Avoid it in pregnancy or with autoimmune conditions unless your doctor agrees."
+    }
+   }
+  }
+ ]
+}

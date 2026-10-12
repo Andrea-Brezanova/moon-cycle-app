@@ -8,6 +8,8 @@ import 'app/config/app_config.dart';
 import 'core/database/app_database.dart';
 import 'core/database/database_opener.dart';
 import 'core/database/encryption_key_store.dart';
+import 'features/content/application/content_providers.dart';
+import 'features/content/data/bundled_catalogue.dart';
 import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
 
@@ -23,6 +25,7 @@ Future<void> main() async {
     keys: EncryptionKeyStore(),
   );
   final onboarded = await AppStateRepository(database).isOnboardingComplete();
+  final catalogue = await loadBundledCatalogue();
 
   runApp(
     ProviderScope(
@@ -30,6 +33,7 @@ Future<void> main() async {
         appConfigProvider.overrideWithValue(config),
         appDatabaseProvider.overrideWithValue(database),
         initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+        catalogueProvider.overrideWithValue(catalogue),
       ],
       child: const MoonCycleApp(),
     ),

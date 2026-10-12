@@ -2,6 +2,16 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 6 (content pipeline)
+- **One copy of the content:** `assets/content/*.json` is both the reviewable source and the bundled asset. The plan's `tool/build_content.dart` step and generated file aren't needed: the audit notes stay in `design/content/` and never entered these files. `test/content/content_validation_test.dart` (in CI) proves placement, copy and recipes still match the handoff verbatim.
+- **No `json_serializable`:** a hand-written, strict parser (about 150 lines) rejects unknown ids, so a content mistake fails a test instead of reaching a user. No new packages in this milestone.
+- **Allergens = the nine chips in the design** (Peanuts, Tree nuts, Shellfish, Fish, Dairy, Eggs, Gluten, Soy, Sesame), not the EU-14 list in the plan. Shellfish covers crustaceans and molluscs.
+- **Food metadata is an authored draft** (aisle, animal source, allergens, synonyms), derived from the audit's caution notes where possible and conservative elsewhere. It must be reviewed before release (`open-questions.md`).
+- **Filter rules (plan §8.4):** diet by animal source; avoided allergens, foods and typed phrases (whole words, plural-tolerant, synonyms) exclude foods and recipe lines; a recipe is hidden if any line is excluded. Unknown-safe: when in doubt, leave it out.
+- **Recipe key foods** are the recipe's Emergent ingredient tags; they drive recipe counts and "Cook with…".
+- **Not-ship-ready foods** (Hijiki, Salt, Alcohol, Ketchup) keep their verbatim data in the file but are dropped when loading, so approving one is a one-flag change.
+- **Loaded before the first frame** with the database, so screens read the catalogue synchronously.
+
 ## 11 October 2026: Milestone 5 (local persistence)
 - **Packages:** `drift`, `sqlite3`, `flutter_secure_storage`, `path_provider`, `uuid`; `drift_dev` and `build_runner` for development. All are the standard, actively maintained choices for Drift.
 - **Encryption: SQLite3MultipleCiphers, not `sqlcipher_flutter_libs`.** The plan named SQLCipher through `sqlcipher_flutter_libs`, which is end-of-life: `package:sqlite3` 3.x now bundles its own SQLite builds, chosen in `pubspec.yaml`. Of its two encrypting builds, SQLite3MultipleCiphers is the one its documentation recommends; it tracks current SQLite and needs no OpenSSL on Android. Same protection (256-bit key, `PRAGMA key`). Export compliance: standard encryption either way.

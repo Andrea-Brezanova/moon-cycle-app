@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 6, content pipeline. **IN PROGRESS**
+**Now:** Milestone 7, onboarding. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -10,9 +10,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 2 | Cycle domain | DONE | `0bbaa4b` (main) |
 | 3 | Design system | DONE | `39aaf6e` (main) |
 | 4 | App shell and navigation | DONE | `4e889be` (main) |
-| 5 | Local persistence (encrypted Drift) | DONE | see below |
-| 6 | Content pipeline and catalogue | IN PROGRESS | |
-| 7 | Onboarding | NOT STARTED | |
+| 5 | Local persistence (encrypted Drift) | DONE | `9dbcfc3` |
+| 6 | Content pipeline and catalogue | DONE | see below |
+| 7 | Onboarding | IN PROGRESS | |
 | 8 | Home | NOT STARTED | |
 | 9 | Shopping domain and repository | NOT STARTED | |
 | 10 | Foods and ingredient sheet | NOT STARTED | |
@@ -29,6 +29,15 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 6: Content pipeline and catalogue — DONE
+- **What:** the approved content bundled offline (`assets/content/`: phases, 157 foods, 12 recipes, taxonomy), a strict parser, the read-only `Catalogue`, and the diet/avoidance `FoodFilter` with its provider.
+- **Files added:** `assets/content/{taxonomy,phases,foods,recipes}.json` + `README.md`; `lib/features/content/{domain,data,application}/`; `lib/features/preferences/application/preference_providers.dart`; tests `test/content/content_validation_test.dart`, `test/features/content/domain/`, `test/helpers/test_catalogue.dart`.
+- **Files changed:** `main.dart` (loads the catalogue), `pubspec.yaml` (assets), test helper.
+- **Tests:** analyze clean; 179 passed (new: content validation against the handoff — placement, copy, recipes verbatim; not-ship-ready foods absent — plus filter and catalogue tests); `check_layers` OK. No UI change, so goldens unchanged.
+- **Devices:** Android emulator: starts and opens Home with the catalogue loaded.
+- **Unresolved:** food metadata is a draft and content flags are open (`open-questions.md` 2–4); none block the build.
+- **Next:** Milestone 7.
 
 ## Milestone 5: Local persistence — DONE
 - **What:** an encrypted SQLite database (Drift + SQLite3MultipleCiphers), its key in the Keychain/Keystore, every user table from plan §8.3, and repositories for the cycle profile and period logs, preferences (diet, avoidances, reminders) and app state. The onboarding gate now reads the stored state.

@@ -40,6 +40,11 @@ flutter:
   assets:
     - assets/logo/
     - assets/mark/
+    # The read-only catalogue (see assets/content/README.md).
+    - assets/content/taxonomy.json
+    - assets/content/phases.json
+    - assets/content/foods.json
+    - assets/content/recipes.json
 
   # Static cuts from the handoff. Fraunces is cut at SOFT 50, WONK 0, in two
   # optical sizes: Fraunces72 for 40 pt and up, Fraunces24 below that.

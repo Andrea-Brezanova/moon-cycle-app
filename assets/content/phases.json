@@ -1,0 +1,373 @@
+{
+ "phases": [
+  {
+   "id": "menstrual",
+   "name": "Menstrual",
+   "season": "Inner winter",
+   "tagline": "Rest, warm and replenish",
+   "summary": "Replenish iron and minerals lost during bleeding.",
+   "focusBody": "Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
+   "focus": "Replenish iron and minerals lost during bleeding. Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
+   "cooking": "Slow-cooked soups, stews and broths.",
+   "categories": [
+    {
+     "category": "grains",
+     "foods": [
+      "buckwheat",
+      "wild-rice"
+     ]
+    },
+    {
+     "category": "vegetables",
+     "foods": [
+      "beets",
+      "burdock",
+      "dulse",
+      "hijiki",
+      "kale",
+      "kelp",
+      "kombu",
+      "mushrooms",
+      "wakame",
+      "water-chestnut"
+     ]
+    },
+    {
+     "category": "fruit",
+     "foods": [
+      "blackberry",
+      "blueberry",
+      "concord-grape",
+      "watermelon"
+     ]
+    },
+    {
+     "category": "legumes",
+     "foods": [
+      "adzuki-bean",
+      "black-soybean",
+      "black-turtle-bean",
+      "kidney-bean"
+     ]
+    },
+    {
+     "category": "nuts-seeds",
+     "foods": [
+      "chestnut",
+      "sesame-seeds",
+      "sunflower-seeds"
+     ]
+    },
+    {
+     "category": "meat",
+     "foods": [
+      "duck",
+      "pork"
+     ]
+    },
+    {
+     "category": "seafood",
+     "foods": [
+      "catfish",
+      "clam",
+      "crab",
+      "lobster",
+      "mussel",
+      "octopus",
+      "oyster",
+      "sardine",
+      "scallop",
+      "squid"
+     ]
+    },
+    {
+     "category": "other",
+     "foods": [
+      "bancha-tea",
+      "decaf-coffee",
+      "miso",
+      "salt",
+      "tamari"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "follicular",
+   "name": "Follicular",
+   "season": "Inner spring",
+   "tagline": "Fresh, light and energising",
+   "summary": "Estrogen is rising and energy returns.",
+   "focusBody": "Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
+   "focus": "Estrogen is rising and energy returns. Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
+   "cooking": "Light steaming, quick sautés and fresh salads.",
+   "categories": [
+    {
+     "category": "grains",
+     "foods": [
+      "barley",
+      "oat",
+      "rye",
+      "wheat"
+     ]
+    },
+    {
+     "category": "vegetables",
+     "foods": [
+      "artichoke",
+      "broccoli",
+      "carrot",
+      "lettuce",
+      "parsley",
+      "green-pea",
+      "rhubarb",
+      "string-bean",
+      "zucchini"
+     ]
+    },
+    {
+     "category": "fruit",
+     "foods": [
+      "avocado",
+      "grapefruit",
+      "lemon",
+      "lime",
+      "orange",
+      "plum",
+      "pomegranate",
+      "sour-cherry"
+     ]
+    },
+    {
+     "category": "legumes",
+     "foods": [
+      "black-eyed-pea",
+      "green-lentil",
+      "lima-bean",
+      "mung-bean",
+      "split-pea"
+     ]
+    },
+    {
+     "category": "nuts-seeds",
+     "foods": [
+      "brazil-nut",
+      "cashew",
+      "flaxseeds",
+      "lychee",
+      "pumpkin-seeds"
+     ]
+    },
+    {
+     "category": "meat",
+     "foods": [
+      "chicken",
+      "eggs"
+     ]
+    },
+    {
+     "category": "seafood",
+     "foods": [
+      "fresh-water-clam",
+      "soft-shell-crab",
+      "trout"
+     ]
+    },
+    {
+     "category": "other",
+     "foods": [
+      "nut-butter",
+      "olives",
+      "pickles",
+      "sauerkraut",
+      "vinegar"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ovulatory",
+   "name": "Ovulatory",
+   "season": "Inner summer",
+   "tagline": "Vibrant, fibre-rich and cooling",
+   "summary": "Energy peaks.",
+   "focusBody": "Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
+   "focus": "Energy peaks. Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
+   "cooking": "Raw, lightly grilled or quick-cooked meals.",
+   "categories": [
+    {
+     "category": "grains",
+     "foods": [
+      "amaranth",
+      "corn",
+      "quinoa"
+     ]
+    },
+    {
+     "category": "vegetables",
+     "foods": [
+      "asparagus",
+      "red-bell-pepper",
+      "brussels-sprouts",
+      "chard",
+      "chicory",
+      "chive",
+      "dandelion",
+      "eggplant",
+      "endive",
+      "escarole",
+      "okra",
+      "scallion",
+      "spinach",
+      "tomato"
+     ]
+    },
+    {
+     "category": "fruit",
+     "foods": [
+      "apricot",
+      "cantaloupe",
+      "coconut",
+      "fig",
+      "guava",
+      "persimmon",
+      "raspberry",
+      "strawberry"
+     ]
+    },
+    {
+     "category": "legumes",
+     "foods": [
+      "red-lentil"
+     ]
+    },
+    {
+     "category": "nuts-seeds",
+     "foods": [
+      "almond",
+      "flaxseeds",
+      "pecan",
+      "pistachio",
+      "pumpkin-seeds"
+     ]
+    },
+    {
+     "category": "meat",
+     "foods": [
+      "lamb"
+     ]
+    },
+    {
+     "category": "seafood",
+     "foods": [
+      "salmon",
+      "shrimp",
+      "tuna"
+     ]
+    },
+    {
+     "category": "other",
+     "foods": [
+      "alcohol",
+      "chocolate",
+      "coffee",
+      "ketchup",
+      "turmeric"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "luteal",
+   "name": "Luteal",
+   "season": "Inner autumn",
+   "tagline": "Grounding, steady and nourishing",
+   "summary": "Progesterone rises and cravings may appear.",
+   "focusBody": "Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
+   "focus": "Progesterone rises and cravings may appear. Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
+   "cooking": "Roasting and baking for comforting, grounding meals.",
+   "categories": [
+    {
+     "category": "grains",
+     "foods": [
+      "brown-rice",
+      "millet"
+     ]
+    },
+    {
+     "category": "vegetables",
+     "foods": [
+      "cabbage",
+      "cauliflower",
+      "celery",
+      "collard",
+      "cucumber",
+      "daikon",
+      "garlic",
+      "ginger",
+      "leek",
+      "mustard-greens",
+      "onion",
+      "parsnip",
+      "pumpkin",
+      "radish",
+      "squash",
+      "sweet-potato",
+      "watercress"
+     ]
+    },
+    {
+     "category": "fruit",
+     "foods": [
+      "apple",
+      "date",
+      "peach",
+      "pear",
+      "raisin"
+     ]
+    },
+    {
+     "category": "legumes",
+     "foods": [
+      "chickpea",
+      "great-northern-bean",
+      "navy-bean"
+     ]
+    },
+    {
+     "category": "nuts-seeds",
+     "foods": [
+      "hickory",
+      "pine-nut",
+      "sesame-seeds",
+      "sunflower-seeds",
+      "walnut"
+     ]
+    },
+    {
+     "category": "meat",
+     "foods": [
+      "beef",
+      "turkey"
+     ]
+    },
+    {
+     "category": "seafood",
+     "foods": [
+      "cod",
+      "flounder",
+      "halibut"
+     ]
+    },
+    {
+     "category": "other",
+     "foods": [
+      "mint",
+      "peppermint",
+      "spirulina"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -34,6 +34,11 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
 
+## Content catalogue (`lib/features/content/`) ✓ Milestone 6
+- `assets/content/*.json` → `parseCatalogue` (data) → `Catalogue` (domain, read-only): phases with their foods per category in the stored order, foods, recipes, aisles, allergens. Not-ship-ready foods are dropped on load.
+- `FoodFilter` (domain) applies the diet and avoidances; `foodFilterProvider` builds it from the stored preferences. Screens ask the filter, never the diet directly.
+- `catalogueProvider` is set in `main()`; tests use `testCatalogue` (the real files, read from disk).
+
 ## Local database (`lib/core/database/`) ✓ Milestone 5
 - **One encrypted SQLite file**, `moon_cycle.db` in Application Support. `package:sqlite3` bundles SQLite3MultipleCiphers (set under `hooks:` in `pubspec.yaml`); the opener refuses to run on a SQLite build without encryption.
 - **The key** is 32 random bytes in the iOS Keychain / Android Keystore (`EncryptionKeyStore`). No file yet means a new key, which also replaces a key a previous install left in the Keychain. A file the stored key can't open is moved aside (`.unreadable-…`) and a fresh database starts.
@@ -73,7 +78,7 @@ page (presentation) → provider (application) → repository (data) → Drift
 | Line icons | `lib/core/design/icons/moon_icon_paths.dart`: the paths of `design/assets/icons/*.svg`, embedded so each use can set its stroke width |
 | Places where the app differs from the design | `docs/design-deviations.md` |
 | Cycle calculation | `lib/features/cycle/domain/` ✓ Milestone 2, ported from `design/code/cycle.ts` |
-| App content (foods, recipes, phase copy) | `content/` → bundled into `assets/content/` (Milestone 6) |
+| App content (foods, recipes, phase copy) | `assets/content/` ✓ Milestone 6 (source and asset in one; see its README) |
 
 ## Design system (`lib/core/design/`)
 - `moon_theme.dart` builds the light and dark `ThemeData`; widgets read the Editorial colours with `context.moon` and never use raw hex values.
