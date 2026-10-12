@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** v1 build complete up to the beta; waiting on accounts (Milestone 15 beta upload, 20). Final report: `final-build-report.md`.
+**Now:** v1 build complete up to the beta; waiting on accounts and content review. Final report: `final-build-report.md`.
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
