@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 9, shopping domain. **IN PROGRESS**
+**Now:** Milestone 10, Foods and the ingredient sheet. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -13,9 +13,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 5 | Local persistence (encrypted Drift) | DONE | `9dbcfc3` |
 | 6 | Content pipeline and catalogue | DONE | `8828f98` |
 | 7 | Onboarding | DONE | `a39a816` |
-| 8 | Home | DONE | see below |
-| 9 | Shopping domain and repository | IN PROGRESS | |
-| 10 | Foods and ingredient sheet | NOT STARTED | |
+| 8 | Home | DONE | `a4b8cc9` |
+| 9 | Shopping domain and repository | DONE | see below |
+| 10 | Foods and ingredient sheet | IN PROGRESS | |
 | 11 | Recipes, Cook with… and recipe detail | NOT STARTED | |
 | 12 | Shop | NOT STARTED | |
 | 13 | Settings, preferences and privacy | NOT STARTED | |
@@ -29,6 +29,15 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 9: Shopping domain and repository — DONE
+- **What:** the shopping list's rules and storage: item keys, the merge rule, derived quantities, aisle grouping, add (food, typed, whole recipe skipping avoided lines), done, remove, Clear all with an 8-second Undo; the real summary now feeds Home's block.
+- **Files added:** `lib/features/shopping/{domain,data,application}/…`; tests `test/features/shopping/**` (29).
+- **Files changed:** `shopping_summary.dart` (real data instead of zeros).
+- **Tests:** analyze clean; 242 passed; 38 goldens; `check_layers` OK. Every plan §9.3 case: new food, same food twice, phase + recipe, same recipe twice, Done re-added, unit merging (200 g + 1 kg = 1.2 kg; 1 tbsp + 100 g), text quantities, typed synonym, typed no match → Other, avoided ingredient skipped, Clear all + Undo within and after 8 s. Not here: the two-device duplicate merge (sync, v1.1).
+- **Devices:** no new screens in this milestone (Shop UI is Milestone 12).
+- **Unresolved:** none.
+- **Next:** Milestone 10.
 
 ## Milestone 8: Home — DONE
 - **What:** the Home tab: full-bleed hero with the moon and the user's real phase, drag preview with "Back to today", "Your focus", foods for today, recipes for today (or the no-recipes line), the shopping block, the late state with "Has your period started?" and the Log a period sheet. Light and dark.

@@ -1,5 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../data/shopping_repository.dart';
+import '../domain/shopping_item.dart';
+
+/// The shopping list as it is stored, oldest first.
+final shoppingItemsProvider = StreamProvider<List<ShoppingItem>>(
+  (ref) => ref.watch(shoppingRepositoryProvider).watchItems(),
+);
+
 /// What Home and Foods show about the shopping list.
 final class ShoppingSummary {
   const ShoppingSummary({
@@ -22,11 +30,24 @@ final class ShoppingSummary {
   /// To-buy items with at least one recipe source.
   final int fromRecipes;
 
-  /// Catalogue foods that are in To buy (the "on your list" marks).
+  /// Catalogue foods in To buy (the "on your list" marks and chips).
   final Set<String> onListFoodIds;
 }
 
-/// Filled from the shopping list in Milestone 9.
-final shoppingSummaryProvider = Provider<ShoppingSummary>(
-  (ref) => ShoppingSummary.empty,
-);
+final shoppingSummaryProvider = Provider<ShoppingSummary>((ref) {
+  final items = ref.watch(shoppingItemsProvider).value;
+  if (items == null) return ShoppingSummary.empty;
+  final toBuy = [
+    for (final i in items)
+      if (!i.done) i,
+  ];
+  return ShoppingSummary(
+    toBuy: toBuy.length,
+    done: items.length - toBuy.length,
+    fromRecipes: toBuy.where((i) => i.hasRecipeSource).length,
+    onListFoodIds: {
+      for (final i in toBuy)
+        if (i.foodId != null) i.foodId!,
+    },
+  );
+});

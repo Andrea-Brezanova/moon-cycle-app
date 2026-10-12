@@ -2,6 +2,15 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 9 (shopping domain)
+- **Keys:** `food:<id>` for catalogue foods and recipe lines linked to one; typed text and other recipe lines are matched against names and synonyms, else `text:<normalised>` in the Other aisle (recipe lines keep their own aisle, e.g. olive oil → Pantry). No plural guessing.
+- **Merge** (`addToList`, pure): a new key creates an item; a known key gains a source unless the same reason (type + recipe/phase) is already there; a Done item added again moves back to To buy. Quantities are never stored on the item, only on sources.
+- **Quantities** (`displayQuantity`): g+kg and ml+l are summed (shown in kg/l from 1000), every other unit separately, mass and volume never converted, words ("to serve") listed after, joined with " + ".
+- **"On your list"** means To buy (PRD §8): Done items don't mark foods.
+- **Remove (×)** is a tombstone with no Undo (spec). **Clear all** tombstones Done items and their sources with one timestamp; Undo restores exactly those for 8 seconds (an item added again meanwhile stays as the new one).
+- **Recipe add** skips lines the user avoids (they're returned for the screen to name) and runs in one transaction.
+- **Not yet:** the two-device duplicate merge (plan §9.2) belongs to sync (v1.1); locally a unique index already allows one live item per key.
+
 ## 11 October 2026: Milestone 8 (Home)
 - **Home shows the real phase only;** `viewingPhaseProvider` (Foods, Recipes, Shop) follows it until the user picks another phase and resets on resume. Home's links set it back to the real phase.
 - **Drag preview** is Home-local state (`homePreviewProvider`), cleared by a new day or a logged period. It's adjustable for screen readers (increase/decrease = next/previous day) with a selection haptic per day. A drag that starts on the ring wins over page scrolling (custom recognizer); elsewhere the page scrolls.
