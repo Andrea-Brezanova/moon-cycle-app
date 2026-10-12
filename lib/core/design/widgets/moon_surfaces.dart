@@ -361,6 +361,7 @@ class MoonTextField extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.trailing,
+    this.keepFocusOnSubmit = false,
   });
 
   final String hint;
@@ -373,6 +374,10 @@ class MoonTextField extends StatefulWidget {
 
   /// E.g. a clear button at the end of a search field.
   final Widget? trailing;
+
+  /// For add-and-continue fields (the shopping list): submitting keeps the
+  /// keyboard up, so the field can be cleared and the next item typed.
+  final bool keepFocusOnSubmit;
 
   @override
   State<MoonTextField> createState() => _MoonTextFieldState();
@@ -431,6 +436,12 @@ class _MoonTextFieldState extends State<MoonTextField> {
               controller: widget.controller,
               focusNode: _focus,
               onSubmitted: widget.onSubmitted,
+              onEditingComplete: widget.keepFocusOnSubmit ? () {} : null,
+              // Tapping anywhere else puts the keyboard away, as on iOS.
+              onTapOutside: (_) => _focus.unfocus(),
+              textInputAction: widget.keepFocusOnSubmit
+                  ? TextInputAction.done
+                  : null,
               onChanged: widget.onChanged,
               autofocus: widget.autofocus,
               cursorColor: c.text,

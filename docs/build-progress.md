@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 12, Shop. **IN PROGRESS**
+**Now:** Milestone 13, Settings. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -16,9 +16,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 8 | Home | DONE | `a4b8cc9` |
 | 9 | Shopping domain and repository | DONE | `c982c2f` |
 | 10 | Foods and ingredient sheet | DONE | `cda7306` |
-| 11 | Recipes, Cook with… and recipe detail | DONE | see below |
-| 12 | Shop | IN PROGRESS | |
-| 13 | Settings, preferences and privacy | NOT STARTED | |
+| 11 | Recipes, Cook with… and recipe detail | DONE | `71576b1` |
+| 12 | Shop | DONE | see below |
+| 13 | Settings, preferences and privacy | IN PROGRESS | |
 | 14 | Local reminders | NOT STARTED | |
 | 15 | Hardening and internal beta | NOT STARTED | |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
@@ -29,6 +29,16 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 12: Shop — DONE
+- **What:** the Shop tab: summary count, progress line, add field, To buy by aisle with source lines and Merged tags, ×, Done (collapsed, expandable) with Clear all and the 8-second Undo toast, and the empty state.
+- **Files added:** `lib/features/shopping/presentation/{shop_page.dart,widgets/shop_row.dart}`; tests `test/features/shopping/presentation/shop_page_test.dart` (7), `test/goldens/screens/shop_golden_test.dart` (6 goldens).
+- **Files changed:** router (Shop tab), design system (`RoundCheckMark`, `Pressable.checked`, text-field submit/outside-tap behaviour), older tests.
+- **Tests:** analyze clean; 266 passed; 70 goldens; `check_layers` OK. New: empty state → Foods, typed items (Other, synonym → Produce, aisle order), tick to Done → expand → untick, × removes, Clear all → Undo and expiry after 8 s, merged source line, Home's block follows the list.
+- **Visual check:** goldens vs `09-shop`, `35-shop-empty`, `36-shop-undo` (light and dark): match after the two-line source and the "0 done" rule.
+- **Devices:** iOS Simulator: add typed items (synonym → Scallion), tick, Clear all → toast. **Found and fixed:** typed entries ran together on iOS.
+- **Unresolved:** deviations 25–27; open question 6 (quantities).
+- **Next:** Milestone 13.
 
 ## Milestone 11: Recipes, Cook with… and recipe detail — DONE
 - **What:** the Recipes tab (meal tabs, Cook with… field and chip, count line, feature card and grid, four empty states), the Cook with… sheet (search, categories, counts, no-match), and recipe detail (pills, meta, intro, ingredients with "On your list", add with merge note, added state, method).

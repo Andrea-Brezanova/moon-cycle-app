@@ -5,6 +5,7 @@ import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
+import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../helpers/pump_app.dart';
 
@@ -61,7 +62,7 @@ void main() {
     await tapTab(tester, 'foods');
     expect(foodsRoot, findsOneWidget);
     await tapTab(tester, 'shop');
-    expect(rootOf(12), findsOneWidget);
+    expect(find.byType(ShopPage), findsOneWidget);
     await tapTab(tester, 'settings');
     expect(settingsRoot, findsOneWidget);
     await tapTab(tester, 'home');

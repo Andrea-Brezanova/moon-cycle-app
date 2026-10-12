@@ -21,7 +21,6 @@ class RoundCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final c = context.moon;
     return Semantics(
       checked: checked,
       enabled: onChanged != null,
@@ -31,37 +30,47 @@ class RoundCheckbox extends StatelessWidget {
         onTap: onChanged == null ? null : () => onChanged!(!checked),
         child: SizedBox.square(
           dimension: MoonSize.iconButton,
-          child: Center(
-            child: Container(
-              width: MoonSize.checkbox,
-              height: MoonSize.checkbox,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: checked ? c.inverseBg : null,
-                border: checked
-                    ? null
-                    : Border.all(color: c.checkboxBorder, width: 1.8),
-              ),
-              child: checked
-                  ? Center(
-                      child: MoonIcon(
-                        MoonIconName.check,
-                        size: 15,
-                        color: c.inverseText,
-                        strokeWidth: 2.6,
-                      ),
-                    )
-                  : null,
-            ),
-          ),
+          child: Center(child: RoundCheckMark(checked: checked)),
         ),
       ),
     );
   }
 }
 
-/// The Editorial switch (spec §6): 51 × 31. On: plum track (cream in dark)
-/// with a page-coloured knob. Off: hairline track with a light knob.
+/// The round checkbox's circle on its own (26 pt), for rows that are one
+/// tap target (shopping list).
+class RoundCheckMark extends StatelessWidget {
+  const RoundCheckMark({super.key, required this.checked});
+
+  final bool checked;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Container(
+      width: MoonSize.checkbox,
+      height: MoonSize.checkbox,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: checked ? c.inverseBg : null,
+        border: checked
+            ? null
+            : Border.all(color: c.checkboxBorder, width: 1.8),
+      ),
+      child: checked
+          ? Center(
+              child: MoonIcon(
+                MoonIconName.check,
+                size: 15,
+                color: c.inverseText,
+                strokeWidth: 2.6,
+              ),
+            )
+          : null,
+    );
+  }
+}
+
 class MoonToggle extends StatelessWidget {
   const MoonToggle({
     super.key,

@@ -168,11 +168,12 @@ void main() {
     tester,
   ) async {
     final (container, _) = await pumpRecipes(tester);
-    await tester.runAsync(
-      () => container
-          .read(shoppingControllerProvider.notifier)
-          .addFood(testCatalogue.food('lemon')!, Phase.follicular),
-    );
+    // A list change in the test's fake time, then pump until it's done.
+    final added = container
+        .read(shoppingControllerProvider.notifier)
+        .addFood(testCatalogue.food('lemon')!, Phase.follicular);
+    await tester.pumpAndSettle();
+    await added;
     await tester.pumpAndSettle();
     await tapText(tester, 'Zesty Lentil & Broccoli Bowl');
     await tester.ensureVisible(find.text('Add ingredients to shopping list'));

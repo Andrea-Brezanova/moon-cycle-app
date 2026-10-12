@@ -44,10 +44,11 @@ page (presentation) → provider (application) → repository (data) → Drift
 - `food_providers.dart`: `recipeCountsProvider(phase)`.
 - `features/recipes/application/recipe_filter.dart`: the meal-type and "Cook with…" filter, shared by the sheet and Recipes.
 
-## Shopping (`lib/features/shopping/`) ✓ Milestone 9 (domain and data)
+## Shopping (`lib/features/shopping/`) ✓ Milestones 9 and 12
 - `domain/`: `ShoppingItem` and `ShoppingSource`, `item_key.dart` (keys, typed text), `shopping_merger.dart` (`addToList`), `quantity.dart` (`displayQuantity`), `shopping_list.dart` (aisle grouping, Done).
 - `data/shopping_repository.dart`: live items with sources (one watched join), add/addAll in transactions, done, remove, clear and restore.
 - `application/`: `shoppingItemsProvider`, `shoppingSummaryProvider` (Home's block, "on your list" marks), `ShoppingController` (every change; its state is the Undo offer).
+- `presentation/`: `ShopPage`, `ShopRow`.
 
 ## Home (`lib/features/home/`) ✓ Milestone 8
 - `HomePage` reads `cycleStateProvider`, the catalogue and the food filter; `HomeHero` draws the hero, the drag preview and the late meta line; `home_sections.dart` holds focus, foods, recipes, the shopping block and the late card.

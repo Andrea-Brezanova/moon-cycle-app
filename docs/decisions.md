@@ -2,6 +2,14 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 12 (Shop)
+- **Shop** shows To buy by aisle in the fixed order (empty aisles hidden), a collapsed Done with its count and "Clear all", the add field, and the Undo toast for 8 seconds, 16 pt above the tab bar. The phase selector only sets context (PRD §4).
+- **Source line:** "Phase staple", the recipe's title, "Added by you", joined with " + " (up to two lines); the dot is ochre for recipes and merged items, otherwise the staple's phase accent. "Merged" when an item has more than one source.
+- **"N done"** shows once the list has anything; an empty list shows only "0 to buy" and the empty state (as on the canvas).
+- **Quantities** are not shown on rows (as designed); see `open-questions.md` 6.
+- **Text fields:** tapping outside puts the keyboard away; the add field keeps focus when submitting, which also fixes entries running together on iOS (found on the simulator).
+- **Tests:** list changes in widget tests run in fake time and are pumped to completion; mixing real async with the database's fake-time queue deadlocks.
+
 ## 11 October 2026: Milestone 11 (Recipes)
 - **Filters** (`recipeFilterProvider`): meal type and one "Cook with…" food on top of the shared viewing phase; a new phase clears the food. `recipeListProvider` also counts what the empty states need (recipes the preferences allow; recipes with the food in other meal types).
 - **Empty states** follow the canvas copy, with plurals and a fourth case for an ingredient that no recipe uses (deviation 23).

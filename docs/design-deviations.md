@@ -28,5 +28,8 @@ Every place where the Flutter implementation differs from the Editorial v3 hando
 | 22 | Recipes feature card meta | "Meals · Green lentil, broccoli, lemon" | The first three key ingredients ("Green lentil, broccoli, zucchini") | A rule for every recipe; the mock-up's pick isn't one | **open** |
 | 23 | Recipes, an ingredient with no recipes (All meal types) | Not drawn | "No follicular recipes with *rye*", "None of this phase’s recipes uses rye yet." and "Clear ingredient" (same layout as `17-recipes-empty-ingredient`) | "Cook with…" lists foods with 0 recipes too | **open** |
 | 24 | Recipe detail with avoided ingredients | Not drawn | The row says "You avoid this", the add button skips it, and a note reads "We’ll leave out tahini: it’s on your avoid list." | PRD §9. Rare: such recipes are hidden from the lists | **open** |
+| 25 | Shop row tap target | The round checkbox (26 pt, 44 pt hit area) | The whole left of the row (checkbox, name, source) ticks the item; screen readers hear one checkbox with the name and source. × stays separate | A larger target, and the checkbox sits flush as drawn |  **open** |
+| 26 | Shop, Done expanded | Done is drawn collapsed only | The same rows with a filled checkbox and the name in the muted colour; tapping one moves it back to To buy | Needed for "uncheck moves it back" (spec §8) | **open** |
+| 27 | Shop add field | Not specified | Submitting keeps the keyboard up for the next item; tapping elsewhere puts it away (all text fields) | Fixes entries running together on iOS | **open** |
 
 How to check a screen against the design: open the Component gallery (debug builds, from the Home placeholder) and compare with `design/screens/`. Golden images of every component are in `test/goldens/goldens/`.

@@ -14,6 +14,7 @@ import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/recipes/presentation/recipes_page.dart';
+import '../../features/shopping/presentation/shop_page.dart';
 import '../placeholders/placeholder_pages.dart';
 import '../shell/main_shell.dart';
 import 'routes.dart';
@@ -86,6 +87,7 @@ GoRouter buildAppRouter({
                     AppTab.home => const HomePage(),
                     AppTab.foods => const FoodsPage(),
                     AppTab.recipes => const RecipesPage(),
+                    AppTab.shop => const ShopPage(),
                     _ => PlaceholderTabPage(tab: tab),
                   }),
                   routes: switch (tab) {
