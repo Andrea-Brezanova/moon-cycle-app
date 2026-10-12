@@ -35,6 +35,10 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
 
+## Recipes (`lib/features/recipes/`) ✓ Milestone 11
+- `application/`: `recipe_filter.dart` (meal type, ingredient), `recipe_list.dart` (what the list shows and what its empty states need).
+- `presentation/`: `RecipesPage`, `RecipeDetailPage`, `cook_with_sheet.dart`, `recipe_copy.dart` (count line, empty states), `widgets/recipe_widgets.dart` (meal tabs, Cook with field, feature and grid cards).
+
 ## Foods (`lib/features/foods/`) ✓ Milestone 10
 - `FoodsPage` (with `PhaseHeader` from `features/cycle/presentation`), `FoodRow`, and the ingredient sheet (`showIngredientSheet`), which Home's chips open too.
 - `food_providers.dart`: `recipeCountsProvider(phase)`.

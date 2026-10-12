@@ -94,7 +94,7 @@ class ShoppingController extends Notifier<ClearUndo?> {
       final typed = food == null ? resolveTyped(line.label, catalogue) : null;
       requests.add(
         AddRequest(
-          key: food != null ? foodKey(food.id) : typed!.key,
+          key: lineKey(line, catalogue),
           foodId: food?.id ?? typed?.foodId,
           name: food?.displayName ?? typed!.name,
           aisleId: line.aisleId,

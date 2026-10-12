@@ -13,9 +13,20 @@ import '../application/viewing_phase.dart';
 /// phase selector, and a line saying which phase is shown: "Your current
 /// phase · day 7", or "Browsing luteal · Back to follicular".
 class PhaseHeader extends ConsumerWidget {
-  const PhaseHeader({super.key, required this.title});
+  const PhaseHeader({
+    super.key,
+    required this.title,
+    this.showPhaseLine = true,
+    this.gap = 18,
+  });
 
   final String title;
+
+  /// Foods and Shop show it; Recipes doesn't (spec §7.4).
+  final bool showPhaseLine;
+
+  /// 18 on Foods and Shop, 16 on Recipes.
+  final double gap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -53,10 +64,12 @@ class PhaseHeader extends ConsumerWidget {
             header: true,
             child: Text(title, style: MoonType.h1.copyWith(color: c.text)),
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: gap),
           PhaseSelector(selected: viewing, onChanged: controller.choose),
-          const SizedBox(height: 12),
-          if (viewing == actual)
+          if (!showPhaseLine)
+            const SizedBox.shrink()
+          else if (viewing == actual) ...[
+            const SizedBox(height: 12),
             Row(
               children: [
                 dot,
@@ -70,8 +83,9 @@ class PhaseHeader extends ConsumerWidget {
                   ),
                 ),
               ],
-            )
-          else
+            ),
+          ] else ...[
+            const SizedBox(height: 12),
             Wrap(
               spacing: 8,
               runSpacing: 6,
@@ -86,6 +100,7 @@ class PhaseHeader extends ConsumerWidget {
                 ),
               ],
             ),
+          ],
         ],
       ),
     );

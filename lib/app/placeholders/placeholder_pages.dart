@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import '../../core/design/moon_theme.dart';
 import '../../core/design/tokens/moon_layout.dart';
 import '../../core/design/tokens/moon_typography.dart';
-import '../../core/design/widgets/moon_button.dart';
 import '../../core/design/widgets/moon_list.dart';
 import '../../core/design/widgets/text_link.dart';
 import '../config/app_config.dart';
@@ -70,13 +69,6 @@ class PlaceholderTabPage extends ConsumerWidget {
   }
 
   List<Widget> _content(BuildContext context, WidgetRef ref) => switch (tab) {
-    AppTab.recipes => [
-      MoonButton(
-        'Open a recipe',
-        variant: MoonButtonVariant.secondary,
-        onPressed: () => context.push(Routes.recipe('sample')),
-      ),
-    ],
     AppTab.settings => [
       Text(
         'Flavour: ${ref.watch(appConfigProvider).flavor.name}',

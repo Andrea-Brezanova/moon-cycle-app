@@ -2,6 +2,14 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 11 (Recipes)
+- **Filters** (`recipeFilterProvider`): meal type and one "Cook with…" food on top of the shared viewing phase; a new phase clears the food. `recipeListProvider` also counts what the empty states need (recipes the preferences allow; recipes with the food in other meal types).
+- **Empty states** follow the canvas copy, with plurals and a fourth case for an ingredient that no recipe uses (deviation 23).
+- **"Cook with…"** lists the viewing phase's foods the user eats, by category, with recipe counts; search matches names and synonyms. Tall sheets (`showMoonSheet(fromTop: 96)`) scroll inside.
+- **Recipe detail** is inside the Recipes stack (back keeps filters and scroll; the photo's back button scrolls with the photo, system back and swipe-back work anywhere). "On your list" per line uses the same keys as the list (`lineKey`), so non-catalogue lines such as olive oil show it too. When every line is on the list the button becomes "✓ Added to shopping list" with "Open shopping list".
+- **The detail back button keeps the canvas's shadow** (the only shadow besides the tab bar's hairline), because it floats on the photo.
+- **Recipe photos** are the tinted placeholders until `open-questions.md` 5 is decided.
+
 ## 11 October 2026: Milestone 10 (Foods and the ingredient sheet)
 - **One header for Foods, Recipes and Shop** (`PhaseHeader`): the H1, the shared phase selector and the "Your current phase · day 7" / "Browsing luteal · Back to follicular" line.
 - **Foods** shows the viewing phase's foods per category in the stored order; avoided foods are hidden and a category left empty is hidden too (spec §7.3). Rows in a pair share a height so the dividers line up. The row of an open sheet shows the pressed (sand) state.

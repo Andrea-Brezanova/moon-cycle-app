@@ -15,6 +15,7 @@ final class ShoppingSummary {
     required this.done,
     required this.fromRecipes,
     required this.onListFoodIds,
+    this.onListKeys = const {},
   });
 
   static const empty = ShoppingSummary(
@@ -32,6 +33,10 @@ final class ShoppingSummary {
 
   /// Catalogue foods in To buy (the "on your list" marks and chips).
   final Set<String> onListFoodIds;
+
+  /// Keys of the To-buy items, for things that aren't catalogue foods
+  /// (a recipe's olive oil).
+  final Set<String> onListKeys;
 }
 
 final shoppingSummaryProvider = Provider<ShoppingSummary>((ref) {
@@ -49,5 +54,6 @@ final shoppingSummaryProvider = Provider<ShoppingSummary>((ref) {
       for (final i in toBuy)
         if (i.foodId != null) i.foodId!,
     },
+    onListKeys: {for (final i in toBuy) i.key},
   );
 });

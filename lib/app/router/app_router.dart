@@ -12,6 +12,8 @@ import '../../features/onboarding/presentation/food_preferences_page.dart';
 import '../../features/onboarding/presentation/last_period_page.dart';
 import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
+import '../../features/recipes/presentation/recipe_detail_page.dart';
+import '../../features/recipes/presentation/recipes_page.dart';
 import '../placeholders/placeholder_pages.dart';
 import '../shell/main_shell.dart';
 import 'routes.dart';
@@ -83,6 +85,7 @@ GoRouter buildAppRouter({
                   pageBuilder: (context, state) => _page(state, switch (tab) {
                     AppTab.home => const HomePage(),
                     AppTab.foods => const FoodsPage(),
+                    AppTab.recipes => const RecipesPage(),
                     _ => PlaceholderTabPage(tab: tab),
                   }),
                   routes: switch (tab) {
@@ -91,10 +94,8 @@ GoRouter buildAppRouter({
                         path: ':recipeId',
                         pageBuilder: (context, state) => _page(
                           state,
-                          const PlaceholderSubPage(
-                            title: 'Recipe',
-                            backLabel: 'Recipes',
-                            milestone: 11,
+                          RecipeDetailPage(
+                            recipeId: state.pathParameters['recipeId']!,
                           ),
                         ),
                       ),

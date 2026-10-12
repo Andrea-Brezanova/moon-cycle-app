@@ -6,6 +6,7 @@ import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
+import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 
 import '../../../helpers/golden_screen.dart';
 import '../../../helpers/pump_app.dart';
@@ -209,7 +210,7 @@ void main() {
     await scrollTo(tester, find.text('Zesty Lentil & Broccoli Bowl'));
     await tester.tap(find.text('Zesty Lentil & Broccoli Bowl'));
     await tester.pumpAndSettle();
-    expect(find.text('Recipe'), findsOneWidget); // detail placeholder
+    expect(find.byType(RecipeDetailPage), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('tab-home')));
     await tester.pumpAndSettle();
     await scrollTo(tester, find.text('Your shopping list'), 200);

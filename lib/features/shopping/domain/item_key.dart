@@ -1,4 +1,5 @@
 import '../../content/domain/catalogue.dart';
+import '../../content/domain/recipe.dart';
 import '../../content/domain/text_match.dart';
 
 /// The key of a catalogue food.
@@ -44,3 +45,10 @@ TypedItem? resolveTyped(String text, Catalogue catalogue) {
     aisleId: otherAisle,
   );
 }
+
+/// The key a recipe line goes on the list under: its food's, or the typed
+/// key of its label ("Olive oil" → `text:olive oil`).
+String lineKey(RecipeIngredient line, Catalogue catalogue) =>
+    line.foodId != null
+    ? foodKey(line.foodId!)
+    : resolveTyped(line.label, catalogue)!.key;

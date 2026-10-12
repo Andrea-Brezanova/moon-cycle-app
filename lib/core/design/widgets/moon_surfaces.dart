@@ -56,21 +56,38 @@ class MoonSheet extends StatelessWidget {
 /// Shows [builder]'s content in a [MoonSheet] over the theme's scrim.
 ///
 /// Sheets cover the tab bar (spec §6), so they open on the root navigator,
-/// and they rise above the keyboard.
+/// and they rise above the keyboard. A tall sheet (Cook with…) passes
+/// [fromTop] (96 in the design) and scrolls inside.
 Future<T?> showMoonSheet<T>(
   BuildContext context, {
   required WidgetBuilder builder,
+  double? fromTop,
 }) => showModalBottomSheet<T>(
   context: context,
   isScrollControlled: true,
-  useSafeArea: true,
   useRootNavigator: true,
   backgroundColor: const Color(0x00000000),
   barrierColor: context.moon.scrim,
-  builder: (context) => Padding(
-    padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
-    child: MoonSheet(child: builder(context)),
-  ),
+  builder: (context) {
+    final media = MediaQuery.of(context);
+    final sheet = MoonSheet(child: builder(context));
+    return Padding(
+      padding: EdgeInsets.only(bottom: media.viewInsets.bottom),
+      child: fromTop == null
+          // Content height, but never under the status bar.
+          ? ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: media.size.height - media.viewPadding.top - 8,
+              ),
+              child: sheet,
+            )
+          // Tall sheets start [fromTop] from the top and scroll inside.
+          : SizedBox(
+              height: media.size.height - media.viewInsets.bottom - fromTop,
+              child: sheet,
+            ),
+    );
+  },
 );
 
 /// The Undo toast after "Clear all" (spec §7.5). Placement (16 from the sides,

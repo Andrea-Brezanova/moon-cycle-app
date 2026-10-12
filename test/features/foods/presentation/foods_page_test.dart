@@ -7,6 +7,7 @@ import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/ingredient_sheet.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/application/recipe_filter.dart';
+import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/shopping/data/shopping_repository.dart';
 
 import '../../../helpers/golden_screen.dart';
@@ -135,10 +136,8 @@ void main() {
     await tester.tap(find.text('See 1 recipe with chicken'));
     await tester.pumpAndSettle();
     expect(find.byType(IngredientSheet), findsNothing);
-    expect(
-      find.text('Placeholder. The real screen arrives in Milestone 11.'),
-      findsOneWidget,
-    );
+    expect(find.byType(RecipesPage), findsOneWidget);
     expect(container.read(recipeFilterProvider).foodId, 'chicken');
+    expect(find.text('1 follicular recipe with chicken'), findsOneWidget);
   });
 }

@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 11, Recipes. **IN PROGRESS**
+**Now:** Milestone 12, Shop. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -15,9 +15,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 7 | Onboarding | DONE | `a39a816` |
 | 8 | Home | DONE | `a4b8cc9` |
 | 9 | Shopping domain and repository | DONE | `c982c2f` |
-| 10 | Foods and ingredient sheet | DONE | see below |
-| 11 | Recipes, Cook with… and recipe detail | IN PROGRESS | |
-| 12 | Shop | NOT STARTED | |
+| 10 | Foods and ingredient sheet | DONE | `cda7306` |
+| 11 | Recipes, Cook with… and recipe detail | DONE | see below |
+| 12 | Shop | IN PROGRESS | |
 | 13 | Settings, preferences and privacy | NOT STARTED | |
 | 14 | Local reminders | NOT STARTED | |
 | 15 | Hardening and internal beta | NOT STARTED | |
@@ -29,6 +29,16 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 11: Recipes, Cook with… and recipe detail — DONE
+- **What:** the Recipes tab (meal tabs, Cook with… field and chip, count line, feature card and grid, four empty states), the Cook with… sheet (search, categories, counts, no-match), and recipe detail (pills, meta, intro, ingredients with "On your list", add with merge note, added state, method).
+- **Files added:** `lib/features/recipes/**` (`recipe_list.dart`, pages, sheet, copy, widgets); tests `test/features/recipes/**`, `test/goldens/screens/recipes_golden_test.dart` (18 goldens).
+- **Files changed:** router (Recipes tab and detail), `showMoonSheet` (tall sheets), `PhaseHeader` (options), shopping summary (`onListKeys`), `lineKey` shared with the shopping controller, placeholders and older tests.
+- **Tests:** analyze clean; 259 passed; 64 goldens; `check_layers` OK. New: list and cards, meal types and Snacks empty, Cook with search/choose/no match, breakfast with chicken empty state and clearing, phase change clears the ingredient, nothing fits the preferences, detail add → added state (8 items stored) → back keeps the filter, merge note; copy unit tests.
+- **Visual check:** goldens vs `08`, `13`–`20` (light and dark): match after two 1 pt row-height fixes and the sheet's list offset.
+- **Devices:** Android emulator: Recipes and detail.
+- **Unresolved:** deviations 22–24 for sign-off.
+- **Next:** Milestone 12.
 
 ## Milestone 10: Foods and the ingredient sheet — DONE
 - **What:** the Foods tab (phase selector, current/browsing line, intro, hint line, categories with two-column food rows, recipe counts, on-list marks, avoided foods hidden) and the ingredient sheet (copy, recipes button, add to list, "On your list"), opened from Foods and from Home's chips.
