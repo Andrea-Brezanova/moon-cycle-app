@@ -5,20 +5,20 @@ Moon Cycle is a local-first Flutter app (v1 has no backend). This page is the ma
 ## Folder map
 ```
 lib/
-  main.dart            entry point: resolves AppConfig, starts ProviderScope
+  main.dart            entry point: resolves AppConfig, opens the database, runs AppRoot
   app/
     app.dart           root widget (MaterialApp)
-    config/            AppConfig: flavour and build-time settings
+    app_root.dart      holds the ProviderScope; restarts on fresh data after "Delete my data" ✓ Milestone 13
+    config/            AppConfig (flavour, build settings), AppLinks (addresses still to be given), version
     router/            go_router setup and route names         ✓ Milestone 4
     shell/             five-tab shell and tab bar              ✓ Milestone 4
-    placeholders/      stand-in pages until each screen is built (removed screen by screen)
   core/                shared by every feature
     domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
     design/            Editorial tokens, theme, shared widgets ✓ Milestone 3
     database/          Drift database and tables, encrypted    ✓ Milestone 5
     time/              "today" provider, midnight refresh      ✓ Milestone 7
     format/            English date wording                    ✓ Milestone 7
-  features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
+  features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, preferences, content, entitlements, privacy
     domain/            entities and rules: pure Dart
     data/              repositories (Drift today, Supabase later)
     application/       Riverpod providers and notifiers

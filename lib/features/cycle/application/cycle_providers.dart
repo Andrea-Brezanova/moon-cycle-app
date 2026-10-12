@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/time/today.dart';
 import '../data/cycle_repository.dart';
 import '../domain/cycle_calculator.dart';
-import '../domain/cycle_lengths.dart';
+import '../domain/cycle_history.dart';
 import '../domain/cycle_profile.dart';
 import '../domain/cycle_state.dart';
 import '../domain/period_log.dart';
@@ -41,8 +41,13 @@ final cycleStateProvider = Provider<AsyncValue<CycleState?>>((ref) {
   return AsyncData(
     calculateCycleState(
       lastPeriodStart: start,
-      lengths: CycleLengths.fromProfile(p),
+      lengths: effectiveLengths(p, l),
       today: today,
     ),
   );
 });
+
+/// Averages from the logged periods, for My Cycle.
+final historyAveragesProvider = Provider<HistoryAverages>(
+  (ref) => historyAverages(ref.watch(periodLogsProvider).value ?? const []),
+);

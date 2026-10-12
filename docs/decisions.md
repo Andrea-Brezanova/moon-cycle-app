@@ -2,6 +2,17 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 12 October 2026: Milestone 13 (Settings)
+- **Settings** is the v1 local-only variant: Personalisation, App, Account (Subscription, Privacy & Data; no Account row), Support, then "Delete my data" and the footer with the version. The debug Component gallery link sits under the footer in debug builds only. The placeholder pages are gone.
+- **Cycle history averages** (`cycle/domain/cycle_history.dart`, plan §6.2): at least 3 completed cycles; gaps outside 21–45 days and gaps next to an estimated ("I'm not sure") start don't count; the 6 most recent valid gaps are averaged and rounded. Period length works the same way from periods with an end date in completed cycles (the current period doesn't count, matching the design's "last 3 periods" with 4 logged). `cycleStateProvider` now calculates with `effectiveLengths`; the user can switch averages off in the lengths sheet.
+- **Entitlements** (`features/entitlements`, plan §10): tiers, features, grants resolved by highest valid tier, and `FeatureGate.canUse`, the only place the app asks. The launch promo grants Plus until the launch-free end date (`AppLinks.launchFreeEndDate`, unset). Every feature needs only Free until the Plus list is decided (`open-questions.md` 10), so no UI is gated yet.
+- **Export** (`features/privacy`): JSON (`format: moon-cycle-export`, `version: 1`; profile, periods, diet, avoidances, reminders, shopping list; no derived values) plus a CSV of periods, written to temporary files, shared with the system share sheet, then deleted.
+- **Delete my data:** `LocalDataWiper` runs extra steps (reminders in M14), closes the database, deletes the database files (and any unreadable copies) and the Keychain/Keystore key. `AppRoot` then replaces the whole `ProviderScope`, opens a fresh database with a new key and starts at onboarding, so no state from before survives.
+- **Addresses not yet given** (support email, policy URLs, launch-free date) live in `lib/app/config/app_links.dart` and show placeholders or disabled controls (`open-questions.md` 7, 8).
+- **List rows are 80 pt** (64 inside 8 pt padding): the canvas uses CSS content-box sizing. Measured against `25-settings-v1-local` and `26-settings-my-cycle`.
+- **Tab roots clip scrolled content below the status bar** (Foods, Recipes, Shop, Settings); Home keeps its hero under the status bar.
+- **Packages:** `share_plus` (share sheet for the export), `url_launcher` (policy pages, support email), `package_info_plus` (version in the footer). All are Flutter Community / Flutter team plugins, as planned in §18.
+
 ## 11 October 2026: Milestone 12 (Shop)
 - **Shop** shows To buy by aisle in the fixed order (empty aisles hidden), a collapsed Done with its count and "Clear all", the add field, and the Undo toast for 8 seconds, 16 pt above the tab bar. The phase selector only sets context (PRD §4).
 - **Source line:** "Phase staple", the recipe's title, "Added by you", joined with " + " (up to two lines); the dot is ochre for recipes and merged items, otherwise the staple's phase accent. "Merged" when an item has more than one source.

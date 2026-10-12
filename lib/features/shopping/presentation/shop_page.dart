@@ -79,145 +79,150 @@ class _ShopPageState extends ConsumerState<ShopPage> {
       backgroundColor: c.bg,
       body: Stack(
         children: [
-          ListView(
-            controller: ref.watch(tabScrollProvider).of(AppTab.shop),
-            padding: const EdgeInsets.only(bottom: 42 + 76),
-            children: [
-              const PhaseHeader(title: 'Shopping list', showPhaseLine: false),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  MoonSpace.gutter,
-                  26,
-                  MoonSpace.gutter,
-                  0,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _Summary(
-                      toBuy: summary.toBuy,
-                      done: summary.done,
-                      showDone: total > 0,
-                    ),
-                    const SizedBox(height: 14),
-                    _Progress(fraction: total == 0 ? 0 : summary.done / total),
-                    const SizedBox(height: 24),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MoonTextField(
-                            hint: 'Add an item',
-                            controller: _add,
-                            focusNode: _addFocus,
-                            keepFocusOnSubmit: true,
-                            onSubmitted: (_) => _submit(),
+          SafeArea(
+            bottom: false,
+            child: ListView(
+              controller: ref.watch(tabScrollProvider).of(AppTab.shop),
+              padding: const EdgeInsets.only(bottom: 42 + 76),
+              children: [
+                const PhaseHeader(title: 'Shopping list', showPhaseLine: false),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    MoonSpace.gutter,
+                    26,
+                    MoonSpace.gutter,
+                    0,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _Summary(
+                        toBuy: summary.toBuy,
+                        done: summary.done,
+                        showDone: total > 0,
+                      ),
+                      const SizedBox(height: 14),
+                      _Progress(
+                        fraction: total == 0 ? 0 : summary.done / total,
+                      ),
+                      const SizedBox(height: 24),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: MoonTextField(
+                              hint: 'Add an item',
+                              controller: _add,
+                              focusNode: _addFocus,
+                              keepFocusOnSubmit: true,
+                              onSubmitted: (_) => _submit(),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        RoundIconButton.add(onPressed: _submit),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    if (items.isEmpty)
-                      EmptyState(
-                        icon: MoonIconName.shop,
-                        title: 'Your list is *empty*',
-                        body:
-                            'Add foods from Foods or a recipe’s ingredients, or '
-                            'type an item above.',
-                        palette: c.phase(viewing),
-                        actions: [
-                          TextLink(
-                            'Browse foods',
-                            onTap: () => context.go(AppTab.foods.path),
-                          ),
+                          const SizedBox(width: 10),
+                          RoundIconButton.add(onPressed: _submit),
                         ],
                       ),
-                    for (final (aisle, inAisle) in groups) ...[
-                      const SizedBox(height: 22),
-                      Overline(catalogue.aisle(aisle).name),
-                      const SizedBox(height: 4),
-                      for (final (i, item) in inAisle.indexed)
-                        row(item, divider: i > 0),
-                    ],
-                    if (done.isNotEmpty) ...[
-                      const SizedBox(height: 26),
-                      Container(
-                        padding: const EdgeInsets.only(top: 16),
-                        decoration: BoxDecoration(
-                          border: Border(top: BorderSide(color: c.line)),
-                        ),
-                        child: Row(
-                          children: [
-                            Pressable(
-                              onTap: () =>
-                                  setState(() => _doneOpen = !_doneOpen),
-                              semanticLabel:
-                                  'Done, ${done.length} '
-                                  '${done.length == 1 ? 'item' : 'items'}, '
-                                  '${_doneOpen ? 'expanded' : 'collapsed'}',
-                              child: SizedBox(
-                                height: 44,
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      'Done',
-                                      style: fraunces(24, color: c.text),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 10,
-                                        vertical: 4,
-                                      ),
-                                      decoration: ShapeDecoration(
-                                        color: c.sand,
-                                        shape: const StadiumBorder(),
-                                      ),
-                                      child: Text(
-                                        '${done.length}',
-                                        style: dmSans(
-                                          13,
-                                          weight: FontWeight.w600,
-                                          height: 1,
-                                          color: c.text,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    AnimatedRotation(
-                                      turns: _doneOpen ? 0.5 : 0,
-                                      duration: const Duration(
-                                        milliseconds: 150,
-                                      ),
-                                      child: MoonIcon(
-                                        MoonIconName.down,
-                                        size: 18,
-                                        color: c.text,
-                                        strokeWidth: 2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
+                      const SizedBox(height: 8),
+                      if (items.isEmpty)
+                        EmptyState(
+                          icon: MoonIconName.shop,
+                          title: 'Your list is *empty*',
+                          body:
+                              'Add foods from Foods or a recipe’s ingredients, or '
+                              'type an item above.',
+                          palette: c.phase(viewing),
+                          actions: [
                             TextLink(
-                              'Clear all',
-                              size: 14,
-                              onTap: controller.clearDone,
+                              'Browse foods',
+                              onTap: () => context.go(AppTab.foods.path),
                             ),
                           ],
                         ),
-                      ),
-                      if (_doneOpen)
-                        for (final (i, item) in done.indexed)
+                      for (final (aisle, inAisle) in groups) ...[
+                        const SizedBox(height: 22),
+                        Overline(catalogue.aisle(aisle).name),
+                        const SizedBox(height: 4),
+                        for (final (i, item) in inAisle.indexed)
                           row(item, divider: i > 0),
+                      ],
+                      if (done.isNotEmpty) ...[
+                        const SizedBox(height: 26),
+                        Container(
+                          padding: const EdgeInsets.only(top: 16),
+                          decoration: BoxDecoration(
+                            border: Border(top: BorderSide(color: c.line)),
+                          ),
+                          child: Row(
+                            children: [
+                              Pressable(
+                                onTap: () =>
+                                    setState(() => _doneOpen = !_doneOpen),
+                                semanticLabel:
+                                    'Done, ${done.length} '
+                                    '${done.length == 1 ? 'item' : 'items'}, '
+                                    '${_doneOpen ? 'expanded' : 'collapsed'}',
+                                child: SizedBox(
+                                  height: 44,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Done',
+                                        style: fraunces(24, color: c.text),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 10,
+                                          vertical: 4,
+                                        ),
+                                        decoration: ShapeDecoration(
+                                          color: c.sand,
+                                          shape: const StadiumBorder(),
+                                        ),
+                                        child: Text(
+                                          '${done.length}',
+                                          style: dmSans(
+                                            13,
+                                            weight: FontWeight.w600,
+                                            height: 1,
+                                            color: c.text,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      AnimatedRotation(
+                                        turns: _doneOpen ? 0.5 : 0,
+                                        duration: const Duration(
+                                          milliseconds: 150,
+                                        ),
+                                        child: MoonIcon(
+                                          MoonIconName.down,
+                                          size: 18,
+                                          color: c.text,
+                                          strokeWidth: 2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const Spacer(),
+                              TextLink(
+                                'Clear all',
+                                size: 14,
+                                onTap: controller.clearDone,
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (_doneOpen)
+                          for (final (i, item) in done.indexed)
+                            row(item, divider: i > 0),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           if (undo != null)
             Positioned(

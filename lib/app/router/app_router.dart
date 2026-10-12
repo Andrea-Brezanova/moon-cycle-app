@@ -14,8 +14,16 @@ import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/recipes/presentation/recipes_page.dart';
+import '../../features/settings/presentation/allergies_page.dart';
+import '../../features/settings/presentation/delete_data_page.dart';
+import '../../features/settings/presentation/food_preferences_page.dart';
+import '../../features/settings/presentation/help_page.dart';
+import '../../features/settings/presentation/my_cycle_page.dart';
+import '../../features/settings/presentation/notifications_page.dart';
+import '../../features/settings/presentation/privacy_data_page.dart';
+import '../../features/settings/presentation/settings_home_page.dart';
+import '../../features/settings/presentation/subscription_page.dart';
 import '../../features/shopping/presentation/shop_page.dart';
-import '../placeholders/placeholder_pages.dart';
 import '../shell/main_shell.dart';
 import 'routes.dart';
 
@@ -88,7 +96,7 @@ GoRouter buildAppRouter({
                     AppTab.foods => const FoodsPage(),
                     AppTab.recipes => const RecipesPage(),
                     AppTab.shop => const ShopPage(),
-                    _ => PlaceholderTabPage(tab: tab),
+                    AppTab.settings => const SettingsHomePage(),
                   }),
                   routes: switch (tab) {
                     AppTab.recipes => [
@@ -111,11 +119,19 @@ GoRouter buildAppRouter({
                               : null,
                           pageBuilder: (context, state) => _page(
                             state,
-                            PlaceholderSubPage(
-                              title: page.title,
-                              backLabel: 'Settings',
-                              milestone: 13,
-                            ),
+                            switch (page) {
+                              SettingsPage.myCycle => const MyCyclePage(),
+                              SettingsPage.foodPreferences =>
+                                const FoodPreferencesSettingsPage(),
+                              SettingsPage.allergies => const AllergiesPage(),
+                              SettingsPage.notifications =>
+                                const NotificationsPage(),
+                              SettingsPage.subscription =>
+                                const SubscriptionPage(),
+                              SettingsPage.privacy => const PrivacyDataPage(),
+                              SettingsPage.help => const HelpPage(),
+                              SettingsPage.deleteData => const DeleteDataPage(),
+                            },
                           ),
                         ),
                     ],

@@ -1,10 +1,12 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqlite3/sqlite3.dart';
 
-import 'app/app.dart';
+import 'app/app_root.dart';
 import 'app/config/app_config.dart';
+import 'app/config/app_version.dart';
 import 'core/database/app_database.dart';
 import 'core/database/database_opener.dart';
 import 'core/database/encryption_key_store.dart';
@@ -12,6 +14,7 @@ import 'features/content/application/content_providers.dart';
 import 'features/content/data/bundled_catalogue.dart';
 import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
+import 'features/privacy/data/local_data_wiper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,22 +23,32 @@ Future<void> main() async {
 
   // SQLite can't find a temporary directory on its own on Android.
   sqlite3.tempDirectory = (await getTemporaryDirectory()).path;
-  final database = await openAppDatabase(
-    directory: await getApplicationSupportDirectory(),
-    keys: EncryptionKeyStore(),
-  );
-  final onboarded = await AppStateRepository(database).isOnboardingComplete();
+  final directory = await getApplicationSupportDirectory();
+  final keys = EncryptionKeyStore();
   final catalogue = await loadBundledCatalogue();
+  final version = (await PackageInfo.fromPlatform()).version;
+
+  // Opened again after "Delete my data", on a new database and key.
+  Future<List<Override>> openSession() async {
+    final database = await openAppDatabase(directory: directory, keys: keys);
+    final onboarded = await AppStateRepository(database).isOnboardingComplete();
+    return [
+      appDatabaseProvider.overrideWithValue(database),
+      initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+    ];
+  }
 
   runApp(
-    ProviderScope(
+    AppRoot(
       overrides: [
         appConfigProvider.overrideWithValue(config),
-        appDatabaseProvider.overrideWithValue(database),
-        initialOnboardingCompletedProvider.overrideWithValue(onboarded),
         catalogueProvider.overrideWithValue(catalogue),
+        appVersionProvider.overrideWithValue(version),
+        databaseDirectoryProvider.overrideWithValue(directory),
+        encryptionKeyStoreProvider.overrideWithValue(keys),
       ],
-      child: const MoonCycleApp(),
+      session: await openSession(),
+      openSession: openSession,
     ),
   );
 }

@@ -5,13 +5,12 @@ import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
+import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
+import 'package:moon_cycle/features/settings/presentation/settings_home_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../helpers/pump_app.dart';
 
-/// Text that only appears on a tab's first screen.
-Finder rootOf(int milestone) =>
-    find.text('Placeholder. The real screen arrives in Milestone $milestone.');
 final homeRoot = find.byType(HomePage);
 
 /// The Foods H1 (the tab bar has a "Foods" label too).
@@ -24,12 +23,7 @@ final recipeDetail = find.byType(RecipeDetailPage);
 
 /// The first recipe card on the Recipes list.
 final firstRecipe = find.text('Zesty Lentil & Broccoli Bowl');
-final settingsRoot = rootOf(13);
-
-/// Text that only appears on a pushed placeholder page.
-Finder subPage(int milestone) => find.text(
-  'Placeholder page. The real page arrives in Milestone $milestone.',
-);
+final settingsRoot = find.byType(SettingsHomePage);
 
 Finder tab(String name) => find.byKey(ValueKey('tab-$name'));
 
@@ -133,6 +127,11 @@ void main() {
   ) async {
     await pumpApp(tester);
     await tapTab(tester, 'settings');
+    await tester.scrollUntilVisible(
+      find.text('Delete my data'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(find.text('Delete my data'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Delete my data'));
@@ -140,7 +139,7 @@ void main() {
     expect(find.text('Delete my data').hitTestable(), findsOneWidget);
     expect(tab('settings').hitTestable(), findsNothing); // no tab bar
     await systemBack(tester);
-    expect(subPage(13), findsNothing);
+    expect(find.byType(DeleteDataPage), findsNothing);
     expect(tab('settings').hitTestable(), findsOneWidget);
   });
 

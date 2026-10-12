@@ -40,10 +40,12 @@ class MoonListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final row = ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: MoonSize.settingsRow),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+    // The design's rows are CSS content-box: 64 high inside the 8 pt
+    // padding, 80 in all.
+    final row = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: MoonSize.settingsRow),
         child: Row(
           children: [
             if (icon != null) ...[

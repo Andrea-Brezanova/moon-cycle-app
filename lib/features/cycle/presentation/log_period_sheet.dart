@@ -7,20 +7,35 @@ import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/month_calendar.dart';
 import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
+import '../../../core/design/widgets/number_stepper.dart';
+import '../../../core/design/widgets/text_link.dart';
 import '../../../core/domain/local_date.dart';
 import '../../../core/format/dates.dart';
 import '../../../core/time/today.dart';
 import '../application/cycle_providers.dart';
 import '../data/cycle_repository.dart';
+import '../domain/cycle_history.dart';
+import '../domain/cycle_rules.dart';
+import '../domain/period_log.dart';
 import '../domain/period_start_check.dart';
 
 /// "Log a period" (`22-log-period-sheet`), from Home's late card and
 /// Settings › My Cycle. Today is preselected.
-Future<void> showLogPeriodSheet(BuildContext context) =>
-    showMoonSheet<void>(context, builder: (_) => const _LogPeriodSheet());
+///
+/// With [editing], the same sheet changes a logged period (My Cycle ›
+/// History, or "Last period started"): its start, how many days it lasted,
+/// and "Delete this period" when it isn't the only one. That variant isn't
+/// drawn (docs/design-deviations.md).
+Future<void> showLogPeriodSheet(BuildContext context, {PeriodLog? editing}) =>
+    showMoonSheet<void>(
+      context,
+      builder: (_) => _LogPeriodSheet(editing: editing),
+    );
 
 class _LogPeriodSheet extends ConsumerStatefulWidget {
-  const _LogPeriodSheet();
+  const _LogPeriodSheet({this.editing});
+
+  final PeriodLog? editing;
 
   @override
   ConsumerState<_LogPeriodSheet> createState() => _LogPeriodSheetState();
@@ -29,22 +44,56 @@ class _LogPeriodSheet extends ConsumerStatefulWidget {
 class _LogPeriodSheetState extends ConsumerState<_LogPeriodSheet> {
   LocalDate? _selected;
   LocalDate? _month;
+  int? _days;
   bool _saving = false;
+
+  Future<void> _save(LocalDate start, int days) async {
+    setState(() => _saving = true);
+    final repository = ref.read(cycleRepositoryProvider);
+    final editing = widget.editing;
+    if (editing == null) {
+      await repository.logPeriod(start);
+    } else {
+      await repository.updatePeriodLog(
+        editing.id,
+        start: start,
+        end: periodEnd(start, days),
+      );
+    }
+    if (mounted) Navigator.pop(context);
+  }
+
+  Future<void> _delete() async {
+    setState(() => _saving = true);
+    await ref.read(cycleRepositoryProvider).deletePeriodLog(widget.editing!.id);
+    if (mounted) Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
     final today = ref.watch(todayProvider);
     final logs = ref.watch(periodLogsProvider).value ?? const [];
-    final selected = _selected ?? today;
+    final editing = widget.editing;
+    final selected = _selected ?? editing?.start ?? today;
     final month = _month ?? selected;
-    final problem = checkPeriodStart(selected, existing: logs, today: today);
+    final problem = checkPeriodStart(
+      selected,
+      existing: logs,
+      today: today,
+      editingId: editing?.id,
+    );
+    final days =
+        _days ??
+        (editing == null ? null : periodDays(editing)) ??
+        ref.watch(cycleProfileProvider).value?.typicalPeriodLength ??
+        CycleRules.defaultPeriodLength;
 
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Overline('Log a period'),
+          Overline(editing == null ? 'Log a period' : 'Edit period'),
           const SizedBox(height: 8),
           Semantics(
             header: true,
@@ -95,18 +144,37 @@ class _LogPeriodSheetState extends ConsumerState<_LogPeriodSheet> {
               style: dmSans(14, height: 1.5, color: c.textMuted),
             ),
           ],
+          if (editing != null) ...[
+            const SizedBox(height: 18),
+            NumberStepper(
+              label: 'Period length',
+              value: days.clamp(
+                CycleRules.minPeriodLength,
+                CycleRules.maxPeriodLength,
+              ),
+              min: CycleRules.minPeriodLength,
+              max: CycleRules.maxPeriodLength,
+              onChanged: (v) => setState(() => _days = v),
+            ),
+          ],
           const SizedBox(height: 18),
           MoonButton(
             'Save',
             variant: MoonButtonVariant.secondary,
             onPressed: problem != null || _saving
                 ? null
-                : () async {
-                    setState(() => _saving = true);
-                    await ref.read(cycleRepositoryProvider).logPeriod(selected);
-                    if (context.mounted) Navigator.pop(context);
-                  },
+                : () => _save(selected, days),
           ),
+          if (editing != null && logs.length > 1) ...[
+            const SizedBox(height: 18),
+            Center(
+              child: TextLink(
+                'Delete this period',
+                color: c.destructive,
+                onTap: _saving ? null : _delete,
+              ),
+            ),
+          ],
         ],
       ),
     );

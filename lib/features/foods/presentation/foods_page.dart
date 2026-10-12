@@ -63,62 +63,67 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
 
     return Scaffold(
       backgroundColor: c.bg,
-      body: ListView(
-        controller: ref.watch(tabScrollProvider).of(AppTab.foods),
-        padding: const EdgeInsets.only(bottom: 42),
-        children: [
-          const PhaseHeader(title: 'Foods'),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-              MoonSpace.gutter,
-              30,
-              MoonSpace.gutter,
-              0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  content.season,
-                  style: MoonType.season.copyWith(
-                    color: palette.text,
-                    height: 1.08,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                EditorialHeading(
-                  italicLastWord(content.tagline),
-                  style: fraunces(32, height: 1.1),
-                ),
-                const SizedBox(height: 10),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 320),
-                  child: Text(
-                    content.focusBody,
-                    style: MoonType.body.copyWith(color: c.text),
-                  ),
-                ),
-                const SizedBox(height: 26),
-                _HintLine(palette: palette),
-              ],
-            ),
-          ),
-          for (final (i, (name, foods)) in categories.indexed) ...[
-            SizedBox(height: i == 0 ? 30 : MoonSpace.foodsSectionGap),
+      body: SafeArea(
+        bottom: false,
+        child: ListView(
+          controller: ref.watch(tabScrollProvider).of(AppTab.foods),
+          padding: const EdgeInsets.only(bottom: 42),
+          children: [
+            const PhaseHeader(title: 'Foods'),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
-              child: _Category(
-                name: name,
-                foods: foods,
-                counts: counts,
-                onList: onList,
-                palette: palette,
-                openFoodId: _openFoodId,
-                onFood: _open,
+              padding: const EdgeInsets.fromLTRB(
+                MoonSpace.gutter,
+                30,
+                MoonSpace.gutter,
+                0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    content.season,
+                    style: MoonType.season.copyWith(
+                      color: palette.text,
+                      height: 1.08,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  EditorialHeading(
+                    italicLastWord(content.tagline),
+                    style: fraunces(32, height: 1.1),
+                  ),
+                  const SizedBox(height: 10),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 320),
+                    child: Text(
+                      content.focusBody,
+                      style: MoonType.body.copyWith(color: c.text),
+                    ),
+                  ),
+                  const SizedBox(height: 26),
+                  _HintLine(palette: palette),
+                ],
               ),
             ),
+            for (final (i, (name, foods)) in categories.indexed) ...[
+              SizedBox(height: i == 0 ? 30 : MoonSpace.foodsSectionGap),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: MoonSpace.gutter,
+                ),
+                child: _Category(
+                  name: name,
+                  foods: foods,
+                  counts: counts,
+                  onList: onList,
+                  palette: palette,
+                  openFoodId: _openFoodId,
+                  onFood: _open,
+                ),
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

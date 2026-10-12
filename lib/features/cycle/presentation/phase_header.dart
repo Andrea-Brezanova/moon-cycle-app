@@ -51,9 +51,11 @@ class PhaseHeader extends ConsumerWidget {
     );
 
     return Padding(
-      padding: EdgeInsets.fromLTRB(
+      // The page sits in a SafeArea, so scrolled content is clipped below
+      // the status bar.
+      padding: const EdgeInsets.fromLTRB(
         MoonSpace.gutter,
-        MediaQuery.viewPaddingOf(context).top + 10,
+        10,
         MoonSpace.gutter,
         0,
       ),

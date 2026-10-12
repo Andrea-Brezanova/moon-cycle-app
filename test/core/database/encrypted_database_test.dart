@@ -8,19 +8,7 @@ import 'package:moon_cycle/features/cycle/data/cycle_repository.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:sqlite3/sqlite3.dart';
 
-/// Secure storage stand-in: a value in memory.
-class MemoryKeyStore extends EncryptionKeyStore {
-  String? value;
-
-  @override
-  Future<String?> read() async => value;
-
-  @override
-  Future<String> create() async => value = EncryptionKeyStore.newKey();
-
-  @override
-  Future<void> delete() async => value = null;
-}
+import '../../helpers/memory_key_store.dart';
 
 void main() {
   late Directory dir;

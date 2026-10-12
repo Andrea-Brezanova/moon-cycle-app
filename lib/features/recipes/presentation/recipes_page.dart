@@ -48,123 +48,126 @@ class RecipesPage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: c.bg,
-      body: ListView(
-        controller: ref.watch(tabScrollProvider).of(AppTab.recipes),
-        padding: const EdgeInsets.only(bottom: 42),
-        children: [
-          const PhaseHeader(title: 'Recipes', showPhaseLine: false, gap: 16),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-              MoonSpace.gutter,
-              16,
-              MoonSpace.gutter,
-              0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                MealTabs(
-                  selected: list.filter.mealType,
-                  onChanged: filter.setMealType,
-                ),
-                const SizedBox(height: 16),
-                if (food == null)
-                  CookWithField(palette: palette, onTap: chooseIngredient)
-                else
-                  Row(
-                    children: [
-                      Flexible(
-                        child: MoonRemovableChip(
-                          prefix: 'Cook with: ',
-                          label: food.displayName,
-                          tint: palette.tint,
-                          height: 44,
-                          onRemove: filter.clearIngredient,
-                          removeLabel: 'Clear ingredient',
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      TextLink('Change', onTap: chooseIngredient),
-                    ],
+      body: SafeArea(
+        bottom: false,
+        child: ListView(
+          controller: ref.watch(tabScrollProvider).of(AppTab.recipes),
+          padding: const EdgeInsets.only(bottom: 42),
+          children: [
+            const PhaseHeader(title: 'Recipes', showPhaseLine: false, gap: 16),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                MoonSpace.gutter,
+                16,
+                MoonSpace.gutter,
+                0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  MealTabs(
+                    selected: list.filter.mealType,
+                    onChanged: filter.setMealType,
                   ),
-                const SizedBox(height: 22),
-                Text(
-                  recipeCountLine(list, foodName: foodName),
-                  style: dmSans(
-                    13,
-                    weight: FontWeight.w500,
-                    height: 1,
-                    color: c.textMuted,
-                  ),
-                ),
-                if (empty != null) ...[
-                  const SizedBox(height: 10),
-                  EmptyState(
-                    icon: empty.icon,
-                    title: empty.title,
-                    body: empty.body,
-                    palette: palette,
-                    actions: [
-                      for (final action in empty.actions)
-                        switch (action) {
-                          EmptyAction.showAllMealTypes => TextLink(
-                            'Show all meal types',
-                            onTap: () => filter.setMealType(null),
-                          ),
-                          EmptyAction.clearIngredient => TextLink(
-                            'Clear ingredient',
-                            onTap: filter.clearIngredient,
-                          ),
-                          EmptyAction.reviewPreferences => TextLink(
-                            'Review food preferences',
-                            onTap: () => context.go(
-                              Routes.settings(SettingsPage.foodPreferences),
-                            ),
-                          ),
-                        },
-                    ],
-                  ),
-                ] else ...[
-                  const SizedBox(height: 26),
-                  FeatureRecipeCard(
-                    recipe: list.recipes.first,
-                    keyIngredients: keyIngredients(
-                      list.recipes.first,
-                      catalogue,
-                    ),
-                    palette: palette,
-                    onTap: () => open(list.recipes.first),
-                  ),
-                  for (var i = 1; i < list.recipes.length; i += 2) ...[
-                    const SizedBox(height: 26),
+                  const SizedBox(height: 16),
+                  if (food == null)
+                    CookWithField(palette: palette, onTap: chooseIngredient)
+                  else
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: GridRecipeCard(
-                            recipe: list.recipes[i],
-                            palette: palette,
-                            onTap: () => open(list.recipes[i]),
+                        Flexible(
+                          child: MoonRemovableChip(
+                            prefix: 'Cook with: ',
+                            label: food.displayName,
+                            tint: palette.tint,
+                            height: 44,
+                            onRemove: filter.clearIngredient,
+                            removeLabel: 'Clear ingredient',
                           ),
                         ),
                         const SizedBox(width: 14),
-                        Expanded(
-                          child: i + 1 < list.recipes.length
-                              ? GridRecipeCard(
-                                  recipe: list.recipes[i + 1],
-                                  palette: palette,
-                                  onTap: () => open(list.recipes[i + 1]),
-                                )
-                              : const SizedBox(),
-                        ),
+                        TextLink('Change', onTap: chooseIngredient),
                       ],
                     ),
+                  const SizedBox(height: 22),
+                  Text(
+                    recipeCountLine(list, foodName: foodName),
+                    style: dmSans(
+                      13,
+                      weight: FontWeight.w500,
+                      height: 1,
+                      color: c.textMuted,
+                    ),
+                  ),
+                  if (empty != null) ...[
+                    const SizedBox(height: 10),
+                    EmptyState(
+                      icon: empty.icon,
+                      title: empty.title,
+                      body: empty.body,
+                      palette: palette,
+                      actions: [
+                        for (final action in empty.actions)
+                          switch (action) {
+                            EmptyAction.showAllMealTypes => TextLink(
+                              'Show all meal types',
+                              onTap: () => filter.setMealType(null),
+                            ),
+                            EmptyAction.clearIngredient => TextLink(
+                              'Clear ingredient',
+                              onTap: filter.clearIngredient,
+                            ),
+                            EmptyAction.reviewPreferences => TextLink(
+                              'Review food preferences',
+                              onTap: () => context.go(
+                                Routes.settings(SettingsPage.foodPreferences),
+                              ),
+                            ),
+                          },
+                      ],
+                    ),
+                  ] else ...[
+                    const SizedBox(height: 26),
+                    FeatureRecipeCard(
+                      recipe: list.recipes.first,
+                      keyIngredients: keyIngredients(
+                        list.recipes.first,
+                        catalogue,
+                      ),
+                      palette: palette,
+                      onTap: () => open(list.recipes.first),
+                    ),
+                    for (var i = 1; i < list.recipes.length; i += 2) ...[
+                      const SizedBox(height: 26),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: GridRecipeCard(
+                              recipe: list.recipes[i],
+                              palette: palette,
+                              onTap: () => open(list.recipes[i]),
+                            ),
+                          ),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: i + 1 < list.recipes.length
+                                ? GridRecipeCard(
+                                    recipe: list.recipes[i + 1],
+                                    palette: palette,
+                                    onTap: () => open(list.recipes[i + 1]),
+                                  )
+                                : const SizedBox(),
+                          ),
+                        ],
+                      ),
+                    ],
                   ],
                 ],
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

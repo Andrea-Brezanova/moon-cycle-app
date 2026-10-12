@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 13, Settings. **IN PROGRESS**
+**Now:** Milestone 14, Local reminders. **NOT STARTED**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -18,7 +18,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 10 | Foods and ingredient sheet | DONE | `cda7306` |
 | 11 | Recipes, Cook with… and recipe detail | DONE | `71576b1` |
 | 12 | Shop | DONE | `e749aa1` |
-| 13 | Settings, preferences and privacy | IN PROGRESS | |
+| 13 | Settings, preferences and privacy | DONE | (this commit) |
 | 14 | Local reminders | NOT STARTED | |
 | 15 | Hardening and internal beta | NOT STARTED | |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
@@ -30,10 +30,13 @@ Open decisions are in `open-questions.md`. Each milestone's details are below, n
 
 ---
 
-## Milestone 13: Settings — IN PROGRESS (paused: usage limit)
-- **Done so far:** design measurements read from the canvas (`EdSettingsV1`, `EdMyCycle`, `EdFoodPrefs`); no code yet. The Settings tab is still the placeholder (with the debug gallery link).
-- **Next steps:** Settings root (v1 groups, row icons cycle/foods/avoid/bell/card/lock/help, "Delete my data" text button, lockup + version); My Cycle (next period, values with history averages from plan §6.2, history rows, Log a period sheet, estimates note); Food Preferences; Allergies (chips, avoid-food search sheet, removable chips, "Always check labels" note); Notifications (toggles, saved now; scheduling in M14); Subscription (launch-free date: needs your date, open question); Privacy & Data (export JSON via share sheet; policy links); Help (FAQ, contact, disclaimer); Delete my data (wipe database file, key, preferences); feature-gate scaffold. Packages planned: `share_plus`, `url_launcher`, `package_info_plus`.
-- **Then:** M14 local reminders, M15 hardening/beta, final report.
+## Milestone 13: Settings — DONE
+- **What:** Settings root (v1), My Cycle (next period, values with history averages, history, edit period, lengths sheet, Log a period), Food Preferences, Allergies & foods to avoid, Notifications (saved; scheduling in M14), Subscription (launch promo), Privacy & Data (export), Help (FAQ, Contact support, disclaimer), Delete my data (wipe and restart at onboarding). Entitlement scaffold. Content now clips below the status bar on the tab roots.
+- **Files added:** `lib/features/settings/**`, `lib/features/entitlements/**`, `lib/features/privacy/**`, `lib/features/cycle/domain/cycle_history.dart`, `lib/app/app_root.dart`, `lib/app/config/{app_links,app_version}.dart`. Removed `lib/app/placeholders/`.
+- **Tests:** `cycle_history_test` (14), `entitlements_test` (8), `data_export_test` (3), `local_data_wiper_test` (2, on a real encrypted file), `settings_test` (13 widget tests: summaries, editing the cycle, averages, diet filtering, allergies, notifications, subscription, help, privacy), `app_root_test` (delete → wipe → onboarding), `settings_golden_test` (18 goldens, 9 screens × 2 themes). Totals: 307 tests plus 88 goldens, all passing; `flutter analyze` clean; `check_layers` OK.
+- **Design check:** every Settings screen compared side by side with `25`–`33` at 390 pt; differences are within 1–2 pt after making list rows 80 pt (CSS content-box) and moving the Delete actions to the drawn position.
+- **Devices:** iOS Simulator (iPhone 17 Pro): Settings with real data, My Cycle, Edit period saved, export share sheet with 2 files (temporary files deleted afterwards), Delete my data → fresh database file and onboarding. Android emulator: Settings, Privacy & Data, export share sheet ("Sharing 2 files").
+- **Deviations:** 28–36. **Open questions:** 7 (support email, policy URLs), 8 (launch-free date), 9 (Help answers), 10 (Plus features).
 
 ## Milestone 12: Shop — DONE
 - **What:** the Shop tab: summary count, progress line, add field, To buy by aisle with source lines and Merged tags, ×, Done (collapsed, expandable) with Clear all and the 8-second Undo toast, and the empty state.

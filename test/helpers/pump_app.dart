@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/app.dart';
 import 'package:moon_cycle/app/config/app_config.dart';
+import 'package:moon_cycle/app/config/app_version.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
@@ -42,6 +43,7 @@ Future<ProviderContainer> pumpApp(
         appDatabaseProvider.overrideWithValue(database ?? testDatabase()),
         initialOnboardingCompletedProvider.overrideWithValue(onboarded),
         catalogueProvider.overrideWithValue(testCatalogue),
+        appVersionProvider.overrideWithValue('1.0.0'),
         ...overrides,
       ],
       child: const MoonCycleApp(),
