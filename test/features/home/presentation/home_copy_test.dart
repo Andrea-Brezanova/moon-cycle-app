@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/core/design/widgets/editorial_text.dart';
 import 'package:moon_cycle/core/domain/local_date.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_calculator.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_lengths.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/home/presentation/widgets/home_hero.dart';
-import 'package:moon_cycle/features/home/presentation/widgets/home_sections.dart';
 
 void main() {
   final start = LocalDate(2025, 9, 28);

@@ -6,6 +6,7 @@ import 'package:moon_cycle/core/domain/local_date.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/data/cycle_repository.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
+import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/onboarding/data/app_state_repository.dart';
 import 'package:moon_cycle/features/onboarding/presentation/phase_reveal_page.dart';
 import 'package:moon_cycle/features/onboarding/presentation/welcome_page.dart';
@@ -109,10 +110,7 @@ void main() {
     );
 
     await tapText(tester, 'See my foods');
-    expect(
-      find.text('Placeholder. The real screen arrives in Milestone 10.'),
-      findsOneWidget,
-    );
+    expect(find.byType(FoodsPage), findsOneWidget);
     expect(container, isNotNull);
   });
 

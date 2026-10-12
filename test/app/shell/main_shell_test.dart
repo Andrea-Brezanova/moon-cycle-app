@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 
 import '../../helpers/pump_app.dart';
@@ -9,7 +10,12 @@ import '../../helpers/pump_app.dart';
 Finder rootOf(int milestone) =>
     find.text('Placeholder. The real screen arrives in Milestone $milestone.');
 final homeRoot = find.byType(HomePage);
-final foodsRoot = rootOf(10);
+
+/// The Foods H1 (the tab bar has a "Foods" label too).
+final foodsRoot = find.descendant(
+  of: find.byType(FoodsPage),
+  matching: find.text('Foods'),
+);
 final recipesRoot = rootOf(11);
 final settingsRoot = rootOf(13);
 

@@ -2,6 +2,12 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 10 (Foods and the ingredient sheet)
+- **One header for Foods, Recipes and Shop** (`PhaseHeader`): the H1, the shared phase selector and the "Your current phase · day 7" / "Browsing luteal · Back to follicular" line.
+- **Foods** shows the viewing phase's foods per category in the stored order; avoided foods are hidden and a category left empty is hidden too (spec §7.3). Rows in a pair share a height so the dividers line up. The row of an open sheet shows the pressed (sand) state.
+- **Recipe counts** per food count the viewing phase's recipes the user's preferences allow, i.e. what Recipes will show.
+- **Ingredient sheet** uses the real phase from Home and the viewing phase from Foods (PRD §8). "Add to shopping list" keeps the sheet open and turns into the disabled "✓ On your list"; with no recipes the recipe button is hidden and "No recipes with X yet." shows. "See N recipes with X" keeps the phase, sets the Recipes ingredient filter (`recipeFilterProvider`, which also clears the ingredient when the phase changes) and opens the Recipes tab.
+
 ## 11 October 2026: Milestone 9 (shopping domain)
 - **Keys:** `food:<id>` for catalogue foods and recipe lines linked to one; typed text and other recipe lines are matched against names and synonyms, else `text:<normalised>` in the Other aisle (recipe lines keep their own aisle, e.g. olive oil → Pantry). No plural guessing.
 - **Merge** (`addToList`, pure): a new key creates an item; a known key gains a source unless the same reason (type + recipe/phase) is already there; a Done item added again moves back to To buy. Quantities are never stored on the item, only on sources.

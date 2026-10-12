@@ -10,6 +10,8 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/log_period_sheet.dart';
+import '../../foods/presentation/ingredient_sheet.dart';
+import '../../recipes/application/recipe_filter.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../application/home_providers.dart';
 import 'widgets/home_hero.dart';
@@ -62,8 +64,8 @@ class HomePage extends ConsumerWidget {
               foods: ref.watch(foodsForTodayProvider(phase)),
               onList: shopping.onListFoodIds,
               palette: palette,
-              // The ingredient sheet arrives with Foods (Milestone 10).
-              onFood: (food) {},
+              onFood: (food) =>
+                  showIngredientSheet(context, food: food, phase: phase),
               onAllFoods: () {
                 viewing.showActual();
                 context.go(AppTab.foods.path);
@@ -80,6 +82,7 @@ class HomePage extends ConsumerWidget {
             },
             onAllRecipes: () {
               viewing.showActual();
+              ref.read(recipeFilterProvider.notifier).reset();
               context.go(AppTab.recipes.path);
             },
             onReviewPreferences: () =>

@@ -97,3 +97,11 @@ class SectionHead extends StatelessWidget {
     );
   }
 }
+
+/// "Fresh, light and energising" → "Fresh, light and *energising*".
+String italicLastWord(String text) {
+  final i = text.lastIndexOf(' ');
+  return i < 0
+      ? '*$text*'
+      : '${text.substring(0, i)} *${text.substring(i + 1)}*';
+}

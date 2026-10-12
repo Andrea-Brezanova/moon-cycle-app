@@ -71,14 +71,6 @@ class FocusSection extends StatelessWidget {
   }
 }
 
-/// "Fresh, light and energising" → "Fresh, light and *energising*".
-String italicLastWord(String text) {
-  final i = text.lastIndexOf(' ');
-  return i < 0
-      ? '*$text*'
-      : '${text.substring(0, i)} *${text.substring(i + 1)}*';
-}
-
 /// "Foods for today" with up to six chips.
 class FoodsTodaySection extends StatelessWidget {
   const FoodsTodaySection({

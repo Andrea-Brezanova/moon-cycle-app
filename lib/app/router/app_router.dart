@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
+import '../../features/foods/presentation/foods_page.dart';
 import '../../features/home/presentation/home_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
@@ -79,12 +80,11 @@ GoRouter buildAppRouter({
               routes: [
                 GoRoute(
                   path: tab.path,
-                  pageBuilder: (context, state) => _page(
-                    state,
-                    tab == AppTab.home
-                        ? const HomePage()
-                        : PlaceholderTabPage(tab: tab),
-                  ),
+                  pageBuilder: (context, state) => _page(state, switch (tab) {
+                    AppTab.home => const HomePage(),
+                    AppTab.foods => const FoodsPage(),
+                    _ => PlaceholderTabPage(tab: tab),
+                  }),
                   routes: switch (tab) {
                     AppTab.recipes => [
                       GoRoute(

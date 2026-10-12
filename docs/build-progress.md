@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 10, Foods and the ingredient sheet. **IN PROGRESS**
+**Now:** Milestone 11, Recipes. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -14,9 +14,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 6 | Content pipeline and catalogue | DONE | `8828f98` |
 | 7 | Onboarding | DONE | `a39a816` |
 | 8 | Home | DONE | `a4b8cc9` |
-| 9 | Shopping domain and repository | DONE | see below |
-| 10 | Foods and ingredient sheet | IN PROGRESS | |
-| 11 | Recipes, Cook with… and recipe detail | NOT STARTED | |
+| 9 | Shopping domain and repository | DONE | `c982c2f` |
+| 10 | Foods and ingredient sheet | DONE | see below |
+| 11 | Recipes, Cook with… and recipe detail | IN PROGRESS | |
 | 12 | Shop | NOT STARTED | |
 | 13 | Settings, preferences and privacy | NOT STARTED | |
 | 14 | Local reminders | NOT STARTED | |
@@ -29,6 +29,16 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 10: Foods and the ingredient sheet — DONE
+- **What:** the Foods tab (phase selector, current/browsing line, intro, hint line, categories with two-column food rows, recipe counts, on-list marks, avoided foods hidden) and the ingredient sheet (copy, recipes button, add to list, "On your list"), opened from Foods and from Home's chips.
+- **Files added:** `lib/features/foods/**`, `lib/features/cycle/presentation/phase_header.dart`, `lib/features/recipes/application/recipe_filter.dart`; tests `test/features/foods/**`, `test/goldens/screens/foods_golden_test.dart` (8 goldens).
+- **Files changed:** router (Foods tab), Home (chips open the sheet; "All recipes" resets the filter), `Catalogue.categoryOf`, `italicLastWord` moved to the design system, older tests updated for the real Foods page.
+- **Tests:** analyze clean; 248 passed; 46 goldens; `check_layers` OK. New: categories and counts, browsing another phase and back, avoided foods and empty categories hidden, sheet add → "On your list" → row mark, no-recipes sheet, "See N recipes" sets the filter and opens Recipes.
+- **Visual check:** goldens vs `07-foods`, `11-ingredient-sheet`, `12-ingredient-sheet-on-list` (light and dark): match.
+- **Devices:** Android emulator: Foods → Barley sheet → add → "On your list", row mark, Home chip shows on-list.
+- **Unresolved:** none new.
+- **Next:** Milestone 11.
 
 ## Milestone 9: Shopping domain and repository — DONE
 - **What:** the shopping list's rules and storage: item keys, the merge rule, derived quantities, aisle grouping, add (food, typed, whole recipe skipping avoided lines), done, remove, Clear all with an 8-second Undo; the real summary now feeds Home's block.

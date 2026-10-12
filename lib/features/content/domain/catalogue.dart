@@ -59,6 +59,14 @@ final class Catalogue {
     for (final id in phases[phase]!.foodIds) foodsById[id]!,
   ];
 
+  /// The category [foodId] is placed in for [phase] ("Meat").
+  FoodCategory? categoryOf(String foodId, Phase phase) {
+    for (final c in phases[phase]!.categories) {
+      if (c.foodIds.contains(foodId)) return c.category;
+    }
+    return null;
+  }
+
   /// The recipes of [phase], in the stored order (the first is featured).
   List<Recipe> recipesFor(Phase phase) => [
     for (final r in recipes)
