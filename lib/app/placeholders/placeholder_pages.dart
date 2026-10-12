@@ -9,7 +9,6 @@ import '../../core/design/tokens/moon_typography.dart';
 import '../../core/design/widgets/moon_button.dart';
 import '../../core/design/widgets/moon_list.dart';
 import '../../core/design/widgets/text_link.dart';
-import '../../features/onboarding/application/onboarding_status.dart';
 import '../config/app_config.dart';
 import '../router/routes.dart';
 import '../shell/tab_scroll.dart';
@@ -150,43 +149,6 @@ class PlaceholderSubPage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Shown only while onboarding isn't complete. The five onboarding screens
-/// arrive in Milestone 7.
-class PlaceholderOnboardingPage extends ConsumerWidget {
-  const PlaceholderOnboardingPage({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final c = context.moon;
-    return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(MoonSpace.gutterOnboarding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text('Onboarding', style: MoonType.h1.copyWith(color: c.text)),
-              const SizedBox(height: 12),
-              Text(
-                'Placeholder. The onboarding screens arrive in Milestone 7.',
-                style: MoonType.body.copyWith(color: c.textMuted),
-              ),
-              const Spacer(),
-              MoonButton(
-                'Continue',
-                variant: MoonButtonVariant.secondary,
-                onPressed: () =>
-                    ref.read(onboardingCompletedProvider.notifier).complete(),
-              ),
-            ],
-          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' show DatabaseConnection;
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
@@ -10,9 +11,16 @@ import 'package:moon_cycle/features/onboarding/application/onboarding_status.dar
 
 import 'test_catalogue.dart';
 
-/// A fresh in-memory database, closed when the test ends.
+/// A fresh in-memory database, closed when the test ends. Query streams
+/// close synchronously, so widget tests don't end with drift's clean-up
+/// timer pending.
 AppDatabase testDatabase() {
-  final db = AppDatabase(NativeDatabase.memory());
+  final db = AppDatabase(
+    DatabaseConnection(
+      NativeDatabase.memory(),
+      closeStreamsSynchronously: true,
+    ),
+  );
   addTearDown(db.close);
   return db;
 }

@@ -36,6 +36,11 @@ enum SettingsPage {
 /// Every route path in one place.
 abstract final class Routes {
   static const String onboarding = '/onboarding';
+  static const String onboardingLastPeriod = '/onboarding/last-period';
+  static const String onboardingCycleLength = '/onboarding/cycle-length';
+  static const String onboardingFoodPreferences =
+      '/onboarding/food-preferences';
+  static const String onboardingYourPhase = '/onboarding/your-phase';
   static const String home = '/home';
 
   /// Debug builds only; see `app_router.dart`.

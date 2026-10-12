@@ -5,6 +5,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
+import '../../features/onboarding/presentation/cycle_length_page.dart';
+import '../../features/onboarding/presentation/food_preferences_page.dart';
+import '../../features/onboarding/presentation/last_period_page.dart';
+import '../../features/onboarding/presentation/phase_reveal_page.dart';
+import '../../features/onboarding/presentation/welcome_page.dart';
 import '../placeholders/placeholder_pages.dart';
 import '../shell/main_shell.dart';
 import 'routes.dart';
@@ -31,7 +36,7 @@ GoRouter buildAppRouter({
     initialLocation: Routes.home,
     refreshListenable: refresh,
     redirect: (context, state) {
-      final atOnboarding = state.matchedLocation == Routes.onboarding;
+      final atOnboarding = state.matchedLocation.startsWith(Routes.onboarding);
       if (!isOnboarded()) return atOnboarding ? null : Routes.onboarding;
       if (atOnboarding) return Routes.home;
       return null;
@@ -41,8 +46,29 @@ GoRouter buildAppRouter({
     routes: [
       GoRoute(
         path: Routes.onboarding,
-        pageBuilder: (context, state) =>
-            _page(state, const PlaceholderOnboardingPage()),
+        pageBuilder: (context, state) => _page(state, const WelcomePage()),
+        routes: [
+          GoRoute(
+            path: 'last-period',
+            pageBuilder: (context, state) =>
+                _page(state, const LastPeriodPage()),
+          ),
+          GoRoute(
+            path: 'cycle-length',
+            pageBuilder: (context, state) =>
+                _page(state, const CycleLengthPage()),
+          ),
+          GoRoute(
+            path: 'food-preferences',
+            pageBuilder: (context, state) =>
+                _page(state, const FoodPreferencesPage()),
+          ),
+          GoRoute(
+            path: 'your-phase',
+            pageBuilder: (context, state) =>
+                _page(state, const PhaseRevealPage()),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => MainShell(shell: shell),

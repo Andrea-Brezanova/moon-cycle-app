@@ -2,6 +2,18 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 7 (onboarding)
+- **Measurements from the canvas source:** the Editorial artboards' HTML (`Ed*.dc.html`, read from the design canvas) gives exact sizes, gaps and colours; the PNGs are the visual check. Golden screenshots of every onboarding screen in both themes are compared side by side with the PNGs.
+- **Each step is a route** (`/onboarding`, `/onboarding/last-period`, …), so Android back and iOS swipe-back go one step back with answers kept. The answers live in memory until step 4, then one transaction saves the period, profile, diet, avoidances and "onboarding complete" (plan §7.2). The reveal can't go back.
+- **Killed at the reveal:** everything is already saved, so the app reopens on the tabs.
+- **No `intl`:** English date wording is a 40-line helper (`core/format/dates.dart`); v1 is English only.
+- **"Today"** is a provider that updates at local midnight and when the app returns to the foreground (`core/time/today.dart`); tests fix the clock.
+- **Cycle state** is a provider built from the stored profile and newest period (`cycleStateProvider`); the reveal and Home read it.
+- **Status bar:** set app-wide from the theme; plum screens set light icons themselves.
+- **Sheets cover the tab bar** (spec §6): `showMoonSheet` now opens on the root navigator and rises above the keyboard.
+- **Design-system additions:** `InfoNote.plain`, the `welcomeBody` colour, `PinnedActionsScroll` (content at the top, actions at the bottom, scrolls when it doesn't fit), search hooks on `MoonTextField`; the on-plum ring mark now uses the theme's accents (the dark ring is brighter, as on the canvas).
+- **Tests:** drift query streams close synchronously in tests, and database reads from widget tests go through `tester.runAsync`, otherwise fake-async widget tests hang or end with pending timers.
+
 ## 11 October 2026: Milestone 6 (content pipeline)
 - **One copy of the content:** `assets/content/*.json` is both the reviewable source and the bundled asset. The plan's `tool/build_content.dart` step and generated file aren't needed: the audit notes stay in `design/content/` and never entered these files. `test/content/content_validation_test.dart` (in CI) proves placement, copy and recipes still match the handoff verbatim.
 - **No `json_serializable`:** a hand-written, strict parser (about 150 lines) rejects unknown ids, so a content mistake fails a test instead of reaching a user. No new packages in this milestone.

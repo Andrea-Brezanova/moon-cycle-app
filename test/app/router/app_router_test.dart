@@ -7,15 +7,15 @@ import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/design/debug/component_gallery.dart';
 import 'package:moon_cycle/core/design/moon_theme.dart';
+import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
+import 'package:moon_cycle/features/onboarding/presentation/welcome_page.dart';
 
 import '../../helpers/pump_app.dart';
 
 final homeRoot = find.text(
   'Placeholder. The real screen arrives in Milestone 8.',
 );
-final onboardingPage = find.text(
-  'Placeholder. The onboarding screens arrive in Milestone 7.',
-);
+final onboardingPage = find.byType(WelcomePage);
 
 GoRouter routerOf(WidgetTester tester) =>
     GoRouter.of(tester.element(find.byType(Scaffold).first));
@@ -52,9 +52,9 @@ void main() {
       }
     });
 
-    testWidgets('completing onboarding opens Home', (tester) async {
-      await pumpApp(tester, onboarded: false);
-      await tester.tap(find.text('Continue'));
+    testWidgets('completing onboarding opens the tabs', (tester) async {
+      final container = await pumpApp(tester, onboarded: false);
+      await container.read(onboardingCompletedProvider.notifier).complete();
       await tester.pumpAndSettle();
       expect(homeRoot, findsOneWidget);
     });

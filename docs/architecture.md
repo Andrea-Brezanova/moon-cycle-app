@@ -16,7 +16,8 @@ lib/
     domain/            Phase, LocalDate: pure Dart             ✓ Milestone 2
     design/            Editorial tokens, theme, shared widgets ✓ Milestone 3
     database/          Drift database and tables, encrypted    ✓ Milestone 5
-    time/              "today" provider, midnight refresh      (Milestone 7)
+    time/              "today" provider, midnight refresh      ✓ Milestone 7
+    format/            English date wording                    ✓ Milestone 7
   features/<feature>/  cycle, onboarding, home, foods, recipes, shopping, settings, …
     domain/            entities and rules: pure Dart
     data/              repositories (Drift today, Supabase later)
@@ -33,6 +34,10 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Riverpod** connects the layers. Repositories are exposed as providers, so tests swap them for fakes with `ProviderScope(overrides: …)`.
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
+
+## Onboarding (`lib/features/onboarding/`) ✓ Milestone 7
+- Five routes under `/onboarding`; `OnboardingController` holds `OnboardingAnswers` in memory; `OnboardingRepository.save` writes everything in one transaction after step 4; `OnboardingStatus` opens the gate on "See my foods".
+- The reveal reads `cycleStateProvider` (`features/cycle/application`) and draws the moon with `orbitSpecFor` (`features/cycle/presentation`), which Home reuses.
 
 ## Content catalogue (`lib/features/content/`) ✓ Milestone 6
 - `assets/content/*.json` → `parseCatalogue` (data) → `Catalogue` (domain, read-only): phases with their foods per category in the stored order, foods, recipes, aisles, allergens. Not-ship-ready foods are dropped on load.

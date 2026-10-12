@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 7, onboarding. **IN PROGRESS**
+**Now:** Milestone 8, Home. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -11,9 +11,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 3 | Design system | DONE | `39aaf6e` (main) |
 | 4 | App shell and navigation | DONE | `4e889be` (main) |
 | 5 | Local persistence (encrypted Drift) | DONE | `9dbcfc3` |
-| 6 | Content pipeline and catalogue | DONE | see below |
-| 7 | Onboarding | IN PROGRESS | |
-| 8 | Home | NOT STARTED | |
+| 6 | Content pipeline and catalogue | DONE | `8828f98` |
+| 7 | Onboarding | DONE | see below |
+| 8 | Home | IN PROGRESS | |
 | 9 | Shopping domain and repository | NOT STARTED | |
 | 10 | Foods and ingredient sheet | NOT STARTED | |
 | 11 | Recipes, Cook with… and recipe detail | NOT STARTED | |
@@ -29,6 +29,16 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 7: Onboarding — DONE
+- **What:** the five onboarding screens (welcome, last period, cycle length, food preferences, phase reveal with the moon), in light and dark, saved in one transaction; the onboarding gate now uses the real flow.
+- **Files added:** `lib/features/onboarding/{domain,data,application,presentation}/…`; `lib/features/cycle/application/cycle_providers.dart`; `lib/features/cycle/presentation/cycle_orbit.dart`; `lib/features/preferences/presentation/avoid_food_sheet.dart`; `lib/core/time/today.dart`; `lib/core/format/dates.dart`; `lib/core/design/widgets/pinned_actions_scroll.dart`; tests under `test/features/onboarding/`, `test/goldens/screens/` (16 screen goldens), helpers `golden_screen.dart`.
+- **Files changed:** router (onboarding routes), app (status bar), design system (`InfoNote.plain`, `welcomeBody`, sheet on root navigator, text-field hooks, themed ring mark), placeholders (onboarding placeholder removed).
+- **Tests:** analyze clean; 194 passed; 24 goldens passed; `check_layers` OK. New: full flow on a fixed clock (saves profile, period, diet, avoidance, completion; opens Foods), "I’m not sure", "Skip for now", back keeps answers, no way back from the reveal, reveal wording for every phase.
+- **Visual check:** each screen's golden side by side with its design PNG, light and dark; matches. Fixed during the check: welcome ring colours in dark, bottom spacing, the hidden link's space, the reveal's meta line height and apostrophe.
+- **Devices:** iOS Simulator (light) and Android emulator (dark): fresh install → full onboarding → reveal with the right day and dates → Foods. Status bar fixed (it stayed white after the welcome screen).
+- **Unresolved:** design deviations 11–15 need sign-off (undrawn "Add another" sheet and states).
+- **Next:** Milestone 8.
 
 ## Milestone 6: Content pipeline and catalogue — DONE
 - **What:** the approved content bundled offline (`assets/content/`: phases, 157 foods, 12 recipes, taxonomy), a strict parser, the read-only `Catalogue`, and the diet/avoidance `FoodFilter` with its provider.

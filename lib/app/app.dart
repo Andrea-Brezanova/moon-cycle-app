@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/design/moon_theme.dart';
@@ -20,9 +21,15 @@ class MoonCycleApp extends ConsumerWidget {
       darkTheme: moonTheme(Brightness.dark),
       themeMode: ThemeMode.system,
       routerConfig: ref.watch(appRouterProvider),
-      // Body text grows with the system setting up to 1.5× (headings 1.3×).
-      builder: (context, child) =>
-          MediaQuery.withClampedTextScaling(maxScaleFactor: 1.5, child: child!),
+      // Status bar icons follow the theme (plum screens set their own), and
+      // body text grows with the system setting up to 1.5× (headings 1.3×).
+      builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: moonStatusBar(Theme.of(context).brightness),
+        child: MediaQuery.withClampedTextScaling(
+          maxScaleFactor: 1.5,
+          child: child!,
+        ),
+      ),
     );
   }
 }
