@@ -54,8 +54,11 @@ class LocalReminderScheduler implements ReminderScheduler {
     }
     await _plugin.initialize(
       settings: const InitializationSettings(
-        // TODO(M15): a monochrome notification icon with the app icons.
-        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+        // The monochrome app-icon mark: status-bar icons are drawn from
+        // their alpha only.
+        android: AndroidInitializationSettings(
+          '@drawable/ic_launcher_monochrome',
+        ),
         // Permission is asked when the user turns reminders on.
         iOS: DarwinInitializationSettings(
           requestAlertPermission: false,
