@@ -20,7 +20,7 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 12 | Shop | DONE | `e749aa1` |
 | 13 | Settings, preferences and privacy | DONE | `24507d0` |
 | 14 | Local reminders | DONE | `0af1848` |
-| 15 | Hardening and internal beta | DONE (in-repo part) · BLOCKED (beta upload: needs your accounts) | (this commit) |
+| 15 | Hardening and internal beta | DONE (in-repo part) · BLOCKED (beta upload: needs your accounts) | `775e9f3` |
 | 16–18 | Supabase backend, accounts, sync | NOT STARTED: v1.1, needs your Supabase projects | |
 | 19 | Analytics | NOT STARTED: optional, recommended "not at launch" | |
 | 20 | Store release | NOT STARTED: needs your Apple/Google accounts | |
