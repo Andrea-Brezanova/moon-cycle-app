@@ -19,5 +19,11 @@ Every place where the Flutter implementation differs from the Editorial v3 hando
 | 13 | Onboarding reveal when the period is already late | Not drawn | The last line reads "Period N days late" | Possible when the start date is long ago | **open** |
 | 14 | Onboarding "I’m not sure" | Sets today − 7 | Also moves on to the next step | The user has answered the question | **open** |
 | 15 | Welcome ring on short phones | 150 pt from the top at 844 pt | Moves up in proportion on shorter screens, so it never runs into the copy | Small phones | **open** |
+| 16 | Home "Foods for today" | Six chips, one per category; the mock-up shows Barley, Artichoke, Avocado, **Green lentil**, Brazil nut, Chicken | The first food the user eats in each category, in the stored order (Black-eyed pea in follicular). The PRD only says "one per category"; the mock-up's choice isn't a rule | A rule that works for every phase and preference | **open** |
+| 17 | Home, one or two days late | The late card shows from 3 days late | Days 1–2 late: no card yet, but the hero already reads "Period 1 day late · Day 29 in cycle" and the dot stays at the end | The other meta line ("Day 29 of 28") would be wrong | **open** |
+| 18 | Log a period, date within 10 days of another period | Not drawn | Save is disabled with the line "That’s within 10 days of a period you’ve already logged. Choose its first day, or another date." | Plan §6.2 validation | **open** |
+| 19 | Recipe photos | Mock-ups show photos | Tinted placeholders (spec §6 "No photo") until the 12 recovered photos are approved and bundled (`open-questions.md`) | No licensed photos in the app yet | **open** |
+| 20 | Home shopping block with no recipe items | "8 to buy · 6 from recipes" | "8 to buy" alone when nothing comes from a recipe (and "0 to buy" when empty) | "· 0 from recipes" reads oddly | **open** |
+| 21 | Orbit drag | "Dragging around the orbit" | A drag that starts on the ring previews; a drag starting on the moon's centre scrolls the page | Otherwise the page can't be scrolled from the hero | **open** |
 
 How to check a screen against the design: open the Component gallery (debug builds, from the Home placeholder) and compare with `design/screens/`. Golden images of every component are in `test/goldens/goldens/`.

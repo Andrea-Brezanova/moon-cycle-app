@@ -21,8 +21,9 @@ Future<void> pumpScreen(
   required bool dark,
   List<Override> overrides = const [],
   AppDatabase? database,
+  double height = 844,
 }) async {
-  tester.view.physicalSize = const Size(390, 844) * 2;
+  tester.view.physicalSize = Size(390, height) * 2;
   tester.view.devicePixelRatio = 2;
   tester.view.padding = const FakeViewPadding(top: 47 * 2, bottom: 34 * 2);
   tester.view.viewPadding = const FakeViewPadding(top: 47 * 2, bottom: 34 * 2);

@@ -7,14 +7,13 @@ import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/design/debug/component_gallery.dart';
 import 'package:moon_cycle/core/design/moon_theme.dart';
+import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
 import 'package:moon_cycle/features/onboarding/presentation/welcome_page.dart';
 
 import '../../helpers/pump_app.dart';
 
-final homeRoot = find.text(
-  'Placeholder. The real screen arrives in Milestone 8.',
-);
+final homeRoot = find.byType(HomePage);
 final onboardingPage = find.byType(WelcomePage);
 
 GoRouter routerOf(WidgetTester tester) =>

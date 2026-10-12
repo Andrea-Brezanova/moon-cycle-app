@@ -35,6 +35,11 @@ page (presentation) → provider (application) → repository (data) → Drift
 - **Drift** is the only place data is stored. The UI never talks to Drift directly.
 - **go_router** owns navigation: the onboarding redirect, five tabs that each keep their own stack, recipe detail inside Recipes, and Settings sub-pages. Bottom sheets aren't routes.
 
+## Home (`lib/features/home/`) ✓ Milestone 8
+- `HomePage` reads `cycleStateProvider`, the catalogue and the food filter; `HomeHero` draws the hero, the drag preview and the late meta line; `home_sections.dart` holds focus, foods, recipes, the shopping block and the late card.
+- `home_providers.dart`: `homePreviewProvider`, `foodsForTodayProvider(phase)`, `recipesForTodayProvider(phase)`.
+- Shared cycle pieces live in `features/cycle`: `viewingPhaseProvider`, `checkPeriodStart`, the Log a period sheet.
+
 ## Onboarding (`lib/features/onboarding/`) ✓ Milestone 7
 - Five routes under `/onboarding`; `OnboardingController` holds `OnboardingAnswers` in memory; `OnboardingRepository.save` writes everything in one transaction after step 4; `OnboardingStatus` opens the gate on "See my foods".
 - The reveal reads `cycleStateProvider` (`features/cycle/application`) and draws the moon with `orbitSpecFor` (`features/cycle/presentation`), which Home reuses.

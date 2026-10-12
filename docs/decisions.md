@@ -2,6 +2,16 @@
 
 One list of the decisions that shape this repository, newest first. Add a line when a decision changes, with the date and the reason.
 
+## 11 October 2026: Milestone 8 (Home)
+- **Home shows the real phase only;** `viewingPhaseProvider` (Foods, Recipes, Shop) follows it until the user picks another phase and resets on resume. Home's links set it back to the real phase.
+- **Drag preview** is Home-local state (`homePreviewProvider`), cleared by a new day or a logged period. It's adjustable for screen readers (increase/decrease = next/previous day) with a selection haptic per day. A drag that starts on the ring wins over page scrolling (custom recognizer); elsewhere the page scrolls.
+- **Late:** from day `cycleLength + 1` the hero says "Period N days late"; from 3 days late the "Has your period started?" card appears (spec §7.2). "Log my period" opens the Log a period sheet; logging restarts the cycle at day 1.
+- **Logging rules** (`checkPeriodStart`): no future dates; not within 10 days of another logged start (the same date updates that log).
+- **Foods for today:** the first food the user eats in each category, up to six (deviation 16). **Recipes for today:** the phase's recipes the preferences allow; none → the designed empty line.
+- **Shopping block** reads `shoppingSummaryProvider`, which returns zeros until the shopping list exists (Milestone 9).
+- **Food chip taps** open the ingredient sheet from Milestone 10.
+- **Recipe photos:** tinted placeholders until you approve bundling the recovered photos (`open-questions.md` 5).
+
 ## 11 October 2026: Milestone 7 (onboarding)
 - **Measurements from the canvas source:** the Editorial artboards' HTML (`Ed*.dc.html`, read from the design canvas) gives exact sizes, gaps and colours; the PNGs are the visual check. Golden screenshots of every onboarding screen in both themes are compared side by side with the PNGs.
 - **Each step is a route** (`/onboarding`, `/onboarding/last-period`, …), so Android back and iOS swipe-back go one step back with answers kept. The answers live in memory until step 4, then one transaction saves the period, profile, diet, avoidances and "onboarding complete" (plan §7.2). The reveal can't go back.

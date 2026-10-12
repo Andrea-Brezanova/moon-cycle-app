@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/features/home/presentation/home_page.dart';
 
 import '../../helpers/pump_app.dart';
 
 /// Text that only appears on a tab's first screen.
 Finder rootOf(int milestone) =>
     find.text('Placeholder. The real screen arrives in Milestone $milestone.');
-final homeRoot = rootOf(8);
+final homeRoot = find.byType(HomePage);
 final foodsRoot = rootOf(10);
 final recipesRoot = rootOf(11);
 final settingsRoot = rootOf(13);
@@ -34,7 +35,6 @@ void main() {
   testWidgets('starts on Home', (tester) async {
     await pumpApp(tester);
     expect(homeRoot, findsOneWidget);
-    expect(find.text('Flavour: dev'), findsOneWidget);
   });
 
   testWidgets('switching tabs shows each tab', (tester) async {

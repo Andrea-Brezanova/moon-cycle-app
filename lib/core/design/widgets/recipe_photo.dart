@@ -84,6 +84,7 @@ class RecipePhoto extends StatelessWidget {
         borderRadius: shape,
         child: Container(
           height: height,
+          width: double.infinity,
           color: palette.tint,
           child: Stack(
             alignment: Alignment.center,

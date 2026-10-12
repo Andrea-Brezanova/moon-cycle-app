@@ -70,7 +70,14 @@ class PlaceholderTabPage extends ConsumerWidget {
   }
 
   List<Widget> _content(BuildContext context, WidgetRef ref) => switch (tab) {
-    AppTab.home => [
+    AppTab.recipes => [
+      MoonButton(
+        'Open a recipe',
+        variant: MoonButtonVariant.secondary,
+        onPressed: () => context.push(Routes.recipe('sample')),
+      ),
+    ],
+    AppTab.settings => [
       Text(
         'Flavour: ${ref.watch(appConfigProvider).flavor.name}',
         style: MoonType.body.copyWith(color: context.moon.textMuted),
@@ -85,15 +92,7 @@ class PlaceholderTabPage extends ConsumerWidget {
           ),
         ),
       ],
-    ],
-    AppTab.recipes => [
-      MoonButton(
-        'Open a recipe',
-        variant: MoonButtonVariant.secondary,
-        onPressed: () => context.push(Routes.recipe('sample')),
-      ),
-    ],
-    AppTab.settings => [
+      const SizedBox(height: 16),
       MoonListGroup(
         children: [
           for (final page in SettingsPage.values)

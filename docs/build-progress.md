@@ -2,7 +2,7 @@
 
 Where the build stands, milestone by milestone (numbering from `technical-plan.md` §18). Work happens on the branch `claude/full-build`; `main` is only changed by you.
 
-**Now:** Milestone 8, Home. **IN PROGRESS**
+**Now:** Milestone 9, shopping domain. **IN PROGRESS**
 
 | # | Milestone | Status | Commit |
 |---|---|---|---|
@@ -12,9 +12,9 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 | 4 | App shell and navigation | DONE | `4e889be` (main) |
 | 5 | Local persistence (encrypted Drift) | DONE | `9dbcfc3` |
 | 6 | Content pipeline and catalogue | DONE | `8828f98` |
-| 7 | Onboarding | DONE | see below |
-| 8 | Home | IN PROGRESS | |
-| 9 | Shopping domain and repository | NOT STARTED | |
+| 7 | Onboarding | DONE | `a39a816` |
+| 8 | Home | DONE | see below |
+| 9 | Shopping domain and repository | IN PROGRESS | |
 | 10 | Foods and ingredient sheet | NOT STARTED | |
 | 11 | Recipes, Cook with… and recipe detail | NOT STARTED | |
 | 12 | Shop | NOT STARTED | |
@@ -29,6 +29,17 @@ Where the build stands, milestone by milestone (numbering from `technical-plan.m
 Open decisions are in `open-questions.md`. Each milestone's details are below, newest first.
 
 ---
+
+## Milestone 8: Home — DONE
+- **What:** the Home tab: full-bleed hero with the moon and the user's real phase, drag preview with "Back to today", "Your focus", foods for today, recipes for today (or the no-recipes line), the shopping block, the late state with "Has your period started?" and the Log a period sheet. Light and dark.
+- **Files added:** `lib/features/home/**`; `lib/features/cycle/application/viewing_phase.dart`; `lib/features/cycle/domain/period_start_check.dart`; `lib/features/cycle/presentation/log_period_sheet.dart`; `lib/features/shopping/application/shopping_summary.dart` (zeros until M9); tests `test/features/home/**`, `test/features/cycle/domain/period_start_check_test.dart`, `test/goldens/screens/home_golden_test.dart` (14 goldens), helper `seed.dart`.
+- **Files changed:** router (Home tab), placeholders (debug links moved to Settings), `RecipePhoto` (placeholder fills its width), test helpers.
+- **Tests:** analyze clean; 213 passed; 38 goldens passed; `check_layers` OK. New: hero wording, preferences shaping foods and recipes, no-recipes state, drag preview and back, screen-reader adjust, late card → log → cycle restarts, 1–2 days late, navigation to recipe detail and Shop.
+- **Visual check:** goldens vs `06-home`, `21-home-period-late`, `23-home-preview-day`, `24-home-no-recipes`, light and dark. Fixed: header height (+4 pt), placeholder width, preview spacing, cooking-line icon alignment.
+- **Devices:** iOS Simulator: Home with real dates; drag preview (slow and fast) and Back to today work.
+- **Found and fixed:** the orbit drag was being taken by page scrolling; the "Back to today" pill could overflow at large text.
+- **Unresolved:** deviations 16–21 for sign-off; recipe photos (open question 5).
+- **Next:** Milestone 9.
 
 ## Milestone 7: Onboarding — DONE
 - **What:** the five onboarding screens (welcome, last period, cycle length, food preferences, phase reveal with the moon), in light and dark, saved in one transaction; the onboarding gate now uses the real flow.
