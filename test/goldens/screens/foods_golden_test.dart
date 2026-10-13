@@ -15,12 +15,12 @@ import '../../helpers/golden_screen.dart';
 import '../../helpers/moon_fonts.dart';
 import 'home_golden_test.dart' show stateOnDay;
 
-/// The design's list: Rye is on it.
+/// The design's list: Quinoa (a grain with no follicular recipes) is on it.
 const _summary = ShoppingSummary(
   toBuy: 8,
   done: 3,
   fromRecipes: 6,
-  onListFoodIds: {'rye'},
+  onListFoodIds: {'quinoa'},
 );
 
 void main() {
@@ -66,7 +66,7 @@ void main() {
 
     for (final (food, name) in [
       ('Chicken', 'sheet'),
-      ('Rye', 'sheet-on-list'),
+      ('Quinoa', 'sheet-on-list'),
     ]) {
       testWidgets('foods $name, $theme', (tester) async {
         await pumpScreen(
