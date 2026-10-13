@@ -1,373 +1,321 @@
 {
- "phases": [
-  {
-   "id": "menstrual",
-   "name": "Menstrual",
-   "season": "Inner winter",
-   "tagline": "Rest, warm and replenish",
-   "summary": "Replenish iron and minerals lost during bleeding.",
-   "focusBody": "Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
-   "focus": "Replenish iron and minerals lost during bleeding. Choose warm, mineral-rich foods like sea vegetables, mushrooms, dark beans and seafood.",
-   "cooking": "Slow-cooked soups, stews and broths.",
-   "categories": [
+  "phases": [
     {
-     "category": "grains",
-     "foods": [
-      "buckwheat",
-      "wild-rice"
-     ]
+      "id": "menstrual",
+      "name": "Menstrual",
+      "season": "Inner winter",
+      "tagline": "Warm, comforting and nourishing",
+      "summary": "Warm, comforting meals built around iron-rich foods, with vitamin C alongside.",
+      "focusBody": "Menstrual blood loss increases iron losses, so Moon Cycle highlights iron-rich foods during this phase. Vitamin C helps your body absorb iron from plant foods, so pair beans, lentils and leafy greens with citrus, berries or peppers.",
+      "focus": "Warm, comforting meals built around iron-rich foods, with vitamin C alongside. Menstrual blood loss increases iron losses, so Moon Cycle highlights iron-rich foods during this phase. Vitamin C helps your body absorb iron from plant foods, so pair beans, lentils and leafy greens with citrus, berries or peppers.",
+      "cooking": "Slow-cooked soups, stews, porridge and warm bowls.",
+      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "categories": [
+        {
+          "category": "grains",
+          "foods": [
+            "oat",
+            "quinoa",
+            "brown-rice"
+          ]
+        },
+        {
+          "category": "vegetables",
+          "foods": [
+            "spinach",
+            "kale",
+            "broccoli",
+            "red-bell-pepper",
+            "tomato"
+          ]
+        },
+        {
+          "category": "fruit",
+          "foods": [
+            "orange",
+            "kiwi",
+            "strawberry"
+          ]
+        },
+        {
+          "category": "legumes",
+          "foods": [
+            "green-lentil",
+            "chickpea",
+            "black-turtle-bean",
+            "white-beans",
+            "edamame"
+          ]
+        },
+        {
+          "category": "nuts-seeds",
+          "foods": [
+            "pumpkin-seeds",
+            "sesame-seeds"
+          ]
+        },
+        {
+          "category": "protein",
+          "foods": [
+            "tofu",
+            "tempeh",
+            "eggs",
+            "beef"
+          ]
+        },
+        {
+          "category": "seafood",
+          "foods": [
+            "clam",
+            "mussel",
+            "sardine"
+          ]
+        }
+      ]
     },
     {
-     "category": "vegetables",
-     "foods": [
-      "beets",
-      "burdock",
-      "dulse",
-      "hijiki",
-      "kale",
-      "kelp",
-      "kombu",
-      "mushrooms",
-      "wakame",
-      "water-chestnut"
-     ]
+      "id": "follicular",
+      "name": "Follicular",
+      "season": "Inner spring",
+      "tagline": "Fresh, light and quick",
+      "summary": "Light, fresh, quick meals built on balanced, nutrient-dense foods.",
+      "focusBody": "Think colourful plates of vegetables, fruit, whole grains, beans and protein. There's no special nutrient focus in this phase, so enjoy variety.",
+      "focus": "Light, fresh, quick meals built on balanced, nutrient-dense foods. Think colourful plates of vegetables, fruit, whole grains, beans and protein. There's no special nutrient focus in this phase, so enjoy variety.",
+      "cooking": "Light steaming, quick sautés and fresh salads.",
+      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "categories": [
+        {
+          "category": "grains",
+          "foods": [
+            "oat",
+            "barley",
+            "quinoa"
+          ]
+        },
+        {
+          "category": "vegetables",
+          "foods": [
+            "asparagus",
+            "zucchini",
+            "green-pea",
+            "broccoli",
+            "lettuce",
+            "carrot"
+          ]
+        },
+        {
+          "category": "fruit",
+          "foods": [
+            "avocado",
+            "orange",
+            "blueberry",
+            "apple",
+            "pomegranate"
+          ]
+        },
+        {
+          "category": "legumes",
+          "foods": [
+            "green-lentil",
+            "chickpea",
+            "black-eyed-pea"
+          ]
+        },
+        {
+          "category": "nuts-seeds",
+          "foods": [
+            "flaxseeds",
+            "almond"
+          ]
+        },
+        {
+          "category": "protein",
+          "foods": [
+            "eggs",
+            "chicken",
+            "tofu"
+          ]
+        },
+        {
+          "category": "seafood",
+          "foods": [
+            "trout"
+          ]
+        },
+        {
+          "category": "dairy-alternatives",
+          "foods": [
+            "greek-yogurt"
+          ]
+        },
+        {
+          "category": "fermented",
+          "foods": [
+            "sauerkraut"
+          ]
+        }
+      ]
     },
     {
-     "category": "fruit",
-     "foods": [
-      "blackberry",
-      "blueberry",
-      "concord-grape",
-      "watermelon"
-     ]
+      "id": "ovulatory",
+      "name": "Ovulatory",
+      "season": "Inner summer",
+      "tagline": "Fresh, crisp and colourful",
+      "summary": "Fresh, crisp, colourful meals that feel light.",
+      "focusBody": "Salads, juicy fruit and quick-cooking proteins keep things simple. There's no special nutrient focus here either, so choose what you enjoy.",
+      "focus": "Fresh, crisp, colourful meals that feel light. Salads, juicy fruit and quick-cooking proteins keep things simple. There's no special nutrient focus here either, so choose what you enjoy.",
+      "cooking": "Raw, chilled and lightly cooked dishes.",
+      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "categories": [
+        {
+          "category": "vegetables",
+          "foods": [
+            "cucumber",
+            "tomato",
+            "red-bell-pepper",
+            "asparagus",
+            "spinach",
+            "zucchini",
+            "celery",
+            "radish"
+          ]
+        },
+        {
+          "category": "fruit",
+          "foods": [
+            "watermelon",
+            "strawberry",
+            "raspberry",
+            "cantaloupe",
+            "mango",
+            "kiwi",
+            "orange"
+          ]
+        },
+        {
+          "category": "legumes",
+          "foods": [
+            "edamame",
+            "chickpea"
+          ]
+        },
+        {
+          "category": "nuts-seeds",
+          "foods": [
+            "pistachio",
+            "almond"
+          ]
+        },
+        {
+          "category": "protein",
+          "foods": [
+            "tofu",
+            "eggs"
+          ]
+        },
+        {
+          "category": "seafood",
+          "foods": [
+            "salmon",
+            "shrimp"
+          ]
+        },
+        {
+          "category": "dairy-alternatives",
+          "foods": [
+            "cottage-cheese"
+          ]
+        },
+        {
+          "category": "fermented",
+          "foods": [
+            "pickles"
+          ]
+        }
+      ]
     },
     {
-     "category": "legumes",
-     "foods": [
-      "adzuki-bean",
-      "black-soybean",
-      "black-turtle-bean",
-      "kidney-bean"
-     ]
-    },
-    {
-     "category": "nuts-seeds",
-     "foods": [
-      "chestnut",
-      "sesame-seeds",
-      "sunflower-seeds"
-     ]
-    },
-    {
-     "category": "meat",
-     "foods": [
-      "duck",
-      "pork"
-     ]
-    },
-    {
-     "category": "seafood",
-     "foods": [
-      "catfish",
-      "clam",
-      "crab",
-      "lobster",
-      "mussel",
-      "octopus",
-      "oyster",
-      "sardine",
-      "scallop",
-      "squid"
-     ]
-    },
-    {
-     "category": "other",
-     "foods": [
-      "bancha-tea",
-      "decaf-coffee",
-      "miso",
-      "salt",
-      "tamari"
-     ]
+      "id": "luteal",
+      "name": "Luteal",
+      "season": "Inner autumn",
+      "tagline": "Hearty, grounding and satisfying",
+      "summary": "Hearty, filling meals with protein, fibre and slower-digesting carbohydrates.",
+      "focusBody": "Beans, lentils, whole grains, root vegetables and good protein make satisfying plates.",
+      "focus": "Hearty, filling meals with protein, fibre and slower-digesting carbohydrates. Beans, lentils, whole grains, root vegetables and good protein make satisfying plates.",
+      "cooking": "Roasting, baking and one-pot dishes.",
+      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "categories": [
+        {
+          "category": "grains",
+          "foods": [
+            "oat",
+            "brown-rice",
+            "barley",
+            "buckwheat",
+            "whole-grain-bread"
+          ]
+        },
+        {
+          "category": "vegetables",
+          "foods": [
+            "sweet-potato",
+            "pumpkin",
+            "cauliflower",
+            "brussels-sprouts",
+            "carrot"
+          ]
+        },
+        {
+          "category": "fruit",
+          "foods": [
+            "banana",
+            "apple",
+            "pear"
+          ]
+        },
+        {
+          "category": "legumes",
+          "foods": [
+            "chickpea",
+            "green-lentil",
+            "black-turtle-bean",
+            "edamame"
+          ]
+        },
+        {
+          "category": "nuts-seeds",
+          "foods": [
+            "walnut",
+            "chia-seeds"
+          ]
+        },
+        {
+          "category": "protein",
+          "foods": [
+            "chicken",
+            "eggs",
+            "tofu"
+          ]
+        },
+        {
+          "category": "seafood",
+          "foods": [
+            "salmon"
+          ]
+        },
+        {
+          "category": "dairy-alternatives",
+          "foods": [
+            "greek-yogurt"
+          ]
+        },
+        {
+          "category": "fermented",
+          "foods": [
+            "kimchi"
+          ]
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "follicular",
-   "name": "Follicular",
-   "season": "Inner spring",
-   "tagline": "Fresh, light and energising",
-   "summary": "Estrogen is rising and energy returns.",
-   "focusBody": "Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
-   "focus": "Estrogen is rising and energy returns. Go for fresh, vibrant foods, sprouted grains, lean proteins and fermented foods to support your gut.",
-   "cooking": "Light steaming, quick sautés and fresh salads.",
-   "categories": [
-    {
-     "category": "grains",
-     "foods": [
-      "barley",
-      "oat",
-      "rye",
-      "wheat"
-     ]
-    },
-    {
-     "category": "vegetables",
-     "foods": [
-      "artichoke",
-      "broccoli",
-      "carrot",
-      "lettuce",
-      "parsley",
-      "green-pea",
-      "rhubarb",
-      "string-bean",
-      "zucchini"
-     ]
-    },
-    {
-     "category": "fruit",
-     "foods": [
-      "avocado",
-      "grapefruit",
-      "lemon",
-      "lime",
-      "orange",
-      "plum",
-      "pomegranate",
-      "sour-cherry"
-     ]
-    },
-    {
-     "category": "legumes",
-     "foods": [
-      "black-eyed-pea",
-      "green-lentil",
-      "lima-bean",
-      "mung-bean",
-      "split-pea"
-     ]
-    },
-    {
-     "category": "nuts-seeds",
-     "foods": [
-      "brazil-nut",
-      "cashew",
-      "flaxseeds",
-      "lychee",
-      "pumpkin-seeds"
-     ]
-    },
-    {
-     "category": "meat",
-     "foods": [
-      "chicken",
-      "eggs"
-     ]
-    },
-    {
-     "category": "seafood",
-     "foods": [
-      "fresh-water-clam",
-      "soft-shell-crab",
-      "trout"
-     ]
-    },
-    {
-     "category": "other",
-     "foods": [
-      "nut-butter",
-      "olives",
-      "pickles",
-      "sauerkraut",
-      "vinegar"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "ovulatory",
-   "name": "Ovulatory",
-   "season": "Inner summer",
-   "tagline": "Vibrant, fibre-rich and cooling",
-   "summary": "Energy peaks.",
-   "focusBody": "Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
-   "focus": "Energy peaks. Support your liver with fibre-rich vegetables, colourful fruit and anti-inflammatory foods to process the estrogen surge.",
-   "cooking": "Raw, lightly grilled or quick-cooked meals.",
-   "categories": [
-    {
-     "category": "grains",
-     "foods": [
-      "amaranth",
-      "corn",
-      "quinoa"
-     ]
-    },
-    {
-     "category": "vegetables",
-     "foods": [
-      "asparagus",
-      "red-bell-pepper",
-      "brussels-sprouts",
-      "chard",
-      "chicory",
-      "chive",
-      "dandelion",
-      "eggplant",
-      "endive",
-      "escarole",
-      "okra",
-      "scallion",
-      "spinach",
-      "tomato"
-     ]
-    },
-    {
-     "category": "fruit",
-     "foods": [
-      "apricot",
-      "cantaloupe",
-      "coconut",
-      "fig",
-      "guava",
-      "persimmon",
-      "raspberry",
-      "strawberry"
-     ]
-    },
-    {
-     "category": "legumes",
-     "foods": [
-      "red-lentil"
-     ]
-    },
-    {
-     "category": "nuts-seeds",
-     "foods": [
-      "almond",
-      "flaxseeds",
-      "pecan",
-      "pistachio",
-      "pumpkin-seeds"
-     ]
-    },
-    {
-     "category": "meat",
-     "foods": [
-      "lamb"
-     ]
-    },
-    {
-     "category": "seafood",
-     "foods": [
-      "salmon",
-      "shrimp",
-      "tuna"
-     ]
-    },
-    {
-     "category": "other",
-     "foods": [
-      "alcohol",
-      "chocolate",
-      "coffee",
-      "ketchup",
-      "turmeric"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "luteal",
-   "name": "Luteal",
-   "season": "Inner autumn",
-   "tagline": "Grounding, steady and nourishing",
-   "summary": "Progesterone rises and cravings may appear.",
-   "focusBody": "Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
-   "focus": "Progesterone rises and cravings may appear. Stabilise blood sugar with complex carbs, root vegetables and B-vitamin and magnesium-rich foods.",
-   "cooking": "Roasting and baking for comforting, grounding meals.",
-   "categories": [
-    {
-     "category": "grains",
-     "foods": [
-      "brown-rice",
-      "millet"
-     ]
-    },
-    {
-     "category": "vegetables",
-     "foods": [
-      "cabbage",
-      "cauliflower",
-      "celery",
-      "collard",
-      "cucumber",
-      "daikon",
-      "garlic",
-      "ginger",
-      "leek",
-      "mustard-greens",
-      "onion",
-      "parsnip",
-      "pumpkin",
-      "radish",
-      "squash",
-      "sweet-potato",
-      "watercress"
-     ]
-    },
-    {
-     "category": "fruit",
-     "foods": [
-      "apple",
-      "date",
-      "peach",
-      "pear",
-      "raisin"
-     ]
-    },
-    {
-     "category": "legumes",
-     "foods": [
-      "chickpea",
-      "great-northern-bean",
-      "navy-bean"
-     ]
-    },
-    {
-     "category": "nuts-seeds",
-     "foods": [
-      "hickory",
-      "pine-nut",
-      "sesame-seeds",
-      "sunflower-seeds",
-      "walnut"
-     ]
-    },
-    {
-     "category": "meat",
-     "foods": [
-      "beef",
-      "turkey"
-     ]
-    },
-    {
-     "category": "seafood",
-     "foods": [
-      "cod",
-      "flounder",
-      "halibut"
-     ]
-    },
-    {
-     "category": "other",
-     "foods": [
-      "mint",
-      "peppermint",
-      "spirulina"
-     ]
-    }
-   ]
-  }
- ]
+  ]
 }

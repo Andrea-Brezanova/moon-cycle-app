@@ -1,105 +1,113 @@
 {
- "categories": [
-  {
-   "id": "grains",
-   "name": "Grains"
-  },
-  {
-   "id": "vegetables",
-   "name": "Vegetables"
-  },
-  {
-   "id": "fruit",
-   "name": "Fruit"
-  },
-  {
-   "id": "legumes",
-   "name": "Legumes"
-  },
-  {
-   "id": "nuts-seeds",
-   "name": "Nuts & seeds"
-  },
-  {
-   "id": "meat",
-   "name": "Meat"
-  },
-  {
-   "id": "seafood",
-   "name": "Seafood"
-  },
-  {
-   "id": "other",
-   "name": "Other"
-  }
- ],
- "aisles": [
-  {
-   "id": "produce",
-   "name": "Produce"
-  },
-  {
-   "id": "protein",
-   "name": "Protein"
-  },
-  {
-   "id": "grains",
-   "name": "Grains"
-  },
-  {
-   "id": "fermented",
-   "name": "Fermented"
-  },
-  {
-   "id": "dairy-alternatives",
-   "name": "Dairy & alternatives"
-  },
-  {
-   "id": "pantry",
-   "name": "Pantry"
-  },
-  {
-   "id": "other",
-   "name": "Other"
-  }
- ],
- "allergens": [
-  {
-   "id": "peanut",
-   "label": "Peanuts"
-  },
-  {
-   "id": "tree-nut",
-   "label": "Tree nuts"
-  },
-  {
-   "id": "shellfish",
-   "label": "Shellfish"
-  },
-  {
-   "id": "fish",
-   "label": "Fish"
-  },
-  {
-   "id": "dairy",
-   "label": "Dairy"
-  },
-  {
-   "id": "egg",
-   "label": "Eggs"
-  },
-  {
-   "id": "gluten",
-   "label": "Gluten"
-  },
-  {
-   "id": "soy",
-   "label": "Soy"
-  },
-  {
-   "id": "sesame",
-   "label": "Sesame"
-  }
- ],
- "sheetLabel": "Recommended for your {phase} phase"
+  "categories": [
+    {
+      "id": "grains",
+      "name": "Grains"
+    },
+    {
+      "id": "vegetables",
+      "name": "Vegetables"
+    },
+    {
+      "id": "fruit",
+      "name": "Fruit"
+    },
+    {
+      "id": "legumes",
+      "name": "Legumes"
+    },
+    {
+      "id": "nuts-seeds",
+      "name": "Nuts & seeds"
+    },
+    {
+      "id": "protein",
+      "name": "Protein"
+    },
+    {
+      "id": "seafood",
+      "name": "Seafood"
+    },
+    {
+      "id": "dairy-alternatives",
+      "name": "Dairy & alternatives"
+    },
+    {
+      "id": "fermented",
+      "name": "Fermented"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    }
+  ],
+  "aisles": [
+    {
+      "id": "produce",
+      "name": "Produce"
+    },
+    {
+      "id": "protein",
+      "name": "Protein"
+    },
+    {
+      "id": "grains",
+      "name": "Grains"
+    },
+    {
+      "id": "fermented",
+      "name": "Fermented"
+    },
+    {
+      "id": "dairy-alternatives",
+      "name": "Dairy & alternatives"
+    },
+    {
+      "id": "pantry",
+      "name": "Pantry"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    }
+  ],
+  "allergens": [
+    {
+      "id": "peanut",
+      "label": "Peanuts"
+    },
+    {
+      "id": "tree-nut",
+      "label": "Tree nuts"
+    },
+    {
+      "id": "shellfish",
+      "label": "Shellfish"
+    },
+    {
+      "id": "fish",
+      "label": "Fish"
+    },
+    {
+      "id": "dairy",
+      "label": "Dairy"
+    },
+    {
+      "id": "egg",
+      "label": "Eggs"
+    },
+    {
+      "id": "gluten",
+      "label": "Gluten"
+    },
+    {
+      "id": "soy",
+      "label": "Soy"
+    },
+    {
+      "id": "sesame",
+      "label": "Sesame"
+    }
+  ],
+  "sheetLabel": "Recommended for your {phase} phase"
 }

@@ -34,6 +34,7 @@ final class PhaseContent {
     required this.summary,
     required this.focusBody,
     required this.cooking,
+    required this.note,
     required this.categories,
   });
 
@@ -56,6 +57,10 @@ final class PhaseContent {
 
   /// "Light steaming, quick sautés and fresh salads."
   final String cooking;
+
+  /// "These are suggestions, not rules — any food can be enjoyed in any
+  /// phase." Shown directly below the phase intro on Foods.
+  final String note;
 
   /// Foods per category, in the stored order. Only shippable foods.
   final List<PhaseCategory> categories;

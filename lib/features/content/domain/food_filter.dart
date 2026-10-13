@@ -10,8 +10,9 @@ import 'text_match.dart';
 /// - Diet: vegan excludes every animal source; vegetarian excludes meat and
 ///   seafood; pescatarian excludes meat.
 /// - Avoidances: an avoided allergen excludes every food and recipe line that
-///   carries it; an avoided food excludes that food; a typed avoidance
-///   excludes foods and recipe lines whose name contains it.
+///   carries it *or may carry it* (check-label foods such as oats and gluten);
+///   an avoided food excludes that food; a typed avoidance excludes foods and
+///   recipe lines whose name contains it.
 /// - A recipe is excluded if any of its lines is.
 ///
 /// Matching is conservative: when in doubt, leave it out.
@@ -44,6 +45,7 @@ final class FoodFilter {
       _dietAllows(food.animalSource) &&
       !_foods.contains(food.id) &&
       food.allergenIds.intersection(_allergens).isEmpty &&
+      food.mayContainAllergenIds.intersection(_allergens).isEmpty &&
       !_phrases.any(
         (p) =>
             containsPhrase(food.name, p) ||

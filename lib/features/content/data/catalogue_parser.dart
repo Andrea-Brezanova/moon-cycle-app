@@ -44,6 +44,10 @@ Catalogue parseCatalogue({
         for (final a in _strings(f, 'allergens'))
           _known(a, allergenIds, 'allergen', id),
       },
+      mayContainAllergenIds: {
+        for (final a in _strings(f, 'mayContainAllergens'))
+          _known(a, allergenIds, 'allergen', id),
+      },
       synonyms: _strings(f, 'synonyms'),
       cautions: _strings(f, 'cautions'),
       why: {
@@ -70,6 +74,7 @@ Catalogue parseCatalogue({
       summary: _str(p, 'summary'),
       focusBody: _str(p, 'focusBody'),
       cooking: _str(p, 'cooking'),
+      note: _str(p, 'note'),
       categories: [
         for (final c in _list(p, 'categories'))
           PhaseCategory(

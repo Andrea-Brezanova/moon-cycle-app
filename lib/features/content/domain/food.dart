@@ -11,6 +11,7 @@ final class Food {
     required this.aisleId,
     required this.animalSource,
     required this.allergenIds,
+    this.mayContainAllergenIds = const {},
     this.synonyms = const [],
     this.cautions = const [],
     this.why = const {},
@@ -25,6 +26,11 @@ final class Food {
   final String aisleId;
   final AnimalSource animalSource;
   final Set<String> allergenIds;
+
+  /// Allergens the food only *may* carry (check the label), e.g. oats and
+  /// gluten, kimchi and fish. Not shown as a permanent allergen, but an
+  /// avoided allergen still leaves the food out (conservative filtering).
+  final Set<String> mayContainAllergenIds;
 
   /// Other names for typed shopping items and avoidances ("courgette").
   final List<String> synonyms;
