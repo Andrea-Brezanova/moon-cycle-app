@@ -59,7 +59,12 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Inner spring'), findsOneWidget);
     expect(find.text('Follicular'), findsOneWidget);
-    expect(find.text('Estrogen is rising and energy returns.'), findsOneWidget);
+    expect(
+      find.text(
+        'Light, fresh, quick meals built on balanced, nutrient-dense foods.',
+      ),
+      findsOneWidget,
+    );
     expect(
       find.text(
         'Day 2 of 6 in phase · Day 7 of 28 in cycle\nOvulatory in 5 days',
@@ -74,15 +79,16 @@ void main() {
 
   testWidgets('focus, six foods and the phase’s recipes', (tester) async {
     await pumpHome(tester);
-    expect(find.text('Fresh, light and energising'), findsOneWidget);
+    await scrollTo(tester, find.text('Fresh, light and quick'), 200);
+    expect(find.text('Fresh, light and quick'), findsOneWidget);
     await scrollTo(tester, find.text('Foods for today'), 200);
     for (final food in [
-      'Barley',
-      'Artichoke',
+      'Oat',
+      'Asparagus',
       'Avocado',
-      'Black-eyed pea',
-      'Brazil nut',
-      'Chicken',
+      'Lentils',
+      'Flaxseeds',
+      'Eggs',
     ]) {
       expect(find.text(food), findsOneWidget, reason: food);
     }
@@ -101,9 +107,9 @@ void main() {
       },
     );
     await scrollTo(tester, find.text('Foods for today'), 200);
-    // No barley (gluten) or chicken (meat): the next food in each category.
-    expect(find.text('Barley'), findsNothing);
-    expect(find.text('Chicken'), findsNothing);
+    // Oats may contain gluten, so gluten-avoiders get the next grain.
+    expect(find.text('Oat'), findsNothing);
+    expect(find.text('Quinoa'), findsOneWidget);
     expect(find.text('Eggs'), findsOneWidget);
     await scrollTo(tester, find.text('Meals · 25 min'), 200);
     expect(find.text('Lemon Herb Chicken with Artichoke & Peas'), findsNothing);
@@ -145,7 +151,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('YOUR FOCUS · TODAY'), findsOneWidget);
     // The content below stays on today's phase.
-    expect(find.text('Fresh, light and energising'), findsOneWidget);
+    expect(find.text('Fresh, light and quick'), findsOneWidget);
 
     await tester.fling(
       find.byType(Scrollable).first,

@@ -119,11 +119,18 @@ void main() {
       expect(t.name, 'Zucchini');
       expect(t.aisleId, 'produce');
     });
-    test('no match: free text in Other', () {
+    test('a catalogue food typed by name resolves to the food', () {
       final t = resolveTyped('oat  milk', testCatalogue)!;
-      expect(t.key, 'text:oat milk');
-      expect(t.foodId, isNull);
+      expect(t.key, 'food:oat-milk');
+      expect(t.foodId, 'oat-milk');
       expect(t.name, 'Oat milk');
+      expect(t.aisleId, 'dairy-alternatives');
+    });
+    test('no match: free text in Other', () {
+      final t = resolveTyped('kitchen  paper', testCatalogue)!;
+      expect(t.key, 'text:kitchen paper');
+      expect(t.foodId, isNull);
+      expect(t.name, 'Kitchen paper');
       expect(t.aisleId, otherAisle);
     });
     test('blank text is nothing', () {

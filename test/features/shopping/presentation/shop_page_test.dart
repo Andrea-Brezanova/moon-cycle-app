@@ -60,14 +60,14 @@ void main() {
     tester,
   ) async {
     await pumpShop(tester);
-    await tester.enterText(find.byType(TextField), 'oat milk');
+    await tester.enterText(find.byType(TextField), 'kitchen paper');
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'courgette');
     await tester.tap(find.bySemanticsLabel('Add item'));
     await tester.pumpAndSettle();
     expect(find.text('OTHER'), findsOneWidget);
-    expect(find.text('Oat milk'), findsOneWidget);
+    expect(find.text('Kitchen paper'), findsOneWidget);
     expect(find.text('PRODUCE'), findsOneWidget);
     expect(find.text('Zucchini'), findsOneWidget);
     expect(find.text('Added by you'), findsNWidgets(2));

@@ -52,10 +52,7 @@ void main() {
     await pumpRecipes(tester);
     expect(find.text('3 follicular recipes'), findsOneWidget);
     expect(find.text('Zesty Lentil & Broccoli Bowl'), findsOneWidget);
-    expect(
-      find.text('Meals · Green lentil, broccoli, zucchini'),
-      findsOneWidget,
-    );
+    expect(find.text('Meals · Lentils, broccoli, zucchini'), findsOneWidget);
     expect(find.text('25 min'), findsOneWidget); // the time badge
     expect(find.text('Breakfast · 10 min'), findsOneWidget);
   });
@@ -104,9 +101,9 @@ void main() {
     await pumpRecipes(tester);
     await tester.tap(find.bySemanticsLabel('Cook with, choose an ingredient'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'quinoa');
+    await tester.enterText(find.byType(TextField), 'salmon');
     await tester.pumpAndSettle();
-    expect(find.text('No follicular foods match “quinoa”'), findsOneWidget);
+    expect(find.text('No follicular foods match “salmon”'), findsOneWidget);
     await tester.tap(find.text('Clear search'));
     await tester.pumpAndSettle();
     expect(find.text('GRAINS'), findsOneWidget);

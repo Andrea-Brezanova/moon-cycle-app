@@ -18,12 +18,19 @@ void main() {
   test('foods for a phase follow the stored category order', () {
     final follicular = c.phase(Phase.follicular);
     expect(follicular.categories.first.category.name, 'Grains');
-    expect(c.foodsFor(Phase.follicular).first.id, 'barley');
+    expect(c.foodsFor(Phase.follicular).first.id, 'oat');
   });
 
   test('foods recommended in two phases have copy for both', () {
-    final seeds = c.food('sesame-seeds')!;
-    expect(seeds.why.keys, containsAll([Phase.menstrual, Phase.luteal]));
+    final oats = c.food('oat')!;
+    expect(
+      oats.why.keys,
+      containsAll([Phase.menstrual, Phase.follicular, Phase.luteal]),
+    );
+    expect(
+      oats.why[Phase.luteal]!.short,
+      isNot(oats.why[Phase.menstrual]!.short),
+    );
   });
 
   test('typed names find foods by name or synonym, never by plural guess', () {
@@ -31,7 +38,8 @@ void main() {
     expect(c.foodNamed('Spring onion')!.id, 'scallion');
     expect(c.foodNamed('Lettuce')!.id, 'lettuce');
     expect(c.foodNamed('Buckwheat (kasha)')!.id, 'buckwheat');
-    expect(c.foodNamed('oat milk'), isNull);
+    expect(c.foodNamed('oat milk')!.id, 'oat-milk');
+    expect(c.foodNamed('strawberries'), isNull); // no plural guessing
     expect(c.foodNamed(''), isNull);
   });
 

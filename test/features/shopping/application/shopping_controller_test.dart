@@ -53,9 +53,9 @@ void main() {
     final items = await container.read(shoppingRepositoryProvider).items();
     final lemon = items.firstWhere((i) => i.key == 'food:lemon');
     expect(lemon.isMerged, isTrue);
-    // Non-catalogue lines keep their own aisle.
+    // A recipe line named like a catalogue food resolves to it (Olive oil).
     final oil = items.firstWhere((i) => i.name == 'Olive oil');
-    expect(oil.key, 'text:olive oil');
+    expect(oil.key, 'food:olive-oil');
     expect(oil.aisleId, 'pantry');
     expect(displayQuantity(oil.sources), '2 tbsp');
   });

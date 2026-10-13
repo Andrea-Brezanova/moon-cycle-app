@@ -23,12 +23,12 @@ List<String> foods(FoodFilter filter, Phase phase) {
 void main() {
   test('the first food of each category, up to six', () {
     expect(foods(FoodFilter.none, Phase.follicular), [
-      'barley',
-      'artichoke',
+      'oat',
+      'asparagus',
       'avocado',
-      'black-eyed-pea',
-      'brazil-nut',
-      'chicken',
+      'green-lentil',
+      'flaxseeds',
+      'eggs',
     ]);
   });
 
@@ -37,14 +37,15 @@ void main() {
       diet: Diet.vegetarian,
       avoidances: [AllergenAvoidance(id: 'a', allergenId: 'gluten')],
     );
-    // Every follicular grain contains gluten, and no seafood is vegetarian.
+    // Oats (may contain gluten) and barley (gluten) give way to quinoa; the
+    // single seafood food (trout) is not vegetarian.
     expect(foods(filter, Phase.follicular), [
-      'artichoke',
+      'quinoa',
+      'asparagus',
       'avocado',
-      'black-eyed-pea',
-      'brazil-nut',
+      'green-lentil',
+      'flaxseeds',
       'eggs',
-      'nut-butter',
     ]);
   });
 }
