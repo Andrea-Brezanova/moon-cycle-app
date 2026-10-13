@@ -100,6 +100,14 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                       style: MoonType.body.copyWith(color: c.text),
                     ),
                   ),
+                  const SizedBox(height: 12),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 320),
+                    child: Text(
+                      content.note,
+                      style: dmSans(14, height: 1.4, color: c.textMuted),
+                    ),
+                  ),
                   const SizedBox(height: 26),
                   _HintLine(palette: palette),
                 ],
@@ -221,7 +229,13 @@ class _Category extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
-              Text(name, style: MoonType.categoryHead.copyWith(color: c.text)),
+              // Long category names ("Dairy & alternatives") wrap, not overflow.
+              Flexible(
+                child: Text(
+                  name,
+                  style: MoonType.categoryHead.copyWith(color: c.text),
+                ),
+              ),
               const SizedBox(width: 10),
               Text(
                 '${foods.length}',
