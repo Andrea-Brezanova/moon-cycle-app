@@ -64,6 +64,27 @@ void main() {
       );
     });
 
+    testWidgets('foods sheet with cautions, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const FoodsPage(),
+        dark: dark,
+        overrides: base(),
+      );
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(FoodsPage)),
+      );
+      container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Kimchi'), 200);
+      await tester.tap(find.text('Kimchi'));
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(MaterialApp),
+        matchesGoldenFile('goldens/$theme-foods-sheet-cautions.png'),
+      );
+    });
+
     for (final (food, name) in [
       ('Chicken', 'sheet'),
       ('Quinoa', 'sheet-on-list'),

@@ -85,6 +85,10 @@ class IngredientSheet extends ConsumerWidget {
               style: dmSans(14, height: 1.4, color: c.textMuted),
             ),
           ],
+          if (food.cautions.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            _GoodToKnow(cautions: food.cautions),
+          ],
           const SizedBox(height: 24),
           if (count > 0) ...[
             MoonButton(
@@ -112,6 +116,34 @@ class IngredientSheet extends ConsumerWidget {
                   .read(shoppingControllerProvider.notifier)
                   .addFood(food, phase),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The food's cautions, exactly as written in the content, in the app's info
+/// note. One note; each caution on its own line, with a bullet only when there
+/// is more than one so a wrapped line can't be mistaken for a second caution.
+class _GoodToKnow extends StatelessWidget {
+  const _GoodToKnow({required this.cautions});
+
+  final List<String> cautions;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return InfoNote(
+      key: const ValueKey('food-cautions'),
+      icon: MoonIconName.help,
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'Good to know',
+            style: TextStyle(color: c.text, fontWeight: FontWeight.w600),
+          ),
+          for (final caution in cautions)
+            TextSpan(text: cautions.length > 1 ? '\n• $caution' : '\n$caution'),
         ],
       ),
     );
