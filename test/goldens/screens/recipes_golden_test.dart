@@ -45,7 +45,7 @@ void main() {
     recipeFilterProvider.overrideWith(() => _Filter(filter)),
   ];
 
-  final zesty = testCatalogue.recipe('zesty-lentil-broccoli-bowl')!;
+  final zesty = testCatalogue.recipe('zucchini-feta-herb-frittata')!;
   final lists = <String, List<Override>>{
     'recipes': base(),
     'filtered': base(const RecipeFilter(foodId: 'chicken')),
@@ -59,7 +59,9 @@ void main() {
         const FoodFilter(
           avoidances: [
             AllergenAvoidance(id: 'a', allergenId: 'gluten'),
-            FoodItemAvoidance(id: 'b', foodId: 'broccoli'),
+            AllergenAvoidance(id: 'c', allergenId: 'dairy'),
+            AllergenAvoidance(id: 'd', allergenId: 'fish'),
+            FoodItemAvoidance(id: 'b', foodId: 'chicken'),
           ],
         ),
       ),

@@ -17,7 +17,7 @@ final screens = <String, String>{
   'home': AppTab.home.path,
   'foods': AppTab.foods.path,
   'recipes': AppTab.recipes.path,
-  'recipe detail': Routes.recipe('zesty-lentil-broccoli-bowl'),
+  'recipe detail': Routes.recipe('zucchini-feta-herb-frittata'),
   'shop': AppTab.shop.path,
   'settings': AppTab.settings.path,
   for (final page in SettingsPage.values) page.segment: Routes.settings(page),

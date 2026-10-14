@@ -289,6 +289,25 @@ class _Intro extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Text(recipe.intro, style: MoonType.body.copyWith(color: c.text)),
+        const SizedBox(height: 20),
+        Semantics(
+          header: true,
+          child: Text(
+            'Why this recipe?',
+            style: dmSans(
+              14,
+              weight: FontWeight.w600,
+              height: 1.2,
+              color: c.text,
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          recipe.whyThisPhase,
+          key: const ValueKey('recipe-why-this-phase'),
+          style: dmSans(14, height: 1.45, color: c.textMuted),
+        ),
       ],
     );
   }
@@ -411,7 +430,14 @@ class _IngredientRow extends StatelessWidget {
             ),
             const SizedBox(width: 12),
             if (quantity.isNotEmpty)
-              Text(quantity, style: dmSans(14, height: 1, color: c.textMuted)),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 124),
+                child: Text(
+                  quantity,
+                  textAlign: TextAlign.end,
+                  style: dmSans(14, height: 1.25, color: c.textMuted),
+                ),
+              ),
             const SizedBox(width: 12),
             if (onList)
               OnListMark(palette: palette)

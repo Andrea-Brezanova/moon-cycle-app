@@ -76,7 +76,9 @@ void main() {
         const FoodFilter(
           avoidances: [
             AllergenAvoidance(id: 'a', allergenId: 'gluten'),
-            FoodItemAvoidance(id: 'b', foodId: 'broccoli'),
+            AllergenAvoidance(id: 'c', allergenId: 'dairy'),
+            AllergenAvoidance(id: 'd', allergenId: 'fish'),
+            FoodItemAvoidance(id: 'b', foodId: 'chicken'),
           ],
         ),
       ),

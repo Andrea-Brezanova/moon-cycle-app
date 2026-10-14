@@ -24,7 +24,7 @@ const _staple = ShoppingSource(
 const _chicken = ShoppingSource(
   id: 'r',
   type: SourceType.recipe,
-  recipeId: 'lemon-herb-chicken-artichoke',
+  recipeId: 'lemon-chicken-green-bean-tray',
 );
 const _you = ShoppingSource(id: 'm', type: SourceType.manual);
 

@@ -227,10 +227,10 @@ void main() {
 
   testWidgets('a food without recipes: no recipe button', (tester) async {
     await pumpFoods(tester);
-    await scrollTo(tester, find.text('Farro'));
-    await tester.tap(find.text('Farro'));
+    await scrollTo(tester, find.text('Turnip'));
+    await tester.tap(find.text('Turnip'));
     await tester.pumpAndSettle();
-    expect(find.text('No recipes with farro yet.'), findsOneWidget);
+    expect(find.text('No recipes with turnip yet.'), findsOneWidget);
     expect(find.textContaining('See '), findsNothing);
   });
 

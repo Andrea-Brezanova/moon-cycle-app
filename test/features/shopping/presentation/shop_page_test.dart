@@ -156,11 +156,11 @@ void main() {
     final c = controller(container);
     await run(tester, () async {
       await c.addFood(testCatalogue.food('lemon')!, Phase.follicular);
-      await c.addRecipe(testCatalogue.recipe('lemon-herb-chicken-artichoke')!);
+      await c.addRecipe(testCatalogue.recipe('lemon-chicken-green-bean-tray')!);
     });
     expect(find.text('Merged'), findsOneWidget);
     expect(
-      find.text('Phase staple + Lemon Herb Chicken with Artichoke & Peas'),
+      find.text('Phase staple + Lemon Chicken & Green Bean Tray Bake'),
       findsOneWidget,
     );
   });
@@ -171,15 +171,15 @@ void main() {
       tester,
       () =>
           controller(container)
-              .addRecipe(testCatalogue.recipe('citrus-oat-breakfast-bowl')!),
+              .addRecipe(testCatalogue.recipe('avocado-egg-arugula-toast')!),
     );
     await tester.tap(find.byKey(const ValueKey('tab-home')));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
-      find.text('5 to buy · 5 from recipes'),
+      find.text('7 to buy · 7 from recipes'),
       300,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('5 to buy · 5 from recipes'), findsOneWidget);
+    expect(find.text('7 to buy · 7 from recipes'), findsOneWidget);
   });
 }

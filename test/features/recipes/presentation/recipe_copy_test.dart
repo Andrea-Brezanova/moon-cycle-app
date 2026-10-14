@@ -73,12 +73,12 @@ void main() {
   });
 
   test('merge and skip notes', () {
-    final zesty = testCatalogue.recipe('zesty-lentil-broccoli-bowl')!;
-    final lines = zesty.ingredients;
+    final tray = testCatalogue.recipe('lemon-chicken-green-bean-tray')!;
+    final lines = tray.ingredients;
     expect(mergeNote(const []), isNull);
     expect(
-      mergeNote([lines[1], lines[3], lines[7]]),
-      'Broccoli, lemon and sauerkraut are already on your list. We’ll merge '
+      mergeNote([lines[1], lines[3], lines[4]]),
+      'Green beans, lemon and garlic are already on your list. We’ll merge '
       'them, not add them twice.',
     );
     expect(
@@ -86,7 +86,7 @@ void main() {
       'Lemon is already on your list. We’ll merge it, not add it twice.',
     );
     expect(
-      skipNote([lines[6]]),
+      skipNote([lines[5]]),
       'We’ll leave out olive oil: it’s on your avoid list.',
     );
   });

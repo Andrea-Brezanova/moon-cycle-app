@@ -111,6 +111,7 @@ Catalogue parseCatalogue({
         minutes: _int(r, 'minutes'),
         serves: _int(r, 'serves'),
         intro: _str(r, 'intro'),
+        whyThisPhase: _str(r, 'whyThisPhase'),
         imageUrl: (r['image'] as Map<String, Object?>?)?['url'] as String?,
         keyFoodIds: [for (final f in _strings(r, 'keyFoods')) food(f)],
         ingredients: [
@@ -121,6 +122,7 @@ Catalogue parseCatalogue({
               amount: (l['amount'] as num?)?.toDouble(),
               unit: l['unit'] as String?,
               qtyText: l['qtyText'] as String?,
+              metric: l['metric'] as String?,
               aisleId: l['food'] != null
                   ? foodsById[l['food']]!.aisleId
                   : _known(_str(l, 'aisle'), aisleIds, 'aisle', id),

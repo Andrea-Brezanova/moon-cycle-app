@@ -41,4 +41,20 @@ void main() {
     expect(shown, {for (final f in testCatalogue.foods) f.id});
     expect(shown, contains('blackberry'));
   });
+
+  test('food to recipe links count the 40 Recipes v2 recipes', () {
+    final container = ProviderContainer(
+      overrides: [catalogueProvider.overrideWithValue(testCatalogue)],
+    );
+    addTearDown(container.dispose);
+    final counts = container.read(allRecipeCountsProvider);
+    expect(counts['spinach'], 3);
+    expect(counts['chicken'], 1);
+    expect(counts['turnip'], isNull);
+    for (final r in testCatalogue.recipes) {
+      for (final id in r.keyFoodIds) {
+        expect(counts[id], greaterThan(0), reason: '${r.id} / $id');
+      }
+    }
+  });
 }

@@ -46,9 +46,9 @@ void main() {
     final c = controller();
     await c.addFood(testCatalogue.food('lemon')!, Phase.follicular);
     final added = await c.addRecipe(
-      testCatalogue.recipe('zesty-lentil-broccoli-bowl')!,
+      testCatalogue.recipe('tuna-pea-lemon-pasta')!,
     );
-    expect(added.added, 7); // 8 lines, lemon merged
+    expect(added.added, 6); // 7 lines, lemon merged
     expect(added.merged, 1);
     final items = await container.read(shoppingRepositoryProvider).items();
     final lemon = items.firstWhere((i) => i.key == 'food:lemon');
@@ -56,13 +56,14 @@ void main() {
     // A recipe line named like a catalogue food resolves to it (Olive oil).
     final oil = items.firstWhere((i) => i.name == 'Olive oil');
     expect(oil.key, 'food:olive-oil');
-    expect(oil.aisleId, 'pantry');
+    // The catalogue puts olive oil in the `other` aisle (Foods v2 is frozen).
+    expect(oil.aisleId, 'other');
     expect(displayQuantity(oil.sources), '2 tbsp');
   });
 
   test('the same recipe twice changes nothing', () async {
     container = make();
-    final recipe = testCatalogue.recipe('zesty-lentil-broccoli-bowl')!;
+    final recipe = testCatalogue.recipe('zucchini-feta-herb-frittata')!;
     await controller().addRecipe(recipe);
     final again = await controller().addRecipe(recipe);
     expect(again.added, 0);
@@ -76,7 +77,7 @@ void main() {
       ),
     );
     final added = await controller().addRecipe(
-      testCatalogue.recipe('sweet-potato-chickpea-tray')!,
+      testCatalogue.recipe('tahini-chickpea-sweet-potato-tray')!,
     );
     expect(added.skipped.map((l) => l.label), ['Tahini']);
     expect(await keys(), isNot(contains('food:sesame-seeds')));
@@ -137,14 +138,14 @@ void main() {
       testCatalogue.food('lemon')!,
       Phase.follicular,
     )).item;
-    await c.addRecipe(testCatalogue.recipe('citrus-oat-breakfast-bowl')!);
+    await c.addRecipe(testCatalogue.recipe('avocado-egg-arugula-toast')!);
     await c.toggle(lemon);
     await Future<void>.delayed(const Duration(milliseconds: 20));
     final s = container.read(shoppingSummaryProvider);
-    expect(s.toBuy, 5);
+    expect(s.toBuy, 6);
     expect(s.done, 1);
-    expect(s.fromRecipes, 5);
-    expect(s.onListFoodIds, contains('orange'));
+    expect(s.fromRecipes, 6);
+    expect(s.onListFoodIds, contains('avocado'));
     expect(s.onListFoodIds, isNot(contains('lemon')));
   });
 }

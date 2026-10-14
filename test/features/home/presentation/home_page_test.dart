@@ -102,8 +102,8 @@ void main() {
     ]) {
       expect(find.text(food), findsOneWidget, reason: food);
     }
-    await scrollTo(tester, find.text('Meals · 25 min'), 200);
-    expect(find.text('Zesty Lentil & Broccoli Bowl'), findsOneWidget);
+    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'), 200);
+    expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
     await scrollTo(tester, find.text('Your shopping list'), 200);
     expect(find.text('0 to buy'), findsOneWidget);
   });
@@ -122,9 +122,9 @@ void main() {
     expect(find.text('Farro'), findsNothing);
     expect(find.text('Chicken'), findsNothing);
     expect(find.text('Eggs'), findsOneWidget);
-    await scrollTo(tester, find.text('Meals · 25 min'), 200);
-    expect(find.text('Lemon Herb Chicken with Artichoke & Peas'), findsNothing);
-    expect(find.text('Zesty Lentil & Broccoli Bowl'), findsOneWidget);
+    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'), 200);
+    expect(find.text('Lemon Chicken & Green Bean Tray Bake'), findsNothing);
+    expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
   });
 
   testWidgets('no recipe fits: the empty line and the way out', (tester) async {
@@ -132,7 +132,9 @@ void main() {
       tester,
       prefs: (prefs) async {
         await prefs.avoidAllergen('gluten');
-        await prefs.avoidFood('broccoli');
+        await prefs.avoidAllergen('dairy');
+        await prefs.avoidAllergen('fish');
+        await prefs.avoidFood('chicken');
       },
     );
     await scrollTo(tester, find.text('Review food preferences'), 200);
@@ -226,8 +228,8 @@ void main() {
     tester,
   ) async {
     await pumpHome(tester);
-    await scrollTo(tester, find.text('Zesty Lentil & Broccoli Bowl'));
-    await tester.tap(find.text('Zesty Lentil & Broccoli Bowl'));
+    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'));
+    await tester.tap(find.text('Zucchini & Feta Herb Frittata'));
     await tester.pumpAndSettle();
     expect(find.byType(RecipeDetailPage), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('tab-home')));

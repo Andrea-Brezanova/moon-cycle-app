@@ -22,7 +22,7 @@ final recipesRoot = find.byType(RecipesPage);
 final recipeDetail = find.byType(RecipeDetailPage);
 
 /// The first recipe card on the Recipes list.
-final firstRecipe = find.text('Zesty Lentil & Broccoli Bowl');
+final firstRecipe = find.text('Zucchini & Feta Herb Frittata');
 final settingsRoot = find.byType(SettingsHomePage);
 
 Finder tab(String name) => find.byKey(ValueKey('tab-$name'));
@@ -75,7 +75,7 @@ void main() {
     await tapTab(tester, 'recipes');
     expect(find.byType(RecipeDetailPage, skipOffstage: false), findsOneWidget);
     expect(
-      find.text('25 min · Serves 2').hitTestable(),
+      find.text('25 min · Serves 4').hitTestable(),
       findsOneWidget,
     ); // still open
     expect(recipesRoot.hitTestable(), findsNothing);

@@ -46,7 +46,7 @@ void main() {
     expect(RecipeCategory.lunch.mealType, MealType.meals);
     expect(RecipeCategory.dinner.mealType, MealType.meals);
     expect(RecipeCategory.breakfast.mealType, MealType.breakfast);
-    expect(c.recipes.where((r) => r.mealType == MealType.snacks), isEmpty);
+    expect(c.recipes.where((r) => r.mealType == MealType.snacks), hasLength(4));
   });
 
   group('quantities (spec §9)', () {
@@ -54,15 +54,45 @@ void main() {
         c.recipe(recipeId)!.ingredients[line].quantityLabel;
 
     test(
-      'amount and unit',
-      () => expect(q('zesty-lentil-broccoli-bowl', 0), '150 g'),
+      'cup with a metric companion, singular at one',
+      () => expect(q('lentil-spinach-tomato-stew', 0), '1 cup (200 g)'),
+    );
+    test(
+      'US weight with metric',
+      () => expect(q('lentil-spinach-tomato-stew', 1), '7 oz (200 g)'),
+    );
+    test(
+      'a can with its size',
+      () => expect(q('lentil-spinach-tomato-stew', 2), '1 can (14 oz / 400 g)'),
     );
     test(
       'a piece shows the number alone',
-      () => expect(q('zesty-lentil-broccoli-bowl', 2), '1'),
+      () => expect(q('lentil-spinach-tomato-stew', 3), '1'),
     );
-    test('words', () => expect(q('zesty-lentil-broccoli-bowl', 7), 'to serve'));
-    test('halves', () => expect(q('sweet-potato-chickpea-tray', 1), '½'));
+    test(
+      'plural cups and ml',
+      () => expect(q('chard-white-bean-potato-soup', 6), '4 cups (1000 ml)'),
+    );
+    test(
+      'plural cans',
+      () => expect(
+        q('sardine-spinach-lemon-toast', 0),
+        '2 cans (4 oz / 120 g each)',
+      ),
+    );
+    test(
+      'tbsp stays abbreviated',
+      () => expect(q('lentil-spinach-tomato-stew', 6), '1 tbsp'),
+    );
+    test('halves', () => expect(q('papaya-kiwi-orange-bowl', 0), '½'));
+    test('words', () {
+      const line = RecipeIngredient(
+        label: 'Blueberries',
+        qtyText: 'to serve',
+        aisleId: 'produce',
+      );
+      expect(line.quantityLabel, 'to serve');
+    });
     test('formatAmount', () {
       expect(formatAmount(1.5), '1½');
       expect(formatAmount(0.25), '¼');

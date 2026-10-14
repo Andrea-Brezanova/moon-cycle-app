@@ -32,6 +32,7 @@ final class Recipe {
     required this.minutes,
     required this.serves,
     required this.intro,
+    required this.whyThisPhase,
     this.imageUrl,
     required this.keyFoodIds,
     required this.ingredients,
@@ -45,6 +46,10 @@ final class Recipe {
   final int minutes;
   final int serves;
   final String intro;
+
+  /// One conservative sentence on why the recipe suits its phase's meal
+  /// style ("Why this recipe?" on the detail screen).
+  final String whyThisPhase;
   final String? imageUrl;
 
   /// The key ingredients: they drive "Cook with…" and the recipe counts.
@@ -67,6 +72,7 @@ final class RecipeIngredient {
     this.amount,
     this.unit,
     this.qtyText,
+    this.metric,
     required this.aisleId,
     this.extraAllergenIds = const {},
   });
@@ -84,6 +90,10 @@ final class RecipeIngredient {
   /// A quantity in words ("to serve").
   final String? qtyText;
 
+  /// Display-only metric companion to the US [amount]/[unit] ("170 g",
+  /// "14 oz / 400 g"). Never used for shopping-list totals.
+  final String? metric;
+
   /// Its food's aisle, or the line's own for non-catalogue lines.
   final String aisleId;
 
@@ -91,15 +101,32 @@ final class RecipeIngredient {
   /// contain gluten although buckwheat doesn't).
   final Set<String> extraAllergenIds;
 
-  /// "150 g", "2", "1 tbsp", "to serve" (a unit of "piece" shows the number
-  /// alone; spec §9).
+  /// "150 g", "2", "1 tbsp", "2 cups (480 ml)", "1 can (14 oz / 400 g)",
+  /// "to serve" (a unit of "piece" shows the number alone; spec §9). Plural
+  /// grammar is display-only: the stored unit is never changed.
   String get quantityLabel {
     if (amount == null) return qtyText ?? '';
     final number = formatAmount(amount!);
-    if (unit == null || unit == 'piece') return number;
-    return '$number $unit';
+    final base = unit == null || unit == 'piece'
+        ? number
+        : '$number ${_displayUnit(unit!, amount!)}';
+    return metric == null ? base : '$base ($metric)';
   }
 }
+
+const _plurals = {
+  'cup': 'cups',
+  'can': 'cans',
+  'jar': 'jars',
+  'fillet': 'fillets',
+  'clove': 'cloves',
+  'bunch': 'bunches',
+  'head': 'heads',
+  'handful': 'handfuls',
+};
+
+String _displayUnit(String unit, double amount) =>
+    amount > 1 ? (_plurals[unit] ?? unit) : unit;
 
 /// 2.0 → "2", 0.5 → "½", 1.5 → "1½", 0.25 → "¼", 1.2 → "1.2".
 String formatAmount(double amount) {

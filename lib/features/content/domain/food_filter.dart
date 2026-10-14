@@ -61,7 +61,22 @@ final class FoodFilter {
     return food == null || allowsFood(food);
   }
 
+  /// Vegetarian and vegan users also lose recipes with a food that only *may*
+  /// contain fish or shellfish (kimchi): the recipe cannot be called
+  /// meat-free with confidence. Foods themselves are unchanged.
+  bool _conditionallyAnimal(Recipe recipe, Catalogue catalogue) {
+    if (diet != Diet.vegetarian && diet != Diet.vegan) return false;
+    return recipe.ingredients.any((line) {
+      final food = line.foodId == null ? null : catalogue.food(line.foodId!);
+      return food != null &&
+          food.mayContainAllergenIds.any(
+            (a) => a == 'fish' || a == 'shellfish',
+          );
+    });
+  }
+
   bool allowsRecipe(Recipe recipe, Catalogue catalogue) =>
+      !_conditionallyAnimal(recipe, catalogue) &&
       recipe.ingredients.every((line) => allowsLine(line, catalogue));
 
   /// The lines of [recipe] the user avoids; adding the recipe to Shop skips

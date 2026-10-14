@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/content/domain/food_filter.dart';
+import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 
@@ -25,8 +26,8 @@ void main() {
       expect(food(f, 'chicken'), isFalse);
       expect(food(f, 'salmon'), isTrue);
       expect(food(f, 'eggs'), isTrue);
-      expect(recipe(f, 'lemon-herb-chicken-artichoke'), isFalse);
-      expect(recipe(f, 'quinoa-salmon-bowl'), isTrue);
+      expect(recipe(f, 'lemon-chicken-green-bean-tray'), isFalse);
+      expect(recipe(f, 'tuna-pea-lemon-pasta'), isTrue);
     });
 
     test('vegetarian: no meat or seafood', () {
@@ -34,7 +35,39 @@ void main() {
       expect(food(f, 'salmon'), isFalse);
       expect(food(f, 'shrimp'), isFalse);
       expect(food(f, 'eggs'), isTrue);
-      expect(recipe(f, 'quinoa-salmon-bowl'), isFalse);
+      expect(recipe(f, 'tuna-pea-lemon-pasta'), isFalse);
+      expect(recipe(f, 'zucchini-feta-herb-frittata'), isTrue);
+    });
+
+    test('kimchi only may contain fish: not meat-free with confidence', () {
+      const kimchi = RecipeIngredient(
+        label: 'Kimchi',
+        foodId: 'kimchi',
+        aisleId: 'fermented',
+      );
+      const bowl = Recipe(
+        id: 'kimchi-test',
+        title: 'Kimchi test',
+        phase: Phase.luteal,
+        category: RecipeCategory.lunch,
+        minutes: 5,
+        serves: 1,
+        intro: '',
+        whyThisPhase: '',
+        keyFoodIds: ['kimchi'],
+        ingredients: [kimchi],
+        steps: [],
+      );
+      expect(FoodFilter.none.allowsRecipe(bowl, c), isTrue);
+      expect(
+        const FoodFilter(diet: Diet.pescatarian).allowsRecipe(bowl, c),
+        isTrue,
+      );
+      expect(
+        const FoodFilter(diet: Diet.vegetarian).allowsRecipe(bowl, c),
+        isFalse,
+      );
+      expect(const FoodFilter(diet: Diet.vegan).allowsRecipe(bowl, c), isFalse);
     });
 
     test('vegan: no animal foods (chocolate counted as dairy)', () {
@@ -42,8 +75,8 @@ void main() {
       expect(food(f, 'eggs'), isFalse);
       expect(food(f, 'chocolate'), isFalse);
       expect(food(f, 'kale'), isTrue);
-      expect(recipe(f, 'berry-coconut-amaranth'), isFalse);
-      expect(recipe(f, 'zesty-lentil-broccoli-bowl'), isTrue);
+      expect(recipe(f, 'zucchini-feta-herb-frittata'), isFalse);
+      expect(recipe(f, 'lentil-spinach-tomato-stew'), isTrue);
     });
   });
 
@@ -55,7 +88,7 @@ void main() {
       expect(food(f, 'sesame-seeds'), isFalse);
       expect(food(f, 'sunflower-seeds'), isTrue);
       // Tahini is linked to sesame seeds.
-      expect(recipe(f, 'sweet-potato-chickpea-tray'), isFalse);
+      expect(recipe(f, 'tahini-chickpea-sweet-potato-tray'), isFalse);
     });
 
     test('shellfish covers crustaceans and molluscs', () {
@@ -69,13 +102,20 @@ void main() {
 
     test('a recipe line can carry an allergen its food does not', () {
       const f = FoodFilter(
+        avoidances: [AllergenAvoidance(id: 'a', allergenId: 'sesame')],
+      );
+      // The sesame oil line has no catalogue food; it carries sesame itself.
+      expect(recipe(f, 'salmon-bok-choy-rice-bowl'), isFalse);
+      final lines = f.avoidedLines(c.recipe('salmon-bok-choy-rice-bowl')!, c);
+      expect(lines.map((l) => l.label), contains('Toasted sesame oil'));
+    });
+
+    test('oats may contain gluten: recipes with oats are left out', () {
+      const f = FoodFilter(
         avoidances: [AllergenAvoidance(id: 'a', allergenId: 'gluten')],
       );
-      expect(food(f, 'buckwheat'), isTrue);
-      // ...but its buckwheat noodles may contain wheat.
-      expect(recipe(f, 'miso-mushroom-kale-soup'), isFalse);
-      final lines = f.avoidedLines(c.recipe('miso-mushroom-kale-soup')!, c);
-      expect(lines.map((l) => l.label), containsAll(['Buckwheat noodles']));
+      expect(recipe(f, 'baked-apple-walnut-oatmeal'), isFalse);
+      expect(recipe(f, 'lentil-spinach-tomato-stew'), isTrue);
     });
 
     test('an avoided food excludes it and its recipes', () {
@@ -83,8 +123,8 @@ void main() {
         avoidances: [FoodItemAvoidance(id: 'a', foodId: 'mushrooms')],
       );
       expect(food(f, 'mushrooms'), isFalse);
-      expect(recipe(f, 'miso-mushroom-kale-soup'), isFalse);
-      expect(recipe(f, 'beet-adzuki-wild-rice-bowl'), isTrue);
+      expect(recipe(f, 'miso-tempeh-mushroom-noodle-bowl'), isFalse);
+      expect(recipe(f, 'lentil-spinach-tomato-stew'), isTrue);
     });
 
     test('a typed avoidance matches names, plurals and synonyms', () {
@@ -95,9 +135,9 @@ void main() {
         ],
       );
       expect(food(f, 'zucchini'), isFalse); // synonym
-      expect(recipe(f, 'zesty-lentil-broccoli-bowl'), isFalse);
-      // "olive oil" is a non-catalogue line in the chicken recipe.
-      expect(recipe(f, 'lemon-herb-chicken-artichoke'), isFalse);
+      expect(recipe(f, 'zucchini-feta-herb-frittata'), isFalse);
+      // "olive oil" is a line in the chicken recipe.
+      expect(recipe(f, 'lemon-chicken-green-bean-tray'), isFalse);
       expect(food(f, 'olives'), isTrue); // "olive oil" isn't "olives"
     });
 

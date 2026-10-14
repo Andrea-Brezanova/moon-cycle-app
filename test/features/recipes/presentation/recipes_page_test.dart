@@ -50,9 +50,8 @@ void main() {
 
   testWidgets('the phase’s recipes: a feature card and a grid', (tester) async {
     await pumpRecipes(tester);
-    expect(find.text('3 follicular recipes'), findsOneWidget);
-    expect(find.text('Zesty Lentil & Broccoli Bowl'), findsOneWidget);
-    expect(find.text('Meals · Lentils, broccoli, zucchini'), findsOneWidget);
+    expect(find.text('10 follicular recipes'), findsOneWidget);
+    expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
     expect(find.text('25 min'), findsOneWidget); // the time badge
     expect(find.text('Breakfast · 10 min'), findsOneWidget);
   });
@@ -60,12 +59,12 @@ void main() {
   testWidgets('meal types, and the empty Snacks tab', (tester) async {
     await pumpRecipes(tester);
     await tapText(tester, 'Breakfast');
-    expect(find.text('1 follicular breakfast'), findsOneWidget);
+    expect(find.text('2 follicular breakfasts'), findsOneWidget);
     await tapText(tester, 'Snacks');
     expect(find.text('0 follicular snacks'), findsOneWidget);
     expect(find.text('No follicular snacks yet'), findsOneWidget);
     await tapText(tester, 'Show all meal types');
-    expect(find.text('3 follicular recipes'), findsOneWidget);
+    expect(find.text('10 follicular recipes'), findsOneWidget);
   });
 
   testWidgets('Cook with: search, choose, then breakfast has none', (
@@ -80,10 +79,7 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Chicken, 1 recipe'));
     await tester.pumpAndSettle();
     expect(find.text('1 follicular recipe with chicken'), findsOneWidget);
-    expect(
-      find.text('Lemon Herb Chicken with Artichoke & Peas'),
-      findsOneWidget,
-    );
+    expect(find.text('Lemon Chicken & Green Bean Tray Bake'), findsOneWidget);
 
     await tapText(tester, 'Breakfast');
     expect(find.text('No breakfasts with chicken'), findsOneWidget);
@@ -94,7 +90,7 @@ void main() {
       findsOneWidget,
     );
     await tapText(tester, 'Clear ingredient');
-    expect(find.text('1 follicular breakfast'), findsOneWidget);
+    expect(find.text('2 follicular breakfasts'), findsOneWidget);
   });
 
   testWidgets('Cook with: no match, then clear the search', (tester) async {
@@ -118,7 +114,7 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Chicken, 1 recipe'));
     await tester.pumpAndSettle();
     await tapText(tester, 'Luteal');
-    expect(find.text('3 luteal recipes'), findsOneWidget);
+    expect(find.text('10 luteal recipes'), findsOneWidget);
     expect(container, isNotNull);
   });
 
@@ -145,7 +141,9 @@ void main() {
       tester,
       prefs: (prefs) async {
         await prefs.avoidAllergen('gluten');
-        await prefs.avoidFood('broccoli');
+        await prefs.avoidAllergen('dairy');
+        await prefs.avoidAllergen('fish');
+        await prefs.avoidFood('chicken');
       },
     );
     expect(find.text('0 follicular recipes'), findsOneWidget);
@@ -158,24 +156,28 @@ void main() {
     (tester) async {
       final (_, db) = await pumpRecipes(tester);
       await tapText(tester, 'Meals');
-      await tapText(tester, 'Zesty Lentil & Broccoli Bowl');
+      await tapText(tester, 'Zucchini & Feta Herb Frittata');
       expect(find.byType(RecipeDetailPage), findsOneWidget);
-      expect(find.text('25 min · Serves 2'), findsOneWidget);
-      await tester.ensureVisible(find.text('8 items'));
-      expect(find.text('150 g'), findsOneWidget);
-      expect(find.text('to serve'), findsOneWidget);
+      expect(find.text('25 min · Serves 4'), findsOneWidget);
+      expect(find.text('Why this recipe?'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('recipe-why-this-phase')),
+        findsOneWidget,
+      );
+      await tester.ensureVisible(find.text('6 items'));
+      expect(find.text('4 oz (100 g)'), findsOneWidget); // US + metric
 
       await tapText(tester, 'Add ingredients to shopping list');
       expect(find.text('Added to shopping list'), findsOneWidget);
-      expect(find.text('All 8 ingredients are on your list.'), findsOneWidget);
-      expect(find.text('On your list'), findsNWidgets(8));
+      expect(find.text('All 6 ingredients are on your list.'), findsOneWidget);
+      expect(find.text('On your list'), findsNWidgets(6));
       final items = await tester.runAsync(ShoppingRepository(db).items);
-      expect(items, hasLength(8));
+      expect(items, hasLength(6));
 
       // The photo's back button has scrolled away; system back works anywhere.
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
-      expect(find.text('2 follicular meals'), findsOneWidget);
+      expect(find.text('8 follicular meals'), findsOneWidget);
     },
   );
 
@@ -190,7 +192,7 @@ void main() {
     await tester.pumpAndSettle();
     await added;
     await tester.pumpAndSettle();
-    await tapText(tester, 'Zesty Lentil & Broccoli Bowl');
+    await tapText(tester, 'Lemon Chicken & Green Bean Tray Bake');
     await tester.ensureVisible(find.text('Add ingredients to shopping list'));
     expect(
       find.text(

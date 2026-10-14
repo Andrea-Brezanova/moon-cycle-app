@@ -53,11 +53,11 @@ void main() {
     'luteal': 44,
   };
 
-  test('four phases and twelve recipes; food ids are unique', () {
+  test('four phases and forty recipes; food ids are unique', () {
     expect(phasesFile, hasLength(4));
-    expect(recipesFile, hasLength(12));
+    expect(recipesFile, hasLength(40));
     expect(foodById, hasLength(foodsFile.length));
-    expect(recipesFile.map((r) => r['id']).toSet(), hasLength(12));
+    expect(recipesFile.map((r) => r['id']).toSet(), hasLength(40));
     expect(phasesFile.map((p) => p['id']), [
       'menstrual',
       'follicular',
@@ -195,7 +195,101 @@ void main() {
         expect(foodById[id]!['shipReady'], isTrue, reason: '${r['id']}: $id');
       }
     }
-    expect(testCatalogue.recipes, hasLength(12));
+    expect(testCatalogue.recipes, hasLength(40));
+  });
+
+  group('Recipes v2 contract', () {
+    const legacyIds = {
+      'miso-mushroom-kale-soup',
+      'beet-adzuki-wild-rice-bowl',
+      'blueberry-buckwheat-porridge',
+      'zesty-lentil-broccoli-bowl',
+      'citrus-oat-breakfast-bowl',
+      'lemon-herb-chicken-artichoke',
+      'quinoa-salmon-bowl',
+      'berry-coconut-amaranth',
+      'red-lentil-spinach-dal',
+      'sweet-potato-chickpea-tray',
+      'ginger-pumpkin-soup',
+      'baked-apple-pear-millet',
+    };
+
+    test('ten per phase, no legacy ids', () {
+      for (final phase in ['menstrual', 'follicular', 'ovulatory', 'luteal']) {
+        expect(
+          recipesFile.where((r) => r['phase'] == phase),
+          hasLength(10),
+          reason: phase,
+        );
+      }
+      expect(
+        recipesFile.map((r) => r['id']).toSet().intersection(legacyIds),
+        isEmpty,
+      );
+    });
+
+    test('every recipe has why-this-phase, 3-5 steps and total minutes', () {
+      for (final r in recipesFile) {
+        final id = r['id']! as String;
+        expect(
+          (r['whyThisPhase'] as String?)?.trim(),
+          isNotEmpty,
+          reason: '$id whyThisPhase',
+        );
+        expect(
+          RegExp(r'[.!?](\s|$)').allMatches(r['whyThisPhase']! as String),
+          hasLength(1),
+          reason: '$id is one sentence',
+        );
+        expect(strings(r['steps']).length, inInclusiveRange(3, 5), reason: id);
+        expect(r['minutes'], isA<int>(), reason: id);
+        expect(r['minutes']! as int, greaterThan(0), reason: id);
+        expect(r['image'], isNull, reason: '$id: no images yet');
+      }
+    });
+
+    test('lines have a food or an aisle, and metric is display-only', () {
+      for (final r in recipesFile) {
+        for (final line in list(r['ingredients'])) {
+          expect(line['amount'], isNotNull, reason: '${r['id']} amount');
+          expect(line['unit'], isNotNull, reason: '${r['id']} unit');
+          if (line['food'] == null) {
+            expect(
+              aisleIds,
+              contains(line['aisle']),
+              reason: r['id']! as String,
+            );
+          }
+          if (line['metric'] != null) {
+            expect(line['metric'], isA<String>());
+          }
+        }
+      }
+    });
+
+    test('every catalogue food links to the recipes that use it', () {
+      final usedBy = <String, int>{};
+      for (final r in testCatalogue.recipes) {
+        for (final id in r.keyFoodIds.toSet()) {
+          usedBy[id] = (usedBy[id] ?? 0) + 1;
+        }
+      }
+      expect(usedBy, isNotEmpty);
+      for (final id in usedBy.keys) {
+        expect(testCatalogue.food(id), isNotNull, reason: id);
+      }
+    });
+
+    test('no gluten-free-looking stock hides a generic stock line', () {
+      for (final r in testCatalogue.recipes) {
+        final stock = r.ingredients.where(
+          (l) => l.label.toLowerCase().contains('stock'),
+        );
+        for (final l in stock) {
+          expect(l.extraAllergenIds, isEmpty, reason: r.id);
+        }
+      }
+    });
   });
 
   test('allergen, aisle and diet metadata is valid', () {
