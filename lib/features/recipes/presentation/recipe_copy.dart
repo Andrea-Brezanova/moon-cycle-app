@@ -16,8 +16,11 @@ String recipeCountLine(RecipeList list, {String? foodName}) {
   final n = list.recipes.length;
   final noun = mealNoun(list.filter.mealType, plural: n != 1);
   final food = foodName == null ? '' : ' with $foodName';
-  return '$n ${list.phase.name} $noun$food';
+  return '$n ${_phaseWord(list)}$noun$food';
 }
+
+/// "follicular " for This phase; nothing for All recipes.
+String _phaseWord(RecipeList list) => list.all ? '' : '${list.phase.name} ';
 
 /// The way out of an empty list.
 enum EmptyAction { showAllMealTypes, clearIngredient, reviewPreferences }
@@ -43,15 +46,16 @@ final class RecipesEmptyCopy {
 /// `18-recipes-empty-preferences`).
 RecipesEmptyCopy? recipesEmptyCopy(RecipeList list, {String? foodName}) {
   if (list.recipes.isNotEmpty) return null;
-  final phase = list.phase.name;
+  final phaseSp = _phaseWord(list);
+  final scopeText = list.all ? 'the' : 'this phase’s';
   final meal = list.filter.mealType;
   if (list.fitPreferences == 0) {
     return RecipesEmptyCopy(
       icon: MoonIconName.avoid,
       title: 'Nothing fits your *preferences*',
       body:
-          'Your food preferences and foods to avoid leave out every $phase '
-          'recipe.',
+          'Your food preferences and foods to avoid leave out every '
+          '${phaseSp}recipe.',
       actions: const [EmptyAction.reviewPreferences],
     );
   }
@@ -60,13 +64,13 @@ RecipesEmptyCopy? recipesEmptyCopy(RecipeList list, {String? foodName}) {
     return RecipesEmptyCopy(
       icon: MoonIconName.recipes,
       title: meal == null
-          ? 'No $phase recipes with *$foodName*'
+          ? 'No ${phaseSp}recipes with *$foodName*'
           : 'No ${mealNoun(meal, plural: true)} with *$foodName*',
       body: !elsewhere
-          ? 'None of this phase’s recipes uses $foodName yet.'
+          ? 'None of $scopeText recipes uses $foodName yet.'
           : list.withFoodAnyMeal == 1
-          ? 'There’s a $phase recipe with $foodName in another meal type.'
-          : 'There are ${list.withFoodAnyMeal} $phase recipes with $foodName '
+          ? 'There’s a ${phaseSp}recipe with $foodName in another meal type.'
+          : 'There are ${list.withFoodAnyMeal} ${phaseSp}recipes with $foodName '
                 'in other meal types.',
       actions: [
         if (elsewhere) EmptyAction.showAllMealTypes,
@@ -76,9 +80,9 @@ RecipesEmptyCopy? recipesEmptyCopy(RecipeList list, {String? foodName}) {
   }
   return RecipesEmptyCopy(
     icon: MoonIconName.recipes,
-    title: 'No $phase ${mealNoun(meal, plural: true)} *yet*',
+    title: 'No $phaseSp${mealNoun(meal, plural: true)} *yet*',
     body:
-        'None of this phase’s recipes is a ${mealNoun(meal, plural: false)}. '
+        'None of $scopeText recipes is a ${mealNoun(meal, plural: false)}. '
         'Try another meal type.',
     actions: const [EmptyAction.showAllMealTypes],
   );

@@ -5,17 +5,21 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
+import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/moon_chip.dart';
+import '../../../core/design/widgets/moon_segmented.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/text_link.dart';
+import '../../../core/domain/browse_scope.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/catalogue.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/presentation/phase_header.dart';
 import '../application/recipe_filter.dart';
 import '../application/recipe_list.dart';
+import '../application/recipes_scope.dart';
 import 'cook_with_sheet.dart';
 import 'recipe_copy.dart';
 import 'widgets/recipe_widgets.dart';
@@ -36,6 +40,8 @@ class RecipesPage extends ConsumerWidget {
     final food = list.filter.foodId == null
         ? null
         : catalogue.food(list.filter.foodId!);
+    // "All recipes" mixes phases, so each card wears its own phase's colour.
+    PhasePalette paletteOf(Recipe r) => list.all ? c.phase(r.phase) : palette;
     final foodName = food?.displayName.toLowerCase();
     final empty = recipesEmptyCopy(list, foodName: foodName);
 
@@ -65,12 +71,26 @@ class RecipesPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  MoonSegmented<BrowseScope>(
+                    semanticLabel: 'Show',
+                    options: const [
+                      (BrowseScope.phase, 'This phase'),
+                      (BrowseScope.all, 'All recipes'),
+                    ],
+                    selected: ref.watch(recipesScopeProvider),
+                    onChanged: ref.read(recipesScopeProvider.notifier).set,
+                  ),
+                  const SizedBox(height: 16),
                   MealTabs(
                     selected: list.filter.mealType,
                     onChanged: filter.setMealType,
                   ),
                   const SizedBox(height: 16),
-                  if (food == null)
+                  // "Cook with…" lists the viewing phase's foods, so it isn't
+                  // offered under "All recipes".
+                  if (food == null && list.all)
+                    const SizedBox.shrink()
+                  else if (food == null)
                     CookWithField(palette: palette, onTap: chooseIngredient)
                   else
                     Row(
@@ -86,7 +106,8 @@ class RecipesPage extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(width: 14),
-                        TextLink('Change', onTap: chooseIngredient),
+                        if (!list.all)
+                          TextLink('Change', onTap: chooseIngredient),
                       ],
                     ),
                   const SizedBox(height: 22),
@@ -134,7 +155,7 @@ class RecipesPage extends ConsumerWidget {
                         list.recipes.first,
                         catalogue,
                       ),
-                      palette: palette,
+                      palette: paletteOf(list.recipes.first),
                       onTap: () => open(list.recipes.first),
                     ),
                     for (var i = 1; i < list.recipes.length; i += 2) ...[
@@ -145,7 +166,7 @@ class RecipesPage extends ConsumerWidget {
                           Expanded(
                             child: GridRecipeCard(
                               recipe: list.recipes[i],
-                              palette: palette,
+                              palette: paletteOf(list.recipes[i]),
                               onTap: () => open(list.recipes[i]),
                             ),
                           ),
@@ -154,7 +175,7 @@ class RecipesPage extends ConsumerWidget {
                             child: i + 1 < list.recipes.length
                                 ? GridRecipeCard(
                                     recipe: list.recipes[i + 1],
-                                    palette: palette,
+                                    palette: paletteOf(list.recipes[i + 1]),
                                     onTap: () => open(list.recipes[i + 1]),
                                   )
                                 : const SizedBox(),

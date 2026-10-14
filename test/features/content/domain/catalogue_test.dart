@@ -18,19 +18,18 @@ void main() {
   test('foods for a phase follow the stored category order', () {
     final follicular = c.phase(Phase.follicular);
     expect(follicular.categories.first.category.name, 'Grains');
-    expect(c.foodsFor(Phase.follicular).first.id, 'oat');
+    expect(c.foodsFor(Phase.follicular).first.id, 'farro');
   });
 
-  test('foods recommended in two phases have copy for both', () {
-    final oats = c.food('oat')!;
-    expect(
-      oats.why.keys,
-      containsAll([Phase.menstrual, Phase.follicular, Phase.luteal]),
-    );
-    expect(
-      oats.why[Phase.luteal]!.short,
-      isNot(oats.why[Phase.menstrual]!.short),
-    );
+  test('each highlighted food has copy for its one featured phase only', () {
+    final oat = c.food('oat')!;
+    expect(oat.why.keys, [Phase.luteal]);
+    expect(oat.why[Phase.luteal]!.short, isNotEmpty);
+    for (final phase in Phase.values) {
+      for (final food in c.foodsFor(phase)) {
+        expect(food.why.keys, [phase], reason: food.id);
+      }
+    }
   });
 
   test('typed names find foods by name or synonym, never by plural guess', () {

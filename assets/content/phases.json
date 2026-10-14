@@ -9,47 +9,56 @@
       "focusBody": "Menstrual blood loss increases iron losses, so Moon Cycle highlights iron-rich foods during this phase. Vitamin C helps your body absorb iron from plant foods, so pair beans, lentils and leafy greens with citrus, berries or peppers.",
       "focus": "Warm, comforting meals built around iron-rich foods, with vitamin C alongside. Menstrual blood loss increases iron losses, so Moon Cycle highlights iron-rich foods during this phase. Vitamin C helps your body absorb iron from plant foods, so pair beans, lentils and leafy greens with citrus, berries or peppers.",
       "cooking": "Slow-cooked soups, stews, porridge and warm bowls.",
-      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "note": "These are suggestions, not rules. We feature different foods across your cycle to encourage variety — you can enjoy any food at any time.",
       "categories": [
         {
           "category": "grains",
           "foods": [
-            "oat",
             "quinoa",
-            "brown-rice"
+            "wild-rice"
           ]
         },
         {
           "category": "vegetables",
           "foods": [
-            "spinach",
-            "kale",
+            "beets",
             "broccoli",
-            "red-bell-pepper",
-            "tomato"
+            "brussels-sprouts",
+            "chard",
+            "collard",
+            "eggplant",
+            "green-bell-pepper",
+            "kale",
+            "mushrooms",
+            "spinach",
+            "white-potato",
+            "yellow-bell-pepper"
           ]
         },
         {
           "category": "fruit",
           "foods": [
-            "orange",
+            "blueberry",
+            "grapefruit",
+            "grapes",
             "kiwi",
-            "strawberry"
+            "orange",
+            "papaya"
           ]
         },
         {
           "category": "legumes",
           "foods": [
-            "green-lentil",
-            "chickpea",
             "black-turtle-bean",
-            "white-beans",
-            "edamame"
+            "kidney-bean",
+            "green-lentil",
+            "white-beans"
           ]
         },
         {
           "category": "nuts-seeds",
           "foods": [
+            "cashew",
             "pumpkin-seeds",
             "sesame-seeds"
           ]
@@ -57,18 +66,24 @@
         {
           "category": "protein",
           "foods": [
-            "tofu",
-            "tempeh",
-            "eggs",
-            "beef"
+            "beef",
+            "tempeh"
           ]
         },
         {
           "category": "seafood",
           "foods": [
+            "anchovies",
             "clam",
             "mussel",
+            "oyster",
             "sardine"
+          ]
+        },
+        {
+          "category": "fermented",
+          "foods": [
+            "miso"
           ]
         }
       ]
@@ -82,70 +97,77 @@
       "focusBody": "Think colourful plates of vegetables, fruit, whole grains, beans and protein. There's no special nutrient focus in this phase, so enjoy variety.",
       "focus": "Light, fresh, quick meals built on balanced, nutrient-dense foods. Think colourful plates of vegetables, fruit, whole grains, beans and protein. There's no special nutrient focus in this phase, so enjoy variety.",
       "cooking": "Light steaming, quick sautés and fresh salads.",
-      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "note": "These are suggestions, not rules. We feature different foods across your cycle to encourage variety — you can enjoy any food at any time.",
       "categories": [
         {
           "category": "grains",
           "foods": [
-            "oat",
-            "barley",
-            "quinoa"
+            "farro",
+            "oat-bran"
           ]
         },
         {
           "category": "vegetables",
           "foods": [
-            "asparagus",
-            "zucchini",
+            "arugula",
+            "bok-choy",
+            "cabbage",
+            "carrot",
             "green-pea",
-            "broccoli",
             "lettuce",
-            "carrot"
+            "napa-cabbage",
+            "string-bean",
+            "turnip",
+            "zucchini"
           ]
         },
         {
           "category": "fruit",
           "foods": [
             "avocado",
-            "orange",
-            "blueberry",
-            "apple",
+            "nectarine",
+            "plum",
             "pomegranate"
           ]
         },
         {
           "category": "legumes",
           "foods": [
-            "green-lentil",
-            "chickpea",
-            "black-eyed-pea"
+            "black-eyed-pea",
+            "hummus"
           ]
         },
         {
           "category": "nuts-seeds",
           "foods": [
+            "brazil-nut",
             "flaxseeds",
-            "almond"
+            "pecan"
           ]
         },
         {
           "category": "protein",
           "foods": [
-            "eggs",
             "chicken",
-            "tofu"
+            "eggs"
           ]
         },
         {
           "category": "seafood",
           "foods": [
+            "canned-salmon",
+            "canned-tuna",
+            "haddock",
+            "pollock",
+            "scallop",
             "trout"
           ]
         },
         {
           "category": "dairy-alternatives",
           "foods": [
-            "greek-yogurt"
+            "feta",
+            "plain-yogurt"
           ]
         },
         {
@@ -165,65 +187,66 @@
       "focusBody": "Salads, juicy fruit and quick-cooking proteins keep things simple. There's no special nutrient focus here either, so choose what you enjoy.",
       "focus": "Fresh, crisp, colourful meals that feel light. Salads, juicy fruit and quick-cooking proteins keep things simple. There's no special nutrient focus here either, so choose what you enjoy.",
       "cooking": "Raw, chilled and lightly cooked dishes.",
-      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "note": "These are suggestions, not rules. We feature different foods across your cycle to encourage variety — you can enjoy any food at any time.",
       "categories": [
         {
           "category": "vegetables",
           "foods": [
-            "cucumber",
-            "tomato",
-            "red-bell-pepper",
             "asparagus",
-            "spinach",
-            "zucchini",
+            "bean-sprouts",
             "celery",
-            "radish"
+            "cucumber",
+            "radish",
+            "red-bell-pepper",
+            "red-cabbage",
+            "sugar-snap-peas",
+            "tomato"
           ]
         },
         {
           "category": "fruit",
           "foods": [
-            "watermelon",
-            "strawberry",
-            "raspberry",
+            "apricot",
             "cantaloupe",
+            "honeydew",
+            "mandarin",
             "mango",
-            "kiwi",
-            "orange"
-          ]
-        },
-        {
-          "category": "legumes",
-          "foods": [
-            "edamame",
-            "chickpea"
+            "peach",
+            "pineapple",
+            "raspberry",
+            "strawberry",
+            "sweet-cherry",
+            "watermelon"
           ]
         },
         {
           "category": "nuts-seeds",
           "foods": [
-            "pistachio",
-            "almond"
+            "almond",
+            "hazelnuts",
+            "pistachio"
           ]
         },
         {
           "category": "protein",
           "foods": [
-            "tofu",
-            "eggs"
+            "tofu"
           ]
         },
         {
           "category": "seafood",
           "foods": [
-            "salmon",
+            "crab",
+            "sea-bass",
             "shrimp"
           ]
         },
         {
           "category": "dairy-alternatives",
           "foods": [
-            "cottage-cheese"
+            "cottage-cheese",
+            "kefir",
+            "ricotta"
           ]
         },
         {
@@ -243,33 +266,37 @@
       "focusBody": "Beans, lentils, whole grains, root vegetables and good protein make satisfying plates.",
       "focus": "Hearty, filling meals with protein, fibre and slower-digesting carbohydrates. Beans, lentils, whole grains, root vegetables and good protein make satisfying plates.",
       "cooking": "Roasting, baking and one-pot dishes.",
-      "note": "These are suggestions, not rules — any food can be enjoyed in any phase.",
+      "note": "These are suggestions, not rules. We feature different foods across your cycle to encourage variety — you can enjoy any food at any time.",
       "categories": [
         {
           "category": "grains",
           "foods": [
-            "oat",
-            "brown-rice",
             "barley",
+            "brown-rice",
             "buckwheat",
+            "bulgur",
+            "oat",
             "whole-grain-bread"
           ]
         },
         {
           "category": "vegetables",
           "foods": [
-            "sweet-potato",
-            "pumpkin",
+            "artichoke",
             "cauliflower",
-            "brussels-sprouts",
-            "carrot"
+            "parsnip",
+            "pumpkin",
+            "squash",
+            "sweet-potato"
           ]
         },
         {
           "category": "fruit",
           "foods": [
-            "banana",
             "apple",
+            "banana",
+            "blackberry",
+            "fig",
             "pear"
           ]
         },
@@ -277,36 +304,51 @@
           "category": "legumes",
           "foods": [
             "chickpea",
-            "green-lentil",
-            "black-turtle-bean",
-            "edamame"
+            "edamame",
+            "lima-bean",
+            "pinto-beans",
+            "red-lentil",
+            "split-pea"
           ]
         },
         {
           "category": "nuts-seeds",
           "foods": [
-            "walnut",
-            "chia-seeds"
+            "chia-seeds",
+            "mixed-nuts",
+            "nut-butter",
+            "peanuts",
+            "sunflower-seeds",
+            "walnut"
           ]
         },
         {
           "category": "protein",
           "foods": [
-            "chicken",
-            "eggs",
-            "tofu"
+            "lamb",
+            "pork",
+            "turkey"
           ]
         },
         {
           "category": "seafood",
           "foods": [
-            "salmon"
+            "cod",
+            "flounder",
+            "halibut",
+            "mackerel",
+            "salmon",
+            "red-snapper",
+            "tilapia"
           ]
         },
         {
           "category": "dairy-alternatives",
           "foods": [
-            "greek-yogurt"
+            "goat-cheese",
+            "greek-yogurt",
+            "mozzarella",
+            "swiss-cheese"
           ]
         },
         {

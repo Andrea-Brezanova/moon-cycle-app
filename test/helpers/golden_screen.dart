@@ -14,7 +14,8 @@ import 'test_catalogue.dart';
 DateTime designNow() => DateTime(2025, 10, 4, 9);
 
 /// Pumps [screen] in the design frame: 390 × 844 pt with the iPhone status
-/// bar (47) and home indicator (34), in light or dark.
+/// bar (47) and home indicator (34), in light or dark. [width] and
+/// [textScale] check narrow phones and large text.
 Future<void> pumpScreen(
   WidgetTester tester,
   Widget screen, {
@@ -22,8 +23,10 @@ Future<void> pumpScreen(
   List<Override> overrides = const [],
   AppDatabase? database,
   double height = 844,
+  double width = 390,
+  double textScale = 1,
 }) async {
-  tester.view.physicalSize = Size(390, height) * 2;
+  tester.view.physicalSize = Size(width, height) * 2;
   tester.view.devicePixelRatio = 2;
   tester.view.padding = const FakeViewPadding(top: 47 * 2, bottom: 34 * 2);
   tester.view.viewPadding = const FakeViewPadding(top: 47 * 2, bottom: 34 * 2);
@@ -39,6 +42,13 @@ Future<void> pumpScreen(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: moonTheme(dark ? Brightness.dark : Brightness.light),
+        builder: textScale == 1
+            ? null
+            : (context, child) => MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(textScaler: TextScaler.linear(textScale)),
+                child: child!,
+              ),
         home: screen,
       ),
     ),

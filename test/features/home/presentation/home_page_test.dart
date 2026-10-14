@@ -59,9 +59,11 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Inner spring'), findsOneWidget);
     expect(find.text('Follicular'), findsOneWidget);
+    // What is happening in the cycle, not food guidance.
     expect(
       find.text(
-        'Light, fresh, quick meals built on balanced, nutrient-dense foods.',
+        'Follicles develop in the ovaries and oestrogen rises as the lining '
+        'rebuilds.',
       ),
       findsOneWidget,
     );
@@ -81,14 +83,22 @@ void main() {
     await pumpHome(tester);
     await scrollTo(tester, find.text('Fresh, light and quick'), 200);
     expect(find.text('Fresh, light and quick'), findsOneWidget);
-    await scrollTo(tester, find.text('Foods for today'), 200);
+    // Three general principles, no individual foods.
+    for (final line in [
+      'Balanced, nutrient-dense foods',
+      'Lighter, fresh, quick meals',
+      'Fresh produce, simple bowls, sautés and salads',
+    ]) {
+      expect(find.text(line), findsOneWidget, reason: line);
+    }
+    await scrollTo(tester, find.text('Foods for this phase'), 200);
     for (final food in [
-      'Oat',
-      'Asparagus',
+      'Farro',
+      'Arugula',
       'Avocado',
-      'Lentils',
-      'Flaxseeds',
-      'Eggs',
+      'Black-eyed pea',
+      'Brazil nut',
+      'Chicken',
     ]) {
       expect(find.text(food), findsOneWidget, reason: food);
     }
@@ -106,10 +116,11 @@ void main() {
         await prefs.avoidAllergen('gluten');
       },
     );
-    await scrollTo(tester, find.text('Foods for today'), 200);
-    // Oats may contain gluten, so gluten-avoiders get the next grain.
-    expect(find.text('Oat'), findsNothing);
-    expect(find.text('Quinoa'), findsOneWidget);
+    await scrollTo(tester, find.text('Foods for this phase'), 200);
+    // Farro and oat bran may carry gluten, so Grains gives way; vegetarians
+    // get eggs in place of chicken.
+    expect(find.text('Farro'), findsNothing);
+    expect(find.text('Chicken'), findsNothing);
     expect(find.text('Eggs'), findsOneWidget);
     await scrollTo(tester, find.text('Meals · 25 min'), 200);
     expect(find.text('Lemon Herb Chicken with Artichoke & Peas'), findsNothing);
@@ -149,9 +160,9 @@ void main() {
     // Scroll from below the moon: a drag on the ring would preview instead.
     await tester.drag(find.text('Ovulatory'), const Offset(0, -300));
     await tester.pumpAndSettle();
-    expect(find.text('YOUR FOCUS · TODAY'), findsOneWidget);
-    // The content below stays on today's phase.
-    expect(find.text('Fresh, light and quick'), findsOneWidget);
+    // The content below follows the phase being browsed.
+    expect(find.text('Your focus'.toUpperCase()), findsOneWidget);
+    expect(find.text('Fresh, hydrating, crisp and colourful'), findsOneWidget);
 
     await tester.fling(
       find.byType(Scrollable).first,
@@ -162,7 +173,8 @@ void main() {
     await tester.tap(find.text('Back to today · Day 7'));
     await tester.pumpAndSettle();
     expect(find.text('Follicular'), findsOneWidget);
-    expect(find.text('YOUR FOCUS · TODAY'), findsNothing);
+    await scrollTo(tester, find.text('Fresh, light and quick'));
+    expect(find.text('Fresh, light and quick'), findsOneWidget);
   });
 
   testWidgets('screen readers adjust the preview', (tester) async {

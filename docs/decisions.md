@@ -154,7 +154,7 @@ One list of the decisions that shape this repository, newest first. Add a line w
 - **App ID:** `app.mooncycle.mobile` (domain `mooncycle.app` is owned). It never changes after the first store upload.
 
 ## 13 October 2026: Foods v2 content
-- **Curated lists:** each phase highlights exactly 25 owner-curated foods (nutrition framework, meal style, practicality, variety, recipe suitability). A highlight is a suggestion, not a claim; every phase shows the note "These are suggestions, not rules — any food can be enjoyed in any phase." directly below its intro on Foods.
+- **Curated lists:** phases feature 35 / 32 / 31 / 44 owner-approved foods (142 unique, each in exactly one phase; nutrition framework, meal style, practicality, variety, recipe suitability). A highlight is a suggestion, not a claim; every phase shows the note "These are suggestions, not rules. We feature different foods across your cycle to encourage variety — you can enjoy any food at any time." directly below its intro on Foods.
 - **Content source:** `assets/content/{foods,phases,taxonomy}.json` come from the Moon Cycle Research production candidate. Internal rationale labels and USDA provenance stay in the research project and are never in the app files.
 - **Ids are permanent:** every previous food id is kept; foods no longer in the lists or catalogue stay with `shipReady: false`. `kombu` is used by a recipe and stays visible.
 - **Conditional allergens:** `mayContainAllergens` (oats and oat bran: gluten; kimchi: fish, shellfish). Not a permanent allergen chip, but the avoidance filter still leaves the food out, so safety filtering is not weakened.

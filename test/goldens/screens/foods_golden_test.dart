@@ -20,7 +20,7 @@ const _summary = ShoppingSummary(
   toBuy: 8,
   done: 3,
   fromRecipes: 6,
-  onListFoodIds: {'quinoa'},
+  onListFoodIds: {'farro'},
 );
 
 void main() {
@@ -77,6 +77,8 @@ void main() {
       container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(find.text('Kimchi'), 200);
+      await tester.ensureVisible(find.text('Kimchi'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Kimchi'));
       await tester.pumpAndSettle();
       await expectLater(
@@ -85,9 +87,44 @@ void main() {
       );
     });
 
+    testWidgets('foods all, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const FoodsPage(),
+        dark: dark,
+        height: 2600,
+        overrides: base(),
+      );
+      await tester.tap(find.text('All foods'));
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(FoodsPage),
+        matchesGoldenFile('goldens/$theme-foods-all.png'),
+      );
+    });
+
+    testWidgets('foods all sheet, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const FoodsPage(),
+        dark: dark,
+        overrides: base(),
+      );
+      await tester.tap(find.text('All foods'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(EditableText), 'lettuce');
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Lettuce'));
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(MaterialApp),
+        matchesGoldenFile('goldens/$theme-foods-all-sheet.png'),
+      );
+    });
+
     for (final (food, name) in [
       ('Chicken', 'sheet'),
-      ('Quinoa', 'sheet-on-list'),
+      ('Farro', 'sheet-on-list'),
     ]) {
       testWidgets('foods $name, $theme', (tester) async {
         await pumpScreen(
@@ -97,6 +134,8 @@ void main() {
           overrides: base(),
         );
         await tester.scrollUntilVisible(find.text(food), 200);
+        await tester.ensureVisible(find.text(food));
+        await tester.pumpAndSettle();
         await tester.tap(find.text(food));
         await tester.pumpAndSettle();
         await expectLater(
@@ -106,4 +145,20 @@ void main() {
       });
     }
   }
+
+  testWidgets('foods, 320 pt at 1.5× text', (tester) async {
+    await pumpScreen(
+      tester,
+      const FoodsPage(),
+      dark: false,
+      width: 320,
+      height: 3600,
+      textScale: 1.5,
+      overrides: base(),
+    );
+    await expectLater(
+      find.byType(FoodsPage),
+      matchesGoldenFile('goldens/light-foods-narrow-large-text.png'),
+    );
+  });
 }

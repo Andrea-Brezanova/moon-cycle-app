@@ -9,7 +9,8 @@ import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import '../helpers/test_catalogue.dart';
 
 /// Checks the bundled content (`assets/content/`) against the Foods v2
-/// content contract: 25 curated foods per phase, phase-specific copy, a
+/// content contract: each highlighted food is featured in exactly one phase
+/// (35 / 32 / 31 / 44 = 142), phase-specific copy for that phase only, a
 /// universal note, valid taxonomy references, conditional allergens, and no
 /// internal rationale labels in anything a user can see.
 ///
@@ -34,8 +35,8 @@ void main() {
   final allergenIds = {for (final a in list(taxonomy['allergens'])) a['id']};
 
   const universalNote =
-      'These are suggestions, not rules — any food can be enjoyed in any '
-      'phase.';
+      'These are suggestions, not rules. We feature different foods across '
+      'your cycle to encourage variety — you can enjoy any food at any time.';
   const internalLabels = [
     'editorial',
     'supporting',
@@ -44,6 +45,13 @@ void main() {
     'evidenceInformed',
     'frameworkInformed',
   ];
+
+  const phaseSizes = {
+    'menstrual': 35,
+    'follicular': 32,
+    'ovulatory': 31,
+    'luteal': 44,
+  };
 
   test('four phases and twelve recipes; food ids are unique', () {
     expect(phasesFile, hasLength(4));
@@ -72,6 +80,10 @@ void main() {
 
   test('the catalogue loads and holds exactly the ship-ready foods', () {
     final shipReady = foodsFile.where((f) => f['shipReady'] == true);
+    final categoryIds = {for (final c in list(taxonomy['categories'])) c['id']};
+    for (final f in foodsFile) {
+      expect(categoryIds, contains(f['category']), reason: f['id']! as String);
+    }
     expect(testCatalogue.foods, hasLength(shipReady.length));
     for (final f in foodsFile.where((f) => f['shipReady'] != true)) {
       expect(testCatalogue.food(f['id']! as String), isNull, reason: '$f');
@@ -83,23 +95,25 @@ void main() {
       final id = p['id']! as String;
       final phase = Phase.values.byName(id);
 
-      test('$id: exactly 25 distinct highlighted foods', () {
+      test('$id: the frozen number of distinct highlighted foods', () {
         final ids = [
           for (final c in list(p['categories'])) ...strings(c['foods']),
         ];
-        expect(ids, hasLength(25));
-        expect(ids.toSet(), hasLength(25));
-        expect(testCatalogue.foodsFor(phase), hasLength(25));
+        expect(ids, hasLength(phaseSizes[id]));
+        expect(ids.toSet(), hasLength(phaseSizes[id]));
+        expect(testCatalogue.foodsFor(phase), hasLength(phaseSizes[id]));
       });
 
-      test('$id: every food exists, is ship-ready and has phase copy', () {
+      test('$id: every food exists, is ship-ready and has its why copy', () {
         for (final c in list(p['categories'])) {
           for (final foodId in strings(c['foods'])) {
             final food = foodById[foodId];
             expect(food, isNotNull, reason: '$id/$foodId does not exist');
             expect(food!['shipReady'], isTrue, reason: '$id/$foodId');
-            final why = (food['why']! as Map<String, Object?>)[id];
-            expect(why, isNotNull, reason: '$id/$foodId has no $id copy');
+            final whys = food['why']! as Map<String, Object?>;
+            // Exactly one "why": for the single featured phase.
+            expect(whys.keys, [id], reason: '$id/$foodId');
+            final why = whys[id];
             final w = why! as Map<String, Object?>;
             expect((w['short']! as String).trim(), isNotEmpty);
             expect((w['detail']! as String).trim(), isNotEmpty);
@@ -139,6 +153,34 @@ void main() {
         expect(highlighted.intersection(hidden), isEmpty);
       });
     }
+  });
+
+  test('142 unique highlighted foods, each featured in exactly one phase', () {
+    final placements = [
+      for (final p in phasesFile)
+        for (final c in list(p['categories'])) ...strings(c['foods']),
+    ];
+    expect(placements, hasLength(142));
+    expect(placements.toSet(), hasLength(142));
+    expect(phaseSizes.values.reduce((a, b) => a + b), 142);
+    // Only highlighted foods carry "why" copy.
+    for (final f in foodsFile) {
+      final id = f['id']! as String;
+      final why = f['why']! as Map<String, Object?>;
+      expect(why.isEmpty, !placements.contains(id), reason: id);
+    }
+  });
+
+  test('searchable foods outside every phase list stay in the catalogue', () {
+    final highlighted = {
+      for (final p in Phase.values) ...testCatalogue.phase(p).foodIds,
+    };
+    final general = [
+      for (final f in testCatalogue.foods)
+        if (!highlighted.contains(f.id)) f,
+    ];
+    expect(general, isNotEmpty);
+    expect(testCatalogue.foods.length, highlighted.length + general.length);
   });
 
   test('recipes: every food id still resolves to a ship-ready food', () {
@@ -282,6 +324,7 @@ void main() {
         'id',
         'name',
         'aisle',
+        'category',
         'animalSource',
         'allergens',
         'mayContainAllergens',

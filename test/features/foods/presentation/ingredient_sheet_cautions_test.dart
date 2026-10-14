@@ -98,9 +98,9 @@ void main() {
 
   testWidgets('the note sits between the copy and the buttons', (tester) async {
     final kiwi = catalogueFood('kiwi');
-    await pumpSheet(tester, kiwi, phase: Phase.ovulatory);
+    await pumpSheet(tester, kiwi, phase: Phase.menstrual);
     final note = tester.getTopLeft(find.byKey(noteKey)).dy;
-    final copy = tester.getTopLeft(find.text(kiwi.why[Phase.ovulatory]!.short));
+    final copy = tester.getTopLeft(find.text(kiwi.why[Phase.menstrual]!.short));
     final button = tester.getTopLeft(find.text('Add to shopping list'));
     expect(note, greaterThan(copy.dy));
     expect(note, lessThan(button.dy));
@@ -118,6 +118,7 @@ void main() {
       id: 'test-food',
       name: 'Test food',
       aisleId: 'produce',
+      categoryId: 'vegetables',
       animalSource: AnimalSource.none,
       allergenIds: {},
       cautions: [long, 'A second, shorter caution'],

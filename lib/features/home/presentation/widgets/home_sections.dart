@@ -11,69 +11,69 @@ import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
 import '../../../../core/design/widgets/recipe_photo.dart';
 import '../../../../core/design/widgets/text_link.dart';
+import '../../../../core/domain/phase.dart';
 import '../../../content/domain/food.dart';
 import '../../../content/domain/phase_content.dart';
 import '../../../content/domain/recipe.dart';
+import '../../../cycle/domain/phase_guidance.dart';
 
-/// "Your focus": the tagline (last word in italic), the focus copy and the
-/// cooking line.
+/// "Your focus": the phase tagline (last word in italic) and three general
+/// principles. No individual foods; those are in "Foods for this phase".
 class FocusSection extends StatelessWidget {
-  const FocusSection({
-    super.key,
-    required this.content,
-    this.previewing = false,
-  });
+  const FocusSection({super.key, required this.content, required this.phase});
 
   final PhaseContent content;
-
-  /// While the hero previews another day, this stays on today.
-  final bool previewing;
+  final Phase phase;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final accent = c.phase(phase).accent;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Overline(previewing ? 'Your focus · today' : 'Your focus'),
+        const Overline('Your focus'),
         const SizedBox(height: 10),
         EditorialHeading(
           italicLastWord(content.tagline),
           style: fraunces(30, height: 1.12),
         ),
-        const SizedBox(height: 10),
-        Text(content.focusBody, style: MoonType.body.copyWith(color: c.text)),
         const SizedBox(height: 14),
-        Row(
-          children: [
-            MoonIcon(
-              MoonIconName.pan,
-              size: 18,
-              color: c.textMuted,
-              strokeWidth: 1.8,
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                content.cooking,
-                style: dmSans(
-                  14,
-                  weight: FontWeight.w500,
-                  height: 1.4,
-                  color: c.textMuted,
+        for (final principle in phaseFocusPrinciples(phase))
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Container(
+                    width: 7,
+                    height: 7,
+                    decoration: BoxDecoration(
+                      color: accent,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    principle,
+                    style: MoonType.body.copyWith(color: c.text),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
       ],
     );
   }
 }
 
-/// "Foods for today" with up to six chips.
-class FoodsTodaySection extends StatelessWidget {
-  const FoodsTodaySection({
+/// "Foods for this phase" with up to six chips.
+class FoodsForPhaseSection extends StatelessWidget {
+  const FoodsForPhaseSection({
     super.key,
     required this.foods,
     required this.onList,
@@ -93,7 +93,7 @@ class FoodsTodaySection extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       SectionHead(
-        'Foods for today',
+        'Foods for this phase',
         linkLabel: 'All foods',
         onLink: onAllFoods,
       ),
@@ -117,9 +117,9 @@ class FoodsTodaySection extends StatelessWidget {
   );
 }
 
-/// "Recipes for today": a horizontal row of cards, or the no-recipes state.
-class RecipesTodaySection extends StatelessWidget {
-  const RecipesTodaySection({
+/// "Recipes for this phase": a horizontal row of cards, or the no-recipes state.
+class RecipesForPhaseSection extends StatelessWidget {
+  const RecipesForPhaseSection({
     super.key,
     required this.recipes,
     required this.palette,
@@ -143,7 +143,7 @@ class RecipesTodaySection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SectionHead('Recipes for today'),
+            const SectionHead('Recipes for this phase'),
             const SizedBox(height: 16),
             Text(
               'No recipes for this phase fit your food preferences.',
@@ -161,7 +161,7 @@ class RecipesTodaySection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
           child: SectionHead(
-            'Recipes for today',
+            'Recipes for this phase',
             linkLabel: 'All recipes',
             onLink: onAllRecipes,
           ),

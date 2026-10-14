@@ -18,7 +18,9 @@ import '../../../../core/domain/phase.dart';
 import '../../../../core/format/dates.dart';
 import '../../../../core/time/today.dart';
 import '../../../content/application/content_providers.dart';
+import '../../../cycle/application/viewing_phase.dart';
 import '../../../cycle/domain/cycle_state.dart';
+import '../../../cycle/domain/phase_guidance.dart';
 import '../../../cycle/presentation/cycle_orbit.dart';
 import '../../application/home_providers.dart';
 
@@ -34,10 +36,8 @@ class HomeHero extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final dark = Theme.of(context).brightness == Brightness.dark;
-    final previewDay = ref.watch(homePreviewProvider);
-    final shownPhase = previewDay == null
-        ? state.phase
-        : state.ranges.forDay(previewDay).phase;
+    final previewDay = ref.watch(homeShownDayProvider);
+    final shownPhase = ref.watch(viewingPhaseProvider);
     final content = ref.watch(catalogueProvider).phase(shownPhase);
     final today = ref.watch(todayProvider);
     final (Color text, Color summary, Color muted) = dark
@@ -47,7 +47,7 @@ class HomeHero extends ConsumerWidget {
     final moon = math.min(300.0, width - 90);
 
     return HeroBackdrop(
-      phase: state.phase,
+      phase: shownPhase,
       dark: dark,
       pageColor: c.bg,
       child: Padding(
@@ -93,7 +93,12 @@ class HomeHero extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 22),
-            _DraggableMoon(state: state, size: moon, dark: dark),
+            _DraggableMoon(
+              state: state,
+              shownPhase: shownPhase,
+              size: moon,
+              dark: dark,
+            ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
@@ -118,11 +123,11 @@ class HomeHero extends ConsumerWidget {
                   ),
                   const SizedBox(height: 14),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 290),
+                    constraints: const BoxConstraints(maxWidth: 320),
                     child: Text(
-                      content.summary,
+                      phaseDescription(shownPhase),
                       textAlign: TextAlign.center,
-                      style: dmSans(17, height: 1.5, color: summary),
+                      style: dmSans(16, height: 1.5, color: summary),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -155,17 +160,19 @@ class HomeHero extends ConsumerWidget {
 class _DraggableMoon extends ConsumerWidget {
   const _DraggableMoon({
     required this.state,
+    required this.shownPhase,
     required this.size,
     required this.dark,
   });
 
   final CycleState state;
+  final Phase shownPhase;
   final double size;
   final bool dark;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final previewDay = ref.watch(homePreviewProvider);
+    final previewDay = ref.watch(homeShownDayProvider);
     final preview = ref.read(homePreviewProvider.notifier);
     final length = state.cycleLength;
     final shownDay = previewDay ?? state.orbitDay;
@@ -222,7 +229,7 @@ class _DraggableMoon extends ConsumerWidget {
             dark: dark,
             haloColor: dark
                 ? HeroTokens.darkSolid
-                : HeroTokens.lightWash[state.phase]!,
+                : HeroTokens.lightWash[shownPhase]!,
             spec: orbitSpecFor(state, previewDay: previewDay),
           ),
         ),
@@ -303,7 +310,10 @@ String homeHeroMeta(CycleState s) {
   final next = s.phase == Phase.luteal
       ? 'Period in ${DateText.days(s.daysToNextPhase)}'
       : '${phaseName(s.nextPhase)} in ${DateText.days(s.daysToNextPhase)}';
-  return 'Day ${s.phaseDay} of ${s.phaseLength} in phase · Day ${s.cycleDay} '
+  final within = s.phase == Phase.ovulatory
+      ? 'in ovulation window'
+      : 'in phase';
+  return 'Day ${s.phaseDay} of ${s.phaseLength} $within · Day ${s.cycleDay} '
       'of ${s.cycleLength} in cycle\n$next';
 }
 

@@ -4,15 +4,15 @@ The app's bundled, read-only catalogue. `test/content/content_validation_test.da
 
 | File | What it holds | Source |
 |---|---|---|
-| `phases.json` | The four phases: season, tagline, Home summary, focus copy, cooking line, the universal `note`, and **25 curated foods per phase** grouped by category | Foods v2 production candidate (Moon Cycle Research) |
-| `foods.json` | Every food: name, aisle, animal source, allergens, `mayContainAllergens` (check-label), synonyms, cautions, `shipReady`, and phase-specific `why` copy for the phases where it is highlighted | Foods v2 production candidate; legacy ids are kept (permanent) |
+| `phases.json` | The four phases: season, tagline, Home summary, focus copy, cooking line, the universal `note`, and **the frozen featured foods per phase** (35 / 32 / 31 / 44 = 142, one featured phase each) grouped by category | Foods v2 production candidate (Moon Cycle Research) |
+| `foods.json` | Every food: name, aisle, canonical `category`, animal source, allergens, `mayContainAllergens` (check-label), synonyms, cautions, `shipReady`, and phase-specific `why` copy for the phases where it is highlighted | Foods v2 production candidate; legacy ids are kept (permanent) |
 | `recipes.json` | 12 recipes in the Emergent order (unchanged; recipe replacement is a later step) | `design/content/recovered/emergent-recipes.json`, verbatim |
 | `taxonomy.json` | Food categories, shopping aisles (Shop order) and the allergen chips | Foods v2 production candidate (categories now include protein, dairy & alternatives, fermented) |
 
 ## Foods v2 (content contract)
 
-- Each phase highlights exactly **25** foods, chosen by the owner from independently researched nutrition, meal-style fit, practicality, variety and recipe suitability. Foods appear in several phases. A highlight is a suggestion, not a claim that a food is uniquely beneficial in a phase.
-- Every highlighted food has **phase-specific `why` copy**; the app shows `short` on the ingredient sheet.
+- Phases feature **35 / 32 / 31 / 44** foods (142 unique); every highlighted food has exactly one featured phase and no repeats. A featured phase is where Moon Cycle introduces or emphasises a food for nutritional fit, meal style and monthly variety; it is not a claim that the food belongs only to that phase.
+- Every highlighted food has **`why` copy for its featured phase only**; the app shows `short` on the ingredient sheet when opened from This phase, and no phase rationale from All foods.
 - Each phase carries the universal `note`, shown directly below the phase intro on Foods.
 - Internal rationale labels (`evidence_informed`, `framework_informed`, `supporting`, `editorial`) and USDA provenance live in the research project (`foods.provenance.json`), never in these files.
 - `mayContainAllergens` marks foods that only *may* contain an allergen (oats and gluten, kimchi and fish/shellfish). They are not shown as a permanent allergen, but the avoidance filter still leaves them out for users who avoid that allergen.

@@ -58,8 +58,8 @@ final class PhaseContent {
   /// "Light steaming, quick sautés and fresh salads."
   final String cooking;
 
-  /// "These are suggestions, not rules — any food can be enjoyed in any
-  /// phase." Shown directly below the phase intro on Foods.
+  /// "These are suggestions, not rules. We feature different foods across your
+  /// cycle to encourage variety — you can enjoy any food at any time." Shown directly below the phase intro on Foods.
   final String note;
 
   /// Foods per category, in the stored order. Only shippable foods.

@@ -15,6 +15,7 @@ import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../recipes/application/recipe_filter.dart';
+import '../../recipes/application/recipes_scope.dart';
 import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../application/food_providers.dart';
@@ -22,32 +23,67 @@ import '../application/food_providers.dart';
 /// The ingredient sheet (`11-ingredient-sheet`, `12-…-on-list`), over the
 /// screen it was opened from: [phase] is the real phase from Home, the
 /// viewing phase from Foods (PRD §8).
+///
+/// Without [phaseContext] (Foods › All foods) the sheet shows general
+/// information about the food instead of a phase-specific "why"; [category]
+/// names the category it was listed under.
 Future<void> showIngredientSheet(
   BuildContext context, {
   required Food food,
   required Phase phase,
+  bool phaseContext = true,
+  String? category,
 }) => showMoonSheet<void>(
   context,
-  builder: (_) => IngredientSheet(food: food, phase: phase),
+  builder: (_) => IngredientSheet(
+    food: food,
+    phase: phase,
+    phaseContext: phaseContext,
+    category: category,
+  ),
 );
 
 class IngredientSheet extends ConsumerWidget {
-  const IngredientSheet({super.key, required this.food, required this.phase});
+  const IngredientSheet({
+    super.key,
+    required this.food,
+    required this.phase,
+    this.phaseContext = true,
+    this.category,
+  });
 
   final Food food;
   final Phase phase;
+
+  /// Opened for a phase (Home, Foods › This phase): show "Why this food?".
+  final bool phaseContext;
+
+  /// The category it was listed under, when known.
+  final String? category;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final catalogue = ref.watch(catalogueProvider);
     final palette = c.phase(phase);
-    final count = ref.watch(recipeCountsProvider(phase))[food.id] ?? 0;
+    // Without phase context ("All foods") recipes are counted across every
+    // phase, not just the one being viewed.
+    final counts = phaseContext
+        ? ref.watch(recipeCountsProvider(phase))
+        : ref.watch(allRecipeCountsProvider);
+    final count = counts[food.id] ?? 0;
     final onList = ref
         .watch(shoppingSummaryProvider)
         .onListFoodIds
         .contains(food.id);
-    final category = catalogue.categoryOf(food.id, phase)?.name;
+    final category =
+        this.category ?? catalogue.categoryOf(food.id, phase)?.name;
+    final qualifier = food.qualifier;
+    // Phases whose lists include the food, for the general information.
+    final highlightedIn = [
+      for (final p in Phase.values)
+        if (food.why[p] != null) p.name,
+    ];
     final name = food.displayName.toLowerCase();
 
     return SingleChildScrollView(
@@ -65,19 +101,27 @@ class IngredientSheet extends ConsumerWidget {
               style: fraunces(42, height: 1, color: c.text),
             ),
           ),
+          if (qualifier != null) ...[
+            const SizedBox(height: 8),
+            Text(qualifier, style: dmSans(14, height: 1.4, color: c.textMuted)),
+          ],
           const SizedBox(height: 16),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: MoonPill(
-              catalogue.sheetLabel.replaceAll('{phase}', phase.name),
-              background: palette.tint,
+          // Only a food recommended for this phase has a phase rationale.
+          if (!phaseContext)
+            ..._general(context, highlightedIn)
+          else if (food.why[phase] case final why?) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: MoonPill(
+                catalogue.sheetLabel.replaceAll('{phase}', phase.name),
+                background: palette.tint,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            food.why[phase]?.short ?? '',
-            style: MoonType.body.copyWith(color: c.text),
-          ),
+            const SizedBox(height: 18),
+            const Overline('Why this food?'),
+            const SizedBox(height: 6),
+            Text(why.short, style: MoonType.body.copyWith(color: c.text)),
+          ],
           if (count == 0) ...[
             const SizedBox(height: 16),
             Text(
@@ -96,7 +140,11 @@ class IngredientSheet extends ConsumerWidget {
               trailingIcon: MoonIconName.arrow,
               onPressed: () {
                 final router = GoRouter.of(context);
-                ref.read(viewingPhaseProvider.notifier).choose(phase);
+                if (phaseContext) {
+                  ref.read(viewingPhaseProvider.notifier).choose(phase);
+                } else {
+                  ref.read(recipesScopeProvider.notifier).showAll();
+                }
                 ref
                     .read(recipeFilterProvider.notifier)
                     .showRecipesWith(food.id);
@@ -119,6 +167,30 @@ class IngredientSheet extends ConsumerWidget {
         ],
       ),
     );
+  }
+}
+
+extension on IngredientSheet {
+  /// General information for a food opened without phase context: which
+  /// phase features it, from the approved lists. Nothing phase-specific.
+  List<Widget> _general(BuildContext context, List<String> phases) {
+    if (phases.isEmpty) return const [];
+    final c = context.moon;
+    final list = switch (phases.length) {
+      1 => phases.single,
+      _ =>
+        '${phases.sublist(0, phases.length - 1).join(', ')} '
+            'and ${phases.last}',
+    };
+    return [
+      const Overline('About this food'),
+      const SizedBox(height: 6),
+      Text(
+        'Featured in the $list '
+        '${phases.length == 1 ? 'phase' : 'phases'}.',
+        style: MoonType.body.copyWith(color: c.text),
+      ),
+    ];
   }
 }
 

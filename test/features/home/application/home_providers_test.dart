@@ -17,18 +17,18 @@ List<String> foods(FoodFilter filter, Phase phase) {
     ],
   );
   addTearDown(container.dispose);
-  return [for (final f in container.read(foodsForTodayProvider(phase))) f.id];
+  return [for (final f in container.read(foodsForPhaseProvider(phase))) f.id];
 }
 
 void main() {
   test('the first food of each category, up to six', () {
     expect(foods(FoodFilter.none, Phase.follicular), [
-      'oat',
-      'asparagus',
+      'farro',
+      'arugula',
       'avocado',
-      'green-lentil',
-      'flaxseeds',
-      'eggs',
+      'black-eyed-pea',
+      'brazil-nut',
+      'chicken',
     ]);
   });
 
@@ -37,15 +37,15 @@ void main() {
       diet: Diet.vegetarian,
       avoidances: [AllergenAvoidance(id: 'a', allergenId: 'gluten')],
     );
-    // Oats (may contain gluten) and barley (gluten) give way to quinoa; the
-    // single seafood food (trout) is not vegetarian.
+    // Farro and oat bran (may contain gluten) leave Grains empty; chicken
+    // and every seafood food are not vegetarian, so eggs and feta take over.
     expect(foods(filter, Phase.follicular), [
-      'quinoa',
-      'asparagus',
+      'arugula',
       'avocado',
-      'green-lentil',
-      'flaxseeds',
+      'black-eyed-pea',
+      'brazil-nut',
       'eggs',
+      'feta',
     ]);
   });
 }

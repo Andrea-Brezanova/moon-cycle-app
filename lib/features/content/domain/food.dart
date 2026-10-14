@@ -9,6 +9,7 @@ final class Food {
     required this.id,
     required this.name,
     required this.aisleId,
+    required this.categoryId,
     required this.animalSource,
     required this.allergenIds,
     this.mayContainAllergenIds = const {},
@@ -24,6 +25,10 @@ final class Food {
   final String name;
 
   final String aisleId;
+
+  /// The food's own canonical category id (taxonomy `categories`), independent
+  /// of whether any phase features it.
+  final String categoryId;
   final AnimalSource animalSource;
   final Set<String> allergenIds;
 

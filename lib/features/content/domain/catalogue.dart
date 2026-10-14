@@ -67,6 +67,11 @@ final class Catalogue {
     return null;
   }
 
+  /// The category [food] belongs to: its own canonical `category`, independent
+  /// of the phase being viewed and of whether any phase features it.
+  FoodCategory categoryFor(Food food) =>
+      categories.firstWhere((c) => c.id == food.categoryId);
+
   /// The recipes of [phase], in the stored order (the first is featured).
   List<Recipe> recipesFor(Phase phase) => [
     for (final r in recipes)

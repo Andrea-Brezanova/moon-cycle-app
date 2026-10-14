@@ -16,7 +16,8 @@
           "short": "Buckwheat has a warm, nutty flavour and makes a comforting porridge or pilaf.",
           "detail": "Buckwheat has a warm, nutty flavour and makes a comforting porridge or pilaf."
         }
-      }
+      },
+      "category": "grains"
     },
     {
       "id": "wild-rice",
@@ -27,7 +28,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Wild rice has a nutty, chewy bite that suits warm soups, pilafs and stuffings.",
+          "detail": "Wild rice has a nutty, chewy bite that suits warm soups, pilafs and stuffings."
+        }
+      },
+      "category": "grains"
     },
     {
       "id": "beets",
@@ -41,7 +48,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Beets are earthy and sweet, lovely roasted, grated into salads or blended into soups.",
+          "detail": "Beets are earthy and sweet, lovely roasted, grated into salads or blended into soups."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "burdock",
@@ -52,7 +65,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "dulse",
@@ -65,7 +79,8 @@
       "cautions": [
         "Iodine varies, so use small amounts"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "hijiki",
@@ -78,7 +93,8 @@
       "cautions": [
         "High in inorganic arsenic"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "kale",
@@ -96,7 +112,8 @@
           "short": "Kale is a good source of vitamin C, which helps your body absorb iron from plant foods. Add it to soups and bean dishes.",
           "detail": "Kale is a good source of vitamin C, which helps your body absorb iron from plant foods. Add it to soups and bean dishes."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "kelp",
@@ -110,7 +127,8 @@
         "Can exceed the safe iodine limit",
         "Thyroid conditions: check with a doctor"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "kombu",
@@ -124,7 +142,8 @@
         "Can exceed the safe iodine limit",
         "Thyroid conditions: check with a doctor"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "mushrooms",
@@ -138,7 +157,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Mushrooms are savoury and meaty, good in soups, stews and stir-fries.",
+          "detail": "Mushrooms are savoury and meaty, good in soups, stews and stir-fries."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "wakame",
@@ -151,7 +176,8 @@
       "cautions": [
         "Iodine: normal portions"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "water-chestnut",
@@ -162,7 +188,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "blackberry",
@@ -173,7 +200,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Blackberries bring fibre and a tart juiciness to oats, yogurt and baking.",
+          "detail": "Blackberries bring fibre and a tart juiciness to oats, yogurt and baking."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "blueberry",
@@ -185,11 +218,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "follicular": {
-          "short": "Blueberries are an easy fresh topping for oats and yogurt.",
-          "detail": "Blueberries are an easy fresh topping for oats and yogurt."
+        "menstrual": {
+          "short": "Blueberries bring some vitamin C, which helps your body absorb iron from plant foods. Stir them into porridge or yogurt.",
+          "detail": "Blueberries bring some vitamin C, which helps your body absorb iron from plant foods. Stir them into porridge or yogurt."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "concord-grape",
@@ -200,7 +234,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "watermelon",
@@ -216,7 +251,8 @@
           "short": "Watermelon is juicy and refreshing, a simple snack or salad addition.",
           "detail": "Watermelon is juicy and refreshing, a simple snack or salad addition."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "adzuki-bean",
@@ -227,7 +263,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "black-soybean",
@@ -242,7 +279,8 @@
       "cautions": [
         "Soy allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "black-turtle-bean",
@@ -259,12 +297,9 @@
         "menstrual": {
           "short": "Black beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and bowls.",
           "detail": "Black beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and bowls."
-        },
-        "luteal": {
-          "short": "Black beans provide protein and fibre (about 12 g and 11 g per serving) and slower-digesting carbohydrates, so they make meals filling.",
-          "detail": "Black beans provide protein and fibre (about 12 g and 11 g per serving) and slower-digesting carbohydrates, so they make meals filling. That's why we highlight them in the luteal phase for hearty, filling meals."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "kidney-bean",
@@ -277,7 +312,13 @@
       "cautions": [
         "Dried beans: boil hard for 10 minutes; don't slow-cook from raw"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Kidney beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and stews.",
+          "detail": "Kidney beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and stews."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "chestnut",
@@ -292,7 +333,8 @@
       "cautions": [
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "sesame-seeds",
@@ -312,7 +354,8 @@
           "short": "Sesame seeds add a nutty crunch to warm bowls and dressings.",
           "detail": "Sesame seeds add a nutty crunch to warm bowls and dressings."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "sunflower-seeds",
@@ -323,7 +366,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Sunflower seeds provide protein and a little fibre, good over salads, porridge and bread.",
+          "detail": "Sunflower seeds provide protein and a little fibre, good over salads, porridge and bread."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "duck",
@@ -334,7 +383,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "protein"
     },
     {
       "id": "pork",
@@ -347,7 +397,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Pork is a savoury meat that provides protein and suits roasts, stir-fries and slow cooking.",
+          "detail": "Pork is a savoury meat that provides protein and suits roasts, stir-fries and slow cooking."
+        }
+      },
+      "category": "protein"
     },
     {
       "id": "catfish",
@@ -362,7 +418,8 @@
       "cautions": [
         "Fish allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "clam",
@@ -383,7 +440,8 @@
           "short": "Clams provide iron (about 13% of the daily value per serving) and are lovely in warm soups and pasta.",
           "detail": "Clams provide iron (about 13% of the daily value per serving) and are lovely in warm soups and pasta."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "crab",
@@ -398,7 +456,13 @@
       "cautions": [
         "Crustacean allergen"
       ],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Crab is sweet and delicate, good in light salads, cakes and chilled pasta.",
+          "detail": "Crab is sweet and delicate, good in light salads, cakes and chilled pasta."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "lobster",
@@ -413,7 +477,8 @@
       "cautions": [
         "Crustacean allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "mussel",
@@ -434,7 +499,8 @@
           "short": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation.",
           "detail": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "octopus",
@@ -449,7 +515,8 @@
       "cautions": [
         "Mollusc allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "oyster",
@@ -465,7 +532,13 @@
         "Mollusc allergen",
         "Raw oysters: food-safety risk"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation.",
+          "detail": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "sardine",
@@ -485,7 +558,8 @@
           "short": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta.",
           "detail": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "scallop",
@@ -500,7 +574,13 @@
       "cautions": [
         "Mollusc allergen"
       ],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Scallops sear quickly and have a sweet, delicate flavour, good for a light, fast meal.",
+          "detail": "Scallops sear quickly and have a sweet, delicate flavour, good for a light, fast meal."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "squid",
@@ -515,7 +595,8 @@
       "cautions": [
         "Mollusc allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "bancha-tea",
@@ -528,7 +609,8 @@
       "cautions": [
         "Reduces plant-iron absorption with meals"
       ],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "decaf-coffee",
@@ -541,7 +623,8 @@
       "cautions": [
         "Reduces plant-iron absorption with meals"
       ],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "miso",
@@ -558,7 +641,13 @@
         "High in salt",
         "Soy allergen"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Miso adds a savoury, umami depth to soups, dressings and marinades. A spoonful goes a long way.",
+          "detail": "Miso adds a savoury, umami depth to soups, dressings and marinades. A spoonful goes a long way."
+        }
+      },
+      "category": "fermented"
     },
     {
       "id": "salt",
@@ -569,7 +658,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "tamari",
@@ -587,7 +677,8 @@
         "High in salt",
         "Soy allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "fermented"
     },
     {
       "id": "barley",
@@ -603,15 +694,12 @@
         "Contains gluten"
       ],
       "why": {
-        "follicular": {
-          "short": "Chewy barley adds body to soups and grain salads.",
-          "detail": "Chewy barley adds body to soups and grain salads."
-        },
         "luteal": {
           "short": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling.",
-          "detail": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling. That's why we highlight it in the luteal phase for hearty, filling meals."
+          "detail": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling."
         }
-      }
+      },
+      "category": "grains"
     },
     {
       "id": "oat",
@@ -628,14 +716,6 @@
         "Choose certified gluten-free oats if avoiding gluten."
       ],
       "why": {
-        "menstrual": {
-          "short": "Oats make a warm, comforting porridge. We include them as an easy comfort food, not for a specific nutrient.",
-          "detail": "Oats make a warm, comforting porridge. We include them as an easy comfort food, not for a specific nutrient."
-        },
-        "follicular": {
-          "short": "Oats cook quickly into a simple, balanced breakfast.",
-          "detail": "Oats cook quickly into a simple, balanced breakfast."
-        },
         "luteal": {
           "short": "Oats make a warm, filling porridge or baked oatmeal for hearty breakfasts.",
           "detail": "Oats make a warm, filling porridge or baked oatmeal for hearty breakfasts."
@@ -643,7 +723,8 @@
       },
       "mayContainAllergens": [
         "gluten"
-      ]
+      ],
+      "category": "grains"
     },
     {
       "id": "rye",
@@ -658,7 +739,8 @@
       "cautions": [
         "Contains gluten"
       ],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "wheat",
@@ -673,7 +755,8 @@
       "cautions": [
         "Contains gluten"
       ],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "artichoke",
@@ -684,7 +767,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Artichokes provide fibre and have a tender, savoury heart that suits dips, bakes and salads.",
+          "detail": "Artichokes provide fibre and have a tender, savoury heart that suits dips, bakes and salads."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "broccoli",
@@ -699,12 +788,9 @@
         "menstrual": {
           "short": "Broccoli is rich in vitamin C, which helps your body absorb iron from plant foods. Pair it with beans or lentils.",
           "detail": "Broccoli is rich in vitamin C, which helps your body absorb iron from plant foods. Pair it with beans or lentils."
-        },
-        "follicular": {
-          "short": "Broccoli steams or roasts quickly and goes with almost anything.",
-          "detail": "Broccoli steams or roasts quickly and goes with almost anything."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "carrot",
@@ -719,12 +805,9 @@
         "follicular": {
           "short": "Carrots are easy to grate, roast or snack on raw.",
           "detail": "Carrots are easy to grate, roast or snack on raw."
-        },
-        "luteal": {
-          "short": "Carrots are sweet and satisfying roasted, or added to stews and soups.",
-          "detail": "Carrots are sweet and satisfying roasted, or added to stews and soups."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "lettuce",
@@ -745,7 +828,8 @@
           "short": "Crisp lettuce makes a fresh base for salads and wraps.",
           "detail": "Crisp lettuce makes a fresh base for salads and wraps."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "parsley",
@@ -758,7 +842,8 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "green-pea",
@@ -777,7 +862,8 @@
           "short": "Green peas are sweet, fresh-tasting and quick to add to soups, pasta and salads.",
           "detail": "Green peas are sweet, fresh-tasting and quick to add to soups, pasta and salads."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "rhubarb",
@@ -791,7 +877,8 @@
         "High in oxalate",
         "Leaves are poisonous: stalks only"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "string-bean",
@@ -805,7 +892,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "String beans are crisp-tender steamed, blanched into salads or sautéed with garlic.",
+          "detail": "String beans are crisp-tender steamed, blanched into salads or sautéed with garlic."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "zucchini",
@@ -822,12 +915,9 @@
         "follicular": {
           "short": "Zucchini is mild and quick to cook, easy to add to sautés and noodle dishes.",
           "detail": "Zucchini is mild and quick to cook, easy to add to sautés and noodle dishes."
-        },
-        "ovulatory": {
-          "short": "Zucchini is light and mild, lovely in raw ribbons or quickly sautéed.",
-          "detail": "Zucchini is light and mild, lovely in raw ribbons or quickly sautéed."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "avocado",
@@ -843,7 +933,8 @@
           "short": "Avocado adds creaminess to toast, salads and bowls.",
           "detail": "Avocado adds creaminess to toast, salads and bowls."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "grapefruit",
@@ -856,7 +947,13 @@
       "cautions": [
         "Can interact with some medicines"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Grapefruit is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it with breakfast or alongside an iron-rich meal.",
+          "detail": "Grapefruit is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it with breakfast or alongside an iron-rich meal."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "lemon",
@@ -869,7 +966,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "lime",
@@ -882,7 +980,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "orange",
@@ -897,16 +996,9 @@
         "menstrual": {
           "short": "Oranges are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy one alongside an iron-rich meal.",
           "detail": "Oranges are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy one alongside an iron-rich meal."
-        },
-        "follicular": {
-          "short": "Oranges are a fresh, easy snack and brighten salads.",
-          "detail": "Oranges are a fresh, easy snack and brighten salads."
-        },
-        "ovulatory": {
-          "short": "Oranges are juicy and easy to add to salads or enjoy on their own.",
-          "detail": "Oranges are juicy and easy to add to salads or enjoy on their own."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "plum",
@@ -917,7 +1009,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Plums are juicy and slightly tart, easy to slice into yogurt or enjoy as a snack.",
+          "detail": "Plums are juicy and slightly tart, easy to slice into yogurt or enjoy as a snack."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "pomegranate",
@@ -933,7 +1031,8 @@
           "short": "Pomegranate seeds add colour and crunch to salads and bowls.",
           "detail": "Pomegranate seeds add colour and crunch to salads and bowls."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "sour-cherry",
@@ -944,7 +1043,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "black-eyed-pea",
@@ -962,7 +1062,8 @@
           "short": "Black-eyed peas are a mild, quick-cooking bean for salads and stews.",
           "detail": "Black-eyed peas are a mild, quick-cooking bean for salads and stews."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "green-lentil",
@@ -980,16 +1081,9 @@
         "menstrual": {
           "short": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation.",
           "detail": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation."
-        },
-        "follicular": {
-          "short": "Lentils cook fairly quickly and make easy salads and soups.",
-          "detail": "Lentils cook fairly quickly and make easy salads and soups."
-        },
-        "luteal": {
-          "short": "Lentils provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling.",
-          "detail": "Lentils provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling. That's why we highlight them in the luteal phase for hearty, filling meals."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "lima-bean",
@@ -1002,7 +1096,13 @@
       "cautions": [
         "Always cook thoroughly"
       ],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Lima beans are a creamy, filling legume with protein and fibre, lovely in soups, stews and warm salads.",
+          "detail": "Lima beans are a creamy, filling legume with protein and fibre, lovely in soups, stews and warm salads."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "mung-bean",
@@ -1015,7 +1115,8 @@
       "cautions": [
         "Raw sprouts: food-safety risk"
       ],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "split-pea",
@@ -1026,7 +1127,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Split peas simmer into a thick, comforting soup and provide protein and fibre.",
+          "detail": "Split peas simmer into a thick, comforting soup and provide protein and fibre."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "brazil-nut",
@@ -1042,7 +1149,13 @@
         "Limit to 1–2 nuts a day",
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Brazil nuts are rich and creamy, good chopped over porridge or eaten as a small snack.",
+          "detail": "Brazil nuts are rich and creamy, good chopped over porridge or eaten as a small snack."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "cashew",
@@ -1057,7 +1170,13 @@
       "cautions": [
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Cashews add some plant-based iron (about 10% of the daily value per serving) and a creamy richness to stir-fries and curries.",
+          "detail": "Cashews add some plant-based iron (about 10% of the daily value per serving) and a creamy richness to stir-fries and curries."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "flaxseeds",
@@ -1073,7 +1192,8 @@
           "short": "Ground flaxseed stirs easily into porridge, yogurt and smoothies.",
           "detail": "Ground flaxseed stirs easily into porridge, yogurt and smoothies."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "lychee",
@@ -1084,7 +1204,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "pumpkin-seeds",
@@ -1100,7 +1221,8 @@
           "short": "A small handful of pumpkin seeds adds iron (about 14% of the daily value). Sprinkle them on porridge, soups or salads.",
           "detail": "A small handful of pumpkin seeds adds iron (about 14% of the daily value). Sprinkle them on porridge, soups or salads."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "chicken",
@@ -1118,12 +1240,9 @@
         "follicular": {
           "short": "Chicken is a quick-cooking protein for stir-fries, salads and sheet-pan meals.",
           "detail": "Chicken is a quick-cooking protein for stir-fries, salads and sheet-pan meals."
-        },
-        "luteal": {
-          "short": "Chicken is a protein-rich staple (about 27 g per serving) for hearty, filling meals.",
-          "detail": "Chicken is a protein-rich staple (about 27 g per serving) for hearty, filling meals."
         }
-      }
+      },
+      "category": "protein"
     },
     {
       "id": "eggs",
@@ -1141,23 +1260,12 @@
         "Egg allergen"
       ],
       "why": {
-        "menstrual": {
-          "short": "Eggs are quick and comforting in warm breakfasts and bowls. They're an everyday choice rather than a notable iron source.",
-          "detail": "Eggs are quick and comforting in warm breakfasts and bowls. They're an everyday choice rather than a notable iron source."
-        },
         "follicular": {
           "short": "Eggs cook in minutes and make a light meal with vegetables.",
           "detail": "Eggs cook in minutes and make a light meal with vegetables."
-        },
-        "ovulatory": {
-          "short": "Eggs are quick to boil or scramble and sit well in light salads and wraps.",
-          "detail": "Eggs are quick to boil or scramble and sit well in light salads and wraps."
-        },
-        "luteal": {
-          "short": "Eggs add protein (about 6 g each) to hearty breakfasts and bowls.",
-          "detail": "Eggs add protein (about 6 g each) to hearty breakfasts and bowls."
         }
-      }
+      },
+      "category": "protein"
     },
     {
       "id": "fresh-water-clam",
@@ -1173,7 +1281,8 @@
         "Cook thoroughly",
         "Mollusc allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "soft-shell-crab",
@@ -1188,7 +1297,8 @@
       "cautions": [
         "Crustacean allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "trout",
@@ -1208,7 +1318,8 @@
           "short": "Trout is a mild fish that cooks in minutes, baked or pan-fried.",
           "detail": "Trout is a mild fish that cooks in minutes, baked or pan-fried."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "nut-butter",
@@ -1228,7 +1339,13 @@
       "cautions": [
         "Tree-nut or peanut allergen, depending on type"
       ],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Nut butter provides protein and a creamy richness, good on toast, oats and fruit.",
+          "detail": "Nut butter provides protein and a creamy richness, good on toast, oats and fruit."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "olives",
@@ -1241,7 +1358,8 @@
       "cautions": [
         "High in salt"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "pickles",
@@ -1259,7 +1377,8 @@
           "short": "Pickles add a tangy crunch to sandwiches and salads.",
           "detail": "Pickles add a tangy crunch to sandwiches and salads."
         }
-      }
+      },
+      "category": "fermented"
     },
     {
       "id": "sauerkraut",
@@ -1277,7 +1396,8 @@
           "short": "Sauerkraut adds a tangy crunch to sandwiches, bowls and salads.",
           "detail": "Sauerkraut adds a tangy crunch to sandwiches, bowls and salads."
         }
-      }
+      },
+      "category": "fermented"
     },
     {
       "id": "vinegar",
@@ -1288,7 +1408,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "amaranth",
@@ -1299,7 +1420,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "corn",
@@ -1310,7 +1432,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "quinoa",
@@ -1325,12 +1448,9 @@
         "menstrual": {
           "short": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls.",
           "detail": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls."
-        },
-        "follicular": {
-          "short": "Quinoa cooks in about 15 minutes and suits light bowls and salads.",
-          "detail": "Quinoa cooks in about 15 minutes and suits light bowls and salads."
         }
-      }
+      },
+      "category": "grains"
     },
     {
       "id": "asparagus",
@@ -1342,15 +1462,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "follicular": {
-          "short": "Asparagus cooks in minutes, so it suits quick roasts and fresh salads.",
-          "detail": "Asparagus cooks in minutes, so it suits quick roasts and fresh salads."
-        },
         "ovulatory": {
           "short": "Asparagus is fresh and quick to cook, lovely in salads and light dishes.",
           "detail": "Asparagus is fresh and quick to cook, lovely in salads and light dishes."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "red-bell-pepper",
@@ -1365,15 +1482,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "menstrual": {
-          "short": "Red peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy them with beans, lentils or leafy greens.",
-          "detail": "Red peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy them with beans, lentils or leafy greens."
-        },
         "ovulatory": {
           "short": "Red peppers add colour and crunch to salads, wraps and stir-fries.",
           "detail": "Red peppers add colour and crunch to salads, wraps and stir-fries."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "brussels-sprouts",
@@ -1385,11 +1499,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "luteal": {
-          "short": "Roasted Brussels sprouts make a grounding side for hearty meals.",
-          "detail": "Roasted Brussels sprouts make a grounding side for hearty meals."
+        "menstrual": {
+          "short": "Brussels sprouts are rich in vitamin C, which helps your body absorb iron from plant foods. Roast them alongside beans or lentils.",
+          "detail": "Brussels sprouts are rich in vitamin C, which helps your body absorb iron from plant foods. Roast them alongside beans or lentils."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "chard",
@@ -1405,7 +1520,13 @@
         "High in oxalate",
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Chard provides iron (about 11% of the daily value per serving) along with some vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Chard provides iron (about 11% of the daily value per serving) along with some vitamin C, which helps your body absorb iron from plant foods. Sauté it with garlic or stir it into soups."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "chicory",
@@ -1416,7 +1537,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "chive",
@@ -1427,7 +1549,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "dandelion",
@@ -1440,7 +1563,8 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "eggplant",
@@ -1453,7 +1577,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Eggplant turns soft and silky when baked or braised, and soaks up warm spices well.",
+          "detail": "Eggplant turns soft and silky when baked or braised, and soaks up warm spices well."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "endive",
@@ -1464,7 +1594,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "escarole",
@@ -1477,7 +1608,8 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "okra",
@@ -1488,7 +1620,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "scallion",
@@ -1502,7 +1635,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "spinach",
@@ -1520,12 +1654,9 @@
         "menstrual": {
           "short": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation.",
           "detail": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation."
-        },
-        "ovulatory": {
-          "short": "Tender spinach wilts in seconds or works raw in salads.",
-          "detail": "Tender spinach wilts in seconds or works raw in salads."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "tomato",
@@ -1539,15 +1670,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "menstrual": {
-          "short": "Tomatoes are a good source of vitamin C, which helps your body absorb iron from plant foods. Add them to soups, stews and bean dishes.",
-          "detail": "Tomatoes are a good source of vitamin C, which helps your body absorb iron from plant foods. Add them to soups, stews and bean dishes."
-        },
         "ovulatory": {
           "short": "Ripe tomatoes bring juicy colour to salads and light sauces.",
           "detail": "Ripe tomatoes bring juicy colour to salads and light sauces."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "apricot",
@@ -1558,7 +1686,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Apricots are sweet and gently tart, lovely fresh in season or sliced over yogurt.",
+          "detail": "Apricots are sweet and gently tart, lovely fresh in season or sliced over yogurt."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "cantaloupe",
@@ -1576,7 +1710,8 @@
           "short": "Cantaloupe is sweet and refreshing, lovely on its own or in fruit salads.",
           "detail": "Cantaloupe is sweet and refreshing, lovely on its own or in fruit salads."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "coconut",
@@ -1591,7 +1726,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "fig",
@@ -1602,7 +1738,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Figs are soft and honeyed and bring fibre; lovely with yogurt, cheese or oats.",
+          "detail": "Figs are soft and honeyed and bring fibre; lovely with yogurt, cheese or oats."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "guava",
@@ -1613,7 +1755,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "persimmon",
@@ -1624,7 +1767,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "raspberry",
@@ -1640,7 +1784,8 @@
           "short": "Raspberries are a bright, fresh topping for yogurt and breakfasts.",
           "detail": "Raspberries are a bright, fresh topping for yogurt and breakfasts."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "strawberry",
@@ -1652,15 +1797,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "menstrual": {
-          "short": "Strawberries are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy them alongside an iron-rich meal.",
-          "detail": "Strawberries are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy them alongside an iron-rich meal."
-        },
         "ovulatory": {
           "short": "Strawberries are sweet, juicy and easy to add to bowls and salads.",
           "detail": "Strawberries are sweet, juicy and easy to add to bowls and salads."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "red-lentil",
@@ -1671,7 +1813,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Red lentils cook down in minutes and provide protein and fibre, for soft, filling soups and dals.",
+          "detail": "Red lentils cook down in minutes and provide protein and fibre, for soft, filling soups and dals."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "almond",
@@ -1687,15 +1835,12 @@
         "Tree-nut allergen"
       ],
       "why": {
-        "follicular": {
-          "short": "Almonds are a simple, crunchy snack or topping.",
-          "detail": "Almonds are a simple, crunchy snack or topping."
-        },
         "ovulatory": {
           "short": "Almonds are an easy crunchy topping for salads and bowls.",
           "detail": "Almonds are an easy crunchy topping for salads and bowls."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "pecan",
@@ -1710,7 +1855,13 @@
       "cautions": [
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Pecans are buttery and slightly sweet, good toasted over salads, oats and yogurt.",
+          "detail": "Pecans are buttery and slightly sweet, good toasted over salads, oats and yogurt."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "pistachio",
@@ -1730,7 +1881,8 @@
           "short": "Pistachios add a little crunch to salads and snacks.",
           "detail": "Pistachios add a little crunch to salads and snacks."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "lamb",
@@ -1741,7 +1893,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Lamb is a rich, savoury meat that provides protein and suits slow roasts and stews.",
+          "detail": "Lamb is a rich, savoury meat that provides protein and suits slow roasts and stews."
+        }
+      },
+      "category": "protein"
     },
     {
       "id": "salmon",
@@ -1757,15 +1915,12 @@
         "Fish allergen"
       ],
       "why": {
-        "ovulatory": {
-          "short": "Salmon cooks quickly and works well in salads and bowls.",
-          "detail": "Salmon cooks quickly and works well in salads and bowls."
-        },
         "luteal": {
           "short": "Salmon provides protein (about 20 g per serving) for satisfying meals.",
           "detail": "Salmon provides protein (about 20 g per serving) for satisfying meals."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "shrimp",
@@ -1788,7 +1943,8 @@
           "short": "Shrimp cooks in minutes and suits light salads, tacos and stir-fries.",
           "detail": "Shrimp cooks in minutes and suits light salads, tacos and stir-fries."
         }
-      }
+      },
+      "category": "seafood"
     },
     {
       "id": "tuna",
@@ -1804,7 +1960,8 @@
         "Fish allergen",
         "Mercury: prefer light/skipjack"
       ],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "alcohol",
@@ -1815,7 +1972,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "chocolate",
@@ -1829,7 +1987,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "coffee",
@@ -1842,7 +2001,8 @@
       "cautions": [
         "Caffeine: limit to 200 mg/day if pregnant"
       ],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "ketchup",
@@ -1855,7 +2015,8 @@
       "cautions": [
         "High in sugar and salt"
       ],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "turmeric",
@@ -1866,7 +2027,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "brown-rice",
@@ -1882,15 +2044,12 @@
         "Vary grains (arsenic in rice)"
       ],
       "why": {
-        "menstrual": {
-          "short": "Brown rice is a comforting base for warm bowls and soups.",
-          "detail": "Brown rice is a comforting base for warm bowls and soups."
-        },
         "luteal": {
           "short": "Brown rice is a hearty, filling base for bowls and one-pot dishes.",
           "detail": "Brown rice is a hearty, filling base for bowls and one-pot dishes."
         }
-      }
+      },
+      "category": "grains"
     },
     {
       "id": "millet",
@@ -1901,7 +2060,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "cabbage",
@@ -1912,7 +2072,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Cabbage is crunchy raw in slaws and sweet and tender when sautéed or braised.",
+          "detail": "Cabbage is crunchy raw in slaws and sweet and tender when sautéed or braised."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "cauliflower",
@@ -1928,7 +2094,8 @@
           "short": "Cauliflower roasts into a hearty side or blends into creamy soups.",
           "detail": "Cauliflower roasts into a hearty side or blends into creamy soups."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "celery",
@@ -1946,7 +2113,8 @@
           "short": "Celery adds fresh crunch to salads, soups and snacks.",
           "detail": "Celery adds fresh crunch to salads, soups and snacks."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "collard",
@@ -1961,7 +2129,13 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Collard greens bring some vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Collard greens bring some vitamin C, which helps your body absorb iron from plant foods. They are hearty enough for slow-simmered soups and stews."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "cucumber",
@@ -1974,10 +2148,11 @@
       "cautions": [],
       "why": {
         "ovulatory": {
-          "short": "Cucumber is crisp and hydrating, perfect for salads and wraps.",
-          "detail": "Cucumber is crisp and hydrating, perfect for salads and wraps."
+          "short": "Cucumber is crisp and hydrating, great in salads and wraps.",
+          "detail": "Cucumber is crisp and hydrating, great in salads and wraps."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "daikon",
@@ -1988,7 +2163,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "garlic",
@@ -1999,7 +2175,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "ginger",
@@ -2010,7 +2187,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "leek",
@@ -2021,7 +2199,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "mustard-greens",
@@ -2034,7 +2213,8 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "onion",
@@ -2047,7 +2227,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "parsnip",
@@ -2058,7 +2239,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Parsnips turn sweet and tender when roasted and blend into warming soups.",
+          "detail": "Parsnips turn sweet and tender when roasted and blend into warming soups."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "pumpkin",
@@ -2074,7 +2261,8 @@
           "short": "Pumpkin makes warming soups and roasted dishes.",
           "detail": "Pumpkin makes warming soups and roasted dishes."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "radish",
@@ -2090,7 +2278,8 @@
           "short": "Radishes add a peppery crunch and bright colour to salads and tacos.",
           "detail": "Radishes add a peppery crunch and bright colour to salads and tacos."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "squash",
@@ -2103,7 +2292,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Squash roasts into sweet, tender wedges and blends into warming soups and stews.",
+          "detail": "Squash roasts into sweet, tender wedges and blends into warming soups and stews."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "sweet-potato",
@@ -2121,7 +2316,8 @@
           "short": "Sweet potato is naturally sweet and filling when roasted or mashed.",
           "detail": "Sweet potato is naturally sweet and filling when roasted or mashed."
         }
-      }
+      },
+      "category": "vegetables"
     },
     {
       "id": "watercress",
@@ -2134,7 +2330,8 @@
       "cautions": [
         "Very high vitamin K: keep intake consistent if taking warfarin"
       ],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "apple",
@@ -2148,15 +2345,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "follicular": {
-          "short": "Apples are a crisp, no-prep snack that also works in salads.",
-          "detail": "Apples are a crisp, no-prep snack that also works in salads."
-        },
         "luteal": {
           "short": "Apples are an easy snack that also bake well with oats and cinnamon.",
           "detail": "Apples are an easy snack that also bake well with oats and cinnamon."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "date",
@@ -2167,7 +2361,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "peach",
@@ -2178,7 +2373,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Peaches are juicy and fragrant in season, lovely sliced into salads or yogurt.",
+          "detail": "Peaches are juicy and fragrant in season, lovely sliced into salads or yogurt."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "pear",
@@ -2194,7 +2395,8 @@
           "short": "Pears add fibre (about 4 g per serving) to snacks and breakfasts.",
           "detail": "Pears add fibre (about 4 g per serving) to snacks and breakfasts."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "raisin",
@@ -2205,7 +2407,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "chickpea",
@@ -2220,23 +2423,12 @@
       "shipReady": true,
       "cautions": [],
       "why": {
-        "menstrual": {
-          "short": "Chickpeas are a rich source of plant-based iron, with protein and fibre too. A staple for iron-rich menstrual meals.",
-          "detail": "Chickpeas are a rich source of plant-based iron, with protein and fibre too. A staple for iron-rich menstrual meals."
-        },
-        "follicular": {
-          "short": "Chickpeas are a pantry staple for salads, wraps and quick stews.",
-          "detail": "Chickpeas are a pantry staple for salads, wraps and quick stews."
-        },
-        "ovulatory": {
-          "short": "Chickpeas add a satisfying bite to fresh salads and wraps.",
-          "detail": "Chickpeas add a satisfying bite to fresh salads and wraps."
-        },
         "luteal": {
           "short": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling.",
-          "detail": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling. That's why we highlight them in the luteal phase for hearty, filling meals."
+          "detail": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "great-northern-bean",
@@ -2247,7 +2439,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "navy-bean",
@@ -2258,7 +2451,8 @@
       "synonyms": [],
       "shipReady": false,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "hickory",
@@ -2273,7 +2467,8 @@
       "cautions": [
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "pine-nut",
@@ -2288,7 +2483,8 @@
       "cautions": [
         "Tree-nut allergen"
       ],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "walnut",
@@ -2308,7 +2504,8 @@
           "short": "Walnuts add richness and crunch to oats, salads and baking.",
           "detail": "Walnuts add richness and crunch to oats, salads and baking."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "beef",
@@ -2327,7 +2524,8 @@
           "short": "Beef provides iron (about 13% of the daily value per serving) and suits slow-cooked stews.",
           "detail": "Beef provides iron (about 13% of the daily value per serving) and suits slow-cooked stews."
         }
-      }
+      },
+      "category": "protein"
     },
     {
       "id": "turkey",
@@ -2340,7 +2538,13 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Turkey is a lean, versatile meat that provides protein for roasts, soups and sandwiches.",
+          "detail": "Turkey is a lean, versatile meat that provides protein for roasts, soups and sandwiches."
+        }
+      },
+      "category": "protein"
     },
     {
       "id": "cod",
@@ -2355,7 +2559,13 @@
       "cautions": [
         "Fish allergen"
       ],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Cod is a mild, flaky white fish that provides protein for quick, satisfying meals.",
+          "detail": "Cod is a mild, flaky white fish that provides protein for quick, satisfying meals."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "flounder",
@@ -2370,7 +2580,13 @@
       "cautions": [
         "Fish allergen"
       ],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Flounder is a delicate, quick-cooking white fish that provides protein.",
+          "detail": "Flounder is a delicate, quick-cooking white fish that provides protein."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "halibut",
@@ -2386,7 +2602,13 @@
         "Fish allergen",
         "Moderate mercury: about 1 serving a week if pregnant"
       ],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Halibut is a firm, meaty white fish that provides protein and bakes or grills well.",
+          "detail": "Halibut is a firm, meaty white fish that provides protein and bakes or grills well."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "mint",
@@ -2397,7 +2619,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "peppermint",
@@ -2408,7 +2631,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "spirulina",
@@ -2422,7 +2646,8 @@
         "Contamination risk: tested brands only",
         "Pregnancy or autoimmune conditions: check with doctor"
       ],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "almond-milk",
@@ -2435,7 +2660,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "anchovies",
@@ -2448,7 +2674,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein.",
+          "detail": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein. A few go a long way in pasta, salads or on toast."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "arugula",
@@ -2459,7 +2691,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Arugula adds a peppery bite to salads, pizzas and warm pasta.",
+          "detail": "Arugula adds a peppery bite to salads, pizzas and warm pasta."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "avocado-oil",
@@ -2470,7 +2708,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "bacon",
@@ -2481,7 +2720,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "protein"
     },
     {
       "id": "bagel",
@@ -2494,7 +2734,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "baked-beans",
@@ -2505,7 +2746,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "banana",
@@ -2521,7 +2763,8 @@
           "short": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase.",
           "detail": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "bean-sprouts",
@@ -2532,7 +2775,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Bean sprouts add a light, crisp crunch to stir-fries, noodle bowls and fresh rolls.",
+          "detail": "Bean sprouts add a light, crisp crunch to stir-fries, noodle bowls and fresh rolls."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "bok-choy",
@@ -2543,7 +2792,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Bok choy cooks in minutes and is crisp-tender in stir-fries and light soups.",
+          "detail": "Bok choy cooks in minutes and is crisp-tender in stir-fries and light soups."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "bulgur",
@@ -2556,7 +2811,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Bulgur is a quick-cooking whole grain with fibre, good for salads, pilafs and stuffed vegetables.",
+          "detail": "Bulgur is a quick-cooking whole grain with fibre, good for salads, pilafs and stuffed vegetables."
+        }
+      },
+      "category": "grains"
     },
     {
       "id": "butter",
@@ -2567,7 +2828,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "canned-salmon",
@@ -2580,7 +2842,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Canned salmon is a ready-to-use pantry staple for salads, patties and sandwiches.",
+          "detail": "Canned salmon is a ready-to-use pantry staple for salads, patties and sandwiches."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "canned-tomatoes",
@@ -2591,7 +2859,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "canned-tuna",
@@ -2604,7 +2873,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Canned tuna is an easy pantry staple for sandwiches, salads and pasta.",
+          "detail": "Canned tuna is an easy pantry staple for sandwiches, salads and pasta."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "celeriac",
@@ -2615,7 +2890,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "cheddar",
@@ -2628,7 +2904,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "chia-seeds",
@@ -2646,7 +2923,8 @@
           "short": "Chia seeds add fibre (about 5 g per serving) to puddings, porridge and smoothies.",
           "detail": "Chia seeds add fibre (about 5 g per serving) to puddings, porridge and smoothies."
         }
-      }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "chili-pepper",
@@ -2657,7 +2935,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "coconut-oil",
@@ -2668,7 +2947,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "cottage-cheese",
@@ -2688,7 +2968,8 @@
           "short": "Cottage cheese is a fresh, creamy topping for toast, bowls and fruit.",
           "detail": "Cottage cheese is a fresh, creamy topping for toast, bowls and fruit."
         }
-      }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "couscous",
@@ -2701,7 +2982,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "cranberry",
@@ -2712,7 +2994,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "cream-cheese",
@@ -2725,7 +3008,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "dried-apricots",
@@ -2736,7 +3020,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "edamame",
@@ -2752,19 +3037,12 @@
         "Soy allergen"
       ],
       "why": {
-        "menstrual": {
-          "short": "Edamame adds plant-based iron (about 11% of the daily value per serving) along with protein.",
-          "detail": "Edamame adds plant-based iron (about 11% of the daily value per serving) along with protein."
-        },
-        "ovulatory": {
-          "short": "Edamame is a quick, light protein for bowls, salads and snacks.",
-          "detail": "Edamame is a quick, light protein for bowls, salads and snacks."
-        },
         "luteal": {
           "short": "Edamame provides protein (about 11 g per serving) and fibre for filling bowls and snacks.",
           "detail": "Edamame provides protein (about 11 g per serving) and fibre for filling bowls and snacks."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "egg-noodles",
@@ -2778,7 +3056,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "farro",
@@ -2791,7 +3070,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Farro is a chewy, nutty grain that suits salads, soups and grain bowls.",
+          "detail": "Farro is a chewy, nutty grain that suits salads, soups and grain bowls."
+        }
+      },
+      "category": "grains"
     },
     {
       "id": "fava-beans",
@@ -2802,7 +3087,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "legumes"
     },
     {
       "id": "fennel",
@@ -2813,7 +3099,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "feta",
@@ -2826,7 +3113,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Feta is salty and tangy, good crumbled over salads, roasted vegetables and eggs.",
+          "detail": "Feta is salty and tangy, good crumbled over salads, roasted vegetables and eggs."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "goat-cheese",
@@ -2839,7 +3132,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Goat cheese is tangy and creamy and provides some protein, lovely crumbled over roasted vegetables and salads.",
+          "detail": "Goat cheese is tangy and creamy and provides some protein, lovely crumbled over roasted vegetables and salads."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "granola",
@@ -2853,7 +3152,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "grapes",
@@ -2864,7 +3164,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Grapes bring a little vitamin C and are an easy, no-prep fruit to have alongside a meal.",
+          "detail": "Grapes bring a little vitamin C and are an easy, no-prep fruit to have alongside a meal."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "greek-yogurt",
@@ -2880,15 +3186,12 @@
         "Dairy allergen"
       ],
       "why": {
-        "follicular": {
-          "short": "Greek yogurt is a creamy, quick base for breakfast bowls and dips.",
-          "detail": "Greek yogurt is a creamy, quick base for breakfast bowls and dips."
-        },
         "luteal": {
           "short": "Greek yogurt is high in protein (about 17 g per serving), making breakfasts and snacks more filling.",
           "detail": "Greek yogurt is high in protein (about 17 g per serving), making breakfasts and snacks more filling."
         }
-      }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "green-bell-pepper",
@@ -2899,7 +3202,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Green peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Slice them into bean salads or stir-fries.",
+          "detail": "Green peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Slice them into bean salads or stir-fries."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "guacamole",
@@ -2910,7 +3219,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "haddock",
@@ -2923,7 +3233,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Haddock is a mild, flaky white fish that bakes or pan-fries in minutes.",
+          "detail": "Haddock is a mild, flaky white fish that bakes or pan-fries in minutes."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "ham",
@@ -2934,7 +3250,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "protein"
     },
     {
       "id": "hazelnuts",
@@ -2947,7 +3264,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Hazelnuts are rich and toasty, good chopped over salads and fruit or blended into spreads.",
+          "detail": "Hazelnuts are rich and toasty, good chopped over salads and fruit or blended into spreads."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "hemp-seeds",
@@ -2958,7 +3281,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "herring",
@@ -2971,7 +3295,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "honey",
@@ -2982,7 +3307,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "honeydew",
@@ -2993,7 +3319,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack.",
+          "detail": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "hummus",
@@ -3006,7 +3338,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Hummus is a creamy dip or spread for vegetables, wraps and toast.",
+          "detail": "Hummus is a creamy dip or spread for vegetables, wraps and toast."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "kefir",
@@ -3019,7 +3357,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Kefir is a tangy, drinkable yogurt that works in smoothies or poured over fruit and muesli.",
+          "detail": "Kefir is a tangy, drinkable yogurt that works in smoothies or poured over fruit and muesli."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "kimchi",
@@ -3042,7 +3386,8 @@
       "mayContainAllergens": [
         "fish",
         "shellfish"
-      ]
+      ],
+      "category": "fermented"
     },
     {
       "id": "kiwi",
@@ -3059,12 +3404,9 @@
         "menstrual": {
           "short": "Kiwi is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it alongside an iron-rich meal.",
           "detail": "Kiwi is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it alongside an iron-rich meal."
-        },
-        "ovulatory": {
-          "short": "Kiwi is a refreshing snack that brightens yogurt bowls.",
-          "detail": "Kiwi is a refreshing snack that brightens yogurt bowls."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "kohlrabi",
@@ -3075,7 +3417,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "macadamia-nuts",
@@ -3088,7 +3431,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "mackerel",
@@ -3101,7 +3445,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Mackerel is a rich, flavourful fish that provides protein; it is great grilled or flaked into salads.",
+          "detail": "Mackerel is a rich, flavourful fish that provides protein; it is great grilled or flaked into salads."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "mandarin",
@@ -3112,7 +3462,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Mandarins are easy to peel and segment into salads or lunchboxes.",
+          "detail": "Mandarins are easy to peel and segment into salads or lunchboxes."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "mango",
@@ -3128,7 +3484,8 @@
           "short": "Mango adds juicy sweetness to salads, salsas and smoothies.",
           "detail": "Mango adds juicy sweetness to salads, salsas and smoothies."
         }
-      }
+      },
+      "category": "fruit"
     },
     {
       "id": "maple-syrup",
@@ -3139,7 +3496,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "milk",
@@ -3152,7 +3510,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "mixed-nuts",
@@ -3166,7 +3525,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Mixed nuts provide protein and fibre in a small handful, handy for snacks, porridge and baking.",
+          "detail": "Mixed nuts provide protein and fibre in a small handful, handy for snacks, porridge and baking."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "mozzarella",
@@ -3179,7 +3544,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Mozzarella is mild and melty and provides protein, suiting baked pasta, pizza and salads.",
+          "detail": "Mozzarella is mild and melty and provides protein, suiting baked pasta, pizza and salads."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "muesli",
@@ -3195,7 +3566,8 @@
       ],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "naan",
@@ -3209,7 +3581,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "napa-cabbage",
@@ -3220,7 +3593,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Napa cabbage is tender and mild, good in stir-fries, soups and fresh slaws.",
+          "detail": "Napa cabbage is tender and mild, good in stir-fries, soups and fresh slaws."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "nectarine",
@@ -3231,7 +3610,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Nectarines are juicy and sweet in season, lovely sliced onto yogurt or eaten as they are.",
+          "detail": "Nectarines are juicy and sweet in season, lovely sliced onto yogurt or eaten as they are."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "oat-bran",
@@ -3244,10 +3629,16 @@
       "cautions": [
         "Choose certified gluten-free oats if avoiding gluten."
       ],
-      "why": {},
+      "why": {
+        "follicular": {
+          "short": "Oat bran cooks into a quick, creamy porridge or stirs into yogurt and baking.",
+          "detail": "Oat bran cooks into a quick, creamy porridge or stirs into yogurt and baking."
+        }
+      },
       "mayContainAllergens": [
         "gluten"
-      ]
+      ],
+      "category": "grains"
     },
     {
       "id": "oat-milk",
@@ -3260,7 +3651,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "olive-oil",
@@ -3271,7 +3663,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "other"
     },
     {
       "id": "papaya",
@@ -3282,7 +3675,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Papaya is rich in vitamin C, which helps your body absorb iron from plant foods. Lovely with lime or in fruit salads.",
+          "detail": "Papaya is rich in vitamin C, which helps your body absorb iron from plant foods. Lovely with lime or in fruit salads."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "parmesan",
@@ -3295,7 +3694,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "pasta",
@@ -3308,7 +3708,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "peanuts",
@@ -3321,7 +3722,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Peanuts provide protein and a satisfying crunch, good in stir-fries, sauces and snacks.",
+          "detail": "Peanuts provide protein and a satisfying crunch, good in stir-fries, sauces and snacks."
+        }
+      },
+      "category": "nuts-seeds"
     },
     {
       "id": "pineapple",
@@ -3332,7 +3739,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Pineapple is bright and juicy, good fresh, grilled or in a salsa.",
+          "detail": "Pineapple is bright and juicy, good fresh, grilled or in a salsa."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "pinto-beans",
@@ -3343,7 +3756,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Pinto beans provide protein and fibre and make hearty, filling chilli, burritos and bowls.",
+          "detail": "Pinto beans provide protein and fibre and make hearty, filling chilli, burritos and bowls."
+        }
+      },
+      "category": "legumes"
     },
     {
       "id": "pita-bread",
@@ -3356,7 +3775,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "plain-yogurt",
@@ -3369,7 +3789,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Plain yogurt is a fresh, tangy base for breakfast bowls, sauces and dressings.",
+          "detail": "Plain yogurt is a fresh, tangy base for breakfast bowls, sauces and dressings."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "plantain",
@@ -3380,7 +3806,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "polenta",
@@ -3391,7 +3818,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "pollock",
@@ -3404,7 +3832,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Pollock is a mild white fish that suits fish tacos, baking and fish cakes.",
+          "detail": "Pollock is a mild white fish that suits fish tacos, baking and fish cakes."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "popcorn",
@@ -3415,7 +3849,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "prunes",
@@ -3426,7 +3861,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "fruit"
     },
     {
       "id": "radicchio",
@@ -3437,7 +3873,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "red-cabbage",
@@ -3448,7 +3885,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Red cabbage brings vivid colour and crunch to slaws, tacos and quick pickles.",
+          "detail": "Red cabbage brings vivid colour and crunch to slaws, tacos and quick pickles."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "red-snapper",
@@ -3461,7 +3904,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Snapper is a mild, firm fish that provides protein and bakes whole or as fillets.",
+          "detail": "Snapper is a mild, firm fish that provides protein and bakes whole or as fillets."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "rice-cakes",
@@ -3472,7 +3921,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "rice-noodles",
@@ -3483,7 +3933,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "ricotta",
@@ -3496,7 +3947,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Ricotta is soft and mild, good on toast with fruit or folded into pasta.",
+          "detail": "Ricotta is soft and mild, good on toast with fruit or folded into pasta."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "rye-bread",
@@ -3509,7 +3966,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "salsa",
@@ -3520,7 +3978,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "sea-bass",
@@ -3533,7 +3992,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Sea bass is a mild, delicate white fish that bakes or pan-fries quickly.",
+          "detail": "Sea bass is a mild, delicate white fish that bakes or pan-fries quickly."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "seitan",
@@ -3546,7 +4011,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "protein"
     },
     {
       "id": "shallot",
@@ -3557,7 +4023,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "vegetables"
     },
     {
       "id": "smoked-salmon",
@@ -3570,7 +4037,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "seafood"
     },
     {
       "id": "soba-noodles",
@@ -3583,7 +4051,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "sour-cream",
@@ -3596,7 +4065,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "sourdough-bread",
@@ -3609,7 +4079,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "soy-milk",
@@ -3622,7 +4093,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "dairy-alternatives"
     },
     {
       "id": "sugar-snap-peas",
@@ -3633,7 +4105,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Sugar snap peas are sweet and crunchy, great raw, in salads or quickly stir-fried.",
+          "detail": "Sugar snap peas are sweet and crunchy, great raw, in salads or quickly stir-fried."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "sweet-cherry",
@@ -3644,7 +4122,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "ovulatory": {
+          "short": "Sweet cherries are juicy in season, an easy snack or topping for yogurt.",
+          "detail": "Sweet cherries are juicy in season, an easy snack or topping for yogurt."
+        }
+      },
+      "category": "fruit"
     },
     {
       "id": "swiss-cheese",
@@ -3657,7 +4141,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Swiss cheese is nutty and melts well; it provides protein and suits sandwiches and bakes.",
+          "detail": "Swiss cheese is nutty and melts well; it provides protein and suits sandwiches and bakes."
+        }
+      },
+      "category": "dairy-alternatives"
     },
     {
       "id": "tahini",
@@ -3670,7 +4160,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "nuts-seeds"
     },
     {
       "id": "tempeh",
@@ -3691,7 +4182,8 @@
           "short": "Tempeh adds plant-based iron (about 10% of the daily value per serving) with a firm, nutty bite for warm bowls.",
           "detail": "Tempeh adds plant-based iron (about 10% of the daily value per serving) with a firm, nutty bite for warm bowls."
         }
-      }
+      },
+      "category": "protein"
     },
     {
       "id": "tilapia",
@@ -3704,7 +4196,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "luteal": {
+          "short": "Tilapia is a mild, quick-cooking fish that provides protein and suits baking and tacos.",
+          "detail": "Tilapia is a mild, quick-cooking fish that provides protein and suits baking and tacos."
+        }
+      },
+      "category": "seafood"
     },
     {
       "id": "tofu",
@@ -3720,23 +4218,12 @@
         "Soy allergen"
       ],
       "why": {
-        "menstrual": {
-          "short": "Tofu adds plant-based iron (about 13% of the daily value per serving) and soaks up the flavour of warm stir-fries and soups.",
-          "detail": "Tofu adds plant-based iron (about 13% of the daily value per serving) and soaks up the flavour of warm stir-fries and soups."
-        },
-        "follicular": {
-          "short": "Tofu takes minutes to cook and soaks up the flavour of stir-fries and soups.",
-          "detail": "Tofu takes minutes to cook and soaks up the flavour of stir-fries and soups."
-        },
         "ovulatory": {
           "short": "Tofu is light and quick to add to cold noodle dishes, salads and stir-fries.",
           "detail": "Tofu is light and quick to add to cold noodle dishes, salads and stir-fries."
-        },
-        "luteal": {
-          "short": "Tofu provides plant protein (about 15 g per serving) for hearty stir-fries and bakes.",
-          "detail": "Tofu provides plant protein (about 15 g per serving) for hearty stir-fries and bakes."
         }
-      }
+      },
+      "category": "protein"
     },
     {
       "id": "tortillas",
@@ -3749,7 +4236,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "turnip",
@@ -3760,7 +4248,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "follicular": {
+          "short": "Turnips are mild and slightly peppery, lovely roasted, mashed or sliced into soups.",
+          "detail": "Turnips are mild and slightly peppery, lovely roasted, mashed or sliced into soups."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "wheat-flour",
@@ -3771,7 +4265,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "white-beans",
@@ -3792,7 +4287,8 @@
           "short": "White beans are a rich source of plant-based iron, with protein and fibre. Lovely in soups and stews.",
           "detail": "White beans are a rich source of plant-based iron, with protein and fibre. Lovely in soups and stews."
         }
-      }
+      },
+      "category": "legumes"
     },
     {
       "id": "white-potato",
@@ -3803,7 +4299,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Potatoes provide some vitamin C and make hearty, comforting meals when baked or mashed.",
+          "detail": "Potatoes provide some vitamin C and make hearty, comforting meals when baked or mashed."
+        }
+      },
+      "category": "vegetables"
     },
     {
       "id": "white-rice",
@@ -3814,7 +4316,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "whole-grain-bread",
@@ -3832,10 +4335,11 @@
       ],
       "why": {
         "luteal": {
-          "short": "Whole-grain bread adds some protein and fibre to toast and sandwiches, making them more filling.",
-          "detail": "Whole-grain bread adds some protein and fibre to toast and sandwiches, making them more filling."
+          "short": "Whole-grain bread makes sturdy, satisfying toast and sandwiches.",
+          "detail": "Whole-grain bread makes sturdy, satisfying toast and sandwiches."
         }
-      }
+      },
+      "category": "grains"
     },
     {
       "id": "whole-wheat-pasta",
@@ -3848,7 +4352,8 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {},
+      "category": "grains"
     },
     {
       "id": "yellow-bell-pepper",
@@ -3859,7 +4364,13 @@
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
-      "why": {}
+      "why": {
+        "menstrual": {
+          "short": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods. Roast them or slice them into salads and grain bowls."
+        }
+      },
+      "category": "vegetables"
     }
   ]
 }

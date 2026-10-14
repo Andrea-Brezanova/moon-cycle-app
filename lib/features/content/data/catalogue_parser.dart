@@ -28,6 +28,7 @@ Catalogue parseCatalogue({
       Allergen(id: _str(a, 'id'), label: _str(a, 'label')),
   ];
   final aisleIds = {for (final a in aisles) a.id};
+  final categoryIds = {for (final c in categories) c.id};
   final allergenIds = {for (final a in allergens) a.id};
 
   final foodsById = <String, Food>{};
@@ -39,6 +40,7 @@ Catalogue parseCatalogue({
       id: id,
       name: _str(f, 'name'),
       aisleId: _known(_str(f, 'aisle'), aisleIds, 'aisle', id),
+      categoryId: _known(_str(f, 'category'), categoryIds, 'category', id),
       animalSource: AnimalSource.values.byName(_str(f, 'animalSource')),
       allergenIds: {
         for (final a in _strings(f, 'allergens'))

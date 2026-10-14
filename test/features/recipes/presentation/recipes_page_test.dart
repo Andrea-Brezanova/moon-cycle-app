@@ -101,9 +101,9 @@ void main() {
     await pumpRecipes(tester);
     await tester.tap(find.bySemanticsLabel('Cook with, choose an ingredient'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'salmon');
+    await tester.enterText(find.byType(TextField), 'banana');
     await tester.pumpAndSettle();
-    expect(find.text('No follicular foods match “salmon”'), findsOneWidget);
+    expect(find.text('No follicular foods match “banana”'), findsOneWidget);
     await tester.tap(find.text('Clear search'));
     await tester.pumpAndSettle();
     expect(find.text('GRAINS'), findsOneWidget);
@@ -120,6 +120,24 @@ void main() {
     await tapText(tester, 'Luteal');
     expect(find.text('3 luteal recipes'), findsOneWidget);
     expect(container, isNotNull);
+  });
+
+  testWidgets('All recipes: no phase-derived Cook with…', (tester) async {
+    await pumpRecipes(tester);
+    expect(
+      find.bySemanticsLabel('Cook with, choose an ingredient'),
+      findsOneWidget,
+    );
+    await tapText(tester, 'All recipes');
+    expect(
+      find.bySemanticsLabel('Cook with, choose an ingredient'),
+      findsNothing,
+    );
+    await tapText(tester, 'This phase');
+    expect(
+      find.bySemanticsLabel('Cook with, choose an ingredient'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('nothing fits the preferences', (tester) async {

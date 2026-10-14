@@ -40,10 +40,15 @@ void main() {
     return (container, db);
   }
 
-  Future<void> scrollTo(WidgetTester tester, Finder finder) async {
+  Future<void> scrollTo(
+    WidgetTester tester,
+    Finder finder, {
+    double step = 200,
+  }) async {
     await tester.scrollUntilVisible(
       finder,
-      200,
+      step,
+      maxScrolls: 200,
       scrollable: find.byType(Scrollable).first,
     );
     await tester.ensureVisible(finder);
@@ -60,20 +65,104 @@ void main() {
     // The universal note sits directly below the phase intro.
     expect(
       find.text(
-        'These are suggestions, not rules — any food can be enjoyed in any '
-        'phase.',
+        'These are suggestions, not rules. We feature different foods across '
+        'your cycle to encourage variety — you can enjoy any food at any time.',
       ),
       findsOneWidget,
     );
-    expect(find.text('Tap a food to cook with it'), findsOneWidget);
+    // The three approved points, in order.
+    expect(find.text('WHAT YOUR BODY MAY NEED'), findsOneWidget);
+    expect(find.text('WHY THESE FOODS'), findsOneWidget);
+    expect(find.text('HOW TO EAT THIS PHASE'), findsOneWidget);
+    expect(
+      find.text(
+        'Think fresh starts: colourful produce, nourishing whole foods and '
+        'plenty of variety to build light, balanced meals.',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'Fresh, light and quick: salads, bowls, light steaming and quick '
+        'sautés.',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.text('Tap a food to see why we feature it and find recipes.'),
+      findsOneWidget,
+    );
     await scrollTo(tester, find.text('Grains'));
-    expect(find.text('Oat'), findsOneWidget);
-    expect(find.text('Barley'), findsOneWidget);
-    expect(find.text('Quinoa'), findsOneWidget);
-    expect(find.bySemanticsLabel('Barley, 1 recipe'), findsOneWidget);
-    expect(find.bySemanticsLabel('Quinoa'), findsOneWidget);
-    await scrollTo(tester, find.text('Bibb, Boston, romaine'));
-    expect(find.text('Lettuce'), findsOneWidget);
+    expect(find.text('Farro'), findsOneWidget);
+    expect(find.text('Oat bran'), findsOneWidget);
+    // Featured elsewhere: not on this phase's list.
+    expect(find.text('Quinoa'), findsNothing);
+    // Chips carry no recipe counts; those live in the sheet.
+    expect(find.bySemanticsLabel('Farro'), findsOneWidget);
+    expect(find.bySemanticsLabel(RegExp('recipe')), findsNothing);
+    // A name's parenthetical is shown in the sheet, not on the chip.
+    await scrollTo(tester, find.text('Lettuce'));
+    expect(find.text('Bibb, Boston, romaine'), findsNothing);
+  });
+
+  testWidgets('All foods: search, and a sheet without phase context', (
+    tester,
+  ) async {
+    await pumpFoods(tester);
+    await tester.tap(find.text('All foods'));
+    await tester.pumpAndSettle();
+    expect(find.text('WHAT YOUR BODY MAY NEED'), findsNothing);
+    await tester.enterText(find.byType(EditableText), 'lettuce');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Lettuce'));
+    await tester.pumpAndSettle();
+    expect(find.byType(IngredientSheet), findsOneWidget);
+    expect(find.text('Bibb, Boston, romaine'), findsOneWidget);
+    expect(find.text('ABOUT THIS FOOD'), findsOneWidget);
+    expect(find.textContaining('Featured in the '), findsOneWidget);
+    // No phase-specific rationale without phase context.
+    expect(find.text('WHY THIS FOOD?'), findsNothing);
+    expect(find.textContaining('Recommended for your'), findsNothing);
+  });
+
+  testWidgets('All foods: a general food on no phase list still appears', (
+    tester,
+  ) async {
+    await pumpFoods(tester);
+    await tester.tap(find.text('All foods'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText), 'lemon');
+    await tester.pumpAndSettle();
+    expect(find.text('Lemon'), findsOneWidget);
+    await tester.tap(find.text('Lemon'));
+    await tester.pumpAndSettle();
+    expect(find.byType(IngredientSheet), findsOneWidget);
+    // Not featured in any phase: nothing phase-specific is invented.
+    expect(find.text('WHY THIS FOOD?'), findsNothing);
+    expect(find.textContaining('Recommended for your'), findsNothing);
+    expect(find.textContaining('Featured in'), findsNothing);
+  });
+
+  testWidgets('chips wrap on a narrow phone at large text', (tester) async {
+    await pumpFoods(tester);
+    tester.view.physicalSize = const Size(320, 690) * 3;
+    tester.platformDispatcher.textScaleFactorTestValue = 1.5;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    await tester.pumpAndSettle();
+    // Scroll through every category; an overflow would fail the test.
+    await scrollTo(tester, find.text('Fermented'));
+    expect(tester.takeException(), isNull);
+    await tester.scrollUntilVisible(
+      find.text('All foods'),
+      -300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('All foods'));
+    await tester.pumpAndSettle();
+    // The whole catalogue wraps onto many lines at this size.
+    await scrollTo(tester, find.text('Other'), step: 600);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('another phase: browsing line and the way back', (tester) async {
@@ -91,17 +180,18 @@ void main() {
     await pumpFoods(
       tester,
       prefs: (prefs) async {
-        await prefs.avoidAllergen('dairy'); // the only dairy food: Greek yogurt
-        await prefs.avoidFood('orange');
+        await prefs.avoidAllergen('dairy'); // feta and plain yogurt
+        await prefs.avoidFood('plum');
       },
     );
     await scrollTo(tester, find.text('Vegetables'));
     await scrollTo(tester, find.text('Fruit'));
-    expect(find.text('Orange'), findsNothing);
-    expect(find.text('Apple'), findsOneWidget);
+    expect(find.text('Plum'), findsNothing);
+    expect(find.text('Pomegranate'), findsOneWidget);
     await scrollTo(tester, find.text('Fermented'));
     expect(find.text('Dairy & alternatives'), findsNothing);
-    expect(find.text('Greek yogurt'), findsNothing);
+    expect(find.text('Feta'), findsNothing);
+    expect(find.text('Plain yogurt'), findsNothing);
   });
 
   testWidgets('the sheet: copy, add, then "On your list"', (tester) async {
@@ -112,6 +202,7 @@ void main() {
     expect(find.byType(IngredientSheet), findsOneWidget);
     expect(find.text('PROTEIN'), findsOneWidget);
     expect(find.text('Recommended for your follicular phase'), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
     // The phase-specific "why this food?" copy.
     expect(
       find.text(
@@ -130,19 +221,16 @@ void main() {
 
     Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
     await tester.pumpAndSettle();
-    expect(
-      find.bySemanticsLabel('Chicken, 1 recipe, on your list'),
-      findsOneWidget,
-    );
+    expect(find.bySemanticsLabel('Chicken, on your list'), findsOneWidget);
     expect(container, isNotNull);
   });
 
   testWidgets('a food without recipes: no recipe button', (tester) async {
     await pumpFoods(tester);
-    await scrollTo(tester, find.text('Tofu'));
-    await tester.tap(find.text('Tofu'));
+    await scrollTo(tester, find.text('Farro'));
+    await tester.tap(find.text('Farro'));
     await tester.pumpAndSettle();
-    expect(find.text('No recipes with tofu yet.'), findsOneWidget);
+    expect(find.text('No recipes with farro yet.'), findsOneWidget);
     expect(find.textContaining('See '), findsNothing);
   });
 

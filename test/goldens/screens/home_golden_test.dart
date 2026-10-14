@@ -9,6 +9,7 @@ import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/content/domain/food_filter.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
+import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_calculator.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_lengths.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
@@ -27,6 +28,15 @@ class _Preview extends HomePreview {
 
   @override
   int? build() => day;
+}
+
+class _Viewing extends ViewingPhase {
+  _Viewing(this.phase);
+
+  final Phase phase;
+
+  @override
+  Phase build() => phase;
 }
 
 /// Day [day] of a 28/5 cycle on the design's sample day.
@@ -58,6 +68,7 @@ void main() {
     'preview': [
       cycleStateProvider.overrideWithValue(stateOnDay(7)),
       homePreviewProvider.overrideWith(() => _Preview(14)),
+      viewingPhaseProvider.overrideWith(() => _Viewing(Phase.ovulatory)),
     ],
     'no-recipes': [
       cycleStateProvider.overrideWithValue(stateOnDay(7)),

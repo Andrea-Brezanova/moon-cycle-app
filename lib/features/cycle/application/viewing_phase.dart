@@ -4,12 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/domain/phase.dart';
 import 'cycle_providers.dart';
 
-/// The phase Foods, Recipes and Shop are showing (spec §8). Home always shows
-/// the real phase.
+/// The one phase every phase-dependent screen (Home, Foods, Recipes, Shop)
+/// is browsing. It is separate from [actualPhaseProvider], the phase
+/// calculated from the user's cycle and today's date, and choosing a phase
+/// here never changes stored cycle dates or the actual phase.
 ///
-/// It follows the real phase until the user picks another one with the
-/// phase selector, and goes back to the real phase whenever the app returns
-/// to the foreground (plan §13).
+/// It starts as the actual phase, follows it until the user picks another
+/// phase (Home's moon or any phase selector), and goes back to it whenever
+/// the app returns to the foreground (plan §13).
 final viewingPhaseProvider = NotifierProvider<ViewingPhase, Phase>(
   ViewingPhase.new,
 );
