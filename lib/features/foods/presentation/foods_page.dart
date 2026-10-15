@@ -26,6 +26,7 @@ import '../application/browse_scope.dart';
 import '../application/food_providers.dart';
 import 'ingredient_sheet.dart';
 import 'widgets/food_chip.dart';
+import 'widgets/meal_builder_section.dart';
 
 /// The Foods tab (`07-foods`, `34-foods-browsing-other-phase`): the viewing
 /// phase's foods by category, in the stored order, or every recommended food
@@ -55,6 +56,21 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
       category: category,
     );
     if (mounted) setState(() => _openFoodId = null);
+  }
+
+  /// A protein idea: a food featured in the viewing phase opens with its
+  /// phase "Why this food?"; an "Also good" suggestion opens without phase
+  /// context, so no phase rationale is invented for it.
+  Future<void> _openIdea(Food food) async {
+    final viewing = ref.read(viewingPhaseProvider);
+    final featured = food.why[viewing] != null;
+    await showIngredientSheet(
+      context,
+      food: food,
+      phase: viewing,
+      phaseContext: featured,
+      category: ref.read(catalogueProvider).categoryFor(food).name,
+    );
   }
 
   final _search = TextEditingController();
@@ -175,6 +191,16 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                   content: content,
                   palette: palette,
                 ),
+              ),
+            if (!all)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  MoonSpace.gutter,
+                  30,
+                  MoonSpace.gutter,
+                  0,
+                ),
+                child: MealBuilderSection(phase: phase, onFood: _openIdea),
               ),
             if (all && categories.isEmpty)
               Padding(

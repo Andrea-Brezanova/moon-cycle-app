@@ -17,7 +17,11 @@ Catalogue parseCatalogue({
 }) {
   final categories = [
     for (final c in _list(taxonomy, 'categories'))
-      FoodCategory(id: _str(c, 'id'), name: _str(c, 'name')),
+      FoodCategory(
+        id: _str(c, 'id'),
+        // Display label only: the taxonomy id and file are unchanged.
+        name: _categoryDisplayNames[_str(c, 'id')] ?? _str(c, 'name'),
+      ),
   ];
   final aisles = [
     for (final a in _list(taxonomy, 'aisles'))
@@ -147,6 +151,10 @@ Catalogue parseCatalogue({
     recipes: recipeList,
   );
 }
+
+/// User-facing category names that differ from `taxonomy.json`, so the label
+/// does not imply that only this category provides protein.
+const _categoryDisplayNames = {'protein': 'Meat, eggs & plant proteins'};
 
 String _str(Map<String, Object?> json, String key) => switch (json[key]) {
   final String s => s,

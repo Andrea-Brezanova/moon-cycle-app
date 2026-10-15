@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/foods/application/food_providers.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/ingredient_sheet.dart';
+import 'package:moon_cycle/features/foods/presentation/widgets/meal_builder_section.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/application/recipe_filter.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
@@ -143,6 +146,99 @@ void main() {
     expect(find.textContaining('Featured in'), findsNothing);
   });
 
+  testWidgets('Build a balanced meal: wording and tappable protein ideas', (
+    tester,
+  ) async {
+    final (container, _) = await pumpFoods(tester);
+    // Menstrual has featured foods and general "Also good" suggestions.
+    await tester.tap(find.text('Menstrual'));
+    await tester.pumpAndSettle();
+    await scrollTo(tester, find.text('Build a balanced meal'));
+    expect(find.text('Build a balanced meal'), findsOneWidget);
+    expect(
+      find.text(
+        'For a simple meal, start with a protein, add a satisfying base, '
+        'then add 2–3 plants you enjoy.',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'Featured foods are what Moon Cycle emphasizes in this phase for '
+        'nutrition fit, meal style and variety. You can enjoy any food at '
+        'any time.',
+      ),
+      findsOneWidget,
+    );
+    final ideas = container.read(proteinIdeasProvider(Phase.menstrual));
+    expect(ideas.featured, isNotEmpty);
+    expect(ideas.general, isNotEmpty);
+    await scrollTo(tester, find.text('Protein ideas'));
+    await tester.tap(find.text('Protein ideas'));
+    await tester.pumpAndSettle();
+    expect(find.text('Featured this phase'), findsOneWidget);
+    expect(find.text('Also good'), findsOneWidget);
+
+    Finder chip(String name) => find.descendant(
+      of: find.byType(MealBuilderSection),
+      matching: find.text(name),
+    );
+
+    // A featured idea opens with its phase-specific "Why this food?".
+    final featured = ideas.featured.first;
+    await tester.tap(chip(featured.displayName));
+    await tester.pumpAndSettle();
+    expect(find.byType(IngredientSheet), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
+    expect(find.text(featured.why[Phase.menstrual]!.short), findsOneWidget);
+    Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
+    await tester.pumpAndSettle();
+
+    // An "Also good" idea opens without an invented phase rationale.
+    final general = ideas.general.first;
+    await tester.tap(chip(general.displayName));
+    await tester.pumpAndSettle();
+    expect(find.byType(IngredientSheet), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsNothing);
+    expect(find.textContaining('Recommended for your'), findsNothing);
+  });
+
+  testWidgets('Base ideas: featured and general chips open the right sheet', (
+    tester,
+  ) async {
+    final (container, _) = await pumpFoods(tester);
+    await tester.tap(find.text('Luteal'));
+    await tester.pumpAndSettle();
+    await scrollTo(tester, find.text('Base ideas'));
+    await tester.tap(find.text('Base ideas'));
+    await tester.pumpAndSettle();
+    final base = container.read(baseIdeasProvider(Phase.luteal));
+    expect(base.featured, isNotEmpty);
+    expect(base.general, isNotEmpty);
+
+    Finder chip(String name) => find.descendant(
+      of: find.byType(MealBuilderSection),
+      matching: find.text(name),
+    );
+
+    final featured = base.featured.first;
+    await tester.ensureVisible(chip(featured.displayName));
+    await tester.tap(chip(featured.displayName));
+    await tester.pumpAndSettle();
+    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
+    expect(find.text(featured.why[Phase.luteal]!.short), findsOneWidget);
+    Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
+    await tester.pumpAndSettle();
+
+    final general = base.general.first;
+    await tester.ensureVisible(chip(general.displayName));
+    await tester.tap(chip(general.displayName));
+    await tester.pumpAndSettle();
+    expect(find.byType(IngredientSheet), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsNothing);
+    expect(find.textContaining('Recommended for your'), findsNothing);
+  });
+
   testWidgets('chips wrap on a narrow phone at large text', (tester) async {
     await pumpFoods(tester);
     tester.view.physicalSize = const Size(320, 690) * 3;
@@ -200,7 +296,7 @@ void main() {
     await tester.tap(find.text('Chicken'));
     await tester.pumpAndSettle();
     expect(find.byType(IngredientSheet), findsOneWidget);
-    expect(find.text('PROTEIN'), findsOneWidget);
+    expect(find.text('MEAT, EGGS & PLANT PROTEINS'), findsOneWidget);
     expect(find.text('Recommended for your follicular phase'), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsOneWidget);
     // The phase-specific "why this food?" copy.
