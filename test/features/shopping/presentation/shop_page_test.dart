@@ -78,6 +78,23 @@ void main() {
     );
   });
 
+  testWidgets('olive oil is grouped under Pantry, not Other', (tester) async {
+    final (container, _) = await pumpShop(tester);
+    await run(
+      tester,
+      () =>
+          controller(container)
+              .addFood(testCatalogue.food('olive-oil')!, Phase.follicular),
+    );
+    expect(find.text('PANTRY'), findsOneWidget);
+    expect(find.text('OTHER'), findsNothing);
+    expect(find.text('Olive oil'), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text('PANTRY')).dy,
+      lessThan(tester.getTopLeft(find.text('Olive oil')).dy),
+    );
+  });
+
   testWidgets('tick into Done, open Done, untick back', (tester) async {
     final (container, _) = await pumpShop(tester);
     await run(

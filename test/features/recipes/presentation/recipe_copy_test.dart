@@ -20,6 +20,7 @@ RecipeList list({
   recipes: testCatalogue.recipesFor(Phase.follicular).take(shown).toList(),
   fitPreferences: fit,
   withFoodAnyMeal: withFood,
+  mealTypes: MealType.values,
 );
 
 void main() {

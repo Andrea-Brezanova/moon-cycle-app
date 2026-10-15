@@ -84,6 +84,7 @@ class RecipesPage extends ConsumerWidget {
                   MealTabs(
                     selected: list.filter.mealType,
                     onChanged: filter.setMealType,
+                    available: list.mealTypes,
                   ),
                   const SizedBox(height: 16),
                   // "Cook with…" lists the viewing phase's foods, so it isn't

@@ -5,6 +5,7 @@ import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/application/viewing_phase.dart';
+import 'meal_types.dart';
 import 'recipe_filter.dart';
 import 'recipes_scope.dart';
 
@@ -17,6 +18,7 @@ final class RecipeList {
     required this.recipes,
     required this.fitPreferences,
     required this.withFoodAnyMeal,
+    required this.mealTypes,
   });
 
   /// The shared viewing phase (also the phase "Cook with…" lists foods for).
@@ -34,14 +36,22 @@ final class RecipeList {
 
   /// Of those, how many use the "Cook with…" food, any meal type.
   final int withFoodAnyMeal;
+
+  /// The meal-type tabs to show: those with a recipe in this scope.
+  final List<MealType> mealTypes;
 }
 
 final recipeListProvider = Provider<RecipeList>((ref) {
   final phase = ref.watch(viewingPhaseProvider);
   final all = ref.watch(recipesScopeProvider) == BrowseScope.all;
-  final filter = ref.watch(recipeFilterProvider);
+  final stored = ref.watch(recipeFilterProvider);
   final catalogue = ref.watch(catalogueProvider);
   final prefs = ref.watch(foodFilterProvider);
+  final mealTypes = availableMealTypes(catalogue, phase: phase, all: all);
+  // A stored meal type the scope has no recipes for counts as "All".
+  final filter = stored.mealType != null && !mealTypes.contains(stored.mealType)
+      ? stored.copyWith(clearMealType: true)
+      : stored;
   final fit = [
     for (final r in all ? catalogue.recipes : catalogue.recipesFor(phase))
       if (prefs.allowsRecipe(r, catalogue)) r,
@@ -62,5 +72,6 @@ final recipeListProvider = Provider<RecipeList>((ref) {
     ],
     fitPreferences: fit.length,
     withFoodAnyMeal: withFood.length,
+    mealTypes: mealTypes,
   );
 });

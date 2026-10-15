@@ -3657,7 +3657,7 @@
     {
       "id": "olive-oil",
       "name": "Olive oil",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],

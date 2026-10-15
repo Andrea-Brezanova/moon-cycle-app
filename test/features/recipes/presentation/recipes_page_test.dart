@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
@@ -56,14 +57,43 @@ void main() {
     expect(find.text('Breakfast · 10 min'), findsOneWidget);
   });
 
-  testWidgets('meal types, and the empty Snacks tab', (tester) async {
-    await pumpRecipes(tester);
+  testWidgets('meal tabs: only meal types the phase has recipes for', (
+    tester,
+  ) async {
+    final (container, _) = await pumpRecipes(tester);
+    // Follicular has breakfast and meals, but no snacks.
+    expect(find.text('Breakfast'), findsOneWidget);
+    expect(find.text('Meals'), findsOneWidget);
+    expect(find.text('Snacks'), findsNothing);
     await tapText(tester, 'Breakfast');
     expect(find.text('2 follicular breakfasts'), findsOneWidget);
+
+    // Menstrual has a snack: the tab appears.
+    container.read(viewingPhaseProvider.notifier).choose(Phase.menstrual);
+    await tester.pumpAndSettle();
+    expect(find.text('Snacks'), findsOneWidget);
     await tapText(tester, 'Snacks');
-    expect(find.text('0 follicular snacks'), findsOneWidget);
-    expect(find.text('No follicular snacks yet'), findsOneWidget);
-    await tapText(tester, 'Show all meal types');
+    expect(find.text('1 menstrual snack'), findsOneWidget);
+
+    // Back to Follicular: the selected Snacks tab is gone, so All is shown.
+    container.read(viewingPhaseProvider.notifier).choose(Phase.follicular);
+    await tester.pumpAndSettle();
+    expect(find.text('Snacks'), findsNothing);
+    expect(find.text('10 follicular recipes'), findsOneWidget);
+  });
+
+  testWidgets('All recipes shows a tab for every meal type in the 40', (
+    tester,
+  ) async {
+    await pumpRecipes(tester);
+    await tapText(tester, 'All recipes');
+    expect(find.text('Breakfast'), findsOneWidget);
+    expect(find.text('Meals'), findsOneWidget);
+    expect(find.text('Snacks'), findsOneWidget);
+    await tapText(tester, 'Snacks');
+    expect(find.text('4 snacks'), findsOneWidget);
+    await tapText(tester, 'This phase');
+    expect(find.text('Snacks'), findsNothing);
     expect(find.text('10 follicular recipes'), findsOneWidget);
   });
 

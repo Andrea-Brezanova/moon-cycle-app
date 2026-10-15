@@ -11,11 +11,19 @@ import '../../../content/domain/recipe.dart';
 
 /// All · Breakfast · Meals · Snacks, as text tabs over a hairline.
 class MealTabs extends StatelessWidget {
-  const MealTabs({super.key, required this.selected, required this.onChanged});
+  const MealTabs({
+    super.key,
+    required this.selected,
+    required this.onChanged,
+    required this.available,
+  });
 
   /// Null is "All".
   final MealType? selected;
   final ValueChanged<MealType?> onChanged;
+
+  /// Only meal types with recipes in the scope get a tab.
+  final List<MealType> available;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +66,7 @@ class MealTabs extends StatelessWidget {
         child: Row(
           children: [
             tab('All', null),
-            for (final type in MealType.values) tab(type.label, type),
+            for (final type in available) tab(type.label, type),
           ],
         ),
       ),

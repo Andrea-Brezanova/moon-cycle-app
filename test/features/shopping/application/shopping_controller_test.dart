@@ -56,8 +56,7 @@ void main() {
     // A recipe line named like a catalogue food resolves to it (Olive oil).
     final oil = items.firstWhere((i) => i.name == 'Olive oil');
     expect(oil.key, 'food:olive-oil');
-    // The catalogue puts olive oil in the `other` aisle (Foods v2 is frozen).
-    expect(oil.aisleId, 'other');
+    expect(oil.aisleId, 'pantry');
     expect(displayQuantity(oil.sources), '2 tbsp');
   });
 

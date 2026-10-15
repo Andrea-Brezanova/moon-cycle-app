@@ -49,7 +49,18 @@ void main() {
   final lists = <String, List<Override>>{
     'recipes': base(),
     'filtered': base(const RecipeFilter(foodId: 'chicken')),
-    'empty-meal-type': base(const RecipeFilter(mealType: MealType.snacks)),
+    // A meal type the phase has, but none of its recipes fit the preferences.
+    'empty-meal-type': [
+      ...base(const RecipeFilter(mealType: MealType.breakfast)),
+      foodFilterProvider.overrideWithValue(
+        const FoodFilter(
+          avoidances: [
+            AllergenAvoidance(id: 'a', allergenId: 'egg'),
+            AllergenAvoidance(id: 'b', allergenId: 'dairy'),
+          ],
+        ),
+      ),
+    ],
     'empty-ingredient': base(
       const RecipeFilter(mealType: MealType.breakfast, foodId: 'chicken'),
     ),
