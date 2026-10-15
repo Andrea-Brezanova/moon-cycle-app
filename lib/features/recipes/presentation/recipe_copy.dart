@@ -78,12 +78,28 @@ RecipesEmptyCopy? recipesEmptyCopy(RecipeList list, {String? foodName}) {
       ],
     );
   }
+  final recipes = '${mealNoun(meal, plural: false)} recipes';
+  if (meal != null && !list.mealInScope) {
+    // None exist in this scope; nothing to do with preferences.
+    return RecipesEmptyCopy(
+      icon: MoonIconName.recipes,
+      title: 'No $phaseSp${mealNoun(meal, plural: true)} *yet*',
+      body:
+          'There aren’t any $recipes '
+          '${list.all ? '' : 'for this phase '}yet. Try another meal type.',
+      actions: const [EmptyAction.showAllMealTypes],
+    );
+  }
+  // They exist, but the user's preferences leave every one out.
   return RecipesEmptyCopy(
-    icon: MoonIconName.recipes,
-    title: 'No $phaseSp${mealNoun(meal, plural: true)} *yet*',
+    icon: MoonIconName.avoid,
+    title: 'Nothing fits your *preferences*',
     body:
-        'None of $scopeText recipes is a ${mealNoun(meal, plural: false)}. '
-        'Try another meal type.',
-    actions: const [EmptyAction.showAllMealTypes],
+        'No $recipes match your current preferences. Try another meal type or '
+        'review your food preferences.',
+    actions: const [
+      EmptyAction.showAllMealTypes,
+      EmptyAction.reviewPreferences,
+    ],
   );
 }

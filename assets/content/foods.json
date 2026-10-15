@@ -2702,7 +2702,7 @@
     {
       "id": "avocado-oil",
       "name": "Avocado oil",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],
@@ -2822,7 +2822,7 @@
     {
       "id": "butter",
       "name": "Butter",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],
@@ -2941,7 +2941,7 @@
     {
       "id": "coconut-oil",
       "name": "Coconut oil",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],
@@ -3301,7 +3301,7 @@
     {
       "id": "honey",
       "name": "Honey",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],
@@ -3490,7 +3490,7 @@
     {
       "id": "maple-syrup",
       "name": "Maple syrup",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],
@@ -4259,7 +4259,7 @@
     {
       "id": "wheat-flour",
       "name": "Wheat flour (whole-grain)",
-      "aisle": "other",
+      "aisle": "pantry",
       "animalSource": "none",
       "allergens": [],
       "synonyms": [],

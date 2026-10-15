@@ -19,6 +19,7 @@ final class RecipeList {
     required this.fitPreferences,
     required this.withFoodAnyMeal,
     required this.mealTypes,
+    this.mealInScope = true,
   });
 
   /// The shared viewing phase (also the phase "Cook with…" lists foods for).
@@ -39,6 +40,11 @@ final class RecipeList {
 
   /// The meal-type tabs to show: those with a recipe in this scope.
   final List<MealType> mealTypes;
+
+  /// Whether the selected meal type has any recipe in this scope, before the
+  /// user's preferences are applied. False means "none exist"; true with an
+  /// empty list means preferences left them all out.
+  final bool mealInScope;
 }
 
 final recipeListProvider = Provider<RecipeList>((ref) {
@@ -52,8 +58,9 @@ final recipeListProvider = Provider<RecipeList>((ref) {
   final filter = stored.mealType != null && !mealTypes.contains(stored.mealType)
       ? stored.copyWith(clearMealType: true)
       : stored;
+  final scope = all ? catalogue.recipes : catalogue.recipesFor(phase);
   final fit = [
-    for (final r in all ? catalogue.recipes : catalogue.recipesFor(phase))
+    for (final r in scope)
       if (prefs.allowsRecipe(r, catalogue)) r,
   ];
   final withFood = filter.foodId == null
@@ -73,5 +80,8 @@ final recipeListProvider = Provider<RecipeList>((ref) {
     fitPreferences: fit.length,
     withFoodAnyMeal: withFood.length,
     mealTypes: mealTypes,
+    mealInScope:
+        filter.mealType == null ||
+        scope.any((r) => r.mealType == filter.mealType),
   );
 });

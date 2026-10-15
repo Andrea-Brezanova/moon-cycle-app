@@ -14,8 +14,12 @@ RecipeList list({
   int withFood = 0,
   MealType? meal,
   String? food,
+  bool all = false,
+  bool mealInScope = true,
 }) => RecipeList(
   phase: Phase.follicular,
+  all: all,
+  mealInScope: mealInScope,
   filter: RecipeFilter(mealType: meal, foodId: food),
   recipes: testCatalogue.recipesFor(Phase.follicular).take(shown).toList(),
   fitPreferences: fit,
@@ -42,11 +46,14 @@ void main() {
 
   test('empty states, as designed', () {
     expect(recipesEmptyCopy(list(shown: 1)), isNull);
-    final snacks = recipesEmptyCopy(list(meal: MealType.snacks))!;
+    final snacks = recipesEmptyCopy(
+      list(meal: MealType.snacks, mealInScope: false),
+    )!;
     expect(snacks.title, 'No follicular snacks *yet*');
     expect(
       snacks.body,
-      'None of this phase’s recipes is a snack. Try another meal type.',
+      'There aren’t any snack recipes for this phase yet. '
+      'Try another meal type.',
     );
     expect(snacks.actions, [EmptyAction.showAllMealTypes]);
 
@@ -71,6 +78,51 @@ void main() {
     final prefs = recipesEmptyCopy(list(fit: 0))!;
     expect(prefs.title, 'Nothing fits your *preferences*');
     expect(prefs.actions, [EmptyAction.reviewPreferences]);
+  });
+
+  test('a meal type that exists but is filtered out by preferences', () {
+    for (final (meal, noun) in [
+      (MealType.breakfast, 'breakfast'),
+      (MealType.meals, 'meal'),
+      (MealType.snacks, 'snack'),
+    ]) {
+      for (final all in [false, true]) {
+        final copy = recipesEmptyCopy(list(meal: meal, all: all))!;
+        expect(copy.title, 'Nothing fits your *preferences*');
+        expect(
+          copy.body,
+          'No $noun recipes match your current preferences. '
+          'Try another meal type or review your food preferences.',
+        );
+        expect(copy.actions, [
+          EmptyAction.showAllMealTypes,
+          EmptyAction.reviewPreferences,
+        ]);
+        expect(copy.body, isNot(contains('None of')));
+      }
+    }
+  });
+
+  test('none exist in the scope: the plain "not yet" wording', () {
+    for (final (meal, noun) in [
+      (MealType.breakfast, 'breakfast'),
+      (MealType.meals, 'meal'),
+      (MealType.snacks, 'snack'),
+    ]) {
+      final phase = recipesEmptyCopy(list(meal: meal, mealInScope: false))!;
+      expect(
+        phase.body,
+        'There aren’t any $noun recipes for this phase yet. '
+        'Try another meal type.',
+      );
+      final all = recipesEmptyCopy(
+        list(meal: meal, all: true, mealInScope: false),
+      )!;
+      expect(
+        all.body,
+        'There aren’t any $noun recipes yet. Try another meal type.',
+      );
+    }
   });
 
   test('merge and skip notes', () {
