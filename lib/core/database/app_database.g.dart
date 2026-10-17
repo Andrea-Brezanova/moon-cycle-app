@@ -1166,6 +1166,18 @@ class $UserPreferencesTable extends UserPreferences
     ),
     defaultValue: const Constant(true),
   );
+  static const VerificationMeta _appearanceMeta = const VerificationMeta(
+    'appearance',
+  );
+  @override
+  late final GeneratedColumn<String> appearance = GeneratedColumn<String>(
+    'appearance',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('system'),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -1176,6 +1188,7 @@ class $UserPreferencesTable extends UserPreferences
     remindersEnabled,
     remindPhaseChange,
     remindBeforePeriod,
+    appearance,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -1251,6 +1264,12 @@ class $UserPreferencesTable extends UserPreferences
         ),
       );
     }
+    if (data.containsKey('appearance')) {
+      context.handle(
+        _appearanceMeta,
+        appearance.isAcceptableOrUnknown(data['appearance']!, _appearanceMeta),
+      );
+    }
     return context;
   }
 
@@ -1292,6 +1311,10 @@ class $UserPreferencesTable extends UserPreferences
         DriftSqlType.bool,
         data['${effectivePrefix}remind_before_period'],
       )!,
+      appearance: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}appearance'],
+      )!,
     );
   }
 
@@ -1315,6 +1338,9 @@ class UserPreferenceRow extends DataClass
   final bool remindersEnabled;
   final bool remindPhaseChange;
   final bool remindBeforePeriod;
+
+  /// `system`, `light` or `dark` (Settings › Appearance).
+  final String appearance;
   const UserPreferenceRow({
     required this.id,
     required this.createdAt,
@@ -1324,6 +1350,7 @@ class UserPreferenceRow extends DataClass
     required this.remindersEnabled,
     required this.remindPhaseChange,
     required this.remindBeforePeriod,
+    required this.appearance,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -1338,6 +1365,7 @@ class UserPreferenceRow extends DataClass
     map['reminders_enabled'] = Variable<bool>(remindersEnabled);
     map['remind_phase_change'] = Variable<bool>(remindPhaseChange);
     map['remind_before_period'] = Variable<bool>(remindBeforePeriod);
+    map['appearance'] = Variable<String>(appearance);
     return map;
   }
 
@@ -1353,6 +1381,7 @@ class UserPreferenceRow extends DataClass
       remindersEnabled: Value(remindersEnabled),
       remindPhaseChange: Value(remindPhaseChange),
       remindBeforePeriod: Value(remindBeforePeriod),
+      appearance: Value(appearance),
     );
   }
 
@@ -1370,6 +1399,7 @@ class UserPreferenceRow extends DataClass
       remindersEnabled: serializer.fromJson<bool>(json['remindersEnabled']),
       remindPhaseChange: serializer.fromJson<bool>(json['remindPhaseChange']),
       remindBeforePeriod: serializer.fromJson<bool>(json['remindBeforePeriod']),
+      appearance: serializer.fromJson<String>(json['appearance']),
     );
   }
   @override
@@ -1384,6 +1414,7 @@ class UserPreferenceRow extends DataClass
       'remindersEnabled': serializer.toJson<bool>(remindersEnabled),
       'remindPhaseChange': serializer.toJson<bool>(remindPhaseChange),
       'remindBeforePeriod': serializer.toJson<bool>(remindBeforePeriod),
+      'appearance': serializer.toJson<String>(appearance),
     };
   }
 
@@ -1396,6 +1427,7 @@ class UserPreferenceRow extends DataClass
     bool? remindersEnabled,
     bool? remindPhaseChange,
     bool? remindBeforePeriod,
+    String? appearance,
   }) => UserPreferenceRow(
     id: id ?? this.id,
     createdAt: createdAt ?? this.createdAt,
@@ -1405,6 +1437,7 @@ class UserPreferenceRow extends DataClass
     remindersEnabled: remindersEnabled ?? this.remindersEnabled,
     remindPhaseChange: remindPhaseChange ?? this.remindPhaseChange,
     remindBeforePeriod: remindBeforePeriod ?? this.remindBeforePeriod,
+    appearance: appearance ?? this.appearance,
   );
   UserPreferenceRow copyWithCompanion(UserPreferencesCompanion data) {
     return UserPreferenceRow(
@@ -1422,6 +1455,9 @@ class UserPreferenceRow extends DataClass
       remindBeforePeriod: data.remindBeforePeriod.present
           ? data.remindBeforePeriod.value
           : this.remindBeforePeriod,
+      appearance: data.appearance.present
+          ? data.appearance.value
+          : this.appearance,
     );
   }
 
@@ -1435,7 +1471,8 @@ class UserPreferenceRow extends DataClass
           ..write('diet: $diet, ')
           ..write('remindersEnabled: $remindersEnabled, ')
           ..write('remindPhaseChange: $remindPhaseChange, ')
-          ..write('remindBeforePeriod: $remindBeforePeriod')
+          ..write('remindBeforePeriod: $remindBeforePeriod, ')
+          ..write('appearance: $appearance')
           ..write(')'))
         .toString();
   }
@@ -1450,6 +1487,7 @@ class UserPreferenceRow extends DataClass
     remindersEnabled,
     remindPhaseChange,
     remindBeforePeriod,
+    appearance,
   );
   @override
   bool operator ==(Object other) =>
@@ -1462,7 +1500,8 @@ class UserPreferenceRow extends DataClass
           other.diet == this.diet &&
           other.remindersEnabled == this.remindersEnabled &&
           other.remindPhaseChange == this.remindPhaseChange &&
-          other.remindBeforePeriod == this.remindBeforePeriod);
+          other.remindBeforePeriod == this.remindBeforePeriod &&
+          other.appearance == this.appearance);
 }
 
 class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
@@ -1474,6 +1513,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
   final Value<bool> remindersEnabled;
   final Value<bool> remindPhaseChange;
   final Value<bool> remindBeforePeriod;
+  final Value<String> appearance;
   final Value<int> rowid;
   const UserPreferencesCompanion({
     this.id = const Value.absent(),
@@ -1484,6 +1524,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
     this.remindersEnabled = const Value.absent(),
     this.remindPhaseChange = const Value.absent(),
     this.remindBeforePeriod = const Value.absent(),
+    this.appearance = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   UserPreferencesCompanion.insert({
@@ -1495,6 +1536,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
     this.remindersEnabled = const Value.absent(),
     this.remindPhaseChange = const Value.absent(),
     this.remindBeforePeriod = const Value.absent(),
+    this.appearance = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        createdAt = Value(createdAt),
@@ -1509,6 +1551,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
     Expression<bool>? remindersEnabled,
     Expression<bool>? remindPhaseChange,
     Expression<bool>? remindBeforePeriod,
+    Expression<String>? appearance,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -1521,6 +1564,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
       if (remindPhaseChange != null) 'remind_phase_change': remindPhaseChange,
       if (remindBeforePeriod != null)
         'remind_before_period': remindBeforePeriod,
+      if (appearance != null) 'appearance': appearance,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1534,6 +1578,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
     Value<bool>? remindersEnabled,
     Value<bool>? remindPhaseChange,
     Value<bool>? remindBeforePeriod,
+    Value<String>? appearance,
     Value<int>? rowid,
   }) {
     return UserPreferencesCompanion(
@@ -1545,6 +1590,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
       remindersEnabled: remindersEnabled ?? this.remindersEnabled,
       remindPhaseChange: remindPhaseChange ?? this.remindPhaseChange,
       remindBeforePeriod: remindBeforePeriod ?? this.remindBeforePeriod,
+      appearance: appearance ?? this.appearance,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -1576,6 +1622,9 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
     if (remindBeforePeriod.present) {
       map['remind_before_period'] = Variable<bool>(remindBeforePeriod.value);
     }
+    if (appearance.present) {
+      map['appearance'] = Variable<String>(appearance.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -1593,6 +1642,7 @@ class UserPreferencesCompanion extends UpdateCompanion<UserPreferenceRow> {
           ..write('remindersEnabled: $remindersEnabled, ')
           ..write('remindPhaseChange: $remindPhaseChange, ')
           ..write('remindBeforePeriod: $remindBeforePeriod, ')
+          ..write('appearance: $appearance, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -4206,6 +4256,7 @@ typedef $$UserPreferencesTableCreateCompanionBuilder =
       Value<bool> remindersEnabled,
       Value<bool> remindPhaseChange,
       Value<bool> remindBeforePeriod,
+      Value<String> appearance,
       Value<int> rowid,
     });
 typedef $$UserPreferencesTableUpdateCompanionBuilder =
@@ -4218,6 +4269,7 @@ typedef $$UserPreferencesTableUpdateCompanionBuilder =
       Value<bool> remindersEnabled,
       Value<bool> remindPhaseChange,
       Value<bool> remindBeforePeriod,
+      Value<String> appearance,
       Value<int> rowid,
     });
 
@@ -4267,6 +4319,11 @@ class $$UserPreferencesTableFilterComposer
 
   ColumnFilters<bool> get remindBeforePeriod => $composableBuilder(
     column: $table.remindBeforePeriod,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get appearance => $composableBuilder(
+    column: $table.appearance,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -4319,6 +4376,11 @@ class $$UserPreferencesTableOrderingComposer
     column: $table.remindBeforePeriod,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get appearance => $composableBuilder(
+    column: $table.appearance,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$UserPreferencesTableAnnotationComposer
@@ -4357,6 +4419,11 @@ class $$UserPreferencesTableAnnotationComposer
 
   GeneratedColumn<bool> get remindBeforePeriod => $composableBuilder(
     column: $table.remindBeforePeriod,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get appearance => $composableBuilder(
+    column: $table.appearance,
     builder: (column) => column,
   );
 }
@@ -4406,6 +4473,7 @@ class $$UserPreferencesTableTableManager
                 Value<bool> remindersEnabled = const Value.absent(),
                 Value<bool> remindPhaseChange = const Value.absent(),
                 Value<bool> remindBeforePeriod = const Value.absent(),
+                Value<String> appearance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => UserPreferencesCompanion(
                 id: id,
@@ -4416,6 +4484,7 @@ class $$UserPreferencesTableTableManager
                 remindersEnabled: remindersEnabled,
                 remindPhaseChange: remindPhaseChange,
                 remindBeforePeriod: remindBeforePeriod,
+                appearance: appearance,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -4428,6 +4497,7 @@ class $$UserPreferencesTableTableManager
                 Value<bool> remindersEnabled = const Value.absent(),
                 Value<bool> remindPhaseChange = const Value.absent(),
                 Value<bool> remindBeforePeriod = const Value.absent(),
+                Value<String> appearance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => UserPreferencesCompanion.insert(
                 id: id,
@@ -4438,6 +4508,7 @@ class $$UserPreferencesTableTableManager
                 remindersEnabled: remindersEnabled,
                 remindPhaseChange: remindPhaseChange,
                 remindBeforePeriod: remindBeforePeriod,
+                appearance: appearance,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

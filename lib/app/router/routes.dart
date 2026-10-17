@@ -22,6 +22,7 @@ enum SettingsPage {
   foodPreferences('food-preferences', 'Food Preferences'),
   allergies('allergies', 'Allergies & foods to avoid'),
   notifications('notifications', 'Notifications'),
+  appearance('appearance', 'Appearance'),
   subscription('subscription', 'Subscription'),
   privacy('privacy', 'Privacy & Data'),
   help('help', 'Help'),

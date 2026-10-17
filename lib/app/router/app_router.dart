@@ -15,6 +15,7 @@ import '../../features/onboarding/presentation/welcome_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/recipes/presentation/recipes_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
+import '../../features/settings/presentation/appearance_page.dart';
 import '../../features/settings/presentation/delete_data_page.dart';
 import '../../features/settings/presentation/food_preferences_page.dart';
 import '../../features/settings/presentation/help_page.dart';
@@ -126,6 +127,7 @@ GoRouter buildAppRouter({
                               SettingsPage.allergies => const AllergiesPage(),
                               SettingsPage.notifications =>
                                 const NotificationsPage(),
+                              SettingsPage.appearance => const AppearancePage(),
                               SettingsPage.subscription =>
                                 const SubscriptionPage(),
                               SettingsPage.privacy => const PrivacyDataPage(),

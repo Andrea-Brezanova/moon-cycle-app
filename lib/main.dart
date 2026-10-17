@@ -15,6 +15,8 @@ import 'features/content/application/content_providers.dart';
 import 'features/content/data/bundled_catalogue.dart';
 import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
+import 'features/preferences/application/preference_providers.dart';
+import 'features/preferences/data/preferences_repository.dart';
 import 'features/privacy/data/local_data_wiper.dart';
 
 Future<void> main() async {
@@ -33,9 +35,11 @@ Future<void> main() async {
   Future<List<Override>> openSession() async {
     final database = await openAppDatabase(directory: directory, keys: keys);
     final onboarded = await AppStateRepository(database).isOnboardingComplete();
+    final appearance = await PreferencesRepository(database).appearance();
     return [
       appDatabaseProvider.overrideWithValue(database),
       initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+      initialAppearanceProvider.overrideWithValue(appearance),
     ];
   }
 

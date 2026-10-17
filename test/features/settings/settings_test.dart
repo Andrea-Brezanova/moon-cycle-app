@@ -48,6 +48,8 @@ void main() {
   }
 
   Future<void> open(WidgetTester tester, String row) async {
+    await tester.ensureVisible(find.text(row));
+    await tester.pumpAndSettle();
     await tester.tap(find.text(row));
     await tester.pumpAndSettle();
   }

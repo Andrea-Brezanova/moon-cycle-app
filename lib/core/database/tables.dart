@@ -52,7 +52,7 @@ class PeriodLogs extends Table with UserRow {
   BoolColumn get isEstimated => boolean().withDefault(const Constant(false))();
 }
 
-/// One row: diet and reminder settings.
+/// One row: diet, reminder and appearance settings.
 @DataClassName('UserPreferenceRow')
 class UserPreferences extends Table with UserRow {
   /// `omnivore`, `pescatarian`, `vegetarian` or `vegan`.
@@ -63,6 +63,9 @@ class UserPreferences extends Table with UserRow {
       boolean().withDefault(const Constant(true))();
   BoolColumn get remindBeforePeriod =>
       boolean().withDefault(const Constant(true))();
+
+  /// `system`, `light` or `dark` (Settings › Appearance).
+  TextColumn get appearance => text().withDefault(const Constant('system'))();
 }
 
 @DataClassName('FoodAvoidanceRow')

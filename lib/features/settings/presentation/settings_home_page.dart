@@ -85,6 +85,11 @@ class SettingsHomePage extends ConsumerWidget {
                 ? null
                 : (reminders.enabled ? 'On' : 'Off'),
           ),
+          row(
+            SettingsPage.appearance,
+            MoonIconName.settings,
+            subtitle: ref.watch(appearanceProvider).label,
+          ),
         ],
       ),
       MoonListGroup(

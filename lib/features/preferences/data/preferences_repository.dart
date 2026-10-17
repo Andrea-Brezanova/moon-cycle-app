@@ -3,11 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/database/app_database.dart';
 import '../../../core/database/row_ids.dart';
+import '../domain/appearance.dart';
 import '../domain/diet.dart';
 import '../domain/food_avoidance.dart';
 import '../domain/reminder_settings.dart';
 
-/// Diet, avoidances and reminder settings, stored on the phone.
+/// Diet, avoidances, reminder and appearance settings, stored on the phone.
 class PreferencesRepository {
   PreferencesRepository(this._db, [RowStamp? stamp])
     : _stamp = stamp ?? RowStamp();
@@ -19,6 +20,14 @@ class PreferencesRepository {
   Stream<Diet> watchDiet() => _livePreferences().watchSingleOrNull().map(
     (row) => row == null ? Diet.omnivore : Diet.values.byName(row.diet),
   );
+
+  /// [AppearanceMode.system] until the user chooses.
+  Future<AppearanceMode> appearance() async => AppearanceMode.fromName(
+    (await _livePreferences().getSingleOrNull())?.appearance,
+  );
+
+  Future<void> saveAppearance(AppearanceMode mode) =>
+      _savePreferences(UserPreferencesCompanion(appearance: Value(mode.name)));
 
   Future<void> saveDiet(Diet diet) =>
       _savePreferences(UserPreferencesCompanion(diet: Value(diet.name)));
