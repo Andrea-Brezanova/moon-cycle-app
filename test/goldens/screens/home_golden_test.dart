@@ -70,7 +70,7 @@ void main() {
       homePreviewProvider.overrideWith(() => _Preview(14)),
       viewingPhaseProvider.overrideWith(() => _Viewing(Phase.ovulatory)),
     ],
-    'no-recipes': [
+    'avoidances': [
       cycleStateProvider.overrideWithValue(stateOnDay(7)),
       foodFilterProvider.overrideWithValue(
         const FoodFilter(
@@ -92,7 +92,7 @@ void main() {
           tester,
           const HomePage(),
           dark: dark,
-          height: 1800,
+          height: 1350,
           overrides: overrides,
         );
         await expectLater(

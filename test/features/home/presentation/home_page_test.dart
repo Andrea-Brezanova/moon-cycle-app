@@ -5,9 +5,6 @@ import 'package:moon_cycle/core/domain/local_date.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
-import 'package:moon_cycle/features/preferences/domain/diet.dart';
-import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
-import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../../helpers/golden_screen.dart';
 import '../../../helpers/pump_app.dart';
@@ -79,71 +76,6 @@ void main() {
     );
   });
 
-  testWidgets('focus, six foods and the phase’s recipes', (tester) async {
-    await pumpHome(tester);
-    await scrollTo(tester, find.text('Fresh, light and quick'), 200);
-    expect(find.text('Fresh, light and quick'), findsOneWidget);
-    // Three general principles, no individual foods.
-    for (final line in [
-      'Balanced, nutrient-dense foods',
-      'Lighter, fresh, quick meals',
-      'Fresh produce, simple bowls, sautés and salads',
-    ]) {
-      expect(find.text(line), findsOneWidget, reason: line);
-    }
-    await scrollTo(tester, find.text('Foods for this phase'), 200);
-    for (final food in [
-      'Farro',
-      'Arugula',
-      'Avocado',
-      'Black-eyed pea',
-      'Brazil nut',
-      'Chicken',
-    ]) {
-      expect(find.text(food), findsOneWidget, reason: food);
-    }
-    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'), 200);
-    expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
-    await scrollTo(tester, find.text('Your shopping list'), 200);
-    expect(find.text('0 to buy'), findsOneWidget);
-  });
-
-  testWidgets('preferences shape the foods and recipes', (tester) async {
-    await pumpHome(
-      tester,
-      prefs: (prefs) async {
-        await prefs.saveDiet(Diet.vegetarian);
-        await prefs.avoidAllergen('gluten');
-      },
-    );
-    await scrollTo(tester, find.text('Foods for this phase'), 200);
-    // Farro and oat bran may carry gluten, so Grains gives way; vegetarians
-    // get eggs in place of chicken.
-    expect(find.text('Farro'), findsNothing);
-    expect(find.text('Chicken'), findsNothing);
-    expect(find.text('Eggs'), findsOneWidget);
-    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'), 200);
-    expect(find.text('Lemon Chicken & Green Bean Tray Bake'), findsNothing);
-    expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
-  });
-
-  testWidgets('no recipe fits: the empty line and the way out', (tester) async {
-    await pumpHome(
-      tester,
-      prefs: (prefs) async {
-        await prefs.avoidAllergen('gluten');
-        await prefs.avoidAllergen('dairy');
-        await prefs.avoidAllergen('fish');
-        await prefs.avoidFood('chicken');
-      },
-    );
-    await scrollTo(tester, find.text('Review food preferences'), 200);
-    expect(
-      find.text('No recipes for this phase fit your food preferences.'),
-      findsOneWidget,
-    );
-  });
-
   testWidgets('dragging the orbit previews a day; back to today', (
     tester,
   ) async {
@@ -163,8 +95,8 @@ void main() {
     await tester.drag(find.text('Ovulatory'), const Offset(0, -300));
     await tester.pumpAndSettle();
     // The content below follows the phase being browsed.
-    expect(find.text('Your focus'.toUpperCase()), findsOneWidget);
-    expect(find.text('Fresh, hydrating, crisp and colourful'), findsOneWidget);
+    expect(find.text('YOUR FOCUS'), findsOneWidget);
+    expect(find.text('Fresh and hydrating'), findsOneWidget);
 
     await tester.fling(
       find.byType(Scrollable).first,
@@ -175,8 +107,8 @@ void main() {
     await tester.tap(find.text('Back to today · Day 7'));
     await tester.pumpAndSettle();
     expect(find.text('Follicular'), findsOneWidget);
-    await scrollTo(tester, find.text('Fresh, light and quick'));
-    expect(find.text('Fresh, light and quick'), findsOneWidget);
+    await scrollTo(tester, find.text('Fresh variety'));
+    expect(find.text('Fresh variety'), findsOneWidget);
   });
 
   testWidgets('screen readers adjust the preview', (tester) async {
@@ -222,21 +154,5 @@ void main() {
     await pumpHome(tester, start: LocalDate(2025, 9, 5)); // day 30
     expect(find.text('Period 2 days late · Day 30 in cycle'), findsOneWidget);
     expect(find.text('Has your period started?'), findsNothing);
-  });
-
-  testWidgets('a recipe opens its detail in Recipes; the block opens Shop', (
-    tester,
-  ) async {
-    await pumpHome(tester);
-    await scrollTo(tester, find.text('Zucchini & Feta Herb Frittata'));
-    await tester.tap(find.text('Zucchini & Feta Herb Frittata'));
-    await tester.pumpAndSettle();
-    expect(find.byType(RecipeDetailPage), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('tab-home')));
-    await tester.pumpAndSettle();
-    await scrollTo(tester, find.text('Your shopping list'), 200);
-    await tester.tap(find.text('Your shopping list'));
-    await tester.pumpAndSettle();
-    expect(find.byType(ShopPage), findsOneWidget);
   });
 }

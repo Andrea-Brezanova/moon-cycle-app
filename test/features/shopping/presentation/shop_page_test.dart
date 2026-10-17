@@ -181,22 +181,4 @@ void main() {
       findsOneWidget,
     );
   });
-
-  testWidgets('Home’s shopping block follows the list', (tester) async {
-    final (container, _) = await pumpShop(tester);
-    await run(
-      tester,
-      () =>
-          controller(container)
-              .addRecipe(testCatalogue.recipe('avocado-egg-arugula-toast')!),
-    );
-    await tester.tap(find.byKey(const ValueKey('tab-home')));
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('7 to buy · 7 from recipes'),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    expect(find.text('7 to buy · 7 from recipes'), findsOneWidget);
-  });
 }

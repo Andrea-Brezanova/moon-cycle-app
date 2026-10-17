@@ -106,3 +106,62 @@ const foodsUniversalNote =
 
 /// The Foods grid helper line.
 const foodsHintText = 'Tap a food to see why we feature it and find recipes.';
+
+/// Home's "Your focus": three short points per phase (title and one line).
+/// The same meaning as [phaseFocusPrinciples], just more compact.
+List<({String title, String line})> phaseFocusCompact(Phase phase) =>
+    switch (phase) {
+      Phase.menstrual => const [
+        (
+          title: 'Iron + vitamin C',
+          line: 'Pair iron-rich foods with vitamin C.',
+        ),
+        (
+          title: 'Warm, nourishing meals',
+          line: 'Choose comforting, substantial foods.',
+        ),
+        (
+          title: 'Gentle cooking',
+          line: 'Think soups, stews, porridge and warm bowls.',
+        ),
+      ],
+      Phase.follicular => const [
+        (
+          title: 'Fresh variety',
+          line: 'Build meals from a colourful mix of whole foods.',
+        ),
+        (
+          title: 'Light and balanced',
+          line: 'Keep meals fresh, simple and satisfying.',
+        ),
+        (
+          title: 'Quick preparation',
+          line: 'Think bowls, salads, steaming and quick sautés.',
+        ),
+      ],
+      Phase.ovulatory => const [
+        (
+          title: 'Fresh and hydrating',
+          line: 'Choose juicy fruit and crisp vegetables.',
+        ),
+        (
+          title: 'Bright, balanced meals',
+          line: 'Keep combinations colourful and simple.',
+        ),
+        (
+          title: 'Light preparation',
+          line: 'Think salads, chilled dishes and quick cooking.',
+        ),
+      ],
+      Phase.luteal => const [
+        (title: 'Protein + fibre', line: 'Build satisfying meals.'),
+        (
+          title: 'Slower carbohydrates',
+          line: 'Choose substantial whole-food bases.',
+        ),
+        (
+          title: 'Warm and grounding',
+          line: 'Think roasts, bakes, bowls and one-pot meals.',
+        ),
+      ],
+    };

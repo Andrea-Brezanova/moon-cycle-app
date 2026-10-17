@@ -1,9 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/domain/phase.dart';
-import '../../content/application/content_providers.dart';
-import '../../content/domain/food.dart';
-import '../../content/domain/recipe.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 
@@ -61,33 +57,4 @@ final homeShownDayProvider = Provider<int?>((ref) {
   }
   if (viewing == s.phase) return null;
   return s.ranges.of(viewing).firstDay;
-});
-
-/// "Foods for this phase": up to six foods, the first the user eats from each
-/// category, in the stored order (PRD §7).
-final foodsForPhaseProvider = Provider.family<List<Food>, Phase>((ref, phase) {
-  final catalogue = ref.watch(catalogueProvider);
-  final filter = ref.watch(foodFilterProvider);
-  return [
-    for (final category in catalogue.phase(phase).categories)
-      ?category.foodIds
-          .map(catalogue.food)
-          .whereType<Food>()
-          .where(filter.allowsFood)
-          .firstOrNull,
-  ].take(6).toList();
-});
-
-/// "Recipes for this phase": the phase's recipes the user's preferences allow,
-/// in the stored order.
-final recipesForPhaseProvider = Provider.family<List<Recipe>, Phase>((
-  ref,
-  phase,
-) {
-  final catalogue = ref.watch(catalogueProvider);
-  final filter = ref.watch(foodFilterProvider);
-  return [
-    for (final r in catalogue.recipesFor(phase))
-      if (filter.allowsRecipe(r, catalogue)) r,
-  ];
 });

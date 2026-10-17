@@ -60,4 +60,42 @@ void main() {
     }
     expect(foodsUniversalNote, contains('you can enjoy any food at any time'));
   });
+
+  test('Your focus: the final 12 lines, with no health claims', () {
+    final lines = {
+      for (final phase in Phase.values)
+        phase: [
+          for (final p in phaseFocusCompact(phase)) '${p.title} | ${p.line}',
+        ],
+    };
+    expect(lines, {
+      Phase.menstrual: [
+        'Iron + vitamin C | Pair iron-rich foods with vitamin C.',
+        'Warm, nourishing meals | Choose comforting, substantial foods.',
+        'Gentle cooking | Think soups, stews, porridge and warm bowls.',
+      ],
+      Phase.follicular: [
+        'Fresh variety | Build meals from a colourful mix of whole foods.',
+        'Light and balanced | Keep meals fresh, simple and satisfying.',
+        'Quick preparation | Think bowls, salads, steaming and quick sautés.',
+      ],
+      Phase.ovulatory: [
+        'Fresh and hydrating | Choose juicy fruit and crisp vegetables.',
+        'Bright, balanced meals | Keep combinations colourful and simple.',
+        'Light preparation | Think salads, chilled dishes and quick cooking.',
+      ],
+      Phase.luteal: [
+        'Protein + fibre | Build satisfying meals.',
+        'Slower carbohydrates | Choose substantial whole-food bases.',
+        'Warm and grounding | Think roasts, bakes, bowls and one-pot meals.',
+      ],
+    });
+    final banned = RegExp(
+      'hormon|fertil|detox|treat|cure|symptom|cramp|pms|boost',
+      caseSensitive: false,
+    );
+    for (final text in lines.values.expand((l) => l)) {
+      expect(banned.hasMatch(text), isFalse, reason: text);
+    }
+  });
 }

@@ -43,6 +43,22 @@ Future<void> showIngredientSheet(
   ),
 );
 
+/// Opens [food]'s sheet for [phase] from a suggestion (Home, the meal
+/// builder): a food featured in [phase] shows its phase "Why this food?";
+/// any other food opens without phase context, so no rationale is invented.
+Future<void> showFoodSuggestionSheet(
+  BuildContext context,
+  WidgetRef ref, {
+  required Food food,
+  required Phase phase,
+}) => showIngredientSheet(
+  context,
+  food: food,
+  phase: phase,
+  phaseContext: food.why[phase] != null,
+  category: ref.read(catalogueProvider).categoryFor(food).name,
+);
+
 class IngredientSheet extends ConsumerWidget {
   const IngredientSheet({
     super.key,

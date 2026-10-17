@@ -6,6 +6,7 @@ import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
+import '../../../core/domain/browse_scope.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
@@ -14,8 +15,8 @@ import '../../foods/application/browse_scope.dart';
 import '../../foods/presentation/ingredient_sheet.dart';
 import '../../recipes/application/recipe_filter.dart';
 import '../../recipes/application/recipes_scope.dart';
-import '../../shopping/application/shopping_summary.dart';
-import '../application/home_providers.dart';
+import '../application/home_discovery.dart';
+import 'home_sheets.dart';
 import 'widgets/home_hero.dart';
 import 'widgets/home_sections.dart';
 
@@ -35,9 +36,10 @@ class HomePage extends ConsumerWidget {
 
     // Every phase-dependent block follows the shared viewing phase.
     final phase = ref.watch(viewingPhaseProvider);
-    final palette = c.phase(phase);
-    final content = ref.watch(catalogueProvider).phase(phase);
-    final shopping = ref.watch(shoppingSummaryProvider);
+    // Today's food belongs to today: the real phase, never the one being
+    // previewed.
+    final actual = ref.watch(actualPhaseProvider);
+    final todays = ref.watch(todaysFoodProvider(actual));
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
     final gap = late ? 44.0 : MoonSpace.sectionGap;
 
@@ -59,42 +61,50 @@ class HomePage extends ConsumerWidget {
             padded(LatePeriodCard(onLog: () => showLogPeriodSheet(context))),
             SizedBox(height: gap),
           ],
-          padded(FocusSection(content: content, phase: phase)),
-          SizedBox(height: gap),
           padded(
-            FoodsForPhaseSection(
-              foods: ref.watch(foodsForPhaseProvider(phase)),
-              onList: shopping.onListFoodIds,
-              palette: palette,
-              onFood: (food) =>
-                  showIngredientSheet(context, food: food, phase: phase),
-              onAllFoods: () {
-                ref.read(foodsScopeProvider.notifier).showAll();
+            FocusSection(
+              phase: phase,
+              onMore: () {
+                ref.read(foodsScopeProvider.notifier).set(BrowseScope.phase);
                 context.go(AppTab.foods.path);
               },
             ),
           ),
-          SizedBox(height: gap),
-          RecipesForPhaseSection(
-            recipes: ref.watch(recipesForPhaseProvider(phase)),
-            palette: palette,
-            onRecipe: (recipe) {
-              context.go(Routes.recipe(recipe.id));
-            },
-            onAllRecipes: () {
-              ref.read(recipesScopeProvider.notifier).showAll();
-              ref.read(recipeFilterProvider.notifier).reset();
-              context.go(AppTab.recipes.path);
-            },
-            onReviewPreferences: () =>
-                context.go(Routes.settings(SettingsPage.foodPreferences)),
-          ),
+          if (todays != null) ...[
+            SizedBox(height: gap),
+            padded(
+              TodaysFoodSection(
+                food: todays,
+                phase: actual,
+                onWhy: () => showIngredientSheet(
+                  context,
+                  food: todays,
+                  phase: actual,
+                  category: ref
+                      .read(catalogueProvider)
+                      .categoryFor(todays)
+                      .name,
+                ),
+                onRecipes: () {
+                  // Its recipes are the real phase's. Switching phase clears
+                  // the ingredient filter, so do it first.
+                  ref.read(viewingPhaseProvider.notifier).showActual();
+                  ref
+                      .read(recipesScopeProvider.notifier)
+                      .set(BrowseScope.phase);
+                  ref
+                      .read(recipeFilterProvider.notifier)
+                      .showRecipesWith(todays.id);
+                  context.go(AppTab.recipes.path);
+                },
+              ),
+            ),
+          ],
           SizedBox(height: gap),
           padded(
-            ShoppingBlock(
-              toBuy: shopping.toBuy,
-              fromRecipes: shopping.fromRecipes,
-              onTap: () => context.go(AppTab.shop.path),
+            HomeActions(
+              onBuildMeal: () => showBuildMealSheet(context, phase: phase),
+              onTryNew: () => showTryNewSheet(context, phase: phase),
             ),
           ),
         ],
