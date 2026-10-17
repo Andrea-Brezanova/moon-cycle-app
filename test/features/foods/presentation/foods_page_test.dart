@@ -16,6 +16,7 @@ import 'package:moon_cycle/features/shopping/data/shopping_repository.dart';
 import '../../../helpers/golden_screen.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/seed.dart';
+import '../../../helpers/test_catalogue.dart';
 
 void main() {
   Future<(ProviderContainer, AppDatabase)> pumpFoods(
@@ -307,7 +308,7 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.text('See 1 recipe with chicken'), findsOneWidget);
+    expect(find.text('See 3 recipes with chicken'), findsOneWidget);
 
     await tester.tap(find.text('Add to shopping list'));
     await tester.pumpAndSettle();
@@ -322,12 +323,36 @@ void main() {
   });
 
   testWidgets('a food without recipes: no recipe button', (tester) async {
+    final (container, _) = await pumpFoods(tester);
+    // Every featured food now has a recipe; a general food may not.
+    final counts = container.read(allRecipeCountsProvider);
+    final none = testCatalogue.foods.firstWhere(
+      (f) => (counts[f.id] ?? 0) == 0,
+    );
+    await tester.tap(find.text('All foods'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText), none.displayName);
+    await tester.pumpAndSettle();
+    // The chip, not the search field's own text.
+    await tester.tap(find.text(none.displayName).last);
+    await tester.pumpAndSettle();
+    expect(
+      find.text('No recipes with ${none.displayName.toLowerCase()} yet.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('See '), findsNothing);
+  });
+
+  testWidgets('a featured food shows its recipe count in the sheet', (
+    tester,
+  ) async {
     await pumpFoods(tester);
     await scrollTo(tester, find.text('Turnip'));
     await tester.tap(find.text('Turnip'));
     await tester.pumpAndSettle();
-    expect(find.text('No recipes with turnip yet.'), findsOneWidget);
-    expect(find.textContaining('See '), findsNothing);
+    // Turnip had no recipe before; three follicular recipes now use it.
+    expect(find.text('See 3 recipes with turnip'), findsOneWidget);
+    expect(find.text('No recipes with turnip yet.'), findsNothing);
   });
 
   testWidgets('"See N recipes" opens Recipes filtered by the food', (
@@ -337,11 +362,11 @@ void main() {
     await scrollTo(tester, find.text('Chicken'));
     await tester.tap(find.text('Chicken'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('See 1 recipe with chicken'));
+    await tester.tap(find.text('See 3 recipes with chicken'));
     await tester.pumpAndSettle();
     expect(find.byType(IngredientSheet), findsNothing);
     expect(find.byType(RecipesPage), findsOneWidget);
     expect(container.read(recipeFilterProvider).foodId, 'chicken');
-    expect(find.text('1 follicular recipe with chicken'), findsOneWidget);
+    expect(find.text('3 follicular recipes with chicken'), findsOneWidget);
   });
 }

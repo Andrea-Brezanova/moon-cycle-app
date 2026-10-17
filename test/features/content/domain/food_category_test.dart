@@ -42,15 +42,23 @@ void main() {
     expect(shown, contains('blackberry'));
   });
 
-  test('food to recipe links count the 40 Recipes v2 recipes', () {
+  test('food to recipe links count every recipe that uses a key food', () {
     final container = ProviderContainer(
       overrides: [catalogueProvider.overrideWithValue(testCatalogue)],
     );
     addTearDown(container.dispose);
     final counts = container.read(allRecipeCountsProvider);
-    expect(counts['spinach'], 3);
-    expect(counts['chicken'], 1);
-    expect(counts['turnip'], isNull);
+    // Counted independently from the recipes themselves.
+    final expected = <String, int>{};
+    for (final r in testCatalogue.recipes) {
+      for (final id in r.keyFoodIds.toSet()) {
+        expected[id] = (expected[id] ?? 0) + 1;
+      }
+    }
+    expect(counts, expected);
+    expect(testCatalogue.recipes, hasLength(112));
+    // A food the first 40 recipes never used is now linked.
+    expect(counts['turnip'], greaterThan(0));
     for (final r in testCatalogue.recipes) {
       for (final id in r.keyFoodIds) {
         expect(counts[id], greaterThan(0), reason: '${r.id} / $id');

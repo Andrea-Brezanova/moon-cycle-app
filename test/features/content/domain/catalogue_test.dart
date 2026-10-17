@@ -46,7 +46,10 @@ void main() {
     expect(RecipeCategory.lunch.mealType, MealType.meals);
     expect(RecipeCategory.dinner.mealType, MealType.meals);
     expect(RecipeCategory.breakfast.mealType, MealType.breakfast);
-    expect(c.recipes.where((r) => r.mealType == MealType.snacks), hasLength(4));
+    expect(
+      c.recipes.where((r) => r.mealType == MealType.snacks),
+      hasLength(11),
+    );
   });
 
   group('quantities (spec §9)', () {

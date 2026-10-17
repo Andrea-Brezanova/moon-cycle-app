@@ -25,21 +25,33 @@ final _png = Uint8List.fromList(
 void main() {
   final recipes = testCatalogue.recipes;
 
-  test('there are 40 recipes and each id maps to its own image path', () {
-    expect(recipes, hasLength(40));
-    final paths = [for (final r in recipes) r.imageAsset];
-    expect(paths.toSet(), hasLength(40));
+  // The first 40 recipes have approved photos; the other 72 use the fallback
+  // until their photos exist.
+  final photographed = recipes.take(40).toList();
+  final unphotographed = recipes.skip(40).toList();
+
+  test('there are 112 recipes, each id mapping to its own image path', () {
+    expect(recipes, hasLength(112));
+    expect({for (final r in recipes) r.imageAsset}, hasLength(112));
     for (final r in recipes) {
       expect(r.imageAsset, 'assets/images/recipes/${r.id}.jpg');
     }
   });
 
-  test('every recipe id resolves to an existing image asset', () {
+  test('the original 40 recipes still resolve to their photos', () {
+    expect(photographed, hasLength(40));
     final missing = [
-      for (final r in recipes)
+      for (final r in photographed)
         if (!File(r.imageAsset).existsSync()) r.imageAsset,
     ];
     expect(missing, isEmpty, reason: 'missing: $missing');
+  });
+
+  test('the other 72 recipes have no photo and use the fallback', () {
+    expect(unphotographed, hasLength(72));
+    for (final r in unphotographed) {
+      expect(File(r.imageAsset).existsSync(), isFalse, reason: r.id);
+    }
   });
 
   test('no two recipes share the same image file', () {
@@ -66,6 +78,30 @@ void main() {
       expect(name, endsWith('.jpg'));
       expect(ids, contains(name.substring(0, name.length - 4)), reason: name);
     }
+  });
+
+  testWidgets('a recipe without a photo renders the fallback in a card', (
+    tester,
+  ) async {
+    final r = unphotographed.first;
+    await pumpScreen(
+      tester,
+      Builder(
+        builder: (context) => Scaffold(
+          body: GridRecipeCard(
+            recipe: r,
+            palette: context.moon.phase(r.phase),
+            onTap: () {},
+          ),
+        ),
+      ),
+      dark: false,
+      overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
+    );
+    await tester.pumpAndSettle();
+    // The placeholder's organic shape shows where the photo would be.
+    expect(find.byType(OrganicShape), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('a missing image falls back to the placeholder', (tester) async {

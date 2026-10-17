@@ -53,11 +53,11 @@ void main() {
     'luteal': 44,
   };
 
-  test('four phases and forty recipes; food ids are unique', () {
+  test('four phases and 112 recipes; food ids are unique', () {
     expect(phasesFile, hasLength(4));
-    expect(recipesFile, hasLength(40));
+    expect(recipesFile, hasLength(112));
     expect(foodById, hasLength(foodsFile.length));
-    expect(recipesFile.map((r) => r['id']).toSet(), hasLength(40));
+    expect(recipesFile.map((r) => r['id']).toSet(), hasLength(112));
     expect(phasesFile.map((p) => p['id']), [
       'menstrual',
       'follicular',
@@ -195,7 +195,7 @@ void main() {
         expect(foodById[id]!['shipReady'], isTrue, reason: '${r['id']}: $id');
       }
     }
-    expect(testCatalogue.recipes, hasLength(40));
+    expect(testCatalogue.recipes, hasLength(112));
   });
 
   group('Recipes v2 contract', () {
@@ -214,11 +214,17 @@ void main() {
       'baked-apple-pear-millet',
     };
 
-    test('ten per phase, no legacy ids', () {
-      for (final phase in ['menstrual', 'follicular', 'ovulatory', 'luteal']) {
+    test('27 / 29 / 26 / 30 per phase, no legacy ids', () {
+      const perPhase = {
+        'menstrual': 27,
+        'follicular': 29,
+        'ovulatory': 26,
+        'luteal': 30,
+      };
+      for (final MapEntry(key: phase, value: n) in perPhase.entries) {
         expect(
           recipesFile.where((r) => r['phase'] == phase),
-          hasLength(10),
+          hasLength(n),
           reason: phase,
         );
       }
@@ -244,7 +250,6 @@ void main() {
         expect(strings(r['steps']).length, inInclusiveRange(3, 5), reason: id);
         expect(r['minutes'], isA<int>(), reason: id);
         expect(r['minutes']! as int, greaterThan(0), reason: id);
-        expect(r['image'], isNull, reason: '$id: no images yet');
       }
     });
 

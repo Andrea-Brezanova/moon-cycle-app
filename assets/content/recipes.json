@@ -2875,6 +2875,4827 @@
         "Add the rinsed split peas and stock, bring to the boil, then cover and simmer gently for 45 to 50 minutes, stirring now and then, until the lamb and peas are soft.",
         "Season and serve with flatbread or rice."
       ]
+    },
+    {
+      "id": "wild-rice-blueberry-breakfast-bowl",
+      "title": "Warm Wild Rice & Blueberry Breakfast Bowl",
+      "phase": "menstrual",
+      "category": "breakfast",
+      "minutes": 45,
+      "serves": 2,
+      "intro": "A cosy breakfast bowl; cook extra wild rice and keep it in the fridge for the week.",
+      "whyThisPhase": "Wild rice, blueberries and sesame seeds are featured Menstrual foods, and the berries add a little vitamin C to a warm, comforting breakfast.",
+      "keyFoods": [
+        "wild-rice",
+        "milk",
+        "blueberry",
+        "sesame-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Wild rice",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "wild-rice"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Blueberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "blueberry"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Maple syrup",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "maple-syrup"
+        }
+      ],
+      "steps": [
+        "Rinse the wild rice and simmer it in plenty of water for 35 to 40 minutes, until the grains split. Drain.",
+        "Return it to the pan with the milk and cinnamon and warm gently for 5 minutes.",
+        "Spoon into bowls and top with blueberries, sesame seeds and a little maple syrup."
+      ]
+    },
+    {
+      "id": "mushroom-chard-egg-scramble",
+      "title": "Mushroom & Chard Egg Scramble on Toast",
+      "phase": "menstrual",
+      "category": "breakfast",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "Soft eggs with savoury mushrooms and greens on toast.",
+      "whyThisPhase": "Chard is a featured Menstrual food for plant iron, and mushrooms and eggs make it a quick, savoury breakfast.",
+      "keyFoods": [
+        "eggs",
+        "mushrooms",
+        "chard",
+        "whole-grain-bread",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Eggs",
+          "amount": 4,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Mushrooms",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "mushrooms"
+        },
+        {
+          "label": "Chard leaves",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "chard"
+        },
+        {
+          "label": "Whole-grain bread",
+          "amount": 2,
+          "unit": "piece",
+          "food": "whole-grain-bread"
+        },
+        {
+          "label": "Garlic",
+          "amount": 1,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Slice the mushrooms and fry in the oil for 4 minutes with the chopped garlic.",
+        "Add the shredded chard and cook for 2 minutes until wilted.",
+        "Beat the eggs with a pinch of salt, pour in and stir gently for 2 to 3 minutes until just set. Toast the bread.",
+        "Pile the eggs on the toast and serve."
+      ]
+    },
+    {
+      "id": "kiwi-blueberry-cashew-yogurt-bowl",
+      "title": "Kiwi, Blueberry & Cashew Yogurt Bowl",
+      "phase": "menstrual",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A no-cook breakfast bowl with tangy fruit and a salty crunch.",
+      "whyThisPhase": "Kiwi and blueberries add vitamin C, and cashews add some plant iron, in a quick Menstrual-phase breakfast.",
+      "keyFoods": [
+        "plain-yogurt",
+        "kiwi",
+        "blueberry",
+        "cashew",
+        "sesame-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Plain yogurt",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "plain-yogurt"
+        },
+        {
+          "label": "Kiwi",
+          "amount": 2,
+          "unit": "piece",
+          "food": "kiwi"
+        },
+        {
+          "label": "Blueberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "blueberry"
+        },
+        {
+          "label": "Cashews",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "cashew"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        }
+      ],
+      "steps": [
+        "Peel and slice the kiwi and roughly chop the cashews.",
+        "Spoon the yogurt into two bowls.",
+        "Top with the kiwi, blueberries, cashews and sesame seeds."
+      ]
+    },
+    {
+      "id": "black-bean-pepper-breakfast-tortillas",
+      "title": "Black Bean & Yellow Pepper Breakfast Tortillas",
+      "phase": "menstrual",
+      "category": "breakfast",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "Warm, savoury and entirely plant-based, with a squeeze of lime.",
+      "whyThisPhase": "Black beans are a featured Menstrual food for plant iron, and the yellow pepper and lime add vitamin C.",
+      "keyFoods": [
+        "tortillas",
+        "black-turtle-bean",
+        "yellow-bell-pepper",
+        "scallion",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Small tortillas",
+          "amount": 4,
+          "unit": "piece",
+          "food": "tortillas"
+        },
+        {
+          "label": "Black beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "black-turtle-bean"
+        },
+        {
+          "label": "Yellow pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "yellow-bell-pepper"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Dice the pepper and fry in the oil for 4 minutes, then add the sliced spring onions.",
+        "Add the drained beans and cumin and warm through for 4 minutes, mashing a few beans.",
+        "Warm the tortillas in a dry pan or the microwave.",
+        "Fill with the bean mixture and finish with lime juice."
+      ]
+    },
+    {
+      "id": "broccoli-white-bean-miso-soup",
+      "title": "Broccoli, White Bean & Miso Soup",
+      "phase": "menstrual",
+      "category": "lunch",
+      "minutes": 25,
+      "serves": 4,
+      "intro": "A quick green soup with a gentle savoury depth from miso.",
+      "whyThisPhase": "Broccoli, white beans and miso are featured Menstrual foods, with white beans bringing plant iron and broccoli vitamin C.",
+      "keyFoods": [
+        "broccoli",
+        "white-beans",
+        "miso",
+        "white-potato",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Broccoli",
+          "amount": 14.0,
+          "unit": "oz",
+          "metric": "400 g",
+          "food": "broccoli"
+        },
+        {
+          "label": "White beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "white-beans"
+        },
+        {
+          "label": "Miso paste",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "miso"
+        },
+        {
+          "label": "Potatoes",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "white-potato"
+        },
+        {
+          "label": "Garlic",
+          "amount": 3,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Vegetable stock",
+          "amount": 3.0,
+          "unit": "cup",
+          "metric": "750 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the sliced garlic in the oil for 1 minute, then add the diced potatoes and the stock and simmer for 10 minutes.",
+        "Add the broccoli florets and cook for 5 minutes until tender.",
+        "Stir in the drained beans, then blend about half the soup for a creamy texture.",
+        "Take off the heat, whisk the miso with a ladle of hot soup, stir it back in and season with pepper."
+      ]
+    },
+    {
+      "id": "brussels-beet-quinoa-orange-salad",
+      "title": "Brussels Sprout, Beet & Quinoa Salad",
+      "phase": "menstrual",
+      "category": "lunch",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "A warm, earthy salad with a bright orange dressing.",
+      "whyThisPhase": "Brussels sprouts and oranges add vitamin C, and quinoa and sesame seeds are featured Menstrual foods, alongside sweet beets.",
+      "keyFoods": [
+        "brussels-sprouts",
+        "beets",
+        "quinoa",
+        "orange",
+        "sesame-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Brussels sprouts",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "brussels-sprouts"
+        },
+        {
+          "label": "Cooked beetroot",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "beets"
+        },
+        {
+          "label": "Quinoa",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "quinoa"
+        },
+        {
+          "label": "Orange",
+          "amount": 1,
+          "unit": "piece",
+          "food": "orange"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Vinegar",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "vinegar"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Rinse the quinoa and simmer in twice its volume of water for 15 minutes, then drain.",
+        "Shred the Brussels sprouts and fry in half the oil for 6 to 8 minutes until browned and tender.",
+        "Whisk the orange juice and zest with the vinegar, the rest of the oil and a pinch of salt.",
+        "Toss the quinoa, sprouts and diced beetroot with the dressing and top with sesame seeds."
+      ]
+    },
+    {
+      "id": "kidney-bean-collard-wraps",
+      "title": "Kidney Bean & Collard Green Wraps",
+      "phase": "menstrual",
+      "category": "lunch",
+      "minutes": 17,
+      "serves": 2,
+      "intro": "Sturdy collard leaves stand in for a tortilla.",
+      "whyThisPhase": "Collard greens and kidney beans are featured Menstrual foods for iron, and the pepper and lime add vitamin C.",
+      "keyFoods": [
+        "collard",
+        "kidney-bean",
+        "green-bell-pepper",
+        "avocado",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Large collard leaves",
+          "amount": 4,
+          "unit": "piece",
+          "food": "collard"
+        },
+        {
+          "label": "Kidney beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "kidney-bean"
+        },
+        {
+          "label": "Green pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "green-bell-pepper"
+        },
+        {
+          "label": "Avocado",
+          "amount": 1,
+          "unit": "piece",
+          "food": "avocado"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Trim the thick stalks from the collard leaves and dip them in boiling water for 1 minute, then pat dry.",
+        "Mash the drained beans with the cumin, a pinch of salt and half the lime juice.",
+        "Spread the beans over the leaves and add sliced pepper and avocado.",
+        "Squeeze over the rest of the lime, then fold in the sides and roll up."
+      ]
+    },
+    {
+      "id": "grapefruit-beet-spinach-salad",
+      "title": "Grapefruit, Beet & Spinach Salad with Cashews",
+      "phase": "menstrual",
+      "category": "lunch",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "A juicy, jewel-coloured salad that needs no cooking.",
+      "whyThisPhase": "Grapefruit is rich in vitamin C, and spinach and cashews are featured Menstrual foods for plant iron.",
+      "keyFoods": [
+        "grapefruit",
+        "beets",
+        "spinach",
+        "cashew"
+      ],
+      "ingredients": [
+        {
+          "label": "Grapefruit",
+          "amount": 1,
+          "unit": "piece",
+          "food": "grapefruit"
+        },
+        {
+          "label": "Cooked beetroot",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "beets"
+        },
+        {
+          "label": "Baby spinach",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "spinach"
+        },
+        {
+          "label": "Cashews",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "cashew"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Vinegar",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "vinegar"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cut away the peel and pith of the grapefruit and slice into segments, saving the juice.",
+        "Cut the beetroot into wedges and roughly chop the cashews.",
+        "Whisk the saved juice with the oil, vinegar and salt.",
+        "Toss the spinach with the dressing, top with the beetroot, grapefruit and cashews."
+      ]
+    },
+    {
+      "id": "clam-kale-garlic-spaghetti",
+      "title": "Garlic Clam & Kale Spaghetti",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A pantry pasta made with canned clams.",
+      "whyThisPhase": "Clams are a featured Menstrual food for iron, and kale and lemon add vitamin C.",
+      "keyFoods": [
+        "pasta",
+        "clam",
+        "kale",
+        "garlic",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Spaghetti",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "pasta"
+        },
+        {
+          "label": "Canned clams",
+          "amount": 2,
+          "unit": "can",
+          "metric": "6.5 oz / 185 g each",
+          "food": "clam"
+        },
+        {
+          "label": "Kale",
+          "amount": 2,
+          "unit": "handful",
+          "food": "kale"
+        },
+        {
+          "label": "Garlic",
+          "amount": 3,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Chilli flakes",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the spaghetti in salted water; add the shredded kale for the last 2 minutes. Keep a mug of the water.",
+        "Meanwhile, warm the oil with the sliced garlic and chilli flakes for 2 minutes.",
+        "Add the clams with their juice and warm through for 3 minutes.",
+        "Toss the drained pasta and kale through the clams with a splash of cooking water and the lemon juice."
+      ]
+    },
+    {
+      "id": "broccoli-anchovy-potato-tray",
+      "title": "Roasted Broccoli, Potato & Anchovy Tray",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 40,
+      "serves": 2,
+      "intro": "One tray; the anchovies melt into the oil and season everything.",
+      "whyThisPhase": "Anchovies are a featured Menstrual food for iron, and broccoli, potato and lemon add vitamin C to a hands-off tray bake.",
+      "keyFoods": [
+        "white-potato",
+        "broccoli",
+        "anchovies",
+        "garlic",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Potatoes",
+          "amount": 1.0,
+          "unit": "lb",
+          "metric": "500 g",
+          "food": "white-potato"
+        },
+        {
+          "label": "Broccoli",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "broccoli"
+        },
+        {
+          "label": "Anchovies, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "2 oz / 50 g",
+          "food": "anchovies"
+        },
+        {
+          "label": "Garlic",
+          "amount": 3,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 425°F (220°C). Cut the potatoes into chunks and toss with half the oil on a large tray; roast for 15 minutes.",
+        "Meanwhile, warm the rest of the oil with the anchovies and sliced garlic until the anchovies dissolve.",
+        "Add the broccoli florets to the tray, pour over the anchovy oil and roast for 12 to 15 minutes.",
+        "Squeeze over the lemon, add pepper and serve from the tray."
+      ]
+    },
+    {
+      "id": "oyster-spinach-stew",
+      "title": "Easy Oyster & Spinach Stew",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A simple, warming stew made with canned oysters; serve with toast.",
+      "whyThisPhase": "Oysters are a featured Menstrual food for iron, and spinach adds more to a simple, warming stew.",
+      "keyFoods": [
+        "oyster",
+        "milk",
+        "spinach",
+        "onion",
+        "whole-grain-bread"
+      ],
+      "ingredients": [
+        {
+          "label": "Canned oysters, with their liquid",
+          "amount": 1,
+          "unit": "can",
+          "metric": "8 oz / 225 g",
+          "food": "oyster"
+        },
+        {
+          "label": "Milk",
+          "amount": 1.5,
+          "unit": "cup",
+          "metric": "400 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Spinach",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "spinach"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Whole-grain bread, to serve",
+          "amount": 2,
+          "unit": "piece",
+          "food": "whole-grain-bread"
+        },
+        {
+          "label": "Butter",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "butter"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the finely chopped onion in the butter for 4 minutes.",
+        "Add the milk and the oysters with their liquid and warm gently for 5 minutes without boiling.",
+        "Stir in the spinach until wilted and season with pepper.",
+        "Serve in bowls with toasted whole-grain bread."
+      ]
+    },
+    {
+      "id": "beef-brussels-sprout-potato-tray",
+      "title": "Beef, Brussels Sprout & Potato Tray",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "Seared steak strips over crisp roasted potatoes and sprouts.",
+      "whyThisPhase": "Beef is a featured Menstrual food for iron, and Brussels sprouts add vitamin C alongside hearty potatoes.",
+      "keyFoods": [
+        "beef",
+        "brussels-sprouts",
+        "white-potato",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Beef sirloin steak",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "beef"
+        },
+        {
+          "label": "Brussels sprouts",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "brussels-sprouts"
+        },
+        {
+          "label": "Potatoes",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "white-potato"
+        },
+        {
+          "label": "Garlic",
+          "amount": 3,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 425°F (220°C). Toss the diced potatoes with half the oil and roast for 15 minutes.",
+        "Add the halved sprouts and garlic cloves and roast for 10 minutes more.",
+        "Slice the steak, season and sear in the rest of the oil in a hot pan for 2 to 3 minutes each side.",
+        "Serve the beef over the roasted vegetables."
+      ]
+    },
+    {
+      "id": "eggplant-lentil-collard-stew",
+      "title": "Eggplant, Lentil & Collard Stew",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 40,
+      "serves": 4,
+      "intro": "A slow, spiced vegan stew that gets better the next day.",
+      "whyThisPhase": "Lentils and collard greens are featured Menstrual foods for plant iron, with eggplant making the stew soft and filling.",
+      "keyFoods": [
+        "eggplant",
+        "green-lentil",
+        "collard",
+        "onion",
+        "garlic",
+        "ginger"
+      ],
+      "ingredients": [
+        {
+          "label": "Eggplant",
+          "amount": 1.0,
+          "unit": "lb",
+          "metric": "450 g",
+          "food": "eggplant"
+        },
+        {
+          "label": "Green lentils, dried",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "green-lentil"
+        },
+        {
+          "label": "Collard greens",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "collard"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Garlic",
+          "amount": 3,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Ginger",
+          "amount": 1,
+          "unit": "thumb",
+          "food": "ginger"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 2,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Gluten-free vegetable stock",
+          "amount": 3.0,
+          "unit": "cup",
+          "metric": "750 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cube the eggplant and brown in the oil for 6 minutes, then add the chopped onion, garlic and grated ginger for 4 minutes.",
+        "Stir in the cumin, lentils and stock, bring to the boil and simmer for 20 minutes.",
+        "Add the shredded collards and cook for 5 minutes until tender.",
+        "Season and serve."
+      ]
+    },
+    {
+      "id": "sesame-eggplant-tempeh-rice-bowl",
+      "title": "Sesame Eggplant & Tempeh Rice Bowl",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 30,
+      "serves": 2,
+      "intro": "Glossy sesame-tamari eggplant and crisp tempeh over rice.",
+      "whyThisPhase": "Tempeh and sesame seeds are featured Menstrual foods, with tempeh adding plant iron and the green pepper vitamin C.",
+      "keyFoods": [
+        "eggplant",
+        "tempeh",
+        "sesame-seeds",
+        "white-rice",
+        "green-bell-pepper",
+        "tamari"
+      ],
+      "ingredients": [
+        {
+          "label": "Eggplant",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "eggplant"
+        },
+        {
+          "label": "Tempeh",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "tempeh"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "White rice",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "white-rice"
+        },
+        {
+          "label": "Green pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "green-bell-pepper"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the rice according to the packet.",
+        "Fry the cubed eggplant in the oil for 8 minutes until golden, then add the sliced tempeh and pepper for 5 minutes.",
+        "Add the tamari and a splash of water and cook for 2 minutes until glossy.",
+        "Serve over the rice, scattered with the sesame seeds."
+      ]
+    },
+    {
+      "id": "mushroom-wild-rice-soup",
+      "title": "Mushroom & Wild Rice Soup",
+      "phase": "menstrual",
+      "category": "dinner",
+      "minutes": 50,
+      "serves": 4,
+      "intro": "A slow, earthy soup that is worth the simmer.",
+      "whyThisPhase": "Wild rice and kale are featured Menstrual foods, with kale adding some plant iron and vitamin C to a warming mushroom soup.",
+      "keyFoods": [
+        "wild-rice",
+        "mushrooms",
+        "kale",
+        "onion",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Wild rice",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "wild-rice"
+        },
+        {
+          "label": "Mushrooms",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "mushrooms"
+        },
+        {
+          "label": "Kale",
+          "amount": 2,
+          "unit": "handful",
+          "food": "kale"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Gluten-free vegetable stock",
+          "amount": 4.0,
+          "unit": "cup",
+          "metric": "1000 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Dried thyme",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the chopped onion and sliced mushrooms in the oil for 8 minutes, then add the garlic and thyme.",
+        "Add the rinsed wild rice and the stock, bring to the boil, cover and simmer for 35 to 40 minutes until the grains split.",
+        "Stir in the shredded kale for the last 5 minutes.",
+        "Season and serve."
+      ]
+    },
+    {
+      "id": "grape-papaya-cashew-fruit-cup",
+      "title": "Grape, Papaya & Cashew Fruit Cup",
+      "phase": "menstrual",
+      "category": "snack",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A juicy snack cup with a little crunch.",
+      "whyThisPhase": "Papaya is rich in vitamin C, and grapes and cashews are featured Menstrual foods, for an easy snack.",
+      "keyFoods": [
+        "grapes",
+        "papaya",
+        "cashew"
+      ],
+      "ingredients": [
+        {
+          "label": "Grapes",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "grapes"
+        },
+        {
+          "label": "Papaya",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "papaya"
+        },
+        {
+          "label": "Cashews",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "cashew"
+        },
+        {
+          "label": "Lime",
+          "amount": 0.5,
+          "unit": "piece",
+          "food": "lime"
+        }
+      ],
+      "steps": [
+        "Halve the grapes and cube the papaya.",
+        "Toss with the lime juice in two cups or small bowls.",
+        "Top with roughly chopped cashews."
+      ]
+    },
+    {
+      "id": "sesame-beet-dip-pepper-strips",
+      "title": "Sesame Beet Dip with Pepper Strips",
+      "phase": "menstrual",
+      "category": "snack",
+      "minutes": 15,
+      "serves": 4,
+      "intro": "A vivid pink dip for dunking crisp peppers.",
+      "whyThisPhase": "Beets and sesame seeds are featured Menstrual foods, and the peppers add vitamin C to an easy dipping snack.",
+      "keyFoods": [
+        "beets",
+        "tahini",
+        "sesame-seeds",
+        "yellow-bell-pepper",
+        "green-bell-pepper"
+      ],
+      "ingredients": [
+        {
+          "label": "Cooked beetroot",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "beets"
+        },
+        {
+          "label": "Tahini",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "tahini"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "Yellow pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "yellow-bell-pepper"
+        },
+        {
+          "label": "Green pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "green-bell-pepper"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Garlic",
+          "amount": 1,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Blend or finely mash the beetroot with the tahini, lemon juice, garlic, oil and salt until smooth.",
+        "Spoon into a bowl and scatter over the sesame seeds.",
+        "Cut the peppers into strips and serve alongside for dipping."
+      ]
+    },
+    {
+      "id": "oat-bran-plum-flax-porridge",
+      "title": "Oat Bran Porridge with Plum & Flaxseed",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A fast, creamy porridge that is ready in about ten minutes.",
+      "whyThisPhase": "Oat bran, plums, flaxseed and pecans are all featured Follicular foods, making a fresh, quick breakfast.",
+      "keyFoods": [
+        "oat-bran",
+        "milk",
+        "plum",
+        "flaxseeds",
+        "pecan"
+      ],
+      "ingredients": [
+        {
+          "label": "Oat bran",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "60 g",
+          "food": "oat-bran"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 1.5,
+          "unit": "cup",
+          "metric": "400 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Plums",
+          "amount": 2,
+          "unit": "piece",
+          "food": "plum"
+        },
+        {
+          "label": "Ground flaxseed",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "flaxseeds"
+        },
+        {
+          "label": "Pecans",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "20 g",
+          "food": "pecan"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Stir the oat bran into the milk in a small pan and cook over medium heat for 4 to 5 minutes, stirring, until thick.",
+        "Slice the plums and chop the pecans.",
+        "Spoon into bowls and top with the plums, flaxseed, pecans and cinnamon."
+      ]
+    },
+    {
+      "id": "egg-pea-breakfast-fried-rice",
+      "title": "Egg & Pea Breakfast Fried Rice",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A savoury breakfast that makes good use of leftover rice.",
+      "whyThisPhase": "Eggs and green peas are featured Follicular foods, making a quick, light savoury breakfast.",
+      "keyFoods": [
+        "brown-rice",
+        "eggs",
+        "green-pea",
+        "scallion",
+        "tamari"
+      ],
+      "ingredients": [
+        {
+          "label": "Cooked brown rice",
+          "amount": 1.5,
+          "unit": "cup",
+          "metric": "300 g",
+          "food": "brown-rice"
+        },
+        {
+          "label": "Eggs",
+          "amount": 3,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Frozen peas",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "green-pea"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oil in a wide pan and fry the sliced spring onions for 1 minute.",
+        "Add the rice and peas and stir-fry for 4 minutes until hot.",
+        "Push the rice to one side, scramble the beaten eggs in the gap, then mix everything together.",
+        "Season with the tamari and serve."
+      ]
+    },
+    {
+      "id": "plum-pomegranate-brazil-nut-yogurt",
+      "title": "Plum, Pomegranate & Brazil Nut Yogurt Bowl",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A tart, juicy yogurt bowl with a rich nutty finish.",
+      "whyThisPhase": "Plums, pomegranate and Brazil nuts are featured Follicular foods, for a fresh no-cook breakfast.",
+      "keyFoods": [
+        "plain-yogurt",
+        "plum",
+        "pomegranate",
+        "brazil-nut"
+      ],
+      "ingredients": [
+        {
+          "label": "Plain yogurt",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "plain-yogurt"
+        },
+        {
+          "label": "Plums",
+          "amount": 2,
+          "unit": "piece",
+          "food": "plum"
+        },
+        {
+          "label": "Pomegranate seeds",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "pomegranate"
+        },
+        {
+          "label": "Brazil nuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "brazil-nut"
+        }
+      ],
+      "steps": [
+        "Stone and slice the plums and roughly chop the Brazil nuts.",
+        "Spoon the yogurt into two bowls.",
+        "Top with the plums, pomegranate seeds and nuts."
+      ]
+    },
+    {
+      "id": "turnip-zucchini-egg-hash",
+      "title": "Turnip & Zucchini Egg Hash",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A crisp skillet hash with eggs cooked on top.",
+      "whyThisPhase": "Turnip, zucchini and eggs are featured Follicular foods, making a light, savoury skillet breakfast.",
+      "keyFoods": [
+        "turnip",
+        "zucchini",
+        "eggs",
+        "scallion",
+        "parsley"
+      ],
+      "ingredients": [
+        {
+          "label": "Turnips",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "turnip"
+        },
+        {
+          "label": "Zucchini",
+          "amount": 1,
+          "unit": "piece",
+          "food": "zucchini"
+        },
+        {
+          "label": "Eggs",
+          "amount": 4,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Parsley",
+          "amount": 1,
+          "unit": "handful",
+          "food": "parsley"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Grate the turnips and zucchini and squeeze out the liquid in a clean towel.",
+        "Fry in the oil for 8 minutes, turning, until golden at the edges, adding the sliced spring onions for the last 2 minutes.",
+        "Make four wells, crack in the eggs, cover and cook for 3 to 4 minutes.",
+        "Season and scatter over the parsley."
+      ]
+    },
+    {
+      "id": "napa-cabbage-egg-pancakes",
+      "title": "Savoury Napa Cabbage & Egg Pancakes",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Crisp-edged savoury pancakes for a weekend brunch.",
+      "whyThisPhase": "Napa cabbage and eggs are featured Follicular foods, making a light, quick savoury pancake.",
+      "keyFoods": [
+        "napa-cabbage",
+        "eggs",
+        "scallion",
+        "wheat-flour",
+        "tamari"
+      ],
+      "ingredients": [
+        {
+          "label": "Napa cabbage",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "napa-cabbage"
+        },
+        {
+          "label": "Eggs",
+          "amount": 3,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Plain flour",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "wheat-flour"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Shred the cabbage finely and slice the spring onions.",
+        "Beat the eggs with the flour, tamari and a splash of water, then stir in the vegetables.",
+        "Fry spoonfuls in the oil over medium heat for 3 minutes each side until golden.",
+        "Serve hot, with extra tamari for dipping."
+      ]
+    },
+    {
+      "id": "salmon-green-bean-egg-salad",
+      "title": "Canned Salmon & Green Bean Salad",
+      "phase": "follicular",
+      "category": "lunch",
+      "minutes": 18,
+      "serves": 2,
+      "intro": "A pantry salad with jammy eggs and crisp beans.",
+      "whyThisPhase": "Canned salmon, green beans, eggs and lettuce are featured Follicular foods, for a light, quick lunch.",
+      "keyFoods": [
+        "canned-salmon",
+        "string-bean",
+        "eggs",
+        "lettuce",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Canned salmon",
+          "amount": 1,
+          "unit": "can",
+          "metric": "7 oz / 200 g",
+          "food": "canned-salmon"
+        },
+        {
+          "label": "Green beans",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "string-bean"
+        },
+        {
+          "label": "Eggs",
+          "amount": 2,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Lettuce",
+          "amount": 2,
+          "unit": "handful",
+          "food": "lettuce"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Boil the eggs for 7 minutes, adding the trimmed green beans for the last 3 minutes. Cool under cold water.",
+        "Peel and quarter the eggs; flake the salmon, removing any large bones.",
+        "Whisk the lemon juice with the oil and a pinch of salt.",
+        "Toss the lettuce, beans and salmon with the dressing and top with the eggs."
+      ]
+    },
+    {
+      "id": "chicken-napa-noodle-slaw",
+      "title": "Chicken & Napa Cabbage Noodle Slaw",
+      "phase": "follicular",
+      "category": "lunch",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A crunchy, tangy slaw with poached chicken and rice noodles.",
+      "whyThisPhase": "Chicken and napa cabbage are featured Follicular foods, making a fresh, light bowl.",
+      "keyFoods": [
+        "chicken",
+        "napa-cabbage",
+        "rice-noodles",
+        "scallion",
+        "ginger",
+        "tamari"
+      ],
+      "ingredients": [
+        {
+          "label": "Chicken breast",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "chicken"
+        },
+        {
+          "label": "Napa cabbage",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "napa-cabbage"
+        },
+        {
+          "label": "Rice noodles",
+          "amount": 3.0,
+          "unit": "oz",
+          "metric": "80 g",
+          "food": "rice-noodles"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Ginger",
+          "amount": 1,
+          "unit": "thumb",
+          "food": "ginger"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Vinegar",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "vinegar"
+        }
+      ],
+      "steps": [
+        "Simmer the chicken in a pan of water for 12 minutes until cooked through, then shred.",
+        "Soak the noodles in boiling water for 4 minutes and drain.",
+        "Shred the cabbage and slice the spring onions; whisk the tamari, vinegar and grated ginger.",
+        "Toss everything together and serve."
+      ]
+    },
+    {
+      "id": "black-eyed-pea-turnip-zucchini-soup",
+      "title": "Black-Eyed Pea, Turnip & Zucchini Soup",
+      "phase": "follicular",
+      "category": "lunch",
+      "minutes": 35,
+      "serves": 4,
+      "intro": "A light, mild vegan soup that is easy to batch-cook.",
+      "whyThisPhase": "Black-eyed peas, turnip and zucchini are featured Follicular foods, making a light, fresh-tasting soup.",
+      "keyFoods": [
+        "black-eyed-pea",
+        "turnip",
+        "zucchini",
+        "onion",
+        "garlic",
+        "parsley"
+      ],
+      "ingredients": [
+        {
+          "label": "Black-eyed peas, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "black-eyed-pea"
+        },
+        {
+          "label": "Turnips",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "turnip"
+        },
+        {
+          "label": "Zucchini",
+          "amount": 1,
+          "unit": "piece",
+          "food": "zucchini"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Parsley",
+          "amount": 1,
+          "unit": "handful",
+          "food": "parsley"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Gluten-free vegetable stock",
+          "amount": 3.0,
+          "unit": "cup",
+          "metric": "750 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the chopped onion in the oil for 4 minutes, then add the garlic and diced turnips.",
+        "Add the stock and simmer for 12 minutes, then add the diced zucchini and the drained peas for 6 minutes.",
+        "Season, stir in the chopped parsley and serve."
+      ]
+    },
+    {
+      "id": "hummus-pomegranate-mezze-plate",
+      "title": "Hummus, Pomegranate & Cabbage Mezze Plate",
+      "phase": "follicular",
+      "category": "lunch",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "A no-cook sharing plate for a relaxed lunch.",
+      "whyThisPhase": "Hummus, pomegranate and cabbage are featured Follicular foods, making a fresh, light assembly lunch.",
+      "keyFoods": [
+        "hummus",
+        "pita-bread",
+        "pomegranate",
+        "cabbage",
+        "olives"
+      ],
+      "ingredients": [
+        {
+          "label": "Hummus",
+          "amount": 6,
+          "unit": "tbsp",
+          "food": "hummus"
+        },
+        {
+          "label": "Pita bread",
+          "amount": 2,
+          "unit": "piece",
+          "food": "pita-bread"
+        },
+        {
+          "label": "Pomegranate seeds",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "pomegranate"
+        },
+        {
+          "label": "White cabbage",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "cabbage"
+        },
+        {
+          "label": "Olives",
+          "amount": 1,
+          "unit": "handful",
+          "food": "olives"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Lemon",
+          "amount": 0.5,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Shred the cabbage finely and toss with the lemon juice, a drizzle of oil and a pinch of salt.",
+        "Spoon the hummus onto a plate and scatter with pomegranate seeds.",
+        "Warm the pita, cut into wedges and serve with the slaw and olives."
+      ]
+    },
+    {
+      "id": "pollock-cabbage-slaw-tacos",
+      "title": "Pollock Tacos with Cabbage Slaw",
+      "phase": "follicular",
+      "category": "dinner",
+      "minutes": 22,
+      "serves": 2,
+      "intro": "Mild, flaky fish tacos with a crunchy slaw and avocado.",
+      "whyThisPhase": "Pollock, cabbage and avocado are featured Follicular foods, making a light, quick fish dinner.",
+      "keyFoods": [
+        "pollock",
+        "tortillas",
+        "cabbage",
+        "avocado",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Pollock fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "food": "pollock"
+        },
+        {
+          "label": "Small tortillas",
+          "amount": 4,
+          "unit": "piece",
+          "food": "tortillas"
+        },
+        {
+          "label": "White cabbage",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "cabbage"
+        },
+        {
+          "label": "Avocado",
+          "amount": 1,
+          "unit": "piece",
+          "food": "avocado"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Shred the cabbage and toss with half the lime juice and a pinch of salt.",
+        "Rub the fish with cumin and salt and fry in the oil for 3 to 4 minutes each side, then break into chunks.",
+        "Warm the tortillas and slice the avocado.",
+        "Fill with fish, slaw and avocado and squeeze over the rest of the lime."
+      ]
+    },
+    {
+      "id": "scallop-bok-choy-rice-noodles",
+      "title": "Seared Scallops with Bok Choy & Rice Noodles",
+      "phase": "follicular",
+      "category": "dinner",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A short, special-occasion dinner that is on the table in 20 minutes.",
+      "whyThisPhase": "Scallops and bok choy are featured Follicular foods, making a light, quick-cooked dinner.",
+      "keyFoods": [
+        "scallop",
+        "bok-choy",
+        "rice-noodles",
+        "ginger",
+        "tamari"
+      ],
+      "ingredients": [
+        {
+          "label": "Scallops",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "scallop"
+        },
+        {
+          "label": "Bok choy",
+          "amount": 3,
+          "unit": "head",
+          "food": "bok-choy"
+        },
+        {
+          "label": "Rice noodles",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "rice-noodles"
+        },
+        {
+          "label": "Ginger",
+          "amount": 1,
+          "unit": "thumb",
+          "food": "ginger"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soak the noodles in boiling water for 4 minutes, then drain.",
+        "Pat the scallops dry and sear in half the oil in a very hot pan for 1 to 2 minutes each side. Set aside.",
+        "Stir-fry the halved bok choy and grated ginger in the rest of the oil for 3 minutes, then add the tamari and noodles.",
+        "Serve the scallops on top."
+      ]
+    },
+    {
+      "id": "chicken-farro-zucchini-skillet",
+      "title": "Chicken, Farro & Zucchini Skillet",
+      "phase": "follicular",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "A one-pan supper with chewy grains and a lemony finish.",
+      "whyThisPhase": "Chicken, farro, zucchini and arugula are featured Follicular foods, making a fresh, one-pan dinner.",
+      "keyFoods": [
+        "chicken",
+        "farro",
+        "zucchini",
+        "arugula",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Chicken thighs, boneless",
+          "amount": 12.0,
+          "unit": "oz",
+          "metric": "350 g",
+          "food": "chicken"
+        },
+        {
+          "label": "Pearled farro",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "farro"
+        },
+        {
+          "label": "Zucchini",
+          "amount": 1,
+          "unit": "piece",
+          "food": "zucchini"
+        },
+        {
+          "label": "Arugula",
+          "amount": 1,
+          "unit": "handful",
+          "food": "arugula"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Vegetable stock",
+          "amount": 2.0,
+          "unit": "cup",
+          "metric": "500 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Brown the sliced chicken in the oil in a wide pan for 6 minutes.",
+        "Add the farro and stock, cover and simmer for 15 minutes.",
+        "Add the sliced zucchini and cook for 5 minutes until the farro is tender and the stock is absorbed.",
+        "Stir through the arugula and lemon juice and season."
+      ]
+    },
+    {
+      "id": "pecan-crusted-trout-green-beans",
+      "title": "Pecan-Crusted Trout with Green Beans",
+      "phase": "follicular",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Oven-baked trout under a buttery pecan crust.",
+      "whyThisPhase": "Trout, pecans and green beans are featured Follicular foods, making a light, quick fish dinner.",
+      "keyFoods": [
+        "trout",
+        "pecan",
+        "string-bean",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Trout fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "metric": "5 oz / 140 g each",
+          "food": "trout"
+        },
+        {
+          "label": "Pecans",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "40 g",
+          "food": "pecan"
+        },
+        {
+          "label": "Green beans",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "string-bean"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 400°F (400°F (200°C)). Finely chop the pecans and mix with the lemon zest, a little oil and salt.",
+        "Put the trout on a lined tray, season and press the pecan mixture on top.",
+        "Bake for 12 to 15 minutes until the fish flakes.",
+        "Meanwhile, steam or boil the green beans for 5 minutes, dress with oil and lemon juice, and serve."
+      ]
+    },
+    {
+      "id": "date-brazil-nut-flax-bites",
+      "title": "Date, Brazil Nut & Flax Bites",
+      "phase": "follicular",
+      "category": "snack",
+      "minutes": 15,
+      "serves": 4,
+      "intro": "No-bake bites that keep for a week in the fridge.",
+      "whyThisPhase": "Brazil nuts, flaxseed and oat bran are featured Follicular foods, rolled into an easy no-bake snack.",
+      "keyFoods": [
+        "date",
+        "brazil-nut",
+        "flaxseeds",
+        "oat-bran"
+      ],
+      "ingredients": [
+        {
+          "label": "Pitted dates",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "date"
+        },
+        {
+          "label": "Brazil nuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "50 g",
+          "food": "brazil-nut"
+        },
+        {
+          "label": "Ground flaxseed",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "flaxseeds"
+        },
+        {
+          "label": "Oat bran",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "oat-bran"
+        },
+        {
+          "label": "Salt",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Blend or finely chop the Brazil nuts, then mash in the dates, flaxseed, oat bran and salt until it sticks together.",
+        "Roll into small balls with damp hands.",
+        "Chill for 20 minutes before serving."
+      ]
+    },
+    {
+      "id": "mango-raspberry-kefir-bowl",
+      "title": "Mango & Raspberry Kefir Smoothie Bowl",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A thick, tangy fruit bowl you can eat with a spoon.",
+      "whyThisPhase": "Kefir, mango, raspberries and pistachios are featured Ovulatory foods, making a bright, cool breakfast.",
+      "keyFoods": [
+        "kefir",
+        "mango",
+        "raspberry",
+        "pistachio"
+      ],
+      "ingredients": [
+        {
+          "label": "Kefir",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "kefir"
+        },
+        {
+          "label": "Mango",
+          "amount": 1,
+          "unit": "piece",
+          "food": "mango"
+        },
+        {
+          "label": "Raspberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "raspberry"
+        },
+        {
+          "label": "Pistachios, shelled",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "pistachio"
+        }
+      ],
+      "steps": [
+        "Blend the kefir with the peeled mango and half the raspberries until thick and smooth.",
+        "Pour into two bowls.",
+        "Top with the remaining raspberries and chopped pistachios."
+      ]
+    },
+    {
+      "id": "ricotta-strawberry-pancakes",
+      "title": "Ricotta Pancakes with Strawberries",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Soft, fluffy pancakes for a leisurely morning.",
+      "whyThisPhase": "Ricotta and strawberries are featured Ovulatory foods, for a fresh, bright weekend breakfast.",
+      "keyFoods": [
+        "ricotta",
+        "eggs",
+        "wheat-flour",
+        "milk",
+        "strawberry"
+      ],
+      "ingredients": [
+        {
+          "label": "Ricotta",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "ricotta"
+        },
+        {
+          "label": "Eggs",
+          "amount": 2,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Plain flour",
+          "amount": 3.0,
+          "unit": "oz",
+          "metric": "80 g",
+          "food": "wheat-flour"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Strawberries",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "strawberry"
+        },
+        {
+          "label": "Baking powder",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Whisk the ricotta, eggs and milk, then fold in the flour and baking powder to a thick batter.",
+        "Cook spoonfuls in a lightly oiled pan for 2 to 3 minutes each side until golden.",
+        "Slice the strawberries and serve over the pancakes."
+      ]
+    },
+    {
+      "id": "tofu-asparagus-scramble",
+      "title": "Tofu Scramble with Asparagus & Red Pepper",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 17,
+      "serves": 2,
+      "intro": "A plant-based scramble with fresh spring flavours.",
+      "whyThisPhase": "Tofu, asparagus and red pepper are featured Ovulatory foods, making a quick, colourful breakfast.",
+      "keyFoods": [
+        "tofu",
+        "asparagus",
+        "red-bell-pepper",
+        "scallion"
+      ],
+      "ingredients": [
+        {
+          "label": "Firm tofu",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "tofu"
+        },
+        {
+          "label": "Asparagus",
+          "amount": 1,
+          "unit": "bunch",
+          "food": "asparagus"
+        },
+        {
+          "label": "Red pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "red-bell-pepper"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 2,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Ground turmeric",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Slice the asparagus and pepper and fry in the oil for 5 minutes.",
+        "Crumble in the tofu with the turmeric and salt and cook for 5 minutes, stirring.",
+        "Stir in the sliced spring onions and serve."
+      ]
+    },
+    {
+      "id": "apricot-hazelnut-overnight-oats",
+      "title": "Apricot & Hazelnut Overnight Oats",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "Mix it in the evening and breakfast is ready.",
+      "whyThisPhase": "Apricots and hazelnuts are featured Ovulatory foods, making a fresh, make-ahead breakfast.",
+      "keyFoods": [
+        "oat",
+        "milk",
+        "apricot",
+        "hazelnuts"
+      ],
+      "ingredients": [
+        {
+          "label": "Rolled oats",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "80 g",
+          "food": "oat"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "200 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Fresh apricots",
+          "amount": 4,
+          "unit": "piece",
+          "food": "apricot"
+        },
+        {
+          "label": "Hazelnuts",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "hazelnuts"
+        }
+      ],
+      "steps": [
+        "Stir the oats and milk together in a jar or bowl and refrigerate overnight.",
+        "In the morning, stone and slice the apricots and chop the hazelnuts.",
+        "Top the oats with the apricots and hazelnuts."
+      ]
+    },
+    {
+      "id": "shrimp-snap-pea-noodle-salad",
+      "title": "Shrimp & Sugar Snap Pea Noodle Salad",
+      "phase": "ovulatory",
+      "category": "lunch",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A cool, crunchy noodle salad with a lime and tamari dressing.",
+      "whyThisPhase": "Shrimp, sugar snap peas and radishes are featured Ovulatory foods, making a crisp, cool noodle salad.",
+      "keyFoods": [
+        "shrimp",
+        "sugar-snap-peas",
+        "rice-noodles",
+        "radish",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Cooked peeled prawns",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "shrimp"
+        },
+        {
+          "label": "Sugar snap peas",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "120 g",
+          "food": "sugar-snap-peas"
+        },
+        {
+          "label": "Rice noodles",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "rice-noodles"
+        },
+        {
+          "label": "Radishes",
+          "amount": 4,
+          "unit": "piece",
+          "food": "radish"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "tamari"
+        }
+      ],
+      "steps": [
+        "Soak the noodles in boiling water for 4 minutes, drain and rinse under cold water.",
+        "Slice the snap peas and radishes thinly.",
+        "Whisk the lime juice with the tamari.",
+        "Toss the noodles, vegetables and prawns with the dressing."
+      ]
+    },
+    {
+      "id": "crab-red-cabbage-pickle-sandwich",
+      "title": "Crab, Red Cabbage & Pickle Sandwich",
+      "phase": "ovulatory",
+      "category": "lunch",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "A crunchy open sandwich with a tangy yogurt dressing.",
+      "whyThisPhase": "Crab, red cabbage and pickles are featured Ovulatory foods, making a crisp, fresh sandwich.",
+      "keyFoods": [
+        "crab",
+        "red-cabbage",
+        "pickles",
+        "sourdough-bread",
+        "plain-yogurt"
+      ],
+      "ingredients": [
+        {
+          "label": "White crab meat",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "crab"
+        },
+        {
+          "label": "Red cabbage",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "red-cabbage"
+        },
+        {
+          "label": "Gherkins",
+          "amount": 2,
+          "unit": "piece",
+          "food": "pickles"
+        },
+        {
+          "label": "Sourdough bread",
+          "amount": 4,
+          "unit": "piece",
+          "food": "sourdough-bread"
+        },
+        {
+          "label": "Plain yogurt",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "plain-yogurt"
+        },
+        {
+          "label": "Lemon",
+          "amount": 0.5,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Shred the red cabbage and dice the gherkins.",
+        "Mix with the crab, yogurt, lemon juice and pepper.",
+        "Toast the bread and pile the crab mixture on top."
+      ]
+    },
+    {
+      "id": "cold-sesame-tofu-soba",
+      "title": "Cold Sesame Tofu & Bean Sprout Soba",
+      "phase": "ovulatory",
+      "category": "lunch",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "Chilled buckwheat noodles with crisp tofu and sprouts.",
+      "whyThisPhase": "Tofu and bean sprouts are featured Ovulatory foods, making a chilled, quick-cooked noodle lunch.",
+      "keyFoods": [
+        "tofu",
+        "bean-sprouts",
+        "soba-noodles",
+        "scallion",
+        "tamari",
+        "sesame-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Firm tofu",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "tofu"
+        },
+        {
+          "label": "Bean sprouts",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "bean-sprouts"
+        },
+        {
+          "label": "Soba noodles",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "soba-noodles"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 3,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the soba according to the packet, then rinse under cold water and drain.",
+        "Fry the cubed tofu in the oil for 6 minutes until golden.",
+        "Toss the noodles with the tamari, sprouts and sliced spring onions.",
+        "Top with the tofu and sesame seeds."
+      ]
+    },
+    {
+      "id": "peach-ricotta-arugula-flatbread",
+      "title": "Peach, Ricotta & Arugula Flatbread",
+      "phase": "ovulatory",
+      "category": "lunch",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "Sweet peach, creamy ricotta and a peppery finish on warm naan.",
+      "whyThisPhase": "Peach, ricotta and arugula are featured Ovulatory foods, making a fresh, bright flatbread lunch.",
+      "keyFoods": [
+        "naan",
+        "ricotta",
+        "peach",
+        "arugula"
+      ],
+      "ingredients": [
+        {
+          "label": "Naan breads",
+          "amount": 2,
+          "unit": "piece",
+          "food": "naan"
+        },
+        {
+          "label": "Ricotta",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "120 g",
+          "food": "ricotta"
+        },
+        {
+          "label": "Peaches",
+          "amount": 2,
+          "unit": "piece",
+          "food": "peach"
+        },
+        {
+          "label": "Arugula",
+          "amount": 1,
+          "unit": "handful",
+          "food": "arugula"
+        },
+        {
+          "label": "Honey",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "honey"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Warm the naan in a hot pan or oven for 3 minutes.",
+        "Spread with ricotta and top with sliced peaches.",
+        "Drizzle with honey, add pepper and finish with the arugula."
+      ]
+    },
+    {
+      "id": "sea-bass-pineapple-slaw",
+      "title": "Pan-Seared Sea Bass with Pineapple Slaw",
+      "phase": "ovulatory",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Crisp-skinned fish with a sweet-sharp slaw.",
+      "whyThisPhase": "Sea bass, pineapple and red cabbage are featured Ovulatory foods, making a bright, quick-cooked dinner.",
+      "keyFoods": [
+        "sea-bass",
+        "pineapple",
+        "red-cabbage",
+        "lime",
+        "mint"
+      ],
+      "ingredients": [
+        {
+          "label": "Sea bass fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "metric": "5 oz / 140 g each",
+          "food": "sea-bass"
+        },
+        {
+          "label": "Pineapple",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "pineapple"
+        },
+        {
+          "label": "Red cabbage",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "red-cabbage"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Mint",
+          "amount": 1,
+          "unit": "handful",
+          "food": "mint"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Shred the cabbage, dice the pineapple and toss with the lime juice, torn mint and a pinch of salt.",
+        "Season the fish and fry skin-side down in the oil for 4 minutes until crisp.",
+        "Flip and cook for 2 minutes more.",
+        "Serve the fish on the slaw."
+      ]
+    },
+    {
+      "id": "shrimp-asparagus-lemon-pasta",
+      "title": "Shrimp & Asparagus Lemon Pasta",
+      "phase": "ovulatory",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A fast, fresh pasta with spring vegetables.",
+      "whyThisPhase": "Shrimp and asparagus are featured Ovulatory foods, making a quick-cooked, bright pasta dinner.",
+      "keyFoods": [
+        "pasta",
+        "shrimp",
+        "asparagus",
+        "garlic",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Pasta",
+          "amount": 6.0,
+          "unit": "oz",
+          "metric": "180 g",
+          "food": "pasta"
+        },
+        {
+          "label": "Raw peeled prawns",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "shrimp"
+        },
+        {
+          "label": "Asparagus",
+          "amount": 1,
+          "unit": "bunch",
+          "food": "asparagus"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the pasta in salted water; add the asparagus pieces for the last 3 minutes. Keep a mug of the water.",
+        "Fry the sliced garlic in the oil for 1 minute, add the prawns and cook for 3 minutes until pink.",
+        "Toss the drained pasta and asparagus with the prawns, lemon zest and juice and a splash of cooking water."
+      ]
+    },
+    {
+      "id": "tofu-banh-mi-bowl",
+      "title": "Tofu Banh Mi Bowl with Pickles & Radish",
+      "phase": "ovulatory",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Crisp tofu with tangy pickles over rice.",
+      "whyThisPhase": "Tofu, pickles and radishes are featured Ovulatory foods, making a crisp, bright rice bowl.",
+      "keyFoods": [
+        "tofu",
+        "pickles",
+        "radish",
+        "white-rice",
+        "scallion",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Firm tofu",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "tofu"
+        },
+        {
+          "label": "Pickles, sliced",
+          "amount": 3,
+          "unit": "piece",
+          "food": "pickles"
+        },
+        {
+          "label": "Radishes",
+          "amount": 4,
+          "unit": "piece",
+          "food": "radish"
+        },
+        {
+          "label": "White rice",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "white-rice"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 2,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "tamari"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the rice according to the packet.",
+        "Fry the cubed tofu in the oil for 6 minutes until golden, then add the tamari.",
+        "Slice the pickles, radishes and spring onions.",
+        "Serve the tofu and vegetables over the rice with a squeeze of lime."
+      ]
+    },
+    {
+      "id": "melon-raspberry-kefir-cups",
+      "title": "Melon & Raspberry Cups with Kefir",
+      "phase": "ovulatory",
+      "category": "snack",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A cool, hydrating snack with a tangy kefir drizzle.",
+      "whyThisPhase": "Cantaloupe, honeydew, raspberries and kefir are featured Ovulatory foods, for a cool, hydrating snack.",
+      "keyFoods": [
+        "cantaloupe",
+        "honeydew",
+        "raspberry",
+        "kefir",
+        "mint"
+      ],
+      "ingredients": [
+        {
+          "label": "Cantaloupe",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "cantaloupe"
+        },
+        {
+          "label": "Honeydew melon",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "honeydew"
+        },
+        {
+          "label": "Raspberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "raspberry"
+        },
+        {
+          "label": "Kefir",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "150 ml",
+          "food": "kefir"
+        },
+        {
+          "label": "Mint",
+          "amount": 1,
+          "unit": "handful",
+          "food": "mint"
+        }
+      ],
+      "steps": [
+        "Cut the melons into small cubes.",
+        "Divide between two glasses with the raspberries.",
+        "Pour over the kefir and top with torn mint."
+      ]
+    },
+    {
+      "id": "mandarin-cherry-pistachio-snack-plate",
+      "title": "Mandarin, Cherry & Pistachio Snack Plate",
+      "phase": "ovulatory",
+      "category": "snack",
+      "minutes": 5,
+      "serves": 2,
+      "intro": "A sweet and savoury snack plate in five minutes.",
+      "whyThisPhase": "Mandarins, sweet cherries, pistachios and cottage cheese are featured Ovulatory foods, for a fresh, light snack.",
+      "keyFoods": [
+        "mandarin",
+        "sweet-cherry",
+        "pistachio",
+        "cottage-cheese"
+      ],
+      "ingredients": [
+        {
+          "label": "Mandarins",
+          "amount": 2,
+          "unit": "piece",
+          "food": "mandarin"
+        },
+        {
+          "label": "Sweet cherries",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "sweet-cherry"
+        },
+        {
+          "label": "Pistachios, shelled",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "pistachio"
+        },
+        {
+          "label": "Cottage cheese",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "cottage-cheese"
+        }
+      ],
+      "steps": [
+        "Peel and segment the mandarins.",
+        "Spoon the cottage cheese onto two plates.",
+        "Arrange the mandarins and cherries alongside and scatter over the pistachios."
+      ]
+    },
+    {
+      "id": "buckwheat-blackberry-nut-porridge",
+      "title": "Buckwheat Porridge with Blackberries & Mixed Nuts",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A nutty, cosy porridge made with buckwheat groats.",
+      "whyThisPhase": "Buckwheat, blackberries and mixed nuts are featured Luteal foods, for a hearty, filling porridge.",
+      "keyFoods": [
+        "buckwheat",
+        "milk",
+        "blackberry",
+        "mixed-nuts"
+      ],
+      "ingredients": [
+        {
+          "label": "Buckwheat groats",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "buckwheat"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Blackberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "blackberry"
+        },
+        {
+          "label": "Mixed nuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "mixed-nuts"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Rinse the buckwheat and simmer with the milk and about ½ cup (100 ml) water for 12 to 15 minutes, stirring now and then, until soft.",
+        "Chop the nuts roughly.",
+        "Spoon into bowls and top with the blackberries, nuts and cinnamon."
+      ]
+    },
+    {
+      "id": "peanut-butter-banana-chia-toast",
+      "title": "Peanut Butter, Banana & Chia Toast",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 8,
+      "serves": 2,
+      "intro": "A filling five-minute breakfast.",
+      "whyThisPhase": "Peanut butter, bananas, chia seeds and whole-grain bread are featured Luteal foods, making a filling, fast breakfast.",
+      "keyFoods": [
+        "whole-grain-bread",
+        "nut-butter",
+        "banana",
+        "chia-seeds",
+        "peanuts"
+      ],
+      "ingredients": [
+        {
+          "label": "Whole-grain bread",
+          "amount": 4,
+          "unit": "piece",
+          "food": "whole-grain-bread"
+        },
+        {
+          "label": "Peanut butter",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "nut-butter"
+        },
+        {
+          "label": "Bananas",
+          "amount": 2,
+          "unit": "piece",
+          "food": "banana"
+        },
+        {
+          "label": "Chia seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "chia-seeds"
+        },
+        {
+          "label": "Peanuts, chopped",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "peanuts"
+        }
+      ],
+      "steps": [
+        "Toast the bread.",
+        "Spread with the peanut butter and top with sliced banana.",
+        "Sprinkle over the chia seeds and chopped peanuts."
+      ]
+    },
+    {
+      "id": "fig-goat-cheese-walnut-toast",
+      "title": "Fig, Goat Cheese & Walnut Toast",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 13,
+      "serves": 2,
+      "intro": "Sweet figs and tangy goat cheese on crunchy toast.",
+      "whyThisPhase": "Figs, goat cheese, walnuts and whole-grain bread are featured Luteal foods, making a simple, satisfying toast.",
+      "keyFoods": [
+        "whole-grain-bread",
+        "fig",
+        "goat-cheese",
+        "walnut"
+      ],
+      "ingredients": [
+        {
+          "label": "Whole-grain bread",
+          "amount": 4,
+          "unit": "piece",
+          "food": "whole-grain-bread"
+        },
+        {
+          "label": "Fresh figs",
+          "amount": 4,
+          "unit": "piece",
+          "food": "fig"
+        },
+        {
+          "label": "Goat cheese",
+          "amount": 3.0,
+          "unit": "oz",
+          "metric": "80 g",
+          "food": "goat-cheese"
+        },
+        {
+          "label": "Walnuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "walnut"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Toast the bread and toast the walnuts in a dry pan for 2 minutes.",
+        "Spread the toast with goat cheese.",
+        "Top with sliced figs and chopped walnuts and finish with pepper."
+      ]
+    },
+    {
+      "id": "sweet-potato-pinto-breakfast-hash",
+      "title": "Sweet Potato & Pinto Bean Breakfast Hash",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "A hearty skillet hash with eggs on top.",
+      "whyThisPhase": "Sweet potato, pinto beans and kale are featured Luteal foods, with beans adding protein and fibre to a filling breakfast.",
+      "keyFoods": [
+        "sweet-potato",
+        "pinto-beans",
+        "eggs",
+        "onion",
+        "kale"
+      ],
+      "ingredients": [
+        {
+          "label": "Sweet potato",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "sweet-potato"
+        },
+        {
+          "label": "Pinto beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "pinto-beans"
+        },
+        {
+          "label": "Eggs",
+          "amount": 4,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Kale",
+          "amount": 2,
+          "unit": "handful",
+          "food": "kale"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Fry the diced sweet potato and chopped onion in the oil for 12 minutes until tender and browned.",
+        "Add the drained beans, paprika and shredded kale and cook for 4 minutes.",
+        "Make four wells, crack in the eggs, cover and cook for 4 minutes.",
+        "Season and serve from the pan."
+      ]
+    },
+    {
+      "id": "pear-barley-sunflower-porridge",
+      "title": "Pear & Barley Porridge with Sunflower Seeds",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 40,
+      "serves": 2,
+      "intro": "A slow, chewy porridge for a cosy morning.",
+      "whyThisPhase": "Barley, pears and sunflower seeds are featured Luteal foods, with barley adding fibre and slower-digesting carbohydrate to a filling porridge.",
+      "keyFoods": [
+        "barley",
+        "milk",
+        "pear",
+        "sunflower-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Pearl barley",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "barley"
+        },
+        {
+          "label": "Milk or unsweetened plant milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "milk"
+        },
+        {
+          "label": "Pears",
+          "amount": 2,
+          "unit": "piece",
+          "food": "pear"
+        },
+        {
+          "label": "Sunflower seeds",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "sunflower-seeds"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Simmer the barley in the milk and 1 cup (300 ml) water for 30 to 35 minutes, stirring now and then, until tender and creamy.",
+        "Dice the pears and stir half in for the last 5 minutes.",
+        "Spoon into bowls and top with the remaining pear, sunflower seeds and cinnamon."
+      ]
+    },
+    {
+      "id": "pumpkin-mozzarella-panini",
+      "title": "Roast Pumpkin & Mozzarella Panini",
+      "phase": "luteal",
+      "category": "lunch",
+      "minutes": 30,
+      "serves": 2,
+      "intro": "A warm, melty sandwich with sweet roasted pumpkin.",
+      "whyThisPhase": "Pumpkin and mozzarella are featured Luteal foods, making a warm, filling sandwich.",
+      "keyFoods": [
+        "pumpkin",
+        "mozzarella",
+        "sourdough-bread",
+        "onion"
+      ],
+      "ingredients": [
+        {
+          "label": "Pumpkin or squash",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "pumpkin"
+        },
+        {
+          "label": "Mozzarella",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "120 g",
+          "food": "mozzarella"
+        },
+        {
+          "label": "Sourdough bread",
+          "amount": 4,
+          "unit": "piece",
+          "food": "sourdough-bread"
+        },
+        {
+          "label": "Onion",
+          "amount": 0.5,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 400°F (400°F (200°C)). Slice the pumpkin and onion thinly, toss with half the oil and salt, and roast for 18 to 20 minutes.",
+        "Layer the pumpkin, onion and sliced mozzarella between the bread.",
+        "Brush the outside with the rest of the oil and toast in a hot pan for 3 minutes each side, pressing down, until golden and melted."
+      ]
+    },
+    {
+      "id": "turkey-swiss-apple-sandwich",
+      "title": "Turkey, Swiss & Apple Sandwich",
+      "phase": "luteal",
+      "category": "lunch",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A crunchy, sweet-and-savoury sandwich with no cooking.",
+      "whyThisPhase": "Turkey, Swiss cheese and apple are featured Luteal foods; the turkey and cheese bring protein to an easy sandwich.",
+      "keyFoods": [
+        "rye-bread",
+        "turkey",
+        "swiss-cheese",
+        "apple"
+      ],
+      "ingredients": [
+        {
+          "label": "Rye bread",
+          "amount": 4,
+          "unit": "piece",
+          "food": "rye-bread"
+        },
+        {
+          "label": "Cooked turkey slices",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "turkey"
+        },
+        {
+          "label": "Swiss cheese",
+          "amount": 3.0,
+          "unit": "oz",
+          "metric": "80 g",
+          "food": "swiss-cheese"
+        },
+        {
+          "label": "Apple",
+          "amount": 1,
+          "unit": "piece",
+          "food": "apple"
+        },
+        {
+          "label": "Black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Core and thinly slice the apple.",
+        "Layer the turkey, cheese and apple on two slices of bread and add pepper.",
+        "Top with the remaining bread, press down and cut in half."
+      ]
+    },
+    {
+      "id": "mackerel-lima-artichoke-salad",
+      "title": "Mackerel, Lima Bean & Artichoke Salad",
+      "phase": "luteal",
+      "category": "lunch",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "A pantry-friendly salad of canned fish, beans and artichokes.",
+      "whyThisPhase": "Mackerel, lima beans and artichokes are featured Luteal foods; the fish and beans bring protein, and the beans and artichokes fibre.",
+      "keyFoods": [
+        "mackerel",
+        "lima-bean",
+        "artichoke",
+        "parsley",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Canned mackerel fillets",
+          "amount": 2,
+          "unit": "can",
+          "metric": "4 oz / 120 g each",
+          "food": "mackerel"
+        },
+        {
+          "label": "Lima beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "lima-bean"
+        },
+        {
+          "label": "Artichoke hearts, jarred",
+          "amount": 1,
+          "unit": "jar",
+          "metric": "12 oz / 340 g",
+          "food": "artichoke"
+        },
+        {
+          "label": "Parsley",
+          "amount": 1,
+          "unit": "handful",
+          "food": "parsley"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Drain the beans and artichokes and quarter the artichokes.",
+        "Whisk the lemon juice, oil and salt, and toss through the beans, artichokes and chopped parsley.",
+        "Flake the mackerel over the top and serve."
+      ]
+    },
+    {
+      "id": "kimchi-egg-brown-rice-bowl",
+      "title": "Kimchi Fried Brown Rice with Egg",
+      "phase": "luteal",
+      "category": "lunch",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A spicy, tangy fried-rice bowl with a runny egg.",
+      "whyThisPhase": "Brown rice, kimchi, edamame and eggs make a filling bowl, with brown rice bringing fibre and slower-digesting carbohydrate.",
+      "keyFoods": [
+        "brown-rice",
+        "kimchi",
+        "eggs",
+        "edamame",
+        "scallion"
+      ],
+      "ingredients": [
+        {
+          "label": "Cooked brown rice",
+          "amount": 1.5,
+          "unit": "cup",
+          "metric": "300 g",
+          "food": "brown-rice"
+        },
+        {
+          "label": "Kimchi",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "kimchi"
+        },
+        {
+          "label": "Eggs",
+          "amount": 2,
+          "unit": "piece",
+          "food": "eggs"
+        },
+        {
+          "label": "Edamame, shelled",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "edamame"
+        },
+        {
+          "label": "Spring onions",
+          "amount": 2,
+          "unit": "piece",
+          "food": "scallion"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Fry the chopped kimchi in half the oil for 2 minutes, then add the rice and edamame and stir-fry for 5 minutes.",
+        "Fry the eggs in the rest of the oil in a separate pan until the whites are set.",
+        "Serve the rice in bowls topped with the eggs and sliced spring onions."
+      ]
+    },
+    {
+      "id": "peanut-lime-noodle-bowl",
+      "title": "Peanut-Lime Noodle Bowl with Edamame",
+      "phase": "luteal",
+      "category": "lunch",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "Buckwheat noodles in a creamy peanut dressing.",
+      "whyThisPhase": "Peanuts, nut butter and edamame are featured Luteal foods, and with soba noodles they bring protein and fibre to a filling noodle bowl.",
+      "keyFoods": [
+        "soba-noodles",
+        "nut-butter",
+        "peanuts",
+        "edamame",
+        "cabbage",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Soba noodles",
+          "amount": 5.0,
+          "unit": "oz",
+          "metric": "150 g",
+          "food": "soba-noodles"
+        },
+        {
+          "label": "Peanut butter",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "nut-butter"
+        },
+        {
+          "label": "Peanuts, chopped",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "peanuts"
+        },
+        {
+          "label": "Edamame, shelled",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "120 g",
+          "food": "edamame"
+        },
+        {
+          "label": "White cabbage",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "cabbage"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Tamari or soy sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "tamari"
+        }
+      ],
+      "steps": [
+        "Cook the soba according to the packet, adding the edamame for the last 2 minutes. Drain.",
+        "Whisk the peanut butter with the lime juice, tamari and 3 tablespoons of warm water.",
+        "Toss the noodles and edamame with the dressing and the shredded cabbage.",
+        "Top with chopped peanuts."
+      ]
+    },
+    {
+      "id": "halibut-parsnip-lemon-bake",
+      "title": "Roasted Halibut with Parsnips & Lemon",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "Tender fish over sweet roasted parsnips.",
+      "whyThisPhase": "Halibut and parsnips are featured Luteal foods; the fish brings protein to a cosy, roasted dinner.",
+      "keyFoods": [
+        "halibut",
+        "parsnip",
+        "parsley",
+        "lemon",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Halibut fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "food": "halibut"
+        },
+        {
+          "label": "Parsnips",
+          "amount": 12.0,
+          "unit": "oz",
+          "metric": "350 g",
+          "food": "parsnip"
+        },
+        {
+          "label": "Parsley",
+          "amount": 1,
+          "unit": "handful",
+          "food": "parsley"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 425°F (220°C). Toss the parsnip batons and garlic with half the oil and roast for 15 minutes.",
+        "Nestle in the seasoned halibut, drizzle with the rest of the oil and add lemon slices.",
+        "Roast for 8 to 10 minutes until the fish flakes.",
+        "Scatter over the parsley and serve."
+      ]
+    },
+    {
+      "id": "flounder-buckwheat-green-bean-bake",
+      "title": "Baked Flounder with Buckwheat & Green Beans",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 30,
+      "serves": 2,
+      "intro": "A light fish dish on a bed of nutty buckwheat.",
+      "whyThisPhase": "Flounder, buckwheat and green beans are featured Luteal foods; the fish brings protein and the buckwheat slower-digesting carbohydrate.",
+      "keyFoods": [
+        "flounder",
+        "buckwheat",
+        "string-bean",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Flounder fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "food": "flounder"
+        },
+        {
+          "label": "Buckwheat groats",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "buckwheat"
+        },
+        {
+          "label": "Green beans",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "string-bean"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Simmer the rinsed buckwheat in twice its volume of water for 12 minutes, covered, then rest for 5 minutes.",
+        "Heat the oven to 400°F (400°F (200°C)) and lay the flounder on a lined tray with the trimmed beans, oil, lemon slices and salt.",
+        "Bake for 10 to 12 minutes until the fish is opaque.",
+        "Serve the fish and beans over the buckwheat."
+      ]
+    },
+    {
+      "id": "snapper-cauliflower-chickpea-tray",
+      "title": "Snapper, Cauliflower & Chickpea Tray",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "A one-tray dinner with smoky roasted vegetables.",
+      "whyThisPhase": "Snapper, cauliflower and chickpeas are featured Luteal foods; the fish and chickpeas bring protein, and the chickpeas fibre.",
+      "keyFoods": [
+        "red-snapper",
+        "cauliflower",
+        "chickpea",
+        "lemon",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Snapper fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "food": "red-snapper"
+        },
+        {
+          "label": "Cauliflower",
+          "amount": 0.5,
+          "unit": "head",
+          "food": "cauliflower"
+        },
+        {
+          "label": "Chickpeas, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "chickpea"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Heat the oven to 425°F (220°C). Toss the cauliflower florets, drained chickpeas, garlic, paprika, salt and two-thirds of the oil on a tray and roast for 15 minutes.",
+        "Nestle in the seasoned snapper, drizzle with the rest of the oil and add lemon slices.",
+        "Roast for 8 to 10 minutes until the fish flakes.",
+        "Squeeze over the lemon and serve."
+      ]
+    },
+    {
+      "id": "tilapia-pinto-bean-tacos",
+      "title": "Tilapia & Pinto Bean Tacos",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Easy weeknight tacos with spiced fish and beans.",
+      "whyThisPhase": "Tilapia and pinto beans are featured Luteal foods, and the beans add protein and fibre to a filling taco supper.",
+      "keyFoods": [
+        "tilapia",
+        "pinto-beans",
+        "tortillas",
+        "cabbage",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Tilapia fillets",
+          "amount": 2,
+          "unit": "fillet",
+          "food": "tilapia"
+        },
+        {
+          "label": "Pinto beans, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "pinto-beans"
+        },
+        {
+          "label": "Small tortillas",
+          "amount": 4,
+          "unit": "piece",
+          "food": "tortillas"
+        },
+        {
+          "label": "White cabbage",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "cabbage"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Warm the drained beans with half the cumin and a splash of water for 5 minutes, mashing a few.",
+        "Season the fish with the rest of the cumin and salt and fry in the oil for 3 minutes each side, then flake.",
+        "Shred the cabbage and warm the tortillas.",
+        "Fill with beans, fish and cabbage and squeeze over the lime."
+      ]
+    },
+    {
+      "id": "pork-apple-sweet-potato-skillet",
+      "title": "Pork, Apple & Sweet Potato Skillet",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "A cosy autumn skillet that cooks in one pan.",
+      "whyThisPhase": "Pork, apples and sweet potato are featured Luteal foods; the pork brings protein and the sweet potato a steady, filling carbohydrate.",
+      "keyFoods": [
+        "pork",
+        "apple",
+        "sweet-potato",
+        "onion"
+      ],
+      "ingredients": [
+        {
+          "label": "Pork loin, sliced",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "pork"
+        },
+        {
+          "label": "Apples",
+          "amount": 2,
+          "unit": "piece",
+          "food": "apple"
+        },
+        {
+          "label": "Sweet potatoes",
+          "amount": 2,
+          "unit": "piece",
+          "food": "sweet-potato"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Dried thyme",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Fry the diced sweet potatoes in the oil for 10 minutes until starting to soften, then add the chopped onion for 4 minutes.",
+        "Push to the side, sear the seasoned pork for 3 minutes each side and slice.",
+        "Add the wedged apples and thyme and cook for 4 minutes.",
+        "Combine everything in the pan and serve."
+      ]
+    },
+    {
+      "id": "lamb-bulgur-kofta-bowl",
+      "title": "Lamb Kofta Bowl with Bulgur",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 2,
+      "intro": "Spiced lamb patties over bulgur with cool yogurt.",
+      "whyThisPhase": "Lamb and bulgur are featured Luteal foods; the lamb brings protein and the bulgur fibre and slower-digesting carbohydrate.",
+      "keyFoods": [
+        "lamb",
+        "bulgur",
+        "parsley",
+        "plain-yogurt",
+        "lemon"
+      ],
+      "ingredients": [
+        {
+          "label": "Lamb mince",
+          "amount": 11.0,
+          "unit": "oz",
+          "metric": "300 g",
+          "food": "lamb"
+        },
+        {
+          "label": "Bulgur wheat",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "bulgur"
+        },
+        {
+          "label": "Parsley",
+          "amount": 1,
+          "unit": "bunch",
+          "food": "parsley"
+        },
+        {
+          "label": "Plain yogurt",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "plain-yogurt"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Ground cumin",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cover the bulgur with boiling water in a bowl for 15 minutes, then drain.",
+        "Mix the lamb with the chopped parsley, cumin and salt and shape into small patties.",
+        "Fry in the oil for 4 minutes each side until browned and cooked through.",
+        "Toss the bulgur with lemon juice, serve the kofta on top and add the yogurt."
+      ]
+    },
+    {
+      "id": "cod-red-lentil-cauliflower-stew",
+      "title": "Cod, Red Lentil & Cauliflower Stew",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 35,
+      "serves": 4,
+      "intro": "A gentle, golden stew that cooks the fish in the last few minutes.",
+      "whyThisPhase": "Cod, red lentils and cauliflower are featured Luteal foods; the fish and lentils bring protein and the lentils fibre.",
+      "keyFoods": [
+        "cod",
+        "red-lentil",
+        "cauliflower",
+        "onion",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Cod fillets",
+          "amount": 12.0,
+          "unit": "oz",
+          "metric": "350 g",
+          "food": "cod"
+        },
+        {
+          "label": "Red lentils",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "120 g",
+          "food": "red-lentil"
+        },
+        {
+          "label": "Cauliflower",
+          "amount": 0.5,
+          "unit": "head",
+          "food": "cauliflower"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Mild curry powder",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Gluten-free vegetable stock",
+          "amount": 3.0,
+          "unit": "cup",
+          "metric": "750 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the chopped onion in the oil for 4 minutes, then add the garlic and curry powder for 1 minute.",
+        "Add the lentils, cauliflower florets and stock and simmer for 15 minutes.",
+        "Nestle in the cod chunks and cook gently for 5 to 6 minutes until the fish flakes.",
+        "Season and serve."
+      ]
+    },
+    {
+      "id": "spiced-mixed-nuts-fig-jar",
+      "title": "Spiced Mixed Nuts & Fig Snack Jar",
+      "phase": "luteal",
+      "category": "snack",
+      "minutes": 15,
+      "serves": 4,
+      "intro": "Warm, lightly spiced nuts to keep in a jar.",
+      "whyThisPhase": "Mixed nuts, figs and sunflower seeds are featured Luteal foods, and the nuts and seeds bring protein and fibre to an easy snack.",
+      "keyFoods": [
+        "mixed-nuts",
+        "fig",
+        "sunflower-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Mixed nuts",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "mixed-nuts"
+        },
+        {
+          "label": "Fresh figs",
+          "amount": 4,
+          "unit": "piece",
+          "food": "fig"
+        },
+        {
+          "label": "Sunflower seeds",
+          "amount": 1.0,
+          "unit": "oz",
+          "metric": "30 g",
+          "food": "sunflower-seeds"
+        },
+        {
+          "label": "Smoked paprika",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 0.5,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Toast the nuts and sunflower seeds in a dry pan for 5 to 6 minutes, shaking often.",
+        "Toss with the paprika, oil and a pinch of salt and let cool.",
+        "Pack into a jar and serve with sliced fresh figs."
+      ]
+    },
+    {
+      "id": "nectarine-pecan-chia-pudding",
+      "title": "Nectarine & Pecan Chia Pudding",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A make-ahead pudding that sets while you sleep.",
+      "whyThisPhase": "Nectarines and pecans are featured Follicular foods, making a fresh, no-cook, make-ahead breakfast.",
+      "keyFoods": [
+        "chia-seeds",
+        "almond-milk",
+        "nectarine",
+        "pecan"
+      ],
+      "ingredients": [
+        {
+          "label": "Chia seeds",
+          "amount": 1.5,
+          "unit": "oz",
+          "metric": "40 g",
+          "food": "chia-seeds"
+        },
+        {
+          "label": "Unsweetened almond milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "almond-milk"
+        },
+        {
+          "label": "Nectarines",
+          "amount": 2,
+          "unit": "piece",
+          "food": "nectarine"
+        },
+        {
+          "label": "Pecans",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "20 g",
+          "food": "pecan"
+        },
+        {
+          "label": "Maple syrup",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "maple-syrup"
+        },
+        {
+          "label": "Vanilla extract",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Whisk the chia seeds with the almond milk, maple syrup and vanilla. Leave for 10 minutes, then whisk again to break up any clumps.",
+        "Cover and chill for at least 30 minutes, or overnight, until thick.",
+        "Slice the nectarines, roughly chop the pecans and spoon both over the pudding."
+      ]
+    },
+    {
+      "id": "black-eyed-pea-avocado-sauerkraut-bowl",
+      "title": "Black-Eyed Pea, Avocado & Sauerkraut Breakfast Bowl",
+      "phase": "follicular",
+      "category": "breakfast",
+      "minutes": 15,
+      "serves": 2,
+      "intro": "A savoury, plant-based breakfast bowl with a tangy crunch.",
+      "whyThisPhase": "Black-eyed peas, avocado and sauerkraut are featured Follicular foods, making a savoury, fresh-tasting breakfast bowl.",
+      "keyFoods": [
+        "black-eyed-pea",
+        "avocado",
+        "sauerkraut",
+        "brown-rice",
+        "lettuce"
+      ],
+      "ingredients": [
+        {
+          "label": "Black-eyed peas, canned",
+          "amount": 1,
+          "unit": "can",
+          "metric": "14 oz / 400 g",
+          "food": "black-eyed-pea"
+        },
+        {
+          "label": "Avocado",
+          "amount": 1,
+          "unit": "piece",
+          "food": "avocado"
+        },
+        {
+          "label": "Sauerkraut",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "sauerkraut"
+        },
+        {
+          "label": "Cooked brown rice",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "200 g",
+          "food": "brown-rice"
+        },
+        {
+          "label": "Lettuce",
+          "amount": 2,
+          "unit": "handful",
+          "food": "lettuce"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Lemon",
+          "amount": 0.5,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Chilli flakes",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Warm the drained peas in the oil with the chilli flakes and a pinch of salt for 4 minutes. Warm the rice.",
+        "Divide the rice and shredded lettuce between two bowls.",
+        "Top with the peas, sliced avocado and sauerkraut and squeeze over the lemon."
+      ]
+    },
+    {
+      "id": "quinoa-hummus-pomegranate-bowl",
+      "title": "Quinoa, Hummus & Pomegranate Bowl",
+      "phase": "follicular",
+      "category": "lunch",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A colourful, gluten-free grain bowl you can eat warm or cold.",
+      "whyThisPhase": "Hummus, pomegranate and cabbage are featured Follicular foods, making a fresh, light bowl with quinoa for substance.",
+      "keyFoods": [
+        "quinoa",
+        "hummus",
+        "pomegranate",
+        "cabbage",
+        "olives"
+      ],
+      "ingredients": [
+        {
+          "label": "Quinoa",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "120 g",
+          "food": "quinoa"
+        },
+        {
+          "label": "Hummus",
+          "amount": 6,
+          "unit": "tbsp",
+          "food": "hummus"
+        },
+        {
+          "label": "Pomegranate seeds",
+          "amount": 4,
+          "unit": "tbsp",
+          "food": "pomegranate"
+        },
+        {
+          "label": "White cabbage",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "cabbage"
+        },
+        {
+          "label": "Olives",
+          "amount": 1,
+          "unit": "handful",
+          "food": "olives"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Lemon",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lemon"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Rinse the quinoa and simmer in twice its volume of water for 15 minutes, then drain and fluff.",
+        "Shred the cabbage and toss with the lemon juice, oil and a pinch of salt.",
+        "Divide the quinoa between bowls and top with the cabbage, a spoonful of hummus, the olives and the pomegranate seeds."
+      ]
+    },
+    {
+      "id": "bok-choy-turnip-tofu-rice-bowl",
+      "title": "Bok Choy, Turnip & Tofu Rice Bowl",
+      "phase": "follicular",
+      "category": "dinner",
+      "minutes": 30,
+      "serves": 2,
+      "intro": "Crisp roasted turnip and tofu with quick-cooked greens, seasoned with ginger and lime.",
+      "whyThisPhase": "Bok choy and turnip are featured Follicular foods, with tofu making a light, quick-cooked vegan rice bowl.",
+      "keyFoods": [
+        "tofu",
+        "bok-choy",
+        "turnip",
+        "white-rice",
+        "ginger",
+        "sesame-seeds"
+      ],
+      "ingredients": [
+        {
+          "label": "Firm tofu",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "tofu"
+        },
+        {
+          "label": "Bok choy",
+          "amount": 3,
+          "unit": "head",
+          "food": "bok-choy"
+        },
+        {
+          "label": "Turnips",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "turnip"
+        },
+        {
+          "label": "White rice",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "white-rice"
+        },
+        {
+          "label": "Ginger",
+          "amount": 1,
+          "unit": "thumb",
+          "food": "ginger"
+        },
+        {
+          "label": "Sesame seeds",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "sesame-seeds"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the rice according to the packet.",
+        "Fry the diced turnips in the oil for 8 minutes until golden, then add the cubed tofu for 5 minutes.",
+        "Add the halved bok choy and grated ginger and cook for 3 minutes until just tender.",
+        "Season with salt and lime juice and serve over the rice, scattered with the sesame seeds."
+      ]
+    },
+    {
+      "id": "stone-fruit-brazil-nut-snack-plate",
+      "title": "Stone Fruit & Brazil Nut Snack Plate",
+      "phase": "follicular",
+      "category": "snack",
+      "minutes": 5,
+      "serves": 2,
+      "intro": "A fresh, no-cook snack plate with a rich nutty finish.",
+      "whyThisPhase": "Nectarines, plums, pomegranate and Brazil nuts are all featured Follicular foods, making a fresh, no-cook snack plate.",
+      "keyFoods": [
+        "nectarine",
+        "plum",
+        "pomegranate",
+        "brazil-nut"
+      ],
+      "ingredients": [
+        {
+          "label": "Nectarine",
+          "amount": 1,
+          "unit": "piece",
+          "food": "nectarine"
+        },
+        {
+          "label": "Plums",
+          "amount": 2,
+          "unit": "piece",
+          "food": "plum"
+        },
+        {
+          "label": "Pomegranate seeds",
+          "amount": 3,
+          "unit": "tbsp",
+          "food": "pomegranate"
+        },
+        {
+          "label": "Brazil nuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "brazil-nut"
+        }
+      ],
+      "steps": [
+        "Slice the nectarine and plums and arrange on two plates.",
+        "Scatter over the pomegranate seeds.",
+        "Serve with the Brazil nuts on the side."
+      ]
+    },
+    {
+      "id": "mango-raspberry-chia-pudding",
+      "title": "Mango & Raspberry Chia Pudding",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 10,
+      "serves": 2,
+      "intro": "A cool, tropical pudding that is ready when you wake up.",
+      "whyThisPhase": "Mango, raspberries and pistachios are featured Ovulatory foods, making a cool, fresh, make-ahead breakfast.",
+      "keyFoods": [
+        "chia-seeds",
+        "soy-milk",
+        "mango",
+        "raspberry",
+        "pistachio"
+      ],
+      "ingredients": [
+        {
+          "label": "Chia seeds",
+          "amount": 1.5,
+          "unit": "oz",
+          "metric": "40 g",
+          "food": "chia-seeds"
+        },
+        {
+          "label": "Unsweetened soy milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "soy-milk"
+        },
+        {
+          "label": "Mango",
+          "amount": 1,
+          "unit": "piece",
+          "food": "mango"
+        },
+        {
+          "label": "Raspberries",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "raspberry"
+        },
+        {
+          "label": "Pistachios, shelled",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "pistachio"
+        },
+        {
+          "label": "Maple syrup",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "maple-syrup"
+        }
+      ],
+      "steps": [
+        "Whisk the chia seeds with the soy milk and maple syrup. Leave for 10 minutes, then whisk again.",
+        "Cover and chill for at least 30 minutes, or overnight.",
+        "Top with diced mango, raspberries and chopped pistachios."
+      ]
+    },
+    {
+      "id": "peach-raspberry-hazelnut-breakfast-quinoa",
+      "title": "Peach, Raspberry & Hazelnut Breakfast Quinoa",
+      "phase": "ovulatory",
+      "category": "breakfast",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "A warm, creamy quinoa bowl topped with cool fruit.",
+      "whyThisPhase": "Peaches, raspberries and hazelnuts are featured Ovulatory foods, making a bright, light breakfast with quinoa for substance.",
+      "keyFoods": [
+        "quinoa",
+        "soy-milk",
+        "peach",
+        "raspberry",
+        "hazelnuts"
+      ],
+      "ingredients": [
+        {
+          "label": "Quinoa",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "quinoa"
+        },
+        {
+          "label": "Unsweetened soy milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "soy-milk"
+        },
+        {
+          "label": "Peaches",
+          "amount": 2,
+          "unit": "piece",
+          "food": "peach"
+        },
+        {
+          "label": "Raspberries",
+          "amount": 3.0,
+          "unit": "oz",
+          "metric": "80 g",
+          "food": "raspberry"
+        },
+        {
+          "label": "Hazelnuts",
+          "amount": 2,
+          "unit": "tbsp",
+          "food": "hazelnuts"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Maple syrup",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "maple-syrup"
+        }
+      ],
+      "steps": [
+        "Rinse the quinoa and simmer it in the soy milk and about ½ cup (100 ml) water for 18 to 20 minutes, stirring now and then, until soft and creamy.",
+        "Slice the peaches and chop the hazelnuts.",
+        "Spoon into bowls and top with the peaches, raspberries, hazelnuts, cinnamon and maple syrup."
+      ]
+    },
+    {
+      "id": "lime-ginger-tofu-pineapple-rice-bowl",
+      "title": "Lime-Ginger Tofu & Pineapple Rice Bowl",
+      "phase": "ovulatory",
+      "category": "dinner",
+      "minutes": 25,
+      "serves": 2,
+      "intro": "Crisp tofu and juicy pineapple over rice, with a zingy lime and ginger finish.",
+      "whyThisPhase": "Tofu, pineapple, bean sprouts and red pepper are featured Ovulatory foods, making a crisp, bright, quick-cooked rice bowl.",
+      "keyFoods": [
+        "tofu",
+        "pineapple",
+        "bean-sprouts",
+        "white-rice",
+        "red-bell-pepper",
+        "lime"
+      ],
+      "ingredients": [
+        {
+          "label": "Firm tofu",
+          "amount": 9.0,
+          "unit": "oz",
+          "metric": "250 g",
+          "food": "tofu"
+        },
+        {
+          "label": "Pineapple",
+          "amount": 7.0,
+          "unit": "oz",
+          "metric": "200 g",
+          "food": "pineapple"
+        },
+        {
+          "label": "Bean sprouts",
+          "amount": 4.0,
+          "unit": "oz",
+          "metric": "100 g",
+          "food": "bean-sprouts"
+        },
+        {
+          "label": "White rice",
+          "amount": 0.75,
+          "unit": "cup",
+          "metric": "150 g",
+          "food": "white-rice"
+        },
+        {
+          "label": "Red pepper",
+          "amount": 1,
+          "unit": "piece",
+          "food": "red-bell-pepper"
+        },
+        {
+          "label": "Lime",
+          "amount": 1,
+          "unit": "piece",
+          "food": "lime"
+        },
+        {
+          "label": "Ginger",
+          "amount": 1,
+          "unit": "thumb",
+          "food": "ginger"
+        },
+        {
+          "label": "Neutral oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Cook the rice according to the packet.",
+        "Fry the cubed tofu in the oil for 6 minutes until golden, then add the sliced pepper and grated ginger for 3 minutes.",
+        "Add the pineapple chunks and bean sprouts and cook for 2 minutes, then season with salt and lime juice.",
+        "Serve over the rice."
+      ]
+    },
+    {
+      "id": "banana-buckwheat-soy-porridge",
+      "title": "Banana & Buckwheat Porridge with Soy Milk",
+      "phase": "luteal",
+      "category": "breakfast",
+      "minutes": 20,
+      "serves": 2,
+      "intro": "A creamy, dairy-free porridge made with buckwheat groats.",
+      "whyThisPhase": "Buckwheat, bananas and walnuts are featured Luteal foods, making a cosy, filling vegan porridge.",
+      "keyFoods": [
+        "buckwheat",
+        "soy-milk",
+        "banana",
+        "walnut"
+      ],
+      "ingredients": [
+        {
+          "label": "Buckwheat groats",
+          "amount": 0.5,
+          "unit": "cup",
+          "metric": "100 g",
+          "food": "buckwheat"
+        },
+        {
+          "label": "Unsweetened soy milk",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "300 ml",
+          "food": "soy-milk"
+        },
+        {
+          "label": "Bananas",
+          "amount": 2,
+          "unit": "piece",
+          "food": "banana"
+        },
+        {
+          "label": "Walnuts",
+          "amount": 0.25,
+          "unit": "cup",
+          "metric": "30 g",
+          "food": "walnut"
+        },
+        {
+          "label": "Ground cinnamon",
+          "amount": 0.5,
+          "unit": "tsp",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Rinse the buckwheat and simmer with the soy milk, about ½ cup (100 ml) water and one mashed banana for 12 to 15 minutes, stirring now and then.",
+        "Slice the second banana and chop the walnuts.",
+        "Spoon into bowls and top with the banana, walnuts and cinnamon."
+      ]
+    },
+    {
+      "id": "split-pea-parsnip-soup",
+      "title": "Split Pea & Parsnip Soup",
+      "phase": "luteal",
+      "category": "dinner",
+      "minutes": 50,
+      "serves": 4,
+      "intro": "A thick, sweet-savoury soup that is easy to batch-cook and freeze.",
+      "whyThisPhase": "Split peas and parsnips are featured Luteal foods, and the split peas bring protein and fibre to a thick, warming soup.",
+      "keyFoods": [
+        "split-pea",
+        "parsnip",
+        "onion",
+        "garlic"
+      ],
+      "ingredients": [
+        {
+          "label": "Yellow split peas",
+          "amount": 1.0,
+          "unit": "cup",
+          "metric": "200 g",
+          "food": "split-pea"
+        },
+        {
+          "label": "Parsnips",
+          "amount": 12.0,
+          "unit": "oz",
+          "metric": "350 g",
+          "food": "parsnip"
+        },
+        {
+          "label": "Onion",
+          "amount": 1,
+          "unit": "piece",
+          "food": "onion"
+        },
+        {
+          "label": "Garlic",
+          "amount": 2,
+          "unit": "clove",
+          "food": "garlic"
+        },
+        {
+          "label": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp",
+          "food": "olive-oil"
+        },
+        {
+          "label": "Gluten-free vegetable stock",
+          "amount": 4.0,
+          "unit": "cup",
+          "metric": "1000 ml",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Dried thyme",
+          "amount": 1,
+          "unit": "tsp",
+          "aisle": "pantry"
+        },
+        {
+          "label": "Salt and black pepper",
+          "amount": 1,
+          "unit": "pinch",
+          "aisle": "pantry"
+        }
+      ],
+      "steps": [
+        "Soften the chopped onion in the oil for 4 minutes, then add the garlic, diced parsnips and thyme for 2 minutes.",
+        "Add the rinsed split peas and the stock, bring to the boil and simmer for 35 to 40 minutes, stirring now and then, until the peas collapse.",
+        "Blend part of the soup for a thicker texture, season and serve."
+      ]
     }
   ]
 }

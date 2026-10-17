@@ -32,3 +32,7 @@ The app's bundled, read-only catalogue. `test/content/content_validation_test.da
 - Never rewrite copy here without review. No new health or nutrition claims.
 - Ids are permanent: shopping items and avoidances store them.
 - Phase placement comes from the reviewed Foods v2 lists; do not edit lists or `why` copy by hand.
+
+## Diet counts: the app's number is the source of truth
+
+Research counts the 112 recipes as vegan 44, vegetarian-only 29, pescatarian-only 28, omnivore 11. The app derives 44 / **28** / **29** / 11, deliberately: `FoodFilter` keeps the conservative rule that a recipe with a food that only *may* contain fish or shellfish (kimchi) is not offered as vegetarian or vegan, because it cannot be called meat-free with confidence. That moves `kimchi-egg-brown-rice-bowl` from vegetarian to pescatarian. The rule is not relaxed to match a target count; `test/content/recipes_v112_test.dart` pins the app's numbers.

@@ -153,7 +153,15 @@
       "allergens": [],
       "synonyms": [
         "mushroom",
-        "shiitake"
+        "shiitake",
+        "portobello",
+        "portobello mushroom",
+        "cremini",
+        "cremini mushroom",
+        "baby bella",
+        "baby bella mushroom",
+        "button mushroom",
+        "white mushroom"
       ],
       "shipReady": true,
       "cautions": [],
@@ -2823,8 +2831,10 @@
       "id": "butter",
       "name": "Butter",
       "aisle": "dairy-alternatives",
-      "animalSource": "none",
-      "allergens": [],
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
@@ -2896,7 +2906,7 @@
     {
       "id": "cheddar",
       "name": "Cheddar cheese",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -2953,7 +2963,7 @@
     {
       "id": "cottage-cheese",
       "name": "Cottage cheese",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3000,7 +3010,7 @@
     {
       "id": "cream-cheese",
       "name": "Cream cheese",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3105,7 +3115,7 @@
     {
       "id": "feta",
       "name": "Feta",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3124,7 +3134,7 @@
     {
       "id": "goat-cheese",
       "name": "Goat cheese",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3175,7 +3185,7 @@
     {
       "id": "greek-yogurt",
       "name": "Greek yogurt",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3302,7 +3312,7 @@
       "id": "honey",
       "name": "Honey",
       "aisle": "pantry",
-      "animalSource": "none",
+      "animalSource": "honey",
       "allergens": [],
       "synonyms": [],
       "shipReady": true,
@@ -3502,7 +3512,7 @@
     {
       "id": "milk",
       "name": "Milk",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3536,7 +3546,7 @@
     {
       "id": "mozzarella",
       "name": "Mozzarella",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3686,7 +3696,7 @@
     {
       "id": "parmesan",
       "name": "Parmesan",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3781,7 +3791,7 @@
     {
       "id": "plain-yogurt",
       "name": "Plain yogurt",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -3939,7 +3949,7 @@
     {
       "id": "ricotta",
       "name": "Ricotta",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -4057,7 +4067,7 @@
     {
       "id": "sour-cream",
       "name": "Sour cream",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -4133,7 +4143,7 @@
     {
       "id": "swiss-cheese",
       "name": "Swiss cheese",
-      "aisle": "other",
+      "aisle": "dairy-alternatives",
       "animalSource": "dairy",
       "allergens": [
         "dairy"
@@ -4370,6 +4380,84 @@
           "detail": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods. Roast them or slice them into salads and grain bowls."
         }
       },
+      "category": "vegetables"
+    },
+    {
+      "id": "basil",
+      "name": "Basil",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "fresh basil"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "cilantro",
+      "name": "Cilantro (coriander)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "coriander",
+        "fresh coriander",
+        "cilantro leaves"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "dill",
+      "name": "Dill",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "fresh dill"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "heavy-cream",
+      "name": "Heavy cream",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [
+        "double cream",
+        "whipping cream",
+        "heavy whipping cream"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "tomato-paste",
+      "name": "Tomato paste",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "tomato puree",
+        "tomato purée",
+        "tomato concentrate"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
       "category": "vegetables"
     }
   ]

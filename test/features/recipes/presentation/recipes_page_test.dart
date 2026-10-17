@@ -51,50 +51,47 @@ void main() {
 
   testWidgets('the phase’s recipes: a feature card and a grid', (tester) async {
     await pumpRecipes(tester);
-    expect(find.text('10 follicular recipes'), findsOneWidget);
+    expect(find.text('29 follicular recipes'), findsOneWidget);
     expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
     expect(find.text('25 min'), findsOneWidget); // the time badge
-    expect(find.text('Breakfast · 10 min'), findsOneWidget);
   });
 
-  testWidgets('meal tabs: only meal types the phase has recipes for', (
-    tester,
-  ) async {
+  testWidgets('meal tabs: the types the phase has recipes for', (tester) async {
     final (container, _) = await pumpRecipes(tester);
-    // Follicular has breakfast and meals, but no snacks.
+    // Follicular has breakfasts, meals and snacks.
     expect(find.text('Breakfast'), findsOneWidget);
     expect(find.text('Meals'), findsOneWidget);
-    expect(find.text('Snacks'), findsNothing);
+    expect(find.text('Snacks'), findsOneWidget);
     await tapText(tester, 'Breakfast');
-    expect(find.text('2 follicular breakfasts'), findsOneWidget);
+    expect(find.text('9 follicular breakfasts'), findsOneWidget);
+    await tapText(tester, 'Meals');
+    expect(find.text('18 follicular meals'), findsOneWidget);
+    await tapText(tester, 'Snacks');
+    expect(find.text('2 follicular snacks'), findsOneWidget);
 
-    // Menstrual has a snack: the tab appears.
+    // Another phase keeps the selected tab and shows its own count.
     container.read(viewingPhaseProvider.notifier).choose(Phase.menstrual);
     await tester.pumpAndSettle();
-    expect(find.text('Snacks'), findsOneWidget);
-    await tapText(tester, 'Snacks');
-    expect(find.text('1 menstrual snack'), findsOneWidget);
-
-    // Back to Follicular: the selected Snacks tab is gone, so All is shown.
+    expect(find.text('3 menstrual snacks'), findsOneWidget);
+    container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
+    await tester.pumpAndSettle();
+    expect(find.text('1 luteal snack'), findsOneWidget);
     container.read(viewingPhaseProvider.notifier).choose(Phase.follicular);
     await tester.pumpAndSettle();
-    expect(find.text('Snacks'), findsNothing);
-    expect(find.text('10 follicular recipes'), findsOneWidget);
+    expect(find.text('2 follicular snacks'), findsOneWidget);
   });
 
-  testWidgets('All recipes shows a tab for every meal type in the 40', (
-    tester,
-  ) async {
+  testWidgets('All recipes: every meal type, all 112 recipes', (tester) async {
     await pumpRecipes(tester);
     await tapText(tester, 'All recipes');
     expect(find.text('Breakfast'), findsOneWidget);
     expect(find.text('Meals'), findsOneWidget);
     expect(find.text('Snacks'), findsOneWidget);
+    expect(find.text('112 recipes'), findsOneWidget);
     await tapText(tester, 'Snacks');
-    expect(find.text('4 snacks'), findsOneWidget);
+    expect(find.text('11 snacks'), findsOneWidget);
     await tapText(tester, 'This phase');
-    expect(find.text('Snacks'), findsNothing);
-    expect(find.text('10 follicular recipes'), findsOneWidget);
+    expect(find.text('2 follicular snacks'), findsOneWidget);
   });
 
   testWidgets('Cook with: search, choose, then breakfast has none', (
@@ -106,21 +103,21 @@ void main() {
     expect(find.text('Foods for your follicular phase'), findsOneWidget);
     await tester.enterText(find.byType(TextField), 'chick');
     await tester.pumpAndSettle();
-    await tester.tap(find.bySemanticsLabel('Chicken, 1 recipe'));
+    await tester.tap(find.bySemanticsLabel('Chicken, 3 recipes'));
     await tester.pumpAndSettle();
-    expect(find.text('1 follicular recipe with chicken'), findsOneWidget);
+    expect(find.text('3 follicular recipes with chicken'), findsOneWidget);
     expect(find.text('Lemon Chicken & Green Bean Tray Bake'), findsOneWidget);
 
     await tapText(tester, 'Breakfast');
     expect(find.text('No breakfasts with chicken'), findsOneWidget);
     expect(
       find.text(
-        'There’s a follicular recipe with chicken in another meal type.',
+        'There are 3 follicular recipes with chicken in other meal types.',
       ),
       findsOneWidget,
     );
     await tapText(tester, 'Clear ingredient');
-    expect(find.text('2 follicular breakfasts'), findsOneWidget);
+    expect(find.text('9 follicular breakfasts'), findsOneWidget);
   });
 
   testWidgets('Cook with: no match, then clear the search', (tester) async {
@@ -141,10 +138,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'chicken');
     await tester.pumpAndSettle();
-    await tester.tap(find.bySemanticsLabel('Chicken, 1 recipe'));
+    await tester.tap(find.bySemanticsLabel('Chicken, 3 recipes'));
     await tester.pumpAndSettle();
     await tapText(tester, 'Luteal');
-    expect(find.text('10 luteal recipes'), findsOneWidget);
+    expect(find.text('30 luteal recipes'), findsOneWidget);
     expect(container, isNotNull);
   });
 
@@ -167,13 +164,17 @@ void main() {
   });
 
   testWidgets('nothing fits the preferences', (tester) async {
+    // Avoid one key food of every follicular recipe.
+    final avoided = {
+      for (final r in testCatalogue.recipesFor(Phase.follicular))
+        r.ingredients.firstWhere((l) => l.foodId != null).foodId!,
+    };
     await pumpRecipes(
       tester,
       prefs: (prefs) async {
-        await prefs.avoidAllergen('gluten');
-        await prefs.avoidAllergen('dairy');
-        await prefs.avoidAllergen('fish');
-        await prefs.avoidFood('chicken');
+        for (final id in avoided) {
+          await prefs.avoidFood(id);
+        }
       },
     );
     expect(find.text('0 follicular recipes'), findsOneWidget);
@@ -207,7 +208,7 @@ void main() {
       // The photo's back button has scrolled away; system back works anywhere.
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
-      expect(find.text('8 follicular meals'), findsOneWidget);
+      expect(find.text('18 follicular meals'), findsOneWidget);
     },
   );
 
