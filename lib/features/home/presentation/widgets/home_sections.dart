@@ -212,7 +212,12 @@ class _RecipeCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RecipePhoto(height: 300, radius: 26, palette: palette),
+            RecipePhoto(
+              height: 300,
+              radius: 26,
+              palette: palette,
+              image: AssetImage(recipe.imageAsset),
+            ),
             const SizedBox(height: 12),
             Text(
               recipe.title,

@@ -68,7 +68,12 @@ class RecipeDetailPage extends ConsumerWidget {
         children: [
           Stack(
             children: [
-              RecipePhoto(height: 330, radius: 0, palette: palette),
+              RecipePhoto(
+                height: 330,
+                radius: 0,
+                palette: palette,
+                image: AssetImage(recipe.imageAsset),
+              ),
               Positioned(
                 top: MediaQuery.viewPaddingOf(context).top + 7,
                 left: 20,

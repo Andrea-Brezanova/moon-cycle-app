@@ -52,6 +52,10 @@ final class Recipe {
   final String whyThisPhase;
   final String? imageUrl;
 
+  /// The bundled photo, found by recipe id (no second mapping to keep):
+  /// `assets/images/recipes/<id>.jpg`.
+  String get imageAsset => 'assets/images/recipes/$id.jpg';
+
   /// The key ingredients: they drive "Cook with…" and the recipe counts.
   final List<String> keyFoodIds;
 

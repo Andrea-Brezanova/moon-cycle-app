@@ -54,6 +54,21 @@ Future<void> pumpScreen(
     ),
   );
   await tester.pumpAndSettle();
+  await settleImages(tester);
+}
+
+/// Decodes every image on screen (recipe photos are bundled assets) so a
+/// golden never captures a half-loaded frame.
+Future<void> settleImages(WidgetTester tester) async {
+  final images = tester.widgetList<Image>(find.byType(Image)).toList();
+  if (images.isEmpty) return;
+  final context = tester.element(find.byType(Image).first);
+  await tester.runAsync(() async {
+    for (final image in images) {
+      await precacheImage(image.image, context, onError: (_, _) {});
+    }
+  });
+  await tester.pumpAndSettle();
 }
 
 /// Both themes, as `light` / `dark`.

@@ -178,6 +178,7 @@ class FeatureRecipeCard extends StatelessWidget {
                 height: 250,
                 radius: MoonRadius.recipeFeature,
                 palette: palette,
+                image: AssetImage(recipe.imageAsset),
               ),
               Positioned(
                 top: 14,
@@ -261,6 +262,7 @@ class GridRecipeCard extends StatelessWidget {
             height: 170,
             radius: MoonRadius.gridCard,
             palette: palette,
+            image: AssetImage(recipe.imageAsset),
           ),
           const SizedBox(height: 10),
           Text(
