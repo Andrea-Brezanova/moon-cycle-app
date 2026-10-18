@@ -59,6 +59,8 @@ final class FoodFilter {
     if (line.extraAllergenIds.intersection(_allergens).isNotEmpty) {
       return false;
     }
+    final source = line.extraAnimalSource;
+    if (source != null && !_dietAllows(source)) return false;
     if (_phrases.any((p) => containsPhrase(line.label, p))) return false;
     final food = line.foodId == null ? null : catalogue.food(line.foodId!);
     return food == null || allowsFood(food);

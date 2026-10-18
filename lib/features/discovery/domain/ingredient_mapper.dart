@@ -1,15 +1,35 @@
 import '../../content/domain/catalogue.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/text_match.dart';
+import 'ingredient_vocabulary.dart';
 
-/// Maps an external provider's ingredient text ("Black Eyed Peas", "minced
-/// garlic") to a Moon Cycle food, **only when the mapping is reliable**.
+/// What an external ingredient line is understood to be.
+final class IngredientClass {
+  const IngredientClass(this.kind, {this.food, this.derived});
+
+  final IngredientKind kind;
+
+  /// For [IngredientKind.food].
+  final Food? food;
+
+  /// For [IngredientKind.derived].
+  final Derived? derived;
+
+  /// Whether a user with a diet or an allergy can be told this line is
+  /// compatible: it is identified, or it is known to be neutral.
+  bool get isIdentified =>
+      kind == IngredientKind.food ||
+      kind == IngredientKind.pantrySafe ||
+      kind == IngredientKind.derived;
+}
+
+/// Understands an external provider's ingredient text, conservatively.
 ///
-/// Reliable means the name equals a food's name or synonym after removing a
-/// short list of harmless words (preparation and size) and one plural "s". It
-/// never guesses by a shared word: "peanut butter" is not butter, "chicken
-/// stock" is not chicken. Anything else is left unmapped, and the caller treats
-/// an unmapped ingredient as *unknown*, never as safe.
+/// In order: a Moon Cycle food by name or synonym (after removing preparation
+/// words and one plural), a reviewed alias ([IngredientVocabulary.aliases]), a
+/// plain pantry item, an ingredient with known allergens and animal source, a
+/// named ambiguous item, or unknown. It never guesses from a shared word:
+/// "peanut butter" is not butter, "chicken stock" is not chicken.
 class IngredientMapper {
   IngredientMapper(this.catalogue);
 
@@ -37,32 +57,65 @@ class IngredientMapper {
     'organic',
     'baby',
     'extra',
+    'free',
+    'range',
+    'beaten',
+    'unsalted',
+    'salted',
+    'dried',
+    'sprigs',
+    'sprig',
   };
 
-  final _cache = <String, Food?>{};
+  final _cache = <String, IngredientClass>{};
 
-  Food? map(String raw) => _cache.putIfAbsent(raw, () => _map(raw));
+  /// The Moon Cycle food this line is, or null.
+  Food? map(String raw) => classify(raw).food;
 
-  Food? _map(String raw) {
-    final name = normaliseName(raw);
-    if (name.isEmpty) return null;
-    final words = name.split(' ');
+  IngredientClass classify(String raw) =>
+      _cache.putIfAbsent(raw, () => _classify(raw));
+
+  IngredientClass _classify(String raw) {
+    final name = normaliseName(_clean(raw));
+    if (name.isEmpty) return const IngredientClass(IngredientKind.unknown);
     final kept = [
-      for (final w in words)
+      for (final w in name.split(' '))
         if (!_harmless.contains(w)) w,
-    ];
-    final candidates = <String>{
-      name,
-      kept.join(' '),
-      _singular(name),
-      _singular(kept.join(' ')),
-    }..removeWhere((c) => c.isEmpty);
+    ].join(' ');
+    final candidates = <String>{name, kept, _singular(name), _singular(kept)}
+      ..removeWhere((c) => c.isEmpty);
+
     for (final c in candidates) {
       final food = catalogue.foodNamed(c);
-      if (food != null) return food;
+      if (food != null) return IngredientClass(IngredientKind.food, food: food);
     }
-    return null;
+    for (final c in candidates) {
+      final id = IngredientVocabulary.aliases[c];
+      final food = id == null ? null : catalogue.food(id);
+      if (food != null) return IngredientClass(IngredientKind.food, food: food);
+    }
+    for (final c in candidates) {
+      if (IngredientVocabulary.pantrySafe.contains(c)) {
+        return const IngredientClass(IngredientKind.pantrySafe);
+      }
+    }
+    for (final c in candidates) {
+      final d = IngredientVocabulary.derived[c];
+      if (d != null) {
+        return IngredientClass(IngredientKind.derived, derived: d);
+      }
+    }
+    for (final c in candidates) {
+      if (IngredientVocabulary.ambiguous.contains(c)) {
+        return const IngredientClass(IngredientKind.ambiguous);
+      }
+    }
+    return const IngredientClass(IngredientKind.unknown);
   }
+
+  /// Drops anything after a comma and any bracketed note: "egg, beaten" → "egg".
+  static String _clean(String raw) =>
+      raw.split(',').first.replaceAll(RegExp(r'\(.*?\)'), ' ');
 
   static String _singular(String text) {
     if (text.endsWith('ies') && text.length > 4) {
@@ -77,14 +130,7 @@ class IngredientMapper {
     return text;
   }
 
-  /// Ingredient lines that carry no allergy or diet risk worth refusing a
-  /// recipe for. Deliberately tiny: oils, stocks, sauces and spice mixes can
-  /// hide sesame, peanut, soy, gluten, dairy or fish, so they are *not* here.
-  static final _alwaysSafe = RegExp(
-    r'^(water|ice|salt|sea salt|kosher salt|pepper|black pepper|white pepper|'
-    r'sugar|brown sugar|caster sugar)$',
-  );
-
-  static bool isAlwaysSafe(String raw) =>
-      _alwaysSafe.hasMatch(normaliseName(raw));
+  /// Plain pantry lines. Kept for callers that only have the label.
+  bool isPantrySafe(String raw) =>
+      classify(raw).kind == IngredientKind.pantrySafe;
 }

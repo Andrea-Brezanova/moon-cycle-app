@@ -92,8 +92,13 @@ void main() {
       final ids = {for (final l in e.recipe.ingredients) l.label: l.foodId};
       expect(ids['Black Eyed Peas'], 'black-eyed-pea');
       expect(ids['Garlic'], 'garlic');
-      // "Plain Flour" is not any catalogue food.
-      expect(ids['Plain Flour'], isNull);
+      // Plain flour is wheat flour, and carries gluten even though the dataset
+      // omits it.
+      expect(ids['Plain Flour'], 'wheat-flour');
+      final flour = e.recipe.ingredients.firstWhere(
+        (l) => l.label == 'Plain Flour',
+      );
+      expect(flour.extraAllergenIds, contains('gluten'));
     });
 
     test('no times or servings are invented', () {

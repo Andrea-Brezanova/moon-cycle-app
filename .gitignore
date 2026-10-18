@@ -61,3 +61,8 @@ key.properties
 
 # Flutter golden-test diff output
 **/failures/
+
+# Provider API keys and live captures (never commit)
+/secrets/
+/tool/captures/
+.recipeapi_usage.json

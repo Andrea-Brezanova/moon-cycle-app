@@ -1,4 +1,5 @@
 import '../../../core/domain/phase.dart';
+import 'food.dart';
 
 /// The stored recipe categories. Lunch and dinner are shown as "Meals".
 enum RecipeCategory {
@@ -96,6 +97,7 @@ final class RecipeIngredient {
     this.metric,
     required this.aisleId,
     this.extraAllergenIds = const {},
+    this.extraAnimalSource,
   });
 
   final String label;
@@ -121,6 +123,11 @@ final class RecipeIngredient {
   /// Allergens of this line beyond its food's (e.g. buckwheat noodles may
   /// contain gluten although buckwheat doesn't).
   final Set<String> extraAllergenIds;
+
+  /// The animal source of a line that is not a catalogue food (chicken stock is
+  /// meat), so a diet can still exclude it. Null for catalogue foods and plain
+  /// pantry lines.
+  final AnimalSource? extraAnimalSource;
 
   /// "150 g", "2", "1 tbsp", "2 cups (480 ml)", "1 can (14 oz / 400 g)",
   /// "to serve" (a unit of "piece" shows the number alone; spec §9). Plural

@@ -7,6 +7,7 @@ import '../../domain/provider_policy.dart';
 import '../../domain/recipe_matcher.dart';
 import '../../domain/recipe_source.dart';
 import '../recipe_sources.dart';
+import 'ingredient_lines.dart';
 import 'provider_http.dart';
 
 /// TheMealDB: a community recipe database with a free **test key** that is
@@ -153,16 +154,10 @@ class TheMealDbClient implements ExternalRecipeClient {
       final name = _text(m['strIngredient$n']);
       if (name == null) continue;
       final measure = _text(m['strMeasure$n']);
-      final food = _mapper.map(name);
-      lines.add(
-        RecipeIngredient(
-          label: '${name[0].toUpperCase()}${name.substring(1)}',
-          foodId: food?.id,
-          qtyText: measure,
-          aisleId: food?.aisleId ?? 'other',
-        ),
-      );
-      if (food != null && !keyFoods.contains(food.id)) keyFoods.add(food.id);
+      final line = ingredientLine(_mapper, name, quantity: measure);
+      lines.add(line);
+      final id = line.foodId;
+      if (id != null && !keyFoods.contains(id)) keyFoods.add(id);
     }
     if (lines.isEmpty) return null;
 

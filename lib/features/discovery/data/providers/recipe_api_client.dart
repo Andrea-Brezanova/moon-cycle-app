@@ -9,6 +9,7 @@ import '../../domain/provider_policy.dart';
 import '../../domain/recipe_matcher.dart';
 import '../../domain/recipe_source.dart';
 import '../recipe_sources.dart';
+import 'ingredient_lines.dart';
 import 'provider_http.dart';
 
 /// **Candidate Provider B: Recipe API (recipe-api.com). Built and tested
@@ -164,16 +165,10 @@ class RecipeApiClient implements ExternalRecipeClient {
       for (final item in _list(group['items'])) {
         final name = _text(item['name']);
         if (name == null) continue;
-        final food = _mapper.map(name);
-        lines.add(
-          RecipeIngredient(
-            label: '${name[0].toUpperCase()}${name.substring(1)}',
-            foodId: food?.id,
-            qtyText: _quantity(item),
-            aisleId: food?.aisleId ?? 'other',
-          ),
-        );
-        if (food != null && !keyFoods.contains(food.id)) keyFoods.add(food.id);
+        final line = ingredientLine(_mapper, name, quantity: _quantity(item));
+        lines.add(line);
+        final id = line.foodId;
+        if (id != null && !keyFoods.contains(id)) keyFoods.add(id);
       }
     }
     if (lines.isEmpty) return null;

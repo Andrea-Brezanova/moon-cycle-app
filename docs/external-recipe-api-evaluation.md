@@ -189,3 +189,44 @@ policy entry in the app, so it cannot be called.
 Per search, Recipe API costs about $0.116 per *new* recipe opened (29/250) and
 nothing for searches or repeat opens; TheMealDB test key costs nothing. A
 configurable monthly request budget per provider stops spend locally.
+
+---
+
+# Benchmark (library vs TheMealDB, live free test key)
+
+`dart run tool/provider_benchmark.dart` (no paid service is called; Recipe API is
+not included because no key exists yet). 12 selections of 1, 2, 3 and 4 foods, two
+diet settings. "Shown" counts recipes that survive the safety rules; at most 12
+TheMealDB recipes are opened per search.
+
+| Selection (no restrictions) | Library | TheMealDB shown | Combined unique | Complete / partial |
+|---|---|---|---|---|
+| chicken | 3 | 12 | 15 | 15 / 0 |
+| salmon | 1 | 8 | 9 | 9 / 0 |
+| chickpea | 3 | 0 | 3 | 3 / 0 |
+| kale | 5 | 6 | 11 | 11 / 0 |
+| tofu | 6 | 2 | 8 | 8 / 0 |
+| quinoa | 5 | 2 | 7 | 7 / 0 |
+| chicken + broccoli | 5 | 12 | 17 | 1 / 16 |
+| lentils + spinach | 6 | 12 | 18 | 1 / 17 |
+| salmon + sweet potato | 4 | 8 | 12 | 0 / 12 |
+| eggs + spinach + feta | 16 | 12 | 28 | 1 / 27 |
+| chickpea + spinach + tomato + onion | 26 | 12 | 38 | 0 / 38 |
+| tofu + broccoli + rice + carrot | 20 | 12 | 32 | 0 / 32 |
+
+Vegetarian: TheMealDB adds recipes only for kale (1), lentils + spinach (3),
+chicken + broccoli (1), eggs + spinach + feta (2) and the two 4-food searches
+(1 each); for single foods such as tofu, quinoa and chickpea it adds none.
+
+- **Photos:** 107 of 107 TheMealDB recipes had a photo URL.
+- **Time:** 200 ms to 3.1 s per search (one request per food plus up to 12
+  recipe lookups); the library is instant.
+- **Instructions:** present for every recipe shown; no times, servings or diet data.
+- **Duplicates:** none observed between the library and TheMealDB in these runs.
+
+**Reading it:** TheMealDB roughly doubles the number of results for common
+proteins (chicken, salmon) and adds little for plant-based foods, which are the
+core of Moon Cycle. For multi-food searches nearly everything is a partial match,
+for both sources. More results are not better recipes: these are community
+recipes with no times, no diet metadata, and, for a restricted user, almost none
+pass the safety rules.

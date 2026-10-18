@@ -9,6 +9,7 @@ import '../domain/recipe_candidate.dart';
 import '../domain/recipe_discovery.dart';
 import '../domain/recipe_matcher.dart';
 import '../domain/recipe_source.dart';
+import 'providers/ingredient_lines.dart';
 
 /// Moon Cycle's own library (priority 1).
 class InternalRecipeSource implements RecipeSourceProvider {
@@ -102,7 +103,8 @@ class NoExternalRecipeClient implements ExternalRecipeClient {
 /// - recipes whose terms forbid full display are dropped;
 /// - **a recipe with an ingredient we cannot identify is dropped whenever the
 ///   user has a diet or an avoidance**, because it cannot be shown to be safe
-///   (only plain water, salt, pepper and sugar are waved through);
+///   (only Moon Cycle foods, plain pantry items and ingredients with reviewed
+///   allergen data in the ingredient vocabulary count as identified);
 /// - the user's diet and avoidances are applied with the same filter;
 /// - the same matcher ranks them.
 class ExternalRecipeSource implements RecipeSourceProvider {
@@ -112,8 +114,10 @@ class ExternalRecipeSource implements RecipeSourceProvider {
     required this.policy,
     MatchConfig config = MatchConfig.defaults,
     this.onFound,
-  }) : _matcher = RecipeMatcher(catalogue, config: config);
+  }) : _matcher = RecipeMatcher(catalogue, config: config),
+       _mapper = IngredientMapper(catalogue);
 
+  final IngredientMapper _mapper;
   final ExternalRecipeClient client;
   final Catalogue catalogue;
   final ProviderPolicy policy;
@@ -129,11 +133,44 @@ class ExternalRecipeSource implements RecipeSourceProvider {
   @override
   String get providerId => client.providerId;
 
+  /// Whatever the adapter did, lines with no food id are understood again here,
+  /// so known allergens and animal sources are always attached and checked.
+  ExternalRecipe _withKnownData(ExternalRecipe e) {
+    final r = e.recipe;
+    final lines = [
+      for (final l in r.ingredients)
+        l.foodId == null &&
+                l.extraAllergenIds.isEmpty &&
+                l.extraAnimalSource == null
+            ? ingredientLine(_mapper, l.label, quantity: l.qtyText)
+            : l,
+    ];
+    return ExternalRecipe(
+      recipe: Recipe(
+        id: r.id,
+        title: r.title,
+        phase: r.phase,
+        category: r.category,
+        minutes: r.minutes,
+        serves: r.serves,
+        intro: r.intro,
+        whyThisPhase: r.whyThisPhase,
+        imageUrl: r.imageUrl,
+        keyFoodIds: r.keyFoodIds,
+        ingredients: lines,
+        steps: r.steps,
+      ),
+      rights: e.rights,
+      providerId: e.providerId,
+      externalId: e.externalId,
+    );
+  }
+
   /// Whether [recipe] can be shown to a user with [filter].
   bool safeFor(Recipe recipe, FoodFilter filter) {
     if (filter.isEmpty) return true;
     for (final line in recipe.ingredients) {
-      if (line.foodId == null && !IngredientMapper.isAlwaysSafe(line.label)) {
+      if (line.foodId == null && !_mapper.classify(line.label).isIdentified) {
         return false;
       }
     }
@@ -147,25 +184,28 @@ class ExternalRecipeSource implements RecipeSourceProvider {
     Phase? currentPhase,
   }) async {
     if (!policy.enabled) return const [];
-    final found = <ExternalRecipe>[
-      for (final e
-          in await client
-              .search(choice, filter)
-              .timeout(
-                policy.timeout,
-                onTimeout: () =>
-                    throw const ProviderUnavailable(ProviderProblem.timeout),
-              ))
-        if (e.rights.mayDisplayFull && safeFor(e.recipe, filter))
-          ExternalRecipe(
-            recipe: currentPhase == null
-                ? e.recipe
-                : e.recipe.copyWith(phase: currentPhase),
-            rights: e.rights,
-            providerId: e.providerId,
-            externalId: e.externalId,
-          ),
-    ];
+    final raw = await client
+        .search(choice, filter)
+        .timeout(
+          policy.timeout,
+          onTimeout: () =>
+              throw const ProviderUnavailable(ProviderProblem.timeout),
+        );
+    final found = <ExternalRecipe>[];
+    for (final e0 in raw) {
+      final e = _withKnownData(e0);
+      if (!e.rights.mayDisplayFull || !safeFor(e.recipe, filter)) continue;
+      found.add(
+        ExternalRecipe(
+          recipe: currentPhase == null
+              ? e.recipe
+              : e.recipe.copyWith(phase: currentPhase),
+          rights: e.rights,
+          providerId: e.providerId,
+          externalId: e.externalId,
+        ),
+      );
+    }
     final byId = {for (final e in found) e.recipe.id: e};
     final matches = _matcher.match(
       choice,
