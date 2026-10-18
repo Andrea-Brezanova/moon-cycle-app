@@ -17,6 +17,7 @@ import '../../content/application/content_providers.dart';
 import '../../content/domain/catalogue.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/presentation/phase_header.dart';
+import '../../generation/application/generation_providers.dart';
 import '../application/recipe_filter.dart';
 import '../application/recipe_list.dart';
 import '../application/recipes_scope.dart';
@@ -44,6 +45,7 @@ class RecipesPage extends ConsumerWidget {
     PhasePalette paletteOf(Recipe r) => list.all ? c.phase(r.phase) : palette;
     final foodName = food?.displayName.toLowerCase();
     final empty = recipesEmptyCopy(list, foodName: foodName);
+    final mine = ref.watch(personalRecipesProvider).value?.length ?? 0;
 
     Future<void> chooseIngredient() async {
       final chosen = await showCookWithSheet(context, phase: list.phase);
@@ -112,15 +114,38 @@ class RecipesPage extends ConsumerWidget {
                       ],
                     ),
                   const SizedBox(height: 22),
-                  Text(
-                    recipeCountLine(list, foodName: foodName),
-                    style: dmSans(
-                      13,
-                      weight: FontWeight.w500,
-                      height: 1,
-                      color: c.textMuted,
+                  if (mine == 0)
+                    Text(
+                      recipeCountLine(list, foodName: foodName),
+                      style: dmSans(
+                        13,
+                        weight: FontWeight.w500,
+                        height: 1,
+                        color: c.textMuted,
+                      ),
+                    )
+                  else
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            recipeCountLine(list, foodName: foodName),
+                            style: dmSans(
+                              13,
+                              weight: FontWeight.w500,
+                              height: 1.2,
+                              color: c.textMuted,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        TextLink(
+                          'My recipes ($mine)',
+                          size: 13,
+                          onTap: () => context.push(Routes.myRecipes),
+                        ),
+                      ],
                     ),
-                  ),
                   if (empty != null) ...[
                     const SizedBox(height: 10),
                     EmptyState(

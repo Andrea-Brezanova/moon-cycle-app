@@ -8,6 +8,7 @@ import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
 import '../../../../core/design/widgets/recipe_photo.dart';
 import '../../../content/domain/recipe.dart';
+import 'recipe_image.dart';
 
 /// All · Breakfast · Meals · Snacks, as text tabs over a hairline.
 class MealTabs extends StatelessWidget {
@@ -178,7 +179,7 @@ class FeatureRecipeCard extends StatelessWidget {
                 height: 250,
                 radius: MoonRadius.recipeFeature,
                 palette: palette,
-                image: AssetImage(recipe.imageAsset),
+                image: recipeImage(recipe),
               ),
               Positioned(
                 top: 14,
@@ -262,7 +263,7 @@ class GridRecipeCard extends StatelessWidget {
             height: 170,
             radius: MoonRadius.gridCard,
             palette: palette,
-            image: AssetImage(recipe.imageAsset),
+            image: recipeImage(recipe),
           ),
           const SizedBox(height: 10),
           Text(

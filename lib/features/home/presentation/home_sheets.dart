@@ -12,6 +12,7 @@ import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../foods/presentation/food_emoji.dart';
+import '../../recipes/presentation/widgets/recipe_image.dart';
 import '../application/try_something_new.dart';
 
 /// "Try something new": Today's food and two more foods from the real phase,
@@ -83,7 +84,7 @@ class _TryNewState extends ConsumerState<_TryNew> {
                         height: 84,
                         radius: 16,
                         palette: c.phase(s.recipe.phase),
-                        image: AssetImage(s.recipe.imageAsset),
+                        image: recipeImage(s.recipe),
                       ),
                     ),
                   ),

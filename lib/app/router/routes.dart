@@ -67,6 +67,28 @@ abstract final class Routes {
     return '/foods/$id${query.isEmpty ? '' : '?$query'}';
   }
 
+  /// Recipes › the user's own generated recipes.
+  static const String myRecipes = '/recipes/mine';
+
+  /// Foods › the results for the meal being built: existing recipes first.
+  /// The chosen foods travel as ids in the query.
+  static String mealResults({
+    required String protein,
+    required String base,
+    required List<String> plants,
+  }) =>
+      '/foods/meal-builder/results?protein=$protein&base=$base'
+      '&plants=${plants.join(',')}';
+
+  /// Foods › creating a new recipe for the same choice (the fallback).
+  static String mealCreate({
+    required String protein,
+    required String base,
+    required List<String> plants,
+  }) =>
+      '/foods/meal-builder/create?protein=$protein&base=$base'
+      '&plants=${plants.join(',')}';
+
   static String recipe(String id) => '${AppTab.recipes.path}/$id';
   static String settings(SettingsPage page) =>
       '${AppTab.settings.path}/${page.segment}';

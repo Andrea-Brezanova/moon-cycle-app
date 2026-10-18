@@ -16,6 +16,7 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/phase_header.dart';
+import '../../generation/application/generation_providers.dart';
 import '../application/shopping_controller.dart';
 import '../application/shopping_summary.dart';
 import '../domain/shopping_item.dart';
@@ -70,7 +71,9 @@ class _ShopPageState extends ConsumerState<ShopPage> {
       item: item,
       divider: divider,
       fallbackPhase: viewing,
-      recipeTitle: (id) => catalogue.recipe(id)?.title,
+      recipeTitle: (id) =>
+          catalogue.recipe(id)?.title ??
+          ref.watch(personalRecipeTitlesProvider)[id],
       onToggle: () => controller.toggle(item),
       onRemove: () => controller.remove(item),
     );

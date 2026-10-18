@@ -140,7 +140,7 @@ void main() {
     handle.dispose();
   });
 
-  testWidgets('a complete meal: summary, and Create is coming soon', (
+  testWidgets('a complete meal: summary, and Create is available', (
     tester,
   ) async {
     final handle = tester.ensureSemantics();
@@ -152,11 +152,9 @@ void main() {
     }
     expect(find.textContaining('Still to choose'), findsNothing);
     expect(find.text('Chicken · Farro · Carrot · Lettuce'), findsOneWidget);
-    // Nothing to create yet, and no pretending.
-    expect(find.text('Create my meal · Coming soon'), findsOneWidget);
-    await tester.tap(find.text('Create my meal · Coming soon'));
-    await tester.pumpAndSettle();
-    expect(find.byType(MealBuilderPage), findsOneWidget);
+    // Create is available now; it opens the results (tested in
+    // meal_results_page_test.dart).
+    expect(find.text('Create my meal'), findsOneWidget);
     await tester.tap(find.text('Clear my choices'));
     await tester.pumpAndSettle();
     expect(find.text('Nothing chosen yet.'), findsOneWidget);

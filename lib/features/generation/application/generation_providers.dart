@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../content/application/content_providers.dart';
+import '../../content/domain/recipe.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../foods/application/meal_selection.dart';
@@ -86,6 +87,25 @@ final personalRecipeProvider = StreamProvider.family<PersonalRecipe?, String>((
       .watch(personalRecipeRepositoryProvider)
       .watchById(session.userId, id);
 });
+
+/// A recipe by id: the bundled library first, then the user's own. Loading
+/// only while a personal recipe is being read.
+final recipeByIdProvider = Provider.autoDispose
+    .family<AsyncValue<Recipe?>, String>((ref, id) {
+      final bundled = ref.watch(catalogueProvider).recipe(id);
+      if (bundled != null) return AsyncData(bundled);
+      if (!id.startsWith(personalRecipePrefix)) return const AsyncData(null);
+      return ref.watch(personalRecipeProvider(id)).whenData((p) => p?.recipe);
+    });
+
+/// Titles of the user's own recipes by id (for the shopping list's sources).
+final personalRecipeTitlesProvider = Provider<Map<String, String>>(
+  (ref) => {
+    for (final r
+        in ref.watch(personalRecipesProvider).value ?? const <PersonalRecipe>[])
+      r.id: r.recipe.title,
+  },
+);
 
 // ---------------------------------------------------------------------------
 

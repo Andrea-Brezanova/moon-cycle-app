@@ -17,6 +17,24 @@ final class MealChoice {
   final List<String> plantIds;
 
   List<String> get ids => [proteinId, baseId, ...plantIds];
+
+  /// A stable text form (`protein|base|plant,plant`), usable as a provider key.
+  String get key => '$proteinId|$baseId|${plantIds.join(',')}';
+
+  factory MealChoice.fromKey(String key) {
+    final parts = key.split('|');
+    return MealChoice(
+      proteinId: parts[0],
+      baseId: parts[1],
+      plantIds: parts[2].isEmpty ? const [] : parts[2].split(','),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) => other is MealChoice && other.key == key;
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// How well a recipe covers a [MealChoice].

@@ -5,10 +5,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
 import '../../core/domain/phase.dart';
+import '../../features/discovery/domain/recipe_matcher.dart';
+import '../../features/discovery/presentation/meal_results_page.dart';
 import '../../features/foods/presentation/food_detail_page.dart';
 import '../../features/foods/presentation/foods_page.dart';
 import '../../features/foods/presentation/learn_more_page.dart';
 import '../../features/foods/presentation/meal_builder_page.dart';
+import '../../features/generation/presentation/create_recipe_page.dart';
+import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
@@ -106,6 +110,11 @@ GoRouter buildAppRouter({
                   routes: switch (tab) {
                     AppTab.recipes => [
                       GoRoute(
+                        path: 'mine',
+                        pageBuilder: (context, state) =>
+                            _page(state, const MyRecipesPage()),
+                      ),
+                      GoRoute(
                         path: ':recipeId',
                         pageBuilder: (context, state) => _page(
                           state,
@@ -128,6 +137,20 @@ GoRouter buildAppRouter({
                           MealBuilderPage(
                             foodId: state.uri.queryParameters['food'],
                           ),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder/results',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          MealResultsPage(choice: _choiceOf(state)),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder/create',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          CreateRecipePage(choice: _choiceOf(state)),
                         ),
                       ),
                       GoRoute(
@@ -221,3 +244,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   });
   return router;
 });
+
+/// The foods chosen for a meal, from the route's query (ids only).
+MealChoice _choiceOf(GoRouterState state) {
+  final q = state.uri.queryParameters;
+  return MealChoice(
+    proteinId: q['protein'] ?? '',
+    baseId: q['base'] ?? '',
+    plantIds: [
+      for (final id in (q['plants'] ?? '').split(','))
+        if (id.isNotEmpty) id,
+    ],
+  );
+}

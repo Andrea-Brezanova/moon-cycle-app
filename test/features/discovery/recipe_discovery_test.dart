@@ -3,7 +3,6 @@ import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/content/domain/food_filter.dart';
 import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/discovery/data/recipe_sources.dart';
-import 'package:moon_cycle/features/discovery/domain/recipe_candidate.dart';
 import 'package:moon_cycle/features/discovery/domain/recipe_discovery.dart';
 import 'package:moon_cycle/features/discovery/domain/recipe_matcher.dart';
 import 'package:moon_cycle/features/discovery/domain/recipe_source.dart';

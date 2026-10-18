@@ -368,6 +368,15 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
           base: base,
           plants: plants,
           complete: selection.isComplete,
+          onCreate: selection.isComplete
+              ? () => context.push(
+                  Routes.mealResults(
+                    protein: selection.proteinId!,
+                    base: selection.baseId!,
+                    plants: selection.plantIds,
+                  ),
+                )
+              : null,
           onClear: selection.isEmpty
               ? null
               : ref.read(mealSelectionProvider.notifier).clear,
@@ -377,14 +386,15 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
   }
 }
 
-/// "Your meal": what is chosen so far, and what is still missing. Creating the
-/// meal arrives with recipe generation, so it is shown as coming soon.
+/// "Your meal": what is chosen so far, and what is still missing. "Create my
+/// meal" looks for existing recipes first (see `MealResultsPage`).
 class _Summary extends StatelessWidget {
   const _Summary({
     required this.protein,
     required this.base,
     required this.plants,
     required this.complete,
+    required this.onCreate,
     required this.onClear,
   });
 
@@ -392,6 +402,9 @@ class _Summary extends StatelessWidget {
   final Food? base;
   final List<Food> plants;
   final bool complete;
+
+  /// Looks for recipes for the chosen foods; null until the meal is complete.
+  final VoidCallback? onCreate;
   final VoidCallback? onClear;
 
   @override
@@ -429,10 +442,12 @@ class _Summary extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 16),
-          const MoonButton(
-            'Create my meal · Coming soon',
-            variant: MoonButtonVariant.ghost,
-            onPressed: null,
+          MoonButton(
+            'Create my meal',
+            variant: complete
+                ? MoonButtonVariant.primary
+                : MoonButtonVariant.ghost,
+            onPressed: onCreate,
           ),
           if (onClear != null) ...[
             const SizedBox(height: 4),
