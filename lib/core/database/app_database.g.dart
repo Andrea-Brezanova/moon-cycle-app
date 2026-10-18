@@ -3662,6 +3662,939 @@ class AppStatesCompanion extends UpdateCompanion<AppStateRow> {
   }
 }
 
+class $PersonalRecipesTable extends PersonalRecipes
+    with TableInfo<$PersonalRecipesTable, PersonalRecipeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PersonalRecipesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _ownerIdMeta = const VerificationMeta(
+    'ownerId',
+  );
+  @override
+  late final GeneratedColumn<String> ownerId = GeneratedColumn<String>(
+    'owner_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _idempotencyKeyMeta = const VerificationMeta(
+    'idempotencyKey',
+  );
+  @override
+  late final GeneratedColumn<String> idempotencyKey = GeneratedColumn<String>(
+    'idempotency_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fingerprintMeta = const VerificationMeta(
+    'fingerprint',
+  );
+  @override
+  late final GeneratedColumn<String> fingerprint = GeneratedColumn<String>(
+    'fingerprint',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _phaseMeta = const VerificationMeta('phase');
+  @override
+  late final GeneratedColumn<String> phase = GeneratedColumn<String>(
+    'phase',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _recipeJsonMeta = const VerificationMeta(
+    'recipeJson',
+  );
+  @override
+  late final GeneratedColumn<String> recipeJson = GeneratedColumn<String>(
+    'recipe_json',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifecycleMeta = const VerificationMeta(
+    'lifecycle',
+  );
+  @override
+  late final GeneratedColumn<String> lifecycle = GeneratedColumn<String>(
+    'lifecycle',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('privateSaved'),
+  );
+  static const VerificationMeta _originMeta = const VerificationMeta('origin');
+  @override
+  late final GeneratedColumn<String> origin = GeneratedColumn<String>(
+    'origin',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _provenanceJsonMeta = const VerificationMeta(
+    'provenanceJson',
+  );
+  @override
+  late final GeneratedColumn<String> provenanceJson = GeneratedColumn<String>(
+    'provenance_json',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _imageStatusMeta = const VerificationMeta(
+    'imageStatus',
+  );
+  @override
+  late final GeneratedColumn<String> imageStatus = GeneratedColumn<String>(
+    'image_status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('none'),
+  );
+  static const VerificationMeta _imageRefJsonMeta = const VerificationMeta(
+    'imageRefJson',
+  );
+  @override
+  late final GeneratedColumn<String> imageRefJson = GeneratedColumn<String>(
+    'image_ref_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _remoteIdMeta = const VerificationMeta(
+    'remoteId',
+  );
+  @override
+  late final GeneratedColumn<String> remoteId = GeneratedColumn<String>(
+    'remote_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    ownerId,
+    idempotencyKey,
+    fingerprint,
+    title,
+    phase,
+    recipeJson,
+    lifecycle,
+    origin,
+    provenanceJson,
+    imageStatus,
+    imageRefJson,
+    remoteId,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'personal_recipes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PersonalRecipeRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('owner_id')) {
+      context.handle(
+        _ownerIdMeta,
+        ownerId.isAcceptableOrUnknown(data['owner_id']!, _ownerIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_ownerIdMeta);
+    }
+    if (data.containsKey('idempotency_key')) {
+      context.handle(
+        _idempotencyKeyMeta,
+        idempotencyKey.isAcceptableOrUnknown(
+          data['idempotency_key']!,
+          _idempotencyKeyMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_idempotencyKeyMeta);
+    }
+    if (data.containsKey('fingerprint')) {
+      context.handle(
+        _fingerprintMeta,
+        fingerprint.isAcceptableOrUnknown(
+          data['fingerprint']!,
+          _fingerprintMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fingerprintMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('phase')) {
+      context.handle(
+        _phaseMeta,
+        phase.isAcceptableOrUnknown(data['phase']!, _phaseMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_phaseMeta);
+    }
+    if (data.containsKey('recipe_json')) {
+      context.handle(
+        _recipeJsonMeta,
+        recipeJson.isAcceptableOrUnknown(data['recipe_json']!, _recipeJsonMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recipeJsonMeta);
+    }
+    if (data.containsKey('lifecycle')) {
+      context.handle(
+        _lifecycleMeta,
+        lifecycle.isAcceptableOrUnknown(data['lifecycle']!, _lifecycleMeta),
+      );
+    }
+    if (data.containsKey('origin')) {
+      context.handle(
+        _originMeta,
+        origin.isAcceptableOrUnknown(data['origin']!, _originMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_originMeta);
+    }
+    if (data.containsKey('provenance_json')) {
+      context.handle(
+        _provenanceJsonMeta,
+        provenanceJson.isAcceptableOrUnknown(
+          data['provenance_json']!,
+          _provenanceJsonMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_provenanceJsonMeta);
+    }
+    if (data.containsKey('image_status')) {
+      context.handle(
+        _imageStatusMeta,
+        imageStatus.isAcceptableOrUnknown(
+          data['image_status']!,
+          _imageStatusMeta,
+        ),
+      );
+    }
+    if (data.containsKey('image_ref_json')) {
+      context.handle(
+        _imageRefJsonMeta,
+        imageRefJson.isAcceptableOrUnknown(
+          data['image_ref_json']!,
+          _imageRefJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('remote_id')) {
+      context.handle(
+        _remoteIdMeta,
+        remoteId.isAcceptableOrUnknown(data['remote_id']!, _remoteIdMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PersonalRecipeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PersonalRecipeRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      ownerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}owner_id'],
+      )!,
+      idempotencyKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}idempotency_key'],
+      )!,
+      fingerprint: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}fingerprint'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      phase: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phase'],
+      )!,
+      recipeJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}recipe_json'],
+      )!,
+      lifecycle: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}lifecycle'],
+      )!,
+      origin: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}origin'],
+      )!,
+      provenanceJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}provenance_json'],
+      )!,
+      imageStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}image_status'],
+      )!,
+      imageRefJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}image_ref_json'],
+      ),
+      remoteId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}remote_id'],
+      ),
+    );
+  }
+
+  @override
+  $PersonalRecipesTable createAlias(String alias) {
+    return $PersonalRecipesTable(attachedDatabase, alias);
+  }
+}
+
+class PersonalRecipeRow extends DataClass
+    implements Insertable<PersonalRecipeRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+
+  /// The account that owns it (a development session id in dev builds).
+  final String ownerId;
+
+  /// One per tap of "Create": a repeated request finds this row.
+  final String idempotencyKey;
+
+  /// Canonical text of the selection, to spot a repeated choice.
+  final String fingerprint;
+  final String title;
+  final String phase;
+  final String recipeJson;
+
+  /// `privateSaved`, `candidate`, `validated`, `approved` or `published`.
+  final String lifecycle;
+
+  /// `devMock` or `cloud`, with the provider and model that made it.
+  final String origin;
+  final String provenanceJson;
+
+  /// `none`, `pending`, `ready` or `failed`.
+  final String imageStatus;
+  final String? imageRefJson;
+
+  /// The server row id, once the recipe exists there.
+  final String? remoteId;
+  const PersonalRecipeRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.ownerId,
+    required this.idempotencyKey,
+    required this.fingerprint,
+    required this.title,
+    required this.phase,
+    required this.recipeJson,
+    required this.lifecycle,
+    required this.origin,
+    required this.provenanceJson,
+    required this.imageStatus,
+    this.imageRefJson,
+    this.remoteId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    map['owner_id'] = Variable<String>(ownerId);
+    map['idempotency_key'] = Variable<String>(idempotencyKey);
+    map['fingerprint'] = Variable<String>(fingerprint);
+    map['title'] = Variable<String>(title);
+    map['phase'] = Variable<String>(phase);
+    map['recipe_json'] = Variable<String>(recipeJson);
+    map['lifecycle'] = Variable<String>(lifecycle);
+    map['origin'] = Variable<String>(origin);
+    map['provenance_json'] = Variable<String>(provenanceJson);
+    map['image_status'] = Variable<String>(imageStatus);
+    if (!nullToAbsent || imageRefJson != null) {
+      map['image_ref_json'] = Variable<String>(imageRefJson);
+    }
+    if (!nullToAbsent || remoteId != null) {
+      map['remote_id'] = Variable<String>(remoteId);
+    }
+    return map;
+  }
+
+  PersonalRecipesCompanion toCompanion(bool nullToAbsent) {
+    return PersonalRecipesCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      ownerId: Value(ownerId),
+      idempotencyKey: Value(idempotencyKey),
+      fingerprint: Value(fingerprint),
+      title: Value(title),
+      phase: Value(phase),
+      recipeJson: Value(recipeJson),
+      lifecycle: Value(lifecycle),
+      origin: Value(origin),
+      provenanceJson: Value(provenanceJson),
+      imageStatus: Value(imageStatus),
+      imageRefJson: imageRefJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(imageRefJson),
+      remoteId: remoteId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(remoteId),
+    );
+  }
+
+  factory PersonalRecipeRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PersonalRecipeRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      ownerId: serializer.fromJson<String>(json['ownerId']),
+      idempotencyKey: serializer.fromJson<String>(json['idempotencyKey']),
+      fingerprint: serializer.fromJson<String>(json['fingerprint']),
+      title: serializer.fromJson<String>(json['title']),
+      phase: serializer.fromJson<String>(json['phase']),
+      recipeJson: serializer.fromJson<String>(json['recipeJson']),
+      lifecycle: serializer.fromJson<String>(json['lifecycle']),
+      origin: serializer.fromJson<String>(json['origin']),
+      provenanceJson: serializer.fromJson<String>(json['provenanceJson']),
+      imageStatus: serializer.fromJson<String>(json['imageStatus']),
+      imageRefJson: serializer.fromJson<String?>(json['imageRefJson']),
+      remoteId: serializer.fromJson<String?>(json['remoteId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'ownerId': serializer.toJson<String>(ownerId),
+      'idempotencyKey': serializer.toJson<String>(idempotencyKey),
+      'fingerprint': serializer.toJson<String>(fingerprint),
+      'title': serializer.toJson<String>(title),
+      'phase': serializer.toJson<String>(phase),
+      'recipeJson': serializer.toJson<String>(recipeJson),
+      'lifecycle': serializer.toJson<String>(lifecycle),
+      'origin': serializer.toJson<String>(origin),
+      'provenanceJson': serializer.toJson<String>(provenanceJson),
+      'imageStatus': serializer.toJson<String>(imageStatus),
+      'imageRefJson': serializer.toJson<String?>(imageRefJson),
+      'remoteId': serializer.toJson<String?>(remoteId),
+    };
+  }
+
+  PersonalRecipeRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    String? ownerId,
+    String? idempotencyKey,
+    String? fingerprint,
+    String? title,
+    String? phase,
+    String? recipeJson,
+    String? lifecycle,
+    String? origin,
+    String? provenanceJson,
+    String? imageStatus,
+    Value<String?> imageRefJson = const Value.absent(),
+    Value<String?> remoteId = const Value.absent(),
+  }) => PersonalRecipeRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    ownerId: ownerId ?? this.ownerId,
+    idempotencyKey: idempotencyKey ?? this.idempotencyKey,
+    fingerprint: fingerprint ?? this.fingerprint,
+    title: title ?? this.title,
+    phase: phase ?? this.phase,
+    recipeJson: recipeJson ?? this.recipeJson,
+    lifecycle: lifecycle ?? this.lifecycle,
+    origin: origin ?? this.origin,
+    provenanceJson: provenanceJson ?? this.provenanceJson,
+    imageStatus: imageStatus ?? this.imageStatus,
+    imageRefJson: imageRefJson.present ? imageRefJson.value : this.imageRefJson,
+    remoteId: remoteId.present ? remoteId.value : this.remoteId,
+  );
+  PersonalRecipeRow copyWithCompanion(PersonalRecipesCompanion data) {
+    return PersonalRecipeRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      ownerId: data.ownerId.present ? data.ownerId.value : this.ownerId,
+      idempotencyKey: data.idempotencyKey.present
+          ? data.idempotencyKey.value
+          : this.idempotencyKey,
+      fingerprint: data.fingerprint.present
+          ? data.fingerprint.value
+          : this.fingerprint,
+      title: data.title.present ? data.title.value : this.title,
+      phase: data.phase.present ? data.phase.value : this.phase,
+      recipeJson: data.recipeJson.present
+          ? data.recipeJson.value
+          : this.recipeJson,
+      lifecycle: data.lifecycle.present ? data.lifecycle.value : this.lifecycle,
+      origin: data.origin.present ? data.origin.value : this.origin,
+      provenanceJson: data.provenanceJson.present
+          ? data.provenanceJson.value
+          : this.provenanceJson,
+      imageStatus: data.imageStatus.present
+          ? data.imageStatus.value
+          : this.imageStatus,
+      imageRefJson: data.imageRefJson.present
+          ? data.imageRefJson.value
+          : this.imageRefJson,
+      remoteId: data.remoteId.present ? data.remoteId.value : this.remoteId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PersonalRecipeRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('ownerId: $ownerId, ')
+          ..write('idempotencyKey: $idempotencyKey, ')
+          ..write('fingerprint: $fingerprint, ')
+          ..write('title: $title, ')
+          ..write('phase: $phase, ')
+          ..write('recipeJson: $recipeJson, ')
+          ..write('lifecycle: $lifecycle, ')
+          ..write('origin: $origin, ')
+          ..write('provenanceJson: $provenanceJson, ')
+          ..write('imageStatus: $imageStatus, ')
+          ..write('imageRefJson: $imageRefJson, ')
+          ..write('remoteId: $remoteId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    ownerId,
+    idempotencyKey,
+    fingerprint,
+    title,
+    phase,
+    recipeJson,
+    lifecycle,
+    origin,
+    provenanceJson,
+    imageStatus,
+    imageRefJson,
+    remoteId,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PersonalRecipeRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.ownerId == this.ownerId &&
+          other.idempotencyKey == this.idempotencyKey &&
+          other.fingerprint == this.fingerprint &&
+          other.title == this.title &&
+          other.phase == this.phase &&
+          other.recipeJson == this.recipeJson &&
+          other.lifecycle == this.lifecycle &&
+          other.origin == this.origin &&
+          other.provenanceJson == this.provenanceJson &&
+          other.imageStatus == this.imageStatus &&
+          other.imageRefJson == this.imageRefJson &&
+          other.remoteId == this.remoteId);
+}
+
+class PersonalRecipesCompanion extends UpdateCompanion<PersonalRecipeRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<String> ownerId;
+  final Value<String> idempotencyKey;
+  final Value<String> fingerprint;
+  final Value<String> title;
+  final Value<String> phase;
+  final Value<String> recipeJson;
+  final Value<String> lifecycle;
+  final Value<String> origin;
+  final Value<String> provenanceJson;
+  final Value<String> imageStatus;
+  final Value<String?> imageRefJson;
+  final Value<String?> remoteId;
+  final Value<int> rowid;
+  const PersonalRecipesCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.ownerId = const Value.absent(),
+    this.idempotencyKey = const Value.absent(),
+    this.fingerprint = const Value.absent(),
+    this.title = const Value.absent(),
+    this.phase = const Value.absent(),
+    this.recipeJson = const Value.absent(),
+    this.lifecycle = const Value.absent(),
+    this.origin = const Value.absent(),
+    this.provenanceJson = const Value.absent(),
+    this.imageStatus = const Value.absent(),
+    this.imageRefJson = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PersonalRecipesCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required String ownerId,
+    required String idempotencyKey,
+    required String fingerprint,
+    required String title,
+    required String phase,
+    required String recipeJson,
+    this.lifecycle = const Value.absent(),
+    required String origin,
+    required String provenanceJson,
+    this.imageStatus = const Value.absent(),
+    this.imageRefJson = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       ownerId = Value(ownerId),
+       idempotencyKey = Value(idempotencyKey),
+       fingerprint = Value(fingerprint),
+       title = Value(title),
+       phase = Value(phase),
+       recipeJson = Value(recipeJson),
+       origin = Value(origin),
+       provenanceJson = Value(provenanceJson);
+  static Insertable<PersonalRecipeRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? ownerId,
+    Expression<String>? idempotencyKey,
+    Expression<String>? fingerprint,
+    Expression<String>? title,
+    Expression<String>? phase,
+    Expression<String>? recipeJson,
+    Expression<String>? lifecycle,
+    Expression<String>? origin,
+    Expression<String>? provenanceJson,
+    Expression<String>? imageStatus,
+    Expression<String>? imageRefJson,
+    Expression<String>? remoteId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (ownerId != null) 'owner_id': ownerId,
+      if (idempotencyKey != null) 'idempotency_key': idempotencyKey,
+      if (fingerprint != null) 'fingerprint': fingerprint,
+      if (title != null) 'title': title,
+      if (phase != null) 'phase': phase,
+      if (recipeJson != null) 'recipe_json': recipeJson,
+      if (lifecycle != null) 'lifecycle': lifecycle,
+      if (origin != null) 'origin': origin,
+      if (provenanceJson != null) 'provenance_json': provenanceJson,
+      if (imageStatus != null) 'image_status': imageStatus,
+      if (imageRefJson != null) 'image_ref_json': imageRefJson,
+      if (remoteId != null) 'remote_id': remoteId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PersonalRecipesCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<String>? ownerId,
+    Value<String>? idempotencyKey,
+    Value<String>? fingerprint,
+    Value<String>? title,
+    Value<String>? phase,
+    Value<String>? recipeJson,
+    Value<String>? lifecycle,
+    Value<String>? origin,
+    Value<String>? provenanceJson,
+    Value<String>? imageStatus,
+    Value<String?>? imageRefJson,
+    Value<String?>? remoteId,
+    Value<int>? rowid,
+  }) {
+    return PersonalRecipesCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      ownerId: ownerId ?? this.ownerId,
+      idempotencyKey: idempotencyKey ?? this.idempotencyKey,
+      fingerprint: fingerprint ?? this.fingerprint,
+      title: title ?? this.title,
+      phase: phase ?? this.phase,
+      recipeJson: recipeJson ?? this.recipeJson,
+      lifecycle: lifecycle ?? this.lifecycle,
+      origin: origin ?? this.origin,
+      provenanceJson: provenanceJson ?? this.provenanceJson,
+      imageStatus: imageStatus ?? this.imageStatus,
+      imageRefJson: imageRefJson ?? this.imageRefJson,
+      remoteId: remoteId ?? this.remoteId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (ownerId.present) {
+      map['owner_id'] = Variable<String>(ownerId.value);
+    }
+    if (idempotencyKey.present) {
+      map['idempotency_key'] = Variable<String>(idempotencyKey.value);
+    }
+    if (fingerprint.present) {
+      map['fingerprint'] = Variable<String>(fingerprint.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (phase.present) {
+      map['phase'] = Variable<String>(phase.value);
+    }
+    if (recipeJson.present) {
+      map['recipe_json'] = Variable<String>(recipeJson.value);
+    }
+    if (lifecycle.present) {
+      map['lifecycle'] = Variable<String>(lifecycle.value);
+    }
+    if (origin.present) {
+      map['origin'] = Variable<String>(origin.value);
+    }
+    if (provenanceJson.present) {
+      map['provenance_json'] = Variable<String>(provenanceJson.value);
+    }
+    if (imageStatus.present) {
+      map['image_status'] = Variable<String>(imageStatus.value);
+    }
+    if (imageRefJson.present) {
+      map['image_ref_json'] = Variable<String>(imageRefJson.value);
+    }
+    if (remoteId.present) {
+      map['remote_id'] = Variable<String>(remoteId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PersonalRecipesCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('ownerId: $ownerId, ')
+          ..write('idempotencyKey: $idempotencyKey, ')
+          ..write('fingerprint: $fingerprint, ')
+          ..write('title: $title, ')
+          ..write('phase: $phase, ')
+          ..write('recipeJson: $recipeJson, ')
+          ..write('lifecycle: $lifecycle, ')
+          ..write('origin: $origin, ')
+          ..write('provenanceJson: $provenanceJson, ')
+          ..write('imageStatus: $imageStatus, ')
+          ..write('imageRefJson: $imageRefJson, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3676,6 +4609,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $AppStatesTable appStates = $AppStatesTable(this);
+  late final $PersonalRecipesTable personalRecipes = $PersonalRecipesTable(
+    this,
+  );
   late final Index periodLogsStartLive = Index(
     'period_logs_start_live',
     'CREATE UNIQUE INDEX period_logs_start_live ON period_logs (start_date) WHERE deleted_at IS NULL',
@@ -3683,6 +4619,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final Index shoppingItemsKeyLive = Index(
     'shopping_items_key_live',
     'CREATE UNIQUE INDEX shopping_items_key_live ON shopping_items ("key") WHERE deleted_at IS NULL',
+  );
+  late final Index personalRecipesOwnerKey = Index(
+    'personal_recipes_owner_key',
+    'CREATE UNIQUE INDEX personal_recipes_owner_key ON personal_recipes (owner_id, idempotency_key) WHERE deleted_at IS NULL',
   );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
@@ -3696,8 +4636,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     shoppingItems,
     shoppingSources,
     appStates,
+    personalRecipes,
     periodLogsStartLive,
     shoppingItemsKeyLive,
+    personalRecipesOwnerKey,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -5812,6 +6754,442 @@ typedef $$AppStatesTableProcessedTableManager =
       AppStateRow,
       PrefetchHooks Function()
     >;
+typedef $$PersonalRecipesTableCreateCompanionBuilder =
+    PersonalRecipesCompanion Function({
+      required String id,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      required String ownerId,
+      required String idempotencyKey,
+      required String fingerprint,
+      required String title,
+      required String phase,
+      required String recipeJson,
+      Value<String> lifecycle,
+      required String origin,
+      required String provenanceJson,
+      Value<String> imageStatus,
+      Value<String?> imageRefJson,
+      Value<String?> remoteId,
+      Value<int> rowid,
+    });
+typedef $$PersonalRecipesTableUpdateCompanionBuilder =
+    PersonalRecipesCompanion Function({
+      Value<String> id,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<String> ownerId,
+      Value<String> idempotencyKey,
+      Value<String> fingerprint,
+      Value<String> title,
+      Value<String> phase,
+      Value<String> recipeJson,
+      Value<String> lifecycle,
+      Value<String> origin,
+      Value<String> provenanceJson,
+      Value<String> imageStatus,
+      Value<String?> imageRefJson,
+      Value<String?> remoteId,
+      Value<int> rowid,
+    });
+
+class $$PersonalRecipesTableFilterComposer
+    extends Composer<_$AppDatabase, $PersonalRecipesTable> {
+  $$PersonalRecipesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get ownerId => $composableBuilder(
+    column: $table.ownerId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get idempotencyKey => $composableBuilder(
+    column: $table.idempotencyKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get fingerprint => $composableBuilder(
+    column: $table.fingerprint,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get recipeJson => $composableBuilder(
+    column: $table.recipeJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get lifecycle => $composableBuilder(
+    column: $table.lifecycle,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get origin => $composableBuilder(
+    column: $table.origin,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get provenanceJson => $composableBuilder(
+    column: $table.provenanceJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get imageStatus => $composableBuilder(
+    column: $table.imageStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get imageRefJson => $composableBuilder(
+    column: $table.imageRefJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$PersonalRecipesTableOrderingComposer
+    extends Composer<_$AppDatabase, $PersonalRecipesTable> {
+  $$PersonalRecipesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get ownerId => $composableBuilder(
+    column: $table.ownerId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get idempotencyKey => $composableBuilder(
+    column: $table.idempotencyKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get fingerprint => $composableBuilder(
+    column: $table.fingerprint,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get recipeJson => $composableBuilder(
+    column: $table.recipeJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get lifecycle => $composableBuilder(
+    column: $table.lifecycle,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get origin => $composableBuilder(
+    column: $table.origin,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get provenanceJson => $composableBuilder(
+    column: $table.provenanceJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get imageStatus => $composableBuilder(
+    column: $table.imageStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get imageRefJson => $composableBuilder(
+    column: $table.imageRefJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PersonalRecipesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PersonalRecipesTable> {
+  $$PersonalRecipesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get ownerId =>
+      $composableBuilder(column: $table.ownerId, builder: (column) => column);
+
+  GeneratedColumn<String> get idempotencyKey => $composableBuilder(
+    column: $table.idempotencyKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get fingerprint => $composableBuilder(
+    column: $table.fingerprint,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get phase =>
+      $composableBuilder(column: $table.phase, builder: (column) => column);
+
+  GeneratedColumn<String> get recipeJson => $composableBuilder(
+    column: $table.recipeJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get lifecycle =>
+      $composableBuilder(column: $table.lifecycle, builder: (column) => column);
+
+  GeneratedColumn<String> get origin =>
+      $composableBuilder(column: $table.origin, builder: (column) => column);
+
+  GeneratedColumn<String> get provenanceJson => $composableBuilder(
+    column: $table.provenanceJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get imageStatus => $composableBuilder(
+    column: $table.imageStatus,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get imageRefJson => $composableBuilder(
+    column: $table.imageRefJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get remoteId =>
+      $composableBuilder(column: $table.remoteId, builder: (column) => column);
+}
+
+class $$PersonalRecipesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PersonalRecipesTable,
+          PersonalRecipeRow,
+          $$PersonalRecipesTableFilterComposer,
+          $$PersonalRecipesTableOrderingComposer,
+          $$PersonalRecipesTableAnnotationComposer,
+          $$PersonalRecipesTableCreateCompanionBuilder,
+          $$PersonalRecipesTableUpdateCompanionBuilder,
+          (
+            PersonalRecipeRow,
+            BaseReferences<
+              _$AppDatabase,
+              $PersonalRecipesTable,
+              PersonalRecipeRow
+            >,
+          ),
+          PersonalRecipeRow,
+          PrefetchHooks Function()
+        > {
+  $$PersonalRecipesTableTableManager(
+    _$AppDatabase db,
+    $PersonalRecipesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PersonalRecipesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PersonalRecipesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PersonalRecipesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<String> ownerId = const Value.absent(),
+                Value<String> idempotencyKey = const Value.absent(),
+                Value<String> fingerprint = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> phase = const Value.absent(),
+                Value<String> recipeJson = const Value.absent(),
+                Value<String> lifecycle = const Value.absent(),
+                Value<String> origin = const Value.absent(),
+                Value<String> provenanceJson = const Value.absent(),
+                Value<String> imageStatus = const Value.absent(),
+                Value<String?> imageRefJson = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PersonalRecipesCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                ownerId: ownerId,
+                idempotencyKey: idempotencyKey,
+                fingerprint: fingerprint,
+                title: title,
+                phase: phase,
+                recipeJson: recipeJson,
+                lifecycle: lifecycle,
+                origin: origin,
+                provenanceJson: provenanceJson,
+                imageStatus: imageStatus,
+                imageRefJson: imageRefJson,
+                remoteId: remoteId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required String ownerId,
+                required String idempotencyKey,
+                required String fingerprint,
+                required String title,
+                required String phase,
+                required String recipeJson,
+                Value<String> lifecycle = const Value.absent(),
+                required String origin,
+                required String provenanceJson,
+                Value<String> imageStatus = const Value.absent(),
+                Value<String?> imageRefJson = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PersonalRecipesCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                ownerId: ownerId,
+                idempotencyKey: idempotencyKey,
+                fingerprint: fingerprint,
+                title: title,
+                phase: phase,
+                recipeJson: recipeJson,
+                lifecycle: lifecycle,
+                origin: origin,
+                provenanceJson: provenanceJson,
+                imageStatus: imageStatus,
+                imageRefJson: imageRefJson,
+                remoteId: remoteId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$PersonalRecipesTable, PersonalRecipeRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $PersonalRecipesTable,
+                    PersonalRecipeRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PersonalRecipesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PersonalRecipesTable,
+      PersonalRecipeRow,
+      $$PersonalRecipesTableFilterComposer,
+      $$PersonalRecipesTableOrderingComposer,
+      $$PersonalRecipesTableAnnotationComposer,
+      $$PersonalRecipesTableCreateCompanionBuilder,
+      $$PersonalRecipesTableUpdateCompanionBuilder,
+      (
+        PersonalRecipeRow,
+        BaseReferences<_$AppDatabase, $PersonalRecipesTable, PersonalRecipeRow>,
+      ),
+      PersonalRecipeRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -5830,4 +7208,6 @@ class $AppDatabaseManager {
       $$ShoppingSourcesTableTableManager(_db, _db.shoppingSources);
   $$AppStatesTableTableManager get appStates =>
       $$AppStatesTableTableManager(_db, _db.appStates);
+  $$PersonalRecipesTableTableManager get personalRecipes =>
+      $$PersonalRecipesTableTableManager(_db, _db.personalRecipes);
 }

@@ -119,3 +119,42 @@ class AppStates extends Table {
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
+
+/// Recipes the user generated, saved privately on the phone (Stage 3).
+///
+/// The recipe itself is stored as JSON in the app's own `Recipe` shape. A
+/// signed-in user's rows mirror their server rows (`remote_id`); the server is
+/// the source of truth once sync exists.
+@TableIndex.sql(
+  'CREATE UNIQUE INDEX personal_recipes_owner_key '
+  'ON personal_recipes (owner_id, idempotency_key) WHERE deleted_at IS NULL',
+)
+@DataClassName('PersonalRecipeRow')
+class PersonalRecipes extends Table with UserRow {
+  /// The account that owns it (a development session id in dev builds).
+  TextColumn get ownerId => text()();
+
+  /// One per tap of "Create": a repeated request finds this row.
+  TextColumn get idempotencyKey => text()();
+
+  /// Canonical text of the selection, to spot a repeated choice.
+  TextColumn get fingerprint => text()();
+  TextColumn get title => text()();
+  TextColumn get phase => text()();
+  TextColumn get recipeJson => text()();
+
+  /// `privateSaved`, `candidate`, `validated`, `approved` or `published`.
+  TextColumn get lifecycle =>
+      text().withDefault(const Constant('privateSaved'))();
+
+  /// `devMock` or `cloud`, with the provider and model that made it.
+  TextColumn get origin => text()();
+  TextColumn get provenanceJson => text()();
+
+  /// `none`, `pending`, `ready` or `failed`.
+  TextColumn get imageStatus => text().withDefault(const Constant('none'))();
+  TextColumn get imageRefJson => text().nullable()();
+
+  /// The server row id, once the recipe exists there.
+  TextColumn get remoteId => text().nullable()();
+}

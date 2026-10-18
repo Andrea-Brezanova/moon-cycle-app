@@ -3,8 +3,11 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/domain/local_date.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
+import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/period_log.dart';
+import 'package:moon_cycle/features/generation/domain/generation_result.dart';
+import 'package:moon_cycle/features/generation/domain/personal_recipe.dart';
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import 'package:moon_cycle/features/preferences/domain/reminder_settings.dart';
@@ -67,6 +70,7 @@ void main() {
       'cycle',
       'preferences',
       'shoppingList',
+      'personalRecipes',
     ]);
     expect(json['format'], exportFormat);
     expect(json['version'], 1);
@@ -121,6 +125,64 @@ void main() {
         ],
       },
     ]);
+  });
+
+  test('personal recipes are exported with their provenance', () {
+    final recipe = PersonalRecipe(
+      recipe: const Recipe(
+        id: 'u-1',
+        title: 'Lentil & Farro Bowl',
+        phase: Phase.menstrual,
+        category: RecipeCategory.dinner,
+        minutes: 30,
+        serves: 2,
+        intro: 'A bowl.',
+        whyThisPhase: 'Made from the foods you chose.',
+        keyFoodIds: ['green-lentil'],
+        ingredients: [
+          RecipeIngredient(
+            label: 'Green lentil',
+            foodId: 'green-lentil',
+            amount: 150,
+            unit: 'g',
+            aisleId: 'protein',
+          ),
+        ],
+        steps: ['Cook the lentils.'],
+      ),
+      ownerId: 'o',
+      idempotencyKey: 'k',
+      fingerprint: 'f',
+      provenance: const Provenance(
+        origin: GenerationOrigin.devMock,
+        provider: 'dev-mock',
+        model: 'template-v1',
+      ),
+      createdAt: DateTime.utc(2026, 10, 17),
+    );
+    final json = jsonDecode(
+      jsonEncode(
+        buildDataExport(
+          exportedAt: DateTime.utc(2026, 10, 17),
+          appVersion: '1.0.0',
+          profile: null,
+          periods: const [],
+          diet: Diet.omnivore,
+          avoidances: const [],
+          reminders: const ReminderSettings(enabled: true),
+          shoppingList: const [],
+          personalRecipes: [recipe],
+          foodName: (_) => null,
+        ),
+      ),
+    ) as Map<String, dynamic>;
+    final out = (json['personalRecipes'] as List).single as Map;
+    expect(out['id'], 'u-1');
+    expect(out['lifecycle'], 'privateSaved');
+    expect(out['origin'], 'devMock');
+    expect((out['recipe'] as Map)['title'], 'Lentil & Farro Bowl');
+    // The owner and the idempotency key are internal and not exported.
+    expect(jsonEncode(json), isNot(contains('"ownerId"')));
   });
 
   test('no derived values (phase, predictions) are exported', () {

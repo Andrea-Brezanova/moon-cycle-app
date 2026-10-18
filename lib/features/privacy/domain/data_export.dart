@@ -1,6 +1,8 @@
 import '../../../core/domain/local_date.dart';
 import '../../cycle/domain/cycle_profile.dart';
 import '../../cycle/domain/period_log.dart';
+import '../../generation/domain/personal_recipe.dart';
+import '../../generation/domain/recipe_json.dart';
 import '../../preferences/domain/diet.dart';
 import '../../preferences/domain/food_avoidance.dart';
 import '../../preferences/domain/reminder_settings.dart';
@@ -27,6 +29,7 @@ Map<String, Object?> buildDataExport({
   required List<FoodAvoidance> avoidances,
   required ReminderSettings reminders,
   required List<ShoppingItem> shoppingList,
+  List<PersonalRecipe> personalRecipes = const [],
   required String? Function(String foodId) foodName,
 }) => {
   'format': exportFormat,
@@ -94,6 +97,18 @@ Map<String, Object?> buildDataExport({
               'quantity': s.qtyText,
             },
         ],
+      },
+  ],
+  'personalRecipes': [
+    for (final r in personalRecipes)
+      {
+        'id': r.id,
+        'createdAt': r.createdAt.toUtc().toIso8601String(),
+        'lifecycle': r.lifecycle.name,
+        'origin': r.provenance.origin.name,
+        'provider': r.provenance.provider,
+        'model': r.provenance.model,
+        'recipe': recipeToJson(r.recipe),
       },
   ],
 };

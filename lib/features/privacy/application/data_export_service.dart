@@ -10,6 +10,8 @@ import '../../../app/config/app_version.dart';
 import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/data/cycle_repository.dart';
+import '../../generation/application/generation_providers.dart';
+import '../../generation/data/personal_recipe_repository.dart';
 import '../../preferences/data/preferences_repository.dart';
 import '../../shopping/data/shopping_repository.dart';
 import '../domain/data_export.dart';
@@ -35,6 +37,11 @@ class DataExportService {
       avoidances: await preferences.avoidances(),
       reminders: await preferences.watchReminders().first,
       shoppingList: await _ref.read(shoppingRepositoryProvider).items(),
+      personalRecipes: switch (_ref.read(authSessionProvider)) {
+        final session? =>
+          await _ref.read(personalRecipeRepositoryProvider).all(session.userId),
+        null => const [],
+      },
       foodName: (id) => catalogue.food(id)?.displayName,
     );
     return const JsonEncoder.withIndent('  ').convert(export);
