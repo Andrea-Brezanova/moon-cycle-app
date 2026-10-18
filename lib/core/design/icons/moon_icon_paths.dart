@@ -6,8 +6,10 @@
 enum MoonIconName {
   account,
   arrow,
+  arrowUpRight,
   avoid,
   back,
+  basket,
   bell,
   book,
   card,
@@ -42,6 +44,9 @@ const Map<MoonIconName, String> moonIconPaths = {
       '<path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path>',
   MoonIconName.avoid:
       '<circle cx="12" cy="12" r="8.5"></circle><path d="M6 6l12 12"></path>',
+  MoonIconName.arrowUpRight:
+      '<path d="M7 17L17 7"></path><path d="M8.5 7H17v8.5"></path>',
+  MoonIconName.basket: '<path d="M4 10h16l-1.6 9.2a1 1 0 0 1-1 .8H6.6a1 1 0 0 1-1-.8z"></path><path d="M8 10l4-5.5 4 5.5"></path><path d="M9.5 13.5v3.5"></path><path d="M14.5 13.5v3.5"></path>',
   MoonIconName.back: '<path d="M15 6l-6 6 6 6"></path>',
   MoonIconName.bell: '<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path>',
   MoonIconName.card: '<rect x="3.5" y="6" width="17" height="12" rx="2.5"></rect><path d="M3.5 10h17"></path>',

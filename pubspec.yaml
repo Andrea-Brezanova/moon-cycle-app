@@ -56,6 +56,8 @@ flutter:
     - assets/content/recipes.json
     # One photo per recipe, named <recipe-id>.jpg.
     - assets/images/recipes/
+    # Curated plant photos for Home's "3 plants a day" (see docs/photo-credits.md).
+    - assets/images/foods/
 
   # Static cuts from the handoff. Fraunces is cut at SOFT 50, WONK 0, in two
   # optical sizes: Fraunces72 for 40 pt and up, Fraunces24 below that.

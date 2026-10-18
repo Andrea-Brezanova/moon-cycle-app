@@ -49,12 +49,11 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
     expect(find.text('Back to today · Day 7'), findsNothing);
     await tester.scrollUntilVisible(
-      find.text('3 Plants a Day'),
+      find.text('GO TO'),
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('YOUR FOCUS'), findsOneWidget);
-    expect(find.text('YOUR CHOICES'), findsOneWidget);
+    expect(find.text('MAKE SOMETHING GOOD'), findsOneWidget);
     expect(find.text('Build a meal'), findsOneWidget);
   });
 
