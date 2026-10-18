@@ -1,0 +1,99 @@
+{
+ "data": [
+  {
+   "id": "693538c2-09f5-4a24-9460-0d968be35a2f",
+   "name": "canned chickpeas",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "c24b7f92-e2c8-4f65-bd15-ebef8d056aab",
+   "name": "Chickpea flour (besan)",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "e3850631-1f85-4053-8b5d-a0f0c62a632d",
+   "name": "chickpea liquid, drained",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "145073f5-45bb-493b-bc45-ce71653e9f26",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained solids",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "001764f3-4d44-4dbc-801b-0e4f094c756d",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained, rinsed in tap water",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "a5318f4a-30cf-4820-81dd-0ece1e8e752e",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, solids and liquids",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "001ed5a1-0122-4700-92b9-7580a292bd68",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, solids and liquids, low sodium",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "43dde933-9d86-40ce-a449-b9ed2dfbeab7",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, with salt",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "9e76f37b-da5c-4dc8-8e18-6b9b92ef6094",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "abe965ec-79b4-410a-b1c7-38b69e54acbe",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, raw",
+   "category": "Legumes",
+   "source": "USDA"
+  },
+  {
+   "id": "bc61d002-fe4c-464e-97fc-4323b3f26855",
+   "name": "chickpeas, canned",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "c73de242-2d46-4a95-8e75-146adb6cba2b",
+   "name": "Chickpeas, dry",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "b4881fa6-deca-4ed8-9b3e-d7f3e395e1c9",
+   "name": "Chickpeas, split, dry",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "b0066137-2c3e-4dab-9b88-41b32f1f2666",
+   "name": "dried chickpeas",
+   "category": "Legumes",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "2dd4045d-1f2e-460d-99ba-238c1f07eb5a",
+   "name": "Wheat flour, chickpea",
+   "category": "Grains & Pasta",
+   "source": "Aggregated Public Sources"
+  }
+ ],
+ "meta": {
+  "total": 15,
+  "page": 1,
+  "per_page": 20
+ }
+}

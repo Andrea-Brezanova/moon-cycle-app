@@ -134,6 +134,8 @@ void main() {
         m.classify('Oyster Sauce').derived!.allergens,
         containsAll(['shellfish', 'soy']),
       );
+      expect(m.classify('Chicken broth').derived!.animal, AnimalSource.meat);
+      expect(m.classify('Fine sea salt').kind, IngredientKind.pantrySafe);
       expect(m.classify('Mascarpone').derived!.allergens, {'dairy'});
       expect(m.classify('Semolina').derived!.allergens, {'gluten'});
     });

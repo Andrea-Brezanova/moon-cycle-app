@@ -155,6 +155,7 @@ abstract final class IngredientVocabulary {
   static const pantrySafe = <String>{
     'water', 'cold water', 'warm water', 'hot water', 'ice',
     'salt', 'sea salt', 'kosher salt', 'flaky salt', 'table salt',
+    'fine salt', 'fine sea salt',
     'pepper', 'black pepper', 'white pepper', 'ground black pepper',
     'sugar', 'brown sugar', 'caster sugar', 'icing sugar', 'granulated sugar',
     'baking soda',
@@ -190,6 +191,13 @@ abstract final class IngredientVocabulary {
     'fish stock': Derived(animal: AnimalSource.seafood, allergens: {'fish'}),
     'vegetable stock': Derived(allergens: {'gluten'}), // cubes often contain it
     'stock': Derived(animal: AnimalSource.meat),
+    // Broth is the same product as stock (seen in Recipe API: "chicken broth").
+    'chicken broth': Derived(animal: AnimalSource.meat),
+    'beef broth': Derived(animal: AnimalSource.meat),
+    'lamb broth': Derived(animal: AnimalSource.meat),
+    'pork broth': Derived(animal: AnimalSource.meat),
+    'fish broth': Derived(animal: AnimalSource.seafood, allergens: {'fish'}),
+    'vegetable broth': Derived(allergens: {'gluten'}),
     'soy sauce': Derived(allergens: {'soy', 'gluten'}),
     'light soy sauce': Derived(allergens: {'soy', 'gluten'}),
     'dark soy sauce': Derived(allergens: {'soy', 'gluten'}),

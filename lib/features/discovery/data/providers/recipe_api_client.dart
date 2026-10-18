@@ -77,24 +77,28 @@ class RecipeApiClient implements ExternalRecipeClient {
       final food = catalogue.food(foodId);
       if (food == null) continue;
       try {
-        final ingredientId = await _ingredientId(food.displayName);
-        if (ingredientId == null) continue;
-        final json = await http.getJson(
-          _url('recipes', {'ingredients': ingredientId, 'per_page': '25'}),
-          free: true,
-        );
-        anyAnswered = true;
-        for (final r in _data(json)) {
-          final rid = _text(r['id']);
-          final name = _text(r['name']);
-          if (rid == null || name == null) continue;
-          final dietary = _dietary(r);
-          if (dietary != null) _flagsById['x-$id-$rid'] = dietary;
-          // A recipe the provider itself marks unsuitable is dropped before
-          // it can cost a lookup.
-          if (!_flagsAllow(filter, dietary)) continue;
-          final old = hits[rid];
-          hits[rid] = (name: name, count: (old?.count ?? 0) + 1);
+        final ingredientIds = await _ingredientIds(food.displayName);
+        // A recipe listed for several forms of one food counts once.
+        final seen = <String>{};
+        for (final ingredientId in ingredientIds) {
+          final json = await http.getJson(
+            _url('recipes', {'ingredients': ingredientId, 'per_page': '25'}),
+            free: true,
+          );
+          anyAnswered = true;
+          for (final r in _data(json)) {
+            final rid = _text(r['id']);
+            final name = _text(r['name']);
+            if (rid == null || name == null) continue;
+            final dietary = _dietary(r);
+            if (dietary != null) _flagsById['x-$id-$rid'] = dietary;
+            // A recipe the provider itself marks unsuitable is dropped before
+            // it can cost a lookup.
+            if (!_flagsAllow(filter, dietary)) continue;
+            if (!seen.add(rid)) continue;
+            final old = hits[rid];
+            hits[rid] = (name: name, count: (old?.count ?? 0) + 1);
+          }
         }
       } on ProviderUnavailable catch (e) {
         lastError = e;
@@ -126,18 +130,62 @@ class RecipeApiClient implements ExternalRecipeClient {
       e.problem == ProviderProblem.rateLimited ||
       e.problem == ProviderProblem.disabled;
 
-  Future<String?> _ingredientId(String name) async {
+  /// Words that may precede a food's name in the provider's ingredient list
+  /// without changing what the food is ("canned chickpeas", "dried chickpeas").
+  static const _sameFoodPrefixes = {
+    'canned',
+    'tinned',
+    'dried',
+    'dry',
+    'fresh',
+    'raw',
+    'frozen',
+    'cooked',
+    'baby',
+    'large',
+    'leaf',
+    'organic',
+  };
+
+  static const _maxIngredientIds = 2;
+
+  /// The provider's ingredient ids for [name]: its exact match when there is one,
+  /// otherwise at most [_maxIngredientIds] plain forms of the same food. The
+  /// real list is mostly USDA entries ("Chickpeas (garbanzo beans, ...), canned,
+  /// drained solids"), flours and pastes, so anything with a comma, brackets or
+  /// another noun in front is never used: "chickpea flour" is not chickpeas.
+  Future<List<String>> _ingredientIds(String name) async {
     final json = await http.getJson(
       _url('ingredients', {'q': name.toLowerCase()}),
       free: true,
     );
     final wanted = normaliseName(name);
-    for (final i in _data(json)) {
+    final entries = _data(json);
+    for (final i in entries) {
       if (normaliseName(_text(i['name']) ?? '') == wanted) {
-        return _text(i['id']);
+        final id = _text(i['id']);
+        if (id != null) return [id];
       }
     }
-    return null; // no exact match: never guess a different ingredient
+    final forms = <String>[];
+    for (final i in entries) {
+      final raw = _text(i['name']) ?? '';
+      if (raw.contains(',') || raw.contains('(')) continue;
+      final words = normaliseName(raw).split(' ');
+      if (words.length < 2 || words.length > 3) continue;
+      final last = words.last;
+      final base = last.endsWith('s')
+          ? last.substring(0, last.length - 1)
+          : last;
+      if (base != wanted && last != wanted) continue;
+      if (!words.take(words.length - 1).every(_sameFoodPrefixes.contains)) {
+        continue;
+      }
+      final id = _text(i['id']);
+      if (id != null && !forms.contains(id)) forms.add(id);
+      if (forms.length == _maxIngredientIds) break;
+    }
+    return forms; // nothing safe: never guess a different ingredient
   }
 
   /// Each recipe's dietary info as the provider listed it.
@@ -274,6 +322,20 @@ class RecipeApiClient implements ExternalRecipeClient {
     'sesame': 'sesame-free',
   };
 
+  /// Words that, in one of the provider's free-text "not suitable for" warnings,
+  /// mean this allergen ("Individuals with tree nut allergies due to pine nuts").
+  static const _allergenWords = {
+    'gluten': ['gluten', 'wheat', 'celiac', 'coeliac', 'barley', 'rye'],
+    'dairy': ['dairy', 'lactose', 'milk', 'butter', 'cheese', 'cream'],
+    'peanut': ['peanut', 'nut'],
+    'tree-nut': ['tree nut', 'nut', 'almond', 'cashew', 'walnut', 'pine'],
+    'egg': ['egg'],
+    'soy': ['soy'],
+    'shellfish': ['shellfish', 'shrimp', 'prawn', 'crab', 'lobster'],
+    'fish': ['fish'],
+    'sesame': ['sesame'],
+  };
+
   bool _flagsAllow(FoodFilter filter, _Dietary? d) {
     if (filter.isEmpty) return true;
     if (d == null) return false;
@@ -283,8 +345,10 @@ class RecipeApiClient implements ExternalRecipeClient {
     switch (filter.diet) {
       case Diet.vegan:
         if (!needs('vegan')) return false;
+        if (warns.any((w) => w.contains('vegan'))) return false;
       case Diet.vegetarian:
         if (!needs('vegetarian') && !needs('vegan')) return false;
+        if (warns.any((w) => w.contains('vegetarian'))) return false;
       case Diet.pescatarian:
         if (!needs('pescatarian') && !needs('vegetarian') && !needs('vegan')) {
           return false;
@@ -296,7 +360,8 @@ class RecipeApiClient implements ExternalRecipeClient {
       final flag = _allergenFlag[allergen];
       if (flag == null) return false; // an allergen we cannot check
       if (!needs(flag)) return false;
-      if (warns.any((w) => w.contains(allergen))) return false;
+      final words = _allergenWords[allergen] ?? [allergen];
+      if (warns.any((w) => words.any(w.contains))) return false;
     }
     return true;
   }

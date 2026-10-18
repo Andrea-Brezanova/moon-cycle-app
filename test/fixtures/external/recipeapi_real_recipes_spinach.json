@@ -1,0 +1,446 @@
+{
+ "data": [
+  {
+   "id": "28acb36d-68ba-42b0-b628-9874b007f3d5",
+   "name": "Italian Chicken and Spinach Skillet",
+   "description": "Tender seared chicken breast fillets simmer in a vibrant garlic, tomato, and baby spinach pan sauce infused with fragrant Italian herbs and finished with melted parmesan.",
+   "category": "Dinner",
+   "cuisine": "Italian",
+   "difficulty": "Easy",
+   "tags": [
+    "Weeknight Dinner",
+    "Skillet",
+    "Italian",
+    "Gluten-Free",
+    "Low-Carb",
+    "Quick and Easy",
+    "High-Protein"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Gluten-Free",
+     "Low-Carb"
+    ],
+    "not_suitable_for": [
+     "Individuals with dairy allergies or severe lactose intolerance (contains parmesan cheese)"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 315.17,
+    "protein_g": 39.75,
+    "carbohydrates_g": 6.38,
+    "fat_g": 13.58
+   }
+  },
+  {
+   "id": "599e324c-c8c4-47dd-af48-fff599e69186",
+   "name": "Garden Fresh Vegetable Omelette",
+   "description": "Tender, golden eggs envelop vibrant diced bell peppers, earthy sautéed mushrooms, and silky wilted baby spinach, delivering a savory, aromatic breakfast with a fluffy curd texture.",
+   "category": "Breakfast",
+   "cuisine": "Mediterranean",
+   "difficulty": "Easy",
+   "tags": [
+    "omelette",
+    "healthy",
+    "vegetables",
+    "quick",
+    "breakfast",
+    "gluten-free",
+    "dairy-free",
+    "low-carb"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT0M",
+    "total_time": "PT15M",
+    "overnight_required": false,
+    "yields": "1 serving",
+    "yield_count": 1,
+    "serving_size_g": 260
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Gluten-Free",
+     "Dairy-Free",
+     "Nut-Free",
+     "Peanut-Free",
+     "Soy-Free",
+     "Low-Carb",
+     "Keto",
+     "Sugar-Free"
+    ],
+    "not_suitable_for": [
+     "Individuals with egg allergies"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 328.29,
+    "protein_g": 21.25,
+    "carbohydrates_g": 6.79,
+    "fat_g": 23.75
+   }
+  },
+  {
+   "id": "57fd1730-ff46-42fe-9d8c-1fd9227808a7",
+   "name": "Pan-Seared Veal Chops with Wilted Garlic Spinach and Crispy Pancetta",
+   "description": "Tender bone-in veal chops boast a deeply caramelized butter-basted crust, resting atop earthy garlic-wilted spinach and crowned with salty, crackling pancetta crisps.",
+   "category": "Dinner",
+   "cuisine": "Italian",
+   "difficulty": "Intermediate",
+   "tags": [
+    "Italian",
+    "Pancetta",
+    "Spinach",
+    "Veal",
+    "Dinner",
+    "Weeknight"
+   ],
+   "meta": {
+    "active_time": "PT25M",
+    "passive_time": "PT5M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "2 servings",
+    "yield_count": 2,
+    "serving_size_g": 275
+   },
+   "dietary": {
+    "flags": [
+     "Gluten-Free",
+     "Nut-Free",
+     "Peanut-Free",
+     "Egg-Free",
+     "Soy-Free",
+     "Low-Carb",
+     "Keto"
+    ],
+    "not_suitable_for": [
+     "Individuals observing kosher dietary laws due to the combination of meat and dairy butter",
+     "Vegetarians and vegans due to veal and pork pancetta"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 707.71,
+    "protein_g": 55.61,
+    "carbohydrates_g": 7.54,
+    "fat_g": 49.05
+   }
+  },
+  {
+   "id": "81e29a58-7e96-4ff4-b0d3-ced6007c363e",
+   "name": "Vibrant Spinach and Radicchio Salad with Honey-Chili Dressing",
+   "description": "Crisp baby spinach and sharp radicchio tossed with toasted sunflower seeds, crisp radishes, and a glossy, sweet and tangy honey-chili vinaigrette.",
+   "category": "Salad",
+   "cuisine": "Contemporary",
+   "difficulty": "Easy",
+   "tags": [
+    "Green Salad",
+    "Radicchio",
+    "Spinach",
+    "Easy",
+    "Quick",
+    "Vegetarian"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT5M",
+    "total_time": "PT20M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 145
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Gluten-Free",
+     "Dairy-Free",
+     "Egg-Free",
+     "Nut-Free",
+     "Peanut-Free",
+     "Soy-Free"
+    ],
+    "not_suitable_for": [
+     "Infants under 12 months (contains honey)"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 232,
+    "protein_g": 4.27,
+    "carbohydrates_g": 12.93,
+    "fat_g": 19.19
+   }
+  },
+  {
+   "id": "2bb79c7f-fc5a-4490-8a29-31528e348c98",
+   "name": "Spinach and Parsley Herb-Infused Long-Grain Rice",
+   "description": "Fragrant long-grain basmati grains take on a vibrant emerald hue, infused with bright parsley and tender wilted baby spinach in an emulsion of peppery extra-virgin olive oil.",
+   "category": "Side Dish",
+   "cuisine": "Mediterranean",
+   "difficulty": "Easy",
+   "tags": [
+    "Five Ingredient",
+    "Long-Grain Rice",
+    "Parsley",
+    "Spinach",
+    "Side Dish"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT20M",
+    "total_time": "PT35M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 175
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Vegan",
+     "Dairy-Free",
+     "Egg-Free",
+     "Nut-Free",
+     "Peanut-Free",
+     "Soy-Free"
+    ],
+    "not_suitable_for": []
+   },
+   "nutrition_summary": {
+    "calories": 250.32,
+    "protein_g": 5.66,
+    "carbohydrates_g": 40.55,
+    "fat_g": 7.57
+   }
+  },
+  {
+   "id": "5b5020fc-03fc-4487-84a1-8f517aa9a2ed",
+   "name": "Spring Minestrone with Fresh Basil Pesto",
+   "description": "Vibrant sweet peas, tender asparagus, and creamy cannellini beans simmer in an aromatic herb broth, crowned with an herbaceous swirl of fresh basil pesto.",
+   "category": "Soup",
+   "cuisine": "Italian",
+   "difficulty": "Intermediate",
+   "tags": [
+    "soup",
+    "vegetable",
+    "spring",
+    "main course",
+    "italian",
+    "comfort food"
+   ],
+   "meta": {
+    "active_time": "PT35M",
+    "passive_time": "PT25M",
+    "total_time": "PT1H",
+    "overnight_required": false,
+    "yields": "6 servings",
+    "yield_count": 6,
+    "serving_size_g": 450
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian"
+    ],
+    "not_suitable_for": [
+     "Individuals with tree nut allergies due to pine nuts in pesto",
+     "Strict vegetarians if Parmigiano-Reggiano is made with animal rennet rather than microbial enzymes"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 412.51,
+    "protein_g": 14.22,
+    "carbohydrates_g": 40.7,
+    "fat_g": 23.03
+   }
+  },
+  {
+   "id": "cbcabb94-1be0-4521-a294-cd3ec9b6e575",
+   "name": "Spicy Tomato and Spinach Spaghetti",
+   "description": "Tender al dente spaghetti coated in a vibrant, fiery garlic-tomato sauce, interwoven with silky wilted baby spinach and finished with rich fruity olive oil.",
+   "category": "Dinner",
+   "cuisine": "Italian",
+   "difficulty": "Easy",
+   "tags": [
+    "spaghetti",
+    "arrabbiata",
+    "italian",
+    "vegetarian",
+    "quick",
+    "easy"
+   ],
+   "meta": {
+    "active_time": "PT20M",
+    "passive_time": "PT5M",
+    "total_time": "PT25M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 425
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian"
+    ],
+    "not_suitable_for": []
+   },
+   "nutrition_summary": {
+    "calories": 575.94,
+    "protein_g": 19.87,
+    "carbohydrates_g": 84.95,
+    "fat_g": 18.38
+   }
+  },
+  {
+   "id": "7ab525c8-df61-43a6-a0c0-b6fab4a5a695",
+   "name": "Savory Herbed Pancakes with Sautéed Mushrooms, Spinach, and Crème Fraîche",
+   "description": "Golden, tender chive pancakes folded around caramelized cremini mushrooms, wilted garlic spinach, and chilled crème fraîche, balanced by crisp peppery greens.",
+   "category": "Dinner",
+   "cuisine": "French",
+   "difficulty": "Intermediate",
+   "tags": [
+    "pancakes",
+    "mushroom",
+    "spinach",
+    "main course",
+    "savory",
+    "french",
+    "vegetarian",
+    "bistro"
+   ],
+   "meta": {
+    "active_time": "PT35M",
+    "passive_time": "PT15M",
+    "total_time": "PT50M",
+    "overnight_required": false,
+    "yields": "4 servings (8 pancakes)",
+    "yield_count": 4,
+    "serving_size_g": 305
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Nut-Free",
+     "Peanut-Free",
+     "Soy-Free"
+    ],
+    "not_suitable_for": [
+     "Individuals with celiac disease or gluten intolerance (contains wheat flour)",
+     "Individuals with dairy allergies or severe lactose intolerance (contains whole milk, butter, and crème fraîche)"
+    ]
+   },
+   "nutrition_summary": {
+    "calories": 590.88,
+    "protein_g": 17.26,
+    "carbohydrates_g": 53.15,
+    "fat_g": 36.12
+   }
+  },
+  {
+   "id": "88db0c3c-bd3b-4b0f-b6db-2039f788264a",
+   "name": "Crispy General Tso Tofu with Daikon and Spinach Salad",
+   "description": "Crisp, golden-crusted tofu nuggets coated in an intensely glossy, sweet, spicy, and tangy glaze, paired alongside a crunchy daikon radish and tender spinach salad dressed in toasted sesame and rice vinegar.",
+   "category": "Dinner",
+   "cuisine": "Chinese-American",
+   "difficulty": "Intermediate",
+   "tags": [
+    "vegan",
+    "tofu",
+    "stir-fry",
+    "chinese-american",
+    "spicy",
+    "sweet",
+    "main course"
+   ],
+   "meta": {
+    "active_time": "PT35M",
+    "passive_time": "PT25M",
+    "total_time": "PT1H",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 265
+   },
+   "dietary": {
+    "flags": [
+     "Vegan",
+     "Vegetarian",
+     "Dairy-Free",
+     "Egg-Free"
+    ],
+    "not_suitable_for": []
+   },
+   "nutrition_summary": {
+    "calories": 347.52,
+    "protein_g": 14.81,
+    "carbohydrates_g": 33.24,
+    "fat_g": 18.84
+   }
+  },
+  {
+   "id": "6d72ae36-be70-4a29-bda6-29273fbdd6d3",
+   "name": "Sheet-Pan Roasted Cremini Mushrooms and Spinach",
+   "description": "Earthy cremini mushrooms caramelize to savory perfection alongside fragrant garlic, folded together with tender, glossy baby spinach straight from the sheet pan.",
+   "category": "Side Dish",
+   "cuisine": "Mediterranean",
+   "difficulty": "Easy",
+   "tags": [
+    "vegetables",
+    "cremini",
+    "five ingredient",
+    "sheet-pan",
+    "spinach",
+    "dinner",
+    "easy",
+    "quick",
+    "weeknight",
+    "side dish",
+    "healthy",
+    "vegan"
+   ],
+   "meta": {
+    "active_time": "PT10M",
+    "passive_time": "PT17M",
+    "total_time": "PT27M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 100
+   },
+   "dietary": {
+    "flags": [
+     "Vegan",
+     "Vegetarian",
+     "Gluten-Free",
+     "Dairy-Free",
+     "Nut-Free",
+     "Egg-Free",
+     "Soy-Free",
+     "Low-Carb"
+    ],
+    "not_suitable_for": []
+   },
+   "nutrition_summary": {
+    "calories": 101.46,
+    "protein_g": 4.29,
+    "carbohydrates_g": 6.08,
+    "fat_g": 7.26
+   }
+  }
+ ],
+ "meta": {
+  "total": 12,
+  "page": 1,
+  "per_page": 10,
+  "total_capped": false
+ }
+}

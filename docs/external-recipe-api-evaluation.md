@@ -230,3 +230,42 @@ core of Moon Cycle. For multi-food searches nearly everything is a partial match
 for both sources. More results are not better recipes: these are community
 recipes with no times, no diet metadata, and, for a restricted user, almost none
 pass the safety rules.
+
+# Real-response findings (Recipe API, 2026-10-18)
+
+From the capped probe: 4 free calls (2 ingredient searches, 2 list calls) and 2
+detail lookups; all HTTP 200. The provider's own counter, returned with every
+detail, reads `detail_used` 4 of `detail_limit` 50 (the evaluation account; it
+counted a first probe run too), so the probe's cap of 40 is the stricter one.
+Captures are in git-ignored `tool/captures/`; trimmed copies without usage or
+account data are the `recipeapi_real_*` test fixtures.
+
+**Matches the adapter:** `data[]` envelopes; list items with `meta.total_time`
+(ISO), `yields`, `dietary.flags`, `dietary.not_suitable_for`; detail
+`ingredients[].items[]` with numeric `quantity` and `unit` (null for counts),
+`instructions[].text` (11 and 13 steps, each with structured temperature,
+duration, tips); `category` Dinner/Breakfast.
+
+**Differences found:**
+- The ingredient search is a fuzzy list of USDA entries and variants, not a
+  canonical list: "chickpea" has no exact entry ("canned chickpeas", "dried
+  chickpeas", "Chickpea flour (besan)", long USDA names). The adapter now uses
+  an exact match, else at most two plain forms ("canned", "dried", "fresh"… plus
+  the food name); flours, commas and brackets are never used.
+- "canned chickpeas" returned **0 recipes** and "baby spinach" returned 12. Other
+  chickpea forms were not queried (to save free calls).
+- Allergen "not suitable for" warnings are free sentences ("tree nut allergies
+  due to pine nuts"); matching now uses allergen words, not only our ids.
+  Warnings naming vegetarians/vegans also exclude those diets.
+- **No image, no source URL, no licence or attribution field** in list or detail.
+  Cards show Moon Cycle art; licence terms must come from the provider's terms.
+- Dietary flags are incomplete (the chicken skillet lists only Gluten-Free and
+  Low-Carb), so restricted users only get recipes whose flags prove suitability.
+- `chicken broth` and `fine sea salt` were unrecognised; added as reviewed
+  vocabulary (real lines identified: 21 of 21 on both recipes, from 19).
+- Detail responses include rich extras we do not show (nutrition, equipment,
+  troubleshooting, chef notes).
+
+**Spinach list caveat:** the probe took the first search hit ("baby spinach"),
+not the exact "spinach" entries our adapter prefers; those lists were not
+fetched, so the spinach search is only checked for shape.
