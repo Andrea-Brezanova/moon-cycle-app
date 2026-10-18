@@ -19,4 +19,7 @@ final class RecipeCandidate {
   final RecipeMatch match;
 
   bool get isComplete => match.level == MatchLevel.complete;
+
+  /// "2 of 3": how many of the chosen foods this recipe uses.
+  String matchCount(int chosen) => '${match.matchedIds.length} of $chosen';
 }

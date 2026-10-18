@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../content/application/content_providers.dart';
-import '../../cycle/application/viewing_phase.dart';
+import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../data/recipe_sources.dart';
 import '../domain/match_config.dart';
 import '../domain/recipe_discovery.dart';
@@ -31,7 +31,7 @@ final recipeDiscoveryProvider = Provider<RecipeDiscovery>((ref) {
       catalogue,
       config: config,
     ),
-  ], maxSuggestions: config.maxSuggestions);
+  ]);
 });
 
 /// What discovery finds for a meal (keyed by [MealChoice.key]), for the user's
@@ -43,6 +43,6 @@ final mealDiscoveryProvider = FutureProvider.autoDispose
           .discover(
             MealChoice.fromKey(key),
             ref.watch(foodFilterProvider),
-            viewingPhase: ref.watch(viewingPhaseProvider),
+            currentPhase: ref.watch(actualPhaseProvider),
           ),
     );

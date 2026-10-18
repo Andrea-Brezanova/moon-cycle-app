@@ -77,15 +77,10 @@ abstract final class Routes {
   /// Recipes › the user's own generated recipes.
   static const String myRecipes = '/recipes/mine';
 
-  /// Foods › the results for the meal being built: existing recipes first.
+  /// Foods › the recipes that match the foods chosen in the meal builder.
   /// The chosen foods travel as ids in the query.
-  static String mealResults({
-    required String protein,
-    required String base,
-    required List<String> plants,
-  }) =>
-      '/foods/meal-builder/results?protein=$protein&base=$base'
-      '&plants=${plants.join(',')}';
+  static String mealResults(List<String> foodIds) =>
+      '/foods/meal-builder/results?foods=${foodIds.join(',')}';
 
   /// Foods › creating a new recipe for the same choice (the fallback).
   static String mealCreate({

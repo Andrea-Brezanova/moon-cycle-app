@@ -102,7 +102,7 @@ class _TryNewResultsPageState extends ConsumerState<TryNewResultsPage> {
                     RecipeSource.aiGenerated =>
                       item.isDevSample
                           ? 'Development sample · not made by an AI'
-                          : 'Made for you · saved to My recipes',
+                          : 'Created for you · saved to My recipes',
                   },
                   key: ValueKey('source-${item.recipe.id}'),
                   style: dmSans(12, height: 1.3, color: c.textMuted),

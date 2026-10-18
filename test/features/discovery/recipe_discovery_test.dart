@@ -10,19 +10,6 @@ import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 
 import '../../helpers/test_catalogue.dart';
 
-const bowl = MealChoice(
-  proteinId: 'black-turtle-bean',
-  baseId: 'quinoa',
-  plantIds: ['yellow-bell-pepper', 'orange'],
-);
-
-/// A choice no bundled recipe uses completely.
-const unusual = MealChoice(
-  proteinId: 'tempeh',
-  baseId: 'buckwheat',
-  plantIds: ['kale', 'pomegranate'],
-);
-
 class FakeClient implements ExternalRecipeClient {
   FakeClient(this.results, {this.fail = false});
   final List<ExternalRecipe> results;
@@ -40,19 +27,20 @@ class FakeClient implements ExternalRecipeClient {
   }
 }
 
-Recipe externalRecipe(MealChoice choice, {String id = 'x-demo-1'}) => Recipe(
+Recipe externalRecipe(List<String> foods, {String id = 'x-demo-1'}) => Recipe(
   id: id,
-  title: 'External tempeh bowl',
+  title: 'External $id',
   phase: Phase.luteal,
   category: RecipeCategory.dinner,
-  minutes: 30,
+  minutes: 25,
   serves: 2,
-  intro: 'A bowl.',
+  intro: 'A dish.',
   whyThisPhase: '',
-  keyFoodIds: choice.ids,
+  imageUrl: 'https://example.com/$id.jpg',
+  keyFoodIds: foods,
   ingredients: [
-    for (final id in choice.ids)
-      RecipeIngredient(label: id, foodId: id, aisleId: 'produce'),
+    for (final f in foods)
+      RecipeIngredient(label: f, foodId: f, aisleId: 'produce'),
   ],
   steps: const ['Cook it.', 'Mix it.', 'Serve it.'],
 );
@@ -63,56 +51,84 @@ const providerRights = RecipeRights(
   sourceUrl: 'https://example.com/r/1',
   requiresLinkBack: true,
   mayStore: false,
+  mayShowImage: false,
 );
 
 void main() {
   final internal = InternalRecipeSource(testCatalogue);
+  final choice = MealChoice(['quinoa', 'orange']);
 
   test(
-    'internal complete match is returned and later sources are not asked',
+    'library recipes come back ranked, with the foods they matched',
     () async {
-      final client = FakeClient([
-        ExternalRecipe(recipe: externalRecipe(bowl), rights: providerRights),
-      ]);
-      final d = RecipeDiscovery([
-        internal,
-        ExternalRecipeSource(client, testCatalogue),
-      ]);
-      final r = await d.discover(bowl, FoodFilter.none);
-      expect(r.complete.first.recipe.id, 'black-bean-quinoa-orange-bowl');
-      expect(r.completeSource, RecipeSource.internal);
-      expect(r.complete.first.rights.license, 'moon-cycle');
-      expect(r.needsGeneration, isFalse);
-      expect(client.calls, 0);
+      final r = await RecipeDiscovery([internal])
+          .discover(choice, FoodFilter.none);
+      expect(r.results, isNotEmpty);
+      expect(r.results.first.recipe.id, 'black-bean-quinoa-orange-bowl');
+      expect(r.results.first.isComplete, isTrue);
+      expect(r.results.first.source, RecipeSource.internal);
+      expect(r.results.first.rights.license, 'moon-cycle');
+      expect(r.results.first.matchCount(2), '2 of 2');
+      // Partial matches (one of two) are included, after the complete ones.
+      final counts = [for (final c in r.results) c.match.matchedIds.length];
+      expect([...counts]..sort((a, b) => b.compareTo(a)), counts);
+      expect(counts.last, 1);
     },
   );
 
   test(
-    'no internal match falls to the external provider, with its rights',
+    'external and library results are combined and ranked together',
     () async {
       final client = FakeClient([
-        ExternalRecipe(recipe: externalRecipe(unusual), rights: providerRights),
+        ExternalRecipe(
+          recipe: externalRecipe(['quinoa', 'orange', 'kale']),
+          rights: providerRights,
+        ),
       ]);
       final r = await RecipeDiscovery([
         internal,
         ExternalRecipeSource(client, testCatalogue),
-      ]).discover(unusual, FoodFilter.none);
-      expect(r.completeSource, RecipeSource.externalApi);
-      final c = r.complete.single;
-      expect(c.source, RecipeSource.externalApi);
-      expect(c.rights.attribution, 'Recipe from Demo');
-      expect(c.rights.mayStore, isFalse);
-      expect(c.rights.mayPublish, isFalse);
-      expect(r.needsGeneration, isFalse);
+      ]).discover(choice, FoodFilter.none);
+      expect(client.calls, 1); // asked even though the library has matches
+      final ids = r.results.map((c) => c.recipe.id).toList();
+      expect(ids, contains('x-demo-1'));
+      expect(ids, contains('black-bean-quinoa-orange-bowl'));
+      // Both use every chosen food; the simpler recipe ranks first.
+      expect(
+        r.results.where((c) => c.recipe.id == 'x-demo-1').single.isComplete,
+        isTrue,
+      );
+      final external = r.results.firstWhere((c) => c.recipe.id == 'x-demo-1');
+      expect(external.source, RecipeSource.externalApi);
+      expect(external.rights.attribution, 'Recipe from Demo');
+      expect(external.rights.mayShowImage, isFalse);
+      expect(external.rights.mayStore, isFalse);
+      expect(external.rights.mayPublish, isFalse);
     },
   );
+
+  test('an external recipe with more matches outranks a library one', () async {
+    final client = FakeClient([
+      ExternalRecipe(
+        recipe: externalRecipe(['quinoa', 'orange', 'salmon']),
+        rights: providerRights,
+      ),
+    ]);
+    final three = MealChoice(['quinoa', 'orange', 'salmon']);
+    final r = await RecipeDiscovery([
+      internal,
+      ExternalRecipeSource(client, testCatalogue),
+    ]).discover(three, FoodFilter.none);
+    expect(r.results.first.recipe.id, 'x-demo-1');
+    expect(r.results.first.isComplete, isTrue);
+  });
 
   test(
     'external recipes whose terms forbid full display are dropped',
     () async {
       final client = FakeClient([
         ExternalRecipe(
-          recipe: externalRecipe(unusual),
+          recipe: externalRecipe(['quinoa', 'orange']),
           rights: const RecipeRights(
             license: 'summary-only',
             mayDisplayFull: false,
@@ -120,68 +136,75 @@ void main() {
         ),
       ]);
       final r = await RecipeDiscovery([
-        internal,
         ExternalRecipeSource(client, testCatalogue),
-      ]).discover(unusual, FoodFilter.none);
-      expect(r.complete, isEmpty);
-      expect(r.needsGeneration, isTrue);
+      ]).discover(choice, FoodFilter.none);
+      expect(r.isEmpty, isTrue);
     },
   );
 
   test('external recipes obey the same diet and avoidance filter', () async {
     final client = FakeClient([
-      ExternalRecipe(recipe: externalRecipe(unusual), rights: providerRights),
+      ExternalRecipe(
+        recipe: externalRecipe(['quinoa', 'orange']),
+        rights: providerRights,
+      ),
     ]);
     final r =
         await RecipeDiscovery([ExternalRecipeSource(client, testCatalogue)])
             .discover(
-              unusual,
+              choice,
               const FoodFilter(
-                avoidances: [FoodItemAvoidance(id: 'a', foodId: 'tempeh')],
+                avoidances: [FoodItemAvoidance(id: 'a', foodId: 'orange')],
               ),
             );
-    expect(r.complete, isEmpty);
+    expect(r.isEmpty, isTrue);
+  });
+
+  test('a failing provider is skipped; the library still answers', () async {
+    final r = await RecipeDiscovery([
+      internal,
+      ExternalRecipeSource(FakeClient(const [], fail: true), testCatalogue),
+    ]).discover(choice, FoodFilter.none);
+    expect(r.failedSources, [RecipeSource.externalApi]);
+    expect(r.results, isNotEmpty);
   });
 
   test(
-    'a failing external provider is skipped; the result still comes back',
+    'the production default has no provider and the library works alone',
     () async {
       final r = await RecipeDiscovery([
         internal,
-        ExternalRecipeSource(FakeClient(const [], fail: true), testCatalogue),
-      ]).discover(unusual, FoodFilter.none);
-      expect(r.failedSources, [RecipeSource.externalApi]);
-      expect(r.needsGeneration, isTrue);
+        ExternalRecipeSource(const NoExternalRecipeClient(), testCatalogue),
+      ]).discover(choice, FoodFilter.none);
+      expect(r.failedSources, isEmpty);
+      expect(r.results.every((c) => c.source == RecipeSource.internal), isTrue);
     },
   );
 
-  test('with nothing complete anywhere, generation is the fallback and '
-      'partial matches are only suggestions', () async {
-    const nearly = MealChoice(
-      proteinId: 'black-turtle-bean',
-      baseId: 'quinoa',
-      plantIds: ['yellow-bell-pepper', 'orange', 'kale'],
-    );
+  test('duplicates by recipe id are shown once', () async {
+    final client = FakeClient([
+      ExternalRecipe(
+        recipe: externalRecipe(['quinoa'], id: 'x-demo-9'),
+        rights: providerRights,
+      ),
+      ExternalRecipe(
+        recipe: externalRecipe(['quinoa'], id: 'x-demo-9'),
+        rights: providerRights,
+      ),
+    ]);
     final r = await RecipeDiscovery([
-      internal,
-      ExternalRecipeSource(const NoExternalRecipeClient(), testCatalogue),
-    ]).discover(nearly, FoodFilter.none);
-    expect(r.complete, isEmpty);
-    expect(r.needsGeneration, isTrue);
-    expect(r.partial, isNotEmpty);
-    expect(r.partial.every((c) => !c.isComplete), isTrue);
-    expect(r.partial.first.match.missingIds, ['kale']);
-    expect(r.partial.length, lessThanOrEqualTo(5));
+      ExternalRecipeSource(client, testCatalogue),
+    ]).discover(MealChoice(['quinoa']), FoodFilter.none);
+    expect(r.results.where((c) => c.recipe.id == 'x-demo-9'), hasLength(1));
   });
 
   test(
-    'the production default has no external provider and finds nothing',
+    'foods that no recipe uses give an empty result, not a generated one',
     () async {
-      final found = await ExternalRecipeSource(
-        const NoExternalRecipeClient(),
-        testCatalogue,
-      ).find(bowl, FoodFilter.none);
-      expect(found, isEmpty);
+      final r = await RecipeDiscovery([internal])
+          .discover(MealChoice(['moon-dust']), FoodFilter.none);
+      expect(r.isEmpty, isTrue);
+      expect(r.complete, isEmpty);
     },
   );
 }

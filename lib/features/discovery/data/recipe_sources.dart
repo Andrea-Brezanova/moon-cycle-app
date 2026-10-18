@@ -25,9 +25,9 @@ class InternalRecipeSource implements RecipeSourceProvider {
   Future<List<RecipeCandidate>> find(
     MealChoice choice,
     FoodFilter filter, {
-    Phase? viewingPhase,
+    Phase? currentPhase,
   }) async => [
-    for (final m in _matcher.match(choice, filter, viewingPhase: viewingPhase))
+    for (final m in _matcher.match(choice, filter, currentPhase: currentPhase))
       RecipeCandidate(
         recipe: m.recipe,
         source: RecipeSource.internal,
@@ -86,7 +86,7 @@ class ExternalRecipeSource implements RecipeSourceProvider {
   Future<List<RecipeCandidate>> find(
     MealChoice choice,
     FoodFilter filter, {
-    Phase? viewingPhase,
+    Phase? currentPhase,
   }) async {
     final found = [
       for (final e in await client.search(choice, filter))
@@ -96,7 +96,7 @@ class ExternalRecipeSource implements RecipeSourceProvider {
     final matches = _matcher.match(
       choice,
       filter,
-      viewingPhase: viewingPhase,
+      currentPhase: currentPhase,
       recipes: [for (final e in found) e.recipe],
     );
     return [

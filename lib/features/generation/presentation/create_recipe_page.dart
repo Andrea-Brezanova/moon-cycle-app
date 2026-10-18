@@ -9,10 +9,9 @@ import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/text_link.dart';
-import '../../discovery/domain/recipe_matcher.dart';
-import '../../foods/application/meal_selection.dart';
 import '../application/generation_providers.dart';
 import '../application/recipe_creator.dart';
+import '../domain/balanced_selection.dart';
 import '../domain/generation_failure.dart';
 
 /// The fallback: makes a new recipe for the chosen foods, with progress, a
@@ -22,7 +21,7 @@ import '../domain/generation_failure.dart';
 class CreateRecipePage extends ConsumerStatefulWidget {
   const CreateRecipePage({super.key, required this.choice});
 
-  final MealChoice choice;
+  final BalancedSelection choice;
 
   @override
   ConsumerState<CreateRecipePage> createState() => _CreateRecipePageState();
@@ -36,13 +35,7 @@ class _CreateRecipePageState extends ConsumerState<CreateRecipePage> {
       if (!mounted) return;
       final controller = ref.read(recipeCreationProvider.notifier);
       controller.reset();
-      controller.start(
-        MealSelection(
-          proteinId: widget.choice.proteinId,
-          baseId: widget.choice.baseId,
-          plantIds: widget.choice.plantIds,
-        ),
-      );
+      controller.start(widget.choice);
     });
   }
 

@@ -9,8 +9,8 @@ import 'package:moon_cycle/features/entitlements/application/entitlement_provide
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/generation/application/generation_providers.dart';
 import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.dart';
-import 'package:moon_cycle/features/generation/domain/generation_failure.dart';
-import 'package:moon_cycle/features/generation/presentation/create_recipe_page.dart';
+import 'package:moon_cycle/features/generation/data/personal_recipe_repository.dart';
+import 'package:moon_cycle/features/generation/domain/balanced_selection.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 
@@ -19,21 +19,21 @@ import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 import '../../helpers/test_catalogue.dart';
 
-const _bowl = ('black-turtle-bean', 'quinoa', ['yellow-bell-pepper', 'orange']);
-const _unusual = ('tempeh', 'buckwheat', ['kale', 'pomegranate']);
-
 void main() {
-  Future<ProviderContainer> pump(
-    WidgetTester tester, {
-    bool generation = true,
-    List<GenerationFailure> failures = const [],
-    int invalid = 0,
-  }) async {
-    tester.view.physicalSize = const Size(390, 2600) * 3;
+  late DevMockGenerationService mock;
+
+  Future<ProviderContainer> pump(WidgetTester tester) async {
+    tester.view.physicalSize = const Size(390, 5200) * 3;
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     final db = testDatabase();
     await seedCycle(tester, db, start: sampleStart);
+    // A generation service IS available in this build; Build a Meal must not
+    // use it.
+    mock = DevMockGenerationService(
+      catalogue: testCatalogue,
+      delay: Duration.zero,
+    );
     return pumpApp(
       tester,
       database: db,
@@ -42,20 +42,11 @@ void main() {
         entitlementStateProvider.overrideWithValue(
           const EntitlementState(tier: Tier.premium),
         ),
-        debugUnlockAtStartProvider.overrideWithValue(generation),
-        if (generation) ...[
-          recipeGenerationServiceProvider.overrideWithValue(
-            DevMockGenerationService(
-              catalogue: testCatalogue,
-              delay: Duration.zero,
-              failures: failures,
-              invalidAttempts: invalid,
-            ),
-          ),
-          recipeImageServiceProvider.overrideWithValue(
-            PlaceholderRecipeImageService(delay: Duration.zero),
-          ),
-        ],
+        debugUnlockAtStartProvider.overrideWithValue(true),
+        recipeGenerationServiceProvider.overrideWithValue(mock),
+        recipeImageServiceProvider.overrideWithValue(
+          PlaceholderRecipeImageService(delay: Duration.zero),
+        ),
       ],
     );
   }
@@ -69,143 +60,124 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  String results((String, String, List<String>) m) =>
-      Routes.mealResults(protein: m.$1, base: m.$2, plants: m.$3);
-
-  testWidgets('a complete library match is shown first, from the library', (
-    tester,
-  ) async {
+  testWidgets('all chosen foods in a library recipe: it leads, described '
+      'honestly', (tester) async {
     final c = await pump(tester);
-    await go(tester, c, results(_bowl));
+    await go(tester, c, Routes.mealResults(['quinoa', 'orange']));
     expect(find.byType(MealResultsPage), findsOneWidget);
-    expect(find.text('RECIPES WITH ALL YOUR FOODS'), findsOneWidget);
-    // No generation offered when a complete recipe exists.
-    expect(find.text('Create a new recipe'), findsNothing);
-    expect(find.byKey(const ValueKey('no-complete-match')), findsNothing);
+    expect(find.text('USES ALL YOUR FOODS'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('uses-black-bean-quinoa-orange-bowl')),
+      findsOneWidget,
+    );
+    expect(find.text('Uses all 2 of your foods'), findsWidgets);
+    expect(find.text('Includes quinoa, orange'), findsWidgets);
+    expect(find.text('Moon Cycle recipe'), findsNothing); // joined with time
+    expect(find.textContaining('Moon Cycle recipe'), findsWidgets);
+    // Partial matches (one of two) come after, and say so.
+    expect(find.text('USES SOME OF YOUR FOODS'), findsOneWidget);
+    expect(find.text('Uses 1 of your 2 foods'), findsWidgets);
     // It opens in the normal recipe page.
-    await tester.tap(find.textContaining('Black Bean').first);
+    await tester.tap(find.text('Black Bean, Quinoa & Orange Bowl').first);
     await tester.pumpAndSettle();
     expect(find.byType(RecipeDetailPage), findsOneWidget);
+    expect(mock.calls, 0);
   });
 
-  testWidgets('no complete match: suggestions are labelled, and a new recipe '
-      'can be created', (tester) async {
-    final c = await pump(tester);
-    await go(
-      tester,
-      c,
-      results((
-        'black-turtle-bean',
-        'quinoa',
-        ['yellow-bell-pepper', 'orange', 'kale'],
-      )),
-    );
-    expect(find.byKey(const ValueKey('no-complete-match')), findsOneWidget);
-    expect(find.text('CLOSE MATCHES'), findsOneWidget);
-    expect(find.text('Without kale'), findsWidgets);
-    expect(find.text('Create a new recipe'), findsOneWidget);
-  });
-
-  testWidgets('without a generation service the fallback is honest', (
-    tester,
-  ) async {
-    final c = await pump(tester, generation: false);
-    await go(tester, c, results(_unusual));
-    expect(find.byKey(const ValueKey('no-complete-match')), findsOneWidget);
-    expect(
-      find.text('Creating a new recipe isn’t available yet.'),
-      findsOneWidget,
-    );
-    expect(find.text('Create a new recipe'), findsNothing);
-  });
-
-  testWidgets('Create a new recipe: progress, then the saved recipe opens, '
-      'labelled as a development sample', (tester) async {
-    final c = await pump(tester);
-    await go(tester, c, results(_unusual));
-    await tester.tap(find.text('Create a new recipe'));
-    await tester.pumpAndSettle();
-    expect(find.byType(RecipeDetailPage), findsOneWidget);
-    expect(find.byKey(const ValueKey('personal-recipe-note')), findsOneWidget);
-    expect(find.textContaining('Development sample'), findsOneWidget);
-    expect(find.textContaining('not by an AI'), findsOneWidget);
-    // It is in My recipes, privately.
-    await go(tester, c, Routes.myRecipes);
-    expect(find.byType(MyRecipesPage), findsOneWidget);
-    expect(find.text('Tempeh & Buckwheat Bowl'), findsOneWidget);
-    expect(find.text('Development sample'), findsOneWidget);
-  });
-
-  testWidgets('a failed creation says why, saves nothing, and retry works', (
-    tester,
-  ) async {
-    final c = await pump(
-      tester,
-      failures: const [GenerationFailure(GenerationFailureKind.timeout)],
-    );
-    await go(tester, c, results(_unusual));
-    await tester.tap(find.text('Create a new recipe'));
-    await tester.pumpAndSettle();
-    expect(find.byType(CreateRecipePage), findsOneWidget);
-    expect(find.byKey(const ValueKey('creation-failure')), findsOneWidget);
-    expect(find.textContaining('Nothing was used'), findsOneWidget);
-    await tester.tap(find.text('Try again'));
-    await tester.pumpAndSettle();
-    expect(find.byType(RecipeDetailPage), findsOneWidget);
-  });
-
-  testWidgets('the same foods again offer the saved recipe instead', (
+  testWidgets('a partial match is never described as having every food', (
     tester,
   ) async {
     final c = await pump(tester);
-    await go(tester, c, results(_unusual));
-    await tester.tap(find.text('Create a new recipe'));
-    await tester.pumpAndSettle();
-    await go(tester, c, results(_unusual));
-    await tester.tap(find.text('Create a new recipe'));
-    await tester.pumpAndSettle();
-    expect(find.byKey(const ValueKey('already-saved')), findsOneWidget);
-    await tester.tap(find.text('Make another version'));
-    await tester.pumpAndSettle();
-    expect(find.byType(RecipeDetailPage), findsOneWidget);
-    await go(tester, c, Routes.myRecipes);
-    expect(find.text('Tempeh & Buckwheat Bowl'), findsNWidgets(2));
+    await go(tester, c, Routes.mealResults(['quinoa', 'orange', 'salmon']));
+    // Nothing in the library uses all three.
+    expect(find.text('USES ALL YOUR FOODS'), findsNothing);
+    expect(find.text('Uses all 3 of your foods'), findsNothing);
+    expect(find.text('USES MOST OF YOUR FOODS'), findsOneWidget);
+    expect(find.text('Uses 2 of your 3 foods'), findsWidgets);
+    expect(find.text('Includes quinoa, orange'), findsWidgets);
   });
 
-  testWidgets('the creation page leaves a signed-out user with a clear '
-      'message', (tester) async {
-    final c = await pump(tester, generation: false);
-    await go(
-      tester,
-      c,
-      Routes.mealCreate(
-        protein: 'tempeh',
-        base: 'buckwheat',
-        plants: ['kale', 'pomegranate'],
-      ),
-    );
-    expect(find.byKey(const ValueKey('creation-failure')), findsOneWidget);
-    expect(
-      find.text('Creating a recipe needs an account. Browsing never does.'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('a personal recipe can be deleted', (tester) async {
+  testWidgets('no recipe: a clear empty state, and nothing is generated', (
+    tester,
+  ) async {
     final c = await pump(tester);
-    await go(tester, c, results(_unusual));
-    await tester.tap(find.text('Create a new recipe'));
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('Delete this recipe'),
-      400,
-      scrollable: find.byType(Scrollable).first,
+    await go(tester, c, Routes.mealResults(['kombu', 'wakame']));
+    expect(find.byKey(const ValueKey('no-results')), findsOneWidget);
+    expect(find.text('No recipes use these foods yet.'), findsOneWidget);
+    expect(find.text('Change my foods'), findsOneWidget);
+    expect(find.textContaining('Create a new recipe'), findsNothing);
+    expect(find.byType(CircularProgressIndicator), findsNothing);
+    expect(mock.calls, 0);
+  });
+
+  testWidgets('a useful first set, then See more', (tester) async {
+    final c = await pump(tester);
+    await go(tester, c, Routes.mealResults(['garlic']));
+    final total = int.parse(
+      RegExp(r'\d+')
+          .firstMatch(
+            tester
+                .widget<Text>(find.byKey(const ValueKey('result-count')))
+                .data!,
+          )!
+          .group(0)!,
     );
-    await tester.tap(find.text('Delete this recipe'));
+    expect(total, greaterThan(8));
+    int cards() => find
+        .byWidgetPredicate(
+          (w) =>
+              w.key is ValueKey &&
+              '${(w.key! as ValueKey).value}'.startsWith('uses-'),
+        )
+        .evaluate()
+        .length;
+    expect(cards(), 8);
+    await tester.ensureVisible(find.text('See more recipes'));
+    await tester.tap(find.text('See more recipes'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Delete'));
-    await tester.pumpAndSettle();
-    await go(tester, c, Routes.myRecipes);
-    expect(find.text('No recipes yet'), findsOneWidget);
+    expect(cards(), 16.clamp(0, total));
+  });
+
+  testWidgets('Build a meal never starts generation, even when it could', (
+    tester,
+  ) async {
+    final c = await pump(tester);
+    expect(c.read(generationAvailableProvider), isTrue);
+    await go(tester, c, Routes.mealResults(['kale']));
+    await go(tester, c, Routes.mealResults(['kombu']));
+    expect(mock.calls, 0);
+  });
+
+  group('recipes made earlier are kept', () {
+    testWidgets('saved recipes stay in My recipes, labelled as before', (
+      tester,
+    ) async {
+      final c = await pump(tester);
+      await tester.runAsync(
+        () => c
+            .read(recipeCreationProvider.notifier)
+            .start(
+              const BalancedSelection(
+                proteinId: 'tempeh',
+                baseId: 'buckwheat',
+                plantIds: ['kale', 'pomegranate'],
+              ),
+            ),
+      );
+      await tester.runAsync(
+        () => c.read(recipeCreationProvider.notifier).imageSettled,
+      );
+      await tester.pumpAndSettle();
+      final saved = await tester.runAsync(
+        () => c.read(personalRecipeRepositoryProvider).all('dev-local-user'),
+      );
+      expect(saved!, hasLength(1));
+      await go(tester, c, Routes.myRecipes);
+      expect(find.byType(MyRecipesPage), findsOneWidget);
+      expect(find.text('Tempeh & Buckwheat Bowl'), findsOneWidget);
+      await go(tester, c, Routes.recipe(saved.single.id));
+      expect(find.byType(RecipeDetailPage), findsOneWidget);
+      expect(find.textContaining('Development sample'), findsOneWidget);
+    });
   });
 }

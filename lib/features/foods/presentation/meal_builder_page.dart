@@ -16,21 +16,24 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/text_match.dart';
-import '../../cycle/application/viewing_phase.dart';
+import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../application/food_providers.dart';
 import '../application/meal_selection.dart';
-import 'widgets/meal_option_chip.dart';
+import 'widgets/food_chip.dart';
 
-/// Build a Balanced Meal: choose one protein, one base and two or three
-/// plants from the whole food library. Foods featured in the viewed phase come
-/// first and wear the phase tint; nothing is hidden or disabled because of the
-/// phase. Premium only: a free user who reaches it sees why and is pointed to
-/// the existing Subscription page.
+/// Build a meal: choose one or more foods you feel like cooking with, from any
+/// category, and find recipes that use them. Each section (proteins, bases,
+/// plants) is optional guidance, not a requirement.
 ///
-/// [foodId] starts the meal with that food (from its page), in its slot.
-/// Creating the meal comes with recipe generation in a later stage.
+/// A section first shows only the foods of the user's **current** phase;
+/// "Show all foods" adds the rest below, in their own group. Any food can be
+/// chosen whichever phase it is from, up to [MealBuilderConfig.maxIngredients].
+/// Premium only: a free user who reaches it sees why and is pointed to the
+/// existing Subscription page.
+///
+/// [foodId] starts the meal with that food (from its page).
 class MealBuilderPage extends ConsumerStatefulWidget {
   const MealBuilderPage({super.key, this.foodId});
 
@@ -132,149 +135,148 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
 
   Widget _builder(BuildContext context) {
     final c = context.moon;
-    final phase = ref.watch(viewingPhaseProvider);
+    final phase = ref.watch(actualPhaseProvider);
     final selection = ref.watch(mealSelectionProvider);
     final catalogue = ref.watch(catalogueProvider);
     final featuredIds = catalogue.phase(phase).foodIds.toSet();
     final palette = c.phase(phase);
     final q = normaliseName(_query);
+    final controller = ref.read(mealSelectionProvider.notifier);
+    final chosen = [for (final id in selection.ids) ?catalogue.food(id)];
 
-    Food? food(String? id) => id == null ? null : catalogue.food(id);
+    Widget chip(Food f) => FoodChip(
+      food: f,
+      palette: palette,
+      featured: featuredIds.contains(f.id),
+      selected: selection.contains(f.id),
+      semanticLabelOverride: [
+        f.displayName,
+        if (featuredIds.contains(f.id)) 'featured in your ${phase.name} phase',
+        if (selection.contains(f.id)) 'chosen',
+      ].join(', '),
+      // At the limit, foods not yet chosen are dimmed and cannot be added.
+      onTap: !selection.contains(f.id) && selection.isFull
+          ? null
+          : () => controller.toggle(f),
+    );
 
-    Widget step({
-      required int number,
+    Widget chips(List<Food> foods) => Wrap(
+      spacing: MoonSpace.chipGap,
+      runSpacing: MoonSpace.chipGap,
+      children: [for (final f in foods) chip(f)],
+    );
+
+    Widget section({
+      required MealSlot slot,
       required String title,
       required String hint,
-      required MealSlot slot,
-      required List<Food> chosen,
-      String? counter,
     }) {
       final options = ref.watch(mealOptionsProvider(slot));
       final searching = q.isNotEmpty;
       final expanded = _expanded.contains(slot);
-      final shown = searching
+      bool matches(Food f) =>
+          normaliseName(f.name).contains(q) ||
+          f.synonyms.any((s) => normaliseName(s).contains(q));
+
+      // What is listed: current-phase foods; or, searching, every eligible
+      // food that matches (current phase first); or, expanded, the phase
+      // foods and then the others as their own group.
+      final primary = searching
           ? [
-              for (final f in options.all)
-                if (normaliseName(f.name).contains(q) ||
-                    f.synonyms.any((s) => normaliseName(s).contains(q)))
-                  f,
+              for (final f in options.phaseFoods)
+                if (matches(f)) f,
+            ]
+          : options.phaseFoods;
+      final others = searching
+          ? [
+              for (final f in options.otherFoods)
+                if (matches(f)) f,
             ]
           : expanded
-          ? options.all
-          : options.suggested;
-      final controller = ref.read(mealSelectionProvider.notifier);
-      final plantsFull =
-          slot == MealSlot.plant &&
-          selection.plantIds.length >= MealSelection.maxPlants;
+          ? options.otherFoods
+          : const <Food>[];
+      final listed = {
+        for (final f in [...primary, ...others]) f.id,
+      };
+      // Chosen foods the list is not showing stay visible and removable.
+      final hidden = [
+        for (final f in chosen)
+          if (mealSlotFor(f) == slot && !listed.contains(f.id)) f,
+      ];
 
       return Container(
+        key: ValueKey('section-${slot.name}'),
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 18),
         decoration: BoxDecoration(
           border: Border(top: BorderSide(color: c.line)),
         ),
-        child: Row(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 28,
+            Semantics(
+              header: true,
               child: Text(
-                '$number',
-                style: fraunces(20, height: 1.1, color: c.textMuted),
+                title,
+                style: dmSans(
+                  16,
+                  weight: FontWeight.w600,
+                  height: 1.3,
+                  color: c.text,
+                ),
               ),
             ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Semantics(
-                    header: true,
-                    child: Text(
-                      counter == null ? title : '$title · $counter',
-                      style: dmSans(
-                        16,
-                        weight: FontWeight.w600,
-                        height: 1.3,
-                        color: c.text,
-                      ),
-                    ),
+            const SizedBox(height: 4),
+            Text(hint, style: dmSans(14, height: 1.45, color: c.textMuted)),
+            const SizedBox(height: 12),
+            if (hidden.isNotEmpty) ...[
+              chips(hidden),
+              const SizedBox(height: MoonSpace.chipGap),
+            ],
+            if (primary.isEmpty && others.isEmpty)
+              Text(
+                searching
+                    ? 'No matches here.'
+                    : options.all.isEmpty
+                    ? 'Nothing fits your food preferences.'
+                    : 'No ${title.toLowerCase()} are featured in your '
+                          '${phase.name} phase. Show all foods to see more.',
+                style: dmSans(14, height: 1.4, color: c.textMuted),
+              )
+            else ...[
+              if (primary.isNotEmpty) chips(primary),
+              if (others.isNotEmpty) ...[
+                const SizedBox(height: 16),
+                Text(
+                  searching ? 'Other phases' : 'From other phases',
+                  key: ValueKey('other-phases-${slot.name}'),
+                  style: dmSans(
+                    13,
+                    weight: FontWeight.w600,
+                    height: 1.3,
+                    color: c.textMuted,
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    hint,
-                    style: dmSans(14, height: 1.45, color: c.textMuted),
+                ),
+                const SizedBox(height: 8),
+                chips(others),
+              ],
+            ],
+            if (!searching && options.otherFoods.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: TextLink(
+                  expanded ? 'Show fewer foods' : 'Show all foods',
+                  size: 14,
+                  onTap: () => setState(
+                    () =>
+                        expanded ? _expanded.remove(slot) : _expanded.add(slot),
                   ),
-                  const SizedBox(height: 12),
-                  // Chosen foods that the current list isn't showing.
-                  if (chosen.any((f) => !shown.contains(f))) ...[
-                    Wrap(
-                      spacing: MoonSpace.chipGap,
-                      children: [
-                        for (final f in chosen.where((f) => !shown.contains(f)))
-                          MealOptionChip(
-                            food: f,
-                            featured: featuredIds.contains(f.id),
-                            selected: true,
-                            palette: palette,
-                            phaseName: phase.name,
-                            onTap: () => controller.remove(f.id),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                  if (shown.isEmpty)
-                    Text(
-                      searching
-                          ? 'No matches here.'
-                          : 'Nothing fits your food preferences.',
-                      style: dmSans(14, height: 1.4, color: c.textMuted),
-                    )
-                  else
-                    Wrap(
-                      spacing: MoonSpace.chipGap,
-                      runSpacing: 0,
-                      children: [
-                        for (final f in shown)
-                          MealOptionChip(
-                            food: f,
-                            featured: featuredIds.contains(f.id),
-                            selected: selection.contains(f.id),
-                            palette: palette,
-                            phaseName: phase.name,
-                            onTap: !selection.contains(f.id) && plantsFull
-                                ? null
-                                : () => controller.toggle(slot, f),
-                          ),
-                      ],
-                    ),
-                  if (!searching &&
-                      options.all.length > options.suggested.length)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: TextLink(
-                        expanded
-                            ? 'Show fewer'
-                            : 'Show all ${options.all.length}',
-                        size: 14,
-                        onTap: () => setState(
-                          () => expanded
-                              ? _expanded.remove(slot)
-                              : _expanded.add(slot),
-                        ),
-                      ),
-                    ),
-                ],
+                ),
               ),
-            ),
           ],
         ),
       );
     }
-
-    final protein = food(selection.proteinId);
-    final base = food(selection.baseId);
-    final plants = [for (final id in selection.plantIds) ?food(id)];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -282,14 +284,14 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
         Semantics(
           header: true,
           child: Text(
-            'Build a balanced meal',
+            'Build a meal',
             style: fraunces(26, height: 1.12, color: c.text),
           ),
         ),
         const SizedBox(height: 8),
         Text(
-          'For a simple meal, start with a protein, add a satisfying base, '
-          'then add 2–3 plants you enjoy.',
+          'Choose one or more foods you feel like eating. We’ll find recipes '
+          'that bring your ingredients together.',
           style: MoonType.body.copyWith(color: c.text),
         ),
         const SizedBox(height: 16),
@@ -337,88 +339,52 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
           ],
         ),
         const SizedBox(height: 14),
-        step(
-          number: 1,
-          title: 'Choose a protein',
+        section(
+          slot: MealSlot.protein,
+          title: 'Proteins',
           hint:
               'Meat, eggs, tofu, beans and lentils, seafood, dairy, nuts and '
-              'seeds. Amounts vary between foods.',
-          slot: MealSlot.protein,
-          chosen: [?protein],
+              'seeds. Optional.',
         ),
-        step(
-          number: 2,
-          title: 'Choose a base',
-          hint:
-              'Something satisfying: whole grains, potatoes or sweet potatoes, '
-              'bread, legumes or other substantial starches.',
+        section(
           slot: MealSlot.base,
-          chosen: [?base],
+          title: 'Bases',
+          hint: 'Whole grains, potatoes, bread or other starches. Optional.',
         ),
-        step(
-          number: 3,
-          title: 'Add 2–3 plants',
-          hint: 'Vegetables and fruit you enjoy, for colour and variety.',
+        section(
           slot: MealSlot.plant,
-          chosen: plants,
-          counter: '${plants.length} of ${MealSelection.maxPlants}',
+          title: 'Plants',
+          hint: 'Vegetables and fruit. Optional.',
         ),
         _Summary(
-          protein: protein,
-          base: base,
-          plants: plants,
-          complete: selection.isComplete,
-          onCreate: selection.isComplete
-              ? () => context.push(
-                  Routes.mealResults(
-                    protein: selection.proteinId!,
-                    base: selection.baseId!,
-                    plants: selection.plantIds,
-                  ),
-                )
+          chosen: chosen,
+          onCreate: selection.canCreate
+              ? () => context.push(Routes.mealResults(selection.ids))
               : null,
-          onClear: selection.isEmpty
-              ? null
-              : ref.read(mealSelectionProvider.notifier).clear,
+          onClear: selection.isEmpty ? null : controller.clear,
         ),
       ],
     );
   }
 }
 
-/// "Your meal": what is chosen so far, and what is still missing. "Create my
-/// meal" looks for existing recipes first (see `MealResultsPage`).
+/// "Your meal": what is chosen so far, and the button that finds recipes. One
+/// food is enough; nothing else is required.
 class _Summary extends StatelessWidget {
   const _Summary({
-    required this.protein,
-    required this.base,
-    required this.plants,
-    required this.complete,
+    required this.chosen,
     required this.onCreate,
     required this.onClear,
   });
 
-  final Food? protein;
-  final Food? base;
-  final List<Food> plants;
-  final bool complete;
-
-  /// Looks for recipes for the chosen foods; null until the meal is complete.
+  final List<Food> chosen;
   final VoidCallback? onCreate;
   final VoidCallback? onClear;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final parts = [?protein, ?base, ...plants].map((f) => f.displayName);
-    final missing = [
-      if (protein == null) 'a protein',
-      if (base == null) 'a base',
-      if (plants.length < MealSelection.minPlants)
-        plants.isEmpty
-            ? '2–3 plants'
-            : 'at least ${MealSelection.minPlants} plants',
-    ];
+    final full = chosen.length >= MealBuilderConfig.maxIngredients;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 18),
@@ -431,22 +397,29 @@ class _Summary extends StatelessWidget {
           const Overline('Your meal'),
           const SizedBox(height: 8),
           Text(
-            parts.isEmpty ? 'Nothing chosen yet.' : parts.join(' · '),
+            chosen.isEmpty
+                ? 'Nothing chosen yet.'
+                : chosen.map((f) => f.displayName).join(' · '),
             style: MoonType.body.copyWith(color: c.text),
           ),
-          if (!complete) ...[
-            const SizedBox(height: 4),
-            Text(
-              'Still to choose: ${missing.join(', ')}.',
-              style: dmSans(14, height: 1.4, color: c.textMuted),
-            ),
-          ],
+          const SizedBox(height: 4),
+          Text(
+            full
+                ? 'That’s the most foods one search can use '
+                      '(${MealBuilderConfig.maxIngredients}). Remove one to '
+                      'add another.'
+                : chosen.isEmpty
+                ? 'Choose at least one food.'
+                : '${chosen.length} of ${MealBuilderConfig.maxIngredients} foods',
+            key: const ValueKey('meal-count'),
+            style: dmSans(14, height: 1.4, color: c.textMuted),
+          ),
           const SizedBox(height: 16),
           MoonButton(
             'Create my meal',
-            variant: complete
-                ? MoonButtonVariant.primary
-                : MoonButtonVariant.ghost,
+            variant: onCreate == null
+                ? MoonButtonVariant.ghost
+                : MoonButtonVariant.primary,
             onPressed: onCreate,
           ),
           if (onClear != null) ...[

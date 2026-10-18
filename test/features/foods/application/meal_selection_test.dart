@@ -34,71 +34,141 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('selection', () {
-    test('one protein, one base, two or three plants', () {
+    test('one food is enough; no category is required', () {
       final c = make();
-      final n = c.read(mealSelectionProvider.notifier);
-      n.toggle(MealSlot.protein, f('tofu'));
-      n.toggle(MealSlot.protein, f('chicken')); // replaces
-      n.toggle(MealSlot.base, f('brown-rice'));
-      n.toggle(MealSlot.base, f('quinoa')); // replaces
-      expect(c.read(mealSelectionProvider).proteinId, 'chicken');
-      expect(c.read(mealSelectionProvider).baseId, 'quinoa');
-      expect(c.read(mealSelectionProvider).isComplete, isFalse);
-      n.toggle(MealSlot.plant, f('broccoli'));
-      expect(c.read(mealSelectionProvider).isComplete, isFalse); // one plant
-      n.toggle(MealSlot.plant, f('kale'));
-      expect(c.read(mealSelectionProvider).isComplete, isTrue);
-      n.toggle(MealSlot.plant, f('carrot'));
-      expect(c.read(mealSelectionProvider).isComplete, isTrue); // three
-      expect(n.toggle(MealSlot.plant, f('lettuce')), isFalse); // a fourth
-      expect(c.read(mealSelectionProvider).plantIds, hasLength(3));
+      expect(c.read(mealSelectionProvider).canCreate, isFalse);
+      c.read(mealSelectionProvider.notifier).toggle(f('kale'));
+      expect(c.read(mealSelectionProvider).canCreate, isTrue);
+      c.read(mealSelectionProvider.notifier).toggle(f('chicken'));
+      c.read(mealSelectionProvider.notifier).toggle(f('kale'));
+      // Any single food, from any category, is a valid selection.
+      for (final id in ['chicken', 'quinoa', 'kale']) {
+        c.read(mealSelectionProvider.notifier).clear();
+        c.read(mealSelectionProvider.notifier).toggle(f(id));
+        expect(c.read(mealSelectionProvider).canCreate, isTrue, reason: id);
+      }
     });
 
-    test('choosing again un-chooses', () {
+    test('several foods from the same category', () {
       final c = make();
       final n = c.read(mealSelectionProvider.notifier);
-      n.toggle(MealSlot.plant, f('kale'));
-      n.toggle(MealSlot.plant, f('kale'));
+      for (final id in ['kale', 'carrot', 'broccoli', 'lettuce', 'spinach']) {
+        n.toggle(f(id));
+      }
+      expect(c.read(mealSelectionProvider).ids, hasLength(5));
+    });
+
+    test('free to choose, un-choose and replace', () {
+      final c = make();
+      final n = c.read(mealSelectionProvider.notifier);
+      n.toggle(f('tofu'));
+      n.toggle(f('chicken'));
+      n.toggle(f('tofu')); // un-choose
+      expect(c.read(mealSelectionProvider).ids, ['chicken']);
+      n.remove('chicken');
       expect(c.read(mealSelectionProvider).isEmpty, isTrue);
     });
 
-    test(
-      'a food is never in the meal twice (chickpea as protein and base)',
-      () {
-        final c = make();
-        final n = c.read(mealSelectionProvider.notifier);
-        n.toggle(MealSlot.protein, f('chickpea'));
-        n.toggle(MealSlot.base, f('chickpea'));
-        final s = c.read(mealSelectionProvider);
-        expect(s.ids.where((i) => i == 'chickpea'), hasLength(1));
-        expect(s.proteinId, isNull);
-        expect(s.baseId, 'chickpea');
-      },
-    );
+    test('the same food is never chosen twice', () {
+      final c = make();
+      final n = c.read(mealSelectionProvider.notifier);
+      n.toggle(f('chickpea'));
+      n.seed(f('chickpea'));
+      expect(c.read(mealSelectionProvider).ids, ['chickpea']);
+    });
 
-    test('a starting food goes into its slot, once, and can be removed', () {
+    test('the limit comes from one central setting and is enforced', () {
+      expect(MealBuilderConfig.maxIngredients, 8);
+      expect(MealBuilderConfig.minIngredients, 1);
+      final c = make();
+      final n = c.read(mealSelectionProvider.notifier);
+      final ids = [
+        'kale', 'carrot', 'broccoli', 'lettuce', 'spinach', 'tofu', 'quinoa',
+        'chicken', //
+      ];
+      for (final id in ids) {
+        expect(n.toggle(f(id)), isTrue);
+      }
+      expect(c.read(mealSelectionProvider).isFull, isTrue);
+      expect(n.toggle(f('eggs')), isFalse); // a ninth
+      expect(c.read(mealSelectionProvider).ids, ids);
+      // Freeing a place lets another food in.
+      n.toggle(f('kale'));
+      expect(n.toggle(f('eggs')), isTrue);
+    });
+
+    test('a starting food from its page is added once and can be removed', () {
       final c = make();
       final n = c.read(mealSelectionProvider.notifier);
       n.seed(f('broccoli'));
       n.seed(f('broccoli'));
-      expect(c.read(mealSelectionProvider).plantIds, ['broccoli']);
+      expect(c.read(mealSelectionProvider).ids, ['broccoli']);
       n.seed(f('tofu'));
-      expect(c.read(mealSelectionProvider).proteinId, 'tofu');
       n.seed(f('brown-rice'));
-      expect(c.read(mealSelectionProvider).baseId, 'brown-rice');
+      expect(c.read(mealSelectionProvider).ids, [
+        'broccoli',
+        'tofu',
+        'brown-rice',
+      ]);
       n.remove('broccoli');
-      expect(c.read(mealSelectionProvider).plantIds, isEmpty);
+      expect(c.read(mealSelectionProvider).contains('broccoli'), isFalse);
       n.clear();
       expect(c.read(mealSelectionProvider).isEmpty, isTrue);
     });
   });
 
   group('options', () {
-    test('every food of the right kind is offered, whatever the phase', () {
+    test(
+      'the current phase comes first and on its own; the rest is separate',
+      () {
+        for (final phase in Phase.values) {
+          final c = make(phase: phase);
+          final featured = testCatalogue.phase(phase).foodIds.toSet();
+          for (final slot in MealSlot.values) {
+            final o = c.read(mealOptionsProvider(slot));
+            expect(
+              o.phaseFoods.every((x) => featured.contains(x.id)),
+              isTrue,
+              reason: '${phase.name} ${slot.name}',
+            );
+            expect(
+              o.otherFoods.any((x) => featured.contains(x.id)),
+              isFalse,
+              reason: '${phase.name} ${slot.name}',
+            );
+            // A phase can feature no base at all (Ovulatory): the section then
+            // says so and "Show all foods" still reaches every base.
+            if (slot != MealSlot.base) {
+              expect(
+                o.phaseFoods,
+                isNotEmpty,
+                reason: '${phase.name} ${slot.name}',
+              );
+            }
+            expect(o.all, isNotEmpty, reason: '${phase.name} ${slot.name}');
+          }
+        }
+      },
+    );
+
+    test('"current" means the real phase, not a browsed one', () {
+      // actualPhaseProvider is the user's calculated phase; the builder does
+      // not read viewingPhaseProvider.
+      final c = make(phase: Phase.luteal);
+      final luteal = testCatalogue.phase(Phase.luteal).foodIds.toSet();
+      expect(
+        c
+            .read(mealOptionsProvider(MealSlot.plant))
+            .phaseFoods
+            .every((x) => luteal.contains(x.id)),
+        isTrue,
+      );
+    });
+
+    test('every eligible food is still available once expanded', () {
       for (final phase in Phase.values) {
         final c = make(phase: phase);
         final plants = c.read(mealOptionsProvider(MealSlot.plant)).all;
-        // Foods from other phases are all there.
         for (final id in ['broccoli', 'cucumber', 'pumpkin', 'kale']) {
           expect(plants.map((x) => x.id), contains(id), reason: phase.name);
         }
@@ -107,48 +177,19 @@ void main() {
       }
     });
 
-    test('foods featured in the viewed phase come first', () {
-      for (final phase in Phase.values) {
-        final c = make(phase: phase);
-        final featured = testCatalogue.phase(phase).foodIds.toSet();
-        for (final slot in MealSlot.values) {
-          final all = c.read(mealOptionsProvider(slot)).all;
-          final firstGeneral = all.indexWhere((x) => !featured.contains(x.id));
-          if (firstGeneral < 0) continue;
-          expect(
-            all.skip(firstGeneral).any((x) => featured.contains(x.id)),
-            isFalse,
-            reason: '${phase.name} ${slot.name}',
-          );
-        }
-      }
-    });
-
-    test('diet and avoidances are respected in every step', () {
+    test('diet and avoidances are respected in every section', () {
       const filter = FoodFilter(
         diet: Diet.vegan,
         avoidances: [AllergenAvoidance(id: 'g', allergenId: 'gluten')],
       );
       final c = make(filter: filter);
       for (final slot in MealSlot.values) {
-        final options = c.read(mealOptionsProvider(slot));
-        for (final x in [...options.suggested, ...options.all]) {
+        for (final x in c.read(mealOptionsProvider(slot)).all) {
           expect(filter.allowsFood(x), isTrue, reason: '${slot.name} ${x.id}');
         }
       }
       final proteins = c.read(mealOptionsProvider(MealSlot.protein)).all;
       expect(proteins.map((x) => x.id), isNot(contains('chicken')));
-    });
-
-    test('the suggestions are a subset of what can be chosen', () {
-      final c = make();
-      for (final slot in MealSlot.values) {
-        final o = c.read(mealOptionsProvider(slot));
-        final all = o.all.map((x) => x.id).toSet();
-        expect(o.suggested.every((x) => all.contains(x.id)), isTrue);
-        expect(o.suggested, isNotEmpty);
-        expect(o.all.length, greaterThanOrEqualTo(o.suggested.length));
-      }
     });
 
     test('plants are vegetables and fruit; bases and proteins stay apart', () {
@@ -166,7 +207,7 @@ void main() {
   });
 
   group('what counts as a plant', () {
-    test('herbs never count toward the 2–3 plants', () {
+    test('herbs are never offered as plants', () {
       final c = make();
       final plants = c.read(mealOptionsProvider(MealSlot.plant)).all;
       for (final herb in [

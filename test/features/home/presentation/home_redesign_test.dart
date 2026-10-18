@@ -204,9 +204,10 @@ void main() {
       await tester.tap(card('Build a meal'));
       await tester.pumpAndSettle();
       expect(find.byType(MealBuilderPage), findsOneWidget);
-      expect(find.text('Choose a protein'), findsOneWidget);
-      expect(find.text('Choose a base'), findsOneWidget);
-      expect(find.textContaining('Add 2–3 plants'), findsOneWidget);
+      expect(find.text('Build a meal'), findsWidgets);
+      expect(find.text('Proteins'), findsOneWidget);
+      expect(find.text('Bases'), findsOneWidget);
+      expect(find.text('Plants'), findsOneWidget);
       handle.dispose();
     });
 
@@ -239,7 +240,7 @@ void main() {
         dark: false,
         overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
       );
-      expect(find.text('Choose a protein'), findsNothing);
+      expect(find.text('Proteins'), findsNothing);
       expect(find.text('See Premium'), findsOneWidget);
     });
   });

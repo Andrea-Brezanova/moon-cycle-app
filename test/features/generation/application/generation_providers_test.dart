@@ -7,16 +7,16 @@ import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/content/domain/food_filter.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
-import 'package:moon_cycle/features/foods/application/meal_selection.dart';
 import 'package:moon_cycle/features/generation/application/generation_providers.dart';
 import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.dart';
 import 'package:moon_cycle/features/generation/data/personal_recipe_repository.dart';
+import 'package:moon_cycle/features/generation/domain/balanced_selection.dart';
 import 'package:moon_cycle/features/generation/domain/generation_failure.dart';
 import 'package:moon_cycle/features/generation/domain/personal_recipe.dart';
 
 import '../../../helpers/test_catalogue.dart';
 
-const _complete = MealSelection(
+const _complete = BalancedSelection(
   proteinId: 'green-lentil',
   baseId: 'farro',
   plantIds: ['spinach', 'carrot'],
@@ -121,7 +121,7 @@ void main() {
       final c = make();
       await c
           .read(recipeCreationProvider.notifier)
-          .start(const MealSelection(proteinId: 'tofu'));
+          .start(const BalancedSelection(proteinId: 'tofu'));
       expect(c.read(recipeCreationProvider), isA<CreationIdle>());
     });
 

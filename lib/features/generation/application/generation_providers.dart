@@ -7,9 +7,9 @@ import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../entitlements/application/entitlement_providers.dart';
-import '../../foods/application/meal_selection.dart';
 import '../data/dev_mock_generation_service.dart';
 import '../data/personal_recipe_repository.dart';
+import '../domain/balanced_selection.dart';
 import '../domain/generation_failure.dart';
 import '../domain/generation_request.dart';
 import '../domain/personal_recipe.dart';
@@ -171,7 +171,7 @@ class RecipeCreationController extends Notifier<CreationState> {
   CreationState build() => const CreationIdle();
 
   /// Starts creating from a complete [selection] for the viewing phase.
-  Future<void> start(MealSelection selection) async {
+  Future<void> start(BalancedSelection selection) async {
     if (_busy || !selection.isComplete) return;
     _request = GenerationRequest(
       idempotencyKey: const Uuid().v4(),

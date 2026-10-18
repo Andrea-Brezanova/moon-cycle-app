@@ -19,16 +19,13 @@ import '../helpers/test_catalogue.dart';
 /// The screens added in Stages 3–7, reached as a Premium user in a debug dev
 /// build (so every one of them is on screen, not a lock message).
 final _screens = <String, String>{
-  'meal results (complete)': Routes.mealResults(
-    protein: 'black-turtle-bean',
-    base: 'quinoa',
-    plants: ['yellow-bell-pepper', 'orange'],
-  ),
-  'meal results (close matches)': Routes.mealResults(
-    protein: 'black-turtle-bean',
-    base: 'quinoa',
-    plants: ['yellow-bell-pepper', 'orange', 'kale'],
-  ),
+  'meal results (complete and partial)': Routes.mealResults([
+    'quinoa',
+    'orange',
+    'salmon',
+  ]),
+  'meal results (one food)': Routes.mealResults(['garlic']),
+  'meal results (no recipe)': Routes.mealResults(['kombu', 'wakame']),
   'try something new': Routes.tryNew(['kale', 'pomegranate', 'tempeh']),
   'diary': Routes.diary,
   'my recipes': Routes.myRecipes,

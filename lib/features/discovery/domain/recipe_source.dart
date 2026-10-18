@@ -22,6 +22,7 @@ final class RecipeRights {
     this.mayStore = true,
     this.requiresLinkBack = false,
     this.mayPublish = false,
+    this.mayShowImage = true,
   });
 
   /// Moon Cycle's reviewed recipes: displayed in full, stored offline, and
@@ -49,6 +50,10 @@ final class RecipeRights {
   /// Whether the recipe may be saved on the phone or the server.
   final bool mayStore;
   final bool requiresLinkBack;
+
+  /// Whether the provider's photograph may be shown. False means the card
+  /// uses the placeholder.
+  final bool mayShowImage;
 
   /// Whether it may enter the shared Moon Cycle library. Only ever true for
   /// recipes Moon Cycle owns; anything else needs an explicit editorial step.

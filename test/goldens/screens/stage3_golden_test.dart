@@ -14,6 +14,7 @@ import 'package:moon_cycle/features/entitlements/application/entitlement_provide
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/generation/application/generation_providers.dart';
 import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.dart';
+import 'package:moon_cycle/features/generation/domain/balanced_selection.dart';
 import 'package:moon_cycle/features/generation/presentation/create_recipe_page.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
 import 'package:moon_cycle/features/home/presentation/try_new_results_page.dart';
@@ -24,12 +25,10 @@ import '../../helpers/pump_app.dart';
 import '../../helpers/test_catalogue.dart';
 import 'home_golden_test.dart' show stateOnDay;
 
-const _bowl = MealChoice(
-  proteinId: 'black-turtle-bean',
-  baseId: 'quinoa',
-  plantIds: ['yellow-bell-pepper', 'orange'],
-);
-const _close = MealChoice(
+final _complete = MealChoice(['quinoa', 'orange']);
+final _mixed = MealChoice(['quinoa', 'orange', 'salmon']);
+final _empty = MealChoice(['kombu', 'wakame']);
+const _balanced = BalancedSelection(
   proteinId: 'black-turtle-bean',
   baseId: 'quinoa',
   plantIds: ['yellow-bell-pepper', 'orange', 'kale'],
@@ -54,12 +53,12 @@ void main() {
   ];
 
   for (final MapEntry(key: theme, value: dark) in themes.entries) {
-    testWidgets('meal results: a complete library match, $theme', (
+    testWidgets('meal results: complete and partial matches, $theme', (
       tester,
     ) async {
       await pumpScreen(
         tester,
-        const MealResultsPage(choice: _bowl),
+        MealResultsPage(choice: _complete),
         dark: dark,
         height: 1500,
         overrides: overrides,
@@ -70,12 +69,12 @@ void main() {
       );
     });
 
-    testWidgets('meal results: close matches and the fallback, $theme', (
+    testWidgets('meal results: good and partial matches, $theme', (
       tester,
     ) async {
       await pumpScreen(
         tester,
-        const MealResultsPage(choice: _close),
+        MealResultsPage(choice: _mixed),
         dark: dark,
         height: 1700,
         overrides: overrides,
@@ -86,10 +85,23 @@ void main() {
       );
     });
 
+    testWidgets('meal results: no recipe, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        MealResultsPage(choice: _empty),
+        dark: dark,
+        overrides: overrides,
+      );
+      await expectLater(
+        find.byType(MealResultsPage),
+        matchesGoldenFile('goldens/$theme-meal-results-empty.png'),
+      );
+    });
+
     testWidgets('create a recipe: not available here, $theme', (tester) async {
       await pumpScreen(
         tester,
-        const CreateRecipePage(choice: _close),
+        const CreateRecipePage(choice: _balanced),
         dark: dark,
         overrides: [
           cycleStateProvider.overrideWithValue(stateOnDay(7)),
@@ -182,7 +194,7 @@ void main() {
     tester,
   ) async {
     for (final (name, page, h) in [
-      ('meal-results', const MealResultsPage(choice: _close), 2600.0),
+      ('meal-results', MealResultsPage(choice: _mixed), 2600.0),
       ('diary', const DiaryPage(), 1400.0),
       ('try-new', const TryNewResultsPage(foodIds: _unusual), 3200.0),
     ]) {

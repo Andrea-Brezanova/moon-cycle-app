@@ -12,6 +12,7 @@ import '../../features/foods/presentation/food_detail_page.dart';
 import '../../features/foods/presentation/foods_page.dart';
 import '../../features/foods/presentation/learn_more_page.dart';
 import '../../features/foods/presentation/meal_builder_page.dart';
+import '../../features/generation/domain/balanced_selection.dart';
 import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
@@ -171,7 +172,7 @@ GoRouter buildAppRouter({
                         path: 'meal-builder/create',
                         pageBuilder: (context, state) => _page(
                           state,
-                          CreateRecipePage(choice: _choiceOf(state)),
+                          CreateRecipePage(choice: _balancedOf(state)),
                         ),
                       ),
                       GoRoute(
@@ -267,11 +268,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 });
 
 /// The foods chosen for a meal, from the route's query (ids only).
-MealChoice _choiceOf(GoRouterState state) {
+MealChoice _choiceOf(GoRouterState state) => MealChoice([
+  for (final id in (state.uri.queryParameters['foods'] ?? '').split(','))
+    if (id.isNotEmpty) id,
+]);
+
+/// The structured input of the (currently unlinked) generation flow.
+BalancedSelection _balancedOf(GoRouterState state) {
   final q = state.uri.queryParameters;
-  return MealChoice(
-    proteinId: q['protein'] ?? '',
-    baseId: q['base'] ?? '',
+  return BalancedSelection(
+    proteinId: q['protein'],
+    baseId: q['base'],
     plantIds: [
       for (final id in (q['plants'] ?? '').split(','))
         if (id.isNotEmpty) id,

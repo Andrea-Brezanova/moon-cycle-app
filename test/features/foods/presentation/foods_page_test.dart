@@ -395,7 +395,7 @@ void main() {
         await tester.tap(find.text('Make your own meal with chicken'));
         await tester.pumpAndSettle();
         expect(find.byType(MealBuilderPage), findsOneWidget);
-        expect(find.text('Choose a protein'), findsOneWidget);
+        expect(find.text('Proteins'), findsOneWidget);
       },
     );
   });

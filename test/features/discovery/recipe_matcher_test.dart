@@ -8,176 +8,189 @@ import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 
 import '../../helpers/test_catalogue.dart';
 
-/// Black-bean quinoa orange bowl: black-turtle-bean, quinoa, yellow-bell-pepper,
-/// orange (and onion) are all in the recipe.
-const bowl = MealChoice(
-  proteinId: 'black-turtle-bean',
-  baseId: 'quinoa',
-  plantIds: ['yellow-bell-pepper', 'orange'],
-);
+/// Black-bean quinoa orange bowl uses black-turtle-bean, quinoa,
+/// yellow-bell-pepper, orange (and onion and more).
+const bowlId = 'black-bean-quinoa-orange-bowl';
 
 RecipeMatcher matcher([MatchConfig c = MatchConfig.defaults]) =>
     RecipeMatcher(testCatalogue, config: c);
 
+RecipeMatch? ofBowl(MealChoice choice, {MatchConfig? config}) =>
+    matcher(config ?? MatchConfig.defaults)
+        .matchOne(testCatalogue.recipe(bowlId)!, choice);
+
 void main() {
-  test(
-    'a recipe with every selected food is a complete match, extras allowed',
-    () {
-      final matches = matcher().match(bowl, FoodFilter.none);
-      final top = matches.first;
-      expect(top.recipe.id, 'black-bean-quinoa-orange-bowl');
-      expect(top.level, MatchLevel.complete);
-      expect(top.missingIds, isEmpty);
-      expect(top.coverage, 1);
-      // The recipe also has onion and others the user did not choose.
-      expect(top.extraFoodIds, isNotEmpty);
-    },
-  );
+  group('a recipe qualifies with at least one chosen food', () {
+    test('one food: every recipe that uses it, and only those', () {
+      final matches = matcher().match(MealChoice(['quinoa']), FoodFilter.none);
+      expect(matches, isNotEmpty);
+      for (final m in matches) {
+        final present = {
+          for (final l in m.recipe.ingredients) ?l.foodId,
+          ...m.recipe.keyFoodIds,
+        };
+        expect(present, contains('quinoa'), reason: m.recipe.id);
+        expect(m.level, MatchLevel.complete); // it uses the one food chosen
+      }
+      final all = testCatalogue.recipes.where((r) {
+        final present = {
+          for (final l in r.ingredients) ?l.foodId,
+          ...r.keyFoodIds,
+        };
+        return present.contains('quinoa');
+      });
+      expect(matches.length, all.length);
+    });
 
-  test('complete matches always rank before partial ones', () {
-    final matches = matcher().match(bowl, FoodFilter.none);
-    final firstPartial = matches.indexWhere(
-      (m) => m.level != MatchLevel.complete,
-    );
-    final lastComplete = matches.lastIndexWhere(
-      (m) => m.level == MatchLevel.complete,
-    );
-    if (firstPartial >= 0) expect(lastComplete, lessThan(firstPartial));
+    test('a recipe using none of the foods is not returned', () {
+      final m = ofBowl(MealChoice(['salmon', 'farro']));
+      expect(m, isNull);
+      final ids = matcher()
+          .match(MealChoice(['salmon', 'farro']), FoodFilter.none)
+          .map((m) => m.recipe.id);
+      expect(ids, isNot(contains(bowlId)));
+    });
+
+    test('nothing chosen finds nothing', () {
+      expect(matcher().match(MealChoice([]), FoodFilter.none), isEmpty);
+    });
+
+    test('other ingredients in the recipe are fine', () {
+      final m = ofBowl(MealChoice(['quinoa']))!;
+      expect(m.extraFoodIds, isNotEmpty);
+      expect(m.level, MatchLevel.complete);
+    });
   });
 
-  test('one missing plant is a good partial match, never complete', () {
-    const choice = MealChoice(
-      proteinId: 'black-turtle-bean',
-      baseId: 'quinoa',
-      plantIds: ['yellow-bell-pepper', 'orange', 'kale'],
-    );
-    final m = matcher()
-        .match(choice, FoodFilter.none)
-        .firstWhere((m) => m.recipe.id == 'black-bean-quinoa-orange-bowl');
-    expect(m.level, MatchLevel.goodPartial);
-    expect(m.missingIds, ['kale']);
-    // protein 3 + base 3 + two plants 4 of 3 + 3 + 3 * 2 = 12 → 10/12.
-    expect(m.coverage, closeTo(10 / 12, 1e-9));
+  group('how complete a match is, and how it is described', () {
+    test('three of three is complete', () {
+      final m = ofBowl(MealChoice(['black-turtle-bean', 'quinoa', 'orange']))!;
+      expect(m.level, MatchLevel.complete);
+      expect(m.missingIds, isEmpty);
+      expect(m.matchedIds, ['black-turtle-bean', 'quinoa', 'orange']);
+    });
+
+    test('two of three is good, never complete', () {
+      final m = ofBowl(MealChoice(['quinoa', 'orange', 'salmon']))!;
+      expect(m.level, MatchLevel.good);
+      expect(m.matchedIds, ['quinoa', 'orange']);
+      expect(m.missingIds, ['salmon']);
+    });
+
+    test('one of three is partial, never complete', () {
+      final m = ofBowl(MealChoice(['quinoa', 'salmon', 'farro']))!;
+      expect(m.level, MatchLevel.partial);
+      expect(m.matchedIds, ['quinoa']);
+      expect(m.missingIds, ['salmon', 'farro']);
+    });
+
+    test('any recipe that misses a chosen food is not complete', () {
+      for (final choice in [
+        MealChoice(['quinoa', 'salmon']),
+        MealChoice(['quinoa', 'orange', 'salmon', 'farro']),
+      ]) {
+        final m = ofBowl(choice)!;
+        expect(m.level, isNot(MatchLevel.complete));
+        expect(m.missingIds, isNotEmpty);
+      }
+    });
+
+    test('the thresholds in the config decide good and partial', () {
+      // Two of four: partial by default (0.5 < 0.6), good if the bar is 0.5.
+      final choice = MealChoice(['quinoa', 'orange', 'salmon', 'farro']);
+      expect(ofBowl(choice)!.level, MatchLevel.partial);
+      expect(
+        ofBowl(choice, config: const MatchConfig(goodMinCoverage: 0.5))!.level,
+        MatchLevel.good,
+      );
+      // Three of four is good by default.
+      expect(
+        ofBowl(MealChoice(['quinoa', 'orange', 'onion', 'salmon']))!.level,
+        MatchLevel.good,
+      );
+    });
   });
 
-  test('equivalent foods are not exact matches', () {
-    const choice = MealChoice(
-      proteinId: 'red-lentil', // the recipe uses black beans
-      baseId: 'quinoa',
-      plantIds: ['yellow-bell-pepper', 'orange'],
-    );
-    final m = matcher()
-        .match(choice, FoodFilter.none)
-        .firstWhere((m) => m.recipe.id == 'black-bean-quinoa-orange-bowl');
-    expect(m.level, isNot(MatchLevel.complete));
-    expect(m.missingIds, ['red-lentil']);
+  group('ranking', () {
+    test('the more chosen foods a recipe uses, the higher it ranks', () {
+      final choice = MealChoice(['black-turtle-bean', 'quinoa', 'orange']);
+      final matches = matcher().match(choice, FoodFilter.none);
+      final counts = [for (final m in matches) m.matchedIds.length];
+      expect([...counts]..sort((a, b) => b.compareTo(a)), counts);
+      expect(matches.first.recipe.id, bowlId);
+      expect(matches.first.level, MatchLevel.complete);
+    });
+
+    test('complete before good before partial', () {
+      final choice = MealChoice(['quinoa', 'orange', 'onion', 'salmon']);
+      final order = [
+        for (final m in matcher().match(choice, FoodFilter.none)) m.level.index,
+      ];
+      expect([...order]..sort(), order);
+    });
+
+    test('the current phase only orders; it never decides a match', () {
+      final recipe = testCatalogue.recipe(bowlId)!;
+      final choice = MealChoice(['quinoa']);
+      final here = matcher().matchOne(
+        recipe,
+        choice,
+        currentPhase: recipe.phase,
+      )!;
+      final other = matcher().matchOne(
+        recipe,
+        choice,
+        currentPhase: Phase.values.firstWhere((p) => p != recipe.phase),
+      )!;
+      expect(here.level, other.level);
+      expect(here.score - other.score, MatchConfig.defaults.phaseBonus);
+    });
+
+    test('of two recipes using the same foods, the simpler ranks first', () {
+      final m = ofBowl(MealChoice(['quinoa']))!;
+      expect(
+        m.score,
+        closeTo(
+          100 +
+              MatchConfig.defaults.qualityBonus -
+              m.extraFoodIds.length * MatchConfig.defaults.extraFoodPenalty,
+          1e-9,
+        ),
+      );
+    });
   });
 
-  test('sharing only one plant is insufficient and not returned', () {
-    const choice = MealChoice(
-      proteinId: 'salmon',
-      baseId: 'farro',
-      plantIds: ['orange', 'kale'],
-    );
-    final ids = matcher()
-        .match(choice, FoodFilter.none)
-        .map((m) => m.recipe.id);
-    expect(ids, isNot(contains('black-bean-quinoa-orange-bowl')));
-  });
+  group('exclusions stay in force', () {
+    test('a diet removes recipes with foods it excludes, at every level', () {
+      const vegan = FoodFilter(diet: Diet.vegan);
+      final choice = MealChoice(['sardine', 'spinach']);
+      expect(matcher().match(choice, FoodFilter.none), isNotEmpty);
+      for (final m in matcher().match(choice, vegan)) {
+        expect(vegan.allowsRecipe(m.recipe, testCatalogue), isTrue);
+      }
+      expect(
+        matcher().match(choice, vegan).map((m) => m.recipe.id),
+        isNot(contains('sardine-spinach-lemon-toast')),
+      );
+    });
 
-  test('a partial match must include the protein or the base', () {
-    const choice = MealChoice(
-      proteinId: 'salmon',
-      baseId: 'farro',
-      plantIds: ['yellow-bell-pepper', 'orange'],
-    );
-    // The bowl shares both plants (coverage 4/10) only: below the threshold
-    // anyway. Lower the threshold to isolate the protein-or-base rule.
-    const loose = MatchConfig(goodPartialMinCoverage: 0.1);
-    final withRule = RecipeMatcher(
-      testCatalogue,
-      config: loose,
-    ).match(choice, FoodFilter.none).map((m) => m.recipe.id);
-    expect(withRule, isNot(contains('black-bean-quinoa-orange-bowl')));
-    const noRule = MatchConfig(
-      goodPartialMinCoverage: 0.1,
-      partialNeedsProteinOrBase: false,
-    );
-    final without = RecipeMatcher(
-      testCatalogue,
-      config: noRule,
-    ).match(choice, FoodFilter.none).map((m) => m.recipe.id);
-    expect(without, contains('black-bean-quinoa-orange-bowl'));
-  });
+    test('an avoided food removes every recipe that contains it', () {
+      const noOrange = FoodFilter(
+        avoidances: [FoodItemAvoidance(id: 'a', foodId: 'orange')],
+      );
+      final ids = matcher()
+          .match(MealChoice(['quinoa']), noOrange)
+          .map((m) => m.recipe.id);
+      expect(ids, isNot(contains(bowlId)));
+    });
 
-  test('thresholds are configuration: a stricter one demotes a partial', () {
-    const choice = MealChoice(
-      proteinId: 'black-turtle-bean',
-      baseId: 'quinoa',
-      plantIds: ['yellow-bell-pepper', 'orange', 'kale'],
-    );
-    final strict = RecipeMatcher(
-      testCatalogue,
-      config: const MatchConfig(goodPartialMinCoverage: 0.95),
-    ).match(choice, FoodFilter.none);
-    expect(
-      strict.any((m) => m.recipe.id == 'black-bean-quinoa-orange-bowl'),
-      isFalse,
-    );
-  });
-
-  test('recipes the diet or an avoidance excludes are never returned', () {
-    const vegan = FoodFilter(diet: Diet.vegan);
-    const noOrange = FoodFilter(
-      avoidances: [FoodItemAvoidance(id: 'a', foodId: 'orange')],
-    );
-    expect(
-      matcher().match(bowl, vegan).map((m) => m.recipe.id),
-      contains('black-bean-quinoa-orange-bowl'),
-    );
-    expect(
-      matcher().match(bowl, noOrange).map((m) => m.recipe.id),
-      isNot(contains('black-bean-quinoa-orange-bowl')),
-    );
-    // And an animal-food choice never surfaces for a vegan.
-    const meat = MealChoice(
-      proteinId: 'sardine',
-      baseId: 'whole-grain-bread',
-      plantIds: ['spinach', 'lemon'],
-    );
-    expect(
-      matcher().match(meat, FoodFilter.none).first.recipe.id,
-      'sardine-spinach-lemon-toast',
-    );
-    expect(matcher().match(meat, vegan), isEmpty);
-  });
-
-  test('the viewing phase only orders; it never decides a match', () {
-    final recipe = testCatalogue.recipe('black-bean-quinoa-orange-bowl')!;
-    final here = matcher().matchOne(recipe, bowl, viewingPhase: recipe.phase);
-    final other = matcher().matchOne(
-      recipe,
-      bowl,
-      viewingPhase: Phase.values.firstWhere((p) => p != recipe.phase),
-    );
-    expect(here.level, MatchLevel.complete);
-    expect(other.level, MatchLevel.complete);
-    expect(here.score - other.score, MatchConfig.defaults.phaseBonus);
-  });
-
-  test('of two complete matches the one with fewer extras ranks first', () {
-    final a = matcher().matchOne(
-      testCatalogue.recipe('black-bean-quinoa-orange-bowl')!,
-      bowl,
-    );
-    expect(
-      a.score,
-      closeTo(
-        100 +
-            MatchConfig.defaults.qualityBonus -
-            a.extraFoodIds.length * MatchConfig.defaults.extraFoodPenalty,
-        1e-9,
-      ),
-    );
+    test('an allergen removes recipes whose foods carry it', () {
+      const noGluten = FoodFilter(
+        avoidances: [AllergenAvoidance(id: 'g', allergenId: 'gluten')],
+      );
+      for (final m in matcher().match(MealChoice(['carrot']), noGluten)) {
+        expect(noGluten.allowsRecipe(m.recipe, testCatalogue), isTrue);
+      }
+    });
   });
 }

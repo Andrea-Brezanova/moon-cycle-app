@@ -303,7 +303,7 @@ class _PersonalNote extends ConsumerWidget {
           recipe.isDevSample
               ? 'Development sample · made from templates, not by an AI. '
                     'Saved privately to your recipes.'
-              : 'Made for you · saved privately to your recipes.',
+              : 'Created for you · saved privately to your recipes.',
           key: const ValueKey('personal-recipe-note'),
           style: style,
         ),
