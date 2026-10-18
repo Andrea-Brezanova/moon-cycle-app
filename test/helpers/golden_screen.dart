@@ -6,7 +6,11 @@ import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/core/design/moon_theme.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
+import 'package:moon_cycle/features/discovery/application/discovery_providers.dart';
 
+import 'package:moon_cycle/features/discovery/data/providers/provider_http.dart';
+
+import 'offline_network.dart';
 import 'pump_app.dart';
 import 'test_catalogue.dart';
 
@@ -25,6 +29,7 @@ Future<void> pumpScreen(
   double height = 844,
   double width = 390,
   double textScale = 1,
+  HttpGet providerHttp = offlineGet,
 }) async {
   tester.view.physicalSize = Size(width, height) * 2;
   tester.view.devicePixelRatio = 2;
@@ -37,6 +42,7 @@ Future<void> pumpScreen(
         appDatabaseProvider.overrideWithValue(database ?? testDatabase()),
         catalogueProvider.overrideWithValue(testCatalogue),
         clockProvider.overrideWithValue(designNow),
+        providerHttpGetProvider.overrideWithValue(providerHttp),
         ...overrides,
       ],
       child: MaterialApp(

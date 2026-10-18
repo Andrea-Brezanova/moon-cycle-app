@@ -12,7 +12,6 @@ import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
-import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/catalogue.dart';
 import '../../entitlements/application/entitlement_providers.dart';
@@ -241,13 +240,12 @@ class _ResultCard extends StatelessWidget {
       RecipeSource.aiGenerated => 'Created for you',
     };
 
-    ImageProvider? image = recipeImage(recipe);
-    if (external && candidate.rights.mayShowImage && recipe.imageUrl != null) {
-      image = NetworkImage(recipe.imageUrl!);
-    }
+    final image = recipeImage(recipe, rights: candidate.rights);
 
+    // External recipes with a full method open in Moon Cycle (with their
+    // attribution); otherwise the original source is opened.
     void open() {
-      if (external && url != null) {
+      if (external && !candidate.rights.mayDisplayFull && url != null) {
         launchUrl(Uri.parse(url), mode: LaunchMode.inAppBrowserView);
       } else {
         context.push(Routes.recipe(recipe.id));
@@ -300,9 +298,12 @@ class _ResultCard extends StatelessWidget {
             [?minutes, sourceText].join(' · '),
             style: dmSans(12, height: 1.3, color: c.textMuted),
           ),
-          if (external && url != null) ...[
-            const SizedBox(height: 4),
-            TextLink('View original recipe', size: 13, onTap: open),
+          if (candidate.alsoFrom.isNotEmpty) ...[
+            const SizedBox(height: 2),
+            Text(
+              'Also in ${candidate.alsoFrom.join(', ')}',
+              style: dmSans(12, height: 1.3, color: c.textMuted),
+            ),
           ],
         ],
       ),

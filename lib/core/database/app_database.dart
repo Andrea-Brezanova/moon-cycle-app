@@ -23,13 +23,15 @@ part 'app_database.g.dart';
     AppStates,
     PersonalRecipes,
     DiaryEntries,
+    ProviderUsages,
+    SavedRecipeRefs,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -47,6 +49,12 @@ class AppDatabase extends _$AppDatabase {
       if (from < 4) {
         await m.createTable(diaryEntries);
         await m.createIndex(diaryEntriesItemLive);
+      }
+      // 5: external provider usage and saved recipe references. Additive.
+      if (from < 5) {
+        await m.createTable(providerUsages);
+        await m.createTable(savedRecipeRefs);
+        await m.createIndex(savedRecipeRefsLive);
       }
     },
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),

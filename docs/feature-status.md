@@ -29,8 +29,9 @@ Updated through Stage 7 on `feature/home-choices-food-detail`.
   exists. The function's model is a local stub or "unavailable".
 - **Images** for generated recipes use the tinted placeholder; no image provider
   is integrated.
-- **External recipe API**: the interface exists; no provider is approved, so the
-  source is empty.
+- **External recipes**: TheMealDB (free test key) is enabled in debug dev builds
+  only; Provider B (Recipe API) has an adapter and fixture tests but is not
+  configured. See `docs/external-recipe-api-evaluation.md`.
 
 ## Not built yet (planned)
 

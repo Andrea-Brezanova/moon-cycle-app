@@ -1,0 +1,46 @@
+{
+ "data": [
+  {
+   "id": "r-1",
+   "name": "Chickpea & Spinach Stew",
+   "dietary": {
+    "flags": [
+     "Vegan",
+     "Vegetarian",
+     "Gluten-Free",
+     "Dairy-Free",
+     "Nut-Free"
+    ],
+    "not_suitable_for": []
+   }
+  },
+  {
+   "id": "r-2",
+   "name": "Butter Chicken with Chickpeas",
+   "dietary": {
+    "flags": [
+     "Gluten-Free"
+    ],
+    "not_suitable_for": [
+     "Dairy-Free"
+    ]
+   }
+  },
+  {
+   "id": "r-3",
+   "name": "Chickpea Salad",
+   "dietary": {
+    "flags": [
+     "Vegetarian"
+    ],
+    "not_suitable_for": []
+   }
+  }
+ ],
+ "meta": {
+  "total": 3,
+  "page": 1,
+  "per_page": 25,
+  "total_capped": false
+ }
+}

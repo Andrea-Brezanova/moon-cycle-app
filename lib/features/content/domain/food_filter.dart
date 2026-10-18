@@ -26,6 +26,9 @@ final class FoodFilter {
 
   bool get isEmpty => diet == Diet.omnivore && avoidances.isEmpty;
 
+  /// The allergen ids the user avoids.
+  Set<String> get allergenIds => _allergens;
+
   Set<String> get _allergens => {
     for (final a in avoidances)
       if (a is AllergenAvoidance) a.allergenId,

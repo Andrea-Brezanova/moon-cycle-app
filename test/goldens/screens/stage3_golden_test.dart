@@ -18,7 +18,9 @@ import 'package:moon_cycle/features/generation/domain/balanced_selection.dart';
 import 'package:moon_cycle/features/generation/presentation/create_recipe_page.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
 import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
+import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 
+import '../../helpers/fake_provider_http.dart';
 import '../../helpers/golden_screen.dart';
 import '../../helpers/moon_fonts.dart';
 import '../../helpers/pump_app.dart';
@@ -81,6 +83,38 @@ void main() {
       await expectLater(
         find.byType(MealResultsPage),
         matchesGoldenFile('goldens/$theme-meal-results-fallback.png'),
+      );
+    });
+
+    testWidgets('meal results with an external provider, $theme', (
+      tester,
+    ) async {
+      await pumpScreen(
+        tester,
+        MealResultsPage(choice: MealChoice(['black-eyed-pea', 'garlic'])),
+        dark: dark,
+        height: 2600,
+        overrides: overrides,
+        providerHttp: mealDbNetwork().get,
+      );
+      await expectLater(
+        find.byType(MealResultsPage),
+        matchesGoldenFile('goldens/$theme-meal-results-external.png'),
+      );
+    });
+
+    testWidgets('an external recipe in full, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const RecipeDetailPage(recipeId: 'x-themealdb-53282'),
+        dark: dark,
+        height: 2200,
+        overrides: overrides,
+        providerHttp: mealDbNetwork().get,
+      );
+      await expectLater(
+        find.byType(RecipeDetailPage),
+        matchesGoldenFile('goldens/$theme-recipe-external.png'),
       );
     });
 

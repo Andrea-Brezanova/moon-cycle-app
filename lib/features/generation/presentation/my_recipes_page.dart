@@ -6,12 +6,15 @@ import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
+import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/phase.dart';
 import '../../recipes/presentation/widgets/recipe_widgets.dart';
 import '../application/generation_providers.dart';
+import '../data/saved_recipe_repository.dart';
 import '../domain/personal_recipe.dart';
 
 /// "My recipes": the recipes the user made, saved privately on this phone.
@@ -22,6 +25,7 @@ class MyRecipesPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final recipes = ref.watch(personalRecipesProvider).value ?? const [];
+    final saved = ref.watch(savedRecipeRefsProvider).value ?? const [];
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -43,13 +47,11 @@ class MyRecipesPage extends ConsumerWidget {
                 MoonSpace.gutter,
                 0,
               ),
-              child: recipes.isEmpty
+              child: recipes.isEmpty && saved.isEmpty
                   ? EmptyState(
                       icon: MoonIconName.recipes,
                       title: 'No recipes yet',
-                      body:
-                          'Recipes you create from Build a Meal are saved here, '
-                          'privately.',
+                      body: 'Recipes you save are listed here, privately.',
                       palette: c.phase(Phase.follicular),
                     )
                   : Column(
@@ -59,6 +61,48 @@ class MyRecipesPage extends ConsumerWidget {
                           'Saved privately on this phone.',
                           style: dmSans(13, height: 1.4, color: c.textMuted),
                         ),
+                        if (saved.isNotEmpty) ...[
+                          const SizedBox(height: 22),
+                          const Overline('Saved recipes'),
+                          for (final r in saved)
+                            Pressable(
+                              onTap: () => context.push(Routes.recipe(r.refId)),
+                              semanticLabel: '${r.title}, saved recipe',
+                              child: Container(
+                                key: ValueKey('saved-${r.refId}'),
+                                constraints: const BoxConstraints(
+                                  minHeight: 52,
+                                ),
+                                alignment: Alignment.centerLeft,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    top: BorderSide(color: c.line),
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        r.title,
+                                        style: dmSans(
+                                          16,
+                                          weight: FontWeight.w500,
+                                          color: c.text,
+                                        ),
+                                      ),
+                                    ),
+                                    if (r.isExternal)
+                                      Text(
+                                        r.providerId == 'themealdb'
+                                            ? 'TheMealDB'
+                                            : r.providerId,
+                                        style: dmSans(12, color: c.textMuted),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
                         for (var i = 0; i < recipes.length; i += 2) ...[
                           const SizedBox(height: 26),
                           Row(

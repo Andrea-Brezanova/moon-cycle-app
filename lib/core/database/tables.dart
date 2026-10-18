@@ -187,3 +187,42 @@ class DiaryEntries extends Table with UserRow {
   /// `serving`, `g`, `oz`, `cup` or `piece`.
   TextColumn get unit => text()();
 }
+
+/// How many requests each external recipe provider has been sent this month,
+/// and roughly what they cost, so a monthly budget can be enforced.
+@DataClassName('ProviderUsageRow')
+class ProviderUsages extends Table {
+  TextColumn get providerId => text()();
+
+  /// `YYYY-MM`.
+  TextColumn get month => text()();
+  IntColumn get requests => integer().withDefault(const Constant(0))();
+
+  /// Millionths of a US dollar.
+  IntColumn get costMicros => integer().withDefault(const Constant(0))();
+
+  @override
+  Set<Column<Object>> get primaryKey => {providerId, month};
+}
+
+/// A recipe the user saved to My recipes, **by reference**: a Moon Cycle recipe
+/// id, or an external provider's id with just the title and source link. Never
+/// the ingredients or method of a third-party recipe (their terms do not allow
+/// keeping them); the recipe is fetched again when it is opened.
+@TableIndex.sql(
+  'CREATE UNIQUE INDEX saved_recipe_refs_live '
+  'ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
+)
+@DataClassName('SavedRecipeRefRow')
+class SavedRecipeRefs extends Table with UserRow {
+  /// `moon-cycle` or the provider's short id.
+  TextColumn get providerId => text()();
+
+  /// The recipe id as the app uses it (`x-themealdb-52772`, or a library id).
+  TextColumn get refId => text()();
+
+  /// The provider's own id (null for a library recipe).
+  TextColumn get externalId => text().nullable()();
+  TextColumn get title => text()();
+  TextColumn get sourceUrl => text().nullable()();
+}

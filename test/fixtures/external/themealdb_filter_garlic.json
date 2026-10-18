@@ -1,0 +1,88 @@
+{
+ "meals": [
+  {
+   "strMeal": "Acaraje black-eyed pea fritters with shrimp filling",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/dxs5t71782678369.jpg",
+   "idMeal": "53483",
+   "strArea": null,
+   "strCountry": "Brazil"
+  },
+  {
+   "strMeal": "Air Fryer Egg Rolls",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/grhn401765687086.jpg",
+   "idMeal": "53373",
+   "strArea": "Chinese",
+   "strCountry": "China"
+  },
+  {
+   "strMeal": "Air fryer patatas bravas",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/3m8yae1763257951.jpg",
+   "idMeal": "53158",
+   "strArea": "Spanish",
+   "strCountry": "Spain"
+  },
+  {
+   "strMeal": "Algerian Bouzgene Berber Bread with Roasted Pepper Sauce",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/se5vhk1764114880.jpg",
+   "idMeal": "53284",
+   "strArea": "Algerian",
+   "strCountry": "Algeria"
+  },
+  {
+   "strMeal": "Algerian Carrots",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg",
+   "idMeal": "53282",
+   "strArea": "Algerian",
+   "strCountry": "Algeria"
+  },
+  {
+   "strMeal": "Algerian Flafla (Bell Pepper Salad)",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/tbj1bs1764118062.jpg",
+   "idMeal": "53288",
+   "strArea": "Algerian",
+   "strCountry": "Algeria"
+  },
+  {
+   "strMeal": "Algerian Kefta (Meatballs)",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/8rfd4q1764112993.jpg",
+   "idMeal": "53281",
+   "strArea": "Algerian",
+   "strCountry": "Algeria"
+  },
+  {
+   "strMeal": "Antiguan Breakfast (Chop Up and \u2018Saltfish\u2019)",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/jvjnoh1780086318.jpg",
+   "idMeal": "53430",
+   "strArea": null,
+   "strCountry": "Antigua and Barbuda"
+  },
+  {
+   "strMeal": "Arepa pelua",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/jgl9qq1764437635.jpg",
+   "idMeal": "53329",
+   "strArea": "Venezuela",
+   "strCountry": "Venezuela"
+  },
+  {
+   "strMeal": "Baba Ghanoush",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/dlmh401760524897.jpg",
+   "idMeal": "53094",
+   "strArea": "Syrian",
+   "strCountry": "Syria"
+  },
+  {
+   "strMeal": "Bahia-style Moqueca prawn stew",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/e2kcut1782591669.jpg",
+   "idMeal": "53481",
+   "strArea": null,
+   "strCountry": "Brazil"
+  },
+  {
+   "strMeal": "Bai Sach Chrouk \u2013 Grilled Pork with Rice",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/f0cdwk1782688162.jpg",
+   "idMeal": "53496",
+   "strArea": null,
+   "strCountry": "Cambodia"
+  }
+ ]
+}

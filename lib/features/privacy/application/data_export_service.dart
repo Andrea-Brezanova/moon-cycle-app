@@ -13,6 +13,7 @@ import '../../cycle/data/cycle_repository.dart';
 import '../../diary/data/diary_repository.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/personal_recipe_repository.dart';
+import '../../generation/data/saved_recipe_repository.dart';
 import '../../preferences/data/preferences_repository.dart';
 import '../../shopping/data/shopping_repository.dart';
 import '../domain/data_export.dart';
@@ -38,6 +39,7 @@ class DataExportService {
       avoidances: await preferences.avoidances(),
       reminders: await preferences.watchReminders().first,
       shoppingList: await _ref.read(shoppingRepositoryProvider).items(),
+      savedRecipes: await _ref.read(savedRecipeRepositoryProvider).all(),
       diary: await _ref.read(diaryRepositoryProvider).all(),
       personalRecipes: switch (_ref.read(authSessionProvider)) {
         final session? =>

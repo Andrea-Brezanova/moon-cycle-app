@@ -64,6 +64,23 @@ final class Recipe {
 
   MealType get mealType => category.mealType;
 
+  /// A copy with some fields changed (an external recipe takes the user's
+  /// phase so its placeholder wears that phase's colours).
+  Recipe copyWith({Phase? phase, String? whyThisPhase}) => Recipe(
+    id: id,
+    title: title,
+    phase: phase ?? this.phase,
+    category: category,
+    minutes: minutes,
+    serves: serves,
+    intro: intro,
+    whyThisPhase: whyThisPhase ?? this.whyThisPhase,
+    imageUrl: imageUrl,
+    keyFoodIds: keyFoodIds,
+    ingredients: ingredients,
+    steps: steps,
+  );
+
   @override
   String toString() => 'Recipe($id)';
 }

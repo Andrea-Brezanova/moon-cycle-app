@@ -5251,6 +5251,901 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
   }
 }
 
+class $ProviderUsagesTable extends ProviderUsages
+    with TableInfo<$ProviderUsagesTable, ProviderUsageRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ProviderUsagesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _providerIdMeta = const VerificationMeta(
+    'providerId',
+  );
+  @override
+  late final GeneratedColumn<String> providerId = GeneratedColumn<String>(
+    'provider_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _monthMeta = const VerificationMeta('month');
+  @override
+  late final GeneratedColumn<String> month = GeneratedColumn<String>(
+    'month',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _requestsMeta = const VerificationMeta(
+    'requests',
+  );
+  @override
+  late final GeneratedColumn<int> requests = GeneratedColumn<int>(
+    'requests',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _costMicrosMeta = const VerificationMeta(
+    'costMicros',
+  );
+  @override
+  late final GeneratedColumn<int> costMicros = GeneratedColumn<int>(
+    'cost_micros',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    providerId,
+    month,
+    requests,
+    costMicros,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'provider_usages';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ProviderUsageRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('provider_id')) {
+      context.handle(
+        _providerIdMeta,
+        providerId.isAcceptableOrUnknown(data['provider_id']!, _providerIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_providerIdMeta);
+    }
+    if (data.containsKey('month')) {
+      context.handle(
+        _monthMeta,
+        month.isAcceptableOrUnknown(data['month']!, _monthMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_monthMeta);
+    }
+    if (data.containsKey('requests')) {
+      context.handle(
+        _requestsMeta,
+        requests.isAcceptableOrUnknown(data['requests']!, _requestsMeta),
+      );
+    }
+    if (data.containsKey('cost_micros')) {
+      context.handle(
+        _costMicrosMeta,
+        costMicros.isAcceptableOrUnknown(data['cost_micros']!, _costMicrosMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {providerId, month};
+  @override
+  ProviderUsageRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ProviderUsageRow(
+      providerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}provider_id'],
+      )!,
+      month: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}month'],
+      )!,
+      requests: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}requests'],
+      )!,
+      costMicros: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cost_micros'],
+      )!,
+    );
+  }
+
+  @override
+  $ProviderUsagesTable createAlias(String alias) {
+    return $ProviderUsagesTable(attachedDatabase, alias);
+  }
+}
+
+class ProviderUsageRow extends DataClass
+    implements Insertable<ProviderUsageRow> {
+  final String providerId;
+
+  /// `YYYY-MM`.
+  final String month;
+  final int requests;
+
+  /// Millionths of a US dollar.
+  final int costMicros;
+  const ProviderUsageRow({
+    required this.providerId,
+    required this.month,
+    required this.requests,
+    required this.costMicros,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['provider_id'] = Variable<String>(providerId);
+    map['month'] = Variable<String>(month);
+    map['requests'] = Variable<int>(requests);
+    map['cost_micros'] = Variable<int>(costMicros);
+    return map;
+  }
+
+  ProviderUsagesCompanion toCompanion(bool nullToAbsent) {
+    return ProviderUsagesCompanion(
+      providerId: Value(providerId),
+      month: Value(month),
+      requests: Value(requests),
+      costMicros: Value(costMicros),
+    );
+  }
+
+  factory ProviderUsageRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ProviderUsageRow(
+      providerId: serializer.fromJson<String>(json['providerId']),
+      month: serializer.fromJson<String>(json['month']),
+      requests: serializer.fromJson<int>(json['requests']),
+      costMicros: serializer.fromJson<int>(json['costMicros']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'providerId': serializer.toJson<String>(providerId),
+      'month': serializer.toJson<String>(month),
+      'requests': serializer.toJson<int>(requests),
+      'costMicros': serializer.toJson<int>(costMicros),
+    };
+  }
+
+  ProviderUsageRow copyWith({
+    String? providerId,
+    String? month,
+    int? requests,
+    int? costMicros,
+  }) => ProviderUsageRow(
+    providerId: providerId ?? this.providerId,
+    month: month ?? this.month,
+    requests: requests ?? this.requests,
+    costMicros: costMicros ?? this.costMicros,
+  );
+  ProviderUsageRow copyWithCompanion(ProviderUsagesCompanion data) {
+    return ProviderUsageRow(
+      providerId: data.providerId.present
+          ? data.providerId.value
+          : this.providerId,
+      month: data.month.present ? data.month.value : this.month,
+      requests: data.requests.present ? data.requests.value : this.requests,
+      costMicros: data.costMicros.present
+          ? data.costMicros.value
+          : this.costMicros,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProviderUsageRow(')
+          ..write('providerId: $providerId, ')
+          ..write('month: $month, ')
+          ..write('requests: $requests, ')
+          ..write('costMicros: $costMicros')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(providerId, month, requests, costMicros);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ProviderUsageRow &&
+          other.providerId == this.providerId &&
+          other.month == this.month &&
+          other.requests == this.requests &&
+          other.costMicros == this.costMicros);
+}
+
+class ProviderUsagesCompanion extends UpdateCompanion<ProviderUsageRow> {
+  final Value<String> providerId;
+  final Value<String> month;
+  final Value<int> requests;
+  final Value<int> costMicros;
+  final Value<int> rowid;
+  const ProviderUsagesCompanion({
+    this.providerId = const Value.absent(),
+    this.month = const Value.absent(),
+    this.requests = const Value.absent(),
+    this.costMicros = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ProviderUsagesCompanion.insert({
+    required String providerId,
+    required String month,
+    this.requests = const Value.absent(),
+    this.costMicros = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : providerId = Value(providerId),
+       month = Value(month);
+  static Insertable<ProviderUsageRow> custom({
+    Expression<String>? providerId,
+    Expression<String>? month,
+    Expression<int>? requests,
+    Expression<int>? costMicros,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (providerId != null) 'provider_id': providerId,
+      if (month != null) 'month': month,
+      if (requests != null) 'requests': requests,
+      if (costMicros != null) 'cost_micros': costMicros,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ProviderUsagesCompanion copyWith({
+    Value<String>? providerId,
+    Value<String>? month,
+    Value<int>? requests,
+    Value<int>? costMicros,
+    Value<int>? rowid,
+  }) {
+    return ProviderUsagesCompanion(
+      providerId: providerId ?? this.providerId,
+      month: month ?? this.month,
+      requests: requests ?? this.requests,
+      costMicros: costMicros ?? this.costMicros,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (providerId.present) {
+      map['provider_id'] = Variable<String>(providerId.value);
+    }
+    if (month.present) {
+      map['month'] = Variable<String>(month.value);
+    }
+    if (requests.present) {
+      map['requests'] = Variable<int>(requests.value);
+    }
+    if (costMicros.present) {
+      map['cost_micros'] = Variable<int>(costMicros.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProviderUsagesCompanion(')
+          ..write('providerId: $providerId, ')
+          ..write('month: $month, ')
+          ..write('requests: $requests, ')
+          ..write('costMicros: $costMicros, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SavedRecipeRefsTable extends SavedRecipeRefs
+    with TableInfo<$SavedRecipeRefsTable, SavedRecipeRefRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SavedRecipeRefsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _providerIdMeta = const VerificationMeta(
+    'providerId',
+  );
+  @override
+  late final GeneratedColumn<String> providerId = GeneratedColumn<String>(
+    'provider_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _refIdMeta = const VerificationMeta('refId');
+  @override
+  late final GeneratedColumn<String> refId = GeneratedColumn<String>(
+    'ref_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _externalIdMeta = const VerificationMeta(
+    'externalId',
+  );
+  @override
+  late final GeneratedColumn<String> externalId = GeneratedColumn<String>(
+    'external_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceUrlMeta = const VerificationMeta(
+    'sourceUrl',
+  );
+  @override
+  late final GeneratedColumn<String> sourceUrl = GeneratedColumn<String>(
+    'source_url',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    providerId,
+    refId,
+    externalId,
+    title,
+    sourceUrl,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'saved_recipe_refs';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SavedRecipeRefRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('provider_id')) {
+      context.handle(
+        _providerIdMeta,
+        providerId.isAcceptableOrUnknown(data['provider_id']!, _providerIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_providerIdMeta);
+    }
+    if (data.containsKey('ref_id')) {
+      context.handle(
+        _refIdMeta,
+        refId.isAcceptableOrUnknown(data['ref_id']!, _refIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_refIdMeta);
+    }
+    if (data.containsKey('external_id')) {
+      context.handle(
+        _externalIdMeta,
+        externalId.isAcceptableOrUnknown(data['external_id']!, _externalIdMeta),
+      );
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('source_url')) {
+      context.handle(
+        _sourceUrlMeta,
+        sourceUrl.isAcceptableOrUnknown(data['source_url']!, _sourceUrlMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  SavedRecipeRefRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SavedRecipeRefRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      providerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}provider_id'],
+      )!,
+      refId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}ref_id'],
+      )!,
+      externalId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}external_id'],
+      ),
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      sourceUrl: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_url'],
+      ),
+    );
+  }
+
+  @override
+  $SavedRecipeRefsTable createAlias(String alias) {
+    return $SavedRecipeRefsTable(attachedDatabase, alias);
+  }
+}
+
+class SavedRecipeRefRow extends DataClass
+    implements Insertable<SavedRecipeRefRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+
+  /// `moon-cycle` or the provider's short id.
+  final String providerId;
+
+  /// The recipe id as the app uses it (`x-themealdb-52772`, or a library id).
+  final String refId;
+
+  /// The provider's own id (null for a library recipe).
+  final String? externalId;
+  final String title;
+  final String? sourceUrl;
+  const SavedRecipeRefRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.providerId,
+    required this.refId,
+    this.externalId,
+    required this.title,
+    this.sourceUrl,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    map['provider_id'] = Variable<String>(providerId);
+    map['ref_id'] = Variable<String>(refId);
+    if (!nullToAbsent || externalId != null) {
+      map['external_id'] = Variable<String>(externalId);
+    }
+    map['title'] = Variable<String>(title);
+    if (!nullToAbsent || sourceUrl != null) {
+      map['source_url'] = Variable<String>(sourceUrl);
+    }
+    return map;
+  }
+
+  SavedRecipeRefsCompanion toCompanion(bool nullToAbsent) {
+    return SavedRecipeRefsCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      providerId: Value(providerId),
+      refId: Value(refId),
+      externalId: externalId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(externalId),
+      title: Value(title),
+      sourceUrl: sourceUrl == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sourceUrl),
+    );
+  }
+
+  factory SavedRecipeRefRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SavedRecipeRefRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      providerId: serializer.fromJson<String>(json['providerId']),
+      refId: serializer.fromJson<String>(json['refId']),
+      externalId: serializer.fromJson<String?>(json['externalId']),
+      title: serializer.fromJson<String>(json['title']),
+      sourceUrl: serializer.fromJson<String?>(json['sourceUrl']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'providerId': serializer.toJson<String>(providerId),
+      'refId': serializer.toJson<String>(refId),
+      'externalId': serializer.toJson<String?>(externalId),
+      'title': serializer.toJson<String>(title),
+      'sourceUrl': serializer.toJson<String?>(sourceUrl),
+    };
+  }
+
+  SavedRecipeRefRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    String? providerId,
+    String? refId,
+    Value<String?> externalId = const Value.absent(),
+    String? title,
+    Value<String?> sourceUrl = const Value.absent(),
+  }) => SavedRecipeRefRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    providerId: providerId ?? this.providerId,
+    refId: refId ?? this.refId,
+    externalId: externalId.present ? externalId.value : this.externalId,
+    title: title ?? this.title,
+    sourceUrl: sourceUrl.present ? sourceUrl.value : this.sourceUrl,
+  );
+  SavedRecipeRefRow copyWithCompanion(SavedRecipeRefsCompanion data) {
+    return SavedRecipeRefRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      providerId: data.providerId.present
+          ? data.providerId.value
+          : this.providerId,
+      refId: data.refId.present ? data.refId.value : this.refId,
+      externalId: data.externalId.present
+          ? data.externalId.value
+          : this.externalId,
+      title: data.title.present ? data.title.value : this.title,
+      sourceUrl: data.sourceUrl.present ? data.sourceUrl.value : this.sourceUrl,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SavedRecipeRefRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('providerId: $providerId, ')
+          ..write('refId: $refId, ')
+          ..write('externalId: $externalId, ')
+          ..write('title: $title, ')
+          ..write('sourceUrl: $sourceUrl')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    providerId,
+    refId,
+    externalId,
+    title,
+    sourceUrl,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SavedRecipeRefRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.providerId == this.providerId &&
+          other.refId == this.refId &&
+          other.externalId == this.externalId &&
+          other.title == this.title &&
+          other.sourceUrl == this.sourceUrl);
+}
+
+class SavedRecipeRefsCompanion extends UpdateCompanion<SavedRecipeRefRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<String> providerId;
+  final Value<String> refId;
+  final Value<String?> externalId;
+  final Value<String> title;
+  final Value<String?> sourceUrl;
+  final Value<int> rowid;
+  const SavedRecipeRefsCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.providerId = const Value.absent(),
+    this.refId = const Value.absent(),
+    this.externalId = const Value.absent(),
+    this.title = const Value.absent(),
+    this.sourceUrl = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  SavedRecipeRefsCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required String providerId,
+    required String refId,
+    this.externalId = const Value.absent(),
+    required String title,
+    this.sourceUrl = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       providerId = Value(providerId),
+       refId = Value(refId),
+       title = Value(title);
+  static Insertable<SavedRecipeRefRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? providerId,
+    Expression<String>? refId,
+    Expression<String>? externalId,
+    Expression<String>? title,
+    Expression<String>? sourceUrl,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (providerId != null) 'provider_id': providerId,
+      if (refId != null) 'ref_id': refId,
+      if (externalId != null) 'external_id': externalId,
+      if (title != null) 'title': title,
+      if (sourceUrl != null) 'source_url': sourceUrl,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  SavedRecipeRefsCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<String>? providerId,
+    Value<String>? refId,
+    Value<String?>? externalId,
+    Value<String>? title,
+    Value<String?>? sourceUrl,
+    Value<int>? rowid,
+  }) {
+    return SavedRecipeRefsCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      providerId: providerId ?? this.providerId,
+      refId: refId ?? this.refId,
+      externalId: externalId ?? this.externalId,
+      title: title ?? this.title,
+      sourceUrl: sourceUrl ?? this.sourceUrl,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (providerId.present) {
+      map['provider_id'] = Variable<String>(providerId.value);
+    }
+    if (refId.present) {
+      map['ref_id'] = Variable<String>(refId.value);
+    }
+    if (externalId.present) {
+      map['external_id'] = Variable<String>(externalId.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (sourceUrl.present) {
+      map['source_url'] = Variable<String>(sourceUrl.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SavedRecipeRefsCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('providerId: $providerId, ')
+          ..write('refId: $refId, ')
+          ..write('externalId: $externalId, ')
+          ..write('title: $title, ')
+          ..write('sourceUrl: $sourceUrl, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -5269,6 +6164,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $DiaryEntriesTable diaryEntries = $DiaryEntriesTable(this);
+  late final $ProviderUsagesTable providerUsages = $ProviderUsagesTable(this);
+  late final $SavedRecipeRefsTable savedRecipeRefs = $SavedRecipeRefsTable(
+    this,
+  );
   late final Index periodLogsStartLive = Index(
     'period_logs_start_live',
     'CREATE UNIQUE INDEX period_logs_start_live ON period_logs (start_date) WHERE deleted_at IS NULL',
@@ -5285,6 +6184,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'diary_entries_item_live',
     'CREATE UNIQUE INDEX diary_entries_item_live ON diary_entries (date, meal, kind, item_id, unit) WHERE deleted_at IS NULL',
   );
+  late final Index savedRecipeRefsLive = Index(
+    'saved_recipe_refs_live',
+    'CREATE UNIQUE INDEX saved_recipe_refs_live ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5299,10 +6202,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     appStates,
     personalRecipes,
     diaryEntries,
+    providerUsages,
+    savedRecipeRefs,
     periodLogsStartLive,
     shoppingItemsKeyLive,
     personalRecipesOwnerKey,
     diaryEntriesItemLive,
+    savedRecipeRefsLive,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -8177,6 +9083,501 @@ typedef $$DiaryEntriesTableProcessedTableManager =
       DiaryEntryRow,
       PrefetchHooks Function()
     >;
+typedef $$ProviderUsagesTableCreateCompanionBuilder =
+    ProviderUsagesCompanion Function({
+      required String providerId,
+      required String month,
+      Value<int> requests,
+      Value<int> costMicros,
+      Value<int> rowid,
+    });
+typedef $$ProviderUsagesTableUpdateCompanionBuilder =
+    ProviderUsagesCompanion Function({
+      Value<String> providerId,
+      Value<String> month,
+      Value<int> requests,
+      Value<int> costMicros,
+      Value<int> rowid,
+    });
+
+class $$ProviderUsagesTableFilterComposer
+    extends Composer<_$AppDatabase, $ProviderUsagesTable> {
+  $$ProviderUsagesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get month => $composableBuilder(
+    column: $table.month,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get requests => $composableBuilder(
+    column: $table.requests,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get costMicros => $composableBuilder(
+    column: $table.costMicros,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ProviderUsagesTableOrderingComposer
+    extends Composer<_$AppDatabase, $ProviderUsagesTable> {
+  $$ProviderUsagesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get month => $composableBuilder(
+    column: $table.month,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get requests => $composableBuilder(
+    column: $table.requests,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get costMicros => $composableBuilder(
+    column: $table.costMicros,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ProviderUsagesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ProviderUsagesTable> {
+  $$ProviderUsagesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get month =>
+      $composableBuilder(column: $table.month, builder: (column) => column);
+
+  GeneratedColumn<int> get requests =>
+      $composableBuilder(column: $table.requests, builder: (column) => column);
+
+  GeneratedColumn<int> get costMicros => $composableBuilder(
+    column: $table.costMicros,
+    builder: (column) => column,
+  );
+}
+
+class $$ProviderUsagesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ProviderUsagesTable,
+          ProviderUsageRow,
+          $$ProviderUsagesTableFilterComposer,
+          $$ProviderUsagesTableOrderingComposer,
+          $$ProviderUsagesTableAnnotationComposer,
+          $$ProviderUsagesTableCreateCompanionBuilder,
+          $$ProviderUsagesTableUpdateCompanionBuilder,
+          (
+            ProviderUsageRow,
+            BaseReferences<
+              _$AppDatabase,
+              $ProviderUsagesTable,
+              ProviderUsageRow
+            >,
+          ),
+          ProviderUsageRow,
+          PrefetchHooks Function()
+        > {
+  $$ProviderUsagesTableTableManager(
+    _$AppDatabase db,
+    $ProviderUsagesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ProviderUsagesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProviderUsagesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ProviderUsagesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> providerId = const Value.absent(),
+                Value<String> month = const Value.absent(),
+                Value<int> requests = const Value.absent(),
+                Value<int> costMicros = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ProviderUsagesCompanion(
+                providerId: providerId,
+                month: month,
+                requests: requests,
+                costMicros: costMicros,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String providerId,
+                required String month,
+                Value<int> requests = const Value.absent(),
+                Value<int> costMicros = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ProviderUsagesCompanion.insert(
+                providerId: providerId,
+                month: month,
+                requests: requests,
+                costMicros: costMicros,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$ProviderUsagesTable, ProviderUsageRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $ProviderUsagesTable,
+                    ProviderUsageRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ProviderUsagesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ProviderUsagesTable,
+      ProviderUsageRow,
+      $$ProviderUsagesTableFilterComposer,
+      $$ProviderUsagesTableOrderingComposer,
+      $$ProviderUsagesTableAnnotationComposer,
+      $$ProviderUsagesTableCreateCompanionBuilder,
+      $$ProviderUsagesTableUpdateCompanionBuilder,
+      (
+        ProviderUsageRow,
+        BaseReferences<_$AppDatabase, $ProviderUsagesTable, ProviderUsageRow>,
+      ),
+      ProviderUsageRow,
+      PrefetchHooks Function()
+    >;
+typedef $$SavedRecipeRefsTableCreateCompanionBuilder =
+    SavedRecipeRefsCompanion Function({
+      required String id,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      required String providerId,
+      required String refId,
+      Value<String?> externalId,
+      required String title,
+      Value<String?> sourceUrl,
+      Value<int> rowid,
+    });
+typedef $$SavedRecipeRefsTableUpdateCompanionBuilder =
+    SavedRecipeRefsCompanion Function({
+      Value<String> id,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<String> providerId,
+      Value<String> refId,
+      Value<String?> externalId,
+      Value<String> title,
+      Value<String?> sourceUrl,
+      Value<int> rowid,
+    });
+
+class $$SavedRecipeRefsTableFilterComposer
+    extends Composer<_$AppDatabase, $SavedRecipeRefsTable> {
+  $$SavedRecipeRefsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get refId => $composableBuilder(
+    column: $table.refId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get externalId => $composableBuilder(
+    column: $table.externalId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceUrl => $composableBuilder(
+    column: $table.sourceUrl,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SavedRecipeRefsTableOrderingComposer
+    extends Composer<_$AppDatabase, $SavedRecipeRefsTable> {
+  $$SavedRecipeRefsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get refId => $composableBuilder(
+    column: $table.refId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get externalId => $composableBuilder(
+    column: $table.externalId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceUrl => $composableBuilder(
+    column: $table.sourceUrl,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SavedRecipeRefsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SavedRecipeRefsTable> {
+  $$SavedRecipeRefsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get providerId => $composableBuilder(
+    column: $table.providerId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get refId =>
+      $composableBuilder(column: $table.refId, builder: (column) => column);
+
+  GeneratedColumn<String> get externalId => $composableBuilder(
+    column: $table.externalId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceUrl =>
+      $composableBuilder(column: $table.sourceUrl, builder: (column) => column);
+}
+
+class $$SavedRecipeRefsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SavedRecipeRefsTable,
+          SavedRecipeRefRow,
+          $$SavedRecipeRefsTableFilterComposer,
+          $$SavedRecipeRefsTableOrderingComposer,
+          $$SavedRecipeRefsTableAnnotationComposer,
+          $$SavedRecipeRefsTableCreateCompanionBuilder,
+          $$SavedRecipeRefsTableUpdateCompanionBuilder,
+          (
+            SavedRecipeRefRow,
+            BaseReferences<
+              _$AppDatabase,
+              $SavedRecipeRefsTable,
+              SavedRecipeRefRow
+            >,
+          ),
+          SavedRecipeRefRow,
+          PrefetchHooks Function()
+        > {
+  $$SavedRecipeRefsTableTableManager(
+    _$AppDatabase db,
+    $SavedRecipeRefsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SavedRecipeRefsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SavedRecipeRefsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SavedRecipeRefsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<String> providerId = const Value.absent(),
+                Value<String> refId = const Value.absent(),
+                Value<String?> externalId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String?> sourceUrl = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SavedRecipeRefsCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                providerId: providerId,
+                refId: refId,
+                externalId: externalId,
+                title: title,
+                sourceUrl: sourceUrl,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required String providerId,
+                required String refId,
+                Value<String?> externalId = const Value.absent(),
+                required String title,
+                Value<String?> sourceUrl = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SavedRecipeRefsCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                providerId: providerId,
+                refId: refId,
+                externalId: externalId,
+                title: title,
+                sourceUrl: sourceUrl,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$SavedRecipeRefsTable, SavedRecipeRefRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $SavedRecipeRefsTable,
+                    SavedRecipeRefRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SavedRecipeRefsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SavedRecipeRefsTable,
+      SavedRecipeRefRow,
+      $$SavedRecipeRefsTableFilterComposer,
+      $$SavedRecipeRefsTableOrderingComposer,
+      $$SavedRecipeRefsTableAnnotationComposer,
+      $$SavedRecipeRefsTableCreateCompanionBuilder,
+      $$SavedRecipeRefsTableUpdateCompanionBuilder,
+      (
+        SavedRecipeRefRow,
+        BaseReferences<_$AppDatabase, $SavedRecipeRefsTable, SavedRecipeRefRow>,
+      ),
+      SavedRecipeRefRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -8199,4 +9600,8 @@ class $AppDatabaseManager {
       $$PersonalRecipesTableTableManager(_db, _db.personalRecipes);
   $$DiaryEntriesTableTableManager get diaryEntries =>
       $$DiaryEntriesTableTableManager(_db, _db.diaryEntries);
+  $$ProviderUsagesTableTableManager get providerUsages =>
+      $$ProviderUsagesTableTableManager(_db, _db.providerUsages);
+  $$SavedRecipeRefsTableTableManager get savedRecipeRefs =>
+      $$SavedRecipeRefsTableTableManager(_db, _db.savedRecipeRefs);
 }

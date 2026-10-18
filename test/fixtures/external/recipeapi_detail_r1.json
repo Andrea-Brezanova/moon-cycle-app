@@ -1,0 +1,85 @@
+{
+ "data": {
+  "id": "r-1",
+  "name": "Chickpea & Spinach Stew",
+  "description": "A hearty, simple dish.",
+  "category": "Dinner",
+  "cuisine": "Mediterranean",
+  "difficulty": "Easy",
+  "tags": [
+   "Stew"
+  ],
+  "meta": {
+   "active_time": "PT15M",
+   "total_time": "PT45M",
+   "yields": "4 servings"
+  },
+  "dietary": {
+   "flags": [
+    "Vegan",
+    "Vegetarian",
+    "Gluten-Free",
+    "Dairy-Free",
+    "Nut-Free"
+   ],
+   "not_suitable_for": []
+  },
+  "ingredients": [
+   {
+    "group_name": "Main",
+    "items": [
+     {
+      "name": "Chickpeas",
+      "amount": 400,
+      "unit": "g"
+     },
+     {
+      "name": "Spinach",
+      "display": "200 g"
+     },
+     {
+      "name": "Onion",
+      "quantity": 1
+     },
+     {
+      "name": "Garlic",
+      "amount": 2.5,
+      "unit": "cloves"
+     },
+     {
+      "name": "Smoked paprika"
+     },
+     {
+      "name": "Salt"
+     }
+    ]
+   }
+  ],
+  "instructions": [
+   {
+    "step_number": 1,
+    "phase": "cook",
+    "text": "Soften the onion and garlic in a pan for 5 minutes."
+   },
+   {
+    "step_number": 2,
+    "phase": "cook",
+    "text": "Add the chickpeas and paprika and cook for 10 minutes."
+   },
+   {
+    "step_number": 3,
+    "phase": "cook",
+    "text": "Stir in the spinach until wilted and season."
+   }
+  ],
+  "nutrition": {
+   "per_serving": {
+    "calories": 400
+   }
+  }
+ },
+ "usage": {
+  "detail_remaining": 240,
+  "daily_remaining": 490
+ }
+}

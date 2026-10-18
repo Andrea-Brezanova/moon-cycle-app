@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
@@ -17,16 +18,21 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
+import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../../cycle/presentation/cycle_orbit.dart';
 import '../../diary/domain/diary_entry.dart';
 import '../../diary/presentation/log_entry_sheet.dart';
+import '../../discovery/application/discovery_providers.dart';
+import '../../discovery/data/recipe_sources.dart' show ExternalRecipe;
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/personal_recipe_repository.dart';
+import '../../generation/data/saved_recipe_repository.dart';
 import '../../generation/domain/personal_recipe.dart';
 import '../../generation/domain/recipe_image_service.dart';
 import '../../generation/domain/recipe_submission_service.dart';
+import '../../generation/domain/saved_recipe_ref.dart';
 import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../../shopping/domain/item_key.dart';
@@ -43,9 +49,21 @@ class RecipeDetailPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final catalogue = ref.watch(catalogueProvider);
+    final isExternal = recipeId.startsWith('x-');
     final lookup = ref.watch(recipeByIdProvider(recipeId));
-    if (lookup.isLoading) return Scaffold(backgroundColor: c.bg);
-    final recipe = lookup.value;
+    final externalLookup = isExternal
+        ? ref.watch(externalRecipeProvider(recipeId))
+        : null;
+    if (lookup.isLoading || (externalLookup?.isLoading ?? false)) {
+      return Scaffold(backgroundColor: c.bg);
+    }
+    final external = externalLookup?.value;
+    final recipe = isExternal
+        ? external?.recipe.copyWith(phase: ref.watch(actualPhaseProvider))
+        : lookup.value;
+    // An external recipe may only be put on the shopping list if its terms let
+    // us keep its ingredients.
+    final canShop = !isExternal || (external?.rights.mayStore ?? false);
     final personal = recipeId.startsWith(personalRecipePrefix)
         ? ref.watch(personalRecipeProvider(recipeId)).value
         : null;
@@ -88,7 +106,7 @@ class RecipeDetailPage extends ConsumerWidget {
                 height: 330,
                 radius: 0,
                 palette: palette,
-                image: recipeImage(recipe),
+                image: recipeImage(recipe, rights: external?.rights),
               ),
               Positioned(
                 top: MediaQuery.viewPaddingOf(context).top + 7,
@@ -117,8 +135,18 @@ class RecipeDetailPage extends ConsumerWidget {
                         _PersonalNote(recipe: personal),
                         const SizedBox(height: 16),
                       ],
-                      _Intro(recipe: recipe, palette: palette),
-                      const SizedBox(height: 30),
+                      _Intro(
+                        recipe: recipe,
+                        palette: palette,
+                        showPhase: !isExternal,
+                      ),
+                      if (external != null) ...[
+                        const SizedBox(height: 16),
+                        _ExternalNote(external: external),
+                      ],
+                      const SizedBox(height: 12),
+                      _SaveLink(recipe: recipe, external: external),
+                      const SizedBox(height: 18),
                       _Ingredients(
                         recipe: recipe,
                         palette: palette,
@@ -126,7 +154,15 @@ class RecipeDetailPage extends ConsumerWidget {
                         skipped: skipped,
                       ),
                       const SizedBox(height: 20),
-                      if (allAdded) ...[
+                      if (!canShop) ...[
+                        Text(
+                          'This recipe comes from another source, so its '
+                          'ingredients can’t be added to your shopping list.',
+                          key: const ValueKey('no-shopping-external'),
+                          textAlign: TextAlign.center,
+                          style: dmSans(13, height: 1.45, color: c.textMuted),
+                        ),
+                      ] else if (allAdded) ...[
                         MoonDoneButton(
                           'Added to shopping list',
                           checkColor: palette.text,
@@ -285,6 +321,73 @@ class _BackButton extends StatelessWidget {
   }
 }
 
+/// Who a recipe is from and where to read the original: required wherever the
+/// provider's terms ask for credit, and shown for every external recipe.
+class _ExternalNote extends StatelessWidget {
+  const _ExternalNote({required this.external});
+
+  final ExternalRecipe external;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final style = dmSans(13, height: 1.45, color: c.textMuted);
+    final url = external.rights.sourceUrl;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          external.rights.attribution ?? 'From a partner recipe library',
+          key: const ValueKey('external-attribution'),
+          style: style,
+        ),
+        if (url != null)
+          TextLink(
+            'View the original recipe',
+            size: 13,
+            onTap: () =>
+                launchUrl(Uri.parse(url), mode: LaunchMode.inAppBrowserView),
+          ),
+      ],
+    );
+  }
+}
+
+/// "Save to My recipes": keeps a reference, never a third-party recipe's text.
+class _SaveLink extends ConsumerWidget {
+  const _SaveLink({required this.recipe, required this.external});
+
+  final Recipe recipe;
+  final ExternalRecipe? external;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (recipe.id.startsWith(personalRecipePrefix)) {
+      return const SizedBox.shrink();
+    }
+    final refs =
+        ref.watch(savedRecipeRefsProvider).value ?? const <SavedRecipeRef>[];
+    final saved = refs.any((r) => r.refId == recipe.id);
+    final repo = ref.read(savedRecipeRepositoryProvider);
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: TextLink(
+        saved ? 'Saved to My recipes · Remove' : 'Save to My recipes',
+        size: 14,
+        onTap: () => saved
+            ? repo.remove(recipe.id)
+            : repo.save(
+                providerId: external?.providerId ?? 'moon-cycle',
+                refId: recipe.id,
+                externalId: external?.externalId,
+                title: recipe.title,
+                sourceUrl: external?.rights.sourceUrl,
+              ),
+      ),
+    );
+  }
+}
+
 /// Says who made a personal recipe, and the state of its picture. A
 /// development sample is never presented as generated by the live service.
 class _PersonalNote extends ConsumerWidget {
@@ -435,10 +538,17 @@ Future<void> _confirmDelete(
 }
 
 class _Intro extends StatelessWidget {
-  const _Intro({required this.recipe, required this.palette});
+  const _Intro({
+    required this.recipe,
+    required this.palette,
+    this.showPhase = true,
+  });
 
   final Recipe recipe;
   final PhasePalette palette;
+
+  /// False for an external recipe: it has no phase of its own.
+  final bool showPhase;
 
   @override
   Widget build(BuildContext context) {
@@ -450,11 +560,12 @@ class _Intro extends StatelessWidget {
           spacing: 8,
           runSpacing: 8,
           children: [
-            MoonPill(
-              phaseName(recipe.phase),
-              background: palette.tint,
-              dot: palette.accent,
-            ),
+            if (showPhase)
+              MoonPill(
+                phaseName(recipe.phase),
+                background: palette.tint,
+                dot: palette.accent,
+              ),
             MoonPill(recipe.mealType.label, background: c.sand),
           ],
         ),
@@ -467,49 +578,56 @@ class _Intro extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        Row(
-          children: [
-            MoonIcon(
-              MoonIconName.clock,
-              size: 16,
-              color: c.textMuted,
-              strokeWidth: 1.8,
-            ),
-            const SizedBox(width: 8),
-            Flexible(
-              child: Text(
-                '${recipe.minutes} min · Serves ${recipe.serves}',
-                style: dmSans(
-                  14,
-                  weight: FontWeight.w500,
-                  height: 1,
-                  color: c.textMuted,
+        // Times and servings are shown only when the source gave them.
+        if (recipe.minutes > 0 || recipe.serves > 0)
+          Row(
+            children: [
+              MoonIcon(
+                MoonIconName.clock,
+                size: 16,
+                color: c.textMuted,
+                strokeWidth: 1.8,
+              ),
+              const SizedBox(width: 8),
+              Flexible(
+                child: Text(
+                  [
+                    if (recipe.minutes > 0) '${recipe.minutes} min',
+                    if (recipe.serves > 0) 'Serves ${recipe.serves}',
+                  ].join(' · '),
+                  style: dmSans(
+                    14,
+                    weight: FontWeight.w500,
+                    height: 1,
+                    color: c.textMuted,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
         const SizedBox(height: 16),
         Text(recipe.intro, style: MoonType.body.copyWith(color: c.text)),
-        const SizedBox(height: 20),
-        Semantics(
-          header: true,
-          child: Text(
-            'Why this recipe?',
-            style: dmSans(
-              14,
-              weight: FontWeight.w600,
-              height: 1.2,
-              color: c.text,
+        if (recipe.whyThisPhase.isNotEmpty) ...[
+          const SizedBox(height: 20),
+          Semantics(
+            header: true,
+            child: Text(
+              'Why this recipe?',
+              style: dmSans(
+                14,
+                weight: FontWeight.w600,
+                height: 1.2,
+                color: c.text,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          recipe.whyThisPhase,
-          key: const ValueKey('recipe-why-this-phase'),
-          style: dmSans(14, height: 1.45, color: c.textMuted),
-        ),
+          const SizedBox(height: 4),
+          Text(
+            recipe.whyThisPhase,
+            key: const ValueKey('recipe-why-this-phase'),
+            style: dmSans(14, height: 1.45, color: c.textMuted),
+          ),
+        ],
       ],
     );
   }

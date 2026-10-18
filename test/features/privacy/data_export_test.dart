@@ -71,6 +71,7 @@ void main() {
       'preferences',
       'shoppingList',
       'diary',
+      'savedRecipes',
       'personalRecipes',
     ]);
     expect(json['format'], exportFormat);

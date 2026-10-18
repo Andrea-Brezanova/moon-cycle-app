@@ -84,3 +84,108 @@ Constraints that matter for design:
 
 Sources: spoonacular.com/food-api/pricing and /food-api/terms; themealdb.com/api.php;
 developer.edamam.com/edamam-recipe-api.
+
+
+---
+
+# Update: multi-provider architecture, TheMealDB, and Provider B
+
+Facts below were read from the providers' own pages when this update was made;
+re-check prices and terms before buying anything. **Nothing was purchased or
+activated.** TheMealDB's free *test key* was called for development (as its docs
+permit) only to capture fixtures.
+
+## What is built
+
+- `RecipeSourceProvider` (library or one external provider) → `RecipeDiscovery`
+  asks **all sources at once**, each with its own timeout and failure handling,
+  then ranks (most chosen foods first; library before external at equal
+  relevance), removes duplicates (`RecipeDeduper`) and returns one list.
+- `ExternalRecipeClient` is the only thing a provider implements; parsing,
+  endpoints and ingredient names stay in the adapter. Every external recipe
+  becomes the app's own `Recipe` plus `RecipeRights` (full display, storage,
+  photo, attribution, source URL, publish) and a provider id.
+- `ProviderPolicy` per provider: enabled, development-only, timeout, monthly
+  request budget, requests per minute, detail-lookup cap, approximate cost per
+  request, cache time. `ProviderHttp` enforces them on every request and records
+  usage per provider per month in the local database (`provider_usages`).
+- Safety rule for every provider: an ingredient that cannot be reliably mapped to
+  a Moon Cycle food is **unknown, never safe**. With any diet or avoidance set,
+  a recipe with an unknown ingredient (other than plain water, salt, pepper,
+  sugar) is not shown.
+- Saving to My recipes keeps a **reference** (provider, id, title, link), never a
+  third-party recipe's ingredients or method; it is fetched again to open.
+- No AI generation anywhere in Build a meal.
+
+## Provider A: TheMealDB (development only)
+
+Official endpoints, free test key `1`. Free search is **one ingredient at a
+time** (multi-ingredient filtering is a paid V2 feature), so a search asks once
+per chosen food, ranks meals by how many foods listed them, and fetches full
+details for the best 12.
+
+| Item | Finding |
+|---|---|
+| Full method and ingredients | Yes (`lookup.php`) |
+| Photos | Yes (thumbnail URL); shown from TheMealDB's own URL, never downloaded |
+| Times and servings | **Not provided** (shown as unknown, never invented) |
+| Diet / allergen data | None. Only a category (e.g. Vegetarian) |
+| Terms | Free key is for development and education; **an app store release needs a paid supporter key**. Reselling prohibited. Paid users using custom artwork must credit the site. No stated caching rule, so nothing is stored and recipes are kept in memory for 10 minutes only |
+| Collection | Per ingredient on the free key (live check): chicken 20, garlic 223, lemon 49, chickpeas 13, spinach 10, salmon 8, broccoli 7, kale 6, tofu 2, quinoa 2, lentils 2, carrot 1 |
+| Ingredient mapping to our foods | On 12 real recipes, 43% of ingredient lines map reliably and **no recipe had every line mapped** |
+
+**Consequence:** with any diet or allergy set, the safety rule leaves essentially
+no TheMealDB recipes, because spices, sauces and flours do not map. TheMealDB
+is useful to people with no restrictions only. Improving this needs a larger
+reviewed synonym list, not looser rules.
+
+## Provider B comparison
+
+| | Recipe API (recipe-api.com) | Edamam | Spoonacular |
+|---|---|---|---|
+| Full instructions | Yes, structured (steps, times, temperatures, equipment) | Only on the Enterprise Plus plan's own recipes ($399/mo); web recipes link out | Yes per recipe, but they are third-party sites' recipes |
+| Commercial in-app display | **Explicit**: commercial use from the $29 Developer plan, recipes can be shown under your own brand | Paid plans; attribution mandatory | Allowed on paid plans, but recipes must credit the original source and storing ingredients/instructions is forbidden |
+| Attribution | None required | Required on every plan; breach means suspension | Original source credit required |
+| Photos | **None in the recipe object** (AI image add-on only); we would use the Moon Cycle illustration | Yes | Yes (URLs may be stored) |
+| Ingredient search | Free, but by ingredient UUID, and a multi-ingredient search means *all* of them; so one lookup per food, ranked by us | Yes | Ranked find-by-ingredients |
+| Collection size | **Not stated** on the pages read (10,000+ ingredients) | ~2M web (no method) + 20k owned | Large, not stated on pages read |
+| Diet / allergen data | Per recipe: dietary flags and a "not suitable for" list; USDA nutrition | Diet and health labels | Diet/intolerance filters |
+| Price | $9 (non-commercial), **$29 Developer**, $99, $299 | $9 / $99 / $399 | Free (limited, backlink), $29, $79, $149 |
+| Quota | Developer: 500 requests a day, **250 unique recipes a month**, 60 requests a minute | 10k, 500k, 1M calls a month | Cook: 1,500 points a day |
+| Caching / storage | 24 hours (Developer), 7 days ($99), persistent (Scale) | Not allowed by default | Ids, titles, image URLs only; else 1 hour with permission |
+| Docs / fit | REST, clear docs, MCP server | Mature | Mature |
+
+## Recommendation: Recipe API, Developer plan ($29/month), pending a trial
+
+It is the only candidate that explicitly licenses commercial in-app display of
+**full** recipes with no attribution, and its structured data and per-recipe
+dietary flags suit our safety rules. Real limits to resolve first:
+
+1. **250 unique recipes a month** is the binding constraint: each recipe opened
+   in full counts once for the whole account, however many users view it. The
+   $99 plan gives 1,000. Server-side 24-hour caching of fetched recipes (allowed
+   on Developer) is needed, so the key must live behind a Supabase Edge Function.
+2. **No photographs**: cards use the Moon Cycle illustration.
+3. **Collection size and quality are unverified**; the ingredient-amount JSON is
+   undocumented. Request a trial (the Evaluation plan has 50 full recipes) and
+   replace the hand-written fixtures with real captures before deciding.
+4. Ingredient search is "all of them" per call; our one-food-at-a-time approach
+   costs 2 free calls per chosen food.
+
+Spoonacular is second (clear storage rules, large, but third-party recipes with
+credit and no persistent storage). Edamam is third (link-out for most recipes).
+
+The adapter (`RecipeApiClient`) and fixture tests exist but the provider has no
+policy entry in the app, so it cannot be called.
+
+## Estimated cost of operating both
+
+| | Monthly |
+|---|---|
+| TheMealDB (development) | $0; production needs a paid supporter key (price not on the page read; ask) |
+| Recipe API Developer | $29 (250 unique recipes) or $99 (1,000) |
+| Supabase proxy and cache | about $25 (already planned) |
+
+Per search, Recipe API costs about $0.116 per *new* recipe opened (29/250) and
+nothing for searches or repeat opens; TheMealDB test key costs nothing. A
+configurable monthly request budget per provider stops spend locally.
