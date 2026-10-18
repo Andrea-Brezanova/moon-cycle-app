@@ -108,9 +108,9 @@ void main() {
     testWidgets('build a meal (Premium), $theme', (tester) async {
       await pumpScreen(
         tester,
-        const MealBuilderPage(),
+        const MealBuilderPage(foodId: 'broccoli'),
         dark: dark,
-        height: 950,
+        height: 1700,
         overrides: [
           ...base(),
           entitlementStateProvider.overrideWithValue(
@@ -159,10 +159,10 @@ void main() {
   testWidgets('build a meal (Premium), 320 pt at 1.5× text', (tester) async {
     await pumpScreen(
       tester,
-      const MealBuilderPage(),
+      const MealBuilderPage(foodId: 'broccoli'),
       dark: false,
       width: 320,
-      height: 1700,
+      height: 3800,
       textScale: 1.5,
       overrides: [
         ...base(),

@@ -202,7 +202,7 @@ void main() {
       expect(find.byType(MealBuilderPage), findsOneWidget);
       expect(find.text('Choose a protein'), findsOneWidget);
       expect(find.text('Choose a base'), findsOneWidget);
-      expect(find.text('Add 2–3 plants'), findsOneWidget);
+      expect(find.textContaining('Add 2–3 plants'), findsOneWidget);
       handle.dispose();
     });
 

@@ -13,16 +13,16 @@ Updated for the Stage 1 branch (`feature/home-choices-food-detail`).
 | Recipes: 112 recipes (40 with photos), filters, detail, add to shopping list | Working |
 | Shop: the free shopping list (basic) | Working, free |
 | Try something new: Today's food plus two foods, each with an existing recipe | Working (option 2) |
-| Build a meal page: guidance, protein and base ideas, a chosen starting food | Partly working (see below) |
+| Build a meal: choose one protein, one base and 2–3 plants from the whole library, phase-featured foods first, search, starting food from a food page | Working (selection only; see below) |
 | Entitlement architecture: tiers, feature gates, Subscription page | Working; no purchases |
 
 ## Partly built
 
-- **Build a meal.** The page shows the three-step guidance and idea chips, and a
-  food opened from a food page arrives already chosen in its slot (protein,
-  base or plant) and can be removed. There is **no interactive selection** (one
-  protein, one base, two or three plants, search, phase highlighting) and **no
-  "Create my meal"**. Next stage.
+- **Build a meal.** Selection is complete: one protein, one base and two or
+  three plants, search, "Show all", featured-in-this-phase foods first and
+  tinted, nothing hidden by phase, diet and avoidances respected, and a food
+  opened from its page starts the meal in its slot. **"Create my meal" is shown
+  as Coming soon and disabled**: it needs recipe generation (Stage 3).
 
 ## Not built yet (planned)
 

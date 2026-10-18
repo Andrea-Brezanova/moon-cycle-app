@@ -415,6 +415,10 @@ enum MealSlot {
 /// base; everything else (vegetables, fruit, herbs) is a plant.
 MealSlot mealSlotFor(Food food) {
   if (proteinFamilyOf(food) != null) return MealSlot.protein;
-  final isBase = _baseFamilies.values.any((ids) => ids.contains(food.id));
-  return isBase ? MealSlot.base : MealSlot.plant;
+  return isBaseFood(food) ? MealSlot.base : MealSlot.plant;
 }
+
+/// Whether [food] is one of the familiar meal bases (whole grains and rice,
+/// potatoes, bread and pasta, substantial legumes).
+bool isBaseFood(Food food) =>
+    _baseFamilies.values.any((ids) => ids.contains(food.id));
