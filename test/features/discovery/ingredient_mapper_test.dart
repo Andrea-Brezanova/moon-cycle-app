@@ -252,22 +252,30 @@ void main() {
       }
     });
 
-    test('wheat flour carries gluten in the dataset and for external lines', () {
-      expect(testCatalogue.food('wheat-flour')!.allergenIds, contains('gluten'));
-      const f = FoodFilter(
-        avoidances: [AllergenAvoidance(id: 'a', allergenId: 'gluten')],
-      );
-      for (final t in ['Plain Flour', 'Wheat Flour', 'All Purpose Flour']) {
+    test(
+      'wheat flour carries gluten in the dataset and for external lines',
+      () {
         expect(
-          f.allowsRecipe(recipe(['Carrots', t]), testCatalogue),
-          isFalse,
-          reason: t,
+          testCatalogue.food('wheat-flour')!.allergenIds,
+          contains('gluten'),
         );
-      }
-    });
+        const f = FoodFilter(
+          avoidances: [AllergenAvoidance(id: 'a', allergenId: 'gluten')],
+        );
+        for (final t in ['Plain Flour', 'Wheat Flour', 'All Purpose Flour']) {
+          expect(
+            f.allowsRecipe(recipe(['Carrots', t]), testCatalogue),
+            isFalse,
+            reason: t,
+          );
+        }
+      },
+    );
 
     test('every wheat, rye, barley, flour, pasta or bread food has gluten', () {
-      final words = RegExp(r'\b(wheat|rye|barley|flour|pasta|couscous|bread)\b');
+      final words = RegExp(
+        r'\b(wheat|rye|barley|flour|pasta|couscous|bread)\b',
+      );
       for (final food in testCatalogue.foods) {
         final text = '${food.id} ${food.displayName}'.toLowerCase().replaceAll(
           '-',
