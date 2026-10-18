@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
 import '../../core/domain/phase.dart';
+import '../../features/diary/presentation/diary_page.dart';
 import '../../features/discovery/domain/recipe_matcher.dart';
 import '../../features/discovery/presentation/meal_results_page.dart';
 import '../../features/foods/presentation/food_detail_page.dart';
@@ -139,6 +140,11 @@ GoRouter buildAppRouter({
                             foodId: state.uri.queryParameters['food'],
                           ),
                         ),
+                      ),
+                      GoRoute(
+                        path: 'diary',
+                        pageBuilder: (context, state) =>
+                            _page(state, const DiaryPage()),
                       ),
                       GoRoute(
                         path: 'try-new',

@@ -158,3 +158,32 @@ class PersonalRecipes extends Table with UserRow {
   /// The server row id, once the recipe exists there.
   TextColumn get remoteId => text().nullable()();
 }
+
+/// What the user ate, logged by hand (Log Diary). Local only.
+///
+/// One row per (day, meal, item, unit): logging the same thing again adds to
+/// its amount instead of making a second row. The title is a snapshot so an
+/// entry still reads right if its recipe is later deleted.
+@TableIndex.sql(
+  'CREATE UNIQUE INDEX diary_entries_item_live '
+  'ON diary_entries ("date", meal, kind, item_id, unit) '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('DiaryEntryRow')
+class DiaryEntries extends Table with UserRow {
+  TextColumn get date => text().map(const LocalDateConverter())();
+
+  /// `breakfast`, `lunch`, `dinner` or `snack`.
+  TextColumn get meal => text()();
+
+  /// `food` or `recipe`.
+  TextColumn get kind => text()();
+
+  /// The catalogue food id or the recipe id.
+  TextColumn get itemId => text()();
+  TextColumn get title => text()();
+  RealColumn get amount => real()();
+
+  /// `serving`, `g`, `oz`, `cup` or `piece`.
+  TextColumn get unit => text()();
+}

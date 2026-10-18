@@ -70,6 +70,7 @@ void main() {
       'cycle',
       'preferences',
       'shoppingList',
+      'diary',
       'personalRecipes',
     ]);
     expect(json['format'], exportFormat);

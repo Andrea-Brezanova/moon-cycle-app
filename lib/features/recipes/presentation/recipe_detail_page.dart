@@ -14,9 +14,14 @@ import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/design/widgets/text_link.dart';
+import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/presentation/cycle_orbit.dart';
+import '../../diary/domain/diary_entry.dart';
+import '../../diary/presentation/log_entry_sheet.dart';
+import '../../entitlements/application/entitlement_providers.dart';
+import '../../entitlements/domain/entitlements.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/personal_recipe_repository.dart';
 import '../../generation/domain/personal_recipe.dart';
@@ -172,6 +177,25 @@ class RecipeDetailPage extends ConsumerWidget {
                           note,
                           textAlign: TextAlign.center,
                           style: dmSans(13, height: 1.45, color: c.textMuted),
+                        ),
+                      ],
+                      if (ref
+                          .watch(featureGateProvider)
+                          .canUse(Feature.logDiary)) ...[
+                        const SizedBox(height: 12),
+                        MoonButton(
+                          'Add to my diary',
+                          variant: MoonButtonVariant.ghost,
+                          onPressed: () => showLogEntrySheet(
+                            context,
+                            draft: draftFor(
+                              kind: DiaryItemKind.recipe,
+                              itemId: recipe.id,
+                              title: recipe.title,
+                              today: ref.read(todayProvider),
+                              now: ref.read(clockProvider)(),
+                            ),
+                          ),
                         ),
                       ],
                       const SizedBox(height: 30),

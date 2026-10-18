@@ -1,6 +1,7 @@
 import '../../../core/domain/local_date.dart';
 import '../../cycle/domain/cycle_profile.dart';
 import '../../cycle/domain/period_log.dart';
+import '../../diary/domain/diary_entry.dart';
 import '../../generation/domain/personal_recipe.dart';
 import '../../generation/domain/recipe_json.dart';
 import '../../preferences/domain/diet.dart';
@@ -30,6 +31,7 @@ Map<String, Object?> buildDataExport({
   required ReminderSettings reminders,
   required List<ShoppingItem> shoppingList,
   List<PersonalRecipe> personalRecipes = const [],
+  List<DiaryEntry> diary = const [],
   required String? Function(String foodId) foodName,
 }) => {
   'format': exportFormat,
@@ -97,6 +99,18 @@ Map<String, Object?> buildDataExport({
               'quantity': s.qtyText,
             },
         ],
+      },
+  ],
+  'diary': [
+    for (final e in diary)
+      {
+        'date': '${e.date}',
+        'meal': e.meal.name,
+        'type': e.kind.name,
+        'id': e.itemId,
+        'name': e.title,
+        'amount': e.amount,
+        'unit': e.unit.id,
       },
   ],
   'personalRecipes': [

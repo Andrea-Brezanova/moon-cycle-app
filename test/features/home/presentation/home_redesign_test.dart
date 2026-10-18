@@ -7,6 +7,7 @@ import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/diary/presentation/diary_page.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
@@ -176,7 +177,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.bySemanticsLabel(RegExp('^Log diary, coming soon')),
+        find.bySemanticsLabel(RegExp('^Log diary, Premium, locked')),
         findsOneWidget,
       );
       // Explore, Try and Shop are not locked.
@@ -209,22 +210,24 @@ void main() {
       handle.dispose();
     });
 
-    testWidgets('Log diary is Coming soon and does nothing, for every tier', (
-      tester,
-    ) async {
-      for (final tier in [EntitlementState.free, premium]) {
-        await pumpHome(
-          tester,
-          more: [entitlementStateProvider.overrideWithValue(tier)],
-        );
-        await scrollTo(tester, card('Log diary'));
-        expect(find.text('Coming soon'), findsOneWidget);
-        await tester.tap(card('Log diary'));
-        await tester.pumpAndSettle();
-        expect(find.byType(HomePage), findsOneWidget);
-        expect(find.byType(SubscriptionPage), findsNothing);
-        await tester.pumpWidget(const SizedBox());
-      }
+    testWidgets('Log diary: free goes to the subscription page, Premium opens '
+        'the diary', (tester) async {
+      await pumpHome(tester);
+      await scrollTo(tester, card('Log diary'));
+      await tester.tap(card('Log diary'));
+      await tester.pumpAndSettle();
+      expect(find.byType(SubscriptionPage), findsOneWidget);
+      await tester.pumpWidget(const SizedBox());
+
+      await pumpHome(
+        tester,
+        more: [entitlementStateProvider.overrideWithValue(premium)],
+      );
+      await scrollTo(tester, card('Log diary'));
+      expect(find.text('Coming soon'), findsNothing);
+      await tester.tap(card('Log diary'));
+      await tester.pumpAndSettle();
+      expect(find.byType(DiaryPage), findsOneWidget);
     });
 
     testWidgets('the meal builder page is locked for a free user', (

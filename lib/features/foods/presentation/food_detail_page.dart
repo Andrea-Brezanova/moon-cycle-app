@@ -15,9 +15,12 @@ import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/domain/phase.dart';
+import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../cycle/application/viewing_phase.dart';
+import '../../diary/domain/diary_entry.dart';
+import '../../diary/presentation/log_entry_sheet.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../../recipes/application/recipe_filter.dart';
@@ -106,6 +109,7 @@ class FoodDetailPage extends ConsumerWidget {
         .contains(food.id);
     final gate = ref.watch(featureGateProvider);
     final canMeal = gate.canUse(Feature.buildMeal);
+    final canDiary = gate.canUse(Feature.logDiary);
     final category = catalogue.categoryFor(food).name;
     final name = food.displayName.toLowerCase();
     final qualifier = food.qualifier;
@@ -234,13 +238,23 @@ class FoodDetailPage extends ConsumerWidget {
                           .addFood(food, shown),
                     ),
                   const SizedBox(height: 12),
-                  // 4. Logged meals: not built yet, so shown as coming soon and
-                  // disabled for every tier (the Premium designation stays in
-                  // Feature.logDiary).
-                  const MoonButton(
-                    'Add to logged meals · Coming soon',
+                  // 4. The diary (Premium): log this food as eaten.
+                  MoonButton(
+                    'Add to logged meals',
                     variant: MoonButtonVariant.ghost,
-                    onPressed: null,
+                    trailingIcon: canDiary ? null : MoonIconName.lock,
+                    onPressed: canDiary
+                        ? () => showLogEntrySheet(
+                            context,
+                            draft: draftFor(
+                              kind: DiaryItemKind.food,
+                              itemId: food.id,
+                              title: food.displayName,
+                              today: ref.read(todayProvider),
+                              now: ref.read(clockProvider)(),
+                            ),
+                          )
+                        : toSubscription,
                   ),
                 ],
               ),

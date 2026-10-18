@@ -46,6 +46,7 @@ class HomePage extends ConsumerWidget {
     ].length;
     final gate = ref.watch(featureGateProvider);
     final canBuildMeal = gate.canUse(Feature.buildMeal);
+    final canLogDiary = gate.canUse(Feature.logDiary);
     void toSubscription() =>
         context.go(Routes.settings(SettingsPage.subscription));
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
@@ -128,15 +129,15 @@ class HomePage extends ConsumerWidget {
                   palette: palette,
                   onTap: () => context.go(AppTab.shop.path),
                 ),
-                // Not built yet: shown as Coming soon, for every tier. The
-                // Premium designation stays in Feature.logDiary.
                 ChoiceCard(
                   icon: MoonIconName.document,
                   title: 'Log diary',
-                  subtitle: 'Coming soon',
+                  subtitle: 'Your meals, by day',
                   palette: palette,
-                  comingSoon: true,
-                  onTap: null,
+                  locked: !canLogDiary,
+                  onTap: canLogDiary
+                      ? () => context.push(Routes.diary)
+                      : toSubscription,
                 ),
               ],
             ),

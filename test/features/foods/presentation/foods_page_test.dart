@@ -344,7 +344,7 @@ void main() {
       await scrollTo(tester, find.text('Chicken'));
       await tester.tap(find.text('Chicken'));
       await tester.pumpAndSettle();
-      await reveal(tester, find.text('Add to logged meals · Coming soon'));
+      await reveal(tester, find.text('Add to logged meals'));
     }
 
     testWidgets('free: the meal builder is locked', (tester) async {
@@ -355,18 +355,18 @@ void main() {
       expect(find.byType(SubscriptionPage), findsOneWidget);
     });
 
-    testWidgets('logged meals is Coming soon and disabled', (tester) async {
+    testWidgets('free: logged meals is Premium and goes to Subscription', (
+      tester,
+    ) async {
       await pumpFoods(tester);
       await openChicken(tester);
-      expect(find.text('Add to logged meals · Coming soon'), findsOneWidget);
-      await tester.tap(find.text('Add to logged meals · Coming soon'));
+      await tester.tap(find.text('Add to logged meals'));
       await tester.pumpAndSettle();
-      expect(find.byType(FoodDetailPage), findsOneWidget);
-      expect(find.byType(SubscriptionPage), findsNothing);
+      expect(find.byType(SubscriptionPage), findsOneWidget);
     });
 
     testWidgets(
-      'Premium: the meal builder opens; logged meals is still coming soon',
+      'Premium: the meal builder opens; logged meals opens the diary sheet',
       (tester) async {
         tester.view.physicalSize = const Size(390, 844) * 3;
         tester.view.devicePixelRatio = 3;
@@ -386,9 +386,12 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('tab-foods')));
         await tester.pumpAndSettle();
         await openChicken(tester);
-        await tester.tap(find.text('Add to logged meals · Coming soon'));
+        await tester.tap(find.text('Add to logged meals'));
         await tester.pumpAndSettle();
-        expect(find.byType(FoodDetailPage), findsOneWidget); // nothing to open
+        expect(find.text('Add to your diary'), findsOneWidget);
+        await tester.tapAt(const Offset(195, 60)); // dismiss the sheet
+        await tester.pumpAndSettle();
+        expect(find.byType(FoodDetailPage), findsOneWidget);
         await tester.tap(find.text('Make your own meal with chicken'));
         await tester.pumpAndSettle();
         expect(find.byType(MealBuilderPage), findsOneWidget);

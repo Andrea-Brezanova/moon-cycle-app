@@ -67,6 +67,9 @@ abstract final class Routes {
     return '/foods/$id${query.isEmpty ? '' : '?$query'}';
   }
 
+  /// Foods tab stack › the food diary (opened from Home).
+  static const String diary = '/foods/diary';
+
   /// Try Something New: three foods and recipes that use them all.
   static String tryNew(List<String> foodIds) =>
       '/foods/try-new?foods=${foodIds.join(',')}';
