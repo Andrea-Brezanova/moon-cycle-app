@@ -221,7 +221,10 @@ class FoodDetailPage extends ConsumerWidget {
                   const SizedBox(height: 12),
                   // 3. The shopping list (free, independent of the rest).
                   if (onList)
-                    MoonDoneButton('On your list', checkColor: palette.text)
+                    MoonDoneButton(
+                      'On your shopping list',
+                      checkColor: palette.text,
+                    )
                   else
                     MoonButton(
                       'Add to shopping list',

@@ -286,7 +286,9 @@ class _PhaseFoodsHeader extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 6),
-                    Text('on your list', style: style),
+                    Flexible(
+                      child: Text('on your shopping list', style: style),
+                    ),
                   ],
                 ),
               ),

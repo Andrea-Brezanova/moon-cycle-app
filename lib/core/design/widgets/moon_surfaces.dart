@@ -292,7 +292,7 @@ class OnListMark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: 'on your list',
+    label: 'on your shopping list',
     child: Container(
       width: size,
       height: size,

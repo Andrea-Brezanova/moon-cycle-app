@@ -31,9 +31,9 @@ class FoodChip extends StatelessWidget {
   /// Its ingredient sheet is open: shown like a pressed chip.
   final bool open;
 
-  /// "Lemon, on your list".
+  /// "Lemon, on your shopping list".
   String get semanticLabel =>
-      [food.displayName, if (onList) 'on your list'].join(', ');
+      [food.displayName, if (onList) 'on your shopping list'].join(', ');
 
   @override
   Widget build(BuildContext context) {

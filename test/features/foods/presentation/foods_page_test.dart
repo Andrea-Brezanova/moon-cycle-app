@@ -260,7 +260,7 @@ void main() {
     await reveal(tester, find.text('Add to shopping list'));
     await tester.tap(find.text('Add to shopping list'));
     await tester.pumpAndSettle();
-    expect(find.text('On your list'), findsOneWidget);
+    expect(find.text('On your shopping list'), findsOneWidget);
     final items = await tester.runAsync(ShoppingRepository(db).items);
     expect(items!.single.key, 'food:salmon');
 
@@ -271,7 +271,10 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.luteal);
     // The list is where the user left it (scrolled to Salmon), now marked.
     expect(find.text('Salmon'), findsOneWidget);
-    expect(find.bySemanticsLabel('Salmon, on your list'), findsOneWidget);
+    expect(
+      find.bySemanticsLabel('Salmon, on your shopping list'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('the shopping control is independent of opening a food', (
