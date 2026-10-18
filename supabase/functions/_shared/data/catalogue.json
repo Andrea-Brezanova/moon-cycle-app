@@ -1,0 +1,2234 @@
+{
+  "foods": [
+    {
+      "id": "buckwheat",
+      "name": "Buckwheat (kasha)",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "wild-rice",
+      "name": "Wild rice",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "beets",
+      "name": "Beets",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kale",
+      "name": "Kale",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kombu",
+      "name": "Kombu",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms (button, shiitake)",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "wakame",
+      "name": "Wakame",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "water-chestnut",
+      "name": "Water chestnut",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "blackberry",
+      "name": "Blackberry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "adzuki-bean",
+      "name": "Adzuki bean",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "black-turtle-bean",
+      "name": "Black beans",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kidney-bean",
+      "name": "Kidney bean",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chestnut",
+      "name": "Chestnut",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sesame-seeds",
+      "name": "Sesame seeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sunflower-seeds",
+      "name": "Sunflower seeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "duck",
+      "name": "Duck",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pork",
+      "name": "Pork",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "catfish",
+      "name": "Catfish",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "clam",
+      "name": "Clam",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "crab",
+      "name": "Crab",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lobster",
+      "name": "Lobster",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mussel",
+      "name": "Mussel",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "octopus",
+      "name": "Octopus",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "oyster",
+      "name": "Oyster",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sardine",
+      "name": "Sardine",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "scallop",
+      "name": "Scallop",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "squid",
+      "name": "Squid",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bancha-tea",
+      "name": "Bancha tea",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "decaf-coffee",
+      "name": "Decaf coffee",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "miso",
+      "name": "Miso",
+      "category": "fermented",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tamari",
+      "name": "Tamari",
+      "category": "fermented",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "oat",
+      "name": "Oat",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": [
+        "gluten"
+      ]
+    },
+    {
+      "id": "rye",
+      "name": "Rye",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "artichoke",
+      "name": "Artichoke",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lettuce",
+      "name": "Lettuce (Bibb, Boston, romaine)",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "parsley",
+      "name": "Parsley",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "green-pea",
+      "name": "Green pea",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "string-bean",
+      "name": "String bean",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "zucchini",
+      "name": "Zucchini",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "grapefruit",
+      "name": "Grapefruit",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lime",
+      "name": "Lime",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "plum",
+      "name": "Plum",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pomegranate",
+      "name": "Pomegranate",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sour-cherry",
+      "name": "Sour cherry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "black-eyed-pea",
+      "name": "Black-eyed pea",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "green-lentil",
+      "name": "Lentils",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lima-bean",
+      "name": "Lima bean",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mung-bean",
+      "name": "Mung bean",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "split-pea",
+      "name": "Split pea",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "brazil-nut",
+      "name": "Brazil nut",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cashew",
+      "name": "Cashew",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "flaxseeds",
+      "name": "Flaxseeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lychee",
+      "name": "Lychee",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pumpkin-seeds",
+      "name": "Pumpkin seeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "category": "protein",
+      "animalSource": "egg",
+      "allergens": [
+        "egg"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "trout",
+      "name": "Trout",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "nut-butter",
+      "name": "Nut butter",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "olives",
+      "name": "Olives",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pickles",
+      "name": "Pickles",
+      "category": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sauerkraut",
+      "name": "Sauerkraut",
+      "category": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "amaranth",
+      "name": "Amaranth",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "quinoa",
+      "name": "Quinoa",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "asparagus",
+      "name": "Asparagus",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "red-bell-pepper",
+      "name": "Red bell pepper",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "brussels-sprouts",
+      "name": "Brussels sprouts",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chard",
+      "name": "Chard",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chive",
+      "name": "Chive",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "endive",
+      "name": "Endive",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "escarole",
+      "name": "Escarole",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "okra",
+      "name": "Okra",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "scallion",
+      "name": "Scallion",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cantaloupe",
+      "name": "Cantaloupe",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "coconut",
+      "name": "Coconut",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "fig",
+      "name": "Fig",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "guava",
+      "name": "Guava",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "persimmon",
+      "name": "Persimmon",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "raspberry",
+      "name": "Raspberry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "red-lentil",
+      "name": "Red lentil",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "almond",
+      "name": "Almond",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pecan",
+      "name": "Pecan",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pistachio",
+      "name": "Pistachio",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "lamb",
+      "name": "Lamb",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "shrimp",
+      "name": "Shrimp",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tuna",
+      "name": "Tuna",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "category": "other",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy",
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "turmeric",
+      "name": "Turmeric",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "brown-rice",
+      "name": "Brown rice",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "millet",
+      "name": "Millet",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "celery",
+      "name": "Celery",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "collard",
+      "name": "Collard",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "daikon",
+      "name": "Daikon",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "leek",
+      "name": "Leek",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mustard-greens",
+      "name": "Mustard greens",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "parsnip",
+      "name": "Parsnip",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "squash",
+      "name": "Squash",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sweet-potato",
+      "name": "Sweet potato",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "watercress",
+      "name": "Watercress",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pear",
+      "name": "Pear",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "raisin",
+      "name": "Raisin",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chickpea",
+      "name": "Chickpea",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pine-nut",
+      "name": "Pine nut",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "beef",
+      "name": "Beef",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cod",
+      "name": "Cod",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "flounder",
+      "name": "Flounder",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "halibut",
+      "name": "Halibut",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "almond-milk",
+      "name": "Almond milk",
+      "category": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "anchovies",
+      "name": "Anchovies",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "arugula",
+      "name": "Arugula (rocket)",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "avocado-oil",
+      "name": "Avocado oil",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bacon",
+      "name": "Bacon",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bagel",
+      "name": "Bagel",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "baked-beans",
+      "name": "Baked beans",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bean-sprouts",
+      "name": "Bean sprouts",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bok-choy",
+      "name": "Bok choy",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "bulgur",
+      "name": "Bulgur",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "canned-salmon",
+      "name": "Canned salmon",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "canned-tomatoes",
+      "name": "Canned tomatoes",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "canned-tuna",
+      "name": "Canned tuna",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "celeriac",
+      "name": "Celeriac",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cheddar",
+      "name": "Cheddar cheese",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chia-seeds",
+      "name": "Chia seeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "chili-pepper",
+      "name": "Chili pepper",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "coconut-oil",
+      "name": "Coconut oil",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cottage-cheese",
+      "name": "Cottage cheese",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "couscous",
+      "name": "Couscous",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cranberry",
+      "name": "Cranberry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cream-cheese",
+      "name": "Cream cheese",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "dried-apricots",
+      "name": "Dried apricots",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "edamame",
+      "name": "Edamame",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "egg-noodles",
+      "name": "Egg noodles",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "egg",
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "farro",
+      "name": "Farro",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "fava-beans",
+      "name": "Fava (broad) beans",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "fennel",
+      "name": "Fennel",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "feta",
+      "name": "Feta",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "goat-cheese",
+      "name": "Goat cheese",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "granola",
+      "name": "Granola",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "grapes",
+      "name": "Grapes",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "greek-yogurt",
+      "name": "Greek yogurt",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "green-bell-pepper",
+      "name": "Green bell pepper",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "guacamole",
+      "name": "Guacamole",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "haddock",
+      "name": "Haddock",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "ham",
+      "name": "Ham",
+      "category": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "hazelnuts",
+      "name": "Hazelnuts",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "hemp-seeds",
+      "name": "Hemp seeds",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "herring",
+      "name": "Herring",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "other",
+      "animalSource": "honey",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "honeydew",
+      "name": "Honeydew melon",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "hummus",
+      "name": "Hummus",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kefir",
+      "name": "Kefir",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kimchi",
+      "name": "Kimchi",
+      "category": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": [
+        "fish",
+        "shellfish"
+      ]
+    },
+    {
+      "id": "kiwi",
+      "name": "Kiwi",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "kohlrabi",
+      "name": "Kohlrabi",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "macadamia-nuts",
+      "name": "Macadamia nuts",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mackerel",
+      "name": "Mackerel",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mandarin",
+      "name": "Mandarin / tangerine",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "maple-syrup",
+      "name": "Maple syrup",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mixed-nuts",
+      "name": "Mixed nuts",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "mozzarella",
+      "name": "Mozzarella",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "muesli",
+      "name": "Muesli",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "tree-nut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "naan",
+      "name": "Naan",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "napa-cabbage",
+      "name": "Napa cabbage",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "nectarine",
+      "name": "Nectarine",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "oat-bran",
+      "name": "Oat bran",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": [
+        "gluten"
+      ]
+    },
+    {
+      "id": "oat-milk",
+      "name": "Oat milk",
+      "category": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "olive-oil",
+      "name": "Olive oil",
+      "category": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "papaya",
+      "name": "Papaya",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "parmesan",
+      "name": "Parmesan",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "peanuts",
+      "name": "Peanuts",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "peanut"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pinto-beans",
+      "name": "Pinto beans",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pita-bread",
+      "name": "Pita bread (whole-wheat)",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "plain-yogurt",
+      "name": "Plain yogurt",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "plantain",
+      "name": "Plantain",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "polenta",
+      "name": "Polenta / cornmeal",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "pollock",
+      "name": "Pollock",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "popcorn",
+      "name": "Popcorn (plain)",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "prunes",
+      "name": "Prunes (dried plums)",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "radicchio",
+      "name": "Radicchio",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "red-cabbage",
+      "name": "Red cabbage",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "red-snapper",
+      "name": "Snapper",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "rice-cakes",
+      "name": "Rice cakes",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "rice-noodles",
+      "name": "Rice noodles",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "ricotta",
+      "name": "Ricotta",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "rye-bread",
+      "name": "Rye bread",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "salsa",
+      "name": "Salsa",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sea-bass",
+      "name": "Sea bass",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "seitan",
+      "name": "Seitan",
+      "category": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "shallot",
+      "name": "Shallot",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "smoked-salmon",
+      "name": "Smoked salmon",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "soba-noodles",
+      "name": "Soba noodles",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sour-cream",
+      "name": "Sour cream",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sourdough-bread",
+      "name": "Sourdough bread",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "soy-milk",
+      "name": "Soy milk",
+      "category": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sugar-snap-peas",
+      "name": "Sugar snap peas",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "sweet-cherry",
+      "name": "Sweet cherry",
+      "category": "fruit",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "swiss-cheese",
+      "name": "Swiss cheese",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tahini",
+      "name": "Tahini",
+      "category": "nuts-seeds",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tempeh",
+      "name": "Tempeh",
+      "category": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tilapia",
+      "name": "Tilapia",
+      "category": "seafood",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "category": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tortillas",
+      "name": "Tortillas (wheat)",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "turnip",
+      "name": "Turnip",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "wheat-flour",
+      "name": "Wheat flour (whole-grain)",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "white-beans",
+      "name": "White beans",
+      "category": "legumes",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "white-potato",
+      "name": "White potato",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "white-rice",
+      "name": "White rice",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "whole-grain-bread",
+      "name": "Whole-grain bread",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "whole-wheat-pasta",
+      "name": "Whole-wheat pasta",
+      "category": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "yellow-bell-pepper",
+      "name": "Yellow bell pepper",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "basil",
+      "name": "Basil",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "cilantro",
+      "name": "Cilantro (coriander)",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "dill",
+      "name": "Dill",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "heavy-cream",
+      "name": "Heavy cream",
+      "category": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": []
+    },
+    {
+      "id": "tomato-paste",
+      "name": "Tomato paste",
+      "category": "vegetables",
+      "animalSource": "none",
+      "allergens": [],
+      "mayContainAllergens": []
+    }
+  ]
+}
