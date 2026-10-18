@@ -54,11 +54,22 @@ void main() {
   });
 
   group('FeatureGate', () {
-    test('every feature is free until Plus features are decided', () {
+    test('the existing features are free; only Premium ones are gated', () {
       const gate = FeatureGate(EntitlementState.free);
+      const premiumOnly = {Feature.buildMeal, Feature.logDiary};
       for (final f in Feature.values) {
-        expect(gate.canUse(f), isTrue, reason: f.name);
+        expect(gate.canUse(f), !premiumOnly.contains(f), reason: f.name);
       }
+    });
+
+    test('Plus (the launch promo’s tier) does not unlock Premium features', () {
+      const plus = FeatureGate(EntitlementState(tier: Tier.plus));
+      expect(plus.canUse(Feature.buildMeal), isFalse);
+      expect(plus.canUse(Feature.logDiary), isFalse);
+      expect(plus.canUse(Feature.shoppingList), isTrue);
+      const premium = FeatureGate(EntitlementState(tier: Tier.premium));
+      expect(premium.canUse(Feature.buildMeal), isTrue);
+      expect(premium.canUse(Feature.logDiary), isTrue);
     });
 
     test('a Plus feature needs Plus or higher', () {

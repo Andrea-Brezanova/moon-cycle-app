@@ -12,6 +12,12 @@ enum Feature {
   recipeDetail,
   shoppingList,
   reminders,
+
+  /// Build a Meal (Premium only: the launch promo's Plus does not unlock it).
+  buildMeal,
+
+  /// Log Diary and "Add to logged meals" (Premium only).
+  logDiary,
 }
 
 /// Which tier each feature needs. **Which features are Plus is a product
@@ -24,6 +30,9 @@ const Map<Feature, Tier> defaultFeatureTiers = {
   Feature.recipeDetail: Tier.free,
   Feature.shoppingList: Tier.free,
   Feature.reminders: Tier.free,
+  // Premium is above Plus, so the promo never unlocks these.
+  Feature.buildMeal: Tier.premium,
+  Feature.logDiary: Tier.premium,
 };
 
 /// Where a tier comes from.
@@ -36,6 +45,10 @@ enum EntitlementOrigin {
 
   /// Added with subscriptions.
   purchase,
+
+  /// Debug builds only: a developer previewing Premium. Never granted in
+  /// profile or release builds.
+  debugPreview,
 }
 
 /// One source's grant of a tier, valid until [endsOn] (inclusive). A null

@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/core/design/widgets/moon_list.dart';
+import 'package:moon_cycle/core/design/widgets/pressable.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
+import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/application/food_providers.dart';
+import 'package:moon_cycle/features/foods/application/todays_food.dart';
+import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
-import 'package:moon_cycle/features/foods/presentation/ingredient_sheet.dart';
-import 'package:moon_cycle/features/foods/presentation/widgets/meal_builder_section.dart';
+import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
+import 'package:moon_cycle/features/foods/presentation/widgets/todays_food_card.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/application/recipe_filter.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
+import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/data/shopping_repository.dart';
 
 import '../../../helpers/golden_screen.dart';
@@ -59,39 +67,42 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the current phase, its intro and its categories', (
-    tester,
-  ) async {
-    await pumpFoods(tester);
+  /// Scrolls [finder] clear of the tab bar that overlays a page's bottom.
+  Future<void> reveal(WidgetTester tester, Finder finder) async {
+    await tester.ensureVisible(finder);
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, -160));
+    await tester.pumpAndSettle();
+  }
+
+  /// The page's "‹ Foods" back control.
+  Future<void> goBack(WidgetTester tester) async {
+    // The header scrolls with the page.
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, 1500));
+    await tester.pumpAndSettle();
+    await tester.tap(
+      find.descendant(
+        of: find.byType(SubScreenHeader),
+        matching: find.byType(Pressable),
+      ),
+    );
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('Today’s food, then the phase’s food library', (tester) async {
+    final (container, _) = await pumpFoods(tester);
     expect(find.text('Your current phase · day 7'), findsOneWidget);
-    expect(find.text('Inner spring'), findsOneWidget);
-    expect(find.text('Fresh, light and quick'), findsOneWidget);
-    // The universal note sits directly below the phase intro.
+    // The explanation lives on Learn more, the meal builder on its own page.
+    expect(find.text('WHAT YOUR BODY MAY NEED'), findsNothing);
+    expect(find.text('Build a balanced meal'), findsNothing);
+    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+    final todays = container.read(todaysFoodProvider)!;
     expect(
-      find.text(
-        'These are suggestions, not rules. We feature different foods across '
-        'your cycle to encourage variety — you can enjoy any food at any time.',
-      ),
+      find.text('See ${todays.displayName.toLowerCase()} →'),
       findsOneWidget,
     );
-    // The three approved points, in order.
-    expect(find.text('WHAT YOUR BODY MAY NEED'), findsOneWidget);
-    expect(find.text('WHY THESE FOODS'), findsOneWidget);
-    expect(find.text('HOW TO EAT THIS PHASE'), findsOneWidget);
-    expect(
-      find.text(
-        'Think fresh starts: colourful produce, nourishing whole foods and '
-        'plenty of variety to build light, balanced meals.',
-      ),
-      findsOneWidget,
-    );
-    expect(
-      find.text(
-        'Fresh, light and quick: salads, bowls, light steaming and quick '
-        'sautés.',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text(todays.why[Phase.follicular]!.short), findsOneWidget);
+    expect(find.text('YOUR FOODS FOR THIS PHASE'), findsOneWidget);
     expect(
       find.text('Tap a food to see why we feature it and find recipes.'),
       findsOneWidget,
@@ -99,28 +110,63 @@ void main() {
     await scrollTo(tester, find.text('Grains'));
     expect(find.text('Farro'), findsOneWidget);
     expect(find.text('Oat bran'), findsOneWidget);
-    // Featured elsewhere: not on this phase's list.
-    expect(find.text('Quinoa'), findsNothing);
-    // Chips carry no recipe counts; those live in the sheet.
+    expect(find.text('Quinoa'), findsNothing); // featured elsewhere
     expect(find.bySemanticsLabel('Farro'), findsOneWidget);
-    expect(find.bySemanticsLabel(RegExp('recipe')), findsNothing);
-    // A name's parenthetical is shown in the sheet, not on the chip.
     await scrollTo(tester, find.text('Lettuce'));
     expect(find.text('Bibb, Boston, romaine'), findsNothing);
   });
 
-  testWidgets('All foods: search, and a sheet without phase context', (
+  testWidgets('Today’s food: a playful headline, stable, and always the real '
+      'phase’s', (tester) async {
+    final (container, _) = await pumpFoods(tester);
+    final todays = container.read(todaysFoodProvider)!;
+    final headlines = {
+      for (final t in todaysFoodHeadlines)
+        todaysFoodHeadline(t, todays.displayName).replaceAll('*', ''),
+    };
+    final shown = tester
+        .widgetList<RichText>(find.byType(RichText))
+        .map((r) => r.text.toPlainText())
+        .where(headlines.contains);
+    expect(shown, isNotEmpty);
+
+    // Browsing another phase changes the library, not Today's food.
+    await tester.tap(find.text('Luteal'));
+    await tester.pumpAndSettle();
+    expect(container.read(viewingPhaseProvider), Phase.luteal);
+    expect(container.read(todaysFoodProvider)!.id, todays.id);
+    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+    expect(
+      find.text('See ${todays.displayName.toLowerCase()} →'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('Today’s food opens its page with the real phase’s reason', (
+    tester,
+  ) async {
+    final (container, _) = await pumpFoods(tester);
+    final todays = container.read(todaysFoodProvider)!;
+    await tester.tap(find.text('See ${todays.displayName.toLowerCase()} →'));
+    await tester.pumpAndSettle();
+    expect(find.byType(FoodDetailPage), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
+    expect(find.text('Recommended for your follicular phase'), findsOneWidget);
+    expect(find.text(todays.why[Phase.follicular]!.short), findsWidgets);
+  });
+
+  testWidgets('All foods: search, and a page without phase context', (
     tester,
   ) async {
     await pumpFoods(tester);
     await tester.tap(find.text('All foods'));
     await tester.pumpAndSettle();
-    expect(find.text('WHAT YOUR BODY MAY NEED'), findsNothing);
+    expect(find.text('TODAY’S FOOD'), findsNothing);
     await tester.enterText(find.byType(EditableText), 'lettuce');
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Lettuce'));
+    await tester.tap(find.text('Lettuce').last);
     await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
+    expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('Bibb, Boston, romaine'), findsOneWidget);
     expect(find.text('ABOUT THIS FOOD'), findsOneWidget);
     expect(find.textContaining('Featured in the '), findsOneWidget);
@@ -137,107 +183,13 @@ void main() {
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(EditableText), 'lemon');
     await tester.pumpAndSettle();
-    expect(find.text('Lemon'), findsOneWidget);
-    await tester.tap(find.text('Lemon'));
+    expect(find.text('Lemon'), findsWidgets);
+    await tester.tap(find.text('Lemon').last);
     await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
-    // Not featured in any phase: nothing phase-specific is invented.
+    expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsNothing);
     expect(find.textContaining('Recommended for your'), findsNothing);
     expect(find.textContaining('Featured in'), findsNothing);
-  });
-
-  testWidgets('Build a balanced meal: wording and tappable protein ideas', (
-    tester,
-  ) async {
-    final (container, _) = await pumpFoods(tester);
-    // Menstrual has featured foods and general "Also good" suggestions.
-    await tester.tap(find.text('Menstrual'));
-    await tester.pumpAndSettle();
-    await scrollTo(tester, find.text('Build a balanced meal'));
-    expect(find.text('Build a balanced meal'), findsOneWidget);
-    expect(
-      find.text(
-        'For a simple meal, start with a protein, add a satisfying base, '
-        'then add 2–3 plants you enjoy.',
-      ),
-      findsOneWidget,
-    );
-    expect(
-      find.text(
-        'Featured foods are what Moon Cycle emphasizes in this phase for '
-        'nutrition fit, meal style and variety. You can enjoy any food at '
-        'any time.',
-      ),
-      findsOneWidget,
-    );
-    final ideas = container.read(proteinIdeasProvider(Phase.menstrual));
-    expect(ideas.featured, isNotEmpty);
-    expect(ideas.general, isNotEmpty);
-    await scrollTo(tester, find.text('Protein ideas'));
-    await tester.tap(find.text('Protein ideas'));
-    await tester.pumpAndSettle();
-    expect(find.text('Featured this phase'), findsOneWidget);
-    expect(find.text('Also good'), findsOneWidget);
-
-    Finder chip(String name) => find.descendant(
-      of: find.byType(MealBuilderSection),
-      matching: find.text(name),
-    );
-
-    // A featured idea opens with its phase-specific "Why this food?".
-    final featured = ideas.featured.first;
-    await tester.tap(chip(featured.displayName));
-    await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
-    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
-    expect(find.text(featured.why[Phase.menstrual]!.short), findsOneWidget);
-    Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
-    await tester.pumpAndSettle();
-
-    // An "Also good" idea opens without an invented phase rationale.
-    final general = ideas.general.first;
-    await tester.tap(chip(general.displayName));
-    await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
-    expect(find.text('WHY THIS FOOD?'), findsNothing);
-    expect(find.textContaining('Recommended for your'), findsNothing);
-  });
-
-  testWidgets('Base ideas: featured and general chips open the right sheet', (
-    tester,
-  ) async {
-    final (container, _) = await pumpFoods(tester);
-    await tester.tap(find.text('Luteal'));
-    await tester.pumpAndSettle();
-    await scrollTo(tester, find.text('Base ideas'));
-    await tester.tap(find.text('Base ideas'));
-    await tester.pumpAndSettle();
-    final base = container.read(baseIdeasProvider(Phase.luteal));
-    expect(base.featured, isNotEmpty);
-    expect(base.general, isNotEmpty);
-
-    Finder chip(String name) => find.descendant(
-      of: find.byType(MealBuilderSection),
-      matching: find.text(name),
-    );
-
-    final featured = base.featured.first;
-    await tester.ensureVisible(chip(featured.displayName));
-    await tester.tap(chip(featured.displayName));
-    await tester.pumpAndSettle();
-    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
-    expect(find.text(featured.why[Phase.luteal]!.short), findsOneWidget);
-    Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
-    await tester.pumpAndSettle();
-
-    final general = base.general.first;
-    await tester.ensureVisible(chip(general.displayName));
-    await tester.tap(chip(general.displayName));
-    await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
-    expect(find.text('WHY THIS FOOD?'), findsNothing);
-    expect(find.textContaining('Recommended for your'), findsNothing);
   });
 
   testWidgets('chips wrap on a narrow phone at large text', (tester) async {
@@ -267,7 +219,6 @@ void main() {
     await tester.tap(find.text('Luteal'));
     await tester.pumpAndSettle();
     expect(find.text('Browsing luteal ·'), findsOneWidget);
-    expect(find.text('Inner autumn'), findsOneWidget);
     await tester.tap(find.text('Back to follicular'));
     await tester.pumpAndSettle();
     expect(find.text('Your current phase · day 7'), findsOneWidget);
@@ -291,35 +242,49 @@ void main() {
     expect(find.text('Plain yogurt'), findsNothing);
   });
 
-  testWidgets('the sheet: copy, add, then "On your list"', (tester) async {
+  testWidgets('a food’s page: copy, then Add to shopping list; Back keeps '
+      'the Foods filter', (tester) async {
     final (container, db) = await pumpFoods(tester);
+    await tester.tap(find.text('Luteal'));
+    await tester.pumpAndSettle();
+    await scrollTo(tester, find.text('Salmon'));
+    await tester.tap(find.text('Salmon'));
+    await tester.pumpAndSettle();
+    expect(find.byType(FoodDetailPage), findsOneWidget);
+    expect(find.text('SEAFOOD'), findsOneWidget);
+    expect(find.text('Recommended for your luteal phase'), findsOneWidget);
+    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
+    final salmon = testCatalogue.food('salmon')!;
+    expect(find.text(salmon.why[Phase.luteal]!.short), findsOneWidget);
+
+    await reveal(tester, find.text('Add to shopping list'));
+    await tester.tap(find.text('Add to shopping list'));
+    await tester.pumpAndSettle();
+    expect(find.text('On your list'), findsOneWidget);
+    final items = await tester.runAsync(ShoppingRepository(db).items);
+    expect(items!.single.key, 'food:salmon');
+
+    await goBack(tester);
+    await tester.pumpAndSettle();
+    expect(find.byType(FoodDetailPage), findsNothing);
+    // Still the phase and the library the user was in.
+    expect(container.read(viewingPhaseProvider), Phase.luteal);
+    // The list is where the user left it (scrolled to Salmon), now marked.
+    expect(find.text('Salmon'), findsOneWidget);
+    expect(find.bySemanticsLabel('Salmon, on your list'), findsOneWidget);
+  });
+
+  testWidgets('the shopping control is independent of opening a food', (
+    tester,
+  ) async {
+    final (_, db) = await pumpFoods(tester);
     await scrollTo(tester, find.text('Chicken'));
     await tester.tap(find.text('Chicken'));
     await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsOneWidget);
-    expect(find.text('MEAT, EGGS & PLANT PROTEINS'), findsOneWidget);
-    expect(find.text('Recommended for your follicular phase'), findsOneWidget);
-    expect(find.text('WHY THIS FOOD?'), findsOneWidget);
-    // The phase-specific "why this food?" copy.
-    expect(
-      find.text(
-        'Chicken is a quick-cooking protein for stir-fries, salads and '
-        'sheet-pan meals.',
-      ),
-      findsOneWidget,
-    );
-    expect(find.text('See 3 recipes with chicken'), findsOneWidget);
-
-    await tester.tap(find.text('Add to shopping list'));
+    await goBack(tester);
     await tester.pumpAndSettle();
-    expect(find.text('On your list'), findsOneWidget); // the sheet stays open
     final items = await tester.runAsync(ShoppingRepository(db).items);
-    expect(items!.single.key, 'food:chicken');
-
-    Navigator.of(tester.element(find.byType(IngredientSheet))).pop();
-    await tester.pumpAndSettle();
-    expect(find.bySemanticsLabel('Chicken, on your list'), findsOneWidget);
-    expect(container, isNotNull);
+    expect(items, isEmpty); // opening a food never adds it
   });
 
   testWidgets('a food without recipes: no recipe button', (tester) async {
@@ -340,33 +305,92 @@ void main() {
       find.text('No recipes with ${none.displayName.toLowerCase()} yet.'),
       findsOneWidget,
     );
-    expect(find.textContaining('See '), findsNothing);
+    expect(find.textContaining('Find recipes'), findsNothing);
   });
 
-  testWidgets('a featured food shows its recipe count in the sheet', (
-    tester,
-  ) async {
+  testWidgets('a featured food shows its recipe count', (tester) async {
     await pumpFoods(tester);
     await scrollTo(tester, find.text('Turnip'));
     await tester.tap(find.text('Turnip'));
     await tester.pumpAndSettle();
     // Turnip had no recipe before; three follicular recipes now use it.
-    expect(find.text('See 3 recipes with turnip'), findsOneWidget);
-    expect(find.text('No recipes with turnip yet.'), findsNothing);
+    expect(find.text('Find recipes with turnip'), findsOneWidget);
+    await tester.tap(find.text('Find recipes with turnip'));
+    await tester.pumpAndSettle();
+    expect(find.byType(RecipesPage), findsOneWidget);
+    expect(find.text('3 follicular recipes with turnip'), findsOneWidget);
   });
 
-  testWidgets('"See N recipes" opens Recipes filtered by the food', (
+  testWidgets('"Find recipes" opens Recipes filtered by the food', (
     tester,
   ) async {
     final (container, _) = await pumpFoods(tester);
     await scrollTo(tester, find.text('Chicken'));
     await tester.tap(find.text('Chicken'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('See 3 recipes with chicken'));
+    await tester.tap(find.text('Find recipes with chicken'));
     await tester.pumpAndSettle();
-    expect(find.byType(IngredientSheet), findsNothing);
+    expect(find.byType(FoodDetailPage), findsNothing);
     expect(find.byType(RecipesPage), findsOneWidget);
     expect(container.read(recipeFilterProvider).foodId, 'chicken');
     expect(find.text('3 follicular recipes with chicken'), findsOneWidget);
+  });
+
+  group('the four actions and Premium', () {
+    Future<void> openChicken(WidgetTester tester) async {
+      await scrollTo(tester, find.text('Chicken'));
+      await tester.tap(find.text('Chicken'));
+      await tester.pumpAndSettle();
+      await reveal(tester, find.text('Add to logged meals · Coming soon'));
+    }
+
+    testWidgets('free: the meal builder is locked', (tester) async {
+      await pumpFoods(tester);
+      await openChicken(tester);
+      await tester.tap(find.text('Make your own meal with chicken'));
+      await tester.pumpAndSettle();
+      expect(find.byType(SubscriptionPage), findsOneWidget);
+    });
+
+    testWidgets('logged meals is Coming soon and disabled', (tester) async {
+      await pumpFoods(tester);
+      await openChicken(tester);
+      expect(find.text('Add to logged meals · Coming soon'), findsOneWidget);
+      await tester.tap(find.text('Add to logged meals · Coming soon'));
+      await tester.pumpAndSettle();
+      expect(find.byType(FoodDetailPage), findsOneWidget);
+      expect(find.byType(SubscriptionPage), findsNothing);
+    });
+
+    testWidgets(
+      'Premium: the meal builder opens; logged meals is still coming soon',
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 844) * 3;
+        tester.view.devicePixelRatio = 3;
+        addTearDown(tester.view.reset);
+        final db = testDatabase();
+        await seedCycle(tester, db, start: sampleStart);
+        await pumpApp(
+          tester,
+          database: db,
+          overrides: [
+            clockProvider.overrideWithValue(designNow),
+            entitlementStateProvider.overrideWithValue(
+              const EntitlementState(tier: Tier.premium),
+            ),
+          ],
+        );
+        await tester.tap(find.byKey(const ValueKey('tab-foods')));
+        await tester.pumpAndSettle();
+        await openChicken(tester);
+        await tester.tap(find.text('Add to logged meals · Coming soon'));
+        await tester.pumpAndSettle();
+        expect(find.byType(FoodDetailPage), findsOneWidget); // nothing to open
+        await tester.tap(find.text('Make your own meal with chicken'));
+        await tester.pumpAndSettle();
+        expect(find.byType(MealBuilderPage), findsOneWidget);
+        expect(find.text('Choose a protein'), findsOneWidget);
+      },
+    );
   });
 }

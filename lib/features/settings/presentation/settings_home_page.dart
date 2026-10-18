@@ -17,6 +17,7 @@ import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
+import '../../entitlements/application/entitlement_providers.dart';
 import '../../preferences/application/preference_providers.dart';
 import '../../reminders/application/reminder_providers.dart';
 import '../application/settings_copy.dart';
@@ -154,6 +155,16 @@ class SettingsHomePage extends ConsumerWidget {
                 'Component gallery',
                 size: 14,
                 onTap: () => context.push(Routes.debugGallery),
+              ),
+              const SizedBox(height: 16),
+              // Previews Premium without touching real entitlements or the
+              // Plus launch promo. Debug builds only, never saved.
+              TextLink(
+                ref.watch(debugPremiumPreviewProvider)
+                    ? 'Premium preview: on'
+                    : 'Premium preview: off',
+                size: 14,
+                onTap: ref.read(debugPremiumPreviewProvider.notifier).toggle,
               ),
               const SizedBox(height: 16),
               // Checks delivery on a device: the next planned reminder's

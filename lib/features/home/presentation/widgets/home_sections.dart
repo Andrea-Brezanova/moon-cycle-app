@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/design/moon_theme.dart';
+import '../../../../core/design/tokens/moon_colors.dart';
 import '../../../../core/design/tokens/moon_layout.dart';
 import '../../../../core/design/tokens/moon_typography.dart';
 import '../../../../core/design/widgets/editorial_text.dart';
 import '../../../../core/design/widgets/moon_button.dart';
-import '../../../../core/design/widgets/moon_chip.dart';
+import '../../../../core/design/widgets/moon_icon.dart';
+import '../../../../core/design/widgets/pressable.dart';
 import '../../../../core/design/widgets/text_link.dart';
 import '../../../../core/domain/phase.dart';
-import '../../../content/domain/food.dart';
 import '../../../cycle/domain/phase_guidance.dart';
-import '../food_emoji.dart';
 
 /// "Your focus": three short, phase-specific points and a way to read more.
 class FocusSection extends StatelessWidget {
@@ -80,105 +80,140 @@ class FocusSection extends StatelessWidget {
   }
 }
 
-/// "Today's food": one food from the phase, with its emoji, and two actions.
-/// No photo and no paragraph: the name carries the meaning, the emoji only
-/// decorates it.
-class TodaysFoodSection extends StatelessWidget {
-  const TodaysFoodSection({
+/// One of the six cards in "Your choices".
+///
+/// [locked] cards show a Premium lock and look quieter; [onTap] null (an
+/// unlocked feature with nothing to open yet) shows the card but doesn't act.
+class ChoiceCard extends StatelessWidget {
+  const ChoiceCard({
     super.key,
-    required this.food,
-    required this.phase,
-    required this.onWhy,
-    required this.onRecipes,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.palette,
+    required this.onTap,
+    this.locked = false,
+    this.comingSoon = false,
   });
 
-  final Food food;
-  final Phase phase;
-  final VoidCallback onWhy;
-  final VoidCallback onRecipes;
+  final MoonIconName icon;
+  final String title;
+  final String subtitle;
+  final PhasePalette palette;
+  final VoidCallback? onTap;
+  final bool locked;
+
+  /// Not available yet for anyone: quieter, no lock, nothing to tap.
+  final bool comingSoon;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final palette = c.phase(phase);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Overline('Today’s food'),
-        const SizedBox(height: 12),
-        Semantics(
-          container: true,
-          label: 'Today’s food: ${food.displayName}',
-          child: ExcludeSemantics(
-            child: Row(
-              children: [
-                Container(
-                  width: 64,
-                  height: 64,
-                  alignment: Alignment.center,
-                  decoration: ShapeDecoration(
-                    color: palette.tint,
-                    shape: const CircleBorder(),
-                  ),
-                  child: Text(
-                    foodEmoji(food),
-                    style: const TextStyle(fontSize: 30, height: 1),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Text(
-                    food.displayName,
-                    style: fraunces(30, height: 1.1, color: c.text),
-                  ),
-                ),
-              ],
+    final quiet = locked || comingSoon;
+    // Light: the phase's tint. Dark: the app's plum surface, as designed.
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final fg = quiet ? c.textMuted : c.text;
+    return Pressable(
+      onTap: comingSoon ? null : onTap,
+      semanticLabel: comingSoon
+          ? '$title, coming soon'
+          : locked
+          ? '$title, Premium, locked. $subtitle'
+          : '$title. $subtitle',
+      child: ExcludeSemantics(
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 150),
+          padding: const EdgeInsets.fromLTRB(14, 14, 14, 16),
+          decoration: BoxDecoration(
+            color: quiet ? null : (dark ? c.raised : palette.tint),
+            // Same 1 pt edge either way, so the titles line up across a row.
+            border: Border.all(
+              color: locked ? c.line : const Color(0x00000000),
             ),
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 36,
+                    height: 36,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: quiet ? null : (dark ? c.bg : c.raised),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: MoonIcon(
+                      icon,
+                      size: 18,
+                      color: fg,
+                      strokeWidth: 1.8,
+                    ),
+                  ),
+                  const Spacer(),
+                  if (locked)
+                    MoonIcon(
+                      MoonIconName.lock,
+                      size: 14,
+                      color: c.textMuted,
+                      strokeWidth: 1.8,
+                    ),
+                ],
+              ),
+              const SizedBox(height: 18),
+              Text(
+                title,
+                style: fraunces(
+                  19,
+                  weight: FontWeight.w500,
+                  height: 1.15,
+                  color: fg,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                subtitle,
+                style: dmSans(13, height: 1.3, color: c.textMuted),
+              ),
+            ],
           ),
         ),
-        const SizedBox(height: 14),
-        Wrap(
-          spacing: MoonSpace.chipGap,
-          runSpacing: 0,
-          children: [
-            MoonChip('Why this food?', onTap: onWhy),
-            MoonChip('Recipes', onTap: onRecipes),
-          ],
-        ),
-      ],
+      ),
     );
   }
 }
 
-/// The two free actions: the meal builder and food discovery, stacked so
-/// each label has the full width.
-class HomeActions extends StatelessWidget {
-  const HomeActions({
-    super.key,
-    required this.onBuildMeal,
-    required this.onTryNew,
-  });
+/// "Your choices": a two-column grid of cards of equal height.
+class HomeChoices extends StatelessWidget {
+  const HomeChoices({super.key, required this.cards});
 
-  final VoidCallback onBuildMeal;
-  final VoidCallback onTryNew;
+  final List<Widget> cards;
 
   @override
-  Widget build(BuildContext context) {
-    final build = MoonButton(
-      'Build a meal',
-      onPressed: onBuildMeal,
-      variant: MoonButtonVariant.ghost,
-    );
-    final tryNew = MoonButton(
-      'Try something new',
-      onPressed: onTryNew,
-      variant: MoonButtonVariant.ghost,
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [build, const SizedBox(height: 12), tryNew],
-    );
-  }
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      const Overline('Your choices'),
+      const SizedBox(height: 12),
+      for (var i = 0; i < cards.length; i += 2) ...[
+        if (i > 0) const SizedBox(height: 12),
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(child: cards[i]),
+              const SizedBox(width: 12),
+              Expanded(
+                child: i + 1 < cards.length ? cards[i + 1] : const SizedBox(),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ],
+  );
 }
 
 /// "Has your period started?" (`21-home-period-late`), from 3 days late.

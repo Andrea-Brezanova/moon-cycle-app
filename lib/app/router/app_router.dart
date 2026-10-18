@@ -4,7 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
+import '../../core/domain/phase.dart';
+import '../../features/foods/presentation/food_detail_page.dart';
 import '../../features/foods/presentation/foods_page.dart';
+import '../../features/foods/presentation/learn_more_page.dart';
+import '../../features/foods/presentation/meal_builder_page.dart';
 import '../../features/home/presentation/home_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
@@ -107,6 +111,36 @@ GoRouter buildAppRouter({
                           state,
                           RecipeDetailPage(
                             recipeId: state.pathParameters['recipeId']!,
+                          ),
+                        ),
+                      ),
+                    ],
+                    AppTab.foods => [
+                      GoRoute(
+                        path: 'learn',
+                        pageBuilder: (context, state) =>
+                            _page(state, const LearnMorePage()),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder',
+                        pageBuilder: (context, state) =>
+                            _page(state, const MealBuilderPage()),
+                      ),
+                      GoRoute(
+                        path: ':foodId',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          FoodDetailPage(
+                            foodId: state.pathParameters['foodId']!,
+                            phase: Phase.values
+                                .where(
+                                  (p) =>
+                                      p.name ==
+                                      state.uri.queryParameters['phase'],
+                                )
+                                .firstOrNull,
+                            general:
+                                state.uri.queryParameters['general'] == '1',
                           ),
                         ),
                       ),

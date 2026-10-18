@@ -14,6 +14,8 @@ import 'package:moon_cycle/features/cycle/domain/cycle_calculator.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_lengths.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_state.dart';
+import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
+import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/home/application/home_providers.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
@@ -70,6 +72,13 @@ void main() {
       homePreviewProvider.overrideWith(() => _Preview(14)),
       viewingPhaseProvider.overrideWith(() => _Viewing(Phase.ovulatory)),
     ],
+    // Premium unlocked (a preview): no locks, same cards.
+    'premium': [
+      cycleStateProvider.overrideWithValue(stateOnDay(7)),
+      entitlementStateProvider.overrideWithValue(
+        const EntitlementState(tier: Tier.premium),
+      ),
+    ],
     'avoidances': [
       cycleStateProvider.overrideWithValue(stateOnDay(7)),
       foodFilterProvider.overrideWithValue(
@@ -92,7 +101,7 @@ void main() {
           tester,
           const HomePage(),
           dark: dark,
-          height: 1350,
+          height: 1650,
           overrides: overrides,
         );
         await expectLater(

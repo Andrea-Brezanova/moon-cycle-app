@@ -54,7 +54,7 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('YOUR FOCUS'), findsOneWidget);
-    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+    expect(find.text('YOUR CHOICES'), findsOneWidget);
     expect(find.text('Build a meal'), findsOneWidget);
   });
 
@@ -69,7 +69,6 @@ void main() {
 
     await goTo(tester, 'foods');
     expect(find.text('Browsing luteal ·'), findsOneWidget);
-    expect(find.text('Inner autumn'), findsOneWidget);
 
     await goTo(tester, 'recipes');
     expect(container.read(recipeListProvider).phase, Phase.luteal);

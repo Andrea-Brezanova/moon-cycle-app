@@ -6,16 +6,17 @@ import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
+import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/domain/browse_scope.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/log_period_sheet.dart';
+import '../../entitlements/application/entitlement_providers.dart';
+import '../../entitlements/domain/entitlements.dart';
 import '../../foods/application/browse_scope.dart';
-import '../../foods/presentation/ingredient_sheet.dart';
 import '../../recipes/application/recipe_filter.dart';
 import '../../recipes/application/recipes_scope.dart';
-import '../application/home_discovery.dart';
 import 'home_sheets.dart';
 import 'widgets/home_hero.dart';
 import 'widgets/home_sections.dart';
@@ -36,10 +37,17 @@ class HomePage extends ConsumerWidget {
 
     // Every phase-dependent block follows the shared viewing phase.
     final phase = ref.watch(viewingPhaseProvider);
-    // Today's food belongs to today: the real phase, never the one being
-    // previewed.
-    final actual = ref.watch(actualPhaseProvider);
-    final todays = ref.watch(todaysFoodProvider(actual));
+    final palette = c.phase(phase);
+    final catalogue = ref.watch(catalogueProvider);
+    final filter = ref.watch(foodFilterProvider);
+    final foodCount = [
+      for (final f in catalogue.foodsFor(phase))
+        if (filter.allowsFood(f)) f,
+    ].length;
+    final gate = ref.watch(featureGateProvider);
+    final canBuildMeal = gate.canUse(Feature.buildMeal);
+    void toSubscription() =>
+        context.go(Routes.settings(SettingsPage.subscription));
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
     final gap = late ? 44.0 : MoonSpace.sectionGap;
 
@@ -64,47 +72,73 @@ class HomePage extends ConsumerWidget {
           padded(
             FocusSection(
               phase: phase,
-              onMore: () {
-                ref.read(foodsScopeProvider.notifier).set(BrowseScope.phase);
-                context.go(AppTab.foods.path);
-              },
+              onMore: () => context.push(Routes.learnMore),
             ),
           ),
-          if (todays != null) ...[
-            SizedBox(height: gap),
-            padded(
-              TodaysFoodSection(
-                food: todays,
-                phase: actual,
-                onWhy: () => showIngredientSheet(
-                  context,
-                  food: todays,
-                  phase: actual,
-                  category: ref
-                      .read(catalogueProvider)
-                      .categoryFor(todays)
-                      .name,
-                ),
-                onRecipes: () {
-                  // Its recipes are the real phase's. Switching phase clears
-                  // the ingredient filter, so do it first.
-                  ref.read(viewingPhaseProvider.notifier).showActual();
-                  ref
-                      .read(recipesScopeProvider.notifier)
-                      .set(BrowseScope.phase);
-                  ref
-                      .read(recipeFilterProvider.notifier)
-                      .showRecipesWith(todays.id);
-                  context.go(AppTab.recipes.path);
-                },
-              ),
-            ),
-          ],
           SizedBox(height: gap),
           padded(
-            HomeActions(
-              onBuildMeal: () => showBuildMealSheet(context, phase: phase),
-              onTryNew: () => showTryNewSheet(context, phase: phase),
+            HomeChoices(
+              cards: [
+                ChoiceCard(
+                  icon: MoonIconName.foods,
+                  title: 'Explore foods',
+                  subtitle: '$foodCount foods for this phase',
+                  palette: palette,
+                  onTap: () {
+                    ref
+                        .read(foodsScopeProvider.notifier)
+                        .set(BrowseScope.phase);
+                    context.go(AppTab.foods.path);
+                  },
+                ),
+                ChoiceCard(
+                  icon: MoonIconName.book,
+                  title: 'Explore recipes',
+                  subtitle: 'Recipes for this phase',
+                  palette: palette,
+                  onTap: () {
+                    ref
+                        .read(recipesScopeProvider.notifier)
+                        .set(BrowseScope.phase);
+                    ref.read(recipeFilterProvider.notifier).reset();
+                    context.go(AppTab.recipes.path);
+                  },
+                ),
+                ChoiceCard(
+                  icon: MoonIconName.recipes,
+                  title: 'Build a meal',
+                  subtitle: 'Protein → base → 2–3 plants',
+                  palette: palette,
+                  locked: !canBuildMeal,
+                  onTap: canBuildMeal
+                      ? () => context.push(Routes.mealBuilder())
+                      : toSubscription,
+                ),
+                ChoiceCard(
+                  icon: MoonIconName.compass,
+                  title: 'Try something new',
+                  subtitle: '3 foods to explore this phase',
+                  palette: palette,
+                  onTap: () => showTryNewSheet(context),
+                ),
+                ChoiceCard(
+                  icon: MoonIconName.shop,
+                  title: 'Shop',
+                  subtitle: 'Your shopping list',
+                  palette: palette,
+                  onTap: () => context.go(AppTab.shop.path),
+                ),
+                // Not built yet: shown as Coming soon, for every tier. The
+                // Premium designation stays in Feature.logDiary.
+                ChoiceCard(
+                  icon: MoonIconName.document,
+                  title: 'Log diary',
+                  subtitle: 'Coming soon',
+                  palette: palette,
+                  comingSoon: true,
+                  onTap: null,
+                ),
+              ],
             ),
           ),
         ],

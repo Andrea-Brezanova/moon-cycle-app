@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
@@ -13,10 +14,9 @@ import '../../../core/design/widgets/moon_segmented.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/browse_scope.dart';
-import '../../../core/domain/phase.dart';
+import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
-import '../../content/domain/phase_content.dart';
 import '../../content/domain/text_match.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/domain/phase_guidance.dart';
@@ -24,9 +24,9 @@ import '../../cycle/presentation/phase_header.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../application/browse_scope.dart';
 import '../application/food_providers.dart';
-import 'ingredient_sheet.dart';
+import '../application/todays_food.dart';
 import 'widgets/food_chip.dart';
-import 'widgets/meal_builder_section.dart';
+import 'widgets/todays_food_card.dart';
 
 /// The Foods tab (`07-foods`, `34-foods-browsing-other-phase`): the viewing
 /// phase's foods by category, in the stored order, or every recommended food
@@ -42,35 +42,16 @@ class FoodsPage extends ConsumerStatefulWidget {
 class _FoodsPageState extends ConsumerState<FoodsPage> {
   String? _openFoodId;
 
-  /// From "This phase" the sheet explains the food for the viewing phase.
-  /// From "All foods" there is no phase context, so it shows general
-  /// information instead of a phase rationale.
+  /// Opens the food's page. From "This phase" it explains the food for the
+  /// viewing phase; from "All foods" it opens without phase context. The page
+  /// is pushed on top, so Back returns here with the same filter.
   Future<void> _open(Food food, String category) async {
     setState(() => _openFoodId = food.id);
     final all = ref.read(foodsScopeProvider) == BrowseScope.all;
-    await showIngredientSheet(
-      context,
-      food: food,
-      phase: ref.read(viewingPhaseProvider),
-      phaseContext: !all,
-      category: category,
+    await context.push<void>(
+      Routes.food(food.id, phase: ref.read(viewingPhaseProvider), general: all),
     );
     if (mounted) setState(() => _openFoodId = null);
-  }
-
-  /// A protein idea: a food featured in the viewing phase opens with its
-  /// phase "Why this food?"; an "Also good" suggestion opens without phase
-  /// context, so no phase rationale is invented for it.
-  Future<void> _openIdea(Food food) async {
-    final viewing = ref.read(viewingPhaseProvider);
-    final featured = food.why[viewing] != null;
-    await showIngredientSheet(
-      context,
-      food: food,
-      phase: viewing,
-      phaseContext: featured,
-      category: ref.read(catalogueProvider).categoryFor(food).name,
-    );
   }
 
   final _search = TextEditingController();
@@ -91,6 +72,8 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
   Widget build(BuildContext context) {
     final c = context.moon;
     final phase = ref.watch(viewingPhaseProvider);
+    final actual = ref.watch(actualPhaseProvider);
+    final todays = ref.watch(todaysFoodProvider);
     final scope = ref.watch(foodsScopeProvider);
     final all = scope == BrowseScope.all;
     final palette = c.phase(phase);
@@ -178,30 +161,40 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         ),
                 ),
               )
-            else
+            else ...[
+              if (todays != null)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    MoonSpace.gutter,
+                    22,
+                    MoonSpace.gutter,
+                    0,
+                  ),
+                  child: TodaysFoodCard(
+                    food: todays,
+                    headline: todaysFoodHeadline(
+                      todaysFoodHeadlines[stableHash(
+                            'headline|${ref.watch(todayProvider)}|${todays.id}',
+                          ) %
+                          todaysFoodHeadlines.length],
+                      todays.displayName,
+                    ),
+                    intro: todays.why[actual]?.short,
+                    palette: c.phase(actual),
+                    onOpen: () =>
+                        context.push(Routes.food(todays.id, phase: actual)),
+                  ),
+                ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(
                   MoonSpace.gutter,
-                  30,
+                  26,
                   MoonSpace.gutter,
                   0,
                 ),
-                child: _PhaseIntro(
-                  phase: phase,
-                  content: content,
-                  palette: palette,
-                ),
+                child: _PhaseFoodsHeader(palette: palette),
               ),
-            if (!all)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  MoonSpace.gutter,
-                  30,
-                  MoonSpace.gutter,
-                  0,
-                ),
-                child: MealBuilderSection(phase: phase, onFood: _openIdea),
-              ),
+            ],
             if (all && categories.isEmpty)
               Padding(
                 padding: const EdgeInsets.fromLTRB(
@@ -238,71 +231,10 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
   }
 }
 
-/// The phase intro on "This phase": season and tagline, then the three
-/// approved points (what your body may need, why these foods, how to eat this
-/// phase) and the suggestions-not-rules note, each from the phase content.
-class _PhaseIntro extends StatelessWidget {
-  const _PhaseIntro({
-    required this.phase,
-    required this.content,
-    required this.palette,
-  });
-
-  final Phase phase;
-
-  final PhaseContent content;
-  final PhasePalette palette;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    final copy = foodsIntroCopy(phase);
-    Widget block(String label, String text) => Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Overline(label),
-        const SizedBox(height: 6),
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 320),
-          child: Text(text, style: MoonType.body.copyWith(color: c.text)),
-        ),
-        const SizedBox(height: 18),
-      ],
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          content.season,
-          style: MoonType.season.copyWith(color: palette.text, height: 1.08),
-        ),
-        const SizedBox(height: 10),
-        EditorialHeading(
-          italicLastWord(content.tagline),
-          style: fraunces(32, height: 1.1),
-        ),
-        const SizedBox(height: 20),
-        block('What your body may need', copy.need),
-        block('Why these foods', copy.why),
-        block('How to eat this phase', copy.how),
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 320),
-          child: Text(
-            foodsUniversalNote,
-            style: dmSans(14, height: 1.4, color: c.textMuted),
-          ),
-        ),
-        const SizedBox(height: 26),
-        _HintLine(palette: palette),
-      ],
-    );
-  }
-}
-
-/// "Tap a food to see why we feature it and find recipes · [✓] on your list". Recipe counts live in
-/// the ingredient sheet, not in the list.
-class _HintLine extends StatelessWidget {
-  const _HintLine({required this.palette});
+/// "Your foods for this phase" and the hint: tap a food for its page; the
+/// check marks foods on the shopping list.
+class _PhaseFoodsHeader extends StatelessWidget {
+  const _PhaseFoodsHeader({required this.palette});
 
   final PhasePalette palette;
 
@@ -315,46 +247,53 @@ class _HintLine extends StatelessWidget {
       height: 1,
       color: c.textMuted,
     );
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.only(top: 18),
-      decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: c.line)),
-      ),
-      child: Wrap(
-        spacing: 10,
-        runSpacing: 8,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          Text(foodsHintText, style: style),
-          ExcludeSemantics(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // A miniature of an on-list chip: phase tint with the check.
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: ShapeDecoration(
-                    color: palette.tint,
-                    shape: const StadiumBorder(),
-                  ),
-                  child: MoonIcon(
-                    MoonIconName.check,
-                    size: 12,
-                    color: palette.text,
-                    strokeWidth: 2.4,
-                  ),
-                ),
-                const SizedBox(width: 6),
-                Text('on your list', style: style),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Overline('Your foods for this phase'),
+        const SizedBox(height: 12),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.only(top: 18),
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: c.line)),
           ),
-        ],
-      ),
+          child: Wrap(
+            spacing: 10,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(foodsHintText, style: style),
+              ExcludeSemantics(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // A miniature of an on-list chip: phase tint with the check.
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: ShapeDecoration(
+                        color: palette.tint,
+                        shape: const StadiumBorder(),
+                      ),
+                      child: MoonIcon(
+                        MoonIconName.check,
+                        size: 12,
+                        color: palette.text,
+                        strokeWidth: 2.4,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text('on your list', style: style),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

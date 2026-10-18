@@ -1,4 +1,5 @@
 import '../../core/design/widgets/moon_icon.dart';
+import '../../core/domain/phase.dart';
 
 /// The five tabs, in their fixed order (PRD §3).
 enum AppTab {
@@ -46,6 +47,23 @@ abstract final class Routes {
 
   /// Debug builds only; see `app_router.dart`.
   static const String debugGallery = '/debug/gallery';
+
+  /// Foods › "Learn more" about the viewing phase.
+  static const String learnMore = '/foods/learn';
+
+  /// Foods › the meal builder (Premium).
+  static String mealBuilder() => '/foods/meal-builder';
+
+  /// A food's page. [phase] is the phase whose "Why this food?" it shows;
+  /// [general] opens it without phase context (a suggestion from outside the
+  /// phase), so no phase rationale is shown.
+  static String food(String id, {Phase? phase, bool general = false}) {
+    final query = [
+      if (phase != null) 'phase=${phase.name}',
+      if (general) 'general=1',
+    ].join('&');
+    return '/foods/$id${query.isEmpty ? '' : '?$query'}';
+  }
 
   static String recipe(String id) => '${AppTab.recipes.path}/$id';
   static String settings(SettingsPage page) =>

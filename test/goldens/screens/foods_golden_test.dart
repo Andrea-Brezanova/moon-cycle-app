@@ -1,14 +1,18 @@
 @Tags(['golden'])
 library;
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
+import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
+import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
+import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
+import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 
 import '../../helpers/golden_screen.dart';
@@ -64,29 +68,6 @@ void main() {
       );
     });
 
-    testWidgets('foods sheet with cautions, $theme', (tester) async {
-      await pumpScreen(
-        tester,
-        const FoodsPage(),
-        dark: dark,
-        overrides: base(),
-      );
-      final container = ProviderScope.containerOf(
-        tester.element(find.byType(FoodsPage)),
-      );
-      container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
-      await tester.pumpAndSettle();
-      await tester.scrollUntilVisible(find.text('Kimchi'), 200);
-      await tester.ensureVisible(find.text('Kimchi'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Kimchi'));
-      await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(MaterialApp),
-        matchesGoldenFile('goldens/$theme-foods-sheet-cautions.png'),
-      );
-    });
-
     testWidgets('foods all, $theme', (tester) async {
       await pumpScreen(
         tester,
@@ -103,48 +84,98 @@ void main() {
       );
     });
 
-    testWidgets('foods all sheet, $theme', (tester) async {
-      await pumpScreen(
-        tester,
-        const FoodsPage(),
-        dark: dark,
-        overrides: base(),
-      );
-      await tester.tap(find.text('All foods'));
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(EditableText), 'lettuce');
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Lettuce'));
-      await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(MaterialApp),
-        matchesGoldenFile('goldens/$theme-foods-all-sheet.png'),
-      );
-    });
-
-    for (final (food, name) in [
-      ('Chicken', 'sheet'),
-      ('Farro', 'sheet-on-list'),
+    for (final (name, id, phase, general) in [
+      ('detail', 'broccoli', Phase.menstrual, false),
+      ('detail-on-list', 'farro', Phase.follicular, false),
+      ('detail-cautions', 'kimchi', Phase.luteal, false),
+      ('detail-general', 'lettuce', Phase.follicular, true),
     ]) {
-      testWidgets('foods $name, $theme', (tester) async {
+      testWidgets('food $name, $theme', (tester) async {
         await pumpScreen(
           tester,
-          const FoodsPage(),
+          FoodDetailPage(foodId: id, phase: phase, general: general),
           dark: dark,
+          height: 1100,
           overrides: base(),
         );
-        await tester.scrollUntilVisible(find.text(food), 200);
-        await tester.ensureVisible(find.text(food));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text(food));
-        await tester.pumpAndSettle();
         await expectLater(
-          find.byType(MaterialApp),
-          matchesGoldenFile('goldens/$theme-foods-$name.png'),
+          find.byType(FoodDetailPage),
+          matchesGoldenFile('goldens/$theme-food-$name.png'),
         );
       });
     }
+
+    testWidgets('build a meal (Premium), $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const MealBuilderPage(),
+        dark: dark,
+        height: 950,
+        overrides: [
+          ...base(),
+          entitlementStateProvider.overrideWithValue(
+            const EntitlementState(tier: Tier.premium),
+          ),
+        ],
+      );
+      await expectLater(
+        find.byType(MealBuilderPage),
+        matchesGoldenFile('goldens/$theme-build-a-meal.png'),
+      );
+    });
+
+    testWidgets('learn more, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const LearnMorePage(),
+        dark: dark,
+        overrides: base(),
+      );
+      await expectLater(
+        find.byType(LearnMorePage),
+        matchesGoldenFile('goldens/$theme-learn-more.png'),
+      );
+    });
   }
+
+  testWidgets('food detail and build a meal, 320 pt at 1.5× text', (
+    tester,
+  ) async {
+    await pumpScreen(
+      tester,
+      const FoodDetailPage(foodId: 'broccoli', phase: Phase.menstrual),
+      dark: false,
+      width: 320,
+      height: 1500,
+      textScale: 1.5,
+      overrides: base(),
+    );
+    await expectLater(
+      find.byType(FoodDetailPage),
+      matchesGoldenFile('goldens/light-food-detail-narrow-large-text.png'),
+    );
+  });
+
+  testWidgets('build a meal (Premium), 320 pt at 1.5× text', (tester) async {
+    await pumpScreen(
+      tester,
+      const MealBuilderPage(),
+      dark: false,
+      width: 320,
+      height: 1700,
+      textScale: 1.5,
+      overrides: [
+        ...base(),
+        entitlementStateProvider.overrideWithValue(
+          const EntitlementState(tier: Tier.premium),
+        ),
+      ],
+    );
+    await expectLater(
+      find.byType(MealBuilderPage),
+      matchesGoldenFile('goldens/light-build-a-meal-narrow-large-text.png'),
+    );
+  });
 
   testWidgets('foods, 320 pt at 1.5× text', (tester) async {
     await pumpScreen(
