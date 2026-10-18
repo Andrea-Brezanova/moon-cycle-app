@@ -214,7 +214,8 @@ class FoodDetailPage extends ConsumerWidget {
                     variant: MoonButtonVariant.ghost,
                     trailingIcon: canMeal ? null : MoonIconName.lock,
                     onPressed: canMeal
-                        ? () => context.push(Routes.mealBuilder())
+                        ? () =>
+                              context.push(Routes.mealBuilder(foodId: food.id))
                         : toSubscription,
                   ),
                   const SizedBox(height: 12),

@@ -331,4 +331,16 @@ void main() {
       }
     });
   });
+
+  test('meal slots: protein, base or plant', () {
+    MealSlot slot(String id) => mealSlotFor(testCatalogue.food(id)!);
+    expect(slot('broccoli'), MealSlot.plant);
+    expect(slot('kale'), MealSlot.plant);
+    expect(slot('blueberry'), MealSlot.plant);
+    expect(slot('tofu'), MealSlot.protein);
+    expect(slot('chicken'), MealSlot.protein);
+    expect(slot('chickpea'), MealSlot.protein);
+    expect(slot('brown-rice'), MealSlot.base);
+    expect(slot('sweet-potato'), MealSlot.base);
+  });
 }

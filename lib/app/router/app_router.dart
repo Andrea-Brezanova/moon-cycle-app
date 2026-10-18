@@ -123,8 +123,12 @@ GoRouter buildAppRouter({
                       ),
                       GoRoute(
                         path: 'meal-builder',
-                        pageBuilder: (context, state) =>
-                            _page(state, const MealBuilderPage()),
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          MealBuilderPage(
+                            foodId: state.uri.queryParameters['food'],
+                          ),
+                        ),
                       ),
                       GoRoute(
                         path: ':foodId',

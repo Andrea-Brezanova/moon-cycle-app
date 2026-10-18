@@ -23,17 +23,29 @@ final entitlementGrantsProvider = Provider<List<EntitlementGrant>>(
 );
 
 /// Whether the debug Premium preview may exist at all: debug builds only.
+/// In profile and release builds this is false, so nothing below can grant
+/// anything.
 final debugPreviewAllowedProvider = Provider<bool>((ref) => kDebugMode);
 
-/// The developer's switch (Settings › debug links). Off by default and never
-/// saved, so a restart is always back to the real entitlements.
+/// Whether a development run starts with every feature unlocked. Set with
+/// `--dart-define=UNLOCK_ALL_FEATURES=true` (it is in `env/dev.json`, and
+/// must never be in `env/prod.json`); false when not set, so tests and
+/// production builds start with the real restrictions.
+final debugUnlockAtStartProvider = Provider<bool>(
+  (ref) => const bool.fromEnvironment('UNLOCK_ALL_FEATURES'),
+);
+
+/// The developer's switch: all features unlocked for testing, on top of the
+/// real entitlements (Settings › debug links). Starts as
+/// [debugUnlockAtStartProvider]; switching it off shows the production
+/// restrictions. Never saved.
 final debugPremiumPreviewProvider = NotifierProvider<DebugPremiumPreview, bool>(
   DebugPremiumPreview.new,
 );
 
 class DebugPremiumPreview extends Notifier<bool> {
   @override
-  bool build() => false;
+  bool build() => ref.read(debugUnlockAtStartProvider);
 
   void toggle() => state = !state;
 }

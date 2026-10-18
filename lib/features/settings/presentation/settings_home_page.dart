@@ -161,8 +161,8 @@ class SettingsHomePage extends ConsumerWidget {
               // Plus launch promo. Debug builds only, never saved.
               TextLink(
                 ref.watch(debugPremiumPreviewProvider)
-                    ? 'Premium preview: on'
-                    : 'Premium preview: off',
+                    ? 'All features unlocked (dev): on'
+                    : 'All features unlocked (dev): off',
                 size: 14,
                 onTap: ref.read(debugPremiumPreviewProvider.notifier).toggle,
               ),

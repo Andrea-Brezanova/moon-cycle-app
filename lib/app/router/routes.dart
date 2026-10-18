@@ -52,7 +52,9 @@ abstract final class Routes {
   static const String learnMore = '/foods/learn';
 
   /// Foods › the meal builder (Premium).
-  static String mealBuilder() => '/foods/meal-builder';
+  /// With [foodId] the builder opens with that food already chosen.
+  static String mealBuilder({String? foodId}) =>
+      '/foods/meal-builder${foodId == null ? '' : '?food=$foodId'}';
 
   /// A food's page. [phase] is the phase whose "Why this food?" it shows;
   /// [general] opens it without phase context (a suggestion from outside the

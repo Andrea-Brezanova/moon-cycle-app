@@ -398,3 +398,23 @@ final baseIdeasProvider = Provider.family<FoodIdeas, Phase>((ref, phase) {
     ],
   );
 });
+
+/// Where a food goes in a meal: the protein, the base, or one of the plants.
+enum MealSlot {
+  protein('Protein'),
+  base('Base'),
+  plant('Plant');
+
+  const MealSlot(this.label);
+
+  final String label;
+}
+
+/// The meal slot [food] belongs in. A protein source (including legumes and
+/// nuts, as supporting protein) is a protein; the familiar starches are a
+/// base; everything else (vegetables, fruit, herbs) is a plant.
+MealSlot mealSlotFor(Food food) {
+  if (proteinFamilyOf(food) != null) return MealSlot.protein;
+  final isBase = _baseFamilies.values.any((ids) => ids.contains(food.id));
+  return isBase ? MealSlot.base : MealSlot.plant;
+}
