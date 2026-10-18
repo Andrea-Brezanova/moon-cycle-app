@@ -26,7 +26,7 @@ final _screens = <String, String>{
   ]),
   'meal results (one food)': Routes.mealResults(['garlic']),
   'meal results (no recipe)': Routes.mealResults(['kombu', 'wakame']),
-  'try something new': Routes.tryNew(['kale', 'pomegranate', 'tempeh']),
+  '3 plants a day': Routes.threePlants,
   'diary': Routes.diary,
   'my recipes': Routes.myRecipes,
 };

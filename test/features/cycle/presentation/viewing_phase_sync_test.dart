@@ -49,7 +49,7 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
     expect(find.text('Back to today · Day 7'), findsNothing);
     await tester.scrollUntilVisible(
-      find.text('Try something new'),
+      find.text('3 Plants a Day'),
       200,
       scrollable: find.byType(Scrollable).first,
     );

@@ -30,9 +30,17 @@ import '../domain/recipe_source.dart';
 /// of the chosen foods each recipe has. A useful first set is shown, with a
 /// button for more. Nothing is generated: if no recipe fits, the page says so.
 class MealResultsPage extends ConsumerStatefulWidget {
-  const MealResultsPage({super.key, required this.choice});
+  const MealResultsPage({
+    super.key,
+    required this.choice,
+    this.fromPlants = false,
+  });
 
   final MealChoice choice;
+
+  /// Opened from 3 Plants a Day: the same search and page, but free, with its
+  /// own back label.
+  final bool fromPlants;
 
   @override
   ConsumerState<MealResultsPage> createState() => _MealResultsPageState();
@@ -46,7 +54,9 @@ class _MealResultsPageState extends ConsumerState<MealResultsPage> {
     final c = context.moon;
     final catalogue = ref.watch(catalogueProvider);
     final config = ref.watch(matchConfigProvider);
-    final allowed = ref.watch(featureGateProvider).canUse(Feature.buildMeal);
+    final allowed =
+        widget.fromPlants ||
+        ref.watch(featureGateProvider).canUse(Feature.buildMeal);
     final result = ref.watch(mealDiscoveryProvider(widget.choice.key));
     final names = [
       for (final id in widget.choice.ids) ?catalogue.food(id)?.displayName,
@@ -60,10 +70,14 @@ class _MealResultsPageState extends ConsumerState<MealResultsPage> {
           padding: const EdgeInsets.only(bottom: 42 + 76),
           children: [
             SubScreenHeader(
-              backLabel: 'Build a meal',
+              backLabel: widget.fromPlants ? '3 Plants a Day' : 'Build a meal',
               onBack: () => context.canPop()
                   ? context.pop()
-                  : context.go(Routes.mealBuilder()),
+                  : context.go(
+                      widget.fromPlants
+                          ? Routes.threePlants
+                          : Routes.mealBuilder(),
+                    ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(

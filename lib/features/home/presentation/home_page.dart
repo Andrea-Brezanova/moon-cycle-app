@@ -17,7 +17,6 @@ import '../../entitlements/domain/entitlements.dart';
 import '../../foods/application/browse_scope.dart';
 import '../../recipes/application/recipe_filter.dart';
 import '../../recipes/application/recipes_scope.dart';
-import 'home_sheets.dart';
 import 'widgets/home_hero.dart';
 import 'widgets/home_sections.dart';
 
@@ -117,10 +116,10 @@ class HomePage extends ConsumerWidget {
                 ),
                 ChoiceCard(
                   icon: MoonIconName.compass,
-                  title: 'Try something new',
-                  subtitle: '3 foods to explore this phase',
+                  title: '3 Plants a Day',
+                  subtitle: 'Three plants to discover today',
                   palette: palette,
-                  onTap: () => showTryNewSheet(context),
+                  onTap: () => context.push(Routes.threePlants),
                 ),
                 ChoiceCard(
                   icon: MoonIconName.shop,

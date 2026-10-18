@@ -13,13 +13,10 @@ import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
-import 'package:moon_cycle/features/generation/application/generation_providers.dart';
-import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.dart';
 import 'package:moon_cycle/features/home/application/home_providers.dart';
-import 'package:moon_cycle/features/home/application/try_something_new.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
-import 'package:moon_cycle/features/home/presentation/try_new_results_page.dart';
 import 'package:moon_cycle/features/home/presentation/widgets/home_sections.dart';
+import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
@@ -105,7 +102,7 @@ void main() {
       'Explore foods',
       'Explore recipes',
       'Build a meal',
-      'Try something new',
+      '3 Plants a Day',
       'Shop',
       'Log diary',
     ];
@@ -276,71 +273,27 @@ void main() {
     expect(find.byType(ShopPage), findsOneWidget);
   });
 
-  testWidgets('Try something new: Today’s food and two more, each with a '
-      'recipe that uses it', (tester) async {
-    final container = await pumpHome(tester);
-    await scrollTo(tester, card('Try something new'));
-    final pages = container.read(tryNewPagesProvider);
-    await tester.tap(card('Try something new'));
-    await tester.pumpAndSettle();
-    final first = pages.first;
-    expect(first, hasLength(3));
-    expect(first.first.isTodaysFood, isTrue);
-    for (final s in first) {
-      expect(s.recipe.keyFoodIds, contains(s.food.id));
-      expect(s.recipe.phase, Phase.follicular);
-      expect(find.text(s.recipe.title), findsWidgets);
-    }
-    // The two extra foods are different foods, ideally different categories.
-    expect(first.map((s) => s.food.id).toSet(), hasLength(3));
-    expect(first[1].food.categoryId, isNot(first[2].food.categoryId));
-
-    final firstTitles = [for (final s in first) s.recipe.title];
-    await tester.tap(find.text('Show me more'));
-    await tester.pumpAndSettle();
-    final second = pages[1 % pages.length];
-    expect(second.first.isTodaysFood, isTrue);
-    expect([for (final s in second) s.recipe.title], isNot(firstTitles));
-  });
-
-  testWidgets('Try something new keeps the discovery experience when nothing '
-      'can be generated: no dead control', (tester) async {
+  testWidgets('3 Plants a Day: the card says what it is and opens the page', (
+    tester,
+  ) async {
     await pumpHome(tester);
-    await scrollTo(tester, card('Try something new'));
-    await tester.tap(card('Try something new'));
+    await scrollTo(tester, card('3 Plants a Day'));
+    expect(find.text('Three plants to discover today'), findsOneWidget);
+    expect(find.text('Try something new'), findsNothing);
+    await tester.tap(card('3 Plants a Day'));
     await tester.pumpAndSettle();
-    expect(find.text('Recipes with all three foods'), findsNothing);
-    expect(find.text('Show me more'), findsOneWidget);
+    expect(find.byType(ThreePlantsPage), findsOneWidget);
   });
 
-  testWidgets('Try something new offers the three-recipe experience when '
-      'generation is available', (tester) async {
-    final container = await pumpHome(
-      tester,
-      more: [
-        debugUnlockAtStartProvider.overrideWithValue(true),
-        recipeGenerationServiceProvider.overrideWithValue(
-          DevMockGenerationService(
-            catalogue: testCatalogue,
-            delay: Duration.zero,
-          ),
-        ),
-        recipeImageServiceProvider.overrideWithValue(
-          PlaceholderRecipeImageService(delay: Duration.zero),
-        ),
-        entitlementStateProvider.overrideWithValue(premium),
-      ],
+  testWidgets('3 Plants a Day is free: no lock on the card', (tester) async {
+    final handle = tester.ensureSemantics();
+    await pumpHome(tester);
+    await scrollTo(tester, card('3 Plants a Day'));
+    expect(
+      find.bySemanticsLabel(RegExp('^3 Plants a Day, Premium')),
+      findsNothing,
     );
-    final first = container.read(tryNewPagesProvider).first;
-    await scrollTo(tester, card('Try something new'));
-    await tester.tap(card('Try something new'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Recipes with all three foods'));
-    await tester.pumpAndSettle();
-    expect(find.byType(TryNewResultsPage), findsOneWidget);
-    final names = [for (final s in first) s.food.displayName].join(' · ');
-    expect(find.text(names), findsOneWidget);
-    expect(find.byKey(const ValueKey('trio-failure')), findsNothing);
+    handle.dispose();
   });
 
   testWidgets('browsing leaves the real cycle alone; Back to today works', (
@@ -382,7 +335,7 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
-        expect(card('Try something new'), findsOneWidget);
+        expect(card('3 Plants a Day'), findsOneWidget);
         await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
         await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
         handle.dispose();

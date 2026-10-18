@@ -17,7 +17,7 @@ import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.
 import 'package:moon_cycle/features/generation/domain/balanced_selection.dart';
 import 'package:moon_cycle/features/generation/presentation/create_recipe_page.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
-import 'package:moon_cycle/features/home/presentation/try_new_results_page.dart';
+import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
 
 import '../../helpers/golden_screen.dart';
 import '../../helpers/moon_fonts.dart';
@@ -33,7 +33,6 @@ const _balanced = BalancedSelection(
   baseId: 'quinoa',
   plantIds: ['yellow-bell-pepper', 'orange', 'kale'],
 );
-const _unusual = ['kale', 'pomegranate', 'tempeh'];
 
 void main() {
   setUpAll(loadMoonFonts);
@@ -116,17 +115,23 @@ void main() {
       );
     });
 
-    testWidgets('try something new: three recipes, $theme', (tester) async {
+    testWidgets('3 plants a day, $theme', (tester) async {
       await pumpScreen(
         tester,
-        const TryNewResultsPage(foodIds: _unusual),
+        const ThreePlantsPage(),
         dark: dark,
-        height: 2300,
+        height: 1500,
         overrides: overrides,
       );
+      await tester.tap(
+        find
+            .byWidgetPredicate((w) => w.key.toString().contains("'plant-"))
+            .first,
+      );
+      await tester.pumpAndSettle();
       await expectLater(
-        find.byType(TryNewResultsPage),
-        matchesGoldenFile('goldens/$theme-try-new-results.png'),
+        find.byType(ThreePlantsPage),
+        matchesGoldenFile('goldens/$theme-three-plants.png'),
       );
     });
 
@@ -196,7 +201,7 @@ void main() {
     for (final (name, page, h) in [
       ('meal-results', MealResultsPage(choice: _mixed), 2600.0),
       ('diary', const DiaryPage(), 1400.0),
-      ('try-new', const TryNewResultsPage(foodIds: _unusual), 3200.0),
+      ('three-plants', const ThreePlantsPage(), 1800.0),
     ]) {
       await pumpScreen(
         tester,

@@ -70,17 +70,20 @@ abstract final class Routes {
   /// Foods tab stack › the food diary (opened from Home).
   static const String diary = '/foods/diary';
 
-  /// Try Something New: three foods and recipes that use them all.
-  static String tryNew(List<String> foodIds) =>
-      '/foods/try-new?foods=${foodIds.join(',')}';
+  /// Foods tab stack › 3 Plants a Day (opened from Home).
+  static const String threePlants = '/foods/three-plants';
 
   /// Recipes › the user's own generated recipes.
   static const String myRecipes = '/recipes/mine';
 
   /// Foods › the recipes that match the foods chosen in the meal builder.
   /// The chosen foods travel as ids in the query.
-  static String mealResults(List<String> foodIds) =>
-      '/foods/meal-builder/results?foods=${foodIds.join(',')}';
+  ///
+  /// [fromPlants] marks a search started from 3 Plants a Day, which is free
+  /// (Build a meal itself is Premium).
+  static String mealResults(List<String> foodIds, {bool fromPlants = false}) =>
+      '/foods/meal-builder/results?foods=${foodIds.join(',')}'
+      '${fromPlants ? '&from=plants' : ''}';
 
   /// Foods › creating a new recipe for the same choice (the fallback).
   static String mealCreate({

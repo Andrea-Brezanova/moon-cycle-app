@@ -16,13 +16,13 @@ import '../../features/generation/domain/balanced_selection.dart';
 import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
-import '../../features/home/presentation/try_new_results_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
 import '../../features/onboarding/presentation/food_preferences_page.dart';
 import '../../features/onboarding/presentation/last_period_page.dart';
 import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
+import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/recipes/presentation/recipes_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
@@ -148,24 +148,19 @@ GoRouter buildAppRouter({
                             _page(state, const DiaryPage()),
                       ),
                       GoRoute(
-                        path: 'try-new',
-                        pageBuilder: (context, state) => _page(
-                          state,
-                          TryNewResultsPage(
-                            foodIds: [
-                              for (final id
-                                  in (state.uri.queryParameters['foods'] ?? '')
-                                      .split(','))
-                                if (id.isNotEmpty) id,
-                            ],
-                          ),
-                        ),
+                        path: 'three-plants',
+                        pageBuilder: (context, state) =>
+                            _page(state, const ThreePlantsPage()),
                       ),
                       GoRoute(
                         path: 'meal-builder/results',
                         pageBuilder: (context, state) => _page(
                           state,
-                          MealResultsPage(choice: _choiceOf(state)),
+                          MealResultsPage(
+                            choice: _choiceOf(state),
+                            fromPlants:
+                                state.uri.queryParameters['from'] == 'plants',
+                          ),
                         ),
                       ),
                       GoRoute(

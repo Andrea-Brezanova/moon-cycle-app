@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/domain/local_date.dart';
+import '../../../core/domain/stable_hash.dart';
 import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
@@ -8,15 +9,7 @@ import '../../content/domain/recipe.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 
-/// A small, stable string hash (FNV-1a), so a pick never changes between
-/// rebuilds, launches or platforms.
-int stableHash(String text) {
-  var hash = 0x811c9dc5;
-  for (final unit in text.codeUnits) {
-    hash = ((hash ^ unit) * 0x01000193) & 0xffffffff;
-  }
-  return hash;
-}
+export '../../../core/domain/stable_hash.dart' show stableHash;
 
 /// The recipes of the real phase that the user can eat and that use [food]
 /// as a key ingredient, in the stored order.

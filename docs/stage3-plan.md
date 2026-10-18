@@ -43,9 +43,9 @@ browsed) phase foods first; "Show all foods" adds the others as their own group.
 `ExternalRecipeClient`; rights decide what may be shown or stored. No provider is
 activated; see `docs/external-recipe-api-evaluation.md`.
 
-Try Something New still uses a generator **only if** a generation service is
-available (none is outside development); that feature is separate from Build a
-meal and unchanged.
+Try Something New was replaced by **3 Plants a Day** (three plants from the real
+phase per day, free, using this same search). The generator's `try_new` request
+kind remains in the backend and domain code, unlinked from any screen.
 
 ## Summary of recommendations
 

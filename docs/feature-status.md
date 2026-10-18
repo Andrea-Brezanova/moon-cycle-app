@@ -13,7 +13,7 @@ Updated through Stage 7 on `feature/home-choices-food-detail`.
 | Recipes: 112 recipes (40 with photos), filters, detail, add to shopping list, **My recipes** | Working |
 | Shop: the free shopping list (basic) | Working, free |
 | Build a meal: choose 1–8 foods (any category; current-phase foods first, "Show all foods" for the rest); **Create my meal** finds real recipes that use at least one, ranked by how many; no AI generation | Working (library; external API not activated) |
-| Try something new: Today's food plus two foods, each with a recipe; with a generation service, three recipes that each use all three foods | Stage 1 experience working; three-recipe experience needs a generator (dev mock only) |
+| 3 Plants a Day (replaces Try something new): three distinct plants from your real phase each day, stable all day, rotating across days and cycles; pick 1–3 and **Create my meal** runs the same recipe search as Build a meal | Working, free; no AI generation |
 | Log diary: entries by day and meal, edit, delete, merged duplicates, daily history; Food Detail "Add to logged meals" and recipe "Add to my diary" | Working, local only, Premium (unlocked in development) |
 | Suggest to Moon Cycle / review workflow | Backend and client code built and tested locally; no UI path in any build until accounts exist |
 | Entitlement architecture: tiers, feature gates, Subscription page | Working; no purchases |
