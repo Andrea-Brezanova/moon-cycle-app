@@ -1,9 +1,12 @@
 name: CI
 
 on:
+  # Every push to any branch (feature branches included) and every pull
+  # request that targets main.
   push:
-    branches: [main]
+    branches: ['**']
   pull_request:
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -24,11 +27,34 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
       - run: flutter pub get
-      - run: dart format --output=none --set-exit-if-changed lib test tool
+      - run: dart format --output=none --set-exit-if-changed .
       - run: flutter analyze
       - run: dart run tool/check_layers.dart
-      # Golden screenshots are made on macOS; font rendering differs on Linux.
+      # Golden screenshots are made on macOS; font rendering differs on Linux,
+      # so they run in the separate `golden-tests` job below.
       - run: flutter test --exclude-tags golden
+
+  golden-tests:
+    name: Golden screenshots (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+      - run: flutter pub get
+      # Goldens are recorded on macOS, so they are compared on macOS. Never
+      # regenerate them in CI.
+      - run: flutter test --tags golden
+      - name: Keep failure images
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: '**/failures/*.png'
+          if-no-files-found: ignore
 
   android-dev-build:
     name: Android build (dev, debug)
