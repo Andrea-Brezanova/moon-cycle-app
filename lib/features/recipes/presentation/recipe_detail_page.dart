@@ -21,6 +21,7 @@ import '../../generation/application/generation_providers.dart';
 import '../../generation/data/personal_recipe_repository.dart';
 import '../../generation/domain/personal_recipe.dart';
 import '../../generation/domain/recipe_image_service.dart';
+import '../../generation/domain/recipe_submission_service.dart';
 import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../../shopping/domain/item_key.dart';
@@ -282,6 +283,21 @@ class _PersonalNote extends ConsumerWidget {
           key: const ValueKey('personal-recipe-note'),
           style: style,
         ),
+        if (_lifecycleLine(recipe.lifecycle) case final line?) ...[
+          const SizedBox(height: 4),
+          Text(line, key: const ValueKey('lifecycle-line'), style: style),
+        ],
+        if (recipe.lifecycle == RecipeLifecycle.privateSaved &&
+            recipe.remoteId != null &&
+            !recipe.isDevSample &&
+            ref.watch(submissionAvailableProvider)) ...[
+          const SizedBox(height: 4),
+          TextLink(
+            'Suggest to Moon Cycle',
+            size: 13,
+            onTap: () => _suggest(context, ref, recipe),
+          ),
+        ],
         if (recipe.imageStatus == ImageStatus.pending) ...[
           const SizedBox(height: 4),
           Text('Adding a picture…', style: style),
@@ -303,6 +319,65 @@ class _PersonalNote extends ConsumerWidget {
         ],
       ],
     );
+  }
+}
+
+String? _lifecycleLine(RecipeLifecycle l) => switch (l) {
+  RecipeLifecycle.privateSaved => null,
+  RecipeLifecycle.published => 'Part of the Moon Cycle recipe library.',
+  _ =>
+    'Suggested to Moon Cycle. It stays private unless an editor approves it.',
+};
+
+/// The user's explicit, informed request to have a recipe reviewed. Nothing is
+/// shared by this: only an editor's approval can publish.
+Future<void> _suggest(
+  BuildContext context,
+  WidgetRef ref,
+  PersonalRecipe recipe,
+) async {
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Suggest to Moon Cycle?'),
+      content: const Text(
+        'Moon Cycle’s editors may review this recipe for the shared library. '
+        'Your name and account are never shown with it, and nothing is '
+        'published unless an editor approves it. You can withdraw it any time '
+        'before then.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context, false),
+          child: const Text('Not now'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context, true),
+          child: const Text('Suggest it'),
+        ),
+      ],
+    ),
+  );
+  if (ok != true) return;
+  String? problem;
+  try {
+    final lifecycle = await ref
+        .read(recipeSubmissionServiceProvider)
+        .submit(recipe.remoteId!);
+    await ref
+        .read(personalRecipeRepositoryProvider)
+        .setLifecycle(recipe.ownerId, recipe.id, lifecycle);
+  } on SubmissionException catch (e) {
+    problem = switch (e.failure) {
+      SubmissionFailure.alreadySubmitted => 'It has already been suggested.',
+      SubmissionFailure.notReviewable => 'This recipe can’t be suggested.',
+      SubmissionFailure.notSignedIn => 'Please sign in first.',
+      _ => 'We couldn’t send it just now. Please try again.',
+    };
+  }
+  if (problem != null && context.mounted) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(problem)));
   }
 }
 

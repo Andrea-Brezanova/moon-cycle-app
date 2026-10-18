@@ -43,8 +43,15 @@ final class Provenance {
 
 /// What a service returns: the untrusted recipe and who made it.
 final class GenerationResult {
-  const GenerationResult({required this.recipe, required this.provenance});
+  const GenerationResult({
+    required this.recipe,
+    required this.provenance,
+    this.remoteId,
+  });
 
   final GeneratedRecipe recipe;
   final Provenance provenance;
+
+  /// The server's id for the saved recipe (null for the local mock).
+  final String? remoteId;
 }

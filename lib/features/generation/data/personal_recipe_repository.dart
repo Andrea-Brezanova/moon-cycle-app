@@ -108,6 +108,7 @@ class PersonalRecipeRepository {
                 origin: recipe.provenance.origin.name,
                 provenanceJson: jsonEncode(recipe.provenance.toJson()),
                 lifecycle: Value(recipe.lifecycle.name),
+                remoteId: Value(recipe.remoteId),
                 imageStatus: Value(recipe.imageStatus.name),
                 imageRefJson: Value(
                   recipe.imageRef == null
@@ -141,6 +142,25 @@ class PersonalRecipeRepository {
             ),
           );
 
+  /// Records where the recipe is in review (set from the server's answer).
+  Future<void> setLifecycle(
+    String ownerId,
+    String id,
+    RecipeLifecycle lifecycle,
+  ) =>
+      (_db.update(_db.personalRecipes)..where(
+            (t) =>
+                t.id.equals(id) &
+                t.ownerId.equals(ownerId) &
+                t.deletedAt.isNull(),
+          ))
+          .write(
+            PersonalRecipesCompanion(
+              lifecycle: Value(lifecycle.name),
+              updatedAt: Value(_stamp.now()),
+            ),
+          );
+
   /// A tombstone, not a hard delete (the same rule as every user table).
   Future<void> delete(String ownerId, String id) {
     final now = _stamp.now();
@@ -169,6 +189,7 @@ class PersonalRecipeRepository {
     createdAt: r.createdAt,
     lifecycle: RecipeLifecycle.values.byName(r.lifecycle),
     imageStatus: ImageStatus.values.byName(r.imageStatus),
+    remoteId: r.remoteId,
     imageRef: r.imageRefJson == null
         ? null
         : RecipeImageRef.fromJson(

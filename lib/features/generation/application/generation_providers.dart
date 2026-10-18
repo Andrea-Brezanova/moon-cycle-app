@@ -15,6 +15,7 @@ import '../domain/generation_request.dart';
 import '../domain/personal_recipe.dart';
 import '../domain/recipe_generation_service.dart';
 import '../domain/recipe_image_service.dart';
+import '../domain/recipe_submission_service.dart';
 import 'recipe_creator.dart';
 
 /// Whether the development mock generator may exist: a debug build of the dev
@@ -45,6 +46,19 @@ final recipeImageServiceProvider = Provider<RecipeImageService>(
   (ref) => ref.watch(devGenerationAllowedProvider)
       ? PlaceholderRecipeImageService()
       : const UnavailableImageService(),
+);
+
+/// "Suggest to Moon Cycle". No backend yet, so it is unavailable in every
+/// build; a cloud service replaces it when accounts exist.
+final recipeSubmissionServiceProvider = Provider<RecipeSubmissionService>(
+  (ref) => const UnavailableSubmissionService(),
+);
+
+/// Whether recipes can be suggested at all from this build.
+final submissionAvailableProvider = Provider<bool>(
+  (ref) =>
+      ref.watch(recipeSubmissionServiceProvider)
+          is! UnavailableSubmissionService,
 );
 
 /// Whether this build can create recipes at all. When false the app says so

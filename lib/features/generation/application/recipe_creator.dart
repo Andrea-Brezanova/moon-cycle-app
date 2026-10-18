@@ -170,6 +170,7 @@ class RecipeCreator {
         provenance: result.provenance,
         createdAt: now(),
         imageStatus: ImageStatus.pending,
+        remoteId: result.remoteId,
       ),
     );
     return Created(saved);

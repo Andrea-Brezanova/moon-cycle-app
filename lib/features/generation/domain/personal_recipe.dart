@@ -19,6 +19,7 @@ final class PersonalRecipe {
     this.lifecycle = RecipeLifecycle.privateSaved,
     this.imageStatus = ImageStatus.none,
     this.imageRef,
+    this.remoteId,
   });
 
   /// The id is namespaced `u-…`, so it cannot collide with a bundled recipe.
@@ -31,6 +32,9 @@ final class PersonalRecipe {
   final RecipeLifecycle lifecycle;
   final ImageStatus imageStatus;
   final RecipeImageRef? imageRef;
+
+  /// The server row id, once the recipe exists there.
+  final String? remoteId;
 
   String get id => recipe.id;
 

@@ -103,6 +103,7 @@ class CloudRecipeGenerationService implements RecipeGenerationService {
           ? GenerationOrigin.cloud
           : GenerationOrigin.devMock; // `local_stub` is never shown as live
       return GenerationResult(
+        remoteId: json['recipe_id'] as String?,
         recipe: recipe,
         provenance: Provenance(
           origin: origin,
