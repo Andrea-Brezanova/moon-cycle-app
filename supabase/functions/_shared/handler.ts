@@ -1,12 +1,19 @@
 import { foods } from "./catalogue.ts";
 import { ModelError, type ModelResult, type RecipeModel } from "./model.ts";
-import type { Filter, GeneratedRecipe, GenerationRequest, Issue } from "./types.ts";
+import {
+  type Filter,
+  type GeneratedRecipe,
+  type GenerationRequest,
+  type Issue,
+  requestedFoodIds,
+} from "./types.ts";
 import { validate } from "./validator.ts";
 
 /** What the handler needs from the database (service-role functions). */
 export interface Db {
   beginGeneration(args: {
     userId: string; key: string; fingerprint: string; phase: string;
+    kind: "meal" | "try_new"; foodIds: string[]; variant: number;
     protein: string; base: string; plants: string[];
   }): Promise<{ jobId: string; status: string; recipeId: string | null; isNew: boolean }>;
   completeGeneration(args: {
@@ -57,6 +64,9 @@ function reply(kind: string, body: Record<string, unknown> = {}): Response {
 
 /** The canonical selection text, identical to the app's `fingerprint`. */
 export function fingerprint(r: GenerationRequest): string {
+  if (r.kind === "try_new") {
+    return `try_new|${r.phase}|${[...(r.food_ids ?? [])].sort().join(",")}|${r.variant ?? 0}`;
+  }
   return `${r.phase}|${r.protein_id}|${r.base_id}|${[...r.plant_ids].sort().join(",")}`;
 }
 
@@ -66,11 +76,21 @@ function parse(body: unknown): GenerationRequest | null {
   const phases = ["menstrual", "follicular", "ovulatory", "luteal"];
   if (
     typeof b.idempotency_key !== "string" || b.idempotency_key.length < 8 || b.idempotency_key.length > 80 ||
-    typeof b.phase !== "string" || !phases.includes(b.phase) ||
-    typeof b.protein_id !== "string" || typeof b.base_id !== "string" ||
-    !Array.isArray(b.plant_ids) || !b.plant_ids.every((p) => typeof p === "string")
+    typeof b.phase !== "string" || !phases.includes(b.phase)
   ) return null;
-  return b as unknown as GenerationRequest;
+  const strings = (v: unknown) => Array.isArray(v) && v.every((p) => typeof p === "string");
+  if (b.kind === "try_new") {
+    if (!strings(b.food_ids) || !Number.isInteger(b.variant ?? 0)) return null;
+    return {
+      idempotency_key: b.idempotency_key, phase: b.phase as GenerationRequest["phase"],
+      kind: "try_new", food_ids: b.food_ids as string[], variant: (b.variant as number) ?? 0,
+      protein_id: "", base_id: "", plant_ids: [],
+    };
+  }
+  if (typeof b.protein_id !== "string" || typeof b.base_id !== "string" || !strings(b.plant_ids)) {
+    return null;
+  }
+  return { ...(b as unknown as GenerationRequest), kind: "meal" };
 }
 
 export async function handle(req: Request, deps: Deps): Promise<Response> {
@@ -90,18 +110,21 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   if (!request) return reply("bad_request");
 
   // Every id is re-resolved against the server's copy of the catalogue.
-  const ids = [request.protein_id, request.base_id, ...request.plant_ids];
-  if (
-    request.plant_ids.length < 2 || request.plant_ids.length > 3 ||
-    new Set(ids).size !== ids.length || ids.some((id) => !foods.has(id))
-  ) return reply("invalid_selection");
+  const ids = requestedFoodIds(request);
+  const countOk = request.kind === "try_new"
+    ? ids.length === 3 && (request.variant ?? 0) >= 0 && (request.variant ?? 0) <= 2
+    : request.plant_ids.length >= 2 && request.plant_ids.length <= 3;
+  if (!countOk || new Set(ids).size !== ids.length || ids.some((id) => !foods.has(id))) {
+    return reply("invalid_selection");
+  }
 
   // The local stub may only run when APP_ENV is "local".
   let job;
   try {
     job = await deps.db.beginGeneration({
       userId, key: request.idempotency_key, fingerprint: fingerprint(request),
-      phase: request.phase, protein: request.protein_id, base: request.base_id,
+      phase: request.phase, kind: request.kind ?? "meal", foodIds: ids,
+      variant: request.variant ?? 0, protein: request.protein_id, base: request.base_id,
       plants: request.plant_ids,
     });
   } catch (e) {

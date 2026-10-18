@@ -87,6 +87,29 @@ Deno.test("unknown foods, repeats and wrong plant counts are refused before any 
   assertEquals(model.calls, 0);
 });
 
+Deno.test("Try Something New: three foods, a variant, and its own fingerprint", async () => {
+  const db = new FakeDb();
+  const tn = { idempotency_key: "tn-key-0001", phase: "luteal", kind: "try_new", food_ids: ["kale", "carrot", "tofu"], variant: 1 };
+  const r = await call(db, new StubModel(), tn);
+  assertEquals(r.status, 200);
+  const j = await r.json();
+  assertEquals(j.recipe.title, "Kale, Carrot & Tofu Soup");
+  assertEquals(fingerprint({ ...tn, protein_id: "", base_id: "", plant_ids: [] } as never), "try_new|luteal|carrot,kale,tofu|1");
+});
+
+Deno.test("Try Something New: wrong food counts or variants are refused", async () => {
+  const model = new StubModel();
+  for (const t of [
+    { idempotency_key: "tn-key-0002", phase: "luteal", kind: "try_new", food_ids: ["kale", "carrot"], variant: 0 },
+    { idempotency_key: "tn-key-0003", phase: "luteal", kind: "try_new", food_ids: ["kale", "carrot", "tofu"], variant: 3 },
+    { idempotency_key: "tn-key-0004", phase: "luteal", kind: "try_new", food_ids: ["kale", "kale", "tofu"], variant: 0 },
+    { idempotency_key: "tn-key-0005", phase: "luteal", kind: "try_new", food_ids: ["kale", "carrot", "moon-dust"], variant: 0 },
+  ]) {
+    assertEquals((await call(new FakeDb(), model, t)).status, 422);
+  }
+  assertEquals(model.calls, 0);
+});
+
 Deno.test("malformed bodies are 400", async () => {
   const r = await call(new FakeDb(), new StubModel(), { nope: true });
   assertEquals(r.status, 400);

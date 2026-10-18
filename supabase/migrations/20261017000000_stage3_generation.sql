@@ -68,9 +68,14 @@ create table public.generation_jobs (
   idempotency_key text not null check (char_length(idempotency_key) between 8 and 80),
   fingerprint text not null,
   phase text not null check (phase in ('menstrual', 'follicular', 'ovulatory', 'luteal')),
-  protein_id text not null,
-  base_id text not null,
-  plant_ids text[] not null check (cardinality(plant_ids) between 2 and 3),
+  -- 'meal': Build a Meal (protein, base, 2-3 plants). 'try_new': Try
+  -- Something New (three foods, one recipe per variant).
+  kind text not null default 'meal' check (kind in ('meal', 'try_new')),
+  food_ids text[] not null,
+  variant integer not null default 0 check (variant between 0 and 2),
+  protein_id text,
+  base_id text,
+  plant_ids text[],
   status text not null default 'generating'
     check (status in ('generating', 'succeeded', 'failed')),
   failure_kind text,
@@ -84,7 +89,12 @@ create table public.generation_jobs (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   completed_at timestamptz,
-  unique (user_id, idempotency_key)
+  unique (user_id, idempotency_key),
+  check (
+    (kind = 'meal' and protein_id is not null and base_id is not null
+       and plant_ids is not null and cardinality(plant_ids) between 2 and 3)
+    or (kind = 'try_new' and cardinality(food_ids) = 3)
+  )
 );
 create index generation_jobs_user_created on public.generation_jobs (user_id, created_at desc);
 create index generation_jobs_created on public.generation_jobs (created_at);
@@ -213,11 +223,13 @@ language sql stable security definer set search_path = public as $$
   ) or public.dev_bypass_active()
 $$;
 
--- Starts (or finds) a generation job. Idempotent per (user, key).
+-- Starts (or finds) a generation job. Idempotent per (user, key). The two
+-- public entry points below wrap it.
 -- Raises: generation_disabled, not_entitled, rate_limited, quota_exceeded,
 -- budget_exhausted. Does NOT charge the quota: that happens on success only.
-create function public.begin_generation(
-  p_user uuid, p_key text, p_fingerprint text, p_phase text,
+create function public.begin_job(
+  p_user uuid, p_key text, p_fingerprint text, p_phase text, p_kind text,
+  p_food_ids text[], p_variant integer,
   p_protein text, p_base text, p_plants text[]
 ) returns table (job_id uuid, status text, recipe_id uuid, is_new boolean)
 language plpgsql security definer set search_path = public as $$
@@ -261,8 +273,10 @@ begin
   end if;
 
   insert into public.generation_jobs
-    (user_id, idempotency_key, fingerprint, phase, protein_id, base_id, plant_ids)
-  values (p_user, p_key, p_fingerprint, p_phase, p_protein, p_base, p_plants)
+    (user_id, idempotency_key, fingerprint, phase, kind, food_ids, variant,
+     protein_id, base_id, plant_ids)
+  values (p_user, p_key, p_fingerprint, p_phase, p_kind, p_food_ids, p_variant,
+     p_protein, p_base, p_plants)
   on conflict (user_id, idempotency_key) do nothing
   returning * into v_job;
   if not found then
@@ -275,6 +289,27 @@ begin
   end if;
   return query select v_job.id, v_job.status, null::uuid, true;
 end $$;
+
+
+-- Build a Meal: a protein, a base and 2-3 plants.
+create function public.begin_generation(
+  p_user uuid, p_key text, p_fingerprint text, p_phase text,
+  p_protein text, p_base text, p_plants text[]
+) returns table (job_id uuid, status text, recipe_id uuid, is_new boolean)
+language sql security definer set search_path = public as $$
+  select * from public.begin_job(p_user, p_key, p_fingerprint, p_phase, 'meal',
+    array_cat(array[p_protein, p_base], p_plants), 0, p_protein, p_base, p_plants)
+$$;
+
+-- Try Something New: three foods; variant 0-2 asks for a different dish.
+create function public.begin_try_new_generation(
+  p_user uuid, p_key text, p_fingerprint text, p_phase text,
+  p_food_ids text[], p_variant integer
+) returns table (job_id uuid, status text, recipe_id uuid, is_new boolean)
+language sql security definer set search_path = public as $$
+  select * from public.begin_job(p_user, p_key, p_fingerprint, p_phase, 'try_new',
+    p_food_ids, p_variant, null, null, null)
+$$;
 
 -- Records a validated recipe, completes the job and charges one unit, all in
 -- one transaction. Calling it again for the same job returns the same recipe.
@@ -317,7 +352,7 @@ begin
     (v_job.user_id, p_job, v_job.fingerprint, v_job.phase,
      p_recipe ->> 'category', p_recipe ->> 'title', p_recipe ->> 'intro',
      (p_recipe ->> 'minutes')::integer, (p_recipe ->> 'serves')::integer,
-     array_cat(array[v_job.protein_id, v_job.base_id], v_job.plant_ids),
+     v_job.food_ids,
      p_recipe -> 'ingredients', p_recipe -> 'steps', p_origin, p_provider, p_model,
      (p_recipe ->> 'schema_version')::integer, p_validation)
   returning id into v_recipe;
@@ -374,14 +409,18 @@ end $$;
 -- Business functions are for the service role only.
 revoke all on function
   public.config_int(text, integer), public.dev_bypass_active(), public.is_entitled(uuid),
+  public.begin_job(uuid, text, text, text, text, text[], integer, text, text, text[]),
   public.begin_generation(uuid, text, text, text, text, text, text[]),
+  public.begin_try_new_generation(uuid, text, text, text, text[], integer),
   public.complete_generation(uuid, jsonb, text, text, text, integer, integer, bigint, jsonb),
   public.fail_generation(uuid, text, bigint), public.sweep_stuck_jobs(),
   public.delete_user_data(uuid)
   from public, anon, authenticated;
 grant execute on function
   public.config_int(text, integer), public.dev_bypass_active(), public.is_entitled(uuid),
+  public.begin_job(uuid, text, text, text, text, text[], integer, text, text, text[]),
   public.begin_generation(uuid, text, text, text, text, text, text[]),
+  public.begin_try_new_generation(uuid, text, text, text, text[], integer),
   public.complete_generation(uuid, jsonb, text, text, text, integer, integer, bigint, jsonb),
   public.fail_generation(uuid, text, bigint), public.sweep_stuck_jobs(),
   public.delete_user_data(uuid)

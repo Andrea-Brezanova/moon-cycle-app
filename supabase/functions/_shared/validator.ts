@@ -2,12 +2,13 @@
 // lib/features/generation/domain/recipe_validator.dart. Both run against
 // test/fixtures/generation/validator_cases.json, so they cannot drift apart.
 import { foods } from "./catalogue.ts";
-import type {
-  Filter,
-  Food,
-  GeneratedRecipe,
-  GenerationRequest,
-  Issue,
+import {
+  type Filter,
+  type Food,
+  type GeneratedRecipe,
+  type GenerationRequest,
+  type Issue,
+  requestedFoodIds,
 } from "./types.ts";
 
 const ALLOWED_UNITS = new Set([
@@ -138,7 +139,7 @@ export function validate(
   }
 
   const ids = new Set(used.map((f) => f.id));
-  const chosen = [request.protein_id, request.base_id, ...request.plant_ids];
+  const chosen = requestedFoodIds(request);
   for (const id of chosen) {
     if (!ids.has(id)) add("missingSelection", `the chosen food "${id}" is missing`);
   }

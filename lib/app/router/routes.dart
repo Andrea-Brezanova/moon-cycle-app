@@ -67,6 +67,10 @@ abstract final class Routes {
     return '/foods/$id${query.isEmpty ? '' : '?$query'}';
   }
 
+  /// Try Something New: three foods and recipes that use them all.
+  static String tryNew(List<String> foodIds) =>
+      '/foods/try-new?foods=${foodIds.join(',')}';
+
   /// Recipes › the user's own generated recipes.
   static const String myRecipes = '/recipes/mine';
 

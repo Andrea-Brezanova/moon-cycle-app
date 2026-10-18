@@ -190,13 +190,7 @@ class RecipeCreationController extends Notifier<CreationState> {
   Future<void> makeAnother() async {
     final r = _request;
     if (_busy || r == null) return;
-    _request = GenerationRequest(
-      idempotencyKey: const Uuid().v4(),
-      phase: r.phase,
-      proteinId: r.proteinId,
-      baseId: r.baseId,
-      plantIds: r.plantIds,
-    );
+    _request = r.withKey(const Uuid().v4());
     await _run(allowSameSelection: true);
   }
 

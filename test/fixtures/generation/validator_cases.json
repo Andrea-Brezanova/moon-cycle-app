@@ -1763,5 +1763,300 @@
   "expect": [
    "foodSafety"
   ]
+ },
+ {
+  "name": "try new: all three foods",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "try new: one of the three foods missing",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Onion",
+     "food_id": "onion",
+     "amount": 1,
+     "unit": "piece",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "missingSelection"
+  ]
+ },
+ {
+  "name": "try new: an extra animal food",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Eggs",
+     "food_id": "eggs",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "extraAnimalProduct"
+  ]
+ },
+ {
+  "name": "try new: soy avoided, tofu is soy",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": [
+    "soy"
+   ]
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "dietOrAllergen"
+  ]
  }
 ]

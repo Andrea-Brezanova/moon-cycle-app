@@ -48,6 +48,15 @@ rows=$(curl -s "$API_URL/rest/v1/generated_recipes?select=id,title" -H "authoriz
 code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "$API_URL/rest/v1/entitlements" -H "authorization: Bearer $token" -H "apikey: $ANON_KEY" -H 'content-type: application/json' -d "{\"user_id\":\"$uid\",\"tier\":\"premium\",\"source\":\"purchase\"}")
 [ "$code" = 401 ] || [ "$code" = 403 ] || fail "client entitlement insert should be refused, got $code"
 
+# 5b. Try Something New: three foods, a variant, its own recipe row
+tn="{\"idempotency_key\":\"$key-tn\",\"phase\":\"luteal\",\"kind\":\"try_new\",\"food_ids\":[\"kale\",\"carrot\",\"tofu\"],\"variant\":2}"
+out=$(call "$tn"); code=${out##*$'\n'}
+[ "$code" = 200 ] || fail "try-new expected 200, got $code ($out)"
+echo "$out" | grep -q 'Bake' || fail "variant 2 should be the bake"
+[ "$(psqlq "select count(*) from public.generated_recipes where user_id='$uid'")" = 2 ] || fail "try-new recipe not saved"
+out=$(call "$tn"); echo "$out" | grep -q '"existing":true' || fail "try-new repeat should be existing"
+[ "$(psqlq "select count(*) from public.generated_recipes where user_id='$uid'")" = 2 ] || fail "try-new duplicated"
+
 # 6. clean up the throwaway user
 psqlq "select public.delete_user_data('$uid')" >/dev/null
 echo "integration: all checks passed"

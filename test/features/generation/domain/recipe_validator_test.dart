@@ -17,13 +17,24 @@ final _cases = (jsonDecode(
   File('test/fixtures/generation/validator_cases.json').readAsStringSync(),
 ) as List<Object?>).cast<Map<String, Object?>>();
 
-GenerationRequest _request(Map<String, Object?> j) => GenerationRequest(
-  idempotencyKey: j['idempotency_key']! as String,
-  phase: Phase.values.byName(j['phase']! as String),
-  proteinId: j['protein_id']! as String,
-  baseId: j['base_id']! as String,
-  plantIds: (j['plant_ids']! as List<Object?>).cast<String>(),
-);
+GenerationRequest _request(Map<String, Object?> j) {
+  final phase = Phase.values.byName(j['phase']! as String);
+  if (j['kind'] == 'try_new') {
+    return GenerationRequest.tryNew(
+      idempotencyKey: j['idempotency_key']! as String,
+      phase: phase,
+      foodIds: (j['food_ids']! as List<Object?>).cast<String>(),
+      variant: j['variant']! as int,
+    );
+  }
+  return GenerationRequest(
+    idempotencyKey: j['idempotency_key']! as String,
+    phase: phase,
+    proteinId: j['protein_id']! as String,
+    baseId: j['base_id']! as String,
+    plantIds: (j['plant_ids']! as List<Object?>).cast<String>(),
+  );
+}
 
 FoodFilter _filter(Map<String, Object?> j) => FoodFilter(
   diet: Diet.values.byName(j['diet']! as String),

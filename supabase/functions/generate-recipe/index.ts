@@ -12,10 +12,15 @@ const admin = createClient(url, serviceKey, { auth: { persistSession: false } })
 
 const db: Db = {
   async beginGeneration(a) {
-    const { data, error } = await admin.rpc("begin_generation", {
-      p_user: a.userId, p_key: a.key, p_fingerprint: a.fingerprint, p_phase: a.phase,
-      p_protein: a.protein, p_base: a.base, p_plants: a.plants,
-    });
+    const { data, error } = a.kind === "try_new"
+      ? await admin.rpc("begin_try_new_generation", {
+        p_user: a.userId, p_key: a.key, p_fingerprint: a.fingerprint, p_phase: a.phase,
+        p_food_ids: a.foodIds, p_variant: a.variant,
+      })
+      : await admin.rpc("begin_generation", {
+        p_user: a.userId, p_key: a.key, p_fingerprint: a.fingerprint, p_phase: a.phase,
+        p_protein: a.protein, p_base: a.base, p_plants: a.plants,
+      });
     if (error) throw new Error(error.message);
     const row = data[0];
     return { jobId: row.job_id, status: row.status, recipeId: row.recipe_id, isNew: row.is_new };

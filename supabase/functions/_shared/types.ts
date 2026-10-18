@@ -3,10 +3,23 @@ export type Phase = "menstrual" | "follicular" | "ovulatory" | "luteal";
 export interface GenerationRequest {
   idempotency_key: string;
   phase: Phase;
+  /** "meal" (Build a Meal) or "try_new" (Try Something New). */
+  kind?: "meal" | "try_new";
+  // Build a Meal.
   protein_id: string;
   base_id: string;
   plant_ids: string[];
+  // Try Something New: three foods, and which of three dishes to make.
+  food_ids?: string[];
+  variant?: number;
   category?: string;
+}
+
+/** Every food the recipe must use, whichever kind of request it is. */
+export function requestedFoodIds(r: GenerationRequest): string[] {
+  return r.kind === "try_new"
+    ? (r.food_ids ?? [])
+    : [r.protein_id, r.base_id, ...r.plant_ids];
 }
 
 export interface GeneratedIngredient {

@@ -12,9 +12,12 @@ import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
+import 'package:moon_cycle/features/generation/application/generation_providers.dart';
+import 'package:moon_cycle/features/generation/data/dev_mock_generation_service.dart';
 import 'package:moon_cycle/features/home/application/home_providers.dart';
 import 'package:moon_cycle/features/home/application/try_something_new.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
+import 'package:moon_cycle/features/home/presentation/try_new_results_page.dart';
 import 'package:moon_cycle/features/home/presentation/widgets/home_sections.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
@@ -294,6 +297,46 @@ void main() {
     final second = pages[1 % pages.length];
     expect(second.first.isTodaysFood, isTrue);
     expect([for (final s in second) s.recipe.title], isNot(firstTitles));
+  });
+
+  testWidgets('Try something new keeps the discovery experience when nothing '
+      'can be generated: no dead control', (tester) async {
+    await pumpHome(tester);
+    await scrollTo(tester, card('Try something new'));
+    await tester.tap(card('Try something new'));
+    await tester.pumpAndSettle();
+    expect(find.text('Recipes with all three foods'), findsNothing);
+    expect(find.text('Show me more'), findsOneWidget);
+  });
+
+  testWidgets('Try something new offers the three-recipe experience when '
+      'generation is available', (tester) async {
+    final container = await pumpHome(
+      tester,
+      more: [
+        debugUnlockAtStartProvider.overrideWithValue(true),
+        recipeGenerationServiceProvider.overrideWithValue(
+          DevMockGenerationService(
+            catalogue: testCatalogue,
+            delay: Duration.zero,
+          ),
+        ),
+        recipeImageServiceProvider.overrideWithValue(
+          PlaceholderRecipeImageService(delay: Duration.zero),
+        ),
+        entitlementStateProvider.overrideWithValue(premium),
+      ],
+    );
+    final first = container.read(tryNewPagesProvider).first;
+    await scrollTo(tester, card('Try something new'));
+    await tester.tap(card('Try something new'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Recipes with all three foods'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TryNewResultsPage), findsOneWidget);
+    final names = [for (final s in first) s.food.displayName].join(' · ');
+    expect(find.text(names), findsOneWidget);
+    expect(find.byKey(const ValueKey('trio-failure')), findsNothing);
   });
 
   testWidgets('browsing leaves the real cycle alone; Back to today works', (

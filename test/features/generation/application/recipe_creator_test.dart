@@ -297,6 +297,71 @@ void main() {
     });
   });
 
+  group('Try Something New requests', () {
+    GenerationRequest tryNew(
+      int variant, {
+      String key = 'k',
+      List<String>? foods,
+    }) => GenerationRequest.tryNew(
+      idempotencyKey: '$key$variant',
+      phase: Phase.luteal,
+      foodIds: foods ?? const ['kale', 'carrot', 'tofu'],
+      variant: variant,
+    );
+
+    test('three variants give three different, valid recipes', () async {
+      final titles = <String>{};
+      for (var v = 0; v < 3; v++) {
+        final out = await creator().create(tryNew(v));
+        titles.add((out as Created).recipe.recipe.title);
+      }
+      expect(titles, hasLength(3));
+      expect(await repo.all('user-a'), hasLength(3));
+    });
+
+    test('the fingerprint depends on the foods and the variant, not order', () {
+      expect(
+        tryNew(0, foods: ['kale', 'carrot', 'tofu']).fingerprint,
+        tryNew(0, foods: ['tofu', 'kale', 'carrot']).fingerprint,
+      );
+      expect(tryNew(0).fingerprint, isNot(tryNew(1).fingerprint));
+      expect(tryNew(0).toJson()['kind'], 'try_new');
+    });
+
+    test('the same trio and variant is retrieved, not made again', () async {
+      await creator().create(tryNew(1, key: 'a'));
+      final again = await creator().create(tryNew(1, key: 'b'));
+      expect(again, isA<Existing>());
+      expect(service.calls, 1);
+    });
+
+    test(
+      'two foods, or an avoided food, are refused before any call',
+      () async {
+        for (final r in [
+          tryNew(0, foods: const ['kale', 'carrot']),
+          tryNew(0, foods: const ['kale', 'kale', 'tofu']),
+        ]) {
+          final out = await creator().create(r);
+          expect(
+            (out as CreationFailed).failure.kind,
+            GenerationFailureKind.invalidSelection,
+          );
+        }
+        filter = const FoodFilter(
+          diet: Diet.vegan,
+          avoidances: [AllergenAvoidance(id: 'a', allergenId: 'soy')],
+        );
+        final out = await creator().create(tryNew(0));
+        expect(
+          (out as CreationFailed).failure.kind,
+          GenerationFailureKind.invalidSelection,
+        );
+        expect(service.calls, 0);
+      },
+    );
+  });
+
   test('deleting tombstones the recipe and frees its key', () async {
     final saved = (await creator().create(request()) as Created).recipe;
     await repo.delete('user-a', saved.id);

@@ -14,6 +14,7 @@ import '../../features/foods/presentation/meal_builder_page.dart';
 import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
+import '../../features/home/presentation/try_new_results_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
 import '../../features/onboarding/presentation/food_preferences_page.dart';
@@ -136,6 +137,20 @@ GoRouter buildAppRouter({
                           state,
                           MealBuilderPage(
                             foodId: state.uri.queryParameters['food'],
+                          ),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'try-new',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          TryNewResultsPage(
+                            foodIds: [
+                              for (final id
+                                  in (state.uri.queryParameters['foods'] ?? '')
+                                      .split(','))
+                                if (id.isNotEmpty) id,
+                            ],
                           ),
                         ),
                       ),

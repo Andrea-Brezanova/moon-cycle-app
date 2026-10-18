@@ -50,6 +50,7 @@ export class StubModel implements RecipeModel {
     const line = (id: string, amount: number, unit: string): GeneratedIngredient => ({
       label: title(id), food_id: id, amount, unit, qty_text: null,
     });
+    if (request.kind === "try_new") return this.tryNew(request, name, title, line);
     const plants = request.plant_ids.map(name);
     const kidney = request.protein_id === "kidney-bean";
     const broken = this.calls <= this.invalidFirst;
@@ -78,15 +79,56 @@ export class StubModel implements RecipeModel {
         "Serve everything together, seasoned with salt and pepper.",
       ],
     };
+    return this.result(recipe);
+  }
+
+  private result(recipe: GeneratedRecipe): ModelResult {
     return {
       recipe, provider: "local-stub", model: "template-v1", origin: "local_stub",
       inputTokens: 0, outputTokens: 0, costMicros: 0,
     };
   }
+
+  /** Three foods, three different dishes (variant 0 skillet, 1 soup, 2 bake). */
+  private tryNew(
+    request: GenerationRequest,
+    name: (id: string) => string,
+    title: (id: string) => string,
+    line: (id: string, amount: number, unit: string) => GeneratedIngredient,
+  ): ModelResult {
+    const ids = request.food_ids ?? [];
+    const dish = [["Skillet", "pan"], ["Soup", "pot"], ["Bake", "oven dish"]][request.variant ?? 0];
+    const broken = this.calls <= this.invalidFirst;
+    const names = ids.map(name);
+    const recipe: GeneratedRecipe = {
+      schema_version: SCHEMA_VERSION,
+      title: `${title(ids[0])}, ${title(ids[1])} & ${title(ids[2])} ${dish[0]}`,
+      intro: broken
+        ? "A dish that can balance your hormones and boost energy."
+        : `A simple ${dish[0].toLowerCase()} of ${names.join(", ")}.`,
+      category: (request.category as GeneratedRecipe["category"]) ?? "dinner",
+      minutes: 35,
+      serves: 2,
+      ingredients: [
+        ...ids.map((id) => line(id, 120, "g")),
+        { label: "Olive oil", food_id: "olive-oil", amount: 1, unit: "tbsp", qty_text: null },
+        { label: "Salt and black pepper", food_id: null, amount: 1, unit: "pinch", qty_text: null },
+      ],
+      steps: [
+        `Chop the ${names.join(", ")} into even pieces.`,
+        `Heat the oil in a ${dish[1]} and cook everything until tender and cooked through.`,
+        "Boil any dried beans first until soft, then add them to the dish.",
+        "Season with salt and pepper and serve warm.",
+      ],
+    };
+    return this.result(recipe);
+  }
 }
 
 /**
- * Placeholder for the real provider. It makes NO network call: the exact model,
+ * Placeholder for the real provider.
+
+ It makes NO network call: the exact model,
  * structured-output behaviour, pricing and data-handling terms must be verified
  * (and approved) before this is implemented. Until then it reports the service
  * as unavailable, so a deployment without a stub never pretends to generate.

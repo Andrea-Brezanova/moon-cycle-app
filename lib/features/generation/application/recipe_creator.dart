@@ -82,7 +82,10 @@ class RecipeCreator {
     GenerationFailure bad(String why) =>
         GenerationFailure(GenerationFailureKind.invalidSelection, why);
     final ids = request.foodIds;
-    if (request.plantIds.length < 2 || request.plantIds.length > 3) {
+    if (request.kind == GenerationKind.tryNew) {
+      if (ids.length != 3) return bad('foods: ${ids.length}');
+      if (request.variant < 0 || request.variant > 2) return bad('variant');
+    } else if (request.plantIds.length < 2 || request.plantIds.length > 3) {
       return bad('plants: ${request.plantIds.length}');
     }
     if (ids.toSet().length != ids.length) return bad('a food twice');

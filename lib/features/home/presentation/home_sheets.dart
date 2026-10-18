@@ -12,6 +12,7 @@ import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../foods/presentation/food_emoji.dart';
+import '../../generation/application/generation_providers.dart';
 import '../../recipes/presentation/widgets/recipe_image.dart';
 import '../application/try_something_new.dart';
 
@@ -149,6 +150,15 @@ class _TryNewState extends ConsumerState<_TryNew> {
                 ],
               ),
             ),
+          if (suggestions.length == 3 &&
+              ref.watch(generationAvailableProvider)) ...[
+            const SizedBox(height: 10),
+            MoonButton(
+              'Recipes with all three foods',
+              onPressed: () =>
+                  open(Routes.tryNew([for (final s in suggestions) s.food.id])),
+            ),
+          ],
           if (pages.length > 1) ...[
             const SizedBox(height: 10),
             MoonButton(

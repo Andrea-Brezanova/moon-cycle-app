@@ -1,7 +1,7 @@
 -- pgTAP: row-level security, entitlement, quota, idempotency, rate limits.
 -- Run with: supabase test db   (needs Docker; local only).
 begin;
-select plan(44);
+select plan(48);
 
 -- Two users and a premium entitlement for A. The seed's local-only bypass rows
 -- are removed first so every test below runs with the production behaviour.
@@ -98,11 +98,24 @@ update public.generation_jobs set created_at = now() - interval '1 hour' where i
 select is(public.sweep_stuck_jobs(), 1, 'the sweeper fails a stuck job');
 select is((select failure_kind from public.generation_jobs where id = (select job_id from j3)), 'timeout', 'with a timeout reason');
 
+-- ------------------------------------------------------- Try Something New
+update public.app_config set value = '10' where key = 'rate_per_minute';
+create temp table t as
+  select * from public.begin_try_new_generation('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'key-a-00008', 'tn1', 'luteal', array['kale','carrot','tofu'], 1);
+select is((select kind from public.generation_jobs where id = (select job_id from t)), 'try_new', 'a try-new job has its own kind');
+select is((select cardinality(food_ids) from public.generation_jobs where id = (select job_id from t)), 3, 'with its three foods');
+select is(
+  (select job_id from public.begin_try_new_generation('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'key-a-00008', 'tn1', 'luteal', array['kale','carrot','tofu'], 1)),
+  (select job_id from t), 'and is idempotent');
+select throws_ok(
+  $$select * from public.begin_try_new_generation('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'key-a-00009', 'tn2', 'luteal', array['kale','carrot'], 0)$$,
+  '23514', null, 'two foods are not a try-new request');
+
 -- ------------------------------------------------------ RLS as user A / B
 set local role authenticated;
 set local "request.jwt.claims" to '{"sub":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa","role":"authenticated"}';
 select is((select count(*)::int from public.generated_recipes), 1, 'A sees their recipe');
-select is((select count(*)::int from public.generation_jobs), 3, 'A sees their jobs');
+select is((select count(*)::int from public.generation_jobs), 4, 'A sees their jobs');
 
 set local "request.jwt.claims" to '{"sub":"bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb","role":"authenticated"}';
 select is((select count(*)::int from public.generated_recipes), 0, 'B sees none of A''s recipes');

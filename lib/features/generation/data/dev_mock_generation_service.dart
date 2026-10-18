@@ -25,6 +25,7 @@ class DevMockGenerationService implements RecipeGenerationService {
     this.delay = const Duration(milliseconds: 700),
     List<GenerationFailure> failures = const [],
     this.invalidAttempts = 0,
+    this.failOnCall = const {},
   }) : _failures = [...failures];
 
   static const provider = 'dev-mock';
@@ -40,6 +41,9 @@ class DevMockGenerationService implements RecipeGenerationService {
   /// the repair retry).
   final int invalidAttempts;
 
+  /// Fails the Nth call (1-based) with the given failure (for tests).
+  final Map<int, GenerationFailure> failOnCall;
+
   int calls = 0;
 
   @override
@@ -49,6 +53,7 @@ class DevMockGenerationService implements RecipeGenerationService {
   }) async {
     calls++;
     if (delay > Duration.zero) await Future<void>.delayed(delay);
+    if (failOnCall[calls] case final failure?) throw failure;
     if (_failures.isNotEmpty) throw _failures.removeAt(0);
     final broken = calls <= invalidAttempts;
     return GenerationResult(
@@ -61,9 +66,65 @@ class DevMockGenerationService implements RecipeGenerationService {
     );
   }
 
+  GeneratedRecipe _buildTryNew(
+    GenerationRequest request, {
+    required bool broken,
+  }) {
+    final foods = [for (final id in request.foodIds) catalogue.food(id)!];
+    String name(Food f) => f.displayName.toLowerCase();
+    String title(Food f) {
+      final n = f.displayName;
+      return n[0].toUpperCase() + n.substring(1);
+    }
+
+    final names = [for (final f in foods) name(f)];
+    const dishes = [('Skillet', 'pan'), ('Soup', 'pot'), ('Bake', 'oven dish')];
+    final (dish, vessel) = dishes[request.variant];
+    return GeneratedRecipe(
+      title:
+          '${title(foods[0])}, ${title(foods[1])} & ${title(foods[2])} $dish',
+      intro: broken
+          ? 'A dish that can balance your hormones and boost energy.'
+          : 'A simple ${dish.toLowerCase()} of ${names.join(', ')}.',
+      category: RecipeCategory.values.byName(request.category ?? 'dinner'),
+      minutes: 35,
+      serves: 2,
+      ingredients: [
+        for (final f in foods)
+          GeneratedIngredient(
+            label: f.displayName,
+            foodId: f.id,
+            amount: 120,
+            unit: 'g',
+          ),
+        const GeneratedIngredient(
+          label: 'Olive oil',
+          foodId: 'olive-oil',
+          amount: 1,
+          unit: 'tbsp',
+        ),
+        const GeneratedIngredient(
+          label: 'Salt and black pepper',
+          amount: 1,
+          unit: 'pinch',
+        ),
+      ],
+      steps: [
+        'Chop the ${names.join(', ')} into even pieces.',
+        'Heat the oil in a $vessel and cook everything until tender and '
+            'cooked through.',
+        'Boil any dried beans first until soft, then add them to the dish.',
+        'Season with salt and pepper and serve warm.',
+      ],
+    );
+  }
+
   GeneratedRecipe _build(GenerationRequest request, {required bool broken}) {
-    final protein = catalogue.food(request.proteinId)!;
-    final base = catalogue.food(request.baseId)!;
+    if (request.kind == GenerationKind.tryNew) {
+      return _buildTryNew(request, broken: broken);
+    }
+    final protein = catalogue.food(request.proteinId!)!;
+    final base = catalogue.food(request.baseId!)!;
     final plants = [for (final id in request.plantIds) catalogue.food(id)!];
     String name(Food f) => f.displayName.toLowerCase();
     String title(Food f) {
