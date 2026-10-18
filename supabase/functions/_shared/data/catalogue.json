@@ -2133,7 +2133,9 @@
       "name": "Wheat flour (whole-grain)",
       "category": "grains",
       "animalSource": "none",
-      "allergens": [],
+      "allergens": [
+        "gluten"
+      ],
       "mayContainAllergens": []
     },
     {

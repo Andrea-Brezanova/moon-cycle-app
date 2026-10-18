@@ -4271,7 +4271,9 @@
       "name": "Wheat flour (whole-grain)",
       "aisle": "pantry",
       "animalSource": "none",
-      "allergens": [],
+      "allergens": [
+        "gluten"
+      ],
       "synonyms": [],
       "shipReady": true,
       "cautions": [],
