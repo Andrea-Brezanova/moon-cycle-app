@@ -5,6 +5,74 @@
 > two differ, this document is the newer recommendation. Prices, model names
 > and vendor limits must be re-verified on the day of decision.
 
+## Hybrid recipe discovery (final product decision; supersedes AI-first)
+
+Build a Meal looks for an existing recipe first and generates only when none
+fits. Sources are tried in priority order and the search stops at the first
+source with a **complete** match:
+
+1. **Internal library**: the 112 reviewed Moon Cycle recipes.
+2. **Approved external recipe API**: none is approved or configured yet; the
+   production default is `NoExternalRecipeClient`.
+3. **AI generation fallback**: the pipeline described in the rest of this
+   document, offered only when 1 and 2 have no complete match.
+
+```
+Create my meal
+  → selected food ids (protein, base, 2–3 plants)
+  → diet and avoidance filter (same FoodFilter as the rest of the app)
+  → RecipeDiscovery: internal → external
+       complete match?  yes → show those recipes (existing recipe detail)
+                        no  → close matches as suggestions + "Create a new recipe"
+  → generation fallback (validated, saved privately, optional image)
+```
+
+**Matching rules** (`lib/features/discovery`, all thresholds in `MatchConfig`):
+
+- *Complete*: every selected food id is in the recipe (ingredient line or key
+  food). Extra supporting ingredients are fine; excluded ones never are, because
+  recipes the diet or avoidances exclude are dropped before ranking. Equivalent
+  foods do not count (red lentils are not green lentils).
+- *Good partial*: not complete, but covers at least `goodPartialMinCoverage`
+  (0.6) of the weighted selection (protein 3, base 3, each plant 2), uses at
+  least 2 selected foods, and includes the protein or the base. Partial matches
+  are listed separately as "close matches", with what is missing, and are never
+  presented as the requested meal.
+- *Insufficient*: not offered.
+- Ranking: complete before partial, then score = coverage × 100 + phase bonus
+  (orders only, never decides a match) + completeness bonus − a small penalty per
+  extra food (so simpler recipes win ties), then recipe id for stability.
+- With the current library about 44 of 112 recipes can fully satisfy some
+  protein + base + 2-plant choice, so a complete internal match will often not
+  exist for a free-form choice. That is expected: it is what the fallback is
+  for, and close matches keep the screen useful.
+
+**One normalised model.** Screens receive a `RecipeCandidate`: the app's own
+`Recipe` plus `source` (`internal`, `externalApi`, `aiGenerated`), `RecipeRights`
+and the `RecipeMatch`. UI never depends on a provider. External adapters
+implement one interface (`ExternalRecipeClient`) and return recipes already
+normalised to catalogue food ids, with ids namespaced `x-<provider>-<id>`.
+
+**Rights metadata** (`RecipeRights`) travels with every recipe: licence,
+attribution text, source URL, `mayDisplayFull`, `mayStore`, `requiresLinkBack`
+and `mayPublish`. Internal recipes are displayable, storable and publishable.
+Generated recipes are the user's and are never published automatically.
+External recipes carry their provider's terms; any whose terms forbid showing
+them in full are dropped, and ones that forbid storing are shown but never saved
+to the personal library.
+
+**External API evaluation is a prerequisite** (not done, no provider chosen):
+before any adapter is written, the provider's terms must be checked for storing
+and caching, commercial use, attribution and link-back, display of full
+instructions, rate limits and price, and data processing (what we send is only
+food ids and the diet filter). Candidates are compared on those criteria, not on
+recipe count. Until one is approved, source 2 stays empty.
+
+**Cost effect:** most meals will not need the model at all, which cuts the
+generation cost estimates in §6 by the share of requests served from sources 1
+and 2. Generation also no longer runs without an explicit tap on "Create a new
+recipe", so quota is only used on a deliberate request.
+
 ## Summary of recommendations
 
 | # | Topic | Recommendation |
