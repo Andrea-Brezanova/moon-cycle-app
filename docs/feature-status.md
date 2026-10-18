@@ -1,6 +1,6 @@
 # Feature status and development access
 
-Updated for the Stage 1 branch (`feature/home-choices-food-detail`).
+Updated through Stage 7 on `feature/home-choices-food-detail`.
 
 ## What works today
 
@@ -9,30 +9,37 @@ Updated for the Stage 1 branch (`feature/home-choices-food-detail`).
 | Onboarding, cycle calculation, phase estimates, reminders | Working |
 | Settings: My Cycle, Food Preferences, Allergies, Notifications, Appearance, Privacy and data (export, delete), Help | Working |
 | Home: phase hero, compact Your focus, Learn more, six-card Your choices | Working |
-| Foods: featured library by phase, All foods search, Today's food (real phase, stable per day), food page for every food | Working |
-| Recipes: 112 recipes (40 with photos), filters, detail, add to shopping list | Working |
+| Foods: featured library by phase, All foods search, Today's food, food page for every food | Working |
+| Recipes: 112 recipes (40 with photos), filters, detail, add to shopping list, **My recipes** | Working |
 | Shop: the free shopping list (basic) | Working, free |
-| Try something new: Today's food plus two foods, each with an existing recipe | Working (option 2) |
-| Build a meal: choose one protein, one base and 2–3 plants from the whole library, phase-featured foods first, search, starting food from a food page | Working (selection only; see below) |
+| Build a meal: choose protein, base and 2–3 plants; **Create my meal** searches the library for a complete match, shows close matches separately, and offers a new recipe only when none uses every food | Working. New-recipe creation is a **development mock** (see below) |
+| Try something new: Today's food plus two foods, each with a recipe; with a generation service, three recipes that each use all three foods | Stage 1 experience working; three-recipe experience needs a generator (dev mock only) |
+| Log diary: entries by day and meal, edit, delete, merged duplicates, daily history; Food Detail "Add to logged meals" and recipe "Add to my diary" | Working, local only, Premium (unlocked in development) |
+| Suggest to Moon Cycle / review workflow | Backend and client code built and tested locally; no UI path in any build until accounts exist |
 | Entitlement architecture: tiers, feature gates, Subscription page | Working; no purchases |
 
-## Partly built
+## What is a mock or local-only
 
-- **Build a meal.** Selection is complete: one protein, one base and two or
-  three plants, search, "Show all", featured-in-this-phase foods first and
-  tinted, nothing hidden by phase, diet and avoidances respected, and a food
-  opened from its page starts the meal in its slot. **"Create my meal" is shown
-  as Coming soon and disabled**: it needs recipe generation (Stage 3).
+- **Recipe generation.** `DevMockGenerationService` builds template recipes
+  without an AI. It exists only in a debug build of the dev flavour, labels
+  every recipe "Development sample", and cannot be created in release, profile
+  or prod builds (those say "Creating a new recipe isn't available yet").
+- **The backend** (`supabase/`) runs locally in Docker only. Nothing is hosted,
+  no migration has been applied to a hosted database, and no provider key
+  exists. The function's model is a local stub or "unavailable".
+- **Images** for generated recipes use the tinted placeholder; no image provider
+  is integrated.
+- **External recipe API**: the interface exists; no provider is approved, so the
+  source is empty.
 
 ## Not built yet (planned)
 
-- **Log diary and "Add to logged meals".** Nothing exists: no logging tables,
-  screens or tracking. Both show **Coming soon** and are disabled for every
-  tier, so nothing pretends to work. The actual diary is designed and built
-  separately. Intended as Premium.
-- AI recipe generation, image generation, validation (Stage 3).
-- Personal recipe library and shared-library publication (Stages 4 and 5).
-- Accounts, purchases and server-side entitlement checks.
+- Accounts (Sign in with Apple), purchases, the purchase webhook, server-side
+  entitlements in production.
+- A real AI provider (model, structured output, pricing and data-handling terms
+  must be verified first) and an image provider.
+- Editor review screens (the review workflow is SQL functions and an Edge
+  Function; there is no reviewer app).
 - Advanced shopping features (a future Premium idea; basic shopping stays free).
 - Photos for the 72 newer recipes; real food illustrations.
 - Track and More tabs (not part of the current five-tab navigation).

@@ -181,13 +181,17 @@ class SubScreenHeader extends StatelessWidget {
                       strokeWidth: 2,
                     ),
                     const SizedBox(width: 4),
-                    Text(
-                      backLabel,
-                      style: dmSans(
-                        15,
-                        weight: FontWeight.w500,
-                        height: 1,
-                        color: c.text,
+                    Flexible(
+                      child: Text(
+                        backLabel,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: dmSans(
+                          15,
+                          weight: FontWeight.w500,
+                          height: 1,
+                          color: c.text,
+                        ),
                       ),
                     ),
                   ],
