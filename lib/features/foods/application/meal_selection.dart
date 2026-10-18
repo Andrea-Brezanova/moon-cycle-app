@@ -83,6 +83,8 @@ class MealSelectionController extends Notifier<MealSelection> {
   /// page). Does nothing if it is already chosen.
   void seed(Food food) {
     if (state.contains(food.id)) return;
+    // Herbs season a meal; they are not one of its plants.
+    if (isHerb(food)) return;
     final slot = mealSlotFor(food);
     // Don't let a seed push out a plant: three are the most.
     toggle(slot, food);
@@ -113,9 +115,6 @@ final class MealOptions {
   final List<Food> all;
 }
 
-/// The categories whose foods are offered as plants.
-const _plantCategories = {'vegetables', 'fruit'};
-
 final mealOptionsProvider = Provider.family<MealOptions, MealSlot>((ref, slot) {
   final catalogue = ref.watch(catalogueProvider);
   final filter = ref.watch(foodFilterProvider);
@@ -125,9 +124,7 @@ final mealOptionsProvider = Provider.family<MealOptions, MealSlot>((ref, slot) {
   bool eligible(Food f) => switch (slot) {
     MealSlot.protein => proteinFamilyOf(f) != null,
     MealSlot.base => isBaseFood(f),
-    MealSlot.plant =>
-      _plantCategories.contains(f.categoryId) &&
-          mealSlotFor(f) == MealSlot.plant,
+    MealSlot.plant => isMealPlant(f),
   };
 
   final all =

@@ -422,3 +422,23 @@ MealSlot mealSlotFor(Food food) {
 /// potatoes, bread and pasta, substantial legumes).
 bool isBaseFood(Food food) =>
     _baseFamilies.values.any((ids) => ids.contains(food.id));
+
+/// Herbs are seasoning, not one of the plants of a meal: they never count
+/// toward the 2–3 plants (and aren't offered as a plant).
+const _herbIds = {'parsley', 'mint', 'peppermint', 'basil', 'cilantro', 'dill'};
+
+bool isHerb(Food food) => _herbIds.contains(food.id);
+
+/// Vegetable and fruit entries that are prepared products rather than a
+/// plant to put on the plate (pastes, dips, salsa).
+const _preparedIds = {'tomato-paste', 'salsa', 'guacamole'};
+
+/// Whether [food] can be one of a meal's 2–3 plants: a vegetable or fruit
+/// (including culinary vegetables sold as pantry foods, such as olives,
+/// canned tomatoes and sea vegetables), but not a herb, a base or a prepared
+/// product.
+bool isMealPlant(Food food) =>
+    (food.categoryId == 'vegetables' || food.categoryId == 'fruit') &&
+    !isHerb(food) &&
+    !_preparedIds.contains(food.id) &&
+    mealSlotFor(food) == MealSlot.plant;

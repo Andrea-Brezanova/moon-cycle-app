@@ -27,13 +27,20 @@ final entitlementGrantsProvider = Provider<List<EntitlementGrant>>(
 /// anything.
 final debugPreviewAllowedProvider = Provider<bool>((ref) => kDebugMode);
 
-/// Whether a development run starts with every feature unlocked. Set with
-/// `--dart-define=UNLOCK_ALL_FEATURES=true` (it is in `env/dev.json`, and
-/// must never be in `env/prod.json`); false when not set, so tests and
-/// production builds start with the real restrictions.
-final debugUnlockAtStartProvider = Provider<bool>(
-  (ref) => const bool.fromEnvironment('UNLOCK_ALL_FEATURES'),
-);
+/// Whether a development run starts with every feature unlocked. `main()`
+/// sets it to true for a **debug build of the dev flavour** and nowhere else;
+/// the default is false (tests, and anything that does not set it). There is no
+/// build define or runtime setting that can turn it on, and
+/// [debugPreviewAllowedProvider] keeps it inert outside debug builds anyway.
+final debugUnlockAtStartProvider = Provider<bool>((ref) => false);
+
+/// Whether a run opens with every feature unlocked: a **debug build of the dev
+/// flavour** only. Profile and release builds, and the prod flavour, are never
+/// unlocked, whatever else is configured.
+bool developmentUnlockEnabled({
+  required bool isDebugBuild,
+  required bool isDevFlavour,
+}) => isDebugBuild && isDevFlavour;
 
 /// The developer's switch: all features unlocked for testing, on top of the
 /// real entitlements (Settings › debug links). Starts as

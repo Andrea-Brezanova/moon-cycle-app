@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:package_info_plus/package_info_plus.dart';
@@ -13,6 +14,7 @@ import 'core/database/database_opener.dart';
 import 'core/database/encryption_key_store.dart';
 import 'features/content/application/content_providers.dart';
 import 'features/content/data/bundled_catalogue.dart';
+import 'features/entitlements/application/entitlement_providers.dart';
 import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
 import 'features/preferences/application/preference_providers.dart';
@@ -50,6 +52,14 @@ Future<void> main() async {
       AppRoot(
         overrides: [
           appConfigProvider.overrideWithValue(config),
+          // Development: every feature open for testing (debug builds of the
+          // dev flavour only; see docs/feature-status.md).
+          debugUnlockAtStartProvider.overrideWithValue(
+            developmentUnlockEnabled(
+              isDebugBuild: kDebugMode,
+              isDevFlavour: config.flavor == Flavor.dev,
+            ),
+          ),
           catalogueProvider.overrideWithValue(catalogue),
           appVersionProvider.overrideWithValue(version),
           databaseDirectoryProvider.overrideWithValue(directory),

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -107,19 +106,30 @@ void main() {
       expect(defaultFeatureTiers[Feature.shoppingList], Tier.free);
     });
 
-    test('only dev env files turn it on; the prod files never do', () {
-      bool unlocks(String file) {
-        final json = jsonDecode(
-          File('env/$file').readAsStringSync(),
-        ) as Map<String, Object?>;
-        return json['UNLOCK_ALL_FEATURES'] == true;
-      }
+    test('a run unlocks only in a debug build of the dev flavour', () {
+      bool enabled(bool debug, bool dev) =>
+          developmentUnlockEnabled(isDebugBuild: debug, isDevFlavour: dev);
+      expect(enabled(true, true), isTrue);
+      expect(enabled(true, false), isFalse); // debug build, prod flavour
+      expect(enabled(false, true), isFalse); // release/profile, dev flavour
+      expect(enabled(false, false), isFalse);
+    });
 
-      expect(unlocks('dev.example.json'), isTrue);
-      expect(unlocks('prod.example.json'), isFalse);
-      if (File('env/prod.json').existsSync()) {
-        expect(unlocks('prod.json'), isFalse);
+    test('nothing in configuration can turn it on', () {
+      // The start value is false unless main() sets it, and no env file or
+      // build define is read for it.
+      final c = ProviderContainer();
+      addTearDown(c.dispose);
+      expect(c.read(debugUnlockAtStartProvider), isFalse);
+      for (final file in Directory('env').listSync().whereType<File>()) {
+        expect(
+          file.readAsStringSync(),
+          isNot(contains('UNLOCK')),
+          reason: file.path,
+        );
       }
+      final main = File('lib/main.dart').readAsStringSync();
+      expect(main, isNot(contains('fromEnvironment')));
     });
   });
 }

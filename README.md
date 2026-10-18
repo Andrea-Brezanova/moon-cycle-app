@@ -24,7 +24,7 @@ Check your setup with `flutter doctor`.
 3. Run the dev flavour (or pick "Moon Cycle (dev)" in Cursor's Run and Debug panel):
    ```bash
    flutter run --flavor dev --dart-define-from-file=env/dev.json
-   # env/dev.json also unlocks every feature for testing (see docs/feature-status.md)
+   # debug dev builds also unlock every feature for testing (see docs/feature-status.md)
    ```
 
 Always pass both the flavour and its env file. The app refuses to start if they don't match.

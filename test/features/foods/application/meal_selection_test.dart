@@ -164,4 +164,60 @@ void main() {
       );
     });
   });
+
+  group('what counts as a plant', () {
+    test('herbs never count toward the 2–3 plants', () {
+      final c = make();
+      final plants = c.read(mealOptionsProvider(MealSlot.plant)).all;
+      for (final herb in [
+        'parsley',
+        'mint',
+        'peppermint',
+        'basil',
+        'cilantro',
+        'dill',
+      ]) {
+        expect(isHerb(f(herb)), isTrue);
+        expect(isMealPlant(f(herb)), isFalse);
+        expect(plants.map((x) => x.id), isNot(contains(herb)));
+      }
+      // A herb started from its page is not added to the meal.
+      final n = c.read(mealSelectionProvider.notifier);
+      n.seed(f('basil'));
+      expect(c.read(mealSelectionProvider).isEmpty, isTrue);
+    });
+
+    test('culinary vegetables sold as pantry foods are plants', () {
+      final c = make();
+      final plants = c.read(mealOptionsProvider(MealSlot.plant)).all;
+      for (final id in ['olives', 'kombu', 'wakame', 'canned-tomatoes']) {
+        expect(f(id).categoryId, anyOf('vegetables', 'fruit'), reason: id);
+        expect(plants.map((x) => x.id), contains(id), reason: id);
+      }
+    });
+
+    test('pastes, dips and salsa are not plants', () {
+      final c = make();
+      final plants = c.read(mealOptionsProvider(MealSlot.plant)).all;
+      for (final id in ['tomato-paste', 'salsa', 'guacamole']) {
+        expect(plants.map((x) => x.id), isNot(contains(id)), reason: id);
+      }
+    });
+
+    test('the food library and phase lists are untouched', () {
+      expect(testCatalogue.foods.length, 254);
+      expect(
+        {
+          for (final p in Phase.values)
+            p: testCatalogue.phase(p).foodIds.length,
+        },
+        {
+          Phase.menstrual: 35,
+          Phase.follicular: 32,
+          Phase.ovulatory: 31,
+          Phase.luteal: 44,
+        },
+      );
+    });
+  });
 }

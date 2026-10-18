@@ -1,5 +1,4 @@
 {
   "APP_ENV": "dev",
-  "UNLOCK_ALL_FEATURES": true,
   "SENTRY_DSN": ""
 }

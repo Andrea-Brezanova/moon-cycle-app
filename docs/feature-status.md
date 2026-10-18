@@ -49,17 +49,16 @@ Premium. This table is the only thing that decides production access.
 While the product is being built, all implemented features can be tested
 without a subscription:
 
-- `env/dev.json` sets `UNLOCK_ALL_FEATURES: true`, so
-  `flutter run --flavor dev --dart-define-from-file=env/dev.json` starts with
-  every feature unlocked and no lock icons.
+- A **debug build of the dev flavour** starts with every feature unlocked and
+  no lock icons (`developmentUnlockEnabled`, set in `main()`). No build define
+  or runtime setting is involved, so it cannot be missed by a stale build.
 - Settings (debug builds only) has an "All features unlocked (dev)" link to
   switch it off and see the production restrictions, no rebuild needed.
 - It adds a debug-only grant on top of the real entitlements. It is **not** a
   subscription and changes nothing stored.
-- It cannot exist in a shipped app: it needs `kDebugMode`, which is false in
-  profile and release builds; `env/prod.json` and `prod.example.json` do not
-  set it (a test checks this); and production server checks are not affected.
-- Tests start with the real restrictions (they do not use `env/dev.json`).
+- It cannot exist in a shipped app: it needs `kDebugMode` (false in
+  profile and release builds) and the dev flavour (never prod), and production server checks are not affected.
+- Tests start with the real restrictions (the start switch defaults to off).
 
-To restore production behaviour for a build: do not pass `env/dev.json`; no code
+To restore production behaviour for a build: build a release/profile build or the prod flavour; no code
 changes are needed.
