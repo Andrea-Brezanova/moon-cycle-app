@@ -26,7 +26,7 @@ void main() {
     Future<void> Function(AppDatabase db)? seed,
     FakeReminderScheduler? reminders,
   }) async {
-    tester.view.physicalSize = const Size(390, 844) * 3;
+    tester.view.physicalSize = const Size(390, 1300) * 3;
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     final db = testDatabase();
@@ -42,7 +42,7 @@ void main() {
       reminders: reminders,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
-    await tester.tap(find.byKey(const ValueKey('tab-settings')));
+    await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
     return (container, db);
   }

@@ -4,12 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
+import '../../core/design/widgets/moon_icon.dart';
 import '../../core/domain/phase.dart';
+import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/presentation/diary_page.dart';
 import '../../features/discovery/domain/recipe_matcher.dart';
 import '../../features/discovery/presentation/meal_results_page.dart';
+import '../../features/eat/presentation/eat_page.dart';
 import '../../features/foods/presentation/food_detail_page.dart';
-import '../../features/foods/presentation/foods_page.dart';
 import '../../features/foods/presentation/learn_more_page.dart';
 import '../../features/foods/presentation/meal_builder_page.dart';
 import '../../features/generation/domain/balanced_selection.dart';
@@ -22,9 +24,9 @@ import '../../features/onboarding/presentation/food_preferences_page.dart';
 import '../../features/onboarding/presentation/last_period_page.dart';
 import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
+import '../../features/placeholders/presentation/coming_soon_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
-import '../../features/recipes/presentation/recipes_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
 import '../../features/settings/presentation/appearance_page.dart';
 import '../../features/settings/presentation/delete_data_page.dart';
@@ -105,20 +107,26 @@ GoRouter buildAppRouter({
                   path: tab.path,
                   pageBuilder: (context, state) => _page(state, switch (tab) {
                     AppTab.home => const HomePage(),
-                    AppTab.foods => const FoodsPage(),
-                    AppTab.recipes => const RecipesPage(),
-                    AppTab.shop => const ShopPage(),
-                    AppTab.settings => const SettingsHomePage(),
+                    AppTab.eat => const EatPage(),
+                    AppTab.move => const ComingSoonPage(
+                      title: 'Move',
+                      icon: MoonIconName.move,
+                    ),
+                    AppTab.relax => const ComingSoonPage(
+                      title: 'Relax',
+                      icon: MoonIconName.relax,
+                    ),
+                    AppTab.more => const SettingsHomePage(),
                   }),
                   routes: switch (tab) {
-                    AppTab.recipes => [
+                    AppTab.eat => [
                       GoRoute(
-                        path: 'mine',
+                        path: 'my-recipes',
                         pageBuilder: (context, state) =>
                             _page(state, const MyRecipesPage()),
                       ),
                       GoRoute(
-                        path: ':recipeId',
+                        path: 'recipe/:recipeId',
                         pageBuilder: (context, state) => _page(
                           state,
                           RecipeDetailPage(
@@ -126,8 +134,7 @@ GoRouter buildAppRouter({
                           ),
                         ),
                       ),
-                    ],
-                    AppTab.foods => [
+
                       GoRoute(
                         path: 'learn',
                         pageBuilder: (context, state) =>
@@ -141,11 +148,6 @@ GoRouter buildAppRouter({
                             foodId: state.uri.queryParameters['food'],
                           ),
                         ),
-                      ),
-                      GoRoute(
-                        path: 'diary',
-                        pageBuilder: (context, state) =>
-                            _page(state, const DiaryPage()),
                       ),
                       GoRoute(
                         path: 'three-plants',
@@ -171,7 +173,7 @@ GoRouter buildAppRouter({
                         ),
                       ),
                       GoRoute(
-                        path: ':foodId',
+                        path: 'food/:foodId',
                         pageBuilder: (context, state) => _page(
                           state,
                           FoodDetailPage(
@@ -189,7 +191,22 @@ GoRouter buildAppRouter({
                         ),
                       ),
                     ],
-                    AppTab.settings => [
+                    AppTab.more => [
+                      GoRoute(
+                        path: 'diary',
+                        pageBuilder: (context, state) =>
+                            _page(state, const DiaryPage()),
+                      ),
+                      GoRoute(
+                        path: 'shopping-list',
+                        pageBuilder: (context, state) =>
+                            _page(state, const ShopPage()),
+                      ),
+                      GoRoute(
+                        path: 'credits',
+                        pageBuilder: (context, state) =>
+                            _page(state, const CreditsPage()),
+                      ),
                       for (final page in SettingsPage.values)
                         GoRoute(
                           path: page.segment,

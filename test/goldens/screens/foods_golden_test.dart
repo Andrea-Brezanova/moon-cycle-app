@@ -4,13 +4,15 @@ library;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/core/domain/browse_scope.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/eat/presentation/eat_page.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
+import 'package:moon_cycle/features/foods/application/browse_scope.dart';
 import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
-import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
@@ -39,31 +41,26 @@ void main() {
     testWidgets('foods, $theme', (tester) async {
       await pumpScreen(
         tester,
-        const FoodsPage(),
+        const EatPage(),
         dark: dark,
         height: 2380,
         overrides: base(),
       );
       await expectLater(
-        find.byType(FoodsPage),
+        find.byType(EatPage),
         matchesGoldenFile('goldens/$theme-foods.png'),
       );
     });
 
     testWidgets('foods browsing luteal, $theme', (tester) async {
-      await pumpScreen(
-        tester,
-        const FoodsPage(),
-        dark: dark,
-        overrides: base(),
-      );
+      await pumpScreen(tester, const EatPage(), dark: dark, overrides: base());
       final container = ProviderScope.containerOf(
-        tester.element(find.byType(FoodsPage)),
+        tester.element(find.byType(EatPage)),
       );
       container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
       await tester.pumpAndSettle();
       await expectLater(
-        find.byType(FoodsPage),
+        find.byType(EatPage),
         matchesGoldenFile('goldens/$theme-foods-browsing.png'),
       );
     });
@@ -71,15 +68,17 @@ void main() {
     testWidgets('foods all, $theme', (tester) async {
       await pumpScreen(
         tester,
-        const FoodsPage(),
+        const EatPage(),
         dark: dark,
         height: 2600,
         overrides: base(),
       );
-      await tester.tap(find.text('All foods'));
+      ProviderScope.containerOf(tester.element(find.byType(EatPage)))
+          .read(foodsScopeProvider.notifier)
+          .set(BrowseScope.all);
       await tester.pumpAndSettle();
       await expectLater(
-        find.byType(FoodsPage),
+        find.byType(EatPage),
         matchesGoldenFile('goldens/$theme-foods-all.png'),
       );
     });
@@ -180,7 +179,7 @@ void main() {
   testWidgets('foods, 320 pt at 1.5× text', (tester) async {
     await pumpScreen(
       tester,
-      const FoodsPage(),
+      const EatPage(),
       dark: false,
       width: 320,
       height: 3600,
@@ -188,7 +187,7 @@ void main() {
       overrides: base(),
     );
     await expectLater(
-      find.byType(FoodsPage),
+      find.byType(EatPage),
       matchesGoldenFile('goldens/light-foods-narrow-large-text.png'),
     );
   });

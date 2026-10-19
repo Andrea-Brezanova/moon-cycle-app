@@ -15,11 +15,14 @@ import '../helpers/seed.dart';
 /// Every screen a user can reach, as a route.
 final screens = <String, String>{
   'home': AppTab.home.path,
-  'foods': AppTab.foods.path,
-  'recipes': AppTab.recipes.path,
+  'eat': AppTab.eat.path,
+  'move': AppTab.move.path,
+  'relax': AppTab.relax.path,
+  'credits': Routes.credits,
+  'diary': Routes.diary,
   'recipe detail': Routes.recipe('zucchini-feta-herb-frittata'),
-  'shop': AppTab.shop.path,
-  'settings': AppTab.settings.path,
+  'shop': Routes.shopping,
+  'more': AppTab.more.path,
   for (final page in SettingsPage.values) page.segment: Routes.settings(page),
 };
 

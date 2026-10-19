@@ -68,7 +68,7 @@ void main() {
     // 09:00 is breakfast; pick dinner and 1½ servings.
     await tester.tap(find.text('Dinner'));
     await tester.pump();
-    await tester.tap(find.bySemanticsLabel('More').first);
+    await tester.tap(find.bySemanticsLabel('More').last);
     await tester.pump();
     expect(find.text('1½ servings'), findsOneWidget);
     await tester.tap(find.text('Add to diary'));
@@ -107,7 +107,7 @@ void main() {
     await tester.tap(find.text('g')); // count it in grams
     await tester.pump();
     expect(find.text('100 g'), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('More').first);
+    await tester.tap(find.bySemanticsLabel('More').last);
     await tester.pump();
     await tester.tap(find.text('Save changes'));
     await tester.pumpAndSettle();

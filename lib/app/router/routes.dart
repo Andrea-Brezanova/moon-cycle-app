@@ -1,13 +1,14 @@
 import '../../core/design/widgets/moon_icon.dart';
 import '../../core/domain/phase.dart';
 
-/// The five tabs, in their fixed order (PRD §3).
+/// The five tabs, in their fixed order: Home, Eat (Foods and Recipes), Move,
+/// Relax (both "coming soon" for now) and More (settings and utilities).
 enum AppTab {
   home('/home', 'Home', MoonIconName.home),
-  foods('/foods', 'Foods', MoonIconName.foods),
-  recipes('/recipes', 'Recipes', MoonIconName.recipes),
-  shop('/shop', 'Shop', MoonIconName.shop),
-  settings('/settings', 'Settings', MoonIconName.settings);
+  eat('/eat', 'Eat', MoonIconName.recipes),
+  move('/move', 'Move', MoonIconName.move),
+  relax('/relax', 'Relax', MoonIconName.relax),
+  more('/more', 'More', MoonIconName.more);
 
   const AppTab(this.path, this.label, this.icon);
 
@@ -49,12 +50,12 @@ abstract final class Routes {
   static const String debugGallery = '/debug/gallery';
 
   /// Foods › "Learn more" about the viewing phase.
-  static const String learnMore = '/foods/learn';
+  static const String learnMore = '/eat/learn';
 
   /// Foods › the meal builder (Premium).
   /// With [foodId] the builder opens with that food already chosen.
   static String mealBuilder({String? foodId}) =>
-      '/foods/meal-builder${foodId == null ? '' : '?food=$foodId'}';
+      '/eat/meal-builder${foodId == null ? '' : '?food=$foodId'}';
 
   /// A food's page. [phase] is the phase whose "Why this food?" it shows;
   /// [general] opens it without phase context (a suggestion from outside the
@@ -64,17 +65,17 @@ abstract final class Routes {
       if (phase != null) 'phase=${phase.name}',
       if (general) 'general=1',
     ].join('&');
-    return '/foods/$id${query.isEmpty ? '' : '?$query'}';
+    return '/eat/food/$id${query.isEmpty ? '' : '?$query'}';
   }
 
   /// Foods tab stack › the food diary (opened from Home).
-  static const String diary = '/foods/diary';
+  static const String diary = '/more/diary';
 
   /// Foods tab stack › 3 Plants a Day (opened from Home).
-  static const String threePlants = '/foods/three-plants';
+  static const String threePlants = '/eat/three-plants';
 
   /// Recipes › the user's own generated recipes.
-  static const String myRecipes = '/recipes/mine';
+  static const String myRecipes = '/eat/my-recipes';
 
   /// Foods › the recipes that match the foods chosen in the meal builder.
   /// The chosen foods travel as ids in the query.
@@ -82,7 +83,7 @@ abstract final class Routes {
   /// [fromPlants] marks a search started from 3 Plants a Day, which is free
   /// (Build a meal itself is Premium).
   static String mealResults(List<String> foodIds, {bool fromPlants = false}) =>
-      '/foods/meal-builder/results?foods=${foodIds.join(',')}'
+      '/eat/meal-builder/results?foods=${foodIds.join(',')}'
       '${fromPlants ? '&from=plants' : ''}';
 
   /// Foods › creating a new recipe for the same choice (the fallback).
@@ -91,10 +92,16 @@ abstract final class Routes {
     required String base,
     required List<String> plants,
   }) =>
-      '/foods/meal-builder/create?protein=$protein&base=$base'
+      '/eat/meal-builder/create?protein=$protein&base=$base'
       '&plants=${plants.join(',')}';
 
-  static String recipe(String id) => '${AppTab.recipes.path}/$id';
+  static String recipe(String id) => '/eat/recipe/$id';
+
+  /// More › the shopping list.
+  static const String shopping = '/more/shopping-list';
+
+  /// More › Credits & Sources.
+  static const String credits = '/more/credits';
   static String settings(SettingsPage page) =>
-      '${AppTab.settings.path}/${page.segment}';
+      '${AppTab.more.path}/${page.segment}';
 }

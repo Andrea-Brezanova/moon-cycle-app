@@ -3,14 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router/routes.dart';
-import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_segmented.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/browse_scope.dart';
@@ -20,7 +18,6 @@ import '../../content/domain/food.dart';
 import '../../content/domain/text_match.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/domain/phase_guidance.dart';
-import '../../cycle/presentation/phase_header.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../application/browse_scope.dart';
 import '../application/food_providers.dart';
@@ -33,7 +30,10 @@ import 'widgets/todays_food_card.dart';
 /// A–Z by category with search ("All foods"). Avoided foods are hidden,
 /// and a category with none left is hidden too (spec §7.3).
 class FoodsPage extends ConsumerStatefulWidget {
-  const FoodsPage({super.key});
+  const FoodsPage({super.key, this.controller});
+
+  /// For the tab's scroll-to-top; null while another half of Eat is showing.
+  final ScrollController? controller;
 
   @override
   ConsumerState<FoodsPage> createState() => _FoodsPageState();
@@ -105,128 +105,102 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           (category.name, shown),
     ];
 
-    return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        bottom: false,
-        child: ListView(
-          controller: ref.watch(tabScrollProvider).of(AppTab.foods),
-          padding: const EdgeInsets.only(bottom: 42),
-          children: [
-            const PhaseHeader(title: 'Foods'),
+    return ListView(
+      controller: widget.controller,
+      padding: const EdgeInsets.only(bottom: 42 + 76),
+      children: [
+        if (all)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              MoonSpace.gutter,
+              18,
+              MoonSpace.gutter,
+              0,
+            ),
+            child: MoonTextField(
+              hint: 'Search foods',
+              leadingIcon: MoonIconName.search,
+              controller: _search,
+              onChanged: (v) => setState(() => _query = v),
+              trailing: _query.isEmpty
+                  ? null
+                  : Pressable(
+                      onTap: _clearSearch,
+                      semanticLabel: 'Clear search',
+                      child: Padding(
+                        padding: const EdgeInsets.all(6),
+                        child: MoonIcon(
+                          MoonIconName.close,
+                          size: 16,
+                          color: c.textMuted,
+                          strokeWidth: 2,
+                        ),
+                      ),
+                    ),
+            ),
+          )
+        else ...[
+          if (todays != null)
             Padding(
               padding: const EdgeInsets.fromLTRB(
                 MoonSpace.gutter,
-                18,
+                22,
                 MoonSpace.gutter,
                 0,
               ),
-              child: MoonSegmented<BrowseScope>(
-                semanticLabel: 'Show',
-                options: const [
-                  (BrowseScope.phase, 'This phase'),
-                  (BrowseScope.all, 'All foods'),
-                ],
-                selected: scope,
-                onChanged: ref.read(foodsScopeProvider.notifier).set,
+              child: TodaysFoodCard(
+                food: todays,
+                headline: todaysFoodHeadline(
+                  todaysFoodHeadlines[stableHash(
+                        'headline|${ref.watch(todayProvider)}|${todays.id}',
+                      ) %
+                      todaysFoodHeadlines.length],
+                  todays.displayName,
+                ),
+                intro: todays.why[actual]?.short,
+                palette: c.phase(actual),
+                onOpen: () =>
+                    context.push(Routes.food(todays.id, phase: actual)),
               ),
             ),
-            if (all)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  MoonSpace.gutter,
-                  18,
-                  MoonSpace.gutter,
-                  0,
-                ),
-                child: MoonTextField(
-                  hint: 'Search foods',
-                  leadingIcon: MoonIconName.search,
-                  controller: _search,
-                  onChanged: (v) => setState(() => _query = v),
-                  trailing: _query.isEmpty
-                      ? null
-                      : Pressable(
-                          onTap: _clearSearch,
-                          semanticLabel: 'Clear search',
-                          child: Padding(
-                            padding: const EdgeInsets.all(6),
-                            child: MoonIcon(
-                              MoonIconName.close,
-                              size: 16,
-                              color: c.textMuted,
-                              strokeWidth: 2,
-                            ),
-                          ),
-                        ),
-                ),
-              )
-            else ...[
-              if (todays != null)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    MoonSpace.gutter,
-                    22,
-                    MoonSpace.gutter,
-                    0,
-                  ),
-                  child: TodaysFoodCard(
-                    food: todays,
-                    headline: todaysFoodHeadline(
-                      todaysFoodHeadlines[stableHash(
-                            'headline|${ref.watch(todayProvider)}|${todays.id}',
-                          ) %
-                          todaysFoodHeadlines.length],
-                      todays.displayName,
-                    ),
-                    intro: todays.why[actual]?.short,
-                    palette: c.phase(actual),
-                    onOpen: () =>
-                        context.push(Routes.food(todays.id, phase: actual)),
-                  ),
-                ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  MoonSpace.gutter,
-                  26,
-                  MoonSpace.gutter,
-                  0,
-                ),
-                child: _PhaseFoodsHeader(palette: palette),
-              ),
-            ],
-            if (all && categories.isEmpty)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  MoonSpace.gutter,
-                  24,
-                  MoonSpace.gutter,
-                  0,
-                ),
-                child: Text(
-                  'No foods match "${_query.trim()}".',
-                  style: dmSans(15, height: 1.5, color: c.textMuted),
-                ),
-              ),
-            for (final (i, (name, foods)) in categories.indexed) ...[
-              SizedBox(height: i == 0 ? 30 : MoonSpace.foodsSectionGap),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: MoonSpace.gutter,
-                ),
-                child: _Category(
-                  name: name,
-                  foods: foods,
-                  onList: onList,
-                  palette: palette,
-                  openFoodId: _openFoodId,
-                  onFood: _open,
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              MoonSpace.gutter,
+              26,
+              MoonSpace.gutter,
+              0,
+            ),
+            child: _PhaseFoodsHeader(palette: palette),
+          ),
+        ],
+        if (all && categories.isEmpty)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              MoonSpace.gutter,
+              24,
+              MoonSpace.gutter,
+              0,
+            ),
+            child: Text(
+              'No foods match "${_query.trim()}".',
+              style: dmSans(15, height: 1.5, color: c.textMuted),
+            ),
+          ),
+        for (final (i, (name, foods)) in categories.indexed) ...[
+          SizedBox(height: i == 0 ? 30 : MoonSpace.foodsSectionGap),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
+            child: _Category(
+              name: name,
+              foods: foods,
+              onList: onList,
+              palette: palette,
+              openFoodId: _openFoodId,
+              onFood: _open,
+            ),
+          ),
+        ],
+      ],
     );
   }
 }

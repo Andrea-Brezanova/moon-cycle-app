@@ -74,7 +74,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byKey(const ValueKey('tab-settings')));
+    await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('Delete my data'),

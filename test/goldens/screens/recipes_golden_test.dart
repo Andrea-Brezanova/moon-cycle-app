@@ -8,10 +8,11 @@ import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/content/domain/food_filter.dart';
 import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
+import 'package:moon_cycle/features/eat/application/eat_segment.dart';
+import 'package:moon_cycle/features/eat/presentation/eat_page.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import 'package:moon_cycle/features/recipes/application/recipe_filter.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
-import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 import 'package:moon_cycle/features/shopping/domain/item_key.dart';
 
@@ -42,6 +43,7 @@ void main() {
 
   List<Override> base([RecipeFilter filter = const RecipeFilter()]) => [
     cycleStateProvider.overrideWithValue(stateOnDay(7)),
+    eatSegmentProvider.overrideWith(_RecipesHalf.new),
     recipeFilterProvider.overrideWith(() => _Filter(filter)),
   ];
 
@@ -84,13 +86,13 @@ void main() {
       testWidgets('$name, $theme', (tester) async {
         await pumpScreen(
           tester,
-          const RecipesPage(),
+          const EatPage(),
           dark: dark,
           height: 1060,
           overrides: overrides,
         );
         await expectLater(
-          find.byType(RecipesPage),
+          find.byType(EatPage),
           matchesGoldenFile('goldens/$theme-recipes-$name.png'),
         );
       });
@@ -103,7 +105,7 @@ void main() {
       testWidgets('$name, $theme', (tester) async {
         await pumpScreen(
           tester,
-          const RecipesPage(),
+          const EatPage(),
           dark: dark,
           overrides: base(),
         );
@@ -144,4 +146,10 @@ void main() {
       });
     }
   }
+}
+
+/// Eat opened on its Recipes half.
+class _RecipesHalf extends EatSegmentNotifier {
+  @override
+  EatSegment build() => EatSegment.recipes;
 }

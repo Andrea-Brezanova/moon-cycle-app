@@ -3,19 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router/routes.dart';
-import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_icon.dart';
+import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/phase_header.dart';
+import '../../eat/application/eat_segment.dart';
 import '../../generation/application/generation_providers.dart';
 import '../application/shopping_controller.dart';
 import '../application/shopping_summary.dart';
@@ -85,9 +86,14 @@ class _ShopPageState extends ConsumerState<ShopPage> {
           SafeArea(
             bottom: false,
             child: ListView(
-              controller: ref.watch(tabScrollProvider).of(AppTab.shop),
               padding: const EdgeInsets.only(bottom: 42 + 76),
               children: [
+                SubScreenHeader(
+                  backLabel: 'More',
+                  onBack: () => context.canPop()
+                      ? context.pop()
+                      : context.go(AppTab.more.path),
+                ),
                 const PhaseHeader(title: 'Shopping list', showPhaseLine: false),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
@@ -136,7 +142,8 @@ class _ShopPageState extends ConsumerState<ShopPage> {
                           actions: [
                             TextLink(
                               'Browse foods',
-                              onTap: () => context.go(AppTab.foods.path),
+                              onTap: () =>
+                                  goEat(ref, context, EatSegment.foods),
                             ),
                           ],
                         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/app/router/app_router.dart';
+import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
@@ -25,7 +27,7 @@ void main() {
       database: db,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
-    await tester.tap(find.byKey(const ValueKey('tab-shop')));
+    container.read(appRouterProvider).go(Routes.shopping);
     await tester.pumpAndSettle();
     expect(find.byType(ShopPage), findsOneWidget);
     return (container, db);

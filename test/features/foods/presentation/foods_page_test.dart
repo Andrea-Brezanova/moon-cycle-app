@@ -46,10 +46,24 @@ void main() {
       database: db,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
-    await tester.tap(find.byKey(const ValueKey('tab-foods')));
+    await tester.tap(find.byKey(const ValueKey('tab-eat')));
     await tester.pumpAndSettle();
     expect(find.byType(FoodsPage), findsOneWidget);
     return (container, db);
+  }
+
+  /// Chooses a row in "Browse by phase".
+  Future<void> browse(WidgetTester tester, String row) async {
+    await tester.tap(find.byKey(const ValueKey('phase-pill')));
+    await tester.pumpAndSettle();
+    final target = find.descendant(
+      of: find.byType(BottomSheet),
+      matching: find.text(row),
+    );
+    await tester.ensureVisible(target);
+    await tester.pumpAndSettle();
+    await tester.tap(target);
+    await tester.pumpAndSettle();
   }
 
   Future<void> scrollTo(
@@ -91,7 +105,7 @@ void main() {
 
   testWidgets('Today’s food, then the phase’s food library', (tester) async {
     final (container, _) = await pumpFoods(tester);
-    expect(find.text('Your current phase · day 7'), findsOneWidget);
+    expect(find.text('Follicular'), findsWidgets); // the phase pill
     // The explanation lives on Learn more, the meal builder on its own page.
     expect(find.text('WHAT YOUR BODY MAY NEED'), findsNothing);
     expect(find.text('Build a balanced meal'), findsNothing);
@@ -131,8 +145,7 @@ void main() {
     expect(shown, isNotEmpty);
 
     // Browsing another phase changes the library, not Today's food.
-    await tester.tap(find.text('Luteal'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'Luteal');
     expect(container.read(viewingPhaseProvider), Phase.luteal);
     expect(container.read(todaysFoodProvider)!.id, todays.id);
     expect(find.text('TODAY’S FOOD'), findsOneWidget);
@@ -159,8 +172,7 @@ void main() {
     tester,
   ) async {
     await pumpFoods(tester);
-    await tester.tap(find.text('All foods'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'All phases');
     expect(find.text('TODAY’S FOOD'), findsNothing);
     await tester.enterText(find.byType(EditableText), 'lettuce');
     await tester.pumpAndSettle();
@@ -179,8 +191,7 @@ void main() {
     tester,
   ) async {
     await pumpFoods(tester);
-    await tester.tap(find.text('All foods'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'All phases');
     await tester.enterText(find.byType(EditableText), 'lemon');
     await tester.pumpAndSettle();
     expect(find.text('Lemon'), findsWidgets);
@@ -201,27 +212,20 @@ void main() {
     // Scroll through every category; an overflow would fail the test.
     await scrollTo(tester, find.text('Fermented'));
     expect(tester.takeException(), isNull);
-    await tester.scrollUntilVisible(
-      find.text('All foods'),
-      -300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('All foods'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'All phases');
     // The whole catalogue wraps onto many lines at this size.
     await scrollTo(tester, find.text('Other'), step: 600);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('another phase: browsing line and the way back', (tester) async {
-    await pumpFoods(tester);
-    await tester.tap(find.text('Luteal'));
-    await tester.pumpAndSettle();
-    expect(find.text('Browsing luteal ·'), findsOneWidget);
-    await tester.tap(find.text('Back to follicular'));
-    await tester.pumpAndSettle();
-    expect(find.text('Your current phase · day 7'), findsOneWidget);
+  testWidgets('another phase: the pill follows and the way back', (
+    tester,
+  ) async {
+    final (container, _) = await pumpFoods(tester);
+    await browse(tester, 'Luteal');
+    expect(find.text('Luteal'), findsWidgets); // the pill follows
+    await browse(tester, 'Follicular');
+    expect(container.read(viewingPhaseProvider), Phase.follicular);
   });
 
   testWidgets('avoided foods and empty categories are hidden', (tester) async {
@@ -245,8 +249,7 @@ void main() {
   testWidgets('a food’s page: copy, then Add to shopping list; Back keeps '
       'the Foods filter', (tester) async {
     final (container, db) = await pumpFoods(tester);
-    await tester.tap(find.text('Luteal'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'Luteal');
     await scrollTo(tester, find.text('Salmon'));
     await tester.tap(find.text('Salmon'));
     await tester.pumpAndSettle();
@@ -297,8 +300,7 @@ void main() {
     final none = testCatalogue.foods.firstWhere(
       (f) => (counts[f.id] ?? 0) == 0,
     );
-    await tester.tap(find.text('All foods'));
-    await tester.pumpAndSettle();
+    await browse(tester, 'All phases');
     await tester.enterText(find.byType(EditableText), none.displayName);
     await tester.pumpAndSettle();
     // The chip, not the search field's own text.
@@ -383,7 +385,7 @@ void main() {
             ),
           ],
         );
-        await tester.tap(find.byKey(const ValueKey('tab-foods')));
+        await tester.tap(find.byKey(const ValueKey('tab-eat')));
         await tester.pumpAndSettle();
         await openChicken(tester);
         await tester.tap(find.text('Add to logged meals'));

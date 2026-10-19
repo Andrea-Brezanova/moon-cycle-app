@@ -41,7 +41,7 @@ void main() {
       expect(onboardingPage, findsOneWidget);
       for (final path in [
         Routes.home,
-        AppTab.recipes.path,
+        AppTab.eat.path,
         Routes.recipe('sample'),
         Routes.settings(SettingsPage.myCycle),
       ]) {

@@ -40,34 +40,31 @@ void main() {
     expect(xs, orderedEquals([...xs]..sort()));
     expect(AppTab.values.map((t) => t.label), [
       'Home',
-      'Foods',
-      'Recipes',
-      'Shop',
-      'Settings',
+      'Eat',
+      'Move',
+      'Relax',
+      'More',
     ]);
   });
 
   testWidgets('only the active tab has the dot, SemiBold and selected', (
     tester,
   ) async {
-    await pumpBar(tester, current: AppTab.recipes);
+    await pumpBar(tester, current: AppTab.eat);
     final dot = find.byKey(const ValueKey('tab-active-dot'));
     expect(dot, findsOneWidget);
     expect(
-      find.descendant(
-        of: find.byKey(const ValueKey('tab-recipes')),
-        matching: dot,
-      ),
+      find.descendant(of: find.byKey(const ValueKey('tab-eat')), matching: dot),
       findsOneWidget,
     );
-    final active = tester.widget<Text>(find.text('Recipes'));
-    final inactive = tester.widget<Text>(find.text('Foods'));
+    final active = tester.widget<Text>(find.text('Eat'));
+    final inactive = tester.widget<Text>(find.text('Move'));
     expect(active.style!.fontWeight, FontWeight.w600);
     expect(inactive.style!.fontWeight, FontWeight.w500);
     expect(
-      tester.getSemantics(find.byKey(const ValueKey('tab-recipes'))),
+      tester.getSemantics(find.byKey(const ValueKey('tab-eat'))),
       isSemantics(
-        label: 'Recipes',
+        label: 'Eat',
         isSelected: true,
         isButton: true,
         hasTapAction: true,
@@ -78,8 +75,8 @@ void main() {
   testWidgets('reports the tapped tab', (tester) async {
     AppTab? tapped;
     await pumpBar(tester, onSelect: (t) => tapped = t);
-    await tester.tap(find.byKey(const ValueKey('tab-shop')));
-    expect(tapped, AppTab.shop);
+    await tester.tap(find.byKey(const ValueKey('tab-more')));
+    expect(tapped, AppTab.more);
   });
 
   testWidgets('88 pt including the home indicator; taller for larger insets', (

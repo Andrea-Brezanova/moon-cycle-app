@@ -186,7 +186,7 @@ class RecipeDetailPage extends ConsumerWidget {
                               TextLink(
                                 'Open shopping list',
                                 size: 13,
-                                onTap: () => context.go(AppTab.shop.path),
+                                onTap: () => context.go(Routes.shopping),
                               ),
                             ],
                           ),

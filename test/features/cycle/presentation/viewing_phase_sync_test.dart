@@ -18,9 +18,17 @@ import '../../../helpers/seed.dart';
 /// One shared viewing phase: Home's moon, Foods and Recipes read and write
 /// the same state, and browsing never touches the real (calculated) phase.
 void main() {
+  /// 'home', or Eat's 'foods' / 'recipes' half.
   Future<void> goTo(WidgetTester tester, String tab) async {
-    await tester.tap(find.byKey(ValueKey('tab-$tab')));
+    final eat = tab == 'foods' || tab == 'recipes';
+    await tester.tap(find.byKey(ValueKey('tab-${eat ? 'eat' : tab}')));
     await tester.pumpAndSettle();
+    if (eat) {
+      await tester.tap(
+        find.textContaining(tab == 'foods' ? 'Foods ' : 'Recipes '),
+      );
+      await tester.pumpAndSettle();
+    }
   }
 
   Future<ProviderContainer> pumpAt(WidgetTester tester, String tab) async {
@@ -39,7 +47,15 @@ void main() {
   }
 
   Future<void> pickPhase(WidgetTester tester, String label) async {
-    await tester.tap(find.text(label));
+    await tester.tap(find.byKey(const ValueKey('phase-pill')));
+    await tester.pumpAndSettle();
+    final target = find.descendant(
+      of: find.byType(BottomSheet),
+      matching: find.text(label),
+    );
+    await tester.ensureVisible(target);
+    await tester.pumpAndSettle();
+    await tester.tap(target);
     await tester.pumpAndSettle();
   }
 
@@ -67,7 +83,7 @@ void main() {
     expect(find.text('Back to today · Day 7'), findsOneWidget);
 
     await goTo(tester, 'foods');
-    expect(find.text('Browsing luteal ·'), findsOneWidget);
+    expect(container.read(viewingPhaseProvider), Phase.luteal);
 
     await goTo(tester, 'recipes');
     expect(container.read(recipeListProvider).phase, Phase.luteal);
@@ -106,7 +122,7 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.menstrual);
 
     await goTo(tester, 'foods');
-    expect(find.text('Browsing menstrual ·'), findsOneWidget);
+    expect(container.read(viewingPhaseProvider), Phase.menstrual);
 
     await goTo(tester, 'home');
     expect(find.text('Back to today · Day 7'), findsOneWidget);
@@ -139,37 +155,32 @@ void main() {
     expect(container.read(homeShownDayProvider), isNull);
 
     await goTo(tester, 'foods');
-    expect(find.text('Your current phase · day 7'), findsOneWidget);
+    expect(container.read(viewingPhaseProvider), Phase.follicular);
   });
 
-  testWidgets('Back to today on Foods returns Home', (tester) async {
+  testWidgets('Choosing your phase again on Eat returns Home', (tester) async {
     final container = await pumpAt(tester, 'foods');
     await pickPhase(tester, 'Luteal');
-    await tester.tap(find.text('Back to follicular'));
-    await tester.pumpAndSettle();
+    await pickPhase(tester, 'Follicular');
     await goTo(tester, 'home');
     expect(find.text('Back to today · Day 7'), findsNothing);
     expect(container.read(viewingPhaseProvider), Phase.follicular);
   });
 
-  testWidgets('This phase | All foods and All recipes keep the phase', (
+  testWidgets('Browse by phase: All phases keeps the phase for the way back', (
     tester,
   ) async {
     final container = await pumpAt(tester, 'foods');
     await pickPhase(tester, 'Luteal');
-    await tester.tap(find.text('All foods'));
-    await tester.pumpAndSettle();
+    await pickPhase(tester, 'All phases');
     expect(container.read(foodsScopeProvider), BrowseScope.all);
     expect(container.read(viewingPhaseProvider), Phase.luteal);
     expect(find.text('Search foods'), findsOneWidget);
 
     await goTo(tester, 'recipes');
-    await tester.tap(find.text('All recipes'));
-    await tester.pumpAndSettle();
     expect(container.read(recipesScopeProvider), BrowseScope.all);
     final all = container.read(recipeListProvider).recipes.length;
-    await tester.tap(find.text('This phase'));
-    await tester.pumpAndSettle();
+    await pickPhase(tester, 'Luteal');
     expect(container.read(recipeListProvider).recipes.length, lessThan(all));
     expect(container.read(viewingPhaseProvider), Phase.luteal);
   });

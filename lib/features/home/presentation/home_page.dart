@@ -11,6 +11,7 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/log_period_sheet.dart';
+import '../../eat/application/eat_segment.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../../foods/application/browse_scope.dart';
@@ -52,7 +53,7 @@ class HomePage extends ConsumerWidget {
     void openRecipes() {
       ref.read(recipesScopeProvider.notifier).set(BrowseScope.phase);
       ref.read(recipeFilterProvider.notifier).reset();
-      context.go(AppTab.recipes.path);
+      goEat(ref, context, EatSegment.recipes);
     }
 
     Widget padded(Widget child) => Padding(
@@ -100,7 +101,7 @@ class HomePage extends ConsumerWidget {
                   : toSubscription,
               onExploreFoods: () {
                 ref.read(foodsScopeProvider.notifier).set(BrowseScope.phase);
-                context.go(AppTab.foods.path);
+                goEat(ref, context, EatSegment.foods);
               },
               onExploreRecipes: openRecipes,
             ),
@@ -108,7 +109,7 @@ class HomePage extends ConsumerWidget {
           const SizedBox(height: 30),
           padded(
             GoToSection(
-              onShopping: () => context.go(AppTab.shop.path),
+              onShopping: () => context.go(Routes.shopping),
               onDiary: () => context.push(Routes.diary),
             ),
           ),

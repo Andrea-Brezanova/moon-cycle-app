@@ -12,6 +12,7 @@ import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/phase.dart';
+import '../../eat/application/eat_segment.dart';
 import '../../recipes/presentation/widgets/recipe_widgets.dart';
 import '../application/generation_providers.dart';
 import '../data/saved_recipe_repository.dart';
@@ -38,7 +39,7 @@ class MyRecipesPage extends ConsumerWidget {
               title: 'My recipes',
               onBack: () => context.canPop()
                   ? context.pop()
-                  : context.go(AppTab.recipes.path),
+                  : goEat(ref, context, EatSegment.recipes),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(

@@ -3,9 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/hero_tokens.dart';
 import '../../../core/design/tokens/moon_typography.dart';
@@ -20,6 +18,7 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/domain/cycle_state.dart';
 import '../../cycle/presentation/cycle_orbit.dart';
+import '../../eat/application/eat_segment.dart';
 import '../application/onboarding_status.dart';
 
 /// Onboarding step 5 (`05-onboarding-your-phase`, `37-…-all-phases`): the
@@ -137,7 +136,7 @@ class _Reveal extends ConsumerWidget {
               trailingIcon: MoonIconName.arrow,
               onPressed: () async {
                 await ref.read(onboardingCompletedProvider.notifier).complete();
-                if (context.mounted) context.go(AppTab.foods.path);
+                if (context.mounted) goEat(ref, context, EatSegment.foods);
               },
             ),
           ),

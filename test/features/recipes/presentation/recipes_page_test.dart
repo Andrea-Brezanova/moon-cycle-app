@@ -5,6 +5,7 @@ import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/eat/application/eat_segment.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
@@ -15,6 +16,20 @@ import '../../../helpers/golden_screen.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/seed.dart';
 import '../../../helpers/test_catalogue.dart';
+
+/// Chooses a row in "Browse by phase" ("All phases", "Luteal", ...).
+Future<void> browse(WidgetTester tester, String row) async {
+  await tester.tap(find.byKey(const ValueKey('phase-pill')));
+  await tester.pumpAndSettle();
+  final target = find.descendant(
+    of: find.byType(BottomSheet),
+    matching: find.text(row),
+  );
+  await tester.ensureVisible(target);
+  await tester.pumpAndSettle();
+  await tester.tap(target);
+  await tester.pumpAndSettle();
+}
 
 Future<void> tapText(WidgetTester tester, String text) async {
   await tester.ensureVisible(find.text(text).first);
@@ -43,7 +58,8 @@ void main() {
       database: db,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
-    await tester.tap(find.byKey(const ValueKey('tab-recipes')));
+    container.read(eatSegmentProvider.notifier).set(EatSegment.recipes);
+    await tester.tap(find.byKey(const ValueKey('tab-eat')));
     await tester.pumpAndSettle();
     expect(find.byType(RecipesPage), findsOneWidget);
     return (container, db);
@@ -83,14 +99,14 @@ void main() {
 
   testWidgets('All recipes: every meal type, all 112 recipes', (tester) async {
     await pumpRecipes(tester);
-    await tapText(tester, 'All recipes');
+    await browse(tester, 'All phases');
     expect(find.text('Breakfast'), findsOneWidget);
     expect(find.text('Meals'), findsOneWidget);
     expect(find.text('Snacks'), findsOneWidget);
     expect(find.text('112 recipes'), findsOneWidget);
     await tapText(tester, 'Snacks');
     expect(find.text('11 snacks'), findsOneWidget);
-    await tapText(tester, 'This phase');
+    await browse(tester, 'Follicular');
     expect(find.text('2 follicular snacks'), findsOneWidget);
   });
 
@@ -140,7 +156,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.bySemanticsLabel('Chicken, 3 recipes'));
     await tester.pumpAndSettle();
-    await tapText(tester, 'Luteal');
+    await browse(tester, 'Luteal');
     expect(find.text('30 luteal recipes'), findsOneWidget);
     expect(container, isNotNull);
   });
@@ -151,12 +167,12 @@ void main() {
       find.bySemanticsLabel('Cook with, choose an ingredient'),
       findsOneWidget,
     );
-    await tapText(tester, 'All recipes');
+    await browse(tester, 'All phases');
     expect(
       find.bySemanticsLabel('Cook with, choose an ingredient'),
       findsNothing,
     );
-    await tapText(tester, 'This phase');
+    await browse(tester, 'Follicular');
     expect(
       find.bySemanticsLabel('Cook with, choose an ingredient'),
       findsOneWidget,

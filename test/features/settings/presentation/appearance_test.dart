@@ -48,7 +48,7 @@ void main() {
   }
 
   Future<void> openAppearance(WidgetTester tester) async {
-    await tester.tap(find.byKey(const ValueKey('tab-settings')));
+    await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('Appearance'),

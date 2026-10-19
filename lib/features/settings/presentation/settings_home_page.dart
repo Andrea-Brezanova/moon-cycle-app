@@ -53,7 +53,24 @@ class SettingsHomePage extends ConsumerWidget {
     final sections = <Widget>[
       Semantics(
         header: true,
-        child: Text('Settings', style: MoonType.h1.copyWith(color: c.text)),
+        child: Text('More', style: MoonType.h1.copyWith(color: c.text)),
+      ),
+      MoonListGroup(
+        title: 'Your space',
+        children: [
+          MoonListRow(
+            label: 'My Diary',
+            icon: MoonIconName.document,
+            subtitle: 'Your meals, by day',
+            onTap: () => context.push(Routes.diary),
+          ),
+          MoonListRow(
+            label: 'Shopping list',
+            icon: MoonIconName.shop,
+            subtitle: 'Plan what you need',
+            onTap: () => context.push(Routes.shopping),
+          ),
+        ],
       ),
       MoonListGroup(
         title: 'Personalisation',
@@ -106,7 +123,14 @@ class SettingsHomePage extends ConsumerWidget {
       ),
       MoonListGroup(
         title: 'Support',
-        children: [row(SettingsPage.help, MoonIconName.help)],
+        children: [
+          row(SettingsPage.help, MoonIconName.help),
+          MoonListRow(
+            label: 'Credits & Sources',
+            icon: MoonIconName.book,
+            onTap: () => context.push(Routes.credits),
+          ),
+        ],
       ),
       Padding(
         padding: const EdgeInsets.only(top: 6),
@@ -191,7 +215,7 @@ class SettingsHomePage extends ConsumerWidget {
       body: SafeArea(
         bottom: false,
         child: ListView(
-          controller: ref.watch(tabScrollProvider).of(AppTab.settings),
+          controller: ref.watch(tabScrollProvider).of(AppTab.more),
           padding: const EdgeInsets.fromLTRB(
             MoonSpace.gutter,
             10,

@@ -21,6 +21,7 @@ import '../../content/domain/food.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../diary/domain/diary_entry.dart';
 import '../../diary/presentation/log_entry_sheet.dart';
+import '../../eat/application/eat_segment.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../../recipes/application/recipe_filter.dart';
@@ -70,8 +71,9 @@ class FoodDetailPage extends ConsumerWidget {
 
     Widget header() => SubScreenHeader(
       backLabel: 'Foods',
-      onBack: () =>
-          context.canPop() ? context.pop() : context.go(AppTab.foods.path),
+      onBack: () => context.canPop()
+          ? context.pop()
+          : goEat(ref, context, EatSegment.foods),
     );
 
     if (food == null) {
@@ -203,7 +205,7 @@ class FoodDetailPage extends ConsumerWidget {
                         ref
                             .read(recipeFilterProvider.notifier)
                             .showRecipesWith(food.id);
-                        context.go(AppTab.recipes.path);
+                        goEat(ref, context, EatSegment.recipes);
                       },
                     )
                   else
