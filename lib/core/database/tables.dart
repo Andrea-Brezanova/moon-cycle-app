@@ -176,16 +176,47 @@ class DiaryEntries extends Table with UserRow {
   /// `breakfast`, `lunch`, `dinner` or `snack`.
   TextColumn get meal => text()();
 
-  /// `food` or `recipe`.
+  /// `food`, `recipe` or `custom` (a meal the user typed; see [itemId]).
   TextColumn get kind => text()();
 
-  /// The catalogue food id or the recipe id.
+  /// The catalogue food id or the recipe id. A `custom` meal has no catalogue
+  /// item, so it uses its own row id here: that keeps the unique index below
+  /// from ever merging two typed meals.
   TextColumn get itemId => text()();
   TextColumn get title => text()();
   RealColumn get amount => real()();
 
   /// `serving`, `g`, `oz`, `cup` or `piece`.
   TextColumn get unit => text()();
+
+  /// The user's note on this meal (schema 6). Null when there is none.
+  TextColumn get note => text().nullable()();
+}
+
+/// One answer in a day's symptom check-in (schema 6). Local only.
+///
+/// A day is a set of rows, not one submission, so answers can be added, changed
+/// or removed at any time. [category] is `energy`, `mood`, `body`, `sleep` or
+/// `note`; [symptom] is a key from a fixed vocabulary (or `note`). At most one
+/// live row per day and symptom; the repository keeps energy and sleep to one
+/// answer each. Nothing here is interpreted, scored or diagnosed.
+@TableIndex.sql(
+  'CREATE UNIQUE INDEX symptom_checkins_live '
+  'ON symptom_checkins ("date", category, symptom) '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('SymptomCheckinRow')
+class SymptomCheckins extends Table with UserRow {
+  TextColumn get date => text().map(const LocalDateConverter())();
+  TextColumn get category => text()();
+  TextColumn get symptom => text()();
+
+  /// Body symptoms only (`mild|moderate|strong`, or bleeding's
+  /// `spotting|light|medium|heavy`). Null when not given.
+  TextColumn get severity => text().nullable()();
+
+  /// The free-text note, on the `note` row.
+  TextColumn get note => text().nullable()();
 }
 
 /// How many requests each external recipe provider has been sent this month,

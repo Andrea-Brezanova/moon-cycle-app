@@ -1,7 +1,9 @@
 # My Diary: schema v6 specification (not yet implemented)
 
-Status: **specification only.** No storage has been changed. Written for owner
-approval before the migration is built (after Eat/navigation is verified).
+Status: **approved and implemented** (schema 6). The migration uses drift's
+step-by-step helper, so every old version upgrades to the exact schema of the
+next. Verified against a populated v5 database in
+`test/core/database/diary_v6_migration_test.dart`.
 
 ## What exists (schema v5)
 `diary_entries` (one row per thing eaten): `id`, `created_at`, `updated_at`,
@@ -19,9 +21,9 @@ unit), update, delete (tombstone), per-day and history watching.
 | `note` | text, nullable | The user's note on a meal. Null for every existing row. |
 | (none for "own meal") | | A manually entered meal is a new `kind` value, `custom`, in the existing `kind` text column. No new column. |
 
-A `custom` entry: `title` is what the user typed, `item_id` is the empty string
-(the column is `NOT NULL` in v5, and SQLite cannot relax that without
-rebuilding the table, so it stays and is simply `''`), `amount` and `unit` keep
+A `custom` entry: `title` is what the user typed, `item_id` is the entry's own row id
+(the column is `NOT NULL` in v5, and the unique live index on
+`(date, meal, kind, item_id, unit)` would otherwise merge two typed meals), `amount` and `unit` keep
 their existing values (default 1 serving, shown as nothing when it is the
 default). **No nutritional values are stored or invented for any entry.**
 

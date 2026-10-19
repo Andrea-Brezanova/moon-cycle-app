@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/local_date.dart';
+import 'app_database.steps.dart';
 import 'tables.dart';
 
 part 'app_database.g.dart';
@@ -23,6 +24,7 @@ part 'app_database.g.dart';
     AppStates,
     PersonalRecipes,
     DiaryEntries,
+    SymptomCheckins,
     ProviderUsages,
     SavedRecipeRefs,
   ],
@@ -31,32 +33,44 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-    onUpgrade: (m, from, to) async {
+    // Each step runs against its own version of the schema, so upgrading from
+    // any old version builds exactly what that version had.
+    onUpgrade: stepByStep(
       // 2: Settings › Appearance.
-      if (from < 2) {
-        await m.addColumn(userPreferences, userPreferences.appearance);
-      }
+      from1To2: (m, schema) async {
+        await m.addColumn(
+          schema.userPreferences,
+          schema.userPreferences.appearance,
+        );
+      },
       // 3: personal (generated) recipes. Additive: nothing existing changes.
-      if (from < 3) {
-        await m.createTable(personalRecipes);
-        await m.createIndex(personalRecipesOwnerKey);
-      }
+      from2To3: (m, schema) async {
+        await m.createTable(schema.personalRecipes);
+        await m.createIndex(schema.personalRecipesOwnerKey);
+      },
       // 4: the food diary. Additive.
-      if (from < 4) {
-        await m.createTable(diaryEntries);
-        await m.createIndex(diaryEntriesItemLive);
-      }
+      from3To4: (m, schema) async {
+        await m.createTable(schema.diaryEntries);
+        await m.createIndex(schema.diaryEntriesItemLive);
+      },
       // 5: external provider usage and saved recipe references. Additive.
-      if (from < 5) {
-        await m.createTable(providerUsages);
-        await m.createTable(savedRecipeRefs);
-        await m.createIndex(savedRecipeRefsLive);
-      }
-    },
+      from4To5: (m, schema) async {
+        await m.createTable(schema.providerUsages);
+        await m.createTable(schema.savedRecipeRefs);
+        await m.createIndex(schema.savedRecipeRefsLive);
+      },
+      // 6: My Diary. A note on meals and symptom check-ins. Additive: existing
+      // diary rows keep every value and get a null note.
+      from5To6: (m, schema) async {
+        await m.addColumn(schema.diaryEntries, schema.diaryEntries.note);
+        await m.createTable(schema.symptomCheckins);
+        await m.createIndex(schema.symptomCheckinsLive);
+      },
+    ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),
   );
 }

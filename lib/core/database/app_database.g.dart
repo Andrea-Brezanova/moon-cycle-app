@@ -4706,6 +4706,15 @@ class $DiaryEntriesTable extends DiaryEntries
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -4719,6 +4728,7 @@ class $DiaryEntriesTable extends DiaryEntries
     title,
     amount,
     unit,
+    note,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -4807,6 +4817,12 @@ class $DiaryEntriesTable extends DiaryEntries
     } else if (isInserting) {
       context.missing(_unitMeta);
     }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
     return context;
   }
 
@@ -4862,6 +4878,10 @@ class $DiaryEntriesTable extends DiaryEntries
         DriftSqlType.string,
         data['${effectivePrefix}unit'],
       )!,
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
     );
   }
 
@@ -4886,16 +4906,21 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
   /// `breakfast`, `lunch`, `dinner` or `snack`.
   final String meal;
 
-  /// `food` or `recipe`.
+  /// `food`, `recipe` or `custom` (a meal the user typed; see [itemId]).
   final String kind;
 
-  /// The catalogue food id or the recipe id.
+  /// The catalogue food id or the recipe id. A `custom` meal has no catalogue
+  /// item, so it uses its own row id here: that keeps the unique index below
+  /// from ever merging two typed meals.
   final String itemId;
   final String title;
   final double amount;
 
   /// `serving`, `g`, `oz`, `cup` or `piece`.
   final String unit;
+
+  /// The user's note on this meal (schema 6). Null when there is none.
+  final String? note;
   const DiaryEntryRow({
     required this.id,
     required this.createdAt,
@@ -4908,6 +4933,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
     required this.title,
     required this.amount,
     required this.unit,
+    this.note,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -4929,6 +4955,9 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
     map['title'] = Variable<String>(title);
     map['amount'] = Variable<double>(amount);
     map['unit'] = Variable<String>(unit);
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
     return map;
   }
 
@@ -4947,6 +4976,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
       title: Value(title),
       amount: Value(amount),
       unit: Value(unit),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
     );
   }
 
@@ -4967,6 +4997,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
       title: serializer.fromJson<String>(json['title']),
       amount: serializer.fromJson<double>(json['amount']),
       unit: serializer.fromJson<String>(json['unit']),
+      note: serializer.fromJson<String?>(json['note']),
     );
   }
   @override
@@ -4984,6 +5015,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
       'title': serializer.toJson<String>(title),
       'amount': serializer.toJson<double>(amount),
       'unit': serializer.toJson<String>(unit),
+      'note': serializer.toJson<String?>(note),
     };
   }
 
@@ -4999,6 +5031,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
     String? title,
     double? amount,
     String? unit,
+    Value<String?> note = const Value.absent(),
   }) => DiaryEntryRow(
     id: id ?? this.id,
     createdAt: createdAt ?? this.createdAt,
@@ -5011,6 +5044,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
     title: title ?? this.title,
     amount: amount ?? this.amount,
     unit: unit ?? this.unit,
+    note: note.present ? note.value : this.note,
   );
   DiaryEntryRow copyWithCompanion(DiaryEntriesCompanion data) {
     return DiaryEntryRow(
@@ -5025,6 +5059,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
       title: data.title.present ? data.title.value : this.title,
       amount: data.amount.present ? data.amount.value : this.amount,
       unit: data.unit.present ? data.unit.value : this.unit,
+      note: data.note.present ? data.note.value : this.note,
     );
   }
 
@@ -5041,7 +5076,8 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
           ..write('itemId: $itemId, ')
           ..write('title: $title, ')
           ..write('amount: $amount, ')
-          ..write('unit: $unit')
+          ..write('unit: $unit, ')
+          ..write('note: $note')
           ..write(')'))
         .toString();
   }
@@ -5059,6 +5095,7 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
     title,
     amount,
     unit,
+    note,
   );
   @override
   bool operator ==(Object other) =>
@@ -5074,7 +5111,8 @@ class DiaryEntryRow extends DataClass implements Insertable<DiaryEntryRow> {
           other.itemId == this.itemId &&
           other.title == this.title &&
           other.amount == this.amount &&
-          other.unit == this.unit);
+          other.unit == this.unit &&
+          other.note == this.note);
 }
 
 class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
@@ -5089,6 +5127,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
   final Value<String> title;
   final Value<double> amount;
   final Value<String> unit;
+  final Value<String?> note;
   final Value<int> rowid;
   const DiaryEntriesCompanion({
     this.id = const Value.absent(),
@@ -5102,6 +5141,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
     this.title = const Value.absent(),
     this.amount = const Value.absent(),
     this.unit = const Value.absent(),
+    this.note = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   DiaryEntriesCompanion.insert({
@@ -5116,6 +5156,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
     required String title,
     required double amount,
     required String unit,
+    this.note = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        createdAt = Value(createdAt),
@@ -5139,6 +5180,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
     Expression<String>? title,
     Expression<double>? amount,
     Expression<String>? unit,
+    Expression<String>? note,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -5153,6 +5195,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
       if (title != null) 'title': title,
       if (amount != null) 'amount': amount,
       if (unit != null) 'unit': unit,
+      if (note != null) 'note': note,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -5169,6 +5212,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
     Value<String>? title,
     Value<double>? amount,
     Value<String>? unit,
+    Value<String?>? note,
     Value<int>? rowid,
   }) {
     return DiaryEntriesCompanion(
@@ -5183,6 +5227,7 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
       title: title ?? this.title,
       amount: amount ?? this.amount,
       unit: unit ?? this.unit,
+      note: note ?? this.note,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -5225,6 +5270,9 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
     if (unit.present) {
       map['unit'] = Variable<String>(unit.value);
     }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -5245,6 +5293,575 @@ class DiaryEntriesCompanion extends UpdateCompanion<DiaryEntryRow> {
           ..write('title: $title, ')
           ..write('amount: $amount, ')
           ..write('unit: $unit, ')
+          ..write('note: $note, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SymptomCheckinsTable extends SymptomCheckins
+    with TableInfo<$SymptomCheckinsTable, SymptomCheckinRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SymptomCheckinsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<LocalDate, String> date =
+      GeneratedColumn<String>(
+        'date',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<LocalDate>($SymptomCheckinsTable.$converterdate);
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _symptomMeta = const VerificationMeta(
+    'symptom',
+  );
+  @override
+  late final GeneratedColumn<String> symptom = GeneratedColumn<String>(
+    'symptom',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _severityMeta = const VerificationMeta(
+    'severity',
+  );
+  @override
+  late final GeneratedColumn<String> severity = GeneratedColumn<String>(
+    'severity',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    date,
+    category,
+    symptom,
+    severity,
+    note,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'symptom_checkins';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SymptomCheckinRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('symptom')) {
+      context.handle(
+        _symptomMeta,
+        symptom.isAcceptableOrUnknown(data['symptom']!, _symptomMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_symptomMeta);
+    }
+    if (data.containsKey('severity')) {
+      context.handle(
+        _severityMeta,
+        severity.isAcceptableOrUnknown(data['severity']!, _severityMeta),
+      );
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  SymptomCheckinRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SymptomCheckinRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      date: $SymptomCheckinsTable.$converterdate.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}date'],
+        )!,
+      ),
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      symptom: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}symptom'],
+      )!,
+      severity: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}severity'],
+      ),
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+    );
+  }
+
+  @override
+  $SymptomCheckinsTable createAlias(String alias) {
+    return $SymptomCheckinsTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<LocalDate, String> $converterdate =
+      const LocalDateConverter();
+}
+
+class SymptomCheckinRow extends DataClass
+    implements Insertable<SymptomCheckinRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+  final LocalDate date;
+  final String category;
+  final String symptom;
+
+  /// Body symptoms only (`mild|moderate|strong`, or bleeding's
+  /// `spotting|light|medium|heavy`). Null when not given.
+  final String? severity;
+
+  /// The free-text note, on the `note` row.
+  final String? note;
+  const SymptomCheckinRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.date,
+    required this.category,
+    required this.symptom,
+    this.severity,
+    this.note,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    {
+      map['date'] = Variable<String>(
+        $SymptomCheckinsTable.$converterdate.toSql(date),
+      );
+    }
+    map['category'] = Variable<String>(category);
+    map['symptom'] = Variable<String>(symptom);
+    if (!nullToAbsent || severity != null) {
+      map['severity'] = Variable<String>(severity);
+    }
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    return map;
+  }
+
+  SymptomCheckinsCompanion toCompanion(bool nullToAbsent) {
+    return SymptomCheckinsCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      date: Value(date),
+      category: Value(category),
+      symptom: Value(symptom),
+      severity: severity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(severity),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+    );
+  }
+
+  factory SymptomCheckinRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SymptomCheckinRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      date: serializer.fromJson<LocalDate>(json['date']),
+      category: serializer.fromJson<String>(json['category']),
+      symptom: serializer.fromJson<String>(json['symptom']),
+      severity: serializer.fromJson<String?>(json['severity']),
+      note: serializer.fromJson<String?>(json['note']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'date': serializer.toJson<LocalDate>(date),
+      'category': serializer.toJson<String>(category),
+      'symptom': serializer.toJson<String>(symptom),
+      'severity': serializer.toJson<String?>(severity),
+      'note': serializer.toJson<String?>(note),
+    };
+  }
+
+  SymptomCheckinRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    LocalDate? date,
+    String? category,
+    String? symptom,
+    Value<String?> severity = const Value.absent(),
+    Value<String?> note = const Value.absent(),
+  }) => SymptomCheckinRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    date: date ?? this.date,
+    category: category ?? this.category,
+    symptom: symptom ?? this.symptom,
+    severity: severity.present ? severity.value : this.severity,
+    note: note.present ? note.value : this.note,
+  );
+  SymptomCheckinRow copyWithCompanion(SymptomCheckinsCompanion data) {
+    return SymptomCheckinRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      date: data.date.present ? data.date.value : this.date,
+      category: data.category.present ? data.category.value : this.category,
+      symptom: data.symptom.present ? data.symptom.value : this.symptom,
+      severity: data.severity.present ? data.severity.value : this.severity,
+      note: data.note.present ? data.note.value : this.note,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SymptomCheckinRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('category: $category, ')
+          ..write('symptom: $symptom, ')
+          ..write('severity: $severity, ')
+          ..write('note: $note')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    date,
+    category,
+    symptom,
+    severity,
+    note,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SymptomCheckinRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.date == this.date &&
+          other.category == this.category &&
+          other.symptom == this.symptom &&
+          other.severity == this.severity &&
+          other.note == this.note);
+}
+
+class SymptomCheckinsCompanion extends UpdateCompanion<SymptomCheckinRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<LocalDate> date;
+  final Value<String> category;
+  final Value<String> symptom;
+  final Value<String?> severity;
+  final Value<String?> note;
+  final Value<int> rowid;
+  const SymptomCheckinsCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.date = const Value.absent(),
+    this.category = const Value.absent(),
+    this.symptom = const Value.absent(),
+    this.severity = const Value.absent(),
+    this.note = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  SymptomCheckinsCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required LocalDate date,
+    required String category,
+    required String symptom,
+    this.severity = const Value.absent(),
+    this.note = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       date = Value(date),
+       category = Value(category),
+       symptom = Value(symptom);
+  static Insertable<SymptomCheckinRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? date,
+    Expression<String>? category,
+    Expression<String>? symptom,
+    Expression<String>? severity,
+    Expression<String>? note,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (date != null) 'date': date,
+      if (category != null) 'category': category,
+      if (symptom != null) 'symptom': symptom,
+      if (severity != null) 'severity': severity,
+      if (note != null) 'note': note,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  SymptomCheckinsCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<LocalDate>? date,
+    Value<String>? category,
+    Value<String>? symptom,
+    Value<String?>? severity,
+    Value<String?>? note,
+    Value<int>? rowid,
+  }) {
+    return SymptomCheckinsCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      date: date ?? this.date,
+      category: category ?? this.category,
+      symptom: symptom ?? this.symptom,
+      severity: severity ?? this.severity,
+      note: note ?? this.note,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (date.present) {
+      map['date'] = Variable<String>(
+        $SymptomCheckinsTable.$converterdate.toSql(date.value),
+      );
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (symptom.present) {
+      map['symptom'] = Variable<String>(symptom.value);
+    }
+    if (severity.present) {
+      map['severity'] = Variable<String>(severity.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SymptomCheckinsCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('category: $category, ')
+          ..write('symptom: $symptom, ')
+          ..write('severity: $severity, ')
+          ..write('note: $note, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -6164,6 +6781,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $DiaryEntriesTable diaryEntries = $DiaryEntriesTable(this);
+  late final $SymptomCheckinsTable symptomCheckins = $SymptomCheckinsTable(
+    this,
+  );
   late final $ProviderUsagesTable providerUsages = $ProviderUsagesTable(this);
   late final $SavedRecipeRefsTable savedRecipeRefs = $SavedRecipeRefsTable(
     this,
@@ -6184,6 +6804,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'diary_entries_item_live',
     'CREATE UNIQUE INDEX diary_entries_item_live ON diary_entries (date, meal, kind, item_id, unit) WHERE deleted_at IS NULL',
   );
+  late final Index symptomCheckinsLive = Index(
+    'symptom_checkins_live',
+    'CREATE UNIQUE INDEX symptom_checkins_live ON symptom_checkins (date, category, symptom) WHERE deleted_at IS NULL',
+  );
   late final Index savedRecipeRefsLive = Index(
     'saved_recipe_refs_live',
     'CREATE UNIQUE INDEX saved_recipe_refs_live ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
@@ -6202,12 +6826,14 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     appStates,
     personalRecipes,
     diaryEntries,
+    symptomCheckins,
     providerUsages,
     savedRecipeRefs,
     periodLogsStartLive,
     shoppingItemsKeyLive,
     personalRecipesOwnerKey,
     diaryEntriesItemLive,
+    symptomCheckinsLive,
     savedRecipeRefsLive,
   ];
   @override
@@ -8772,6 +9398,7 @@ typedef $$DiaryEntriesTableCreateCompanionBuilder =
       required String title,
       required double amount,
       required String unit,
+      Value<String?> note,
       Value<int> rowid,
     });
 typedef $$DiaryEntriesTableUpdateCompanionBuilder =
@@ -8787,6 +9414,7 @@ typedef $$DiaryEntriesTableUpdateCompanionBuilder =
       Value<String> title,
       Value<double> amount,
       Value<String> unit,
+      Value<String?> note,
       Value<int> rowid,
     });
 
@@ -8854,6 +9482,11 @@ class $$DiaryEntriesTableFilterComposer
     column: $table.unit,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$DiaryEntriesTableOrderingComposer
@@ -8919,6 +9552,11 @@ class $$DiaryEntriesTableOrderingComposer
     column: $table.unit,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$DiaryEntriesTableAnnotationComposer
@@ -8962,6 +9600,9 @@ class $$DiaryEntriesTableAnnotationComposer
 
   GeneratedColumn<String> get unit =>
       $composableBuilder(column: $table.unit, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
 }
 
 class $$DiaryEntriesTableTableManager
@@ -9006,6 +9647,7 @@ class $$DiaryEntriesTableTableManager
                 Value<String> title = const Value.absent(),
                 Value<double> amount = const Value.absent(),
                 Value<String> unit = const Value.absent(),
+                Value<String?> note = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => DiaryEntriesCompanion(
                 id: id,
@@ -9019,6 +9661,7 @@ class $$DiaryEntriesTableTableManager
                 title: title,
                 amount: amount,
                 unit: unit,
+                note: note,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -9034,6 +9677,7 @@ class $$DiaryEntriesTableTableManager
                 required String title,
                 required double amount,
                 required String unit,
+                Value<String?> note = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => DiaryEntriesCompanion.insert(
                 id: id,
@@ -9047,6 +9691,7 @@ class $$DiaryEntriesTableTableManager
                 title: title,
                 amount: amount,
                 unit: unit,
+                note: note,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
@@ -9081,6 +9726,298 @@ typedef $$DiaryEntriesTableProcessedTableManager =
         BaseReferences<_$AppDatabase, $DiaryEntriesTable, DiaryEntryRow>,
       ),
       DiaryEntryRow,
+      PrefetchHooks Function()
+    >;
+typedef $$SymptomCheckinsTableCreateCompanionBuilder =
+    SymptomCheckinsCompanion Function({
+      required String id,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      required LocalDate date,
+      required String category,
+      required String symptom,
+      Value<String?> severity,
+      Value<String?> note,
+      Value<int> rowid,
+    });
+typedef $$SymptomCheckinsTableUpdateCompanionBuilder =
+    SymptomCheckinsCompanion Function({
+      Value<String> id,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<LocalDate> date,
+      Value<String> category,
+      Value<String> symptom,
+      Value<String?> severity,
+      Value<String?> note,
+      Value<int> rowid,
+    });
+
+class $$SymptomCheckinsTableFilterComposer
+    extends Composer<_$AppDatabase, $SymptomCheckinsTable> {
+  $$SymptomCheckinsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<LocalDate, LocalDate, String> get date =>
+      $composableBuilder(
+        column: $table.date,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get symptom => $composableBuilder(
+    column: $table.symptom,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get severity => $composableBuilder(
+    column: $table.severity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SymptomCheckinsTableOrderingComposer
+    extends Composer<_$AppDatabase, $SymptomCheckinsTable> {
+  $$SymptomCheckinsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get date => $composableBuilder(
+    column: $table.date,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get symptom => $composableBuilder(
+    column: $table.symptom,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get severity => $composableBuilder(
+    column: $table.severity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SymptomCheckinsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SymptomCheckinsTable> {
+  $$SymptomCheckinsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<LocalDate, String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get symptom =>
+      $composableBuilder(column: $table.symptom, builder: (column) => column);
+
+  GeneratedColumn<String> get severity =>
+      $composableBuilder(column: $table.severity, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+}
+
+class $$SymptomCheckinsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SymptomCheckinsTable,
+          SymptomCheckinRow,
+          $$SymptomCheckinsTableFilterComposer,
+          $$SymptomCheckinsTableOrderingComposer,
+          $$SymptomCheckinsTableAnnotationComposer,
+          $$SymptomCheckinsTableCreateCompanionBuilder,
+          $$SymptomCheckinsTableUpdateCompanionBuilder,
+          (
+            SymptomCheckinRow,
+            BaseReferences<
+              _$AppDatabase,
+              $SymptomCheckinsTable,
+              SymptomCheckinRow
+            >,
+          ),
+          SymptomCheckinRow,
+          PrefetchHooks Function()
+        > {
+  $$SymptomCheckinsTableTableManager(
+    _$AppDatabase db,
+    $SymptomCheckinsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SymptomCheckinsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SymptomCheckinsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SymptomCheckinsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<LocalDate> date = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<String> symptom = const Value.absent(),
+                Value<String?> severity = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SymptomCheckinsCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                category: category,
+                symptom: symptom,
+                severity: severity,
+                note: note,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required LocalDate date,
+                required String category,
+                required String symptom,
+                Value<String?> severity = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SymptomCheckinsCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                category: category,
+                symptom: symptom,
+                severity: severity,
+                note: note,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$SymptomCheckinsTable, SymptomCheckinRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $SymptomCheckinsTable,
+                    SymptomCheckinRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SymptomCheckinsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SymptomCheckinsTable,
+      SymptomCheckinRow,
+      $$SymptomCheckinsTableFilterComposer,
+      $$SymptomCheckinsTableOrderingComposer,
+      $$SymptomCheckinsTableAnnotationComposer,
+      $$SymptomCheckinsTableCreateCompanionBuilder,
+      $$SymptomCheckinsTableUpdateCompanionBuilder,
+      (
+        SymptomCheckinRow,
+        BaseReferences<_$AppDatabase, $SymptomCheckinsTable, SymptomCheckinRow>,
+      ),
+      SymptomCheckinRow,
       PrefetchHooks Function()
     >;
 typedef $$ProviderUsagesTableCreateCompanionBuilder =
@@ -9600,6 +10537,8 @@ class $AppDatabaseManager {
       $$PersonalRecipesTableTableManager(_db, _db.personalRecipes);
   $$DiaryEntriesTableTableManager get diaryEntries =>
       $$DiaryEntriesTableTableManager(_db, _db.diaryEntries);
+  $$SymptomCheckinsTableTableManager get symptomCheckins =>
+      $$SymptomCheckinsTableTableManager(_db, _db.symptomCheckins);
   $$ProviderUsagesTableTableManager get providerUsages =>
       $$ProviderUsagesTableTableManager(_db, _db.providerUsages);
   $$SavedRecipeRefsTableTableManager get savedRecipeRefs =>
