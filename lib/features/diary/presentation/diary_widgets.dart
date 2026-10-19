@@ -264,46 +264,51 @@ class DiaryChoiceRow<T> extends StatelessWidget {
     return Semantics(
       container: true,
       label: semanticLabel,
-      child: Row(
-        children: [
-          for (final (i, (value, label)) in options.indexed) ...[
-            if (i > 0) const SizedBox(width: 6),
-            Expanded(
-              child: Pressable(
-                onTap: () => onChanged(value == selected ? null : value),
-                selected: value == selected,
-                semanticLabel: label,
-                child: Container(
-                  constraints: const BoxConstraints(minHeight: 44),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 2,
-                    vertical: 6,
-                  ),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: value == selected ? c.inverseBg : c.raised,
-                    border: value == selected
-                        ? null
-                        : Border.all(color: c.line),
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Text(
-                    label,
-                    textAlign: TextAlign.center,
-                    style: dmSans(
-                      13,
-                      weight: value == selected
-                          ? FontWeight.w600
-                          : FontWeight.w500,
-                      height: 1.15,
-                      color: value == selected ? c.inverseText : c.text,
+      // IntrinsicHeight + stretch: when one label wraps (large text, narrow
+      // phone) every option grows to the same height.
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final (i, (value, label)) in options.indexed) ...[
+              if (i > 0) const SizedBox(width: 6),
+              Expanded(
+                child: Pressable(
+                  onTap: () => onChanged(value == selected ? null : value),
+                  selected: value == selected,
+                  semanticLabel: label,
+                  child: Container(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 2,
+                      vertical: 6,
+                    ),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: value == selected ? c.inverseBg : c.raised,
+                      border: value == selected
+                          ? null
+                          : Border.all(color: c.line),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Text(
+                      label,
+                      textAlign: TextAlign.center,
+                      style: dmSans(
+                        13,
+                        weight: value == selected
+                            ? FontWeight.w600
+                            : FontWeight.w500,
+                        height: 1.15,
+                        color: value == selected ? c.inverseText : c.text,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

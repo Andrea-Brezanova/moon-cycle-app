@@ -183,8 +183,10 @@ class _TabSwitch extends StatelessWidget {
               color: on ? c.sand : null,
               shape: const StadiumBorder(),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
+            // Wraps instead of overflowing at the largest text sizes.
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 Text(
                   text,

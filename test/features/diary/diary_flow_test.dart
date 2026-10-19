@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -178,6 +180,22 @@ void main() {
     await tester.pump(const Duration(seconds: 6));
   });
 
+  testWidgets(
+    'the toast\'s View opens My Diary on the saved day with the entry',
+    (tester) async {
+      final c = await pump(tester);
+      c.read(appRouterProvider).go(Routes.food('broccoli'));
+      await tester.pumpAndSettle();
+      await tapText(tester, 'Log meal');
+      await tapText(tester, 'Save to diary');
+      expect(find.text('Added to your diary'), findsOneWidget);
+      await tapText(tester, 'View');
+      expect(find.byType(DiaryPage), findsOneWidget);
+      expect(find.text('Broccoli'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 6));
+    },
+  );
+
   testWidgets('Recipe detail "Log meal" opens the form with the recipe', (
     tester,
   ) async {
@@ -223,6 +241,31 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Lentils'), findsNothing);
     expect(find.textContaining('Today ·'), findsOneWidget);
+  });
+
+  testWidgets('choice options stay the same height when one label wraps', (
+    tester,
+  ) async {
+    final c = await pump(tester);
+    tester.platformDispatcher.textScaleFactorTestValue = 2.2;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    unawaited(c.read(appRouterProvider).push(Routes.logSymptoms()));
+    await tester.pumpAndSettle();
+    final heights = {
+      for (final l in ['Very low', 'Low', 'Okay', 'Good', 'High'])
+        tester
+            .getSize(
+              find
+                  .ancestor(
+                    of: find.text(l).first,
+                    matching: find.byType(Container),
+                  )
+                  .first,
+            )
+            .height,
+    };
+    expect(heights, hasLength(1));
+    await tester.pump(const Duration(seconds: 6));
   });
 
   group('symptoms', () {
