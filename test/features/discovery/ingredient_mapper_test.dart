@@ -101,6 +101,9 @@ void main() {
         ('Plain Flour', 'wheat-flour'),
         ('Unsalted Butter', 'butter'),
         ('Cannellini Beans', 'white-beans'),
+        ('Chicken Legs', 'chicken'),
+        ('Egg Yolks', 'eggs'),
+        ('Red Potatoes', 'white-potato'),
       ]) {
         final c = m.classify(text);
         expect(c.kind, IngredientKind.food, reason: text);
@@ -138,6 +141,27 @@ void main() {
       expect(m.classify('Fine sea salt').kind, IngredientKind.pantrySafe);
       expect(m.classify('Mascarpone').derived!.allergens, {'dairy'});
       expect(m.classify('Semolina').derived!.allergens, {'gluten'});
+    });
+
+    test('cream, mayonnaise and mustards keep their allergens and class', () {
+      final cream = m.classify('Cream').derived!;
+      expect(cream.allergens, {'dairy'});
+      expect(cream.animal, AnimalSource.dairy);
+      // Heavy and whipping cream are the catalogue's own food, with its data.
+      for (final t in ['Heavy Cream', 'Whipping Cream']) {
+        final f = m.classify(t).food!;
+        expect(f.id, 'heavy-cream', reason: t);
+        expect(f.allergenIds, contains('dairy'), reason: t);
+      }
+      final mayo = m.classify('Mayonnaise').derived!;
+      expect(mayo.allergens, {'egg'});
+      expect(mayo.animal, AnimalSource.egg);
+      expect(kind('Dijon Mustard'), IngredientKind.pantrySafe);
+      expect(kind('Mustard'), IngredientKind.ambiguous);
+      expect(kind('English Mustard'), isNot(IngredientKind.pantrySafe));
+      // Cream is not milk, and mayonnaise is not an egg food.
+      expect(m.map('Cream'), isNull);
+      expect(m.map('Mayonnaise'), isNull);
     });
 
     test('ambiguous ones are named, never assumed safe', () {
@@ -287,6 +311,37 @@ void main() {
           expect(food.allergenIds, contains('gluten'), reason: food.id);
         }
       }
+    });
+
+    test('mayonnaise and cream still block vegans and egg/dairy avoiders', () {
+      final mayo = recipe(['Carrots', 'Mayonnaise']);
+      final cream = recipe(['Carrots', 'Cream']);
+      expect(
+        const FoodFilter(diet: Diet.vegan).allowsRecipe(mayo, testCatalogue),
+        isFalse,
+      );
+      expect(
+        const FoodFilter(diet: Diet.vegan).allowsRecipe(cream, testCatalogue),
+        isFalse,
+      );
+      for (final (allergen, r) in [('egg', mayo), ('dairy', cream)]) {
+        final f = FoodFilter(
+          avoidances: [AllergenAvoidance(id: 'a', allergenId: allergen)],
+        );
+        expect(f.allowsRecipe(r, testCatalogue), isFalse, reason: allergen);
+      }
+      // A chicken leg is still meat, egg yolk still egg.
+      expect(
+        const FoodFilter(diet: Diet.vegetarian)
+            .allowsRecipe(recipe(['Chicken Legs']), testCatalogue),
+        isFalse,
+      );
+      expect(
+        FoodFilter(
+          avoidances: [AllergenAvoidance(id: 'a', allergenId: 'egg')],
+        ).allowsRecipe(recipe(['Egg Yolks']), testCatalogue),
+        isFalse,
+      );
     });
 
     test('peanut butter keeps the dataset flags', () {

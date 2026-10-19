@@ -148,6 +148,7 @@ class RecipeApiClient implements ExternalRecipeClient {
   };
 
   static const _maxIngredientIds = 2;
+  static const _maxExactIds = 3;
 
   /// The provider's ingredient ids for [name]: its exact match when there is one,
   /// otherwise at most [_maxIngredientIds] plain forms of the same food. The
@@ -161,12 +162,16 @@ class RecipeApiClient implements ExternalRecipeClient {
     );
     final wanted = normaliseName(name);
     final entries = _data(json);
+    // The index can hold the same name more than once, each with its own
+    // recipes ("spinach" had two entries: 1 and 9 recipes), so all are used.
+    final exact = <String>[];
     for (final i in entries) {
       if (normaliseName(_text(i['name']) ?? '') == wanted) {
         final id = _text(i['id']);
-        if (id != null) return [id];
+        if (id != null && !exact.contains(id)) exact.add(id);
       }
     }
+    if (exact.isNotEmpty) return exact.take(_maxExactIds).toList();
     final forms = <String>[];
     for (final i in entries) {
       final raw = _text(i['name']) ?? '';

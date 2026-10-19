@@ -82,6 +82,17 @@ Future<void> main(List<String> args) async {
     return jsonDecode(body) as Map<String, Object?>;
   }
 
+  // --list-ids a,b: only the free recipe list for ingredient ids already known
+  // from earlier captures (no ingredient search, never a paid detail).
+  final listIds = arg('list-ids', '');
+  if (listIds.isNotEmpty) {
+    for (final id in listIds.split(',')) {
+      await get('recipes?ingredients=$id&per_page=10', isPaid: false);
+    }
+    stdout.writeln('Done. This run: $free free, 0 paid.');
+    client.close();
+    return;
+  }
   final recipeIds = <String>{};
   for (final food in foods) {
     final ing = await get(

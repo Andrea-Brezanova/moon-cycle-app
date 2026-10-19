@@ -51,7 +51,21 @@ jobs:
       - run: flutter pub get
       # Goldens are recorded on macOS, so they are compared on macOS. Never
       # regenerate them in CI.
-      - run: flutter test --tags golden
+      - run: |
+          set -o pipefail
+          flutter test --tags golden 2>&1 | tee golden.log
+      # Shown on the run's summary page: how far each image is from the
+      # recorded one, and whether the sizes differ, without downloading anything.
+      - name: Summarise golden differences
+        if: failure()
+        run: |
+          {
+            echo '### Golden differences'
+            echo '```'
+            grep -E 'Pixel test failed|image sizes|Golden ".*" did not|Could not be compared' golden.log | sed -E 's/^.*(Pixel test failed|image sizes|Golden)/\1/' | sort | uniq -c | sort -rn | head -30
+            echo '```'
+            echo "Runner: $(sw_vers -productVersion), $(uname -m)"
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Keep failure images
         if: failure()
         uses: actions/upload-artifact@v4
