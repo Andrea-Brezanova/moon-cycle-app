@@ -1,5 +1,7 @@
 import '../../core/design/widgets/moon_icon.dart';
+import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
+import '../../features/diary/domain/diary_entry.dart';
 
 /// The five tabs, in their fixed order: Home, Eat (Foods and Recipes), Move,
 /// Relax (both "coming soon" for now) and More (settings and utilities).
@@ -68,8 +70,47 @@ abstract final class Routes {
     return '/eat/food/$id${query.isEmpty ? '' : '?$query'}';
   }
 
-  /// Foods tab stack › the food diary (opened from Home).
+  /// More › My Diary. [date] opens that day; [symptoms] opens the Symptoms tab.
+  static String diaryOn({LocalDate? date, bool symptoms = false}) {
+    final q = [
+      if (date != null) 'date=$date',
+      if (symptoms) 'tab=symptoms',
+    ].join('&');
+    return '/more/diary${q.isEmpty ? '' : '?$q'}';
+  }
+
   static const String diary = '/more/diary';
+
+  /// The Log a meal form (a full screen over the tab bar). Pass what to add
+  /// ([kind], [itemId], [title]), a [meal] and [date] to preselect, or
+  /// [editId] to edit an entry. [from] (`food` or `recipe`) says which page it
+  /// was opened from.
+  static String logMeal({
+    DiaryMeal? meal,
+    DiaryItemKind? kind,
+    String? itemId,
+    String? title,
+    LocalDate? date,
+    String? editId,
+    String? from,
+  }) => Uri(
+    path: '/more/diary/log-meal',
+    queryParameters: {
+      'meal': ?meal?.name,
+      'kind': ?kind?.name,
+      'item': ?itemId,
+      'title': ?title,
+      'date': ?date?.toString(),
+      'edit': ?editId,
+      'from': ?from,
+    },
+  ).toString();
+
+  /// The Log symptoms form for [date] (today when null).
+  static String logSymptoms({LocalDate? date}) => Uri(
+    path: '/more/diary/log-symptoms',
+    queryParameters: {'date': ?date?.toString()},
+  ).toString();
 
   /// Foods tab stack › 3 Plants a Day (opened from Home).
   static const String threePlants = '/eat/three-plants';

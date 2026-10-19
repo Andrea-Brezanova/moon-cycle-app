@@ -15,13 +15,11 @@ import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/design/widgets/text_link.dart';
-import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
 import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../../cycle/presentation/cycle_orbit.dart';
 import '../../diary/domain/diary_entry.dart';
-import '../../diary/presentation/log_entry_sheet.dart';
 import '../../discovery/application/discovery_providers.dart';
 import '../../discovery/data/recipe_sources.dart' show ExternalRecipe;
 import '../../entitlements/application/entitlement_providers.dart';
@@ -220,16 +218,14 @@ class RecipeDetailPage extends ConsumerWidget {
                           .canUse(Feature.logDiary)) ...[
                         const SizedBox(height: 12),
                         MoonButton(
-                          'Add to my diary',
+                          'Log meal',
                           variant: MoonButtonVariant.ghost,
-                          onPressed: () => showLogEntrySheet(
-                            context,
-                            draft: draftFor(
+                          onPressed: () => context.push(
+                            Routes.logMeal(
                               kind: DiaryItemKind.recipe,
                               itemId: recipe.id,
                               title: recipe.title,
-                              today: ref.read(todayProvider),
-                              now: ref.read(clockProvider)(),
+                              from: 'recipe',
                             ),
                           ),
                         ),

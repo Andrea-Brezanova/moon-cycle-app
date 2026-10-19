@@ -7,6 +7,7 @@ import 'package:moon_cycle/core/design/widgets/pressable.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
+import 'package:moon_cycle/features/diary/presentation/log_meal_page.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/application/food_providers.dart';
@@ -263,7 +264,8 @@ void main() {
     await reveal(tester, find.text('Add to shopping list'));
     await tester.tap(find.text('Add to shopping list'));
     await tester.pumpAndSettle();
-    expect(find.text('On your shopping list'), findsOneWidget);
+    expect(find.text('Remove from shopping list'), findsOneWidget);
+    expect(find.text('Add to shopping list'), findsNothing);
     final items = await tester.runAsync(ShoppingRepository(db).items);
     expect(items!.single.key, 'food:salmon');
 
@@ -346,7 +348,7 @@ void main() {
       await scrollTo(tester, find.text('Chicken'));
       await tester.tap(find.text('Chicken'));
       await tester.pumpAndSettle();
-      await reveal(tester, find.text('Add to logged meals'));
+      await reveal(tester, find.text('Log meal'));
     }
 
     testWidgets('free: the meal builder is locked', (tester) async {
@@ -357,48 +359,48 @@ void main() {
       expect(find.byType(SubscriptionPage), findsOneWidget);
     });
 
-    testWidgets('free: logged meals is Premium and goes to Subscription', (
+    testWidgets('free: Log meal is Premium and goes to Subscription', (
       tester,
     ) async {
       await pumpFoods(tester);
       await openChicken(tester);
-      await tester.tap(find.text('Add to logged meals'));
+      await tester.tap(find.text('Log meal'));
       await tester.pumpAndSettle();
       expect(find.byType(SubscriptionPage), findsOneWidget);
     });
 
-    testWidgets(
-      'Premium: the meal builder opens; logged meals opens the diary sheet',
-      (tester) async {
-        tester.view.physicalSize = const Size(390, 844) * 3;
-        tester.view.devicePixelRatio = 3;
-        addTearDown(tester.view.reset);
-        final db = testDatabase();
-        await seedCycle(tester, db, start: sampleStart);
-        await pumpApp(
-          tester,
-          database: db,
-          overrides: [
-            clockProvider.overrideWithValue(designNow),
-            entitlementStateProvider.overrideWithValue(
-              const EntitlementState(tier: Tier.premium),
-            ),
-          ],
-        );
-        await tester.tap(find.byKey(const ValueKey('tab-eat')));
-        await tester.pumpAndSettle();
-        await openChicken(tester);
-        await tester.tap(find.text('Add to logged meals'));
-        await tester.pumpAndSettle();
-        expect(find.text('Add to your diary'), findsOneWidget);
-        await tester.tapAt(const Offset(195, 60)); // dismiss the sheet
-        await tester.pumpAndSettle();
-        expect(find.byType(FoodDetailPage), findsOneWidget);
-        await tester.tap(find.text('Make your own meal with chicken'));
-        await tester.pumpAndSettle();
-        expect(find.byType(MealBuilderPage), findsOneWidget);
-        expect(find.text('Proteins'), findsOneWidget);
-      },
-    );
+    testWidgets('Premium: the meal builder opens; Log meal opens the form', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(390, 844) * 3;
+      tester.view.devicePixelRatio = 3;
+      addTearDown(tester.view.reset);
+      final db = testDatabase();
+      await seedCycle(tester, db, start: sampleStart);
+      await pumpApp(
+        tester,
+        database: db,
+        overrides: [
+          clockProvider.overrideWithValue(designNow),
+          entitlementStateProvider.overrideWithValue(
+            const EntitlementState(tier: Tier.premium),
+          ),
+        ],
+      );
+      await tester.tap(find.byKey(const ValueKey('tab-eat')));
+      await tester.pumpAndSettle();
+      await openChicken(tester);
+      await tester.tap(find.text('Log meal'));
+      await tester.pumpAndSettle();
+      expect(find.byType(LogMealPage), findsOneWidget);
+      expect(find.text('Food · added from the food page'), findsOneWidget);
+      await tester.tap(find.text('Cancel')); // back to the food, unsaved
+      await tester.pumpAndSettle();
+      expect(find.byType(FoodDetailPage), findsOneWidget);
+      await tester.tap(find.text('Make your own meal with chicken'));
+      await tester.pumpAndSettle();
+      expect(find.byType(MealBuilderPage), findsOneWidget);
+      expect(find.text('Proteins'), findsOneWidget);
+    });
   });
 }

@@ -104,14 +104,17 @@ void main() {
     });
   }
 
-  testWidgets('the diary entry sheet meets the guidelines', (tester) async {
-    final handle = tester.ensureSemantics();
-    await pumpAt(tester, Routes.diary);
-    await tester.tap(find.text('1 serving'));
-    await tester.pumpAndSettle();
-    expect(find.text('Edit entry'), findsOneWidget);
-    await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
-    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
-    handle.dispose();
-  });
+  for (final (name, route) in [
+    ('My Diary', Routes.diary),
+    ('Log a meal', Routes.logMeal()),
+    ('Log symptoms', Routes.logSymptoms()),
+  ]) {
+    testWidgets('$name meets the guidelines', (tester) async {
+      final handle = tester.ensureSemantics();
+      await pumpAt(tester, route);
+      await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      handle.dispose();
+    });
+  }
 }

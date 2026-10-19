@@ -167,7 +167,7 @@ void main() {
         'Find recipes with broccoli',
         'Make your own meal with broccoli',
         'Add to shopping list',
-        'Add to logged meals',
+        'Log meal',
       ])
         tester.getTopLeft(find.text(t)).dy,
     ];

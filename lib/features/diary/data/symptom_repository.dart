@@ -36,8 +36,7 @@ class SymptomRepository {
           byDay.putIfAbsent(r.date, () => []).add(r);
         }
         return [
-          for (final e in byDay.entries.take(limit))
-            if (_day(e.key, e.value) case final d?) d,
+          for (final e in byDay.entries.take(limit)) ?_day(e.key, e.value),
         ];
       });
 

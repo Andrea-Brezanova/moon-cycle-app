@@ -42,6 +42,12 @@ class DiaryRepository {
             ];
           });
 
+  /// One live entry by id, or null.
+  Future<DiaryEntry?> entry(String id) async {
+    final r = await (_live()..where((t) => t.id.equals(id))).getSingleOrNull();
+    return r == null ? null : _toDomain(r);
+  }
+
   Future<List<DiaryEntry>> all() async => [
     for (final r
         in await (_live()..orderBy([(t) => OrderingTerm.asc(t.date)])).get())

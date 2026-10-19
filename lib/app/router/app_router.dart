@@ -5,9 +5,13 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
 import '../../core/design/widgets/moon_icon.dart';
+import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
 import '../../features/credits/presentation/credits_page.dart';
+import '../../features/diary/domain/diary_entry.dart';
 import '../../features/diary/presentation/diary_page.dart';
+import '../../features/diary/presentation/log_meal_page.dart';
+import '../../features/diary/presentation/log_symptoms_page.dart';
 import '../../features/discovery/domain/recipe_matcher.dart';
 import '../../features/discovery/presentation/meal_results_page.dart';
 import '../../features/eat/presentation/eat_page.dart';
@@ -194,8 +198,49 @@ GoRouter buildAppRouter({
                     AppTab.more => [
                       GoRoute(
                         path: 'diary',
-                        pageBuilder: (context, state) =>
-                            _page(state, const DiaryPage()),
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          DiaryPage(
+                            initialDate: _dateOf(state),
+                            initialSymptoms:
+                                state.uri.queryParameters['tab'] == 'symptoms',
+                          ),
+                        ),
+                        routes: [
+                          // The forms cover the tab bar, so they open on the
+                          // root navigator, above the shell.
+                          GoRoute(
+                            path: 'log-meal',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) {
+                              final q = state.uri.queryParameters;
+                              return _page(
+                                state,
+                                LogMealPage(
+                                  meal: DiaryMeal.values
+                                      .where((m) => m.name == q['meal'])
+                                      .firstOrNull,
+                                  kind: DiaryItemKind.values
+                                      .where((k) => k.name == q['kind'])
+                                      .firstOrNull,
+                                  itemId: q['item'],
+                                  title: q['title'],
+                                  date: _dateOf(state),
+                                  editId: q['edit'],
+                                  from: q['from'],
+                                ),
+                              );
+                            },
+                          ),
+                          GoRoute(
+                            path: 'log-symptoms',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              LogSymptomsPage(date: _dateOf(state)),
+                            ),
+                          ),
+                        ],
                       ),
                       GoRoute(
                         path: 'shopping-list',
@@ -253,6 +298,21 @@ GoRouter buildAppRouter({
         ),
     ],
   );
+}
+
+/// The `date=YYYY-MM-DD` query parameter, or null.
+LocalDate? _dateOf(GoRouterState state) {
+  final parts = state.uri.queryParameters['date']?.split('-');
+  if (parts == null || parts.length != 3) return null;
+  final y = int.tryParse(parts[0]);
+  final m = int.tryParse(parts[1]);
+  final d = int.tryParse(parts[2]);
+  if (y == null || m == null || d == null) return null;
+  try {
+    return LocalDate(y, m, d);
+  } on ArgumentError {
+    return null;
+  }
 }
 
 /// Every route uses a Material page explicitly, which gives the platform's

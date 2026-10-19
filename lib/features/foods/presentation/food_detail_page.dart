@@ -15,12 +15,10 @@ import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/domain/phase.dart';
-import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../diary/domain/diary_entry.dart';
-import '../../diary/presentation/log_entry_sheet.dart';
 import '../../eat/application/eat_segment.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
@@ -105,10 +103,12 @@ class FoodDetailPage extends ConsumerWidget {
         ? ref.watch(allRecipeCountsProvider)
         : ref.watch(recipeCountsProvider(shown));
     final count = counts[food.id] ?? 0;
-    final onList = ref
-        .watch(shoppingSummaryProvider)
-        .onListFoodIds
-        .contains(food.id);
+    // From the stored shopping list itself (any state, to buy or done), never a
+    // local flag, so it survives navigation and restarts and follows changes
+    // made on the Shopping list page.
+    final listed = (ref.watch(shoppingItemsProvider).value ?? const [])
+        .where((i) => i.foodId == food.id)
+        .firstOrNull;
     final gate = ref.watch(featureGateProvider);
     final canMeal = gate.canUse(Feature.buildMeal);
     final canDiary = gate.canUse(Feature.logDiary);
@@ -226,10 +226,14 @@ class FoodDetailPage extends ConsumerWidget {
                   ),
                   const SizedBox(height: 12),
                   // 3. The shopping list (free, independent of the rest).
-                  if (onList)
-                    MoonDoneButton(
-                      'On your shopping list',
-                      checkColor: palette.text,
+                  if (listed != null)
+                    MoonButton(
+                      'Remove from shopping list',
+                      variant: MoonButtonVariant.ghost,
+                      trailingIcon: MoonIconName.check,
+                      onPressed: () => ref
+                          .read(shoppingControllerProvider.notifier)
+                          .remove(listed),
                     )
                   else
                     MoonButton(
@@ -242,18 +246,16 @@ class FoodDetailPage extends ConsumerWidget {
                   const SizedBox(height: 12),
                   // 4. The diary (Premium): log this food as eaten.
                   MoonButton(
-                    'Add to logged meals',
+                    'Log meal',
                     variant: MoonButtonVariant.ghost,
                     trailingIcon: canDiary ? null : MoonIconName.lock,
                     onPressed: canDiary
-                        ? () => showLogEntrySheet(
-                            context,
-                            draft: draftFor(
+                        ? () => context.push(
+                            Routes.logMeal(
                               kind: DiaryItemKind.food,
                               itemId: food.id,
                               title: food.displayName,
-                              today: ref.read(todayProvider),
-                              now: ref.read(clockProvider)(),
+                              from: 'food',
                             ),
                           )
                         : toSubscription,

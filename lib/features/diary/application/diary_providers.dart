@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/domain/local_date.dart';
 import '../../../core/time/today.dart';
 import '../data/diary_repository.dart';
+import '../data/symptom_repository.dart';
 import '../domain/diary_entry.dart';
+import '../domain/symptoms.dart';
 
 /// One day's entries.
 final diaryDayProvider = StreamProvider.autoDispose
@@ -36,3 +38,14 @@ class DiaryDate extends Notifier<LocalDate> {
 
   void today() => state = ref.read(todayProvider);
 }
+
+/// One day's symptom check-in, or null.
+final symptomDayProvider = StreamProvider.autoDispose
+    .family<SymptomDay?, LocalDate>(
+      (ref, date) => ref.watch(symptomRepositoryProvider).watchDay(date),
+    );
+
+/// Every day with a check-in, newest first.
+final symptomHistoryProvider = StreamProvider.autoDispose<List<SymptomDay>>(
+  (ref) => ref.watch(symptomRepositoryProvider).watchHistory(),
+);
