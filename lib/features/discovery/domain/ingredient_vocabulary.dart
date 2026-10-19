@@ -188,9 +188,6 @@ abstract final class IngredientVocabulary {
     // Plain vinegars and oils that are not on the allergen list.
     'garlic powder', 'ground ginger', 'onion powder', 'balsamic vinegar',
     'sherry vinegar',
-    // Mustards with no tracked allergen. Plain and English mustard stay
-    // ambiguous (English mustard can contain wheat flour).
-    'dijon mustard', 'wholegrain mustard', 'whole grain mustard',
     'rice vinegar',
     'white wine vinegar',
     'red wine vinegar',
@@ -285,6 +282,12 @@ abstract final class IngredientVocabulary {
     'plum sauce',
     'hoisin sauce',
     'bbq sauce',
+    // Recognised as mustard, but never assumed allergen-safe: mustard is an
+    // allergen we do not track, and some mustards contain wheat or sulphites.
+    'dijon mustard',
+    'wholegrain mustard',
+    'whole grain mustard',
+    'english mustard',
     'capers',
     'stir fry vegetables',
     'mixed vegetables',

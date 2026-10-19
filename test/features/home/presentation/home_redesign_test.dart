@@ -17,6 +17,7 @@ import 'package:moon_cycle/features/home/application/home_providers.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/home/presentation/widgets/home_editorial.dart';
 import 'package:moon_cycle/features/plants/application/plant_providers.dart';
+import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
@@ -131,16 +132,14 @@ void main() {
     expect(find.byType(FoodDetailPage), findsOneWidget);
   });
 
-  testWidgets('the arrow opens Recipes', (tester) async {
+  testWidgets('the arrow opens the 3 Plants a Day page', (tester) async {
     final handle = tester.ensureSemantics();
     await pumpHome(tester);
-    await scrollTo(
-      tester,
-      find.bySemanticsLabel('Find recipes with today’s plants'),
-    );
-    await tester.tap(find.bySemanticsLabel('Find recipes with today’s plants'));
+    final arrow = find.bySemanticsLabel('Find recipes with today’s plants');
+    await scrollTo(tester, arrow);
+    await tester.tap(arrow);
     await tester.pumpAndSettle();
-    expect(find.byType(RecipesPage), findsOneWidget);
+    expect(find.byType(ThreePlantsPage), findsOneWidget);
     handle.dispose();
   });
 
@@ -210,34 +209,19 @@ void main() {
       expect(find.text('Proteins'), findsOneWidget);
     });
 
-    testWidgets('Go to cards carry the Plus label; diary follows the gate', (
+    testWidgets('Go to cards show no Plus lock and open shop and diary', (
       tester,
     ) async {
       final handle = tester.ensureSemantics();
       await pumpHome(tester);
       await scrollTo(tester, card('Log diary'));
       expect(
-        find.bySemanticsLabel(
-          'Log diary, Remember what you ate. Coming with Plus',
-        ),
+        find.bySemanticsLabel('Log diary, Remember what you ate'),
         findsOneWidget,
       );
-      expect(
-        find.bySemanticsLabel(
-          'Shopping list, Plan what you need. Coming with Plus',
-        ),
-        findsOneWidget,
-      );
-      await tester.tap(card('Log diary'));
-      await tester.pumpAndSettle();
-      expect(find.byType(SubscriptionPage), findsOneWidget);
-      await tester.pumpWidget(const SizedBox());
-
-      await pumpHome(
-        tester,
-        more: [entitlementStateProvider.overrideWithValue(premium)],
-      );
-      await scrollTo(tester, card('Log diary'));
+      expect(find.textContaining('Plus'), findsNothing);
+      expect(find.textContaining('Coming with'), findsNothing);
+      // The diary page applies its own (unchanged) rule.
       await tester.tap(card('Log diary'));
       await tester.pumpAndSettle();
       expect(find.byType(DiaryPage), findsOneWidget);

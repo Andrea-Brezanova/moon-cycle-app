@@ -132,8 +132,6 @@ class _PlantTile extends StatelessWidget {
   final Color tone;
   final VoidCallback onTap;
 
-  static const _photoHeight = 156.0;
-
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
@@ -147,8 +145,8 @@ class _PlantTile extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(22),
-            child: SizedBox(
-              height: _photoHeight,
+            child: AspectRatio(
+              aspectRatio: 1,
               child: photo == null
                   // No photo yet: the tone with the food's emoji.
                   ? ColoredBox(
@@ -185,7 +183,7 @@ class _PlantTile extends StatelessWidget {
                             fit: BoxFit.cover,
                             alignment: photo.alignment,
                             width: double.infinity,
-                            height: _photoHeight,
+                            height: double.infinity,
                             excludeFromSemantics: true,
                             errorBuilder: (_, _, _) => const SizedBox(),
                           ),
@@ -451,7 +449,7 @@ class _GoToCard extends StatelessWidget {
     final c = context.moon;
     return Pressable(
       onTap: onTap,
-      semanticLabel: '$title, $subtitle. Coming with Plus',
+      semanticLabel: '$title, $subtitle',
       child: Container(
         constraints: const BoxConstraints(minHeight: 140),
         padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
@@ -462,31 +460,9 @@ class _GoToCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Wraps (rather than overflowing) on narrow screens at large text.
-            Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              runSpacing: 6,
-              children: [
-                MoonIcon(icon, size: 22, color: c.text),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    MoonIcon(MoonIconName.lock, size: 12, color: c.removeIcon),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Plus',
-                      style: dmSans(
-                        11,
-                        weight: FontWeight.w600,
-                        height: 1.2,
-                        tracking: 0.04,
-                        color: c.removeIcon,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+            Align(
+              alignment: Alignment.centerLeft,
+              child: MoonIcon(icon, size: 22, color: c.text),
             ),
             const SizedBox(height: 30),
             Text(

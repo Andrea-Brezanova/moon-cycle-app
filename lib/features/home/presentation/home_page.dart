@@ -43,8 +43,6 @@ class HomePage extends ConsumerWidget {
     final catalogue = ref.watch(catalogueProvider);
     final gate = ref.watch(featureGateProvider);
     final canBuildMeal = gate.canUse(Feature.buildMeal);
-    final canShop = gate.canUse(Feature.shoppingList);
-    final canLogDiary = gate.canUse(Feature.logDiary);
     void toSubscription() =>
         context.go(Routes.settings(SettingsPage.subscription));
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
@@ -89,7 +87,8 @@ class HomePage extends ConsumerWidget {
               phaseName: catalogue.phase(realPhase).name.toLowerCase(),
               onFood: (food) =>
                   context.push(Routes.food(food.id, phase: realPhase)),
-              onFindRecipes: openRecipes,
+              // Today's plants page: pick some and it finds recipes with them.
+              onFindRecipes: () => context.push(Routes.threePlants),
             ),
           ),
           const SizedBox(height: _sectionGap),
@@ -109,12 +108,8 @@ class HomePage extends ConsumerWidget {
           const SizedBox(height: 30),
           padded(
             GoToSection(
-              onShopping: canShop
-                  ? () => context.go(AppTab.shop.path)
-                  : toSubscription,
-              onDiary: canLogDiary
-                  ? () => context.push(Routes.diary)
-                  : toSubscription,
+              onShopping: () => context.go(AppTab.shop.path),
+              onDiary: () => context.push(Routes.diary),
             ),
           ),
         ],

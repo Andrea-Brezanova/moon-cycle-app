@@ -156,9 +156,9 @@ void main() {
       final mayo = m.classify('Mayonnaise').derived!;
       expect(mayo.allergens, {'egg'});
       expect(mayo.animal, AnimalSource.egg);
-      expect(kind('Dijon Mustard'), IngredientKind.pantrySafe);
-      expect(kind('Mustard'), IngredientKind.ambiguous);
-      expect(kind('English Mustard'), isNot(IngredientKind.pantrySafe));
+      for (final t in ['Dijon Mustard', 'Mustard', 'English Mustard']) {
+        expect(kind(t), IngredientKind.ambiguous, reason: t);
+      }
       // Cream is not milk, and mayonnaise is not an egg food.
       expect(m.map('Cream'), isNull);
       expect(m.map('Mayonnaise'), isNull);
@@ -337,7 +337,7 @@ void main() {
         isFalse,
       );
       expect(
-        FoodFilter(
+        const FoodFilter(
           avoidances: [AllergenAvoidance(id: 'a', allergenId: 'egg')],
         ).allowsRecipe(recipe(['Egg Yolks']), testCatalogue),
         isFalse,
