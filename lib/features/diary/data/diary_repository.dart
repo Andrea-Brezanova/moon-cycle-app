@@ -51,6 +51,7 @@ class DiaryRepository {
   /// Adds [draft]. If the same item is already logged in that meal and unit,
   /// its amount grows instead. Returns the resulting entry.
   Future<DiaryEntry> add(DiaryDraft draft) => _db.transaction(() async {
+    if (draft.kind == DiaryItemKind.custom) return _addCustom(draft);
     final existing =
         await (_live()..where(
               (t) =>
@@ -67,9 +68,19 @@ class DiaryRepository {
       await (_db.update(
         _db.diaryEntries,
       )..where((t) => t.id.equals(existing.id))).write(
-        DiaryEntriesCompanion(amount: Value(total), updatedAt: Value(now)),
+        DiaryEntriesCompanion(
+          amount: Value(total),
+          // A note on the new log is kept; an earlier note is never erased.
+          note: draft.note == null ? const Value.absent() : Value(draft.note),
+          updatedAt: Value(now),
+        ),
       );
-      return _toDomain(existing.copyWith(amount: total));
+      return _toDomain(
+        existing.copyWith(
+          amount: total,
+          note: Value(draft.note ?? existing.note),
+        ),
+      );
     }
     final id = _stamp.newId();
     await _db
@@ -86,10 +97,35 @@ class DiaryRepository {
             title: draft.title,
             amount: draft.amount,
             unit: draft.unit.id,
+            note: Value(draft.note),
           ),
         );
     return _toDomain((await _live().get()).firstWhere((r) => r.id == id));
   });
+
+  /// A typed meal: never merged with another (its item id is its own row id).
+  Future<DiaryEntry> _addCustom(DiaryDraft draft) async {
+    final id = _stamp.newId();
+    final now = _stamp.now();
+    await _db
+        .into(_db.diaryEntries)
+        .insert(
+          DiaryEntriesCompanion.insert(
+            id: id,
+            createdAt: now,
+            updatedAt: now,
+            date: draft.date,
+            meal: draft.meal.name,
+            kind: DiaryItemKind.custom.name,
+            itemId: id,
+            title: draft.title.trim(),
+            amount: draft.amount,
+            unit: draft.unit.id,
+            note: Value(draft.note),
+          ),
+        );
+    return _toDomain((await _live().get()).firstWhere((r) => r.id == id));
+  }
 
   /// Changes an entry's amount, meal or day. If that lands on another entry
   /// with the same item and unit, the two are merged.
@@ -99,6 +135,8 @@ class DiaryRepository {
     DiaryMeal? meal,
     LocalDate? date,
     DiaryUnit? unit,
+    Value<String?> note = const Value.absent(),
+    String? title,
   }) => _db.transaction(() async {
     final row = await (_live()..where((t) => t.id.equals(id)))
         .getSingleOrNull();
@@ -109,17 +147,18 @@ class DiaryRepository {
       unit: unit?.id ?? row.unit,
       amount: amount ?? row.amount,
     );
-    final clash =
-        await (_live()..where(
-              (t) =>
-                  t.id.isNotValue(id) &
-                  t.date.equals(target.date.toString()) &
-                  t.meal.equals(target.meal) &
-                  t.kind.equals(row.kind) &
-                  t.itemId.equals(row.itemId) &
-                  t.unit.equals(target.unit),
-            ))
-            .getSingleOrNull();
+    final clash = row.kind == DiaryItemKind.custom.name
+        ? null
+        : await (_live()..where(
+                (t) =>
+                    t.id.isNotValue(id) &
+                    t.date.equals(target.date.toString()) &
+                    t.meal.equals(target.meal) &
+                    t.kind.equals(row.kind) &
+                    t.itemId.equals(row.itemId) &
+                    t.unit.equals(target.unit),
+              ))
+              .getSingleOrNull();
     final now = _stamp.now();
     if (clash != null) {
       await (_db.update(
@@ -127,6 +166,9 @@ class DiaryRepository {
       )..where((t) => t.id.equals(clash.id))).write(
         DiaryEntriesCompanion(
           amount: Value(clash.amount + target.amount),
+          note: note.present && note.value != null
+              ? note
+              : const Value.absent(),
           updatedAt: Value(now),
         ),
       );
@@ -139,6 +181,8 @@ class DiaryRepository {
         meal: Value(target.meal),
         date: Value(target.date),
         unit: Value(target.unit),
+        note: note,
+        title: title == null ? const Value.absent() : Value(title.trim()),
         updatedAt: Value(now),
       ),
     );
@@ -162,6 +206,7 @@ class DiaryRepository {
     amount: r.amount,
     unit: DiaryUnit.parse(r.unit),
     createdAt: r.createdAt,
+    note: r.note,
   );
 }
 

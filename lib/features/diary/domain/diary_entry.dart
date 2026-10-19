@@ -22,7 +22,9 @@ enum DiaryMeal {
       : dinner;
 }
 
-enum DiaryItemKind { food, recipe }
+/// What an entry points at. `custom` is a meal the user typed ("Your own
+/// meal"): there is no catalogue item, and no nutrition is ever invented.
+enum DiaryItemKind { food, recipe, custom }
 
 /// How an amount is counted. Recipes are always counted in servings.
 enum DiaryUnit {
@@ -91,6 +93,7 @@ final class DiaryEntry {
     required this.amount,
     required this.unit,
     required this.createdAt,
+    this.note,
   });
 
   final String id;
@@ -107,6 +110,9 @@ final class DiaryEntry {
   final DiaryUnit unit;
   final DateTime createdAt;
 
+  /// The user's note, or null.
+  final String? note;
+
   String get quantity => unit.format(amount);
 }
 
@@ -121,6 +127,7 @@ final class DiaryDraft {
     required this.title,
     required this.amount,
     required this.unit,
+    this.note,
   });
 
   final LocalDate date;
@@ -130,6 +137,7 @@ final class DiaryDraft {
   final String title;
   final double amount;
   final DiaryUnit unit;
+  final String? note;
 }
 
 /// A whole day, meal by meal.
