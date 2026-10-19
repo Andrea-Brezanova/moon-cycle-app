@@ -269,3 +269,20 @@ duration, tips); `category` Dinner/Breakfast.
 **Spinach list caveat:** the probe took the first search hit ("baby spinach"),
 not the exact "spinach" entries our adapter prefers; those lists were not
 fetched, so the spinach search is only checked for shape.
+
+## Follow-up: exact ingredient lists (2026-10-18, 3 free calls, 0 detail lookups)
+
+| Ingredient entry | Recipes listed |
+|---|---|
+| "baby spinach" (earlier probe) | 12 |
+| "spinach" entry #1 | 1 |
+| "spinach" entry #2 | 9 |
+| "dried chickpeas" | 1 |
+| "canned chickpeas" (earlier) | 0 |
+
+The index holds the same name more than once, each with its own recipes, so the
+adapter now uses every exact-name id (up to 3). Relevance is plausible (the 9
+for spinach include chickpea/spinach, tofu, pancakes, but also a duck sandwich
+and a lamb burger where spinach is a minor ingredient), but coverage is thin:
+a user choosing only chickpeas would get about 1 recipe. Free-call total so far
+11; paid lookups 4 of the probe's 40.
