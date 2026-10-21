@@ -34,3 +34,25 @@ Record the reference images in the same environment that checks them:
 Caveat: if GitHub moves `macos-latest` to a newer macOS the images may need
 re-recording once; pinning an exact runner image (for example `macos-15`)
 avoids surprises.
+
+## Controlled update procedure (implemented, manual only)
+
+* **Pinned runner:** `macos-15` (arm64), the same major version as the developer
+  Mac (15.6.1). Both the golden check (`ci.yaml`) and the update workflow use it;
+  neither uses `macos-latest` any more. The exact point release the image carries
+  is printed in each run's summary ("Golden recording environment") and in the
+  failure annotation "Golden environment".
+* **Current differences** (run on `macos-latest` = macOS 26.6.2): every image
+  differs by 10 to 33 pixels (0.00 to 0.02%); 2 of 135 passed. Expect these to
+  disappear, or nearly, on `macos-15`. If some remain, the update workflow will
+  list them.
+* **To update references:** Actions › "Update goldens (manual)" › Run workflow
+  (optionally write why). It records into a scratch copy, changes nothing in the
+  repository, and uploads artifact `proposed-goldens` containing only images that
+  differ, each next to its `.BEFORE.png`, plus `CHANGED.txt`.
+* **To review:** download the artifact, open each pair (before/after) in any
+  image viewer; on the run page the summary lists how many images changed and
+  which. Accept only images that look the same or are an intended change.
+* **To accept:** copy the reviewed PNGs into `test/goldens/...`, commit them in
+  their own commit ("test: re-record goldens on macos-15"), and let the normal
+  CI run confirm. Tolerance is never increased.

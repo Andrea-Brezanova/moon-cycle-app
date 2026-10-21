@@ -36,7 +36,8 @@ jobs:
 
   golden-tests:
     name: Golden screenshots (macOS)
-    runs-on: macos-latest
+    # Pinned (not macos-latest) so a runner upgrade can't change rendering.
+    runs-on: macos-15
     # Advisory for now: the images were recorded on a developer Mac and every
     # one differs on the GitHub runner (0 of 122 match) although they all pass
     # locally. Not a required check until they are recorded in this environment.
