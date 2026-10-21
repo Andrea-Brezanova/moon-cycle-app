@@ -1,0 +1,16 @@
+# App icons from the design handoff (spec §10). Regenerate with:
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  ios: true
+  image_path_ios: "design/assets/app-icon/png/icon-ios-light-1024.png"
+  image_path_ios_dark_transparent: "design/assets/app-icon/png/icon-ios-dark-1024.png"
+  remove_alpha_ios: true
+  background_color_ios: "#FCFAF5"
+  android: true
+  image_path_android: "design/assets/app-icon/png/icon-ios-light-1024.png"
+  min_sdk_android: 26
+  adaptive_icon_background: "#FCFAF5"
+  adaptive_icon_foreground: "design/assets/app-icon/png/android-adaptive-foreground-1024.png"
+  adaptive_icon_monochrome: "design/assets/app-icon/png/android-adaptive-monochrome-1024.png"
+  # The handoff foregrounds are already drawn inside the safe zone.
+  adaptive_icon_foreground_inset: 0

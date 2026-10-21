@@ -1,0 +1,66 @@
+name: Update goldens (manual)
+
+# Records new golden reference images on the SAME pinned runner that checks them.
+# It never commits or replaces anything: it uploads the proposed images, and a
+# side-by-side change report, as an artifact for a person to review. Accepting
+# them is a deliberate commit made by hand.
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: Why the references are being re-recorded
+        required: false
+
+permissions:
+  contents: read
+
+env:
+  FLUTTER_VERSION: 3.47.7
+
+jobs:
+  record:
+    name: Record proposed goldens (macos-15)
+    runs-on: macos-15   # pinned: the image the golden check also uses
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+      - run: flutter pub get
+      - name: Environment
+        run: |
+          {
+            echo "### Golden recording environment"
+            echo "- runner image: macos-15 ($(sw_vers -productVersion), $(uname -m))"
+            echo "- $(flutter --version | head -1)"
+            echo "- reason: ${{ github.event.inputs.note }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Record into a scratch copy
+        run: |
+          set -o pipefail
+          cp -R test/goldens /tmp/goldens_before
+          flutter test --tags golden --update-goldens 2>&1 | tail -5
+      - name: List changed images
+        run: |
+          mkdir -p proposed
+          changed=0
+          while IFS= read -r f; do
+            rel="${f#test/goldens/}"
+            if ! cmp -s "$f" "/tmp/goldens_before/$rel"; then
+              mkdir -p "proposed/$(dirname "$rel")"
+              cp "$f" "proposed/$rel"
+              cp "/tmp/goldens_before/$rel" "proposed/${rel%.png}.BEFORE.png"
+              changed=$((changed+1))
+              echo "$rel" >> proposed/CHANGED.txt
+            fi
+          done < <(find test/goldens -name '*.png' -not -path '*/failures/*')
+          echo "### $changed image(s) differ from the committed references" >> "$GITHUB_STEP_SUMMARY"
+          [ -f proposed/CHANGED.txt ] && sed 's/^/- /' proposed/CHANGED.txt | head -60 >> "$GITHUB_STEP_SUMMARY"
+          true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: proposed-goldens
+          path: proposed/
+          if-no-files-found: ignore

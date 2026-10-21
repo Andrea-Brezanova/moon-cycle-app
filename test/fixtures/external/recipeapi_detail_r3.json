@@ -1,0 +1,58 @@
+{
+ "data": {
+  "id": "r-3",
+  "name": "Chickpea Salad",
+  "description": "A hearty, simple dish.",
+  "category": "Dinner",
+  "cuisine": "Mediterranean",
+  "difficulty": "Easy",
+  "tags": [
+   "Stew"
+  ],
+  "meta": {
+   "active_time": "PT15M",
+   "total_time": "PT10M",
+   "yields": "2 servings"
+  },
+  "dietary": {
+   "flags": [
+    "Vegetarian"
+   ],
+   "not_suitable_for": []
+  },
+  "ingredients": [
+   {
+    "group_name": "Main",
+    "items": [
+     {
+      "name": "Chickpeas",
+      "amount": 1,
+      "unit": "can"
+     },
+     {
+      "name": "Cucumber"
+     },
+     {
+      "name": "Feta"
+     }
+    ]
+   }
+  ],
+  "instructions": [
+   {
+    "step_number": 1,
+    "phase": "cook",
+    "text": "Combine everything in a bowl and serve."
+   }
+  ],
+  "nutrition": {
+   "per_serving": {
+    "calories": 400
+   }
+  }
+ },
+ "usage": {
+  "detail_remaining": 240,
+  "daily_remaining": 490
+ }
+}

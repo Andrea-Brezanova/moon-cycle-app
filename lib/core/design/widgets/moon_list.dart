@@ -40,10 +40,12 @@ class MoonListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final row = ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: MoonSize.settingsRow),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+    // The design's rows are CSS content-box: 64 high inside the 8 pt
+    // padding, 80 in all.
+    final row = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: MoonSize.settingsRow),
         child: Row(
           children: [
             if (icon != null) ...[
@@ -73,7 +75,18 @@ class MoonListRow extends StatelessWidget {
             ),
             if (value != null) ...[
               const SizedBox(width: 14),
-              Text(value!, style: dmSans(16, height: 1.2, color: c.textMuted)),
+              // At most 40% of the row, so a large text size wraps the
+              // value instead of pushing the row off the screen.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.4,
+                ),
+                child: Text(
+                  value!,
+                  textAlign: TextAlign.right,
+                  style: dmSans(16, height: 1.2, color: c.textMuted),
+                ),
+              ),
             ],
             if (trailing != null) ...[
               const SizedBox(width: 14),
@@ -168,13 +181,17 @@ class SubScreenHeader extends StatelessWidget {
                       strokeWidth: 2,
                     ),
                     const SizedBox(width: 4),
-                    Text(
-                      backLabel,
-                      style: dmSans(
-                        15,
-                        weight: FontWeight.w500,
-                        height: 1,
-                        color: c.text,
+                    Flexible(
+                      child: Text(
+                        backLabel,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: dmSans(
+                          15,
+                          weight: FontWeight.w500,
+                          height: 1,
+                          color: c.text,
+                        ),
                       ),
                     ),
                   ],

@@ -11,6 +11,8 @@ class Pressable extends StatefulWidget {
     required this.onTap,
     this.isButton = true,
     this.selected,
+    this.checked,
+    this.expanded,
     this.semanticLabel,
   });
 
@@ -22,6 +24,12 @@ class Pressable extends StatefulWidget {
 
   /// For toggle-like controls (phase selector, chips): the selected state.
   final bool? selected;
+
+  /// For a row that works as a checkbox (shopping list).
+  final bool? checked;
+
+  /// For a row that shows or hides content below it (Help questions).
+  final bool? expanded;
 
   /// Replaces what the child would announce (for icon-and-text content that
   /// reads better as one phrase). The tap action stays available.
@@ -46,6 +54,8 @@ class _PressableState extends State<Pressable> {
       button: widget.isButton,
       enabled: enabled,
       selected: widget.selected,
+      checked: widget.checked,
+      expanded: widget.expanded,
       label: widget.semanticLabel,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,

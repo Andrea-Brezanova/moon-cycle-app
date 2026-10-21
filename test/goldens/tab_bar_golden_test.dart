@@ -17,7 +17,7 @@ void main() {
 
   for (final dark in [false, true]) {
     final theme = dark ? 'dark' : 'light';
-    for (final current in [AppTab.home, AppTab.recipes]) {
+    for (final current in [AppTab.home, AppTab.eat]) {
       testWidgets('tab bar, ${current.name} active, $theme', (tester) async {
         tester.view.physicalSize = const Size(390, 88) * 2;
         tester.view.devicePixelRatio = 2;

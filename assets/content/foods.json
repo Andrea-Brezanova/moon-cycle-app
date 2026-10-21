@@ -1,0 +1,4466 @@
+{
+  "foods": [
+    {
+      "id": "buckwheat",
+      "name": "Buckwheat (kasha)",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "kasha"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Buckwheat has a warm, nutty flavour and makes a comforting porridge or pilaf.",
+          "detail": "Buckwheat has a warm, nutty flavour and makes a comforting porridge or pilaf."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "wild-rice",
+      "name": "Wild rice",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Wild rice has a nutty, chewy bite that suits warm soups, pilafs and stuffings.",
+          "detail": "Wild rice has a nutty, chewy bite that suits warm soups, pilafs and stuffings."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "beets",
+      "name": "Beets",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "beet",
+        "beetroot"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Beets are earthy and sweet, lovely roasted, grated into salads or blended into soups.",
+          "detail": "Beets are earthy and sweet, lovely roasted, grated into salads or blended into soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "burdock",
+      "name": "Burdock",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "dulse",
+      "name": "Dulse",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Iodine varies, so use small amounts"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "hijiki",
+      "name": "Hijiki",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "High in inorganic arsenic"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "kale",
+      "name": "Kale",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Kale is a good source of vitamin C, which helps your body absorb iron from plant foods. Add it to soups and bean dishes.",
+          "detail": "Kale is a good source of vitamin C, which helps your body absorb iron from plant foods. Add it to soups and bean dishes."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "kelp",
+      "name": "Kelp",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Can exceed the safe iodine limit",
+        "Thyroid conditions: check with a doctor"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "kombu",
+      "name": "Kombu",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Can exceed the safe iodine limit",
+        "Thyroid conditions: check with a doctor"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms (button, shiitake)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "mushroom",
+        "shiitake",
+        "portobello",
+        "portobello mushroom",
+        "cremini",
+        "cremini mushroom",
+        "baby bella",
+        "baby bella mushroom",
+        "button mushroom",
+        "white mushroom"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Mushrooms are savoury and meaty, good in soups, stews and stir-fries.",
+          "detail": "Mushrooms are savoury and meaty, good in soups, stews and stir-fries."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "wakame",
+      "name": "Wakame",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Iodine: normal portions"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "water-chestnut",
+      "name": "Water chestnut",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "blackberry",
+      "name": "Blackberry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Blackberries bring fibre and a tart juiciness to oats, yogurt and baking.",
+          "detail": "Blackberries bring fibre and a tart juiciness to oats, yogurt and baking."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Blueberries bring some vitamin C, which helps your body absorb iron from plant foods. Stir them into porridge or yogurt.",
+          "detail": "Blueberries bring some vitamin C, which helps your body absorb iron from plant foods. Stir them into porridge or yogurt."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "concord-grape",
+      "name": "Concord grape",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Watermelon is juicy and refreshing, a simple snack or salad addition.",
+          "detail": "Watermelon is juicy and refreshing, a simple snack or salad addition."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "adzuki-bean",
+      "name": "Adzuki bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "black-soybean",
+      "name": "Black soybean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Soy allergen"
+      ],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "black-turtle-bean",
+      "name": "Black beans",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "black turtle beans"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Black beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and bowls.",
+          "detail": "Black beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and bowls."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "kidney-bean",
+      "name": "Kidney bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Dried beans: boil hard for 10 minutes; don't slow-cook from raw"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Kidney beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and stews.",
+          "detail": "Kidney beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and stews."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "chestnut",
+      "name": "Chestnut",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "sesame-seeds",
+      "name": "Sesame seeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Sesame allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Sesame seeds add a nutty crunch to warm bowls and dressings.",
+          "detail": "Sesame seeds add a nutty crunch to warm bowls and dressings."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "sunflower-seeds",
+      "name": "Sunflower seeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Sunflower seeds provide protein and a little fibre, good over salads, porridge and bread.",
+          "detail": "Sunflower seeds provide protein and a little fibre, good over salads, porridge and bread."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "duck",
+      "name": "Duck",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "protein"
+    },
+    {
+      "id": "pork",
+      "name": "Pork",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [
+        "pork chop"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Pork is a savoury meat that provides protein and suits roasts, stir-fries and slow cooking.",
+          "detail": "Pork is a savoury meat that provides protein and suits roasts, stir-fries and slow cooking."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "catfish",
+      "name": "Catfish",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "clam",
+      "name": "Clam",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Cook thoroughly",
+        "Mollusc allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Clams provide iron (about 13% of the daily value per serving) and are lovely in warm soups and pasta.",
+          "detail": "Clams provide iron (about 13% of the daily value per serving) and are lovely in warm soups and pasta."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "crab",
+      "name": "Crab",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Crustacean allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Crab is sweet and delicate, good in light salads, cakes and chilled pasta.",
+          "detail": "Crab is sweet and delicate, good in light salads, cakes and chilled pasta."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "lobster",
+      "name": "Lobster",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Crustacean allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "mussel",
+      "name": "Mussel",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Cook thoroughly",
+        "Mollusc allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation.",
+          "detail": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "octopus",
+      "name": "Octopus",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Mollusc allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "oyster",
+      "name": "Oyster",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Mollusc allergen",
+        "Raw oysters: food-safety risk"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation.",
+          "detail": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "sardine",
+      "name": "Sardine",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta.",
+          "detail": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "scallop",
+      "name": "Scallop",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Mollusc allergen"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Scallops sear quickly and have a sweet, delicate flavour, good for a light, fast meal.",
+          "detail": "Scallops sear quickly and have a sweet, delicate flavour, good for a light, fast meal."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "squid",
+      "name": "Squid",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Mollusc allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "bancha-tea",
+      "name": "Bancha tea",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Reduces plant-iron absorption with meals"
+      ],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "decaf-coffee",
+      "name": "Decaf coffee",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Reduces plant-iron absorption with meals"
+      ],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "miso",
+      "name": "Miso",
+      "aisle": "fermented",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in salt",
+        "Soy allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Miso adds a savoury, umami depth to soups, dressings and marinades. A spoonful goes a long way.",
+          "detail": "Miso adds a savoury, umami depth to soups, dressings and marinades. A spoonful goes a long way."
+        }
+      },
+      "category": "fermented"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "tamari",
+      "name": "Tamari",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Check gluten-free label",
+        "High in salt",
+        "Soy allergen"
+      ],
+      "why": {},
+      "category": "fermented"
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Contains gluten"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling.",
+          "detail": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "oat",
+      "name": "Oat",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "oats",
+        "rolled oats"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Choose certified gluten-free oats if avoiding gluten."
+      ],
+      "why": {
+        "luteal": {
+          "short": "Oats make a warm, filling porridge or baked oatmeal for hearty breakfasts.",
+          "detail": "Oats make a warm, filling porridge or baked oatmeal for hearty breakfasts."
+        }
+      },
+      "mayContainAllergens": [
+        "gluten"
+      ],
+      "category": "grains"
+    },
+    {
+      "id": "rye",
+      "name": "Rye",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Contains gluten"
+      ],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Contains gluten"
+      ],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "artichoke",
+      "name": "Artichoke",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Artichokes provide fibre and have a tender, savoury heart that suits dips, bakes and salads.",
+          "detail": "Artichokes provide fibre and have a tender, savoury heart that suits dips, bakes and salads."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Broccoli is rich in vitamin C, which helps your body absorb iron from plant foods. Pair it with beans or lentils.",
+          "detail": "Broccoli is rich in vitamin C, which helps your body absorb iron from plant foods. Pair it with beans or lentils."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Carrots are easy to grate, roast or snack on raw.",
+          "detail": "Carrots are easy to grate, roast or snack on raw."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "lettuce",
+      "name": "Lettuce (Bibb, Boston, romaine)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "bibb lettuce",
+        "boston lettuce",
+        "cos lettuce",
+        "romaine"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Crisp lettuce makes a fresh base for salads and wraps.",
+          "detail": "Crisp lettuce makes a fresh base for salads and wraps."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "parsley",
+      "name": "Parsley",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "green-pea",
+      "name": "Green pea",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "pea",
+        "peas"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Green peas are sweet, fresh-tasting and quick to add to soups, pasta and salads.",
+          "detail": "Green peas are sweet, fresh-tasting and quick to add to soups, pasta and salads."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in oxalate",
+        "Leaves are poisonous: stalks only"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "string-bean",
+      "name": "String bean",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "green bean",
+        "green beans"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "String beans are crisp-tender steamed, blanched into salads or sautéed with garlic.",
+          "detail": "String beans are crisp-tender steamed, blanched into salads or sautéed with garlic."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "zucchini",
+      "name": "Zucchini",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "courgette"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Zucchini is mild and quick to cook, easy to add to sautés and noodle dishes.",
+          "detail": "Zucchini is mild and quick to cook, easy to add to sautés and noodle dishes."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Avocado adds creaminess to toast, salads and bowls.",
+          "detail": "Avocado adds creaminess to toast, salads and bowls."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "grapefruit",
+      "name": "Grapefruit",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Can interact with some medicines"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Grapefruit is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it with breakfast or alongside an iron-rich meal.",
+          "detail": "Grapefruit is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it with breakfast or alongside an iron-rich meal."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "lemons"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "lime",
+      "name": "Lime",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "limes"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Oranges are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy one alongside an iron-rich meal.",
+          "detail": "Oranges are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy one alongside an iron-rich meal."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "plum",
+      "name": "Plum",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Plums are juicy and slightly tart, easy to slice into yogurt or enjoy as a snack.",
+          "detail": "Plums are juicy and slightly tart, easy to slice into yogurt or enjoy as a snack."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "pomegranate",
+      "name": "Pomegranate",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Pomegranate seeds add colour and crunch to salads and bowls.",
+          "detail": "Pomegranate seeds add colour and crunch to salads and bowls."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "sour-cherry",
+      "name": "Sour cherry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "black-eyed-pea",
+      "name": "Black-eyed pea",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "black-eyed peas"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Black-eyed peas are a mild, quick-cooking bean for salads and stews.",
+          "detail": "Black-eyed peas are a mild, quick-cooking bean for salads and stews."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "green-lentil",
+      "name": "Lentils",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "brown lentils",
+        "green lentils"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation.",
+          "detail": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "lima-bean",
+      "name": "Lima bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Always cook thoroughly"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Lima beans are a creamy, filling legume with protein and fibre, lovely in soups, stews and warm salads.",
+          "detail": "Lima beans are a creamy, filling legume with protein and fibre, lovely in soups, stews and warm salads."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "mung-bean",
+      "name": "Mung bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Raw sprouts: food-safety risk"
+      ],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "split-pea",
+      "name": "Split pea",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Split peas simmer into a thick, comforting soup and provide protein and fibre.",
+          "detail": "Split peas simmer into a thick, comforting soup and provide protein and fibre."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "brazil-nut",
+      "name": "Brazil nut",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Limit to 1–2 nuts a day",
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Brazil nuts are rich and creamy, good chopped over porridge or eaten as a small snack.",
+          "detail": "Brazil nuts are rich and creamy, good chopped over porridge or eaten as a small snack."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "cashew",
+      "name": "Cashew",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Cashews add some plant-based iron (about 10% of the daily value per serving) and a creamy richness to stir-fries and curries.",
+          "detail": "Cashews add some plant-based iron (about 10% of the daily value per serving) and a creamy richness to stir-fries and curries."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "flaxseeds",
+      "name": "Flaxseeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Ground flaxseed stirs easily into porridge, yogurt and smoothies.",
+          "detail": "Ground flaxseed stirs easily into porridge, yogurt and smoothies."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "lychee",
+      "name": "Lychee",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "pumpkin-seeds",
+      "name": "Pumpkin seeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "A small handful of pumpkin seeds adds iron (about 14% of the daily value). Sprinkle them on porridge, soups or salads.",
+          "detail": "A small handful of pumpkin seeds adds iron (about 14% of the daily value). Sprinkle them on porridge, soups or salads."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [
+        "chicken breast",
+        "chicken thigh"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Chicken is a quick-cooking protein for stir-fries, salads and sheet-pan meals.",
+          "detail": "Chicken is a quick-cooking protein for stir-fries, salads and sheet-pan meals."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "aisle": "protein",
+      "animalSource": "egg",
+      "allergens": [
+        "egg"
+      ],
+      "synonyms": [
+        "egg"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Egg allergen"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Eggs cook in minutes and make a light meal with vegetables.",
+          "detail": "Eggs cook in minutes and make a light meal with vegetables."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "fresh-water-clam",
+      "name": "Fresh-water clam",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Cook thoroughly",
+        "Mollusc allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "soft-shell-crab",
+      "name": "Soft-shell crab",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Crustacean allergen"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "trout",
+      "name": "Trout",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Trout is a mild fish that cooks in minutes, baked or pan-fried.",
+          "detail": "Trout is a mild fish that cooks in minutes, baked or pan-fried."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "nut-butter",
+      "name": "Nut butter",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "synonyms": [
+        "almond butter",
+        "cashew butter",
+        "peanut butter"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut or peanut allergen, depending on type"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Nut butter provides protein and a creamy richness, good on toast, oats and fruit.",
+          "detail": "Nut butter provides protein and a creamy richness, good on toast, oats and fruit."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "olives",
+      "name": "Olives",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in salt"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "pickles",
+      "name": "Pickles",
+      "aisle": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in salt"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Pickles add a tangy crunch to sandwiches and salads.",
+          "detail": "Pickles add a tangy crunch to sandwiches and salads."
+        }
+      },
+      "category": "fermented"
+    },
+    {
+      "id": "sauerkraut",
+      "name": "Sauerkraut",
+      "aisle": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in salt"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Sauerkraut adds a tangy crunch to sandwiches, bowls and salads.",
+          "detail": "Sauerkraut adds a tangy crunch to sandwiches, bowls and salads."
+        }
+      },
+      "category": "fermented"
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "amaranth",
+      "name": "Amaranth",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "quinoa",
+      "name": "Quinoa",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls.",
+          "detail": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "asparagus",
+      "name": "Asparagus",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Asparagus is fresh and quick to cook, lovely in salads and light dishes.",
+          "detail": "Asparagus is fresh and quick to cook, lovely in salads and light dishes."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "red-bell-pepper",
+      "name": "Red bell pepper",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "bell pepper",
+        "red pepper"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Red peppers add colour and crunch to salads, wraps and stir-fries.",
+          "detail": "Red peppers add colour and crunch to salads, wraps and stir-fries."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "brussels-sprouts",
+      "name": "Brussels sprouts",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Brussels sprouts are rich in vitamin C, which helps your body absorb iron from plant foods. Roast them alongside beans or lentils.",
+          "detail": "Brussels sprouts are rich in vitamin C, which helps your body absorb iron from plant foods. Roast them alongside beans or lentils."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "chard",
+      "name": "Chard",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "swiss chard"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "High in oxalate",
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Chard provides iron (about 11% of the daily value per serving) along with some vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Chard provides iron (about 11% of the daily value per serving) along with some vitamin C, which helps your body absorb iron from plant foods. Sauté it with garlic or stir it into soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "chicory",
+      "name": "Chicory",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "chive",
+      "name": "Chive",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "dandelion",
+      "name": "Dandelion",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "aubergine"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Eggplant turns soft and silky when baked or braised, and soaks up warm spices well.",
+          "detail": "Eggplant turns soft and silky when baked or braised, and soaks up warm spices well."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "endive",
+      "name": "Endive",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "escarole",
+      "name": "Escarole",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "okra",
+      "name": "Okra",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "scallion",
+      "name": "Scallion",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "green onion",
+        "spring onion"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "High in oxalate",
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation.",
+          "detail": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "tomatoes"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Ripe tomatoes bring juicy colour to salads and light sauces.",
+          "detail": "Ripe tomatoes bring juicy colour to salads and light sauces."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Apricots are sweet and gently tart, lovely fresh in season or sliced over yogurt.",
+          "detail": "Apricots are sweet and gently tart, lovely fresh in season or sliced over yogurt."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "cantaloupe",
+      "name": "Cantaloupe",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Wash the rind before cutting"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Cantaloupe is sweet and refreshing, lovely on its own or in fruit salads.",
+          "detail": "Cantaloupe is sweet and refreshing, lovely on its own or in fruit salads."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "coconut",
+      "name": "Coconut",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [
+        "coconut milk"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "fig",
+      "name": "Fig",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Figs are soft and honeyed and bring fibre; lovely with yogurt, cheese or oats.",
+          "detail": "Figs are soft and honeyed and bring fibre; lovely with yogurt, cheese or oats."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "guava",
+      "name": "Guava",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "persimmon",
+      "name": "Persimmon",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "raspberry",
+      "name": "Raspberry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Raspberries are a bright, fresh topping for yogurt and breakfasts.",
+          "detail": "Raspberries are a bright, fresh topping for yogurt and breakfasts."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Strawberries are sweet, juicy and easy to add to bowls and salads.",
+          "detail": "Strawberries are sweet, juicy and easy to add to bowls and salads."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "red-lentil",
+      "name": "Red lentil",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Red lentils cook down in minutes and provide protein and fibre, for soft, filling soups and dals.",
+          "detail": "Red lentils cook down in minutes and provide protein and fibre, for soft, filling soups and dals."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "almond",
+      "name": "Almond",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Almonds are an easy crunchy topping for salads and bowls.",
+          "detail": "Almonds are an easy crunchy topping for salads and bowls."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "pecan",
+      "name": "Pecan",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "follicular": {
+          "short": "Pecans are buttery and slightly sweet, good toasted over salads, oats and yogurt.",
+          "detail": "Pecans are buttery and slightly sweet, good toasted over salads, oats and yogurt."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "pistachio",
+      "name": "Pistachio",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Pistachios add a little crunch to salads and snacks.",
+          "detail": "Pistachios add a little crunch to salads and snacks."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "lamb",
+      "name": "Lamb",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Lamb is a rich, savoury meat that provides protein and suits slow roasts and stews.",
+          "detail": "Lamb is a rich, savoury meat that provides protein and suits slow roasts and stews."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Salmon provides protein (about 20 g per serving) for satisfying meals.",
+          "detail": "Salmon provides protein (about 20 g per serving) for satisfying meals."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "shrimp",
+      "name": "Shrimp",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "shellfish"
+      ],
+      "synonyms": [
+        "prawn",
+        "prawns"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Crustacean allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Shrimp cooks in minutes and suits light salads, tacos and stir-fries.",
+          "detail": "Shrimp cooks in minutes and suits light salads, tacos and stir-fries."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "tuna",
+      "name": "Tuna",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen",
+        "Mercury: prefer light/skipjack"
+      ],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "alcohol",
+      "name": "Alcohol (moderate)",
+      "aisle": "other",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "aisle": "pantry",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy",
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Caffeine: limit to 200 mg/day if pregnant"
+      ],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "ketchup",
+      "name": "Ketchup",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "High in sugar and salt"
+      ],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "turmeric",
+      "name": "Turmeric",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "brown-rice",
+      "name": "Brown rice",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "rice"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Vary grains (arsenic in rice)"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Brown rice is a hearty, filling base for bowls and one-pot dishes.",
+          "detail": "Brown rice is a hearty, filling base for bowls and one-pot dishes."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "millet",
+      "name": "Millet",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Cabbage is crunchy raw in slaws and sweet and tender when sautéed or braised.",
+          "detail": "Cabbage is crunchy raw in slaws and sweet and tender when sautéed or braised."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Cauliflower roasts into a hearty side or blends into creamy soups.",
+          "detail": "Cauliflower roasts into a hearty side or blends into creamy soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "celery",
+      "name": "Celery",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Celery allergen (EU)"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Celery adds fresh crunch to salads, soups and snacks.",
+          "detail": "Celery adds fresh crunch to salads, soups and snacks."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "collard",
+      "name": "Collard",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "collard greens"
+      ],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Collard greens bring some vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Collard greens bring some vitamin C, which helps your body absorb iron from plant foods. They are hearty enough for slow-simmered soups and stews."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Cucumber is crisp and hydrating, great in salads and wraps.",
+          "detail": "Cucumber is crisp and hydrating, great in salads and wraps."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "daikon",
+      "name": "Daikon",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "leek",
+      "name": "Leek",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "mustard-greens",
+      "name": "Mustard greens",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "onions"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "parsnip",
+      "name": "Parsnip",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Parsnips turn sweet and tender when roasted and blend into warming soups.",
+          "detail": "Parsnips turn sweet and tender when roasted and blend into warming soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Pumpkin makes warming soups and roasted dishes.",
+          "detail": "Pumpkin makes warming soups and roasted dishes."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Radishes add a peppery crunch and bright colour to salads and tacos.",
+          "detail": "Radishes add a peppery crunch and bright colour to salads and tacos."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "squash",
+      "name": "Squash",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "butternut squash"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Squash roasts into sweet, tender wedges and blends into warming soups and stews.",
+          "detail": "Squash roasts into sweet, tender wedges and blends into warming soups and stews."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "sweet-potato",
+      "name": "Sweet potato",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "sweet potatoes"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Sweet potato is naturally sweet and filling when roasted or mashed.",
+          "detail": "Sweet potato is naturally sweet and filling when roasted or mashed."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "watercress",
+      "name": "Watercress",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Very high vitamin K: keep intake consistent if taking warfarin"
+      ],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "apples"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Apples are an easy snack that also bake well with oats and cinnamon.",
+          "detail": "Apples are an easy snack that also bake well with oats and cinnamon."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Peaches are juicy and fragrant in season, lovely sliced into salads or yogurt.",
+          "detail": "Peaches are juicy and fragrant in season, lovely sliced into salads or yogurt."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "pear",
+      "name": "Pear",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Pears add fibre (about 4 g per serving) to snacks and breakfasts.",
+          "detail": "Pears add fibre (about 4 g per serving) to snacks and breakfasts."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "raisin",
+      "name": "Raisin",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "chickpea",
+      "name": "Chickpea",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "chickpeas",
+        "garbanzo bean"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling.",
+          "detail": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "great-northern-bean",
+      "name": "Great northern bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "navy-bean",
+      "name": "Navy bean",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "hickory",
+      "name": "Hickory",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "pine-nut",
+      "name": "Pine nut",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Tree-nut allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Walnuts add richness and crunch to oats, salads and baking.",
+          "detail": "Walnuts add richness and crunch to oats, salads and baking."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "beef",
+      "name": "Beef",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [
+        "beef steak",
+        "ground beef"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Beef provides iron (about 13% of the daily value per serving) and suits slow-cooked stews.",
+          "detail": "Beef provides iron (about 13% of the daily value per serving) and suits slow-cooked stews."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [
+        "turkey breast"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Turkey is a lean, versatile meat that provides protein for roasts, soups and sandwiches.",
+          "detail": "Turkey is a lean, versatile meat that provides protein for roasts, soups and sandwiches."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "cod",
+      "name": "Cod",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Cod is a mild, flaky white fish that provides protein for quick, satisfying meals.",
+          "detail": "Cod is a mild, flaky white fish that provides protein for quick, satisfying meals."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "flounder",
+      "name": "Flounder",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Flounder is a delicate, quick-cooking white fish that provides protein.",
+          "detail": "Flounder is a delicate, quick-cooking white fish that provides protein."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "halibut",
+      "name": "Halibut",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Fish allergen",
+        "Moderate mercury: about 1 serving a week if pregnant"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Halibut is a firm, meaty white fish that provides protein and bakes or grills well.",
+          "detail": "Halibut is a firm, meaty white fish that provides protein and bakes or grills well."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "spirulina",
+      "name": "Spirulina",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": false,
+      "cautions": [
+        "Contamination risk: tested brands only",
+        "Pregnancy or autoimmune conditions: check with doctor"
+      ],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "almond-milk",
+      "name": "Almond milk",
+      "aisle": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "anchovies",
+      "name": "Anchovies",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein.",
+          "detail": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein. A few go a long way in pasta, salads or on toast."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "arugula",
+      "name": "Arugula (rocket)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Arugula adds a peppery bite to salads, pizzas and warm pasta.",
+          "detail": "Arugula adds a peppery bite to salads, pizzas and warm pasta."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "avocado-oil",
+      "name": "Avocado oil",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "bacon",
+      "name": "Bacon",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "protein"
+    },
+    {
+      "id": "bagel",
+      "name": "Bagel",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "baked-beans",
+      "name": "Baked beans",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase.",
+          "detail": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "bean-sprouts",
+      "name": "Bean sprouts",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Bean sprouts add a light, crisp crunch to stir-fries, noodle bowls and fresh rolls.",
+          "detail": "Bean sprouts add a light, crisp crunch to stir-fries, noodle bowls and fresh rolls."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "bok-choy",
+      "name": "Bok choy",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Bok choy cooks in minutes and is crisp-tender in stir-fries and light soups.",
+          "detail": "Bok choy cooks in minutes and is crisp-tender in stir-fries and light soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "bulgur",
+      "name": "Bulgur",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Bulgur is a quick-cooking whole grain with fibre, good for salads, pilafs and stuffed vegetables.",
+          "detail": "Bulgur is a quick-cooking whole grain with fibre, good for salads, pilafs and stuffed vegetables."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "canned-salmon",
+      "name": "Canned salmon",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Canned salmon is a ready-to-use pantry staple for salads, patties and sandwiches.",
+          "detail": "Canned salmon is a ready-to-use pantry staple for salads, patties and sandwiches."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "canned-tomatoes",
+      "name": "Canned tomatoes",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "canned-tuna",
+      "name": "Canned tuna",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Canned tuna is an easy pantry staple for sandwiches, salads and pasta.",
+          "detail": "Canned tuna is an easy pantry staple for sandwiches, salads and pasta."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "celeriac",
+      "name": "Celeriac",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "cheddar",
+      "name": "Cheddar cheese",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "chia-seeds",
+      "name": "Chia seeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Soak before eating: dry seeds swell when wet"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Chia seeds add fibre (about 5 g per serving) to puddings, porridge and smoothies.",
+          "detail": "Chia seeds add fibre (about 5 g per serving) to puddings, porridge and smoothies."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "chili-pepper",
+      "name": "Chili pepper",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "coconut-oil",
+      "name": "Coconut oil",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "cottage-cheese",
+      "name": "Cottage cheese",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Dairy allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Cottage cheese is a fresh, creamy topping for toast, bowls and fruit.",
+          "detail": "Cottage cheese is a fresh, creamy topping for toast, bowls and fruit."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "couscous",
+      "name": "Couscous",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "cranberry",
+      "name": "Cranberry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "cream-cheese",
+      "name": "Cream cheese",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "dried-apricots",
+      "name": "Dried apricots",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "edamame",
+      "name": "Edamame",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Soy allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Edamame provides protein (about 11 g per serving) and fibre for filling bowls and snacks.",
+          "detail": "Edamame provides protein (about 11 g per serving) and fibre for filling bowls and snacks."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "egg-noodles",
+      "name": "Egg noodles",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "egg",
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "farro",
+      "name": "Farro",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Farro is a chewy, nutty grain that suits salads, soups and grain bowls.",
+          "detail": "Farro is a chewy, nutty grain that suits salads, soups and grain bowls."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "fava-beans",
+      "name": "Fava (broad) beans",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "legumes"
+    },
+    {
+      "id": "fennel",
+      "name": "Fennel",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "feta",
+      "name": "Feta",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Feta is salty and tangy, good crumbled over salads, roasted vegetables and eggs.",
+          "detail": "Feta is salty and tangy, good crumbled over salads, roasted vegetables and eggs."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "goat-cheese",
+      "name": "Goat cheese",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Goat cheese is tangy and creamy and provides some protein, lovely crumbled over roasted vegetables and salads.",
+          "detail": "Goat cheese is tangy and creamy and provides some protein, lovely crumbled over roasted vegetables and salads."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "granola",
+      "name": "Granola",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "grapes",
+      "name": "Grapes",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Grapes bring a little vitamin C and are an easy, no-prep fruit to have alongside a meal.",
+          "detail": "Grapes bring a little vitamin C and are an easy, no-prep fruit to have alongside a meal."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "greek-yogurt",
+      "name": "Greek yogurt",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Dairy allergen"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Greek yogurt is high in protein (about 17 g per serving), making breakfasts and snacks more filling.",
+          "detail": "Greek yogurt is high in protein (about 17 g per serving), making breakfasts and snacks more filling."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "green-bell-pepper",
+      "name": "Green bell pepper",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Green peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Slice them into bean salads or stir-fries.",
+          "detail": "Green peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Slice them into bean salads or stir-fries."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "guacamole",
+      "name": "Guacamole",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "haddock",
+      "name": "Haddock",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Haddock is a mild, flaky white fish that bakes or pan-fries in minutes.",
+          "detail": "Haddock is a mild, flaky white fish that bakes or pan-fries in minutes."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "ham",
+      "name": "Ham",
+      "aisle": "protein",
+      "animalSource": "meat",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "protein"
+    },
+    {
+      "id": "hazelnuts",
+      "name": "Hazelnuts",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Hazelnuts are rich and toasty, good chopped over salads and fruit or blended into spreads.",
+          "detail": "Hazelnuts are rich and toasty, good chopped over salads and fruit or blended into spreads."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "hemp-seeds",
+      "name": "Hemp seeds",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "herring",
+      "name": "Herring",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "aisle": "pantry",
+      "animalSource": "honey",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "honeydew",
+      "name": "Honeydew melon",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack.",
+          "detail": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "hummus",
+      "name": "Hummus",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Hummus is a creamy dip or spread for vegetables, wraps and toast.",
+          "detail": "Hummus is a creamy dip or spread for vegetables, wraps and toast."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "kefir",
+      "name": "Kefir",
+      "aisle": "fermented",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Kefir is a tangy, drinkable yogurt that works in smoothies or poured over fruit and muesli.",
+          "detail": "Kefir is a tangy, drinkable yogurt that works in smoothies or poured over fruit and muesli."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "kimchi",
+      "name": "Kimchi",
+      "aisle": "fermented",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Check the label for fish sauce or shrimp, and for vegetarian or vegan status",
+        "High in salt"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Kimchi adds tangy, spicy flavour to rice bowls and eggs.",
+          "detail": "Kimchi adds tangy, spicy flavour to rice bowls and eggs."
+        }
+      },
+      "mayContainAllergens": [
+        "fish",
+        "shellfish"
+      ],
+      "category": "fermented"
+    },
+    {
+      "id": "kiwi",
+      "name": "Kiwi",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Kiwi can cause allergic reactions; people with latex allergy may also react."
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Kiwi is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it alongside an iron-rich meal.",
+          "detail": "Kiwi is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it alongside an iron-rich meal."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "kohlrabi",
+      "name": "Kohlrabi",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "macadamia-nuts",
+      "name": "Macadamia nuts",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "mackerel",
+      "name": "Mackerel",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Mackerel is a rich, flavourful fish that provides protein; it is great grilled or flaked into salads.",
+          "detail": "Mackerel is a rich, flavourful fish that provides protein; it is great grilled or flaked into salads."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "mandarin",
+      "name": "Mandarin / tangerine",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Mandarins are easy to peel and segment into salads or lunchboxes.",
+          "detail": "Mandarins are easy to peel and segment into salads or lunchboxes."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Mango adds juicy sweetness to salads, salsas and smoothies.",
+          "detail": "Mango adds juicy sweetness to salads, salsas and smoothies."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "maple-syrup",
+      "name": "Maple syrup",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "mixed-nuts",
+      "name": "Mixed nuts",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Mixed nuts provide protein and fibre in a small handful, handy for snacks, porridge and baking.",
+          "detail": "Mixed nuts provide protein and fibre in a small handful, handy for snacks, porridge and baking."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "mozzarella",
+      "name": "Mozzarella",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Mozzarella is mild and melty and provides protein, suiting baked pasta, pizza and salads.",
+          "detail": "Mozzarella is mild and melty and provides protein, suiting baked pasta, pizza and salads."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "muesli",
+      "name": "Muesli",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten",
+        "tree-nut"
+      ],
+      "synonyms": [
+        "low-sugar granola"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "naan",
+      "name": "Naan",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "napa-cabbage",
+      "name": "Napa cabbage",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Napa cabbage is tender and mild, good in stir-fries, soups and fresh slaws.",
+          "detail": "Napa cabbage is tender and mild, good in stir-fries, soups and fresh slaws."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "nectarine",
+      "name": "Nectarine",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Nectarines are juicy and sweet in season, lovely sliced onto yogurt or eaten as they are.",
+          "detail": "Nectarines are juicy and sweet in season, lovely sliced onto yogurt or eaten as they are."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "oat-bran",
+      "name": "Oat bran",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Choose certified gluten-free oats if avoiding gluten."
+      ],
+      "why": {
+        "follicular": {
+          "short": "Oat bran cooks into a quick, creamy porridge or stirs into yogurt and baking.",
+          "detail": "Oat bran cooks into a quick, creamy porridge or stirs into yogurt and baking."
+        }
+      },
+      "mayContainAllergens": [
+        "gluten"
+      ],
+      "category": "grains"
+    },
+    {
+      "id": "oat-milk",
+      "name": "Oat milk",
+      "aisle": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "olive-oil",
+      "name": "Olive oil",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "other"
+    },
+    {
+      "id": "papaya",
+      "name": "Papaya",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Papaya is rich in vitamin C, which helps your body absorb iron from plant foods. Lovely with lime or in fruit salads.",
+          "detail": "Papaya is rich in vitamin C, which helps your body absorb iron from plant foods. Lovely with lime or in fruit salads."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "parmesan",
+      "name": "Parmesan",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "peanuts",
+      "name": "Peanuts",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "peanut"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Peanuts provide protein and a satisfying crunch, good in stir-fries, sauces and snacks.",
+          "detail": "Peanuts provide protein and a satisfying crunch, good in stir-fries, sauces and snacks."
+        }
+      },
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Pineapple is bright and juicy, good fresh, grilled or in a salsa.",
+          "detail": "Pineapple is bright and juicy, good fresh, grilled or in a salsa."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "pinto-beans",
+      "name": "Pinto beans",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Pinto beans provide protein and fibre and make hearty, filling chilli, burritos and bowls.",
+          "detail": "Pinto beans provide protein and fibre and make hearty, filling chilli, burritos and bowls."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "pita-bread",
+      "name": "Pita bread (whole-wheat)",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "plain-yogurt",
+      "name": "Plain yogurt",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Plain yogurt is a fresh, tangy base for breakfast bowls, sauces and dressings.",
+          "detail": "Plain yogurt is a fresh, tangy base for breakfast bowls, sauces and dressings."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "plantain",
+      "name": "Plantain",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "polenta",
+      "name": "Polenta / cornmeal",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "pollock",
+      "name": "Pollock",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Pollock is a mild white fish that suits fish tacos, baking and fish cakes.",
+          "detail": "Pollock is a mild white fish that suits fish tacos, baking and fish cakes."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "popcorn",
+      "name": "Popcorn (plain)",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "prunes",
+      "name": "Prunes (dried plums)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "fruit"
+    },
+    {
+      "id": "radicchio",
+      "name": "Radicchio",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "red-cabbage",
+      "name": "Red cabbage",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Red cabbage brings vivid colour and crunch to slaws, tacos and quick pickles.",
+          "detail": "Red cabbage brings vivid colour and crunch to slaws, tacos and quick pickles."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "red-snapper",
+      "name": "Snapper",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Snapper is a mild, firm fish that provides protein and bakes whole or as fillets.",
+          "detail": "Snapper is a mild, firm fish that provides protein and bakes whole or as fillets."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "rice-cakes",
+      "name": "Rice cakes",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "rice-noodles",
+      "name": "Rice noodles",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "ricotta",
+      "name": "Ricotta",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Ricotta is soft and mild, good on toast with fruit or folded into pasta.",
+          "detail": "Ricotta is soft and mild, good on toast with fruit or folded into pasta."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "rye-bread",
+      "name": "Rye bread",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "salsa",
+      "name": "Salsa",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "sea-bass",
+      "name": "Sea bass",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Sea bass is a mild, delicate white fish that bakes or pan-fries quickly.",
+          "detail": "Sea bass is a mild, delicate white fish that bakes or pan-fries quickly."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "seitan",
+      "name": "Seitan",
+      "aisle": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "protein"
+    },
+    {
+      "id": "shallot",
+      "name": "Shallot",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "smoked-salmon",
+      "name": "Smoked salmon",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "seafood"
+    },
+    {
+      "id": "soba-noodles",
+      "name": "Soba noodles",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "sour-cream",
+      "name": "Sour cream",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "sourdough-bread",
+      "name": "Sourdough bread",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "soy-milk",
+      "name": "Soy milk",
+      "aisle": "dairy-alternatives",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "sugar-snap-peas",
+      "name": "Sugar snap peas",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Sugar snap peas are sweet and crunchy, great raw, in salads or quickly stir-fried.",
+          "detail": "Sugar snap peas are sweet and crunchy, great raw, in salads or quickly stir-fried."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "sweet-cherry",
+      "name": "Sweet cherry",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "ovulatory": {
+          "short": "Sweet cherries are juicy in season, an easy snack or topping for yogurt.",
+          "detail": "Sweet cherries are juicy in season, an easy snack or topping for yogurt."
+        }
+      },
+      "category": "fruit"
+    },
+    {
+      "id": "swiss-cheese",
+      "name": "Swiss cheese",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Swiss cheese is nutty and melts well; it provides protein and suits sandwiches and bakes.",
+          "detail": "Swiss cheese is nutty and melts well; it provides protein and suits sandwiches and bakes."
+        }
+      },
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "tahini",
+      "name": "Tahini",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "sesame"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "nuts-seeds"
+    },
+    {
+      "id": "tempeh",
+      "name": "Tempeh",
+      "aisle": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Soy allergen",
+        "Check the label for gluten-containing grains"
+      ],
+      "why": {
+        "menstrual": {
+          "short": "Tempeh adds plant-based iron (about 10% of the daily value per serving) with a firm, nutty bite for warm bowls.",
+          "detail": "Tempeh adds plant-based iron (about 10% of the daily value per serving) with a firm, nutty bite for warm bowls."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "tilapia",
+      "name": "Tilapia",
+      "aisle": "protein",
+      "animalSource": "seafood",
+      "allergens": [
+        "fish"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "luteal": {
+          "short": "Tilapia is a mild, quick-cooking fish that provides protein and suits baking and tacos.",
+          "detail": "Tilapia is a mild, quick-cooking fish that provides protein and suits baking and tacos."
+        }
+      },
+      "category": "seafood"
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "aisle": "protein",
+      "animalSource": "none",
+      "allergens": [
+        "soy"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Soy allergen"
+      ],
+      "why": {
+        "ovulatory": {
+          "short": "Tofu is light and quick to add to cold noodle dishes, salads and stir-fries.",
+          "detail": "Tofu is light and quick to add to cold noodle dishes, salads and stir-fries."
+        }
+      },
+      "category": "protein"
+    },
+    {
+      "id": "tortillas",
+      "name": "Tortillas (wheat)",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "turnip",
+      "name": "Turnip",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "follicular": {
+          "short": "Turnips are mild and slightly peppery, lovely roasted, mashed or sliced into soups.",
+          "detail": "Turnips are mild and slightly peppery, lovely roasted, mashed or sliced into soups."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "wheat-flour",
+      "name": "Wheat flour (whole-grain)",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "white-beans",
+      "name": "White beans",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "great northern bean",
+        "great northern beans",
+        "navy bean",
+        "navy beans"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "White beans are a rich source of plant-based iron, with protein and fibre. Lovely in soups and stews.",
+          "detail": "White beans are a rich source of plant-based iron, with protein and fibre. Lovely in soups and stews."
+        }
+      },
+      "category": "legumes"
+    },
+    {
+      "id": "white-potato",
+      "name": "White potato",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Potatoes provide some vitamin C and make hearty, comforting meals when baked or mashed.",
+          "detail": "Potatoes provide some vitamin C and make hearty, comforting meals when baked or mashed."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "white-rice",
+      "name": "White rice",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "whole-grain-bread",
+      "name": "Whole-grain bread",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [
+        "Contains wheat (gluten)",
+        "Check the label for soy, dairy or sesame"
+      ],
+      "why": {
+        "luteal": {
+          "short": "Whole-grain bread makes sturdy, satisfying toast and sandwiches.",
+          "detail": "Whole-grain bread makes sturdy, satisfying toast and sandwiches."
+        }
+      },
+      "category": "grains"
+    },
+    {
+      "id": "whole-wheat-pasta",
+      "name": "Whole-wheat pasta",
+      "aisle": "grains",
+      "animalSource": "none",
+      "allergens": [
+        "gluten"
+      ],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "grains"
+    },
+    {
+      "id": "yellow-bell-pepper",
+      "name": "Yellow bell pepper",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [],
+      "shipReady": true,
+      "cautions": [],
+      "why": {
+        "menstrual": {
+          "short": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods.",
+          "detail": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods. Roast them or slice them into salads and grain bowls."
+        }
+      },
+      "category": "vegetables"
+    },
+    {
+      "id": "basil",
+      "name": "Basil",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "fresh basil"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "cilantro",
+      "name": "Cilantro (coriander)",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "coriander",
+        "fresh coriander",
+        "cilantro leaves"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "dill",
+      "name": "Dill",
+      "aisle": "produce",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "fresh dill"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    },
+    {
+      "id": "heavy-cream",
+      "name": "Heavy cream",
+      "aisle": "dairy-alternatives",
+      "animalSource": "dairy",
+      "allergens": [
+        "dairy"
+      ],
+      "synonyms": [
+        "double cream",
+        "whipping cream",
+        "heavy whipping cream"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "dairy-alternatives"
+    },
+    {
+      "id": "tomato-paste",
+      "name": "Tomato paste",
+      "aisle": "pantry",
+      "animalSource": "none",
+      "allergens": [],
+      "synonyms": [
+        "tomato puree",
+        "tomato purée",
+        "tomato concentrate"
+      ],
+      "shipReady": true,
+      "cautions": [],
+      "why": {},
+      "category": "vegetables"
+    }
+  ]
+}

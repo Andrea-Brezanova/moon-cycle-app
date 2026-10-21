@@ -1,22 +1,45 @@
+import 'package:drift/drift.dart' show DatabaseConnection;
+import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/app.dart';
 import 'package:moon_cycle/app/config/app_config.dart';
+import 'package:moon_cycle/app/config/app_version.dart';
+import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/features/content/application/content_providers.dart';
+import 'package:moon_cycle/features/discovery/application/discovery_providers.dart';
+import 'package:moon_cycle/features/discovery/data/providers/provider_http.dart';
 import 'package:moon_cycle/features/onboarding/application/onboarding_status.dart';
+import 'package:moon_cycle/features/reminders/application/reminder_providers.dart';
 
-class _OnboardingStatus extends OnboardingStatus {
-  _OnboardingStatus(this.initial);
+import 'fake_reminders.dart';
+import 'offline_network.dart';
+import 'test_catalogue.dart';
 
-  final bool initial;
-
-  @override
-  bool build() => initial;
+/// A fresh in-memory database, closed when the test ends. Query streams
+/// close synchronously, so widget tests don't end with drift's clean-up
+/// timer pending.
+AppDatabase testDatabase() {
+  final db = AppDatabase(
+    DatabaseConnection(
+      NativeDatabase.memory(),
+      closeStreamsSynchronously: true,
+    ),
+  );
+  addTearDown(db.close);
+  return db;
 }
 
-/// Pumps the whole app (dev flavour) and returns its provider container.
+/// Pumps the whole app (dev flavour) on an in-memory database and returns
+/// its provider container.
 Future<ProviderContainer> pumpApp(
   WidgetTester tester, {
   bool onboarded = true,
+  AppDatabase? database,
+  FakeReminderScheduler? reminders,
+  List<Override> overrides = const [],
+  HttpGet providerHttp = offlineGet,
 }) async {
   await tester.pumpWidget(
     ProviderScope(
@@ -24,9 +47,15 @@ Future<ProviderContainer> pumpApp(
         appConfigProvider.overrideWithValue(
           const AppConfig(flavor: Flavor.dev),
         ),
-        onboardingCompletedProvider.overrideWith(
-          () => _OnboardingStatus(onboarded),
+        appDatabaseProvider.overrideWithValue(database ?? testDatabase()),
+        initialOnboardingCompletedProvider.overrideWithValue(onboarded),
+        catalogueProvider.overrideWithValue(testCatalogue),
+        appVersionProvider.overrideWithValue('1.0.0'),
+        providerHttpGetProvider.overrideWithValue(providerHttp),
+        reminderSchedulerProvider.overrideWithValue(
+          reminders ?? FakeReminderScheduler(),
         ),
+        ...overrides,
       ],
       child: const MoonCycleApp(),
     ),

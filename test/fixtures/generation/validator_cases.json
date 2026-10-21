@@ -1,0 +1,2062 @@
+[
+ {
+  "name": "valid recipe",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "unknown food",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Moon dust",
+     "food_id": "moon-dust",
+     "amount": 1,
+     "unit": "tsp",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "unknownFood"
+  ]
+ },
+ {
+  "name": "missing chosen plant",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "missingSelection"
+  ]
+ },
+ {
+  "name": "extra animal product (feta)",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Feta",
+     "food_id": "feta",
+     "amount": 50,
+     "unit": "g",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "extraAnimalProduct"
+  ]
+ },
+ {
+  "name": "too few steps",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain."
+   ]
+  },
+  "expect": [
+   "range"
+  ]
+ },
+ {
+  "name": "too many steps",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm.",
+    "Serve it up warm with a squeeze of lemon.",
+    "Store leftovers in the fridge for two days."
+   ]
+  },
+  "expect": [
+   "range"
+  ]
+ },
+ {
+  "name": "minutes out of range",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 600,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "range"
+  ]
+ },
+ {
+  "name": "bad unit",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "splash",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "unit"
+  ]
+ },
+ {
+  "name": "absurd amount",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 500,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "amount"
+  ]
+ },
+ {
+  "name": "amount without unit",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": null,
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "unit"
+  ]
+ },
+ {
+  "name": "pantry line that is not pantry",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Truffle caviar",
+     "food_id": null,
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "pantryLine"
+  ]
+ },
+ {
+  "name": "duplicate ingredient",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "More spinach",
+     "food_id": "spinach",
+     "amount": 1,
+     "unit": "oz",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "duplicateIngredient"
+  ]
+ },
+ {
+  "name": "banned claim in intro",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A bowl that helps balance your hormones and boost energy.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "bannedClaim"
+  ]
+ },
+ {
+  "name": "banned claim in step",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Serve warm; this detox bowl cleanses the body naturally."
+   ]
+  },
+  "expect": [
+   "bannedClaim"
+  ]
+ },
+ {
+  "name": "vegan user, no animal foods",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "vegan",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "gluten avoided, farro has gluten",
+  "request": {
+   "idempotency_key": "k1",
+   "phase": "menstrual",
+   "protein_id": "green-lentil",
+   "base_id": "farro",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": [
+    "gluten"
+   ]
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Lentil, Farro & Spinach Bowl",
+   "intro": "A warm, hearty bowl of lentils and farro with garlicky spinach and carrot.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Green lentils, dried",
+     "food_id": "green-lentil",
+     "amount": 0.5,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Farro",
+     "food_id": "farro",
+     "amount": 0.75,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Garlic",
+     "food_id": "garlic",
+     "amount": 2,
+     "unit": "clove",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Simmer the lentils in plenty of water for 20 minutes until tender, then drain.",
+    "Cook the farro in a separate pan of simmering water for 15 minutes and drain.",
+    "Soften the sliced carrots and garlic in the oil for 5 minutes, then wilt in the spinach.",
+    "Fold everything together, season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "dietOrAllergen"
+  ]
+ },
+ {
+  "name": "chicken cooked through",
+  "request": {
+   "idempotency_key": "k2",
+   "phase": "luteal",
+   "protein_id": "chicken",
+   "base_id": "brown-rice",
+   "plant_ids": [
+    "broccoli",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Chicken, Brown Rice & Broccoli Bowl",
+   "intro": "Simple roasted chicken over brown rice with broccoli and carrot.",
+   "category": "dinner",
+   "minutes": 40,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Chicken breast",
+     "food_id": "chicken",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Brown rice",
+     "food_id": "brown-rice",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Broccoli",
+     "food_id": "broccoli",
+     "amount": 1,
+     "unit": "head",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Cook the brown rice in simmering water for 30 minutes, then drain.",
+    "Roast the chicken at 200C for 25 minutes, until cooked through with no pink inside.",
+    "Steam the broccoli and carrots for 6 minutes until tender.",
+    "Slice the chicken and serve over the rice with the vegetables."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "chicken without cooked-through wording",
+  "request": {
+   "idempotency_key": "k2",
+   "phase": "luteal",
+   "protein_id": "chicken",
+   "base_id": "brown-rice",
+   "plant_ids": [
+    "broccoli",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Chicken, Brown Rice & Broccoli Bowl",
+   "intro": "Simple roasted chicken over brown rice with broccoli and carrot.",
+   "category": "dinner",
+   "minutes": 40,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Chicken breast",
+     "food_id": "chicken",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Brown rice",
+     "food_id": "brown-rice",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Broccoli",
+     "food_id": "broccoli",
+     "amount": 1,
+     "unit": "head",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Cook the brown rice in simmering water for 30 minutes, then drain.",
+    "Roast the chicken for 25 minutes and slice it.",
+    "Steam the broccoli and carrots for 6 minutes until tender.",
+    "Serve everything together over the rice."
+   ]
+  },
+  "expect": [
+   "foodSafety"
+  ]
+ },
+ {
+  "name": "chicken served raw",
+  "request": {
+   "idempotency_key": "k2",
+   "phase": "luteal",
+   "protein_id": "chicken",
+   "base_id": "brown-rice",
+   "plant_ids": [
+    "broccoli",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Chicken, Brown Rice & Broccoli Bowl",
+   "intro": "Simple roasted chicken over brown rice with broccoli and carrot.",
+   "category": "dinner",
+   "minutes": 40,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Chicken breast",
+     "food_id": "chicken",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Brown rice",
+     "food_id": "brown-rice",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Broccoli",
+     "food_id": "broccoli",
+     "amount": 1,
+     "unit": "head",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Cook the brown rice in simmering water for 30 minutes, then drain.",
+    "Slice the raw chicken thinly and serve it raw over the rice.",
+    "Steam the broccoli and carrots for 6 minutes until tender.",
+    "Serve everything together over the rice."
+   ]
+  },
+  "expect": [
+   "foodSafety"
+  ]
+ },
+ {
+  "name": "dried kidney beans boiled",
+  "request": {
+   "idempotency_key": "k3",
+   "phase": "menstrual",
+   "protein_id": "kidney-bean",
+   "base_id": "brown-rice",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kidney Bean, Rice & Spinach Bowl",
+   "intro": "A filling bowl of kidney beans over brown rice with spinach and carrot.",
+   "category": "lunch",
+   "minutes": 30,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Dried kidney beans",
+     "food_id": "kidney-bean",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Brown rice",
+     "food_id": "brown-rice",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Soak the beans overnight, drain, then boil them hard for 10 minutes and simmer until soft.",
+    "Cook the brown rice in simmering water for 30 minutes, then drain.",
+    "Soften the carrots in the oil, then wilt in the spinach.",
+    "Combine with the beans and rice and serve warm."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "dried kidney beans never boiled",
+  "request": {
+   "idempotency_key": "k3",
+   "phase": "menstrual",
+   "protein_id": "kidney-bean",
+   "base_id": "brown-rice",
+   "plant_ids": [
+    "spinach",
+    "carrot"
+   ]
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kidney Bean, Rice & Spinach Bowl",
+   "intro": "A filling bowl of kidney beans over brown rice with spinach and carrot.",
+   "category": "lunch",
+   "minutes": 30,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Dried kidney beans",
+     "food_id": "kidney-bean",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Brown rice",
+     "food_id": "brown-rice",
+     "amount": 1,
+     "unit": "cup",
+     "qty_text": null
+    },
+    {
+     "label": "Spinach",
+     "food_id": "spinach",
+     "amount": 4,
+     "unit": "oz",
+     "qty_text": null
+    },
+    {
+     "label": "Carrots",
+     "food_id": "carrot",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Soak the beans overnight and drain them well.",
+    "Cook the brown rice in simmering water for 30 minutes, then drain.",
+    "Soften the carrots in the oil, then wilt in the spinach.",
+    "Combine with the beans and rice and serve warm."
+   ]
+  },
+  "expect": [
+   "foodSafety"
+  ]
+ },
+ {
+  "name": "try new: all three foods",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": []
+ },
+ {
+  "name": "try new: one of the three foods missing",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Onion",
+     "food_id": "onion",
+     "amount": 1,
+     "unit": "piece",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "missingSelection"
+  ]
+ },
+ {
+  "name": "try new: an extra animal food",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": []
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    },
+    {
+     "label": "Eggs",
+     "food_id": "eggs",
+     "amount": 2,
+     "unit": "piece",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "extraAnimalProduct"
+  ]
+ },
+ {
+  "name": "try new: soy avoided, tofu is soy",
+  "request": {
+   "idempotency_key": "tn-key-0001",
+   "phase": "luteal",
+   "kind": "try_new",
+   "food_ids": [
+    "kale",
+    "carrot",
+    "tofu"
+   ],
+   "variant": 1
+  },
+  "filter": {
+   "diet": "omnivore",
+   "allergens": [
+    "soy"
+   ]
+  },
+  "recipe": {
+   "schema_version": 1,
+   "title": "Kale, Carrot & Tofu Soup",
+   "intro": "A simple soup of kale, carrot and tofu.",
+   "category": "dinner",
+   "minutes": 35,
+   "serves": 2,
+   "ingredients": [
+    {
+     "label": "Kale",
+     "food_id": "kale",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Carrot",
+     "food_id": "carrot",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Tofu",
+     "food_id": "tofu",
+     "amount": 120,
+     "unit": "g",
+     "qty_text": null
+    },
+    {
+     "label": "Olive oil",
+     "food_id": "olive-oil",
+     "amount": 1,
+     "unit": "tbsp",
+     "qty_text": null
+    },
+    {
+     "label": "Salt and black pepper",
+     "food_id": null,
+     "amount": 1,
+     "unit": "pinch",
+     "qty_text": null
+    }
+   ],
+   "steps": [
+    "Chop the kale, carrot and tofu into even pieces.",
+    "Heat the oil in a pot and cook everything until tender.",
+    "Simmer in water for 15 minutes, then season.",
+    "Season with salt and pepper and serve warm."
+   ]
+  },
+  "expect": [
+   "dietOrAllergen"
+  ]
+ }
+]

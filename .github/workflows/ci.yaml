@@ -1,9 +1,12 @@
 name: CI
 
 on:
+  # Every push to any branch (feature branches included) and every pull
+  # request that targets main.
   push:
-    branches: [main]
+    branches: ['**']
   pull_request:
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -24,11 +27,57 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
       - run: flutter pub get
-      - run: dart format --output=none --set-exit-if-changed lib test tool
+      - run: dart format --output=none --set-exit-if-changed .
       - run: flutter analyze
       - run: dart run tool/check_layers.dart
-      # Golden screenshots are made on macOS; font rendering differs on Linux.
+      # Golden screenshots are made on macOS; font rendering differs on Linux,
+      # so they run in the separate `golden-tests` job below.
       - run: flutter test --exclude-tags golden
+
+  golden-tests:
+    name: Golden screenshots (macOS)
+    # Pinned (not macos-latest) so a runner upgrade can't change rendering.
+    runs-on: macos-15
+    # Advisory for now: the images were recorded on a developer Mac and every
+    # one differs on the GitHub runner (0 of 122 match) although they all pass
+    # locally. Not a required check until they are recorded in this environment.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+      - run: flutter pub get
+      # Goldens are recorded on macOS, so they are compared on macOS. Never
+      # regenerate them in CI.
+      - run: |
+          set -o pipefail
+          flutter test --tags golden 2>&1 | tee golden.log
+      # Shown on the run's summary page: how far each image is from the
+      # recorded one, and whether the sizes differ, without downloading anything.
+      - name: Summarise golden differences
+        if: failure()
+        run: |
+          {
+            echo '### Golden differences'
+            echo '```'
+            grep -E 'Pixel test failed|image sizes|Golden ".*" did not|Could not be compared' golden.log | sed -E 's/^.*(Pixel test failed|image sizes|Golden)/\1/' | sort | uniq -c | sort -rn | head -30
+            echo '```'
+            echo "Runner: $(sw_vers -productVersion), $(uname -m)"
+          } >> "$GITHUB_STEP_SUMMARY"
+          # Annotations are readable without signing in, so the differences can
+          # be inspected from the API: environment first, then each failure.
+          echo "::error title=Golden environment::macOS $(sw_vers -productVersion) $(uname -m); $(flutter --version | head -1); fonts: $(ls assets/fonts | wc -l) files"
+          grep -E 'Golden ".*": ' golden.log | sed -E 's/^.*Golden "goldens\///' | sort -u | head -12 | while read -r line; do echo "::error title=Golden diff::$line"; done
+      - name: Keep failure images
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: '**/failures/*.png'
+          if-no-files-found: ignore
 
   android-dev-build:
     name: Android build (dev, debug)

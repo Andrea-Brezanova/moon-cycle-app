@@ -1,27 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/features/eat/presentation/eat_page.dart';
+import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
+import 'package:moon_cycle/features/home/presentation/home_page.dart';
+import 'package:moon_cycle/features/placeholders/presentation/coming_soon_page.dart';
+import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
+import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
+import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
+import 'package:moon_cycle/features/settings/presentation/settings_home_page.dart';
 
 import '../../helpers/pump_app.dart';
 
-/// Text that only appears on a tab's first screen.
-Finder rootOf(int milestone) =>
-    find.text('Placeholder. The real screen arrives in Milestone $milestone.');
-final homeRoot = rootOf(8);
-final foodsRoot = rootOf(10);
-final recipesRoot = rootOf(11);
-final settingsRoot = rootOf(13);
+final homeRoot = find.byType(HomePage);
 
-/// Text that only appears on a pushed placeholder page.
-Finder subPage(int milestone) => find.text(
-  'Placeholder page. The real page arrives in Milestone $milestone.',
-);
+/// Eat's Foods half ("Today's food" shows only there).
+final foodsRoot = find.byType(FoodsPage);
+final eatRoot = find.byType(EatPage);
+final recipesRoot = find.byType(RecipesPage);
+final recipeDetail = find.byType(RecipeDetailPage);
+
+/// The first recipe card on the Recipes list.
+final firstRecipe = find.text('Zucchini & Feta Herb Frittata');
+final settingsRoot = find.byType(SettingsHomePage);
 
 Finder tab(String name) => find.byKey(ValueKey('tab-$name'));
 
 Future<void> tapTab(WidgetTester tester, String name) async {
   await tester.tap(tab(name));
   await tester.pumpAndSettle();
+}
+
+/// Eat's Recipes half.
+Future<void> showRecipes(WidgetTester tester) async {
+  await tapTab(tester, 'eat');
+  await tester.tap(find.textContaining('Recipes '));
+  await tester.pumpAndSettle();
+}
+
+/// Opens the first recipe on the Recipes list.
+Future<void> openRecipe(WidgetTester tester) async {
+  await tester.ensureVisible(firstRecipe);
+  await tester.pumpAndSettle();
+  await tester.tap(firstRecipe);
 }
 
 /// The Android back button.
@@ -34,16 +55,19 @@ void main() {
   testWidgets('starts on Home', (tester) async {
     await pumpApp(tester);
     expect(homeRoot, findsOneWidget);
-    expect(find.text('Flavour: dev'), findsOneWidget);
   });
 
   testWidgets('switching tabs shows each tab', (tester) async {
     await pumpApp(tester);
-    await tapTab(tester, 'foods');
+    await tapTab(tester, 'eat');
+    expect(eatRoot, findsOneWidget);
     expect(foodsRoot, findsOneWidget);
-    await tapTab(tester, 'shop');
-    expect(rootOf(12), findsOneWidget);
-    await tapTab(tester, 'settings');
+    await tapTab(tester, 'move');
+    expect(find.byType(ComingSoonPage), findsOneWidget);
+    expect(find.text('Move is on its way.'), findsOneWidget);
+    await tapTab(tester, 'relax');
+    expect(find.text('Relax is on its way.'), findsOneWidget);
+    await tapTab(tester, 'more');
     expect(settingsRoot, findsOneWidget);
     await tapTab(tester, 'home');
     expect(homeRoot, findsOneWidget);
@@ -51,55 +75,57 @@ void main() {
 
   testWidgets('each tab keeps its own stack', (tester) async {
     await pumpApp(tester);
-    await tapTab(tester, 'recipes');
-    await tester.tap(find.text('Open a recipe'));
+    await showRecipes(tester);
+    await openRecipe(tester);
     await tester.pumpAndSettle();
-    expect(find.text('Recipe'), findsOneWidget);
+    expect(recipeDetail, findsOneWidget);
 
-    await tapTab(tester, 'foods');
-    expect(foodsRoot, findsOneWidget);
-    await tapTab(tester, 'recipes');
-    expect(find.text('Recipe').hitTestable(), findsOneWidget); // still open
-    expect(recipesRoot.hitTestable(), findsNothing);
+    await tapTab(tester, 'more');
+    expect(settingsRoot, findsOneWidget);
+    await tapTab(tester, 'eat');
+    expect(find.byType(RecipeDetailPage, skipOffstage: false), findsOneWidget);
+    expect(
+      find.text('25 min · Serves 4').hitTestable(),
+      findsOneWidget,
+    ); // still open
   });
 
   testWidgets('tapping the active tab returns to its first screen', (
     tester,
   ) async {
     await pumpApp(tester);
-    await tapTab(tester, 'recipes');
-    await tester.tap(find.text('Open a recipe'));
+    await showRecipes(tester);
+    await openRecipe(tester);
     await tester.pumpAndSettle();
-    await tapTab(tester, 'recipes');
+    await tapTab(tester, 'eat');
     expect(recipesRoot.hitTestable(), findsOneWidget);
-    expect(find.text('Recipe').hitTestable(), findsNothing);
+    expect(recipeDetail, findsNothing);
   });
 
   testWidgets('tapping the active tab on its first screen scrolls to the top', (
     tester,
   ) async {
     await pumpApp(tester);
-    await tapTab(tester, 'foods');
-    final top = tester.getTopLeft(foodsRoot).dy;
-    await tester.drag(find.byType(ListView), const Offset(0, -900));
+    await tapTab(tester, 'eat');
+    final todays = find.text('TODAY’S FOOD');
+    final top = tester.getTopLeft(todays).dy;
+    await tester.drag(find.byType(ListView).first, const Offset(0, -900));
     await tester.pumpAndSettle();
-    expect(foodsRoot.hitTestable(), findsNothing); // scrolled away
+    expect(todays.hitTestable(), findsNothing); // scrolled away
 
-    await tapTab(tester, 'foods');
-    expect(tester.getTopLeft(foodsRoot).dy, top);
+    await tapTab(tester, 'eat');
+    expect(tester.getTopLeft(todays).dy, top);
   });
 
-  testWidgets('Settings sub-pages open inside Settings and go back', (
-    tester,
-  ) async {
+  testWidgets('More sub-pages open inside More and go back', (tester) async {
     await pumpApp(tester);
-    await tapTab(tester, 'settings');
+    await tapTab(tester, 'more');
     await tester.tap(find.text('My Cycle'));
     await tester.pumpAndSettle();
     expect(find.text('My Cycle').hitTestable(), findsOneWidget);
     expect(settingsRoot.hitTestable(), findsNothing);
-    expect(tab('settings').hitTestable(), findsOneWidget); // tab bar visible
-    await tester.tap(find.bySemanticsLabel('Back to Settings'));
+    expect(tab('more').hitTestable(), findsOneWidget); // tab bar visible
+    await tester.tap(find.bySemanticsLabel('Back to More'));
     await tester.pumpAndSettle();
     expect(settingsRoot.hitTestable(), findsOneWidget);
   });
@@ -108,23 +134,28 @@ void main() {
     tester,
   ) async {
     await pumpApp(tester);
-    await tapTab(tester, 'settings');
+    await tapTab(tester, 'more');
+    await tester.scrollUntilVisible(
+      find.text('Delete my data'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(find.text('Delete my data'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Delete my data'));
     await tester.pumpAndSettle();
     expect(find.text('Delete my data').hitTestable(), findsOneWidget);
-    expect(tab('settings').hitTestable(), findsNothing); // no tab bar
+    expect(tab('more').hitTestable(), findsNothing); // no tab bar
     await systemBack(tester);
-    expect(subPage(13), findsNothing);
-    expect(tab('settings').hitTestable(), findsOneWidget);
+    expect(find.byType(DeleteDataPage), findsNothing);
+    expect(tab('more').hitTestable(), findsOneWidget);
   });
 
   group('Android back', () {
     testWidgets('inside a tab: one screen back', (tester) async {
       await pumpApp(tester);
-      await tapTab(tester, 'recipes');
-      await tester.tap(find.text('Open a recipe'));
+      await showRecipes(tester);
+      await openRecipe(tester);
       await tester.pumpAndSettle();
       await systemBack(tester);
       expect(recipesRoot, findsOneWidget);
@@ -132,7 +163,7 @@ void main() {
 
     testWidgets('on the first screen of another tab: to Home', (tester) async {
       await pumpApp(tester);
-      for (final name in ['foods', 'recipes', 'shop', 'settings']) {
+      for (final name in ['eat', 'move', 'relax', 'more']) {
         await tapTab(tester, name);
         await systemBack(tester);
         expect(homeRoot, findsOneWidget, reason: name);
@@ -175,7 +206,7 @@ void main() {
         ),
       );
       await pumpApp(tester);
-      await tapTab(tester, 'shop');
+      await tapTab(tester, 'relax');
       await systemBack(tester);
       expect(calls, isNot(contains('SystemNavigator.pop')));
     });

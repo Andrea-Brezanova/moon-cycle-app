@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'tokens/moon_colors.dart';
 import 'tokens/moon_typography.dart';
@@ -40,3 +41,16 @@ extension MoonThemeContext on BuildContext {
   /// The Editorial colours for the current theme.
   MoonColors get moon => Theme.of(this).extension<MoonColors>()!;
 }
+
+/// Status bar and navigation bar styling for a page of [brightness]:
+/// transparent bars (edge to edge), dark icons on light pages and light icons
+/// on dark ones (spec §10).
+SystemUiOverlayStyle moonStatusBar(Brightness brightness) =>
+    (brightness == Brightness.dark
+            ? SystemUiOverlayStyle.light
+            : SystemUiOverlayStyle.dark)
+        .copyWith(
+          statusBarColor: const Color(0x00000000),
+          systemNavigationBarColor: const Color(0x00000000),
+          systemNavigationBarContrastEnforced: false,
+        );

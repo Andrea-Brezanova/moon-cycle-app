@@ -1,0 +1,65 @@
+{
+ "recipe_id": "<uuid>",
+ "recipe": {
+  "schema_version": 1,
+  "title": "Tofu & Farro Bowl",
+  "intro": "A simple bowl of tofu and farro with kale and carrot.",
+  "category": "dinner",
+  "minutes": 30,
+  "serves": 2,
+  "ingredients": [
+   {
+    "label": "Tofu",
+    "food_id": "tofu",
+    "amount": 150,
+    "unit": "g",
+    "qty_text": null
+   },
+   {
+    "label": "Farro",
+    "food_id": "farro",
+    "amount": 90,
+    "unit": "g",
+    "qty_text": null
+   },
+   {
+    "label": "Kale",
+    "food_id": "kale",
+    "amount": 100,
+    "unit": "g",
+    "qty_text": null
+   },
+   {
+    "label": "Carrot",
+    "food_id": "carrot",
+    "amount": 100,
+    "unit": "g",
+    "qty_text": null
+   },
+   {
+    "label": "Olive oil",
+    "food_id": "olive-oil",
+    "amount": 1,
+    "unit": "tbsp",
+    "qty_text": null
+   },
+   {
+    "label": "Salt and black pepper",
+    "food_id": null,
+    "amount": 1,
+    "unit": "pinch",
+    "qty_text": null
+   }
+  ],
+  "steps": [
+   "Cook the farro until tender, then keep it warm.",
+   "Cook the tofu until cooked through and piping hot.",
+   "Chop the kale and carrot and saut\u00e9 in the oil for 5 minutes until tender.",
+   "Serve everything together, seasoned with salt and pepper."
+  ]
+ },
+ "origin": "local_stub",
+ "provider": "local-stub",
+ "model": "template-v1",
+ "existing": false
+}

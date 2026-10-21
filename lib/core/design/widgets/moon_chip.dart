@@ -6,6 +6,7 @@ import '../tokens/moon_layout.dart';
 import '../tokens/moon_typography.dart';
 import 'moon_icon.dart';
 import 'pressable.dart';
+import 'tap_target.dart';
 
 enum MoonChipState {
   /// Sand fill.
@@ -48,34 +49,45 @@ class MoonChip extends StatelessWidget {
       MoonChipState.selected => (c.inverseBg, c.inverseText, FontWeight.w600),
     };
     final onList = state == MoonChipState.onList;
-    return Pressable(
-      onTap: onTap,
-      selected: state != MoonChipState.normal,
-      child: Container(
-        height: height,
-        padding: EdgeInsets.only(left: 18, right: onList ? 14 : 18),
-        decoration: ShapeDecoration(color: bg, shape: const StadiumBorder()),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: Text(
-                label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: dmSans(15, weight: w, height: 1, color: fg),
-              ),
+    // Drawn [height] tall; the touch target is 44.
+    final slop = tapTargetSlop(height: height);
+    return ExpandedTapTarget(
+      extra: slop,
+      child: Pressable(
+        onTap: onTap,
+        selected: state != MoonChipState.normal,
+        child: Padding(
+          padding: slop,
+          child: Container(
+            height: height,
+            padding: EdgeInsets.only(left: 18, right: onList ? 14 : 18),
+            decoration: ShapeDecoration(
+              color: bg,
+              shape: const StadiumBorder(),
             ),
-            if (onList) ...[
-              const SizedBox(width: 6),
-              MoonIcon(
-                MoonIconName.check,
-                size: 15,
-                color: palette!.text,
-                strokeWidth: 2.4,
-              ),
-            ],
-          ],
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: dmSans(15, weight: w, height: 1, color: fg),
+                  ),
+                ),
+                if (onList) ...[
+                  const SizedBox(width: 6),
+                  MoonIcon(
+                    MoonIconName.check,
+                    size: 15,
+                    color: palette!.text,
+                    strokeWidth: 2.4,
+                  ),
+                ],
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -98,35 +110,42 @@ class MoonOutlineChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    return Pressable(
-      onTap: onTap,
-      child: Container(
-        height: MoonSize.chip,
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        decoration: ShapeDecoration(
-          shape: StadiumBorder(side: BorderSide(color: c.line, width: 1.5)),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (icon != null) ...[
-              MoonIcon(icon!, size: 16, color: c.text, strokeWidth: 2),
-              const SizedBox(width: 6),
-            ],
-            Flexible(
-              child: Text(
-                label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: dmSans(
-                  15,
-                  weight: FontWeight.w500,
-                  height: 1,
-                  color: c.text,
-                ),
-              ),
+    final slop = tapTargetSlop(height: MoonSize.chip);
+    return ExpandedTapTarget(
+      extra: slop,
+      child: Pressable(
+        onTap: onTap,
+        child: Padding(
+          padding: slop,
+          child: Container(
+            height: MoonSize.chip,
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            decoration: ShapeDecoration(
+              shape: StadiumBorder(side: BorderSide(color: c.line, width: 1.5)),
             ),
-          ],
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (icon != null) ...[
+                  MoonIcon(icon!, size: 16, color: c.text, strokeWidth: 2),
+                  const SizedBox(width: 6),
+                ],
+                Flexible(
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: dmSans(
+                      15,
+                      weight: FontWeight.w500,
+                      height: 1,
+                      color: c.text,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -191,18 +210,25 @@ class MoonRemovableChip extends StatelessWidget {
             ),
           ),
           SizedBox(width: prefix == null ? 4 : 8),
-          Pressable(
-            onTap: onRemove,
-            semanticLabel: removeLabel,
-            child: SizedBox(
-              width: 32,
-              height: 32,
-              child: Center(
-                child: MoonIcon(
-                  MoonIconName.close,
-                  size: prefix == null ? 14 : 15,
-                  color: c.text,
-                  strokeWidth: 2.2,
+          // A 32 pt button with a 44 pt touch target.
+          ExpandedTapTarget(
+            extra: const EdgeInsets.all(6),
+            child: Pressable(
+              onTap: onRemove,
+              semanticLabel: removeLabel,
+              child: Padding(
+                padding: const EdgeInsets.all(6),
+                child: SizedBox(
+                  width: 32,
+                  height: 32,
+                  child: Center(
+                    child: MoonIcon(
+                      MoonIconName.close,
+                      size: prefix == null ? 14 : 15,
+                      color: c.text,
+                      strokeWidth: 2.2,
+                    ),
+                  ),
                 ),
               ),
             ),

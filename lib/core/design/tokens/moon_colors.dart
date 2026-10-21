@@ -52,6 +52,7 @@ class MoonColors extends ThemeExtension<MoonColors> {
     required this.removeIcon,
     required this.welcomeBg,
     required this.welcomeText,
+    required this.welcomeBody,
     required this.destructive,
     required this.onDestructive,
     required this.scrim,
@@ -101,6 +102,9 @@ class MoonColors extends ThemeExtension<MoonColors> {
   final Color welcomeBg;
   final Color welcomeText;
 
+  /// The welcome screen's body text (#E9E2F2 in both themes).
+  final Color welcomeBody;
+
   /// The destructive button (Delete my data): Menstrual text colour.
   final Color destructive;
   final Color onDestructive;
@@ -131,6 +135,7 @@ class MoonColors extends ThemeExtension<MoonColors> {
     removeIcon: Color(0xFF9A8FAD),
     welcomeBg: Color(0xFF37255C),
     welcomeText: Color(0xFFFCFAF5),
+    welcomeBody: Color(0xFFE9E2F2),
     destructive: Color(0xFFA0513D),
     onDestructive: Color(0xFFFCFAF5),
     scrim: Color(0x6B1B152E), // rgba(27, 21, 46, 0.42)
@@ -178,6 +183,7 @@ class MoonColors extends ThemeExtension<MoonColors> {
     removeIcon: Color(0xFF9A8FAD),
     welcomeBg: Color(0xFF2A1F47),
     welcomeText: Color(0xFFFFFDF8),
+    welcomeBody: Color(0xFFE9E2F2),
     destructive: Color(0xFFF4B19C),
     onDestructive: Color(0xFF1B152E),
     scrim: Color(0x9E080512), // rgba(8, 5, 18, 0.62)
@@ -231,6 +237,7 @@ class MoonColors extends ThemeExtension<MoonColors> {
       removeIcon: l(removeIcon, other.removeIcon),
       welcomeBg: l(welcomeBg, other.welcomeBg),
       welcomeText: l(welcomeText, other.welcomeText),
+      welcomeBody: l(welcomeBody, other.welcomeBody),
       destructive: l(destructive, other.destructive),
       onDestructive: l(onDestructive, other.onDestructive),
       scrim: l(scrim, other.scrim),

@@ -4,8 +4,44 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
+import '../../core/design/widgets/moon_icon.dart';
+import '../../core/domain/local_date.dart';
+import '../../core/domain/phase.dart';
+import '../../features/credits/presentation/credits_page.dart';
+import '../../features/diary/domain/diary_entry.dart';
+import '../../features/diary/presentation/diary_page.dart';
+import '../../features/diary/presentation/log_meal_page.dart';
+import '../../features/diary/presentation/log_symptoms_page.dart';
+import '../../features/discovery/domain/recipe_matcher.dart';
+import '../../features/discovery/presentation/meal_results_page.dart';
+import '../../features/eat/presentation/eat_page.dart';
+import '../../features/foods/presentation/food_detail_page.dart';
+import '../../features/foods/presentation/learn_more_page.dart';
+import '../../features/foods/presentation/meal_builder_page.dart';
+import '../../features/generation/domain/balanced_selection.dart';
+import '../../features/generation/presentation/create_recipe_page.dart';
+import '../../features/generation/presentation/my_recipes_page.dart';
+import '../../features/home/presentation/home_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
-import '../placeholders/placeholder_pages.dart';
+import '../../features/onboarding/presentation/cycle_length_page.dart';
+import '../../features/onboarding/presentation/food_preferences_page.dart';
+import '../../features/onboarding/presentation/last_period_page.dart';
+import '../../features/onboarding/presentation/phase_reveal_page.dart';
+import '../../features/onboarding/presentation/welcome_page.dart';
+import '../../features/placeholders/presentation/coming_soon_page.dart';
+import '../../features/plants/presentation/three_plants_page.dart';
+import '../../features/recipes/presentation/recipe_detail_page.dart';
+import '../../features/settings/presentation/allergies_page.dart';
+import '../../features/settings/presentation/appearance_page.dart';
+import '../../features/settings/presentation/delete_data_page.dart';
+import '../../features/settings/presentation/food_preferences_page.dart';
+import '../../features/settings/presentation/help_page.dart';
+import '../../features/settings/presentation/my_cycle_page.dart';
+import '../../features/settings/presentation/notifications_page.dart';
+import '../../features/settings/presentation/privacy_data_page.dart';
+import '../../features/settings/presentation/settings_home_page.dart';
+import '../../features/settings/presentation/subscription_page.dart';
+import '../../features/shopping/presentation/shop_page.dart';
 import '../shell/main_shell.dart';
 import 'routes.dart';
 
@@ -31,7 +67,7 @@ GoRouter buildAppRouter({
     initialLocation: Routes.home,
     refreshListenable: refresh,
     redirect: (context, state) {
-      final atOnboarding = state.matchedLocation == Routes.onboarding;
+      final atOnboarding = state.matchedLocation.startsWith(Routes.onboarding);
       if (!isOnboarded()) return atOnboarding ? null : Routes.onboarding;
       if (atOnboarding) return Routes.home;
       return null;
@@ -41,8 +77,29 @@ GoRouter buildAppRouter({
     routes: [
       GoRoute(
         path: Routes.onboarding,
-        pageBuilder: (context, state) =>
-            _page(state, const PlaceholderOnboardingPage()),
+        pageBuilder: (context, state) => _page(state, const WelcomePage()),
+        routes: [
+          GoRoute(
+            path: 'last-period',
+            pageBuilder: (context, state) =>
+                _page(state, const LastPeriodPage()),
+          ),
+          GoRoute(
+            path: 'cycle-length',
+            pageBuilder: (context, state) =>
+                _page(state, const CycleLengthPage()),
+          ),
+          GoRoute(
+            path: 'food-preferences',
+            pageBuilder: (context, state) =>
+                _page(state, const FoodPreferencesPage()),
+          ),
+          GoRoute(
+            path: 'your-phase',
+            pageBuilder: (context, state) =>
+                _page(state, const PhaseRevealPage()),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => MainShell(shell: shell),
@@ -52,23 +109,149 @@ GoRouter buildAppRouter({
               routes: [
                 GoRoute(
                   path: tab.path,
-                  pageBuilder: (context, state) =>
-                      _page(state, PlaceholderTabPage(tab: tab)),
+                  pageBuilder: (context, state) => _page(state, switch (tab) {
+                    AppTab.home => const HomePage(),
+                    AppTab.eat => const EatPage(),
+                    AppTab.move => const ComingSoonPage(
+                      title: 'Move',
+                      icon: MoonIconName.move,
+                    ),
+                    AppTab.relax => const ComingSoonPage(
+                      title: 'Relax',
+                      icon: MoonIconName.relax,
+                    ),
+                    AppTab.more => const SettingsHomePage(),
+                  }),
                   routes: switch (tab) {
-                    AppTab.recipes => [
+                    AppTab.eat => [
                       GoRoute(
-                        path: ':recipeId',
+                        path: 'my-recipes',
+                        pageBuilder: (context, state) =>
+                            _page(state, const MyRecipesPage()),
+                      ),
+                      GoRoute(
+                        path: 'recipe/:recipeId',
                         pageBuilder: (context, state) => _page(
                           state,
-                          const PlaceholderSubPage(
-                            title: 'Recipe',
-                            backLabel: 'Recipes',
-                            milestone: 11,
+                          RecipeDetailPage(
+                            recipeId: state.pathParameters['recipeId']!,
+                          ),
+                        ),
+                      ),
+
+                      GoRoute(
+                        path: 'learn',
+                        pageBuilder: (context, state) =>
+                            _page(state, const LearnMorePage()),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          MealBuilderPage(
+                            foodId: state.uri.queryParameters['food'],
+                          ),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'three-plants',
+                        pageBuilder: (context, state) =>
+                            _page(state, const ThreePlantsPage()),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder/results',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          MealResultsPage(
+                            choice: _choiceOf(state),
+                            fromPlants:
+                                state.uri.queryParameters['from'] == 'plants',
+                          ),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'meal-builder/create',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          CreateRecipePage(choice: _balancedOf(state)),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'food/:foodId',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          FoodDetailPage(
+                            foodId: state.pathParameters['foodId']!,
+                            phase: Phase.values
+                                .where(
+                                  (p) =>
+                                      p.name ==
+                                      state.uri.queryParameters['phase'],
+                                )
+                                .firstOrNull,
+                            general:
+                                state.uri.queryParameters['general'] == '1',
                           ),
                         ),
                       ),
                     ],
-                    AppTab.settings => [
+                    AppTab.more => [
+                      GoRoute(
+                        path: 'diary',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          DiaryPage(
+                            initialDate: _dateOf(state),
+                            initialSymptoms:
+                                state.uri.queryParameters['tab'] == 'symptoms',
+                          ),
+                        ),
+                        routes: [
+                          // The forms cover the tab bar, so they open on the
+                          // root navigator, above the shell.
+                          GoRoute(
+                            path: 'log-meal',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) {
+                              final q = state.uri.queryParameters;
+                              return _page(
+                                state,
+                                LogMealPage(
+                                  meal: DiaryMeal.values
+                                      .where((m) => m.name == q['meal'])
+                                      .firstOrNull,
+                                  kind: DiaryItemKind.values
+                                      .where((k) => k.name == q['kind'])
+                                      .firstOrNull,
+                                  itemId: q['item'],
+                                  title: q['title'],
+                                  date: _dateOf(state),
+                                  editId: q['edit'],
+                                  from: q['from'],
+                                ),
+                              );
+                            },
+                          ),
+                          GoRoute(
+                            path: 'log-symptoms',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              LogSymptomsPage(date: _dateOf(state)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      GoRoute(
+                        path: 'shopping-list',
+                        pageBuilder: (context, state) =>
+                            _page(state, const ShopPage()),
+                      ),
+                      GoRoute(
+                        path: 'credits',
+                        pageBuilder: (context, state) =>
+                            _page(state, const CreditsPage()),
+                      ),
                       for (final page in SettingsPage.values)
                         GoRoute(
                           path: page.segment,
@@ -77,11 +260,20 @@ GoRouter buildAppRouter({
                               : null,
                           pageBuilder: (context, state) => _page(
                             state,
-                            PlaceholderSubPage(
-                              title: page.title,
-                              backLabel: 'Settings',
-                              milestone: 13,
-                            ),
+                            switch (page) {
+                              SettingsPage.myCycle => const MyCyclePage(),
+                              SettingsPage.foodPreferences =>
+                                const FoodPreferencesSettingsPage(),
+                              SettingsPage.allergies => const AllergiesPage(),
+                              SettingsPage.notifications =>
+                                const NotificationsPage(),
+                              SettingsPage.appearance => const AppearancePage(),
+                              SettingsPage.subscription =>
+                                const SubscriptionPage(),
+                              SettingsPage.privacy => const PrivacyDataPage(),
+                              SettingsPage.help => const HelpPage(),
+                              SettingsPage.deleteData => const DeleteDataPage(),
+                            },
                           ),
                         ),
                     ],
@@ -108,6 +300,21 @@ GoRouter buildAppRouter({
   );
 }
 
+/// The `date=YYYY-MM-DD` query parameter, or null.
+LocalDate? _dateOf(GoRouterState state) {
+  final parts = state.uri.queryParameters['date']?.split('-');
+  if (parts == null || parts.length != 3) return null;
+  final y = int.tryParse(parts[0]);
+  final m = int.tryParse(parts[1]);
+  final d = int.tryParse(parts[2]);
+  if (y == null || m == null || d == null) return null;
+  try {
+    return LocalDate(y, m, d);
+  } on ArgumentError {
+    return null;
+  }
+}
+
 /// Every route uses a Material page explicitly, which gives the platform's
 /// standard transitions: the iOS slide with swipe-back, and Android's
 /// default. (go_router 18 otherwise looks for the `material_ui` package's
@@ -131,3 +338,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   });
   return router;
 });
+
+/// The foods chosen for a meal, from the route's query (ids only).
+MealChoice _choiceOf(GoRouterState state) => MealChoice([
+  for (final id in (state.uri.queryParameters['foods'] ?? '').split(','))
+    if (id.isNotEmpty) id,
+]);
+
+/// The structured input of the (currently unlinked) generation flow.
+BalancedSelection _balancedOf(GoRouterState state) {
+  final q = state.uri.queryParameters;
+  return BalancedSelection(
+    proteinId: q['protein'],
+    baseId: q['base'],
+    plantIds: [
+      for (final id in (q['plants'] ?? '').split(','))
+        if (id.isNotEmpty) id,
+    ],
+  );
+}

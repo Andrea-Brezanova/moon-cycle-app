@@ -68,6 +68,8 @@ class RecipePhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     final shape = BorderRadius.circular(radius);
     if (image != null) {
+      // A photo that is missing or fails to decode falls back to the same
+      // tinted placeholder as a recipe without one.
       return ClipRRect(
         borderRadius: shape,
         child: Image(
@@ -75,40 +77,51 @@ class RecipePhoto extends StatelessWidget {
           height: height,
           width: double.infinity,
           fit: BoxFit.cover,
+          alignment: Alignment.center,
+          excludeFromSemantics: true,
+          // The placeholder shows until the photo has decoded, and instead
+          // of it if the file is missing or broken.
+          frameBuilder: (_, child, frame, sync) =>
+              frame == null && !sync ? _placeholder(null) : child,
+          errorBuilder: (_, _, _) => _placeholder(null),
         ),
       );
     }
+    return _placeholder(shape);
+  }
+
+  /// [shape] null when an outer clip already rounds the corners.
+  Widget _placeholder(BorderRadius? shape) {
+    final box = Container(
+      height: height,
+      width: double.infinity,
+      color: palette.tint,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            right: -30,
+            bottom: -40,
+            child: OrganicShape(
+              variant: 1,
+              color: palette.accent,
+              width: 160,
+              height: 150,
+              opacity: 0.22,
+            ),
+          ),
+          MoonIcon(
+            MoonIconName.recipes,
+            size: 40,
+            color: palette.text,
+            strokeWidth: 1.2,
+          ),
+        ],
+      ),
+    );
     return Semantics(
       label: 'Recipe photo placeholder',
-      child: ClipRRect(
-        borderRadius: shape,
-        child: Container(
-          height: height,
-          color: palette.tint,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Positioned(
-                right: -30,
-                bottom: -40,
-                child: OrganicShape(
-                  variant: 1,
-                  color: palette.accent,
-                  width: 160,
-                  height: 150,
-                  opacity: 0.22,
-                ),
-              ),
-              MoonIcon(
-                MoonIconName.recipes,
-                size: 40,
-                color: palette.text,
-                strokeWidth: 1.2,
-              ),
-            ],
-          ),
-        ),
-      ),
+      child: shape == null ? box : ClipRRect(borderRadius: shape, child: box),
     );
   }
 }

@@ -54,16 +54,40 @@ class MoonSheet extends StatelessWidget {
 }
 
 /// Shows [builder]'s content in a [MoonSheet] over the theme's scrim.
+///
+/// Sheets cover the tab bar (spec §6), so they open on the root navigator,
+/// and they rise above the keyboard. A tall sheet (Cook with…) passes
+/// [fromTop] (96 in the design) and scrolls inside.
 Future<T?> showMoonSheet<T>(
   BuildContext context, {
   required WidgetBuilder builder,
+  double? fromTop,
 }) => showModalBottomSheet<T>(
   context: context,
   isScrollControlled: true,
-  useSafeArea: true,
+  useRootNavigator: true,
   backgroundColor: const Color(0x00000000),
   barrierColor: context.moon.scrim,
-  builder: (context) => MoonSheet(child: builder(context)),
+  builder: (context) {
+    final media = MediaQuery.of(context);
+    final sheet = MoonSheet(child: builder(context));
+    return Padding(
+      padding: EdgeInsets.only(bottom: media.viewInsets.bottom),
+      child: fromTop == null
+          // Content height, but never under the status bar.
+          ? ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: media.size.height - media.viewPadding.top - 8,
+              ),
+              child: sheet,
+            )
+          // Tall sheets start [fromTop] from the top and scroll inside.
+          : SizedBox(
+              height: media.size.height - media.viewInsets.bottom - fromTop,
+              child: sheet,
+            ),
+    );
+  },
 );
 
 /// The Undo toast after "Clear all" (spec §7.5). Placement (16 from the sides,
@@ -203,10 +227,22 @@ class EmptyState extends StatelessWidget {
 
 /// An info note (spec §6): raised, hairline outline, radius 20, a muted icon
 /// and muted text. Used for privacy and allergy notes.
+///
+/// [InfoNote.plain] is the onboarding variant: raised, no outline, no icon
+/// ("Not sure? 28 and 5 are good starting points.").
 class InfoNote extends StatelessWidget {
-  const InfoNote({super.key, required this.icon, required this.text});
+  const InfoNote({
+    super.key,
+    required MoonIconName this.icon,
+    required this.text,
+  }) : outlined = true;
 
-  final MoonIconName icon;
+  const InfoNote.plain({super.key, required this.text})
+    : icon = null,
+      outlined = false;
+
+  final MoonIconName? icon;
+  final bool outlined;
 
   /// Plain text, or rich text with an emphasised lead-in.
   final InlineSpan text;
@@ -214,34 +250,35 @@ class InfoNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final body = Text.rich(
+      text,
+      style: dmSans(14, height: outlined ? 1.45 : 1.5, color: c.textMuted),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
       decoration: BoxDecoration(
         color: c.raised,
         borderRadius: BorderRadius.circular(MoonRadius.infoNote),
-        border: Border.all(color: c.line),
+        border: outlined ? Border.all(color: c.line) : null,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 1),
-            child: MoonIcon(
-              icon,
-              size: 18,
-              color: c.textMuted,
-              strokeWidth: 1.8,
+      child: icon == null
+          ? body
+          : Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 1),
+                  child: MoonIcon(
+                    icon!,
+                    size: 18,
+                    color: c.textMuted,
+                    strokeWidth: 1.8,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(child: body),
+              ],
             ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text.rich(
-              text,
-              style: dmSans(14, height: 1.45, color: c.textMuted),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -255,7 +292,7 @@ class OnListMark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: 'on your list',
+    label: 'on your shopping list',
     child: Container(
       width: size,
       height: size,
@@ -320,14 +357,27 @@ class MoonTextField extends StatefulWidget {
     this.controller,
     this.leadingIcon,
     this.onSubmitted,
+    this.onChanged,
     this.focusNode,
+    this.autofocus = false,
+    this.trailing,
+    this.keepFocusOnSubmit = false,
   });
 
   final String hint;
   final TextEditingController? controller;
   final MoonIconName? leadingIcon;
   final ValueChanged<String>? onSubmitted;
+  final ValueChanged<String>? onChanged;
   final FocusNode? focusNode;
+  final bool autofocus;
+
+  /// E.g. a clear button at the end of a search field.
+  final Widget? trailing;
+
+  /// For add-and-continue fields (the shopping list): submitting keeps the
+  /// keyboard up, so the field can be cleared and the next item typed.
+  final bool keepFocusOnSubmit;
 
   @override
   State<MoonTextField> createState() => _MoonTextFieldState();
@@ -386,6 +436,14 @@ class _MoonTextFieldState extends State<MoonTextField> {
               controller: widget.controller,
               focusNode: _focus,
               onSubmitted: widget.onSubmitted,
+              onEditingComplete: widget.keepFocusOnSubmit ? () {} : null,
+              // Tapping anywhere else puts the keyboard away, as on iOS.
+              onTapOutside: (_) => _focus.unfocus(),
+              textInputAction: widget.keepFocusOnSubmit
+                  ? TextInputAction.done
+                  : null,
+              onChanged: widget.onChanged,
+              autofocus: widget.autofocus,
               cursorColor: c.text,
               style: dmSans(16, height: 1.2, color: c.text),
               decoration: InputDecoration.collapsed(
@@ -394,6 +452,7 @@ class _MoonTextFieldState extends State<MoonTextField> {
               ),
             ),
           ),
+          ?widget.trailing,
         ],
       ),
     );
