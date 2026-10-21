@@ -244,7 +244,7 @@ class FoodDetailPage extends ConsumerWidget {
                           .addFood(food, shown),
                     ),
                   const SizedBox(height: 12),
-                  // 4. The diary (Premium): log this food as eaten.
+                  // 4. The diary (free): log this food as eaten.
                   MoonButton(
                     'Log meal',
                     variant: MoonButtonVariant.ghost,

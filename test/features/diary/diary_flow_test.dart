@@ -54,9 +54,19 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('free users see the diary is Premium', (tester) async {
-    await pump(tester, premium: false);
-    expect(find.text('Log Diary is part of Moon Cycle Premium.'), findsOne);
+  testWidgets('the basic diary is free: a free user can open and log', (
+    tester,
+  ) async {
+    final c = await pump(tester, premium: false);
+    expect(find.text('Log Diary is part of Moon Cycle Premium.'), findsNothing);
+    expect(find.text('+ Log a meal'), findsOneWidget);
+    await tapText(tester, '+ Log a meal');
+    expect(find.byType(LogMealPage), findsOneWidget);
+    await tapText(tester, 'Cancel');
+    await tapText(tester, 'Symptoms');
+    await tapText(tester, '+ Log symptoms');
+    expect(find.byType(LogSymptomsPage), findsOneWidget);
+    expect(c, isNotNull);
   });
 
   testWidgets('an empty day offers Log a meal; saving lands on the diary '

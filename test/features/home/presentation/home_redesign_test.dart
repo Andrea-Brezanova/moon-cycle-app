@@ -70,7 +70,7 @@ void main() {
     const promo = EntitlementState(tier: Tier.plus);
     const gatePromo = FeatureGate(promo);
     expect(gatePromo.canUse(Feature.buildMeal), isFalse);
-    expect(gatePromo.canUse(Feature.logDiary), isFalse);
+    expect(gatePromo.canUse(Feature.logDiary), isTrue);
     expect(gatePromo.canUse(Feature.shoppingList), isTrue);
     const gateFree = FeatureGate(EntitlementState.free);
     expect(gateFree.canUse(Feature.buildMeal), isFalse);

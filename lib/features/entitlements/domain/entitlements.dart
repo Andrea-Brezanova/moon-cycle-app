@@ -16,7 +16,7 @@ enum Feature {
   /// Build a Meal (Premium only: the launch promo's Plus does not unlock it).
   buildMeal,
 
-  /// Log Diary and "Add to logged meals" (Premium only).
+  /// Log Diary and "Log meal": the basic diary is free.
   logDiary,
 }
 
@@ -32,7 +32,9 @@ const Map<Feature, Tier> defaultFeatureTiers = {
   Feature.reminders: Tier.free,
   // Premium is above Plus, so the promo never unlocks these.
   Feature.buildMeal: Tier.premium,
-  Feature.logDiary: Tier.premium,
+  // Basic diary (meals, symptoms, history, edit, delete) is free. Advanced
+  // insights, if they come, would be a separate Premium feature.
+  Feature.logDiary: Tier.free,
 };
 
 /// Where a tier comes from.

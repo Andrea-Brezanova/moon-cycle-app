@@ -66,7 +66,7 @@ void main() {
 
   test('the Premium designation of the unbuilt features is preserved', () {
     expect(defaultFeatureTiers[Feature.buildMeal], Tier.premium);
-    expect(defaultFeatureTiers[Feature.logDiary], Tier.premium);
+    expect(defaultFeatureTiers[Feature.logDiary], Tier.free); // basic diary
   });
 
   group('development: every feature unlocked from the start', () {
@@ -88,7 +88,7 @@ void main() {
       c.read(debugPremiumPreviewProvider.notifier).toggle(); // off
       final gate = c.read(featureGateProvider);
       expect(gate.canUse(Feature.buildMeal), isFalse);
-      expect(gate.canUse(Feature.logDiary), isFalse);
+      expect(gate.canUse(Feature.logDiary), isTrue); // free in production
       expect(gate.canUse(Feature.shoppingList), isTrue);
     });
 
@@ -102,7 +102,7 @@ void main() {
 
     test('the production tier settings are untouched', () {
       expect(defaultFeatureTiers[Feature.buildMeal], Tier.premium);
-      expect(defaultFeatureTiers[Feature.logDiary], Tier.premium);
+      expect(defaultFeatureTiers[Feature.logDiary], Tier.free);
       expect(defaultFeatureTiers[Feature.shoppingList], Tier.free);
     });
 

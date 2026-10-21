@@ -359,14 +359,13 @@ void main() {
       expect(find.byType(SubscriptionPage), findsOneWidget);
     });
 
-    testWidgets('free: Log meal is Premium and goes to Subscription', (
-      tester,
-    ) async {
+    testWidgets('free: Log meal is free and opens the form', (tester) async {
       await pumpFoods(tester);
       await openChicken(tester);
       await tester.tap(find.text('Log meal'));
       await tester.pumpAndSettle();
-      expect(find.byType(SubscriptionPage), findsOneWidget);
+      expect(find.byType(LogMealPage), findsOneWidget);
+      expect(find.byType(SubscriptionPage), findsNothing);
     });
 
     testWidgets('Premium: the meal builder opens; Log meal opens the form', (
