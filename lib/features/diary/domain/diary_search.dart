@@ -4,13 +4,22 @@ import 'diary_entry.dart';
 /// Something the Log a meal form can add: a catalogue food, a recipe, or a
 /// meal the user typed before.
 final class DiaryChoice {
-  const DiaryChoice(this.kind, this.itemId, this.title);
+  const DiaryChoice(
+    this.kind,
+    this.itemId,
+    this.title, {
+    this.alternateNames = const [],
+  });
 
   final DiaryItemKind kind;
 
   /// The canonical food id or recipe id. Empty for a custom meal (it has none).
   final String itemId;
   final String title;
+
+  /// Other names it is found by (a food's catalogue name and synonyms: "Lettuce"
+  /// is also "romaine", "cos lettuce"). Only used for searching, never shown.
+  final List<String> alternateNames;
 
   /// The identity used to tell recent items apart: a catalogue id for foods and
   /// recipes, the normalised title for typed meals (each has its own row id).
@@ -45,7 +54,22 @@ List<DiaryChoice> recentDistinct(
 /// 0 exact, 1 starts with, 2 a word starts with it or contains it, 3 within one
 /// typo of a word (queries of 4+ letters). Case, accents' punctuation and
 /// spacing are ignored ([normaliseName]).
-int? searchScore(String query, String title) {
+int? searchScore(
+  String query,
+  String title, {
+  List<String> alternates = const [],
+}) {
+  final best = _score(query, title);
+  int? out = best;
+  for (final a in alternates) {
+    final s = _score(query, a);
+    // A match on another name ranks just behind the same match on the title.
+    if (s != null && (out == null || s + 1 < out)) out = s + 1;
+  }
+  return out;
+}
+
+int? _score(String query, String title) {
   final q = normaliseName(query);
   final t = normaliseName(title);
   if (q.isEmpty || t.isEmpty) return null;
@@ -72,7 +96,9 @@ List<DiaryChoice> rankChoices(
 }) {
   final scored = <(DiaryChoice, int)>[
     for (final c in pool)
-      if (searchScore(query, c.title) case final s?) (c, s),
+      if (searchScore(query, c.title, alternates: c.alternateNames)
+          case final s?)
+        (c, s),
   ];
   scored.sort((a, b) {
     int tier((DiaryChoice, int) x) => x.$2 == 0

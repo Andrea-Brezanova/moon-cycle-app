@@ -76,6 +76,29 @@ void main() {
     });
   });
 
+  group('other names', () {
+    test('a food is found by its catalogue name and synonyms', () {
+      expect(
+        searchScore(
+          'romaine lettuce',
+          'Lettuce',
+          alternates: ['Lettuce (Bibb, Boston, romaine)', 'romaine'],
+        ),
+        isNotNull,
+      );
+      expect(
+        searchScore('cos', 'Lettuce', alternates: ['cos lettuce']),
+        isNotNull,
+      );
+    });
+
+    test('the title outranks an alternate name', () {
+      final title = searchScore('lettuce', 'Lettuce', alternates: ['romaine']);
+      final alt = searchScore('romaine', 'Lettuce', alternates: ['romaine']);
+      expect(title, lessThan(alt!));
+    });
+  });
+
   group('rankChoices', () {
     const pool = [
       DiaryChoice(DiaryItemKind.food, 'lettuce', 'Lettuce'),

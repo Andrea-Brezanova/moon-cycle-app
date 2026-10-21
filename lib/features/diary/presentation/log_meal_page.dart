@@ -262,7 +262,12 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
     // the user's own recipes, and meals typed before.
     final pool = <DiaryChoice>[
       for (final f in catalogue.foods)
-        DiaryChoice(DiaryItemKind.food, f.id, f.displayName),
+        DiaryChoice(
+          DiaryItemKind.food,
+          f.id,
+          f.displayName,
+          alternateNames: [f.name, ...f.synonyms],
+        ),
       for (final r in catalogue.recipes)
         DiaryChoice(DiaryItemKind.recipe, r.id, r.title),
       for (final p in mine)
@@ -787,7 +792,14 @@ class _BrowseAllFoodsState extends ConsumerState<_BrowseAllFoods> {
       for (final (category, foods) in groups)
         if ([
               for (final f in foods)
-                if (q.isEmpty || searchScore(_query, f.displayName) != null) f,
+                if (q.isEmpty ||
+                    searchScore(
+                          _query,
+                          f.displayName,
+                          alternates: [f.name, ...f.synonyms],
+                        ) !=
+                        null)
+                  f,
             ]
             case final list when list.isNotEmpty)
           (category, list),

@@ -209,6 +209,20 @@ void main() {
     expect(e.itemId, 'salmon');
   });
 
+  testWidgets('"Romaine lettuce" finds the catalogue food Lettuce, not only '
+      '"your own meal"', (tester) async {
+    final (_, db) = await pump(tester);
+    await openForm(tester);
+    await tester.enterText(find.byType(EditableText).first, 'Romaine lettuce');
+    await tester.pumpAndSettle();
+    expect(find.text('Lettuce'), findsWidgets); // the catalogue food, offered
+    await tapText(tester, 'Lettuce');
+    await saveForm(tester);
+    final e = (await all(tester, db)).single;
+    expect(e.kind, DiaryItemKind.food);
+    expect(e.itemId, 'lettuce'); // canonical id, not a typed meal
+  });
+
   testWidgets('search tolerates a typo and ranks a logged-before item above '
       'other matches', (tester) async {
     final (_, db) = await pump(tester);
