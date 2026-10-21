@@ -10,7 +10,6 @@ import '../../../../core/design/tokens/hero_tokens.dart';
 import '../../../../core/design/tokens/moon_layout.dart';
 import '../../../../core/design/tokens/moon_typography.dart';
 import '../../../../core/design/widgets/brand.dart';
-import '../../../../core/design/widgets/hero_backdrop.dart';
 import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/moon_orbit.dart';
 import '../../../../core/design/widgets/pressable.dart';
@@ -20,9 +19,9 @@ import '../../../../core/time/today.dart';
 import '../../../content/application/content_providers.dart';
 import '../../../cycle/application/viewing_phase.dart';
 import '../../../cycle/domain/cycle_state.dart';
-import '../../../cycle/domain/phase_guidance.dart';
 import '../../../cycle/presentation/cycle_orbit.dart';
 import '../../application/home_providers.dart';
+import 'home_ring.dart';
 
 /// Home's full-bleed hero (spec §7.2): the wordmark and date, the moon in its
 /// orbit, and today's phase. Dragging around the orbit previews another day;
@@ -44,114 +43,100 @@ class HomeHero extends ConsumerWidget {
         ? (HeroTokens.darkText, HeroTokens.darkSub, HeroTokens.darkMuted)
         : (HeroTokens.lightText, HeroTokens.lightText, HeroTokens.lightMuted);
     final width = MediaQuery.sizeOf(context).width;
-    final moon = math.min(300.0, width - 90);
+    final moon = math.min(224.0, width - 130);
 
-    return HeroBackdrop(
-      phase: shownPhase,
-      dark: dark,
-      pageColor: c.bg,
-      child: Padding(
-        padding: EdgeInsets.only(
-          top: MediaQuery.viewPaddingOf(context).top + 4,
-          bottom: 56,
-        ),
-        child: Column(
-          children: [
-            Container(
-              // The wordmark's line box on the canvas (Gwendolyn 34.8 pt).
-              height: 34.8,
-              padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
-              child: Row(
-                children: [
-                  Semantics(
-                    label: 'Moon Cycle',
-                    header: true,
-                    excludeSemantics: true,
-                    child: Wordmark(xHeight: 12, color: text),
-                  ),
-                  const SizedBox(width: 12),
-                  // Right-aligned; shrinks rather than overflows on narrow
-                  // phones at large text sizes.
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          DateText.short(today),
-                          style: dmSans(
-                            13,
-                            weight: FontWeight.w500,
-                            height: 1,
-                            color: muted,
-                          ),
+    return Padding(
+      padding: EdgeInsets.only(
+        top: MediaQuery.viewPaddingOf(context).top + 4,
+        bottom: 8,
+      ),
+      child: Column(
+        children: [
+          Container(
+            // The wordmark's line box on the canvas (Gwendolyn 34.8 pt).
+            height: 34.8,
+            padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
+            child: Row(
+              children: [
+                Semantics(
+                  label: 'Moon Cycle',
+                  header: true,
+                  excludeSemantics: true,
+                  child: Wordmark(xHeight: 12, color: text),
+                ),
+                const SizedBox(width: 12),
+                // Right-aligned; shrinks rather than overflows on narrow
+                // phones at large text sizes.
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        DateText.short(today),
+                        style: dmSans(
+                          13,
+                          weight: FontWeight.w500,
+                          height: 1,
+                          color: muted,
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const SizedBox(height: 22),
-            _DraggableMoon(
-              state: state,
-              shownPhase: shownPhase,
-              size: moon,
-              dark: dark,
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
-              child: Column(
-                children: [
-                  Text(
-                    content.season,
+          ),
+          const SizedBox(height: 18),
+          _DraggableMoon(
+            state: state,
+            shownPhase: shownPhase,
+            size: moon,
+            dark: dark,
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
+            child: Column(
+              children: [
+                Text(
+                  content.season,
+                  textAlign: TextAlign.center,
+                  style: MoonType.season.copyWith(
+                    color: c.phase(shownPhase).text,
+                    height: 1.08,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Semantics(
+                  header: true,
+                  child: Text(
+                    content.name,
                     textAlign: TextAlign.center,
-                    style: MoonType.season.copyWith(
-                      color: c.phase(shownPhase).text,
-                      height: 1.08,
-                    ),
+                    style: MoonType.phaseName.copyWith(color: text),
                   ),
-                  const SizedBox(height: 6),
-                  Semantics(
-                    header: true,
-                    child: Text(
-                      content.name,
-                      textAlign: TextAlign.center,
-                      style: MoonType.phaseName.copyWith(color: text),
-                    ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  previewDay == null
+                      ? homeHeroMeta(state)
+                      : homePreviewMeta(state, previewDay),
+                  textAlign: TextAlign.center,
+                  style: dmSans(
+                    13,
+                    weight: FontWeight.w500,
+                    height: 1.5,
+                    color: muted,
                   ),
+                ),
+                if (previewDay != null) ...[
                   const SizedBox(height: 14),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 320),
-                    child: Text(
-                      phaseDescription(shownPhase),
-                      textAlign: TextAlign.center,
-                      style: dmSans(16, height: 1.5, color: summary),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    previewDay == null
-                        ? homeHeroMeta(state)
-                        : homePreviewMeta(state, previewDay),
-                    textAlign: TextAlign.center,
-                    style: dmSans(
-                      13,
-                      weight: FontWeight.w500,
-                      height: 1.5,
-                      color: muted,
-                    ),
-                  ),
-                  if (previewDay != null) ...[
-                    const SizedBox(height: 14),
-                    _BackToToday(day: state.cycleDay),
-                  ],
+                  _BackToToday(day: state.cycleDay),
                 ],
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -206,17 +191,7 @@ class _DraggableMoon extends ConsumerWidget {
           _OrbitDrag: GestureRecognizerFactoryWithHandlers<_OrbitDrag>(
             () => _OrbitDrag(
               // The ring's band in the 300-unit design space.
-              onRing: (local) {
-                final d =
-                    (local * (OrbitGeometry.viewBox / size) -
-                            const Offset(
-                              OrbitGeometry.centre,
-                              OrbitGeometry.centre,
-                            ))
-                        .distance;
-                return d > OrbitGeometry.radius - 32 &&
-                    d < OrbitGeometry.radius + 32;
-              },
+              onRing: (local) => HomeRing.onRing(local, size),
             ),
             (r) => r
               ..onStart = ((d) => dragTo(d.localPosition))
@@ -224,12 +199,8 @@ class _DraggableMoon extends ConsumerWidget {
           ),
         },
         child: ExcludeSemantics(
-          child: MoonOrbit(
+          child: HomeRing(
             size: size,
-            dark: dark,
-            haloColor: dark
-                ? HeroTokens.darkSolid
-                : HeroTokens.lightWash[shownPhase]!,
             spec: orbitSpecFor(state, previewDay: previewDay),
           ),
         ),
