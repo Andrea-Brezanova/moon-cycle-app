@@ -162,37 +162,43 @@ class DiaryFormHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final cancel = Pressable(
+      onTap: onCancel,
+      semanticLabel: 'Cancel',
+      child: Container(
+        constraints: const BoxConstraints(minWidth: 72, minHeight: 44),
+        alignment: Alignment.centerLeft,
+        child: Text(
+          'Cancel',
+          style: dmSans(15, weight: FontWeight.w500, color: c.textMuted),
+        ),
+      ),
+    );
+    final heading = Semantics(
+      header: true,
+      child: Text(
+        title,
+        textAlign: TextAlign.center,
+        style: dmSans(17, weight: FontWeight.w600, height: 1.2, color: c.text),
+      ),
+    );
+    // At large text sizes Cancel and the title no longer fit side by side:
+    // Cancel sits above and the title gets the full width.
+    if (MediaQuery.textScalerOf(context).scale(15) > 20) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Align(alignment: Alignment.centerLeft, child: cancel),
+          Padding(padding: const EdgeInsets.only(bottom: 4), child: heading),
+        ],
+      );
+    }
     return SizedBox(
       height: 48,
       child: Row(
         children: [
-          Pressable(
-            onTap: onCancel,
-            semanticLabel: 'Cancel',
-            child: Container(
-              constraints: const BoxConstraints(minWidth: 72, minHeight: 44),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Cancel',
-                style: dmSans(15, weight: FontWeight.w500, color: c.textMuted),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Semantics(
-              header: true,
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: dmSans(
-                  17,
-                  weight: FontWeight.w600,
-                  height: 1.2,
-                  color: c.text,
-                ),
-              ),
-            ),
-          ),
+          cancel,
+          Expanded(child: heading),
           const SizedBox(width: 72),
         ],
       ),
@@ -291,16 +297,23 @@ class DiaryChoiceRow<T> extends StatelessWidget {
                           : Border.all(color: c.line),
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    child: Text(
-                      label,
-                      textAlign: TextAlign.center,
-                      style: dmSans(
-                        13,
-                        weight: value == selected
-                            ? FontWeight.w600
-                            : FontWeight.w500,
-                        height: 1.15,
-                        color: value == selected ? c.inverseText : c.text,
+                    // A word never breaks mid-way: a label that doesn't fit its
+                    // column shrinks a little instead (large text, narrow phone).
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        label,
+                        maxLines: 1,
+                        softWrap: false,
+                        textAlign: TextAlign.center,
+                        style: dmSans(
+                          13,
+                          weight: value == selected
+                              ? FontWeight.w600
+                              : FontWeight.w500,
+                          height: 1.15,
+                          color: value == selected ? c.inverseText : c.text,
+                        ),
                       ),
                     ),
                   ),

@@ -25,9 +25,17 @@ class FocusSection extends StatelessWidget {
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Expanded(child: Overline('Your focus')),
-            TextLink('Learn more →', onTap: onMore, size: 14),
+            const Flexible(child: Overline('Your focus')),
+            const SizedBox(width: 12),
+            // Shrinks a little at the largest text sizes instead of overflowing.
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: TextLink('Learn more →', onTap: onMore, size: 14),
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 10),

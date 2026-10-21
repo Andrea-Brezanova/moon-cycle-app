@@ -194,15 +194,32 @@ class _PlantTile extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           ExcludeSemantics(
-            child: Text(
-              food.displayName,
-              textAlign: TextAlign.center,
-              style: dmSans(
-                15,
-                weight: FontWeight.w600,
-                height: 1.3,
-                color: c.text,
-              ),
+            child: Builder(
+              builder: (context) {
+                final style = dmSans(
+                  15,
+                  weight: FontWeight.w600,
+                  height: 1.3,
+                  color: c.text,
+                );
+                // A single long word ("Pomegranate") shrinks to fit rather
+                // than breaking mid-word; several words wrap at the spaces.
+                return food.displayName.contains(' ')
+                    ? Text(
+                        food.displayName,
+                        textAlign: TextAlign.center,
+                        style: style,
+                      )
+                    : FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          food.displayName,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: style,
+                        ),
+                      );
+              },
             ),
           ),
         ],
@@ -368,13 +385,20 @@ class _CardLink extends StatelessWidget {
       semanticLabel: label,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 48),
-        // Wraps under the icon rather than overflowing at large text sizes.
-        child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 8,
+        // The label stays on one line (shrinking a little at the largest text
+        // sizes) so its underline sits under all of it, and the row keeps its
+        // minimum height.
+        child: Row(
           children: [
             MoonIcon(icon, size: 19, color: c.textMuted),
-            TextLink(label, onTap: null, size: 15),
+            const SizedBox(width: 8),
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: TextLink(label, onTap: null, size: 15),
+              ),
+            ),
           ],
         ),
       ),

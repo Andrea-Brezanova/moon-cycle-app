@@ -285,6 +285,50 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
   });
 
+  group('large text keeps words whole', () {
+    for (final scale in [1.5, 2.0, 3.0]) {
+      testWidgets('plant names and card links stay on one line at $scale×', (
+        tester,
+      ) async {
+        await pumpScreen(
+          tester,
+          const HomePage(),
+          dark: false,
+          width: 390,
+          textScale: scale,
+          height: 6000,
+          overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
+        );
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        final container = ProviderScope.containerOf(
+          tester.element(find.byType(HomePage)),
+        );
+        Future<double> heightOf(String text) async {
+          await tester.scrollUntilVisible(
+            find.text(text),
+            300,
+            scrollable: find.byType(Scrollable).first,
+          );
+          return tester.getSize(find.text(text).first).height;
+        }
+
+        // One-word names are shrunk to fit, never broken: one line tall.
+        for (final f in container.read(threePlantsProvider)) {
+          if (f.displayName.contains(' ')) continue;
+          expect(
+            await heightOf(f.displayName),
+            lessThan(15 * scale * 1.3 * 1.5),
+            reason: f.displayName,
+          );
+        }
+        for (final l in ['Explore foods', 'Explore recipes']) {
+          expect(await heightOf(l), lessThan(15 * scale * 1.5), reason: l);
+        }
+      });
+    }
+  });
+
   group('small phone, large text', () {
     for (final (name, tier) in [
       ('free', EntitlementState.free),

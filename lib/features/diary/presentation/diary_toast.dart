@@ -4,7 +4,7 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/pressable.dart';
 
-/// A short confirmation above the tab bar ("Added to your diary · View"),
+/// A short confirmation at the top of the screen ("Added to your diary · View"),
 /// gone after a few seconds. Used where a form closes back onto another page.
 void showDiaryToast(
   BuildContext context,
@@ -28,7 +28,8 @@ void showDiaryToast(
       return Positioned(
         left: 16,
         right: 16,
-        bottom: MediaQuery.paddingOf(ctx).bottom + 96,
+        // At the top, so it never covers the entry that was just saved.
+        top: MediaQuery.paddingOf(ctx).top + 8,
         child: Semantics(
           liveRegion: true,
           container: true,
@@ -95,5 +96,5 @@ void showDiaryToast(
     },
   );
   overlay.insert(entry);
-  Future<void>.delayed(const Duration(seconds: 5), remove);
+  Future<void>.delayed(const Duration(seconds: 3), remove);
 }
