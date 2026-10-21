@@ -104,7 +104,7 @@ void main() {
     await tapText(tester, '+ Log a meal');
     await tester.enterText(find.byType(EditableText).first, 'Grandma soup');
     await tester.pumpAndSettle();
-    await tapText(tester, 'Add “Grandma soup” as your own meal');
+    await tapText(tester, 'Or add “Grandma soup” as your own meal');
     expect(find.text('Your own meal'), findsWidgets);
     await tester.enterText(find.byType(EditableText).last, 'With bread');
     await tester.pumpAndSettle();

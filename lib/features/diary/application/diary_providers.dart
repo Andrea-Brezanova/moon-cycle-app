@@ -5,6 +5,7 @@ import '../../../core/time/today.dart';
 import '../data/diary_repository.dart';
 import '../data/symptom_repository.dart';
 import '../domain/diary_entry.dart';
+import '../domain/diary_search.dart';
 import '../domain/symptoms.dart';
 
 /// One day's entries.
@@ -48,4 +49,13 @@ final symptomDayProvider = StreamProvider.autoDispose
 /// Every day with a check-in, newest first.
 final symptomHistoryProvider = StreamProvider.autoDispose<List<SymptomDay>>(
   (ref) => ref.watch(symptomRepositoryProvider).watchHistory(),
+);
+
+/// Foods, recipes and typed meals logged before, newest first and without
+/// repeats: the "Recently logged" source and a ranking boost for search.
+final recentChoicesProvider = StreamProvider.autoDispose<List<DiaryChoice>>(
+  (ref) => ref
+      .watch(diaryRepositoryProvider)
+      .watchNewest()
+      .map((entries) => recentDistinct(entries, limit: 60)),
 );

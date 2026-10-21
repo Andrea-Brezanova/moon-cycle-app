@@ -24,6 +24,18 @@ class DiaryRepository {
           .watch()
           .map((rows) => [for (final r in rows) _toDomain(r)]);
 
+  /// The newest entries first (latest day, then latest logged), for "Recently
+  /// logged". The history itself is the source; nothing else is stored.
+  Stream<List<DiaryEntry>> watchNewest({int limit = 300}) =>
+      (_live()
+            ..orderBy([
+              (t) => OrderingTerm.desc(t.date),
+              (t) => OrderingTerm.desc(t.createdAt),
+            ])
+            ..limit(limit))
+          .watch()
+          .map((rows) => [for (final r in rows) _toDomain(r)]);
+
   /// Every day that has entries, newest day first (the history).
   Stream<List<DiaryDay>> watchHistory({int limit = 60}) =>
       (_live()..orderBy([

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
+import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/moon_chip.dart';
 import '../../../core/design/widgets/moon_icon.dart';
@@ -15,14 +16,18 @@ import '../../../core/domain/local_date.dart';
 import '../../../core/domain/phase.dart';
 import '../../../core/time/today.dart';
 import '../../content/application/content_providers.dart';
+import '../../content/domain/catalogue.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/text_match.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
+import '../../foods/application/food_providers.dart';
 import '../../generation/application/generation_providers.dart';
+import '../../generation/domain/personal_recipe.dart';
 import '../application/diary_providers.dart';
 import '../data/diary_repository.dart';
 import '../domain/diary_entry.dart';
+import '../domain/diary_search.dart';
 import 'diary_toast.dart';
 import 'diary_widgets.dart';
 
@@ -129,13 +134,53 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
     super.dispose();
   }
 
+  bool _has(_Item r) =>
+      _items.any((i) => i.kind == r.kind && i.itemId == r.itemId);
+
+  /// A choice as a form item. A typed meal gets a stable stand-in id here (its
+  /// own row id is made when it is saved).
+  static _Item _itemOf(DiaryChoice c) => _Item(
+    c.kind,
+    c.kind == DiaryItemKind.custom
+        ? 'custom-${normaliseName(c.title)}'
+        : c.itemId,
+    c.title,
+    switch (c.kind) {
+      DiaryItemKind.food => 'Food',
+      DiaryItemKind.recipe => 'Recipe',
+      DiaryItemKind.custom => 'Your own meal',
+    },
+  );
+
+  /// The item to offer for a recent choice, or null when it can no longer be
+  /// logged (its food or recipe is no longer in the catalogue).
+  static _Item? _resolve(
+    DiaryChoice r,
+    Catalogue catalogue,
+    List<PersonalRecipe> mine,
+  ) => switch (r.kind) {
+    DiaryItemKind.food => catalogue.food(r.itemId) == null ? null : _itemOf(r),
+    DiaryItemKind.recipe =>
+      catalogue.recipe(r.itemId) != null || mine.any((p) => p.id == r.itemId)
+          ? _itemOf(r)
+          : null,
+    DiaryItemKind.custom => _itemOf(r),
+  };
+
+  static String _kindLabel(DiaryChoice c, bool recent) {
+    final base = switch (c.kind) {
+      DiaryItemKind.food => 'Food',
+      DiaryItemKind.recipe => 'Recipe',
+      DiaryItemKind.custom => 'Your own meal',
+    };
+    return recent ? '$base · logged before' : base;
+  }
+
   void _close([bool saved = false]) =>
       context.canPop() ? context.pop(saved) : context.go(Routes.diary);
 
   void _add(_Item item) {
-    if (_items.any((i) => i.kind == item.kind && i.itemId == item.itemId)) {
-      return;
-    }
+    if (_has(item)) return;
     setState(() {
       _items.add(item);
       _search.clear();
@@ -211,19 +256,28 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
     final mine = ref.watch(personalRecipesProvider).value ?? const [];
     final q = normaliseName(_query);
 
-    final suggestions = <_Item>[
-      if (q.isNotEmpty) ...[
-        for (final f in catalogue.foods)
-          if (normaliseName(f.displayName).contains(q))
-            _Item(DiaryItemKind.food, f.id, f.displayName, 'Food'),
-        for (final r in catalogue.recipes)
-          if (normaliseName(r.title).contains(q))
-            _Item(DiaryItemKind.recipe, r.id, r.title, 'Recipe'),
-        for (final p in mine)
-          if (normaliseName(p.recipe.title).contains(q))
-            _Item(DiaryItemKind.recipe, p.id, p.recipe.title, 'Recipe'),
-      ],
-    ].take(6).toList();
+    final recents = ref.watch(recentChoicesProvider).value ?? const [];
+    final recentKeys = {for (final r in recents) r.key};
+    // Everything searchable: the whole catalogue (every phase), internal recipes,
+    // the user's own recipes, and meals typed before.
+    final pool = <DiaryChoice>[
+      for (final f in catalogue.foods)
+        DiaryChoice(DiaryItemKind.food, f.id, f.displayName),
+      for (final r in catalogue.recipes)
+        DiaryChoice(DiaryItemKind.recipe, r.id, r.title),
+      for (final p in mine)
+        DiaryChoice(DiaryItemKind.recipe, p.id, p.recipe.title),
+      for (final r in recents)
+        if (r.kind == DiaryItemKind.custom) r,
+    ];
+    final suggestions = q.isEmpty
+        ? const <DiaryChoice>[]
+        : rankChoices(_query, pool, recentKeys: recentKeys);
+    // Recently logged, only what can still be logged: a food or recipe that has
+    // left the catalogue is skipped, never an error.
+    final recentItems = <_Item>[
+      for (final r in recents) ?_resolve(r, catalogue, mine),
+    ].take(10).toList();
 
     final phaseFoods = label == null
         ? const <Food>[]
@@ -311,19 +365,24 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
                                   for (final s in suggestions)
                                     _SuggestionRow(
                                       title: s.title,
-                                      subtitle: s.subtitle,
-                                      onTap: () => _add(s),
+                                      subtitle: _kindLabel(
+                                        s,
+                                        recentKeys.contains(s.key),
+                                      ),
+                                      onTap: () => _add(_itemOf(s)),
                                     ),
+                                  // An explicit alternative, never the default.
                                   _SuggestionRow(
                                     title:
-                                        'Add “${_query.trim()}” as your own meal',
+                                        'Or add “${_query.trim()}” as your own meal',
                                     subtitle: 'Your own meal',
                                     onTap: () => _add(
-                                      _Item(
-                                        DiaryItemKind.custom,
-                                        'custom-${_items.length}-${_query.trim()}',
-                                        _query.trim(),
-                                        'Your own meal',
+                                      _itemOf(
+                                        DiaryChoice(
+                                          DiaryItemKind.custom,
+                                          '',
+                                          _query.trim(),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -332,6 +391,29 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
                             ],
                           ),
                         ),
+                        if (!_isEdit && recentItems.isNotEmpty) ...[
+                          const SizedBox(height: 26),
+                          DiarySection(
+                            title: 'Recently logged',
+                            child: Wrap(
+                              spacing: 8,
+                              runSpacing: 4,
+                              children: [
+                                for (final r in recentItems)
+                                  MoonChip(
+                                    r.title,
+                                    onTap: () => _add(r),
+                                    state: _has(r)
+                                        ? MoonChipState.onList
+                                        : MoonChipState.normal,
+                                    palette: c.phase(
+                                      label?.phase ?? Phase.follicular,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
                         if (!_isEdit && phaseFoods.isNotEmpty) ...[
                           const SizedBox(height: 26),
                           DiarySection(
@@ -353,6 +435,25 @@ class _LogMealPageState extends ConsumerState<LogMealPage> {
                                     ),
                                   ),
                               ],
+                            ),
+                          ),
+                        ],
+                        if (!_isEdit) ...[
+                          const SizedBox(height: 18),
+                          _BrowseAllFoods(
+                            palette: c.phase(label?.phase ?? Phase.follicular),
+                            isAdded: (id) => _items.any(
+                              (i) =>
+                                  i.kind == DiaryItemKind.food &&
+                                  i.itemId == id,
+                            ),
+                            onFood: (f) => _add(
+                              _Item(
+                                DiaryItemKind.food,
+                                f.id,
+                                f.displayName,
+                                'Food',
+                              ),
                             ),
                           ),
                         ],
@@ -642,6 +743,194 @@ class _ConfirmDelete extends StatelessWidget {
             ),
           ),
         ),
+      ],
+    );
+  }
+}
+
+/// "Browse all foods": every food in the catalogue, from all four phases, by
+/// the catalogue's own categories, with search. Phase suggestions are guidance;
+/// this never restricts what can be logged. Collapsed until opened.
+class _BrowseAllFoods extends ConsumerStatefulWidget {
+  const _BrowseAllFoods({
+    required this.palette,
+    required this.isAdded,
+    required this.onFood,
+  });
+
+  final PhasePalette palette;
+  final bool Function(String foodId) isAdded;
+  final void Function(Food food) onFood;
+
+  @override
+  ConsumerState<_BrowseAllFoods> createState() => _BrowseAllFoodsState();
+}
+
+class _BrowseAllFoodsState extends ConsumerState<_BrowseAllFoods> {
+  var _open = false;
+  var _query = '';
+  final _search = TextEditingController();
+  final _openCategories = <String>{};
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final groups = ref.watch(allFoodsByCategoryProvider);
+    final q = normaliseName(_query);
+    final shown = [
+      for (final (category, foods) in groups)
+        if ([
+              for (final f in foods)
+                if (q.isEmpty || searchScore(_query, f.displayName) != null) f,
+            ]
+            case final list when list.isNotEmpty)
+          (category, list),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Pressable(
+          onTap: () => setState(() => _open = !_open),
+          expanded: _open,
+          semanticLabel: 'Browse all foods',
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 52),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              border: Border.all(color: c.line),
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Browse all foods',
+                    style: dmSans(
+                      16,
+                      weight: FontWeight.w600,
+                      height: 1.3,
+                      color: c.text,
+                    ),
+                  ),
+                ),
+                RotatedBox(
+                  quarterTurns: _open ? 2 : 0,
+                  child: MoonIcon(MoonIconName.down, size: 18, color: c.text),
+                ),
+              ],
+            ),
+          ),
+        ),
+        if (_open) ...[
+          const SizedBox(height: 12),
+          MoonTextField(
+            hint: 'Search all foods',
+            leadingIcon: MoonIconName.search,
+            controller: _search,
+            onChanged: (v) => setState(() => _query = v),
+          ),
+          const SizedBox(height: 8),
+          if (shown.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              child: Text(
+                'No foods match “${_query.trim()}”.',
+                style: dmSans(15, height: 1.4, color: c.textMuted),
+              ),
+            ),
+          for (final (category, foods) in shown)
+            _CategoryBlock(
+              name: category.name,
+              count: foods.length,
+              // A search opens every category that has a match.
+              open: q.isNotEmpty || _openCategories.contains(category.id),
+              onToggle: () => setState(
+                () => _openCategories.contains(category.id)
+                    ? _openCategories.remove(category.id)
+                    : _openCategories.add(category.id),
+              ),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                children: [
+                  for (final f in foods)
+                    MoonChip(
+                      f.displayName,
+                      palette: widget.palette,
+                      state: widget.isAdded(f.id)
+                          ? MoonChipState.onList
+                          : MoonChipState.normal,
+                      onTap: () => widget.onFood(f),
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ],
+    );
+  }
+}
+
+class _CategoryBlock extends StatelessWidget {
+  const _CategoryBlock({
+    required this.name,
+    required this.count,
+    required this.open,
+    required this.onToggle,
+    required this.child,
+  });
+
+  final String name;
+  final int count;
+  final bool open;
+  final VoidCallback onToggle;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Pressable(
+          onTap: onToggle,
+          expanded: open,
+          semanticLabel: '$name, $count foods',
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 48),
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: c.line)),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    name,
+                    style: fraunces(19, height: 1.2, color: c.text),
+                  ),
+                ),
+                Text('$count', style: dmSans(13, color: c.textMuted)),
+                const SizedBox(width: 10),
+                RotatedBox(
+                  quarterTurns: open ? 2 : 0,
+                  child: MoonIcon(
+                    MoonIconName.down,
+                    size: 16,
+                    color: c.textMuted,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        if (open)
+          Padding(padding: const EdgeInsets.only(bottom: 12), child: child),
       ],
     );
   }
