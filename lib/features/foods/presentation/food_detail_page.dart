@@ -69,9 +69,8 @@ class FoodDetailPage extends ConsumerWidget {
 
     Widget header() => SubScreenHeader(
       backLabel: 'Foods',
-      onBack: () => context.canPop()
-          ? context.pop()
-          : goEat(ref, context, EatSegment.foods),
+      onBack: () =>
+          context.canPop() ? context.pop() : goEat(context, EatSegment.foods),
     );
 
     if (food == null) {
@@ -205,7 +204,7 @@ class FoodDetailPage extends ConsumerWidget {
                         ref
                             .read(recipeFilterProvider.notifier)
                             .showRecipesWith(food.id);
-                        goEat(ref, context, EatSegment.recipes);
+                        goEat(context, EatSegment.recipes);
                       },
                     )
                   else

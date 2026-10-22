@@ -28,7 +28,9 @@ finished items out of "Remaining".
 | --- | --- | --- | --- | --- |
 | **Home** | `/home` | Approved on device by the owner, Stage 1 (hero ring, Today's Focus, 3 a Day, Quick Access). Rendered references: `docs/v2-home-shots/`. The original reference images were supplied in chat and are not in the repo — add them under `docs/v2-designs/` if they should live here. | In review (`v2-ui-update`) | See "Home" below |
 | Bottom tab bar | shell | Already matches the V2 reference (Home · Eat · Move · Relax · More, gold dot). | Done | None known |
-| Eat (Foods / Recipes tabs) | `/eat` | — | Design pending | Restyle to V2 cards and header |
+| **Eat hub** | `/eat` | Approved reference (light + dark): Eat heading + search, photo, "Nourish your cycle" card, Foods / Recipes / Meal builder cards. Renders: `docs/v2-eat-shots/`. | In progress (`feature/v2-eat-ui`, awaiting device approval) | Approved hero photograph (a recipe photo stands in); golden re-record after approval |
+| Foods page | `/eat/foods` | — (unchanged content, now under a back link to Eat) | Design pending | Restyle; decide whether to drop the duplicated 3 Plants a Day preview |
+| Recipes page | `/eat/recipes` | — (unchanged content, now under a back link to Eat) | Design pending | Restyle |
 | Food detail | `/eat/...` | — | Design pending | |
 | 3 Plants a Day | `/eat/three-plants` | — | Design pending | Plant photography (see Assets) |
 | Learn more (phase) | `/eat/learn` | — | Design pending | Home's Focus card links here |
@@ -68,6 +70,7 @@ Remaining before / after merge:
 
 | Asset | Used by | Status |
 | --- | --- | --- |
+| Eat hub hero photograph (colourful salad bowl) | Eat hub | Missing (uses `red-cabbage-apricot-chickpea-salad.jpg`, an existing recipe photo) |
 | Movement photo(s) | Home MOVE card | Missing (placeholder tile) |
 | Relaxation photo(s) | Home RELAX card | Missing (placeholder tile) |
 | More curated plant photos | Home EAT card, 3 Plants a Day | Partial (3 of many) |

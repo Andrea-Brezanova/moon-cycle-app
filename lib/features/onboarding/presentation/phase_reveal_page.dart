@@ -136,7 +136,7 @@ class _Reveal extends ConsumerWidget {
               trailingIcon: MoonIconName.arrow,
               onPressed: () async {
                 await ref.read(onboardingCompletedProvider.notifier).complete();
-                if (context.mounted) goEat(ref, context, EatSegment.foods);
+                if (context.mounted) goEat(context, EatSegment.foods);
               },
             ),
           ),
