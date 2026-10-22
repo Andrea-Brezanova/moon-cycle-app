@@ -7,19 +7,12 @@ import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
 import 'package:moon_cycle/features/diary/presentation/diary_page.dart';
-import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
-import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
-import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
 import 'package:moon_cycle/features/home/application/home_providers.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
-import 'package:moon_cycle/features/home/presentation/widgets/home_editorial.dart';
-import 'package:moon_cycle/features/plants/application/plant_providers.dart';
 import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
-import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
-import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../../goldens/screens/home_golden_test.dart' show stateOnDay;
@@ -60,12 +53,6 @@ void main() {
 
   double top(WidgetTester tester, Finder f) => tester.getTopLeft(f).dy;
 
-  /// A card's title (the tab bar also says "Shop" and "Foods").
-  Finder card(String title) =>
-      find.descendant(of: find.byType(GoToSection), matching: find.text(title));
-
-  Finder create() => find.text('Create my meal');
-
   test('Premium features are not unlocked by the promo’s Plus', () {
     const promo = EntitlementState(tier: Tier.plus);
     const gatePromo = FeatureGate(promo);
@@ -80,85 +67,63 @@ void main() {
     expect(gatePremium.canUse(Feature.logDiary), isTrue);
   });
 
-  testWidgets('hierarchy: hero, focus, 3 plants, build a meal, go to', (
-    tester,
-  ) async {
+  testWidgets('hierarchy: hero, focus, 3 a day, quick access', (tester) async {
     await pumpHome(tester);
     tester.view.physicalSize = const Size(390, 2600) * 3;
     await tester.pumpAndSettle();
     final order = [
       find.text('Follicular'),
-      find.text('YOUR FOCUS'),
-      find.text('TODAY’S INSPIRATION'),
-      find.text('MAKE SOMETHING GOOD'),
-      find.text('GO TO'),
+      find.text('TODAY’S FOCUS'),
+      find.text('3 A DAY'),
+      find.text('3 plants'),
+      find.text('3 ways to move'),
+      find.text('3 minutes of calm'),
+      find.text('QUICK ACCESS'),
     ];
     for (var i = 0; i < order.length - 1; i++) {
       expect(top(tester, order[i]), lessThan(top(tester, order[i + 1])));
     }
-    expect(find.text('Learn more →'), findsOneWidget);
-    expect(find.textContaining('3 plants'), findsOneWidget);
+    expect(find.text('Learn more about your phase\u00A0→'), findsOneWidget);
+    expect(find.text('My Diary'), findsOneWidget);
+    expect(find.text('Shopping List'), findsOneWidget);
   });
 
-  testWidgets('three equal square-ish tiles with names, and the caption', (
+  testWidgets('the 3 a day cards carry the agreed copy, nothing to complete', (
     tester,
   ) async {
-    final container = await pumpHome(tester);
-    tester.view.physicalSize = const Size(390, 2600) * 3;
-    await tester.pumpAndSettle();
-    final plants = container.read(threePlantsProvider);
-    expect(plants, hasLength(3));
-    final lefts = <double>[];
-    for (final f in plants) {
-      final t = find.text(f.displayName);
-      expect(t, findsOneWidget);
-      lefts.add(tester.getTopLeft(t).dx);
-    }
-    expect(lefts[0], lessThan(lefts[1]));
-    expect(lefts[1], lessThan(lefts[2]));
-    expect(
-      find.text('Three plants for your follicular phase, new every day.'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('tapping a plant opens its food page', (tester) async {
-    final container = await pumpHome(tester);
-    tester.view.physicalSize = const Size(390, 2600) * 3;
-    await tester.pumpAndSettle();
-    final first = container.read(threePlantsProvider).first;
-    await tester.tap(find.text(first.displayName));
-    await tester.pumpAndSettle();
-    expect(find.byType(FoodDetailPage), findsOneWidget);
-  });
-
-  testWidgets('the arrow opens the 3 Plants a Day page', (tester) async {
-    final handle = tester.ensureSemantics();
     await pumpHome(tester);
-    final arrow = find.bySemanticsLabel('Find recipes with today’s plants');
-    await scrollTo(tester, arrow);
-    await tester.tap(arrow);
+    tester.view.physicalSize = const Size(390, 2600) * 3;
+    await tester.pumpAndSettle();
+    for (final t in [
+      'Discover three plants selected for your phase today.',
+      'Three movement ideas. Pick the one that feels right.',
+      'A short breathing or mindfulness pause. Stay longer if you like.',
+    ]) {
+      expect(find.text(t), findsOneWidget, reason: t);
+    }
+    for (final gone in ['Learn more about your cycle', 'DAY', 'Streak']) {
+      expect(find.text(gone), findsNothing, reason: gone);
+    }
+  });
+
+  testWidgets('the EAT card opens the 3 Plants a Day page', (tester) async {
+    await pumpHome(tester);
+    await scrollTo(tester, find.text('3 plants'));
+    await tester.tap(find.text('3 plants'));
     await tester.pumpAndSettle();
     expect(find.byType(ThreePlantsPage), findsOneWidget);
-    handle.dispose();
   });
 
-  testWidgets('the old Home sections and instruction pills are gone', (
-    tester,
-  ) async {
+  testWidgets('MOVE and RELAX open their tabs', (tester) async {
     await pumpHome(tester);
-    tester.view.physicalSize = const Size(390, 2600) * 3;
-    await tester.pumpAndSettle();
-    for (final gone in [
-      'YOUR CHOICES',
-      'Try something new',
-      '3 Plants a Day',
-      'Protein',
-      'Base',
-      'TODAY’S FOOD',
-      'Browse Foods',
-    ]) {
-      expect(find.text(gone), findsNothing, reason: gone);
+    for (final title in ['3 ways to move', '3 minutes of calm']) {
+      await scrollTo(tester, find.text(title));
+      await tester.tap(find.text(title));
+      await tester.pumpAndSettle();
+      expect(find.byType(HomePage), findsNothing, reason: title);
+      await tester.tap(find.byKey(const ValueKey('tab-home')));
+      await tester.pumpAndSettle();
+      expect(find.byType(HomePage), findsOneWidget);
     }
   });
 
@@ -168,8 +133,8 @@ void main() {
     final container = await pumpHome(tester);
     container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
     await tester.pumpAndSettle();
-    await scrollTo(tester, find.text('Learn more →'));
-    await tester.tap(find.text('Learn more →'));
+    await scrollTo(tester, find.text('Learn more about your phase\u00A0→'));
+    await tester.tap(find.text('Learn more about your phase\u00A0→'));
     await tester.pumpAndSettle();
     expect(find.byType(LearnMorePage), findsOneWidget);
     expect(find.text('YOUR FOCUS · LUTEAL'), findsOneWidget);
@@ -186,45 +151,25 @@ void main() {
     expect(find.byType(HomePage), findsOneWidget);
   });
 
-  group('entitlements', () {
-    testWidgets('free: Create my meal goes to the subscription page', (
-      tester,
-    ) async {
-      await pumpHome(tester);
-      await scrollTo(tester, create());
-      await tester.tap(create());
-      await tester.pumpAndSettle();
-      expect(find.byType(SubscriptionPage), findsOneWidget);
-    });
-
-    testWidgets('Premium: Create my meal opens the builder', (tester) async {
-      await pumpHome(
-        tester,
-        more: [entitlementStateProvider.overrideWithValue(premium)],
-      );
-      await scrollTo(tester, create());
-      await tester.tap(create());
-      await tester.pumpAndSettle();
-      expect(find.byType(MealBuilderPage), findsOneWidget);
-      expect(find.text('Proteins'), findsOneWidget);
-    });
-
-    testWidgets('Go to cards show no Plus lock and open shop and diary', (
+  group('quick access', () {
+    testWidgets('My Diary and Shopping List open, with no Plus lock', (
       tester,
     ) async {
       final handle = tester.ensureSemantics();
       await pumpHome(tester);
-      await scrollTo(tester, card('Log diary'));
-      expect(
-        find.bySemanticsLabel('Log diary, Remember what you ate'),
-        findsOneWidget,
-      );
+      await scrollTo(tester, find.text('My Diary'));
       expect(find.textContaining('Plus'), findsNothing);
-      expect(find.textContaining('Coming with'), findsNothing);
-      // The diary page applies its own (unchanged) rule.
-      await tester.tap(card('Log diary'));
+      await tester.tap(find.text('My Diary'));
       await tester.pumpAndSettle();
+      // The diary page applies its own (unchanged) rule.
       expect(find.byType(DiaryPage), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey('tab-home')));
+      await tester.pumpAndSettle();
+      await scrollTo(tester, find.text('Shopping List'));
+      await tester.tap(find.text('Shopping List'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ShopPage), findsOneWidget);
       handle.dispose();
     });
 
@@ -240,31 +185,6 @@ void main() {
       expect(find.text('Proteins'), findsNothing);
       expect(find.text('See Premium'), findsOneWidget);
     });
-  });
-
-  testWidgets('Explore foods, Explore recipes and Shopping list work', (
-    tester,
-  ) async {
-    await pumpHome(tester);
-    await scrollTo(tester, find.text('Explore foods'));
-    await tester.tap(find.text('Explore foods'));
-    await tester.pumpAndSettle();
-    expect(find.byType(FoodsPage), findsOneWidget);
-
-    await tester.tap(find.byKey(const ValueKey('tab-home')));
-    await tester.pumpAndSettle();
-    await scrollTo(tester, find.text('Explore recipes'));
-    await tester.tap(find.text('Explore recipes'));
-    await tester.pumpAndSettle();
-    expect(find.byType(RecipesPage), findsOneWidget);
-    expect(find.text('29 follicular recipes'), findsOneWidget);
-
-    await tester.tap(find.byKey(const ValueKey('tab-home')));
-    await tester.pumpAndSettle();
-    await scrollTo(tester, card('Shopping list'));
-    await tester.tap(card('Shopping list'));
-    await tester.pumpAndSettle();
-    expect(find.byType(ShopPage), findsOneWidget);
   });
 
   testWidgets('browsing leaves the real cycle alone; Back to today works', (
@@ -285,76 +205,39 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
   });
 
-  group('large text keeps words whole', () {
-    for (final scale in [1.5, 2.0, 3.0]) {
-      testWidgets('plant names and card links stay on one line at $scale×', (
-        tester,
-      ) async {
-        await pumpScreen(
-          tester,
-          const HomePage(),
-          dark: false,
-          width: 390,
-          textScale: scale,
-          height: 6000,
-          overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
-        );
-        await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull);
-        final container = ProviderScope.containerOf(
-          tester.element(find.byType(HomePage)),
-        );
-        Future<double> heightOf(String text) async {
-          await tester.scrollUntilVisible(
-            find.text(text),
-            300,
-            scrollable: find.byType(Scrollable).first,
-          );
-          return tester.getSize(find.text(text).first).height;
-        }
-
-        // One-word names are shrunk to fit, never broken: one line tall.
-        for (final f in container.read(threePlantsProvider)) {
-          if (f.displayName.contains(' ')) continue;
-          expect(
-            await heightOf(f.displayName),
-            lessThan(15 * scale * 1.3 * 1.5),
-            reason: f.displayName,
-          );
-        }
-        for (final l in ['Explore foods', 'Explore recipes']) {
-          expect(await heightOf(l), lessThan(15 * scale * 1.5), reason: l);
-        }
-      });
-    }
-  });
-
-  group('small phone, large text', () {
-    for (final (name, tier) in [
-      ('free', EntitlementState.free),
-      ('premium', premium),
+  group('large text and small phones', () {
+    for (final (width, scale) in [
+      (390.0, 1.5),
+      (390.0, 2.0),
+      (390.0, 3.0),
+      (320.0, 1.5),
     ]) {
-      testWidgets('$name: 320 pt at 1.5× has no overflow', (tester) async {
-        final handle = tester.ensureSemantics();
-        await pumpScreen(
-          tester,
-          const HomePage(),
-          dark: false,
-          width: 320,
-          textScale: 1.5,
-          height: 4200,
-          overrides: [
-            cycleStateProvider.overrideWithValue(stateOnDay(21)),
-            entitlementStateProvider.overrideWithValue(tier),
-          ],
-        );
-        await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull);
-        expect(find.text('GO TO'), findsOneWidget);
-        await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
-        await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
-        handle.dispose();
-      });
+      testWidgets(
+        '${width}pt at $scale×: no overflow, targets are big enough',
+        (tester) async {
+          final handle = tester.ensureSemantics();
+          await pumpScreen(
+            tester,
+            const HomePage(),
+            dark: false,
+            width: width,
+            textScale: scale,
+            height: 12000,
+            overrides: [cycleStateProvider.overrideWithValue(stateOnDay(21))],
+          );
+          await tester.pumpAndSettle();
+          expect(tester.takeException(), isNull);
+          expect(find.text('QUICK ACCESS'), findsOneWidget);
+          if (scale == 1.5) {
+            await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
+            await expectLater(
+              tester,
+              meetsGuideline(labeledTapTargetGuideline),
+            );
+          }
+          handle.dispose();
+        },
+      );
     }
   });
 }

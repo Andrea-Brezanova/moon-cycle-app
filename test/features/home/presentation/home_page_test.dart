@@ -56,14 +56,7 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Inner spring'), findsOneWidget);
     expect(find.text('Follicular'), findsOneWidget);
-    // What is happening in the cycle, not food guidance.
-    expect(
-      find.text(
-        'Follicles develop in the ovaries and oestrogen rises as the lining '
-        'rebuilds.',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text('DAY'), findsNothing);
     expect(
       find.text(
         'Day 2 of 6 in phase · Day 7 of 28 in cycle\nOvulatory in 5 days',
@@ -86,7 +79,7 @@ void main() {
     final centre = tester.getCenter(orbit);
     // From the bottom of the ring (half a turn: day 14 or 15 of 28) a
     // little further round.
-    final ring = tester.getSize(orbit).width * 136 / 300;
+    final ring = tester.getSize(orbit).width * 132 / 300;
     await tester.dragFrom(centre + Offset(0, ring), const Offset(-2, 0));
     await tester.pumpAndSettle();
     expect(find.textContaining('Previewing day 1'), findsOneWidget);
@@ -95,8 +88,11 @@ void main() {
     await tester.drag(find.text('Ovulatory'), const Offset(0, -300));
     await tester.pumpAndSettle();
     // The content below follows the phase being browsed.
-    expect(find.text('YOUR FOCUS'), findsOneWidget);
-    expect(find.text('Fresh and hydrating'), findsOneWidget);
+    expect(find.text('TODAY’S FOCUS'), findsOneWidget);
+    expect(
+      find.textContaining('Fresh, crisp and', findRichText: true),
+      findsOneWidget,
+    );
 
     await tester.fling(
       find.byType(Scrollable).first,
@@ -107,8 +103,8 @@ void main() {
     await tester.tap(find.text('Back to today · Day 7'));
     await tester.pumpAndSettle();
     expect(find.text('Follicular'), findsOneWidget);
-    await scrollTo(tester, find.text('Fresh variety'));
-    expect(find.text('Fresh variety'), findsOneWidget);
+    await scrollTo(tester, find.text('3 plants'));
+    expect(find.text('3 plants'), findsOneWidget);
   });
 
   testWidgets('screen readers adjust the preview', (tester) async {
