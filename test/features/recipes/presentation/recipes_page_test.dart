@@ -5,7 +5,6 @@ import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
-import 'package:moon_cycle/features/eat/application/eat_segment.dart';
 import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
@@ -58,8 +57,9 @@ void main() {
       database: db,
       overrides: [clockProvider.overrideWithValue(designNow)],
     );
-    container.read(eatSegmentProvider.notifier).set(EatSegment.recipes);
     await tester.tap(find.byKey(const ValueKey('tab-eat')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Recipes'));
     await tester.pumpAndSettle();
     expect(find.byType(RecipesPage), findsOneWidget);
     return (container, db);

@@ -54,6 +54,10 @@ abstract final class Routes {
   /// Foods › "Learn more" about the viewing phase.
   static const String learnMore = '/eat/learn';
 
+  /// The Foods and Recipes browsing pages, opened from the Eat hub.
+  static const String eatFoods = '/eat/foods';
+  static const String eatRecipes = '/eat/recipes';
+
   /// Foods › the meal builder (Premium).
   /// With [foodId] the builder opens with that food already chosen.
   static String mealBuilder({String? foodId}) =>

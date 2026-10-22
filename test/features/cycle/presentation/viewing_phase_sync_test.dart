@@ -24,9 +24,12 @@ void main() {
     await tester.tap(find.byKey(ValueKey('tab-${eat ? 'eat' : tab}')));
     await tester.pumpAndSettle();
     if (eat) {
-      await tester.tap(
-        find.textContaining(tab == 'foods' ? 'Foods ' : 'Recipes '),
-      );
+      // A tab keeps its stack: come back to the Eat hub first.
+      if (find.text('Nourish your cycle').evaluate().isEmpty) {
+        await tester.tap(find.byKey(const ValueKey('tab-eat')));
+        await tester.pumpAndSettle();
+      }
+      await tester.tap(find.text(tab == 'foods' ? 'Foods' : 'Recipes'));
       await tester.pumpAndSettle();
     }
   }

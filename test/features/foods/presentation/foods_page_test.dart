@@ -49,6 +49,8 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('tab-eat')));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('Foods'));
+    await tester.pumpAndSettle();
     expect(find.byType(FoodsPage), findsOneWidget);
     return (container, db);
   }
@@ -387,6 +389,8 @@ void main() {
         ],
       );
       await tester.tap(find.byKey(const ValueKey('tab-eat')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Foods'));
       await tester.pumpAndSettle();
       await openChicken(tester);
       await tester.tap(find.text('Log meal'));

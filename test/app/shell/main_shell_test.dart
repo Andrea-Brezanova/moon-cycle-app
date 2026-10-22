@@ -34,7 +34,9 @@ Future<void> tapTab(WidgetTester tester, String name) async {
 /// Eat's Recipes half.
 Future<void> showRecipes(WidgetTester tester) async {
   await tapTab(tester, 'eat');
-  await tester.tap(find.textContaining('Recipes '));
+  await tester.ensureVisible(find.text('Recipes'));
+  await tester.pumpAndSettle();
+  await tester.tap(find.text('Recipes'));
   await tester.pumpAndSettle();
 }
 
@@ -61,7 +63,7 @@ void main() {
     await pumpApp(tester);
     await tapTab(tester, 'eat');
     expect(eatRoot, findsOneWidget);
-    expect(foodsRoot, findsOneWidget);
+    expect(find.text('Nourish your cycle'), findsOneWidget);
     await tapTab(tester, 'move');
     expect(find.byType(ComingSoonPage), findsOneWidget);
     expect(find.text('Move is on its way.'), findsOneWidget);
@@ -98,23 +100,29 @@ void main() {
     await openRecipe(tester);
     await tester.pumpAndSettle();
     await tapTab(tester, 'eat');
-    expect(recipesRoot.hitTestable(), findsOneWidget);
+    expect(eatRoot.hitTestable(), findsOneWidget); // the Eat hub
     expect(recipeDetail, findsNothing);
   });
 
   testWidgets('tapping the active tab on its first screen scrolls to the top', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(390, 520) * 3;
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
     await pumpApp(tester);
     await tapTab(tester, 'eat');
-    final todays = find.text('TODAY’S FOOD');
-    final top = tester.getTopLeft(todays).dy;
-    await tester.drag(find.byType(ListView).first, const Offset(0, -900));
+    final intro = find.text('Nourish your cycle');
+    final top = tester.getTopLeft(intro).dy;
+    await tester.drag(
+      find.byType(SingleChildScrollView).first,
+      const Offset(0, -300),
+    );
     await tester.pumpAndSettle();
-    expect(todays.hitTestable(), findsNothing); // scrolled away
+    expect(tester.getTopLeft(intro).dy, lessThan(top)); // scrolled
 
     await tapTab(tester, 'eat');
-    expect(tester.getTopLeft(todays).dy, top);
+    expect(tester.getTopLeft(intro).dy, top);
   });
 
   testWidgets('More sub-pages open inside More and go back', (tester) async {

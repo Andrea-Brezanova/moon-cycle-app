@@ -39,7 +39,7 @@ class MyRecipesPage extends ConsumerWidget {
               title: 'My recipes',
               onBack: () => context.canPop()
                   ? context.pop()
-                  : goEat(ref, context, EatSegment.recipes),
+                  : goEat(context, EatSegment.recipes),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(

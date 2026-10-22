@@ -14,6 +14,8 @@ import '../../features/diary/presentation/log_meal_page.dart';
 import '../../features/diary/presentation/log_symptoms_page.dart';
 import '../../features/discovery/domain/recipe_matcher.dart';
 import '../../features/discovery/presentation/meal_results_page.dart';
+import '../../features/eat/application/eat_segment.dart';
+import '../../features/eat/presentation/eat_browse_page.dart';
 import '../../features/eat/presentation/eat_page.dart';
 import '../../features/foods/presentation/food_detail_page.dart';
 import '../../features/foods/presentation/learn_more_page.dart';
@@ -124,6 +126,20 @@ GoRouter buildAppRouter({
                   }),
                   routes: switch (tab) {
                     AppTab.eat => [
+                      GoRoute(
+                        path: 'foods',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          const EatBrowsePage(segment: EatSegment.foods),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'recipes',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          const EatBrowsePage(segment: EatSegment.recipes),
+                        ),
+                      ),
                       GoRoute(
                         path: 'my-recipes',
                         pageBuilder: (context, state) =>

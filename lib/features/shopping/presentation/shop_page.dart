@@ -142,8 +142,7 @@ class _ShopPageState extends ConsumerState<ShopPage> {
                           actions: [
                             TextLink(
                               'Browse foods',
-                              onTap: () =>
-                                  goEat(ref, context, EatSegment.foods),
+                              onTap: () => goEat(context, EatSegment.foods),
                             ),
                           ],
                         ),

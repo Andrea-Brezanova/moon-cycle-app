@@ -7,229 +7,224 @@ import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_segmented.dart';
 import '../../../core/design/widgets/pressable.dart';
-import '../../../core/domain/browse_scope.dart';
-import '../../content/application/content_providers.dart';
-import '../../cycle/application/viewing_phase.dart';
+import '../../../core/domain/phase.dart';
 import '../../foods/application/browse_scope.dart';
-import '../../foods/application/food_providers.dart';
-import '../../foods/presentation/foods_page.dart';
-import '../../recipes/application/recipe_list.dart';
-import '../../recipes/application/recipes_scope.dart';
-import '../../recipes/presentation/recipes_page.dart';
-import '../application/eat_segment.dart';
-import 'browse_phase_sheet.dart';
 
-/// Eat: Foods and Recipes in one place. Both halves stay built, so the phase,
-/// the recipe filters, the search and the scroll position survive switching.
+/// Eat: the hub. A photograph and a short introduction, then the three ways
+/// in: Foods, Recipes and the meal builder. Each opens an existing page.
 class EatPage extends ConsumerWidget {
   const EatPage({super.key});
+
+  /// The hero photograph. A recipe photo already in the app, standing in
+  /// until the approved photograph is added (see docs/v2-ui-roadmap.md).
+  static const heroAsset =
+      'assets/images/recipes/red-cabbage-apricot-chickpea-salad.jpg';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
-    final segment = ref.watch(eatSegmentProvider);
-    final scrolls = ref.watch(tabScrollProvider);
-    final foodsAll = ref.watch(foodsScopeProvider) == BrowseScope.all;
-    final recipesAll = ref.watch(recipesScopeProvider) == BrowseScope.all;
-    final viewing = ref.watch(viewingPhaseProvider);
-    final catalogue = ref.watch(catalogueProvider);
-    final filter = ref.watch(foodFilterProvider);
-
-    final foodCount = foodsAll
-        ? [
-            for (final (_, foods) in ref.watch(allFoodsByCategoryProvider))
-              for (final f in foods)
-                if (filter.allowsFood(f)) f,
-          ].length
-        : [
-            for (final f in catalogue.foodsFor(viewing))
-              if (filter.allowsFood(f)) f,
-          ].length;
-    final recipeCount = ref.watch(recipeListProvider).recipes.length;
-
-    final all = segment == EatSegment.foods ? foodsAll : recipesAll;
-    final phaseName = all ? 'All phases' : catalogue.phase(viewing).name;
-
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
         bottom: false,
-        child: Stack(
-          children: [
-            Column(
+        // Five blocks, all built: no need for a lazy list.
+        child: SingleChildScrollView(
+          controller: ref.watch(tabScrollProvider).of(AppTab.eat),
+          padding: const EdgeInsets.fromLTRB(
+            MoonSpace.gutter,
+            10,
+            MoonSpace.gutter,
+            42,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Semantics(
+                      header: true,
+                      child: Text(
+                        'Eat',
+                        style: MoonType.h1.copyWith(color: c.text),
+                      ),
+                    ),
+                  ),
+                  Pressable(
+                    key: const ValueKey('eat-search'),
+                    // The foods search lives on "All foods".
+                    onTap: () {
+                      ref.read(foodsScopeProvider.notifier).showAll();
+                      context.push(Routes.eatFoods);
+                    },
+                    semanticLabel: 'Search foods',
+                    child: SizedBox(
+                      width: 44,
+                      height: 44,
+                      child: Center(
+                        child: MoonIcon(
+                          MoonIconName.search,
+                          size: 22,
+                          color: c.text,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              const _Intro(),
+              const SizedBox(height: 16),
+              _HubCard(
+                icon: MoonIconName.apple,
+                phase: Phase.menstrual,
+                title: 'Foods',
+                body: 'Browse foods by phase and benefit.',
+                onTap: () => context.push(Routes.eatFoods),
+              ),
+              const SizedBox(height: 12),
+              _HubCard(
+                icon: MoonIconName.utensils,
+                phase: Phase.ovulatory,
+                title: 'Recipes',
+                body: 'Find nourishing recipes for every phase.',
+                onTap: () => context.push(Routes.eatRecipes),
+              ),
+              const SizedBox(height: 12),
+              _HubCard(
+                icon: MoonIconName.recipes,
+                phase: Phase.luteal,
+                title: 'Meal builder',
+                body: 'Create a balanced meal with foods or recipes.',
+                onTap: () => context.push(Routes.mealBuilder()),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The photograph with the "Nourish your cycle" card joined beneath it.
+class _Intro extends StatelessWidget {
+  const _Intro();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Container(
+      decoration: BoxDecoration(
+        color: c.raised,
+        border: Border.all(color: c.line),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Decorative: the heading below says what the page is.
+          ExcludeSemantics(
+            child: AspectRatio(
+              aspectRatio: 1.86,
+              child: Image.asset(
+                EatPage.heroAsset,
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(22, 16, 22, 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    MoonSpace.gutter,
-                    10,
-                    MoonSpace.gutter,
-                    0,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // Wraps (pill under the title) at large text sizes.
-                      Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        runSpacing: 8,
-                        children: [
-                          Semantics(
-                            header: true,
-                            child: Text(
-                              'Eat',
-                              style: MoonType.h1.copyWith(color: c.text),
-                            ),
-                          ),
-                          _PhasePill(label: phaseName, all: all),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      MoonSegmented<EatSegment>(
-                        semanticLabel: 'Show',
-                        options: [
-                          (EatSegment.foods, 'Foods $foodCount'),
-                          (EatSegment.recipes, 'Recipes $recipeCount'),
-                        ],
-                        selected: segment,
-                        onChanged: ref.read(eatSegmentProvider.notifier).set,
-                      ),
-                      const SizedBox(height: 14),
-                    ],
-                  ),
+                EditorialHeading(
+                  italicLastWord('Nourish your cycle'),
+                  style: fraunces(28, height: 1.15, color: c.text),
                 ),
-                Expanded(
-                  child: IndexedStack(
-                    index: segment.index,
-                    children: [
-                      FoodsPage(
-                        controller: segment == EatSegment.foods
-                            ? scrolls.of(AppTab.eat)
-                            : null,
-                      ),
-                      RecipesPage(
-                        controller: segment == EatSegment.recipes
-                            ? scrolls.of(AppTab.eat)
-                            : null,
-                      ),
-                    ],
-                  ),
+                const SizedBox(height: 8),
+                Text(
+                  'Seasonal foods, simple recipes and meal ideas to support '
+                  'your current phase.',
+                  style: dmSans(15, height: 1.5, color: c.textMuted),
                 ),
               ],
             ),
-            Positioned(
-              right: 20,
-              bottom: 16,
-              child: _BuildMealPill(
-                onTap: () => context.push(Routes.mealBuilder()),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
-/// The phase on show; opens "Browse by phase".
-class _PhasePill extends ConsumerWidget {
-  const _PhasePill({required this.label, required this.all});
+/// A full-width navigation card: pastel icon disc, title, a line, a chevron.
+class _HubCard extends StatelessWidget {
+  const _HubCard({
+    required this.icon,
+    required this.phase,
+    required this.title,
+    required this.body,
+    required this.onTap,
+  });
 
-  final String label;
-  final bool all;
+  final MoonIconName icon;
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final c = context.moon;
-    final viewing = ref.watch(viewingPhaseProvider);
-    return Pressable(
-      key: const ValueKey('phase-pill'),
-      onTap: () => showBrowsePhaseSheet(context),
-      semanticLabel: 'Browse by phase. Showing $label',
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        padding: const EdgeInsets.symmetric(horizontal: 14),
-        decoration: ShapeDecoration(
-          color: all ? c.sand : c.phase(viewing).tint,
-          shape: const StadiumBorder(),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (!all) ...[
-              Container(
-                width: 7,
-                height: 7,
-                decoration: BoxDecoration(
-                  color: c.phase(viewing).accent,
-                  shape: BoxShape.circle,
-                ),
-              ),
-              const SizedBox(width: 8),
-            ],
-            Flexible(
-              child: Text(
-                label,
-                style: dmSans(
-                  14,
-                  weight: FontWeight.w600,
-                  height: 1.2,
-                  color: c.text,
-                ),
-              ),
-            ),
-            const SizedBox(width: 6),
-            MoonIcon(MoonIconName.down, size: 14, color: c.text),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-/// The floating "Build a meal" shortcut.
-class _BuildMealPill extends StatelessWidget {
-  const _BuildMealPill({required this.onTap});
-
+  /// The phase whose palette tints the icon disc.
+  final Phase phase;
+  final String title;
+  final String body;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final palette = c.phase(phase);
     return Pressable(
       onTap: onTap,
-      semanticLabel: 'Build a meal',
+      semanticLabel: '$title. $body',
       child: Container(
-        constraints: const BoxConstraints(minHeight: 48),
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        decoration: ShapeDecoration(
-          color: c.inverseBg,
-          shape: const StadiumBorder(),
-          shadows: const [
-            BoxShadow(
-              color: Color(0x331B152E),
-              blurRadius: 18,
-              offset: Offset(0, 6),
-            ),
-          ],
+        constraints: const BoxConstraints(minHeight: 88),
+        padding: const EdgeInsets.fromLTRB(18, 14, 16, 14),
+        decoration: BoxDecoration(
+          color: c.raised,
+          border: Border.all(color: c.line),
+          borderRadius: BorderRadius.circular(22),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            MoonIcon(MoonIconName.recipes, size: 18, color: c.inverseText),
-            const SizedBox(width: 8),
-            Text(
-              'Build a meal',
-              style: dmSans(
-                14,
-                weight: FontWeight.w600,
-                height: 1.2,
-                color: c.inverseText,
+            ExcludeSemantics(
+              child: Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: palette.tint,
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: MoonIcon(icon, size: 24, color: palette.text),
+                ),
               ),
             ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: fraunces(21, height: 1.15, color: c.text)),
+                  const SizedBox(height: 3),
+                  Text(
+                    body,
+                    style: dmSans(14, height: 1.4, color: c.textMuted),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            MoonIcon(MoonIconName.chev, size: 18, color: c.chevron),
           ],
         ),
       ),
