@@ -65,12 +65,12 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
     expect(find.text('Back to today · Day 7'), findsNothing);
     await tester.scrollUntilVisible(
-      find.text('GO TO'),
+      find.text('QUICK ACCESS'),
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('MAKE SOMETHING GOOD'), findsOneWidget);
-    expect(find.text('Build a meal'), findsOneWidget);
+    expect(find.text('3 A DAY'), findsOneWidget);
+    expect(find.text('My Diary'), findsOneWidget);
   });
 
   testWidgets('moving the Home moon moves Foods and Recipes', (tester) async {
