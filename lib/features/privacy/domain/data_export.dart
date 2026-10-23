@@ -2,6 +2,7 @@ import '../../../core/domain/local_date.dart';
 import '../../cycle/domain/cycle_profile.dart';
 import '../../cycle/domain/period_log.dart';
 import '../../diary/domain/diary_entry.dart';
+import '../../diary/domain/diary_note.dart';
 import '../../generation/domain/personal_recipe.dart';
 import '../../generation/domain/recipe_json.dart';
 import '../../generation/domain/saved_recipe_ref.dart';
@@ -33,6 +34,7 @@ Map<String, Object?> buildDataExport({
   required List<ShoppingItem> shoppingList,
   List<PersonalRecipe> personalRecipes = const [],
   List<DiaryEntry> diary = const [],
+  List<DiaryNote> notes = const [],
   List<SavedRecipeRef> savedRecipes = const [],
   required String? Function(String foodId) foodName,
 }) => {
@@ -113,6 +115,16 @@ Map<String, Object?> buildDataExport({
         'name': e.title,
         'amount': e.amount,
         'unit': e.unit.id,
+      },
+  ],
+  'notes': [
+    for (final n in notes)
+      {
+        'date': '${n.date}',
+        'title': n.title,
+        'text': n.body,
+        'createdAt': n.createdAt.toUtc().toIso8601String(),
+        'updatedAt': n.updatedAt.toUtc().toIso8601String(),
       },
   ],
   'savedRecipes': [

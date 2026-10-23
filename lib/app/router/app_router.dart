@@ -11,6 +11,8 @@ import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
 import '../../features/diary/presentation/diary_coming_soon_page.dart';
 import '../../features/diary/presentation/diary_hub_page.dart';
+import '../../features/diary/presentation/diary_note_editor_page.dart';
+import '../../features/diary/presentation/diary_notes_page.dart';
 import '../../features/diary/presentation/diary_page.dart';
 import '../../features/diary/presentation/log_meal_page.dart';
 import '../../features/diary/presentation/log_symptoms_page.dart';
@@ -248,18 +250,30 @@ GoRouter buildAppRouter({
                           ),
                           GoRoute(
                             path: 'notes',
-                            pageBuilder: (context, state) => _page(
-                              state,
-                              const DiaryComingSoonPage(
-                                title: 'Notes',
-                                icon: MoonIconName.pencil,
-                                headline: 'Notes are on their way.',
-                                body:
-                                    'A private space for your thoughts, '
-                                    'reflections and memories is coming. '
-                                    'Nothing to set up yet.',
+                            pageBuilder: (context, state) =>
+                                _page(state, const DiaryNotesPage()),
+                            routes: [
+                              // Writing covers the tab bar, so the editor
+                              // opens on the root navigator.
+                              GoRoute(
+                                path: 'new',
+                                parentNavigatorKey: rootKey,
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  DiaryNoteEditorPage(date: _dateOf(state)),
+                                ),
                               ),
-                            ),
+                              GoRoute(
+                                path: ':noteId',
+                                parentNavigatorKey: rootKey,
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  DiaryNoteEditorPage(
+                                    noteId: state.pathParameters['noteId'],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           // The forms cover the tab bar, so they open on the
                           // root navigator, above the shell.

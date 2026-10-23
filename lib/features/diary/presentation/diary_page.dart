@@ -18,12 +18,14 @@ import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 import '../application/diary_providers.dart';
+import '../data/diary_note_repository.dart';
 import '../domain/diary_entry.dart';
+import '../domain/diary_note.dart';
 import '../domain/symptoms.dart';
 import 'diary_format.dart';
 import 'diary_widgets.dart';
 
-enum DiaryTab { meals, symptoms }
+enum DiaryTab { meals, symptoms, notes }
 
 /// My Diary: meals and a simple daily check-in, by day. Entries stay on this
 /// phone. No scores, no interpretation, no medical claims.
@@ -65,6 +67,7 @@ class _DiaryPageState extends ConsumerState<DiaryPage> {
     final controller = ref.read(diaryDateProvider.notifier);
     final entries = ref.watch(diaryDayProvider(date)).value ?? const [];
     final symptomDay = ref.watch(symptomDayProvider(date)).value;
+    final notes = ref.watch(diaryNotesOnProvider(date)).value ?? const [];
     final label = ref.watch(phaseDayLabelProvider(date));
     final actual = ref.watch(actualPhaseProvider);
     final phase = label?.phase ?? actual;
@@ -132,11 +135,14 @@ class _DiaryPageState extends ConsumerState<DiaryPage> {
                 selected: _tab,
                 hasMeals: entries.isNotEmpty,
                 hasSymptoms: symptomDay != null,
+                hasNotes: notes.isNotEmpty,
                 onChanged: (t) => setState(() => _tab = t),
               ),
               const SizedBox(height: 22),
               if (_tab == DiaryTab.meals)
                 _MealsTab(date: date, phase: phase, entries: entries)
+              else if (_tab == DiaryTab.notes)
+                _NotesTab(date: date, phase: phase, notes: notes)
               else
                 _SymptomsTab(
                   date: date,
@@ -158,12 +164,14 @@ class _TabSwitch extends StatelessWidget {
     required this.selected,
     required this.hasMeals,
     required this.hasSymptoms,
+    required this.hasNotes,
     required this.onChanged,
   });
 
   final DiaryTab selected;
   final bool hasMeals;
   final bool hasSymptoms;
+  final bool hasNotes;
   final ValueChanged<DiaryTab> onChanged;
 
   @override
@@ -231,8 +239,78 @@ class _TabSwitch extends StatelessWidget {
         children: [
           seg(DiaryTab.meals, 'Meals', hasMeals),
           seg(DiaryTab.symptoms, 'Symptoms', hasSymptoms),
+          seg(DiaryTab.notes, 'Notes', hasNotes),
         ],
       ),
+    );
+  }
+}
+
+/// The day's notes: each one opens in the editor; a button writes a new one.
+class _NotesTab extends StatelessWidget {
+  const _NotesTab({
+    required this.date,
+    required this.phase,
+    required this.notes,
+  });
+
+  final LocalDate date;
+  final Phase phase;
+  final List<DiaryNote> notes;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final write = MoonButton(
+      '+ Write a note',
+      onPressed: () => context.push(Routes.diaryNoteNew(date: date)),
+    );
+    if (notes.isEmpty) {
+      return _EmptyCard(
+        key: const ValueKey('diary-notes-empty'),
+        phase: phase,
+        icon: MoonIconName.pencil,
+        title: 'No notes for this day',
+        body: 'Write whatever you like. Notes stay on this phone.',
+        button: write,
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final n in notes) ...[
+          Pressable(
+            onTap: () => context.push(Routes.diaryNote(n.id)),
+            semanticLabel: 'Note: ${n.heading}',
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 56),
+              padding: const EdgeInsets.fromLTRB(18, 14, 14, 14),
+              decoration: BoxDecoration(
+                color: c.raised,
+                border: Border.all(color: c.line),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      n.heading,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: fraunces(18, height: 1.2, color: c.text),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  MoonIcon(MoonIconName.chev, size: 18, color: c.chevron),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+        const SizedBox(height: 12),
+        write,
+      ],
     );
   }
 }

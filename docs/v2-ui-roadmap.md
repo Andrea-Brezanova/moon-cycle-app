@@ -62,8 +62,8 @@ rebase or deploy.
 | 0 | Eat hub | `feature/v2-eat-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 1 | Foods UI | `feature/v2-foods-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 2 | Recipes UI (listing, Cook with, My Recipes; Add a Recipe blocked, see audit) | `feature/v2-recipes-ui` | PR open for review |
-| 3 | My Diary hub | `feature/v2-diary-hub` | PR open |
-| 4 | Free-writing diary Notes (new functionality; needs a design + data-model proposal first) | `feature/v2-diary-notes` | Not started |
+| 3 | My Diary hub | `feature/v2-diary-hub` | Merged (PR #9) |
+| 4 | Free-writing diary Notes (new personal data; owner approval required to merge) | `feature/v2-diary-notes` | PR open, awaiting owner review |
 | 5 | Activity logging (new functionality; needs a model/storage proposal first) | `feature/v2-activity-log` | Not started |
 
 Key requirements per feature (full text was given in chat):

@@ -90,9 +90,16 @@ abstract final class Routes {
   /// The diary history (Meals and Symptoms by day).
   static const String diaryEntries = '/more/diary/entries';
 
-  /// Placeholders until activity logging and notes are built.
+  /// A placeholder until activity logging is built.
   static const String diaryActivities = '/more/diary/activities';
+
+  /// The diary notes: the list, a new note (on [date], today if null) and one
+  /// note to read and edit. Writing covers the tab bar, so the editor opens on
+  /// the root navigator.
   static const String diaryNotes = '/more/diary/notes';
+  static String diaryNoteNew({LocalDate? date}) =>
+      '$diaryNotes/new${date == null ? '' : '?date=$date'}';
+  static String diaryNote(String id) => '$diaryNotes/$id';
 
   /// The Log a meal form (a full screen over the tab bar). Pass what to add
   /// ([kind], [itemId], [title]), a [meal] and [date] to preselect, or

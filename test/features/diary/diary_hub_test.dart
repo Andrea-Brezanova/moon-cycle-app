@@ -114,13 +114,10 @@ void main() {
     expect(find.byType(DiaryHubPage), findsOneWidget);
   });
 
-  testWidgets('Log activities and Notes are honest Coming soon pages', (
-    tester,
-  ) async {
+  testWidgets('Log activities is an honest Coming soon page', (tester) async {
     await pumpHub(tester);
     for (final (card, headline) in const [
       ('Log activities', 'Activity logging is on its way.'),
-      ('Notes', 'Notes are on their way.'),
     ]) {
       await tester.tap(find.text(card));
       await tester.pumpAndSettle();
