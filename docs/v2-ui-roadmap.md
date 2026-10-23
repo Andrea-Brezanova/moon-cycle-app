@@ -28,7 +28,7 @@ finished items out of "Remaining".
 | --- | --- | --- | --- | --- |
 | **Home** | `/home` | Approved on device by the owner, Stage 1 (hero ring, Today's Focus, 3 a Day, Quick Access). Rendered references: `docs/v2-home-shots/`. The original reference images were supplied in chat and are not in the repo — add them under `docs/v2-designs/` if they should live here. | Done (PR #2 merged) | See "Home" below |
 | Bottom tab bar | shell | Already matches the V2 reference (Home · Eat · Move · Relax · More, gold dot). | Done | None known |
-| **Eat hub** | `/eat` | Approved reference (light + dark): Eat heading + search, photo, "Nourish your cycle" card, Foods / Recipes / Meal builder cards. Renders: `docs/v2-eat-shots/`. | In progress (`feature/v2-eat-ui`, awaiting device approval) | Approved hero photograph (a recipe photo stands in); golden re-record after approval |
+| **Eat hub** | `/eat` | Approved reference (light + dark): Eat heading + search, photo, "Nourish your cycle" card, Foods / Recipes / Meal builder cards. Renders: `docs/v2-eat-shots/`. | In review (`feature/v2-eat-ui`; approved on device) | Approved hero photograph (a recipe photo stands in); hero photo still a stand-in |
 | Foods page | `/eat/foods` | Approved (light, dark, category-filtered), supplied in chat | Planned — Feature 1 (`feature/v2-foods-ui`) | See Feature 1 |
 | Recipes page, Cook with | `/eat/recipes` | Approved (light, dark, Cook with ingredient), supplied in chat | Planned — Feature 2 (`feature/v2-recipes-ui`) | See Feature 2 |
 | Food detail | `/eat/...` | — | Design pending | |
@@ -58,7 +58,7 @@ rebase or deploy.
 
 | # | Feature | Branch | Status |
 | --- | --- | --- | --- |
-| 0 | Eat hub | `feature/v2-eat-ui` | Implemented; awaiting device approval, then goldens + CI + PR |
+| 0 | Eat hub | `feature/v2-eat-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 1 | Foods UI | `feature/v2-foods-ui` | Not started (waits for Eat merge) |
 | 2 | Recipes UI (listing, Cook with, My Recipes, Add a Recipe) | `feature/v2-recipes-ui` | Not started |
 | 3 | My Diary hub | `feature/v2-diary-hub` | Not started |
@@ -91,6 +91,23 @@ Key requirements per feature (full text was given in chat):
   estimates or Apple Health. Proposal before code.
 - **Eat follow-up:** the Meal Builder back label ("Back to Foods") is a separate,
   approved navigation change if needed.
+
+## Testing policy (applies to every V2 branch)
+
+1. While implementing, run only the tests directly affected by the change.
+2. When fixing a failure, rerun the failing test or file, not the whole suite.
+3. Run `flutter analyze` only after meaningful code changes.
+4. Do not repeatedly regenerate or run every golden test; re-record only the
+   goldens that legitimately changed, after the owner approves the screen.
+5. Final verification is GitHub Actions: the complete non-golden suite, the
+   golden screenshots and the Android build.
+6. Do not duplicate full CI runs locally unless CI is unavailable or a specific
+   failure needs local reproduction.
+7. Keep terminal output short; read detailed logs only for failures.
+8. If CI already passed for the exact final commit, do not rerun it without a
+   reason.
+9. Before the owner merges, confirm the passing checks belong to the latest
+   commit, including all fixes and golden references.
 
 ## Home
 
