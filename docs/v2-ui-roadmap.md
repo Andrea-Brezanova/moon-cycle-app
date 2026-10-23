@@ -109,6 +109,18 @@ Key requirements per feature (full text was given in chat):
 9. Before the owner merges, confirm the passing checks belong to the latest
    commit, including all fixes and golden references.
 
+## Required checks on `main`
+
+All three CI jobs must pass before a PR merges (Settings → Branches → rule for
+`main`: require a pull request, require status checks, require branches to be up
+to date, then add):
+
+- `Format, analyze, layers, tests`
+- `Golden screenshots (macOS)`
+- `Android build (dev, debug)`
+
+The golden job is no longer advisory (`continue-on-error` was removed).
+
 ## Home
 
 Implemented in Stage 1 (visual only).
