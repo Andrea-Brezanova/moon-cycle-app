@@ -37,11 +37,9 @@ jobs:
   golden-tests:
     name: Golden screenshots (macOS)
     # Pinned (not macos-latest) so a runner upgrade can't change rendering.
+    # The references are recorded on macOS 15 and match this runner, so a
+    # failure here is a real difference and blocks the run.
     runs-on: macos-15
-    # Advisory for now: the images were recorded on a developer Mac and every
-    # one differs on the GitHub runner (0 of 122 match) although they all pass
-    # locally. Not a required check until they are recorded in this environment.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
