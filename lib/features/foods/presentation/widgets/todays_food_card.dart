@@ -92,7 +92,7 @@ class TodaysFoodCard extends StatelessWidget {
                 ),
               ],
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 18, 64, 18),
+                padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -111,38 +111,43 @@ class TodaysFoodCard extends StatelessWidget {
                       style: fraunces(26, height: 1.12),
                       color: fg,
                     ),
-                    if (intro != null) ...[
-                      const SizedBox(height: 8),
-                      Text(
-                        intro!,
-                        style: dmSans(14, height: 1.4, color: muted),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              Positioned(
-                right: 16,
-                bottom: 16,
-                child: Container(
-                  width: 36,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    color: photo != null
-                        ? const Color(0xFFFFFDF8)
-                        : c.inverseBg,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: MoonIcon(
-                      MoonIconName.chev,
-                      size: 16,
-                      color: photo != null
-                          ? const Color(0xFF37255C)
-                          : c.inverseText,
-                      strokeWidth: 2,
+                    const SizedBox(height: 8),
+                    // The intro and, to its right, the chevron button.
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: intro == null
+                              ? const SizedBox.shrink()
+                              : Text(
+                                  intro!,
+                                  style: dmSans(14, height: 1.4, color: muted),
+                                ),
+                        ),
+                        const SizedBox(width: 12),
+                        Container(
+                          width: 36,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            color: photo != null
+                                ? const Color(0xFFFFFDF8)
+                                : c.inverseBg,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: MoonIcon(
+                              MoonIconName.chev,
+                              size: 16,
+                              color: photo != null
+                                  ? const Color(0xFF37255C)
+                                  : c.inverseText,
+                              strokeWidth: 2,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
