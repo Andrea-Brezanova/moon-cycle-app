@@ -7,6 +7,7 @@ import '../../../../core/design/tokens/moon_typography.dart';
 import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
 import '../../../../core/design/widgets/recipe_photo.dart';
+import '../../../../core/design/widgets/tap_target.dart';
 import '../../../content/domain/recipe.dart';
 import 'recipe_image.dart';
 
@@ -287,6 +288,229 @@ class GridRecipeCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// All · Breakfast · Meals · Snacks as wrapping pills; the chosen one is plum.
+/// A 34-tall pill with a 44 touch target.
+class MealChips extends StatelessWidget {
+  const MealChips({
+    super.key,
+    required this.selected,
+    required this.onChanged,
+    required this.available,
+  });
+
+  /// Null is "All".
+  final MealType? selected;
+  final ValueChanged<MealType?> onChanged;
+
+  /// Only meal types with recipes in the scope get a pill.
+  final List<MealType> available;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final slop = tapTargetSlop(height: 34);
+    Widget chip(String label, MealType? type) {
+      final active = type == selected;
+      return ExpandedTapTarget(
+        extra: slop,
+        child: Pressable(
+          onTap: () => onChanged(type),
+          selected: active,
+          semanticLabel: label,
+          child: Padding(
+            padding: slop,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 34),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
+              decoration: ShapeDecoration(
+                color: active ? c.inverseBg : c.sand,
+                shape: const StadiumBorder(),
+              ),
+              child: Text(
+                label,
+                style: dmSans(
+                  13.5,
+                  weight: active ? FontWeight.w700 : FontWeight.w500,
+                  height: 1.2,
+                  color: active ? c.inverseText : c.text,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Wrap(
+      spacing: 8,
+      runSpacing: 4,
+      children: [
+        chip('All', null),
+        for (final type in available) chip(type.label, type),
+      ],
+    );
+  }
+}
+
+/// A recipe as a rounded row: thumbnail, title, meta and key ingredients, and
+/// (when [onHeart] is given) a heart that saves it to My recipes.
+class RecipeListCard extends StatelessWidget {
+  const RecipeListCard({
+    super.key,
+    required this.recipe,
+    required this.palette,
+    required this.onTap,
+    this.subtitle,
+    this.onHeart,
+    this.hearted = false,
+  });
+
+  final Recipe recipe;
+  final PhasePalette palette;
+  final VoidCallback onTap;
+
+  /// A line under the meta, e.g. the key ingredients.
+  final String? subtitle;
+
+  /// Saves or removes the recipe; null hides the heart.
+  final VoidCallback? onHeart;
+  final bool hearted;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final meta = '${recipe.mealType.label} · ${recipe.minutes} min';
+    // At large text sizes the picture goes on top, so the title keeps the
+    // card's whole width and words stay whole.
+    final stacked = MediaQuery.textScalerOf(context).scale(16) > 22;
+
+    final text = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          recipe.title,
+          style: fraunces(
+            18,
+            weight: FontWeight.w500,
+            height: 1.2,
+            color: c.text,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          meta,
+          style: dmSans(
+            12.5,
+            weight: FontWeight.w500,
+            height: 1.3,
+            color: c.textMuted,
+          ),
+        ),
+        if (subtitle != null && subtitle!.isNotEmpty)
+          Text(subtitle!, style: dmSans(12.5, height: 1.3, color: c.textMuted)),
+      ],
+    );
+    final photo = ExcludeSemantics(
+      child: stacked
+          ? RecipePhoto(
+              height: 120,
+              radius: 16,
+              palette: palette,
+              image: recipeImage(recipe),
+            )
+          : SizedBox(
+              width: 84,
+              child: RecipePhoto(
+                height: 84,
+                radius: 16,
+                palette: palette,
+                image: recipeImage(recipe),
+              ),
+            ),
+    );
+    final heart = onHeart == null
+        ? null
+        : Pressable(
+            onTap: onHeart,
+            checked: hearted,
+            semanticLabel: hearted
+                ? 'Remove ${recipe.title} from My recipes'
+                : 'Save ${recipe.title} to My recipes',
+            child: SizedBox(
+              width: 52,
+              height: 52,
+              child: Center(
+                child: MoonIcon(
+                  MoonIconName.heart,
+                  size: 22,
+                  color: hearted ? palette.text : c.textMuted,
+                  strokeWidth: hearted ? 2.6 : 1.8,
+                ),
+              ),
+            ),
+          );
+    return Container(
+      decoration: BoxDecoration(
+        color: c.raised,
+        border: Border.all(color: c.line),
+        borderRadius: BorderRadius.circular(22),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: stacked
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Pressable(
+                  onTap: onTap,
+                  semanticLabel: '${recipe.title}, $meta',
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: photo,
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Pressable(
+                        onTap: onTap,
+                        semanticLabel: '${recipe.title}, $meta',
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 12, 4, 14),
+                          child: text,
+                        ),
+                      ),
+                    ),
+                    ?heart,
+                  ],
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(
+                  child: Pressable(
+                    onTap: onTap,
+                    semanticLabel: '${recipe.title}, $meta',
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        children: [
+                          photo,
+                          const SizedBox(width: 14),
+                          Expanded(child: text),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                ?heart,
+              ],
+            ),
     );
   }
 }

@@ -65,11 +65,11 @@ void main() {
     return (container, db);
   }
 
-  testWidgets('the phase’s recipes: a feature card and a grid', (tester) async {
+  testWidgets('the phase’s recipes as cards with a heart', (tester) async {
     await pumpRecipes(tester);
     expect(find.text('29 follicular recipes'), findsOneWidget);
     expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
-    expect(find.text('25 min'), findsOneWidget); // the time badge
+    expect(find.text('Meals · 25 min'), findsWidgets); // the card's meta
   });
 
   testWidgets('meal tabs: the types the phase has recipes for', (tester) async {
@@ -223,6 +223,9 @@ void main() {
 
       // The photo's back button has scrolled away; system back works anywhere.
       await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+      // The list is where it was left; scroll up to the count.
+      await tester.drag(find.byType(Scrollable).first, const Offset(0, 3000));
       await tester.pumpAndSettle();
       expect(find.text('18 follicular meals'), findsOneWidget);
     },

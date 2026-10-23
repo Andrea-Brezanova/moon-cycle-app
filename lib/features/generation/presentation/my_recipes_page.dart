@@ -6,146 +6,251 @@ import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
-import '../../../core/design/widgets/editorial_text.dart';
+import '../../../core/design/widgets/centered_header.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
+import '../../../core/design/widgets/tap_target.dart';
 import '../../../core/domain/phase.dart';
+import '../../content/application/content_providers.dart';
 import '../../eat/application/eat_segment.dart';
+import '../../recipes/presentation/recipes_page.dart' show keyIngredients;
 import '../../recipes/presentation/widgets/recipe_widgets.dart';
 import '../application/generation_providers.dart';
 import '../data/saved_recipe_repository.dart';
 import '../domain/personal_recipe.dart';
+import '../domain/saved_recipe_ref.dart';
 
-/// "My recipes": the recipes the user made, saved privately on this phone.
-class MyRecipesPage extends ConsumerWidget {
+enum _Show { all, saved, mine }
+
+/// "My recipes": recipes the user saved and the ones made for them, kept
+/// privately on this phone. Filter: All, Saved, Added by me.
+class MyRecipesPage extends ConsumerStatefulWidget {
   const MyRecipesPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyRecipesPage> createState() => _MyRecipesPageState();
+}
+
+class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
+  _Show _show = _Show.all;
+
+  @override
+  Widget build(BuildContext context) {
     final c = context.moon;
+    final catalogue = ref.watch(catalogueProvider);
     final recipes = ref.watch(personalRecipesProvider).value ?? const [];
     final saved = ref.watch(savedRecipeRefsProvider).value ?? const [];
-    return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        bottom: false,
-        child: ListView(
-          padding: const EdgeInsets.only(bottom: 42 + 76),
-          children: [
-            SubScreenHeader(
-              backLabel: 'Recipes',
-              title: 'My recipes',
-              onBack: () => context.canPop()
-                  ? context.pop()
-                  : goEat(context, EatSegment.recipes),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                MoonSpace.gutter,
-                8,
-                MoonSpace.gutter,
-                0,
-              ),
-              child: recipes.isEmpty && saved.isEmpty
-                  ? EmptyState(
-                      icon: MoonIconName.recipes,
-                      title: 'No recipes yet',
-                      body: 'Recipes you save are listed here, privately.',
-                      palette: c.phase(Phase.follicular),
-                    )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'Saved privately on this phone.',
-                          style: dmSans(13, height: 1.4, color: c.textMuted),
-                        ),
-                        if (saved.isNotEmpty) ...[
-                          const SizedBox(height: 22),
-                          const Overline('Saved recipes'),
-                          for (final r in saved)
-                            Pressable(
-                              onTap: () => context.push(Routes.recipe(r.refId)),
-                              semanticLabel: '${r.title}, saved recipe',
-                              child: Container(
-                                key: ValueKey('saved-${r.refId}'),
-                                constraints: const BoxConstraints(
-                                  minHeight: 52,
-                                ),
-                                alignment: Alignment.centerLeft,
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    top: BorderSide(color: c.line),
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        r.title,
-                                        style: dmSans(
-                                          16,
-                                          weight: FontWeight.w500,
-                                          color: c.text,
-                                        ),
-                                      ),
-                                    ),
-                                    if (r.isExternal)
-                                      Text(
-                                        r.providerId == 'themealdb'
-                                            ? 'TheMealDB'
-                                            : r.providerId,
-                                        style: dmSans(12, color: c.textMuted),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                        ],
-                        for (var i = 0; i < recipes.length; i += 2) ...[
-                          const SizedBox(height: 26),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(child: _card(context, recipes[i])),
-                              const SizedBox(width: 14),
-                              Expanded(
-                                child: i + 1 < recipes.length
-                                    ? _card(context, recipes[i + 1])
-                                    : const SizedBox(),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ],
-                    ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+    final repo = ref.read(savedRecipeRepositoryProvider);
+    final showSaved = _show != _Show.mine;
+    final showMine = _show != _Show.saved;
 
-  Widget _card(BuildContext context, PersonalRecipe p) {
-    final c = context.moon;
-    return Column(
+    Widget gutter(Widget child, {double top = 0}) => Padding(
+      padding: EdgeInsets.fromLTRB(MoonSpace.gutter, top, MoonSpace.gutter, 0),
+      child: child,
+    );
+
+    Widget savedCard(SavedRecipeRef r) {
+      final recipe = catalogue.recipe(r.refId);
+      if (recipe != null) {
+        return RecipeListCard(
+          key: ValueKey('saved-${r.refId}'),
+          recipe: recipe,
+          palette: c.phase(recipe.phase),
+          subtitle: keyIngredients(recipe, catalogue),
+          onTap: () => context.push(Routes.recipe(r.refId)),
+          hearted: true,
+          onHeart: () => repo.remove(r.refId),
+        );
+      }
+      // An outside recipe: only its title and provider are kept.
+      return Pressable(
+        key: ValueKey('saved-${r.refId}'),
+        onTap: () => context.push(Routes.recipe(r.refId)),
+        semanticLabel: '${r.title}, saved recipe',
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 64),
+          padding: const EdgeInsets.fromLTRB(18, 12, 6, 12),
+          decoration: BoxDecoration(
+            color: c.raised,
+            border: Border.all(color: c.line),
+            borderRadius: BorderRadius.circular(22),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      r.title,
+                      style: fraunces(18, height: 1.2, color: c.text),
+                    ),
+                    if (r.isExternal)
+                      Text(
+                        r.providerId == 'themealdb'
+                            ? 'TheMealDB'
+                            : r.providerId,
+                        style: dmSans(12.5, height: 1.4, color: c.textMuted),
+                      ),
+                  ],
+                ),
+              ),
+              Pressable(
+                onTap: () => repo.remove(r.refId),
+                checked: true,
+                semanticLabel: 'Remove ${r.title} from My recipes',
+                child: SizedBox(
+                  width: minTapTarget + 8,
+                  height: minTapTarget + 8,
+                  child: Center(
+                    child: MoonIcon(
+                      MoonIconName.heart,
+                      size: 22,
+                      color: c.phase(Phase.menstrual).text,
+                      strokeWidth: 2.6,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Widget personalCard(PersonalRecipe p) => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GridRecipeCard(
+        RecipeListCard(
           recipe: p.recipe,
           palette: c.phase(p.recipe.phase),
+          subtitle: keyIngredients(p.recipe, catalogue),
           onTap: () => context.push(Routes.recipe(p.id)),
         ),
         if (p.isDevSample) ...[
           const SizedBox(height: 6),
-          Text(
-            'Development sample',
-            style: dmSans(11, height: 1, color: c.textMuted),
+          Padding(
+            padding: const EdgeInsets.only(left: 6),
+            child: Text(
+              'Development sample',
+              style: dmSans(11, height: 1, color: c.textMuted),
+            ),
           ),
         ],
       ],
+    );
+
+    final cards = [
+      if (showSaved)
+        for (final r in saved) savedCard(r),
+      if (showMine)
+        for (final p in recipes) personalCard(p),
+    ];
+    final (emptyTitle, emptyBody) = switch (_show) {
+      _Show.saved => (
+        'No saved recipes yet',
+        'Tap the heart on a recipe to keep it here.',
+      ),
+      _Show.mine => (
+        'Nothing added by you yet',
+        'Recipes made for you are listed here, privately.',
+      ),
+      _Show.all => (
+        'No recipes yet',
+        'Recipes you save are listed here, privately.',
+      ),
+    };
+
+    Widget chip(String label, _Show value, int count) {
+      final active = _show == value;
+      final slop = tapTargetSlop(height: 34);
+      return ExpandedTapTarget(
+        extra: slop,
+        child: Pressable(
+          onTap: () => setState(() => _show = value),
+          selected: active,
+          semanticLabel: '$label, $count',
+          child: Padding(
+            padding: slop,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 34),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
+              decoration: ShapeDecoration(
+                color: active ? c.inverseBg : c.sand,
+                shape: const StadiumBorder(),
+              ),
+              child: Text(
+                '$label $count',
+                style: dmSans(
+                  13.5,
+                  weight: active ? FontWeight.w700 : FontWeight.w500,
+                  height: 1.2,
+                  color: active ? c.inverseText : c.text,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      backgroundColor: c.bg,
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            CenteredHeader(
+              title: 'My recipes',
+              backLabel: 'Back to Recipes',
+              onBack: () => context.canPop()
+                  ? context.pop()
+                  : goEat(context, EatSegment.recipes),
+            ),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.only(bottom: 42 + 76),
+                children: [
+                  gutter(
+                    Text(
+                      'Recipes you’ve saved and your own, kept privately on '
+                      'this phone.',
+                      textAlign: TextAlign.center,
+                      style: dmSans(13.5, height: 1.45, color: c.textMuted),
+                    ),
+                    top: 6,
+                  ),
+                  gutter(
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: [
+                        chip('All', _Show.all, saved.length + recipes.length),
+                        chip('Saved', _Show.saved, saved.length),
+                        chip('Added by me', _Show.mine, recipes.length),
+                      ],
+                    ),
+                    top: 16,
+                  ),
+                  if (cards.isEmpty)
+                    gutter(
+                      EmptyState(
+                        icon: MoonIconName.recipes,
+                        title: emptyTitle,
+                        body: emptyBody,
+                        palette: c.phase(Phase.follicular),
+                      ),
+                      top: 18,
+                    )
+                  else
+                    for (final card in cards) gutter(card, top: 12),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

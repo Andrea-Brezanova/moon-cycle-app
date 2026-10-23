@@ -30,12 +30,13 @@ finished items out of "Remaining".
 | Bottom tab bar | shell | Already matches the V2 reference (Home · Eat · Move · Relax · More, gold dot). | Done | None known |
 | **Eat hub** | `/eat` | Approved reference (light + dark): Eat heading + search, photo, "Nourish your cycle" card, Foods / Recipes / Meal builder cards. Renders: `docs/v2-eat-shots/`. | In review (`feature/v2-eat-ui`; approved on device) | Approved hero photograph (a recipe photo stands in); hero photo still a stand-in |
 | Foods page | `/eat/foods` | Approved (light, dark, category-filtered), supplied in chat | In review (`feature/v2-foods-ui`; approved on device) | Photos for most foods (emoji tiles); |
-| Recipes page, Cook with | `/eat/recipes` | Approved (light, dark, Cook with ingredient), supplied in chat | Planned — Feature 2 (`feature/v2-recipes-ui`) | See Feature 2 |
+| Recipes page, Cook with | `/eat/recipes` | Approved (light, dark, Cook with ingredient), supplied in chat | In review (`feature/v2-recipes-ui`) | Done: listing, Cook with, search icon, hearts, My recipes (filters, counts). **Not built: Add a Recipe** — see below |
 | Food detail | `/eat/...` | — | Design pending | |
 | 3 Plants a Day | `/eat/three-plants` | — | Design pending | Plant photography (see Assets) |
 | Learn more (phase) | `/eat/learn` | — | Design pending | Home's Focus card links here |
 | Meal Builder | `/eat/...` | — | Design pending | Home no longer has a "Create my meal" entry; decide whether Home or Eat owns it |
-| My Recipes, Add a Recipe | `/eat/my-recipes` | Approved (My Recipes, Add a Recipe: paste a link / paste text / write my own), supplied in chat | Planned — Feature 2 | Audit which import flows really exist first |
+| My Recipes | `/eat/my-recipes` | Approved (My Recipes), supplied in chat | In review (`feature/v2-recipes-ui`) | Plus button and Add a Recipe CTA omitted (no supported flow) |
+| Add a Recipe | — | Approved (paste a link / paste text / write my own), supplied in chat | **Blocked: no flow exists** | Needs a product decision: see "Add a Recipe audit" |
 | Recipe detail | `/eat/recipe/:id` | — | Design pending | |
 | Move | `/move` | — | Design pending | Currently a placeholder; target of Home's MOVE card |
 | Relax | `/relax` | — | Design pending | Currently a placeholder; target of Home's RELAX card |
@@ -60,7 +61,7 @@ rebase or deploy.
 | --- | --- | --- | --- |
 | 0 | Eat hub | `feature/v2-eat-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 1 | Foods UI | `feature/v2-foods-ui` | Approved on device; goldens re-recorded; PR open for review |
-| 2 | Recipes UI (listing, Cook with, My Recipes, Add a Recipe) | `feature/v2-recipes-ui` | Not started |
+| 2 | Recipes UI (listing, Cook with, My Recipes; Add a Recipe blocked, see audit) | `feature/v2-recipes-ui` | PR open for review |
 | 3 | My Diary hub | `feature/v2-diary-hub` | Not started |
 | 4 | Free-writing diary Notes (new functionality; needs a design + data-model proposal first) | `feature/v2-diary-notes` | Not started |
 | 5 | Activity logging (new functionality; needs a model/storage proposal first) | `feature/v2-activity-log` | Not started |
@@ -120,6 +121,41 @@ to date, then add):
 - `Android build (dev, debug)`
 
 The golden job is no longer advisory (`continue-on-error` was removed).
+
+## Add a Recipe audit (Recipes feature)
+
+Audited on `feature/v2-recipes-ui` before any UI work. What exists:
+
+- **My recipes** holds two kinds of record: *saved references* (a bundled or
+  TheMealDB recipe the user hearted; only id, title, provider and source link are
+  stored) and *personal recipes* (recipes generated for the user through the
+  Balanced-selection creation flow; owner-scoped, private, with provenance and a
+  fingerprint). Both are kept and shown unchanged.
+- **Not present anywhere in the code:** pasting a recipe link, pasting recipe
+  text, URL extraction or parsing, a "write my own" recipe form, and any
+  import/review step. The Create-a-recipe page is the generation flow, not manual
+  entry, and is not linked from the UI.
+- Therefore the V2 My recipes screen has **no plus button and no "Add a Recipe"
+  call to action**, and no Add a Recipe screen was built. No buttons were added
+  that do nothing, and nothing claims to import.
+- To build it, a decision is needed first: manual entry only ("write my own" and
+  "paste text" as typed fields), or also link import (which raises provider/terms
+  and parsing questions). Either needs a data model for user-authored recipes
+  (the current personal recipe requires an owner session and generation
+  provenance) and an additive migration.
+- **Decision (owner):** support **manual recipe entry first**, followed by
+  **paste-text** and then **URL import**. Each is its own branch after the
+  Recipes PR; none is part of the Recipes PR. URL import still needs the
+  provider/terms and parsing questions answered before it starts.
+
+## Next in line after the Recipes PR merges
+
+1. `fix/food-detail-navigation` (own PR, before the Diary hub): audit and fix all
+   Food Detail actions — missing "Find recipes" (e.g. Amaranth), returning from
+   Recipes to the originating Food Detail, opening the Meal Builder with the
+   selected food and returning to Food Detail, logging a food with sensible back
+   navigation, and consistent headers and back controls.
+2. `feature/v2-diary-hub`, then Notes, then Activity logging (as above).
 
 ## Home
 

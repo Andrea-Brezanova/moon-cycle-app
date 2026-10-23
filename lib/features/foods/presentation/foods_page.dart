@@ -7,6 +7,7 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/centered_header.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
@@ -155,12 +156,17 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
         bottom: false,
         child: Column(
           children: [
-            _Header(
-              searching: showSearch,
+            CenteredHeader(
+              title: 'Foods',
+              backLabel: 'Back to Eat',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(AppTab.eat.path),
-              onSearch: _toggleSearch,
+              trailingIcon: MoonIconName.search,
+              trailingLabel: 'Search foods',
+              trailingKey: const ValueKey('foods-search'),
+              trailingSelected: showSearch,
+              onTrailing: _toggleSearch,
             ),
             gutter(
               Align(
@@ -297,72 +303,6 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-/// Back, the centred title and the search icon.
-class _Header extends StatelessWidget {
-  const _Header({
-    required this.searching,
-    required this.onBack,
-    required this.onSearch,
-  });
-
-  final bool searching;
-  final VoidCallback onBack;
-  final VoidCallback onSearch;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    Widget button(MoonIconName icon, String label, VoidCallback onTap) =>
-        Pressable(
-          onTap: onTap,
-          semanticLabel: label,
-          child: SizedBox(
-            width: minTapTarget,
-            height: minTapTarget,
-            child: Center(
-              child: MoonIcon(icon, size: 22, color: c.text, strokeWidth: 2),
-            ),
-          ),
-        );
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 4, 10, 0),
-      child: Row(
-        children: [
-          button(MoonIconName.back, 'Back to Eat', onBack),
-          Expanded(
-            child: Semantics(
-              header: true,
-              child: Text(
-                'Foods',
-                textAlign: TextAlign.center,
-                style: fraunces(26, height: 1.2, color: c.text),
-              ),
-            ),
-          ),
-          Pressable(
-            key: const ValueKey('foods-search'),
-            onTap: onSearch,
-            selected: searching,
-            semanticLabel: 'Search foods',
-            child: SizedBox(
-              width: minTapTarget,
-              height: minTapTarget,
-              child: Center(
-                child: MoonIcon(
-                  MoonIconName.search,
-                  size: 22,
-                  color: c.text,
-                  strokeWidth: 2,
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
