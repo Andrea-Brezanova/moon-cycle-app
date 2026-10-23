@@ -34,4 +34,4 @@ Index `diary_notes_live` on `(date)` where `deleted_at IS NULL`. Nothing existin
 - A note with neither a title nor any text is not stored (Save is disabled).
 - No limit on length; no rich text or attachments in this version.
 - Future days are not offered (like the rest of the diary).
-- The Delete my data page's wording still lists "cycle history, food preferences and shopping list" as before (it also omitted the diary); the deletion itself covers everything. A copy update is a separate small change.
+- Wording updated with the Notes feature: Delete my data and Privacy & Data now name the diary and personal Notes, and **Export my data** shows a notice first ("Before you export": the file may contain sensitive writing and is not encrypted once it leaves the app) with Continue and Cancel; nothing is shared until Continue.
