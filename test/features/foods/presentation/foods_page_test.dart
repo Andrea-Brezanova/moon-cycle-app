@@ -114,21 +114,17 @@ void main() {
     expect(find.text('Build a balanced meal'), findsNothing);
     expect(find.text('TODAY’S FOOD'), findsOneWidget);
     final todays = container.read(todaysFoodProvider)!;
-    expect(
-      find.text('See ${todays.displayName.toLowerCase()} →'),
-      findsOneWidget,
-    );
     expect(find.text(todays.why[Phase.follicular]!.short), findsOneWidget);
-    expect(find.text('YOUR FOODS FOR THIS PHASE'), findsOneWidget);
-    expect(
-      find.text('Tap a food to see why we feature it and find recipes.'),
-      findsOneWidget,
-    );
-    await scrollTo(tester, find.text('Grains'));
-    expect(find.text('Farro'), findsOneWidget);
+    expect(find.text('ALL FOODS'), findsOneWidget);
+    expect(find.textContaining(' for your phase'), findsOneWidget);
+    // The category chips: All, then each category the phase has.
+    for (final chip in ['All', 'Grains', 'Vegetables', 'Fruit']) {
+      expect(find.text(chip), findsWidgets, reason: chip);
+    }
+    await scrollTo(tester, find.text('Farro'));
     expect(find.text('Oat bran'), findsOneWidget);
     expect(find.text('Quinoa'), findsNothing); // featured elsewhere
-    expect(find.bySemanticsLabel('Farro'), findsOneWidget);
+    expect(find.bySemanticsLabel('Farro, Grains'), findsOneWidget);
     await scrollTo(tester, find.text('Lettuce'));
     expect(find.text('Bibb, Boston, romaine'), findsNothing);
   });
@@ -152,10 +148,6 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.luteal);
     expect(container.read(todaysFoodProvider)!.id, todays.id);
     expect(find.text('TODAY’S FOOD'), findsOneWidget);
-    expect(
-      find.text('See ${todays.displayName.toLowerCase()} →'),
-      findsOneWidget,
-    );
   });
 
   testWidgets('Today’s food opens its page with the real phase’s reason', (
@@ -163,7 +155,7 @@ void main() {
   ) async {
     final (container, _) = await pumpFoods(tester);
     final todays = container.read(todaysFoodProvider)!;
-    await tester.tap(find.text('See ${todays.displayName.toLowerCase()} →'));
+    await tester.tap(find.text('TODAY’S FOOD'));
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsOneWidget);
@@ -213,11 +205,11 @@ void main() {
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
     await tester.pumpAndSettle();
     // Scroll through every category; an overflow would fail the test.
-    await scrollTo(tester, find.text('Fermented'));
+    await scrollTo(tester, find.text('Fermented').first);
     expect(tester.takeException(), isNull);
     await browse(tester, 'All phases');
     // The whole catalogue wraps onto many lines at this size.
-    await scrollTo(tester, find.text('Other'), step: 600);
+    await scrollTo(tester, find.text('Other').first, step: 600);
     expect(tester.takeException(), isNull);
   });
 
@@ -239,11 +231,9 @@ void main() {
         await prefs.avoidFood('plum');
       },
     );
-    await scrollTo(tester, find.text('Vegetables'));
-    await scrollTo(tester, find.text('Fruit'));
+    await scrollTo(tester, find.text('Pomegranate'));
     expect(find.text('Plum'), findsNothing);
-    expect(find.text('Pomegranate'), findsOneWidget);
-    await scrollTo(tester, find.text('Fermented'));
+    // A category with nothing left has no chip.
     expect(find.text('Dairy & alternatives'), findsNothing);
     expect(find.text('Feta'), findsNothing);
     expect(find.text('Plain yogurt'), findsNothing);
@@ -279,9 +269,66 @@ void main() {
     // The list is where the user left it (scrolled to Salmon), now marked.
     expect(find.text('Salmon'), findsOneWidget);
     expect(
-      find.bySemanticsLabel('Salmon, on your shopping list'),
+      find.bySemanticsLabel('Remove Salmon from shopping list'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('a category chip shows only its foods and hides Today’s food', (
+    tester,
+  ) async {
+    await pumpFoods(tester);
+    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+    await tester.tap(find.text('Grains').first);
+    await tester.pumpAndSettle();
+    expect(find.text('TODAY’S FOOD'), findsNothing);
+    expect(find.text('GRAINS'), findsOneWidget); // the list heading
+    expect(find.text('2 for your phase'), findsOneWidget);
+    expect(find.text('Farro'), findsOneWidget);
+    expect(find.text('Broccoli'), findsNothing);
+    // "All" brings everything back.
+    await tester.tap(find.text('All').first);
+    await tester.pumpAndSettle();
+    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+    expect(find.text('ALL FOODS'), findsOneWidget);
+  });
+
+  testWidgets('the search icon opens a search that filters the list', (
+    tester,
+  ) async {
+    await pumpFoods(tester);
+    expect(find.text('Search foods'), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('foods-search')));
+    await tester.pumpAndSettle();
+    expect(find.text('Search foods'), findsOneWidget);
+    await tester.enterText(find.byType(EditableText), 'farro');
+    await tester.pumpAndSettle();
+    expect(find.text('1 for your phase'), findsOneWidget);
+    expect(find.text('TODAY’S FOOD'), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('foods-search')));
+    await tester.pumpAndSettle();
+    expect(find.text('Search foods'), findsNothing);
+    expect(find.text('TODAY’S FOOD'), findsOneWidget);
+  });
+
+  testWidgets('the + button adds a food to the shopping list and persists; '
+      'the check removes it', (tester) async {
+    final (_, db) = await pumpFoods(tester);
+    await scrollTo(tester, find.text('Farro'));
+    await tester.tap(find.bySemanticsLabel('Add Farro to shopping list'));
+    await tester.pumpAndSettle();
+    var items = await tester.runAsync(ShoppingRepository(db).items);
+    expect(items!.single.key, 'food:farro');
+    expect(find.byType(FoodDetailPage), findsNothing); // the row didn't open
+    expect(
+      find.bySemanticsLabel('Remove Farro from shopping list'),
+      findsOneWidget,
+    );
+
+    await tester.tap(find.bySemanticsLabel('Remove Farro from shopping list'));
+    await tester.pumpAndSettle();
+    items = await tester.runAsync(ShoppingRepository(db).items);
+    expect(items, isEmpty);
   });
 
   testWidgets('the shopping control is independent of opening a food', (
