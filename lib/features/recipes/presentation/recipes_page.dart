@@ -79,7 +79,6 @@ class RecipesPage extends ConsumerWidget {
           children: [
             CenteredHeader(
               title: 'Recipes',
-              backLabel: 'Back to Eat',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(AppTab.eat.path),

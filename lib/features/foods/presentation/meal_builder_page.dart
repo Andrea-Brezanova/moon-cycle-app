@@ -6,10 +6,10 @@ import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/centered_header.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
@@ -85,10 +85,13 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
         child: ListView(
           padding: const EdgeInsets.only(bottom: 42 + 76),
           children: [
-            SubScreenHeader(
-              backLabel: 'Foods',
-              onBack: () =>
-                  context.canPop() ? context.pop() : context.go(Routes.home),
+            // Back goes to whichever screen opened this one (a food's page, or
+            // Eat); with nothing to go back to, to Eat.
+            CenteredHeader(
+              title: 'Meal builder',
+              onBack: () => context.canPop()
+                  ? context.pop()
+                  : context.go(AppTab.eat.path),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(

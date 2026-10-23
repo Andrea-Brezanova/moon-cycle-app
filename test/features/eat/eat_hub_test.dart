@@ -54,7 +54,7 @@ void main() {
   }
 
   Future<void> back(WidgetTester tester) async {
-    await tester.tap(find.bySemanticsLabel('Back to Eat'));
+    await tester.tap(find.bySemanticsLabel('Back'));
     await tester.pumpAndSettle();
   }
 
@@ -113,7 +113,7 @@ void main() {
     await tester.tap(find.text('Farro'));
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('Back to Foods'));
+    await tester.tap(find.bySemanticsLabel('Back'));
     await tester.pumpAndSettle();
     expect(find.byType(FoodsPage), findsOneWidget);
     await back(tester);
@@ -135,7 +135,7 @@ void main() {
     unawaited(container.read(appRouterProvider).push(Routes.myRecipes));
     await tester.pumpAndSettle();
     expect(find.byType(MyRecipesPage), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('Back to Recipes'));
+    await tester.tap(find.bySemanticsLabel('Back'));
     await tester.pumpAndSettle();
     expect(find.byType(RecipesPage), findsOneWidget);
 
@@ -172,7 +172,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(MealBuilderPage), findsOneWidget);
       expect(find.text('See Premium'), findsOneWidget);
-      await tester.tap(find.bySemanticsLabel('Back to Foods'));
+      await tester.tap(find.bySemanticsLabel('Back'));
       await tester.pumpAndSettle();
       expect(find.byType(EatPage), findsOneWidget);
     });

@@ -203,7 +203,6 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
           children: [
             CenteredHeader(
               title: 'My recipes',
-              backLabel: 'Back to Recipes',
               onBack: () => context.canPop()
                   ? context.pop()
                   : goEat(context, EatSegment.recipes),

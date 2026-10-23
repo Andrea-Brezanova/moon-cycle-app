@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
-import 'package:moon_cycle/core/design/widgets/moon_list.dart';
-import 'package:moon_cycle/core/design/widgets/pressable.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
@@ -92,17 +90,12 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  /// The page's "‹ Foods" back control.
+  /// The page's back chevron.
   Future<void> goBack(WidgetTester tester) async {
     // The header scrolls with the page.
     await tester.drag(find.byType(Scrollable).first, const Offset(0, 1500));
     await tester.pumpAndSettle();
-    await tester.tap(
-      find.descendant(
-        of: find.byType(SubScreenHeader),
-        matching: find.byType(Pressable),
-      ),
-    );
+    await tester.tap(find.bySemanticsLabel('Back').first);
     await tester.pumpAndSettle();
   }
 
@@ -344,7 +337,9 @@ void main() {
     expect(items, isEmpty); // opening a food never adds it
   });
 
-  testWidgets('a food without recipes: no recipe button', (tester) async {
+  testWidgets('a food without recipes: a disabled button and the reason', (
+    tester,
+  ) async {
     final (container, _) = await pumpFoods(tester);
     // Every featured food now has a recipe; a general food may not.
     final counts = container.read(allRecipeCountsProvider);
@@ -361,7 +356,15 @@ void main() {
       find.text('No recipes with ${none.displayName.toLowerCase()} yet.'),
       findsOneWidget,
     );
-    expect(find.textContaining('Find recipes'), findsNothing);
+    // The same four actions in the same order, with Find recipes disabled.
+    final find_ = find.text(
+      'Find recipes with ${none.displayName.toLowerCase()}',
+    );
+    expect(find_, findsOneWidget);
+    await tester.tap(find_, warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(find.byType(FoodDetailPage), findsOneWidget); // nothing opened
+    expect(find.byType(RecipesPage), findsNothing);
   });
 
   testWidgets('a featured food shows its recipe count', (tester) async {

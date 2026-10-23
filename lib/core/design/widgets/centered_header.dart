@@ -24,7 +24,7 @@ class CenteredHeader extends StatelessWidget {
   final String title;
   final VoidCallback onBack;
 
-  /// The spoken label of the back button ("Back to Eat").
+  /// The spoken label of the back button.
   final String backLabel;
   final MoonIconName? trailingIcon;
   final String? trailingLabel;
