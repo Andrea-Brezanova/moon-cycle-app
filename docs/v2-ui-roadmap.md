@@ -142,8 +142,20 @@ Audited on `feature/v2-recipes-ui` before any UI work. What exists:
   "paste text" as typed fields), or also link import (which raises provider/terms
   and parsing questions). Either needs a data model for user-authored recipes
   (the current personal recipe requires an owner session and generation
-  provenance) and an additive migration. Proposed as its own branch after the
-  roadmap's remaining features, pending that decision.
+  provenance) and an additive migration.
+- **Decision (owner):** support **manual recipe entry first**, followed by
+  **paste-text** and then **URL import**. Each is its own branch after the
+  Recipes PR; none is part of the Recipes PR. URL import still needs the
+  provider/terms and parsing questions answered before it starts.
+
+## Next in line after the Recipes PR merges
+
+1. `fix/food-detail-navigation` (own PR, before the Diary hub): audit and fix all
+   Food Detail actions — missing "Find recipes" (e.g. Amaranth), returning from
+   Recipes to the originating Food Detail, opening the Meal Builder with the
+   selected food and returning to Food Detail, logging a food with sensible back
+   navigation, and consistent headers and back controls.
+2. `feature/v2-diary-hub`, then Notes, then Activity logging (as above).
 
 ## Home
 
