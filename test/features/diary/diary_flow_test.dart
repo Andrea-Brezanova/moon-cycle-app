@@ -41,7 +41,7 @@ void main() {
           ),
       ],
     );
-    c.read(appRouterProvider).go(Routes.diary);
+    c.read(appRouterProvider).go(Routes.diaryEntries);
     await tester.pumpAndSettle();
     return c;
   }

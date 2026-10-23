@@ -41,7 +41,7 @@ finished items out of "Remaining".
 | Move | `/move` | — | Design pending | Currently a placeholder; target of Home's MOVE card |
 | Relax | `/relax` | — | Design pending | Currently a placeholder; target of Home's RELAX card |
 | More | `/more` | — | Design pending | |
-| My Diary hub | `/more/diary` | Approved (light, dark): Today hero + five cards, supplied in chat | Planned — Feature 3 (`feature/v2-diary-hub`) | See Feature 3 |
+| My Diary hub | `/more/diary` | Approved (light, dark): Today hero + five cards, supplied in chat | In review (`feature/v2-diary-hub`) | Hub built; Log activities and Notes are Coming soon pages until Features 5 and 4 |
 | Shopping List | `/more/shopping-list` | — | Design pending | |
 | My Cycle / Food preferences / Allergies / Notifications / Subscription | `/more/...` | — | Design pending | |
 | Credits | `/more/credits` | — | Design pending | |
@@ -62,7 +62,7 @@ rebase or deploy.
 | 0 | Eat hub | `feature/v2-eat-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 1 | Foods UI | `feature/v2-foods-ui` | Approved on device; goldens re-recorded; PR open for review |
 | 2 | Recipes UI (listing, Cook with, My Recipes; Add a Recipe blocked, see audit) | `feature/v2-recipes-ui` | PR open for review |
-| 3 | My Diary hub | `feature/v2-diary-hub` | Not started |
+| 3 | My Diary hub | `feature/v2-diary-hub` | PR open |
 | 4 | Free-writing diary Notes (new functionality; needs a design + data-model proposal first) | `feature/v2-diary-notes` | Not started |
 | 5 | Activity logging (new functionality; needs a model/storage proposal first) | `feature/v2-activity-log` | Not started |
 

@@ -74,16 +74,25 @@ abstract final class Routes {
     return '/eat/food/$id${query.isEmpty ? '' : '?$query'}';
   }
 
-  /// More › My Diary. [date] opens that day; [symptoms] opens the Symptoms tab.
+  /// More › My Diary › entries: the history by day. [date] opens that day;
+  /// [symptoms] opens the Symptoms tab.
   static String diaryOn({LocalDate? date, bool symptoms = false}) {
     final q = [
       if (date != null) 'date=$date',
       if (symptoms) 'tab=symptoms',
     ].join('&');
-    return '/more/diary${q.isEmpty ? '' : '?$q'}';
+    return '$diaryEntries${q.isEmpty ? '' : '?$q'}';
   }
 
+  /// More › My Diary: the landing hub.
   static const String diary = '/more/diary';
+
+  /// The diary history (Meals and Symptoms by day).
+  static const String diaryEntries = '/more/diary/entries';
+
+  /// Placeholders until activity logging and notes are built.
+  static const String diaryActivities = '/more/diary/activities';
+  static const String diaryNotes = '/more/diary/notes';
 
   /// The Log a meal form (a full screen over the tab bar). Pass what to add
   /// ([kind], [itemId], [title]), a [meal] and [date] to preselect, or
