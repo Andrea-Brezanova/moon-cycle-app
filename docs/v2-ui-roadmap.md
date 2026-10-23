@@ -92,6 +92,23 @@ Key requirements per feature (full text was given in chat):
 - **Eat follow-up:** the Meal Builder back label ("Back to Foods") is a separate,
   approved navigation change if needed.
 
+## Testing policy (applies to every V2 branch)
+
+1. While implementing, run only the tests directly affected by the change.
+2. When fixing a failure, rerun the failing test or file, not the whole suite.
+3. Run `flutter analyze` only after meaningful code changes.
+4. Do not repeatedly regenerate or run every golden test; re-record only the
+   goldens that legitimately changed, after the owner approves the screen.
+5. Final verification is GitHub Actions: the complete non-golden suite, the
+   golden screenshots and the Android build.
+6. Do not duplicate full CI runs locally unless CI is unavailable or a specific
+   failure needs local reproduction.
+7. Keep terminal output short; read detailed logs only for failures.
+8. If CI already passed for the exact final commit, do not rerun it without a
+   reason.
+9. Before the owner merges, confirm the passing checks belong to the latest
+   commit, including all fixes and golden references.
+
 ## Home
 
 Implemented in Stage 1 (visual only).
