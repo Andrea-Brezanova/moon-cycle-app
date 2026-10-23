@@ -1,6 +1,7 @@
 import '../../../core/domain/local_date.dart';
 import '../../cycle/domain/cycle_profile.dart';
 import '../../cycle/domain/period_log.dart';
+import '../../diary/domain/diary_activity.dart';
 import '../../diary/domain/diary_entry.dart';
 import '../../diary/domain/diary_note.dart';
 import '../../generation/domain/personal_recipe.dart';
@@ -35,6 +36,7 @@ Map<String, Object?> buildDataExport({
   List<PersonalRecipe> personalRecipes = const [],
   List<DiaryEntry> diary = const [],
   List<DiaryNote> notes = const [],
+  List<DiaryActivity> activities = const [],
   List<SavedRecipeRef> savedRecipes = const [],
   required String? Function(String foodId) foodName,
 }) => {
@@ -125,6 +127,19 @@ Map<String, Object?> buildDataExport({
         'text': n.body,
         'createdAt': n.createdAt.toUtc().toIso8601String(),
         'updatedAt': n.updatedAt.toUtc().toIso8601String(),
+      },
+  ],
+  'activities': [
+    for (final a in activities)
+      {
+        'date': '${a.date}',
+        'type': a.type.name,
+        'name': a.customName,
+        'minutes': a.minutes,
+        'intensity': a.intensity?.name,
+        'note': a.note,
+        'createdAt': a.createdAt.toUtc().toIso8601String(),
+        'updatedAt': a.updatedAt.toUtc().toIso8601String(),
       },
   ],
   'savedRecipes': [

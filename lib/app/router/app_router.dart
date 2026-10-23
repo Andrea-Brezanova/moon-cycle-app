@@ -9,7 +9,8 @@ import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
 import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
-import '../../features/diary/presentation/diary_coming_soon_page.dart';
+import '../../features/diary/presentation/diary_activities_page.dart';
+import '../../features/diary/presentation/diary_activity_editor_page.dart';
 import '../../features/diary/presentation/diary_hub_page.dart';
 import '../../features/diary/presentation/diary_note_editor_page.dart';
 import '../../features/diary/presentation/diary_notes_page.dart';
@@ -235,18 +236,29 @@ GoRouter buildAppRouter({
                           ),
                           GoRoute(
                             path: 'activities',
-                            pageBuilder: (context, state) => _page(
-                              state,
-                              const DiaryComingSoonPage(
-                                title: 'Log activities',
-                                icon: MoonIconName.move,
-                                headline: 'Activity logging is on its way.',
-                                body:
-                                    'Soon you’ll be able to note movement, '
-                                    'exercise or walks here, if you’d like to. '
-                                    'Nothing to set up yet.',
+                            pageBuilder: (context, state) =>
+                                _page(state, const DiaryActivitiesPage()),
+                            routes: [
+                              GoRoute(
+                                path: 'new',
+                                parentNavigatorKey: rootKey,
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  DiaryActivityEditorPage(date: _dateOf(state)),
+                                ),
                               ),
-                            ),
+                              GoRoute(
+                                path: ':activityId',
+                                parentNavigatorKey: rootKey,
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  DiaryActivityEditorPage(
+                                    activityId:
+                                        state.pathParameters['activityId'],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           GoRoute(
                             path: 'notes',

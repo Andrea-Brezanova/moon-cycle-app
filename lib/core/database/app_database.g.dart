@@ -6326,6 +6326,619 @@ class DiaryNotesCompanion extends UpdateCompanion<DiaryNoteRow> {
   }
 }
 
+class $DiaryActivitiesTable extends DiaryActivities
+    with TableInfo<$DiaryActivitiesTable, DiaryActivityRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DiaryActivitiesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<LocalDate, String> date =
+      GeneratedColumn<String>(
+        'date',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<LocalDate>($DiaryActivitiesTable.$converterdate);
+  static const VerificationMeta _typeMeta = const VerificationMeta('type');
+  @override
+  late final GeneratedColumn<String> type = GeneratedColumn<String>(
+    'type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _customNameMeta = const VerificationMeta(
+    'customName',
+  );
+  @override
+  late final GeneratedColumn<String> customName = GeneratedColumn<String>(
+    'custom_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _minutesMeta = const VerificationMeta(
+    'minutes',
+  );
+  @override
+  late final GeneratedColumn<int> minutes = GeneratedColumn<int>(
+    'minutes',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _intensityMeta = const VerificationMeta(
+    'intensity',
+  );
+  @override
+  late final GeneratedColumn<String> intensity = GeneratedColumn<String>(
+    'intensity',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    date,
+    type,
+    customName,
+    minutes,
+    intensity,
+    note,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'diary_activities';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<DiaryActivityRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('type')) {
+      context.handle(
+        _typeMeta,
+        type.isAcceptableOrUnknown(data['type']!, _typeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_typeMeta);
+    }
+    if (data.containsKey('custom_name')) {
+      context.handle(
+        _customNameMeta,
+        customName.isAcceptableOrUnknown(data['custom_name']!, _customNameMeta),
+      );
+    }
+    if (data.containsKey('minutes')) {
+      context.handle(
+        _minutesMeta,
+        minutes.isAcceptableOrUnknown(data['minutes']!, _minutesMeta),
+      );
+    }
+    if (data.containsKey('intensity')) {
+      context.handle(
+        _intensityMeta,
+        intensity.isAcceptableOrUnknown(data['intensity']!, _intensityMeta),
+      );
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DiaryActivityRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DiaryActivityRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      date: $DiaryActivitiesTable.$converterdate.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}date'],
+        )!,
+      ),
+      type: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}type'],
+      )!,
+      customName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}custom_name'],
+      ),
+      minutes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}minutes'],
+      ),
+      intensity: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}intensity'],
+      ),
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+    );
+  }
+
+  @override
+  $DiaryActivitiesTable createAlias(String alias) {
+    return $DiaryActivitiesTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<LocalDate, String> $converterdate =
+      const LocalDateConverter();
+}
+
+class DiaryActivityRow extends DataClass
+    implements Insertable<DiaryActivityRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+  final LocalDate date;
+  final String type;
+  final String? customName;
+  final int? minutes;
+  final String? intensity;
+  final String? note;
+  const DiaryActivityRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.date,
+    required this.type,
+    this.customName,
+    this.minutes,
+    this.intensity,
+    this.note,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    {
+      map['date'] = Variable<String>(
+        $DiaryActivitiesTable.$converterdate.toSql(date),
+      );
+    }
+    map['type'] = Variable<String>(type);
+    if (!nullToAbsent || customName != null) {
+      map['custom_name'] = Variable<String>(customName);
+    }
+    if (!nullToAbsent || minutes != null) {
+      map['minutes'] = Variable<int>(minutes);
+    }
+    if (!nullToAbsent || intensity != null) {
+      map['intensity'] = Variable<String>(intensity);
+    }
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    return map;
+  }
+
+  DiaryActivitiesCompanion toCompanion(bool nullToAbsent) {
+    return DiaryActivitiesCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      date: Value(date),
+      type: Value(type),
+      customName: customName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customName),
+      minutes: minutes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(minutes),
+      intensity: intensity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(intensity),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+    );
+  }
+
+  factory DiaryActivityRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DiaryActivityRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      date: serializer.fromJson<LocalDate>(json['date']),
+      type: serializer.fromJson<String>(json['type']),
+      customName: serializer.fromJson<String?>(json['customName']),
+      minutes: serializer.fromJson<int?>(json['minutes']),
+      intensity: serializer.fromJson<String?>(json['intensity']),
+      note: serializer.fromJson<String?>(json['note']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'date': serializer.toJson<LocalDate>(date),
+      'type': serializer.toJson<String>(type),
+      'customName': serializer.toJson<String?>(customName),
+      'minutes': serializer.toJson<int?>(minutes),
+      'intensity': serializer.toJson<String?>(intensity),
+      'note': serializer.toJson<String?>(note),
+    };
+  }
+
+  DiaryActivityRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    LocalDate? date,
+    String? type,
+    Value<String?> customName = const Value.absent(),
+    Value<int?> minutes = const Value.absent(),
+    Value<String?> intensity = const Value.absent(),
+    Value<String?> note = const Value.absent(),
+  }) => DiaryActivityRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    date: date ?? this.date,
+    type: type ?? this.type,
+    customName: customName.present ? customName.value : this.customName,
+    minutes: minutes.present ? minutes.value : this.minutes,
+    intensity: intensity.present ? intensity.value : this.intensity,
+    note: note.present ? note.value : this.note,
+  );
+  DiaryActivityRow copyWithCompanion(DiaryActivitiesCompanion data) {
+    return DiaryActivityRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      date: data.date.present ? data.date.value : this.date,
+      type: data.type.present ? data.type.value : this.type,
+      customName: data.customName.present
+          ? data.customName.value
+          : this.customName,
+      minutes: data.minutes.present ? data.minutes.value : this.minutes,
+      intensity: data.intensity.present ? data.intensity.value : this.intensity,
+      note: data.note.present ? data.note.value : this.note,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DiaryActivityRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('type: $type, ')
+          ..write('customName: $customName, ')
+          ..write('minutes: $minutes, ')
+          ..write('intensity: $intensity, ')
+          ..write('note: $note')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    date,
+    type,
+    customName,
+    minutes,
+    intensity,
+    note,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DiaryActivityRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.date == this.date &&
+          other.type == this.type &&
+          other.customName == this.customName &&
+          other.minutes == this.minutes &&
+          other.intensity == this.intensity &&
+          other.note == this.note);
+}
+
+class DiaryActivitiesCompanion extends UpdateCompanion<DiaryActivityRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<LocalDate> date;
+  final Value<String> type;
+  final Value<String?> customName;
+  final Value<int?> minutes;
+  final Value<String?> intensity;
+  final Value<String?> note;
+  final Value<int> rowid;
+  const DiaryActivitiesCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.date = const Value.absent(),
+    this.type = const Value.absent(),
+    this.customName = const Value.absent(),
+    this.minutes = const Value.absent(),
+    this.intensity = const Value.absent(),
+    this.note = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  DiaryActivitiesCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required LocalDate date,
+    required String type,
+    this.customName = const Value.absent(),
+    this.minutes = const Value.absent(),
+    this.intensity = const Value.absent(),
+    this.note = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       date = Value(date),
+       type = Value(type);
+  static Insertable<DiaryActivityRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? date,
+    Expression<String>? type,
+    Expression<String>? customName,
+    Expression<int>? minutes,
+    Expression<String>? intensity,
+    Expression<String>? note,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (date != null) 'date': date,
+      if (type != null) 'type': type,
+      if (customName != null) 'custom_name': customName,
+      if (minutes != null) 'minutes': minutes,
+      if (intensity != null) 'intensity': intensity,
+      if (note != null) 'note': note,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  DiaryActivitiesCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<LocalDate>? date,
+    Value<String>? type,
+    Value<String?>? customName,
+    Value<int?>? minutes,
+    Value<String?>? intensity,
+    Value<String?>? note,
+    Value<int>? rowid,
+  }) {
+    return DiaryActivitiesCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      date: date ?? this.date,
+      type: type ?? this.type,
+      customName: customName ?? this.customName,
+      minutes: minutes ?? this.minutes,
+      intensity: intensity ?? this.intensity,
+      note: note ?? this.note,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (date.present) {
+      map['date'] = Variable<String>(
+        $DiaryActivitiesTable.$converterdate.toSql(date.value),
+      );
+    }
+    if (type.present) {
+      map['type'] = Variable<String>(type.value);
+    }
+    if (customName.present) {
+      map['custom_name'] = Variable<String>(customName.value);
+    }
+    if (minutes.present) {
+      map['minutes'] = Variable<int>(minutes.value);
+    }
+    if (intensity.present) {
+      map['intensity'] = Variable<String>(intensity.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DiaryActivitiesCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('type: $type, ')
+          ..write('customName: $customName, ')
+          ..write('minutes: $minutes, ')
+          ..write('intensity: $intensity, ')
+          ..write('note: $note, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $ProviderUsagesTable extends ProviderUsages
     with TableInfo<$ProviderUsagesTable, ProviderUsageRow> {
   @override
@@ -7243,6 +7856,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $DiaryNotesTable diaryNotes = $DiaryNotesTable(this);
+  late final $DiaryActivitiesTable diaryActivities = $DiaryActivitiesTable(
+    this,
+  );
   late final $ProviderUsagesTable providerUsages = $ProviderUsagesTable(this);
   late final $SavedRecipeRefsTable savedRecipeRefs = $SavedRecipeRefsTable(
     this,
@@ -7271,6 +7887,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'diary_notes_live',
     'CREATE INDEX diary_notes_live ON diary_notes (date) WHERE deleted_at IS NULL',
   );
+  late final Index diaryActivitiesLive = Index(
+    'diary_activities_live',
+    'CREATE INDEX diary_activities_live ON diary_activities (date) WHERE deleted_at IS NULL',
+  );
   late final Index savedRecipeRefsLive = Index(
     'saved_recipe_refs_live',
     'CREATE UNIQUE INDEX saved_recipe_refs_live ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
@@ -7291,6 +7911,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     diaryEntries,
     symptomCheckins,
     diaryNotes,
+    diaryActivities,
     providerUsages,
     savedRecipeRefs,
     periodLogsStartLive,
@@ -7299,6 +7920,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     diaryEntriesItemLive,
     symptomCheckinsLive,
     diaryNotesLive,
+    diaryActivitiesLive,
     savedRecipeRefsLive,
   ];
   @override
@@ -10731,6 +11353,319 @@ typedef $$DiaryNotesTableProcessedTableManager =
       DiaryNoteRow,
       PrefetchHooks Function()
     >;
+typedef $$DiaryActivitiesTableCreateCompanionBuilder =
+    DiaryActivitiesCompanion Function({
+      required String id,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      required LocalDate date,
+      required String type,
+      Value<String?> customName,
+      Value<int?> minutes,
+      Value<String?> intensity,
+      Value<String?> note,
+      Value<int> rowid,
+    });
+typedef $$DiaryActivitiesTableUpdateCompanionBuilder =
+    DiaryActivitiesCompanion Function({
+      Value<String> id,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<LocalDate> date,
+      Value<String> type,
+      Value<String?> customName,
+      Value<int?> minutes,
+      Value<String?> intensity,
+      Value<String?> note,
+      Value<int> rowid,
+    });
+
+class $$DiaryActivitiesTableFilterComposer
+    extends Composer<_$AppDatabase, $DiaryActivitiesTable> {
+  $$DiaryActivitiesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<LocalDate, LocalDate, String> get date =>
+      $composableBuilder(
+        column: $table.date,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get type => $composableBuilder(
+    column: $table.type,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get customName => $composableBuilder(
+    column: $table.customName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get minutes => $composableBuilder(
+    column: $table.minutes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get intensity => $composableBuilder(
+    column: $table.intensity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$DiaryActivitiesTableOrderingComposer
+    extends Composer<_$AppDatabase, $DiaryActivitiesTable> {
+  $$DiaryActivitiesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get date => $composableBuilder(
+    column: $table.date,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get type => $composableBuilder(
+    column: $table.type,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get customName => $composableBuilder(
+    column: $table.customName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get minutes => $composableBuilder(
+    column: $table.minutes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get intensity => $composableBuilder(
+    column: $table.intensity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$DiaryActivitiesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DiaryActivitiesTable> {
+  $$DiaryActivitiesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<LocalDate, String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
+
+  GeneratedColumn<String> get type =>
+      $composableBuilder(column: $table.type, builder: (column) => column);
+
+  GeneratedColumn<String> get customName => $composableBuilder(
+    column: $table.customName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get minutes =>
+      $composableBuilder(column: $table.minutes, builder: (column) => column);
+
+  GeneratedColumn<String> get intensity =>
+      $composableBuilder(column: $table.intensity, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+}
+
+class $$DiaryActivitiesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $DiaryActivitiesTable,
+          DiaryActivityRow,
+          $$DiaryActivitiesTableFilterComposer,
+          $$DiaryActivitiesTableOrderingComposer,
+          $$DiaryActivitiesTableAnnotationComposer,
+          $$DiaryActivitiesTableCreateCompanionBuilder,
+          $$DiaryActivitiesTableUpdateCompanionBuilder,
+          (
+            DiaryActivityRow,
+            BaseReferences<
+              _$AppDatabase,
+              $DiaryActivitiesTable,
+              DiaryActivityRow
+            >,
+          ),
+          DiaryActivityRow,
+          PrefetchHooks Function()
+        > {
+  $$DiaryActivitiesTableTableManager(
+    _$AppDatabase db,
+    $DiaryActivitiesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DiaryActivitiesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DiaryActivitiesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DiaryActivitiesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<LocalDate> date = const Value.absent(),
+                Value<String> type = const Value.absent(),
+                Value<String?> customName = const Value.absent(),
+                Value<int?> minutes = const Value.absent(),
+                Value<String?> intensity = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => DiaryActivitiesCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                type: type,
+                customName: customName,
+                minutes: minutes,
+                intensity: intensity,
+                note: note,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required LocalDate date,
+                required String type,
+                Value<String?> customName = const Value.absent(),
+                Value<int?> minutes = const Value.absent(),
+                Value<String?> intensity = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => DiaryActivitiesCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                type: type,
+                customName: customName,
+                minutes: minutes,
+                intensity: intensity,
+                note: note,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$DiaryActivitiesTable, DiaryActivityRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $DiaryActivitiesTable,
+                    DiaryActivityRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$DiaryActivitiesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $DiaryActivitiesTable,
+      DiaryActivityRow,
+      $$DiaryActivitiesTableFilterComposer,
+      $$DiaryActivitiesTableOrderingComposer,
+      $$DiaryActivitiesTableAnnotationComposer,
+      $$DiaryActivitiesTableCreateCompanionBuilder,
+      $$DiaryActivitiesTableUpdateCompanionBuilder,
+      (
+        DiaryActivityRow,
+        BaseReferences<_$AppDatabase, $DiaryActivitiesTable, DiaryActivityRow>,
+      ),
+      DiaryActivityRow,
+      PrefetchHooks Function()
+    >;
 typedef $$ProviderUsagesTableCreateCompanionBuilder =
     ProviderUsagesCompanion Function({
       required String providerId,
@@ -11252,6 +12187,8 @@ class $AppDatabaseManager {
       $$SymptomCheckinsTableTableManager(_db, _db.symptomCheckins);
   $$DiaryNotesTableTableManager get diaryNotes =>
       $$DiaryNotesTableTableManager(_db, _db.diaryNotes);
+  $$DiaryActivitiesTableTableManager get diaryActivities =>
+      $$DiaryActivitiesTableTableManager(_db, _db.diaryActivities);
   $$ProviderUsagesTableTableManager get providerUsages =>
       $$ProviderUsagesTableTableManager(_db, _db.providerUsages);
   $$SavedRecipeRefsTableTableManager get savedRecipeRefs =>

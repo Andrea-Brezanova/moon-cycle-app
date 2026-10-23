@@ -237,6 +237,29 @@ class DiaryNotes extends Table with UserRow {
   TextColumn get body => text()();
 }
 
+/// A movement the user chose to note (schema 8). Local only, in the encrypted
+/// database.
+///
+/// [type] is a key from a fixed list (walk, run, yoga, ...; `other` may carry
+/// a [customName]). [minutes], [intensity] (`light|moderate|vigorous`) and
+/// [note] are optional and null when not given. Nothing is estimated,
+/// scored or interpreted: no calories, no targets. Deleting tombstones the row
+/// and empties [customName] and [note].
+@TableIndex.sql(
+  'CREATE INDEX diary_activities_live '
+  'ON diary_activities ("date") '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('DiaryActivityRow')
+class DiaryActivities extends Table with UserRow {
+  TextColumn get date => text().map(const LocalDateConverter())();
+  TextColumn get type => text()();
+  TextColumn get customName => text().nullable()();
+  IntColumn get minutes => integer().nullable()();
+  TextColumn get intensity => text().nullable()();
+  TextColumn get note => text().nullable()();
+}
+
 /// How many requests each external recipe provider has been sent this month,
 /// and roughly what they cost, so a monthly budget can be enforced.
 @DataClassName('ProviderUsageRow')

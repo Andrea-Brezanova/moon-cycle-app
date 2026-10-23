@@ -15,7 +15,7 @@ import '../../entitlements/application/entitlement_providers.dart';
 import '../../entitlements/domain/entitlements.dart';
 
 /// My Diary: the landing hub. A "Today" card and five ways in: symptoms, a
-/// meal, activities (coming soon), notes (coming soon) and the entries. Each
+/// meal, activities, notes and the entries. Each
 /// opens a screen that already exists; the hub itself stores nothing.
 class DiaryHubPage extends ConsumerWidget {
   const DiaryHubPage({super.key});
