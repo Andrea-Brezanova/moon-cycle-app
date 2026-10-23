@@ -7,16 +7,17 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/centered_header.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_chip.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/recipe_photo.dart';
 import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
+import '../../content/domain/recipe.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../diary/domain/diary_entry.dart';
 import '../../eat/application/eat_segment.dart';
@@ -67,8 +68,10 @@ class FoodDetailPage extends ConsumerWidget {
     final shown = phase ?? viewing;
     final palette = c.phase(shown);
 
-    Widget header() => SubScreenHeader(
-      backLabel: 'Foods',
+    // Back goes to whichever screen opened this page; with nothing to go back
+    // to (a link), it falls back to Foods.
+    Widget header() => CenteredHeader(
+      title: 'Food',
       onBack: () =>
           context.canPop() ? context.pop() : goEat(context, EatSegment.foods),
     );
@@ -102,6 +105,13 @@ class FoodDetailPage extends ConsumerWidget {
         ? ref.watch(allRecipeCountsProvider)
         : ref.watch(recipeCountsProvider(shown));
     final count = counts[food.id] ?? 0;
+    // Why there may be no recipes: none exist, or the user's food preferences
+    // hide the ones that do. Counted before the preferences are applied.
+    bool usesFood(Recipe r) => r.keyFoodIds.contains(food.id);
+    final inScope = (general ? catalogue.recipes : catalogue.recipesFor(shown))
+        .where(usesFood)
+        .length;
+    final anywhere = catalogue.recipes.where(usesFood).length;
     // From the stored shopping list itself (any state, to buy or done), never a
     // local flag, so it survives navigation and restarts and follows changes
     // made on the Shopping list page.
@@ -189,40 +199,69 @@ class FoodDetailPage extends ConsumerWidget {
                     _GoodToKnow(cautions: food.cautions),
                   ],
                   const SizedBox(height: 26),
-                  // 1. Recipes with this food.
-                  if (count > 0)
-                    MoonButton(
-                      'Find recipes with $name',
-                      trailingIcon: MoonIconName.arrow,
-                      onPressed: () {
-                        // A phase's recipes: show that phase; "all" otherwise.
-                        if (general) {
-                          ref.read(recipesScopeProvider.notifier).showAll();
-                        } else {
-                          ref.read(viewingPhaseProvider.notifier).choose(shown);
-                        }
-                        ref
-                            .read(recipeFilterProvider.notifier)
-                            .showRecipesWith(food.id);
-                        goEat(context, EatSegment.recipes);
-                      },
-                    )
-                  else
+                  // 1. Recipes with this food. Always shown; disabled, with the
+                  // reason, when there are none to find.
+                  MoonButton(
+                    'Find recipes with $name',
+                    trailingIcon: MoonIconName.arrow,
+                    onPressed: count > 0
+                        ? () {
+                            // A phase's recipes: show that phase; "all"
+                            // otherwise.
+                            if (general) {
+                              ref.read(recipesScopeProvider.notifier).showAll();
+                            } else {
+                              ref
+                                  .read(viewingPhaseProvider.notifier)
+                                  .choose(shown);
+                            }
+                            ref
+                                .read(recipeFilterProvider.notifier)
+                                .showRecipesWith(food.id);
+                            // Pushed, so Back returns to this food.
+                            context.push(Routes.eatRecipes);
+                          }
+                        : null,
+                  ),
+                  if (count == 0) ...[
+                    const SizedBox(height: 8),
                     Text(
-                      'No recipes with $name yet.',
+                      key: const ValueKey('no-recipes-note'),
+                      inScope > 0
+                          ? (inScope == 1
+                                ? 'The only recipe with $name is hidden by '
+                                      'your food preferences.'
+                                : 'All $inScope recipes with $name are hidden '
+                                      'by your food preferences.')
+                          : anywhere > 0
+                          ? 'No ${shown.name} recipes with $name yet.'
+                          : 'No recipes with $name yet.',
                       style: dmSans(14, height: 1.4, color: c.textMuted),
                     ),
+                  ],
                   const SizedBox(height: 12),
-                  // 2. Make your own meal (Premium).
+                  // 2. Make your own meal (Premium). Herbs season a meal and
+                  // are not chosen as its ingredients, so theirs is disabled.
                   MoonButton(
                     'Make your own meal with $name',
                     variant: MoonButtonVariant.ghost,
                     trailingIcon: canMeal ? null : MoonIconName.lock,
-                    onPressed: canMeal
+                    onPressed: isHerb(food)
+                        ? null
+                        : canMeal
                         ? () =>
                               context.push(Routes.mealBuilder(foodId: food.id))
                         : toSubscription,
                   ),
+                  if (isHerb(food)) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      key: const ValueKey('herb-meal-note'),
+                      'Herbs season a meal; they aren’t chosen as ingredients '
+                      'in the meal builder.',
+                      style: dmSans(14, height: 1.4, color: c.textMuted),
+                    ),
+                  ],
                   const SizedBox(height: 12),
                   // 3. The shopping list (free, independent of the rest).
                   if (listed != null)

@@ -77,7 +77,7 @@ void main() {
     expect(find.text('No recipes yet'), findsOneWidget);
 
     // Back to Recipes, save one, and open My recipes again.
-    await tester.tap(find.bySemanticsLabel('Back to Recipes'));
+    await tester.tap(find.bySemanticsLabel('Back'));
     await tester.pumpAndSettle();
     await tester.drag(find.byType(Scrollable).first, const Offset(0, 6000));
     await tester.pumpAndSettle();

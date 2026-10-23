@@ -158,7 +158,6 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           children: [
             CenteredHeader(
               title: 'Foods',
-              backLabel: 'Back to Eat',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(AppTab.eat.path),
