@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/design/moon_theme.dart';
 import '../../../../core/design/tokens/moon_typography.dart';
+import '../../../../core/design/widgets/botanical_sprig.dart';
 import '../../../../core/design/widgets/editorial_text.dart';
 import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
@@ -59,7 +60,7 @@ class TodaysFocusCard extends StatelessWidget {
                 width: 64,
                 height: 116,
                 child: CustomPaint(
-                  painter: _SprigPainter(
+                  painter: SprigPainter(
                     leaf: c.phase(phase).accent.withValues(alpha: 0.55),
                     stem: c.phase(phase).accent.withValues(alpha: 0.8),
                   ),
@@ -98,50 +99,6 @@ class TodaysFocusCard extends StatelessWidget {
 }
 
 /// A small hand-drawn style sprig: a curved stem with paired leaves.
-class _SprigPainter extends CustomPainter {
-  _SprigPainter({required this.leaf, required this.stem});
-
-  final Color leaf;
-  final Color stem;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final stemPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.3
-      ..strokeCap = StrokeCap.round
-      ..color = stem;
-    final fill = Paint()..color = leaf.withValues(alpha: 0.28);
-    final edge = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1
-      ..color = stem;
-    final w = size.width, h = size.height;
-    final path = Path()
-      ..moveTo(w * 0.35, h)
-      ..quadraticBezierTo(w * 0.55, h * 0.55, w * 0.7, 0);
-    canvas.drawPath(path, stemPaint);
-    for (var i = 0; i < 5; i++) {
-      final t = 0.18 + i * 0.17;
-      final y = h * (1 - t);
-      final x = w * (0.35 + 0.35 * t * 0.95);
-      for (final dir in [-1.0, 1.0]) {
-        final len = w * (0.36 - i * 0.03);
-        final tip = Offset(x + dir * len, y - h * 0.05);
-        final leafPath = Path()
-          ..moveTo(x, y)
-          ..quadraticBezierTo(x + dir * len * 0.5, y - h * 0.07, tip.dx, tip.dy)
-          ..quadraticBezierTo(x + dir * len * 0.5, y + h * 0.015, x, y);
-        canvas.drawPath(leafPath, fill);
-        canvas.drawPath(leafPath, edge);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(_SprigPainter old) => old.leaf != leaf || old.stem != stem;
-}
-
 /// One of the three optional daily suggestions: a photo, a label, a title, a
 /// line and a round chevron. Suggestions only: nothing to complete or score.
 class DailyCard extends StatelessWidget {

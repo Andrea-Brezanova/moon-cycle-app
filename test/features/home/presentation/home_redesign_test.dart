@@ -6,7 +6,7 @@ import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
-import 'package:moon_cycle/features/diary/presentation/diary_page.dart';
+import 'package:moon_cycle/features/diary/presentation/diary_hub_page.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
@@ -161,8 +161,8 @@ void main() {
       expect(find.textContaining('Plus'), findsNothing);
       await tester.tap(find.text('My Diary'));
       await tester.pumpAndSettle();
-      // The diary page applies its own (unchanged) rule.
-      expect(find.byType(DiaryPage), findsOneWidget);
+      // Home opens the My Diary hub; the entries are one card further in.
+      expect(find.byType(DiaryHubPage), findsOneWidget);
 
       await tester.tap(find.byKey(const ValueKey('tab-home')));
       await tester.pumpAndSettle();

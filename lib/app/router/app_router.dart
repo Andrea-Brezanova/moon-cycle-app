@@ -9,6 +9,8 @@ import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
 import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
+import '../../features/diary/presentation/diary_coming_soon_page.dart';
+import '../../features/diary/presentation/diary_hub_page.dart';
 import '../../features/diary/presentation/diary_page.dart';
 import '../../features/diary/presentation/log_meal_page.dart';
 import '../../features/diary/presentation/log_symptoms_page.dart';
@@ -214,15 +216,51 @@ GoRouter buildAppRouter({
                     AppTab.more => [
                       GoRoute(
                         path: 'diary',
-                        pageBuilder: (context, state) => _page(
-                          state,
-                          DiaryPage(
-                            initialDate: _dateOf(state),
-                            initialSymptoms:
-                                state.uri.queryParameters['tab'] == 'symptoms',
-                          ),
-                        ),
+                        pageBuilder: (context, state) =>
+                            _page(state, const DiaryHubPage()),
                         routes: [
+                          GoRoute(
+                            path: 'entries',
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              DiaryPage(
+                                initialDate: _dateOf(state),
+                                initialSymptoms:
+                                    state.uri.queryParameters['tab'] ==
+                                    'symptoms',
+                              ),
+                            ),
+                          ),
+                          GoRoute(
+                            path: 'activities',
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              const DiaryComingSoonPage(
+                                title: 'Log activities',
+                                icon: MoonIconName.move,
+                                headline: 'Activity logging is on its way.',
+                                body:
+                                    'Soon you’ll be able to note movement, '
+                                    'exercise or walks here, if you’d like to. '
+                                    'Nothing to set up yet.',
+                              ),
+                            ),
+                          ),
+                          GoRoute(
+                            path: 'notes',
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              const DiaryComingSoonPage(
+                                title: 'Notes',
+                                icon: MoonIconName.pencil,
+                                headline: 'Notes are on their way.',
+                                body:
+                                    'A private space for your thoughts, '
+                                    'reflections and memories is coming. '
+                                    'Nothing to set up yet.',
+                              ),
+                            ),
+                          ),
                           // The forms cover the tab bar, so they open on the
                           // root navigator, above the shell.
                           GoRoute(
