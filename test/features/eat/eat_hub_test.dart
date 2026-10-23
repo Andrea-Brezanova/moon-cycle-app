@@ -14,7 +14,6 @@ import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
-import 'package:moon_cycle/features/foods/presentation/widgets/food_chip.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
 import 'package:moon_cycle/features/plants/presentation/three_plants_page.dart';
@@ -109,7 +108,9 @@ void main() {
     await pumpEat(tester);
     await tester.tap(find.text('Foods'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byType(FoodChip).first);
+    await tester.ensureVisible(find.text('Farro'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Farro'));
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Back to Foods'));
