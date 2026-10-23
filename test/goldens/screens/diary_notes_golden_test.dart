@@ -1,7 +1,6 @@
 @Tags(['golden'])
 library;
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/diary/presentation/diary_note_editor_page.dart';
