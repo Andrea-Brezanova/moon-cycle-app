@@ -219,6 +219,24 @@ class SymptomCheckins extends Table with UserRow {
   TextColumn get note => text().nullable()();
 }
 
+/// A free-writing diary note (schema 7). Local only, in the encrypted database.
+///
+/// Several notes per day are allowed. [title] is optional; [body] is the
+/// writing itself. Deleting a note tombstones the row *and* empties [title] and
+/// [body], so deleted writing is not kept. Nothing here is analysed, scored or
+/// sent anywhere.
+@TableIndex.sql(
+  'CREATE INDEX diary_notes_live '
+  'ON diary_notes ("date") '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('DiaryNoteRow')
+class DiaryNotes extends Table with UserRow {
+  TextColumn get date => text().map(const LocalDateConverter())();
+  TextColumn get title => text().nullable()();
+  TextColumn get body => text()();
+}
+
 /// How many requests each external recipe provider has been sent this month,
 /// and roughly what they cost, so a monthly budget can be enforced.
 @DataClassName('ProviderUsageRow')

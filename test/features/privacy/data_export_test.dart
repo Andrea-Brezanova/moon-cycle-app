@@ -6,6 +6,7 @@ import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/period_log.dart';
+import 'package:moon_cycle/features/diary/domain/diary_note.dart';
 import 'package:moon_cycle/features/generation/domain/generation_result.dart';
 import 'package:moon_cycle/features/generation/domain/personal_recipe.dart';
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
@@ -71,6 +72,7 @@ void main() {
       'preferences',
       'shoppingList',
       'diary',
+      'notes',
       'savedRecipes',
       'personalRecipes',
     ]);
@@ -201,5 +203,38 @@ void main() {
       '2026-08-31,,,true\n'
       '2026-09-28,2026-10-02,5,false\n',
     );
+  });
+
+  test('diary notes are exported with their writing', () {
+    final out = buildDataExport(
+      exportedAt: DateTime.utc(2026, 10, 12, 9),
+      appVersion: '1.0.0',
+      profile: null,
+      periods: const [],
+      diet: Diet.vegetarian,
+      avoidances: const [],
+      reminders: const ReminderSettings(),
+      shoppingList: const [],
+      notes: [
+        DiaryNote(
+          id: 'n',
+          date: LocalDate(2026, 10, 11),
+          title: 'Sunday',
+          body: 'Walked by the river.',
+          createdAt: DateTime.utc(2026, 10, 11, 18),
+          updatedAt: DateTime.utc(2026, 10, 11, 18),
+        ),
+      ],
+      foodName: (_) => null,
+    );
+    expect(out['notes'], [
+      {
+        'date': '2026-10-11',
+        'title': 'Sunday',
+        'text': 'Walked by the river.',
+        'createdAt': '2026-10-11T18:00:00.000Z',
+        'updatedAt': '2026-10-11T18:00:00.000Z',
+      },
+    ]);
   });
 }

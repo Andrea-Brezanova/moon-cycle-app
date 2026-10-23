@@ -5868,6 +5868,464 @@ class SymptomCheckinsCompanion extends UpdateCompanion<SymptomCheckinRow> {
   }
 }
 
+class $DiaryNotesTable extends DiaryNotes
+    with TableInfo<$DiaryNotesTable, DiaryNoteRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DiaryNotesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<LocalDate, String> date =
+      GeneratedColumn<String>(
+        'date',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<LocalDate>($DiaryNotesTable.$converterdate);
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _bodyMeta = const VerificationMeta('body');
+  @override
+  late final GeneratedColumn<String> body = GeneratedColumn<String>(
+    'body',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    date,
+    title,
+    body,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'diary_notes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<DiaryNoteRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    }
+    if (data.containsKey('body')) {
+      context.handle(
+        _bodyMeta,
+        body.isAcceptableOrUnknown(data['body']!, _bodyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bodyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DiaryNoteRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DiaryNoteRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      date: $DiaryNotesTable.$converterdate.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}date'],
+        )!,
+      ),
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      ),
+      body: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}body'],
+      )!,
+    );
+  }
+
+  @override
+  $DiaryNotesTable createAlias(String alias) {
+    return $DiaryNotesTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<LocalDate, String> $converterdate =
+      const LocalDateConverter();
+}
+
+class DiaryNoteRow extends DataClass implements Insertable<DiaryNoteRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+  final LocalDate date;
+  final String? title;
+  final String body;
+  const DiaryNoteRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.date,
+    this.title,
+    required this.body,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    {
+      map['date'] = Variable<String>(
+        $DiaryNotesTable.$converterdate.toSql(date),
+      );
+    }
+    if (!nullToAbsent || title != null) {
+      map['title'] = Variable<String>(title);
+    }
+    map['body'] = Variable<String>(body);
+    return map;
+  }
+
+  DiaryNotesCompanion toCompanion(bool nullToAbsent) {
+    return DiaryNotesCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      date: Value(date),
+      title: title == null && nullToAbsent
+          ? const Value.absent()
+          : Value(title),
+      body: Value(body),
+    );
+  }
+
+  factory DiaryNoteRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DiaryNoteRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      date: serializer.fromJson<LocalDate>(json['date']),
+      title: serializer.fromJson<String?>(json['title']),
+      body: serializer.fromJson<String>(json['body']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'date': serializer.toJson<LocalDate>(date),
+      'title': serializer.toJson<String?>(title),
+      'body': serializer.toJson<String>(body),
+    };
+  }
+
+  DiaryNoteRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    LocalDate? date,
+    Value<String?> title = const Value.absent(),
+    String? body,
+  }) => DiaryNoteRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    date: date ?? this.date,
+    title: title.present ? title.value : this.title,
+    body: body ?? this.body,
+  );
+  DiaryNoteRow copyWithCompanion(DiaryNotesCompanion data) {
+    return DiaryNoteRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      date: data.date.present ? data.date.value : this.date,
+      title: data.title.present ? data.title.value : this.title,
+      body: data.body.present ? data.body.value : this.body,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DiaryNoteRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('title: $title, ')
+          ..write('body: $body')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, createdAt, updatedAt, deletedAt, date, title, body);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DiaryNoteRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.date == this.date &&
+          other.title == this.title &&
+          other.body == this.body);
+}
+
+class DiaryNotesCompanion extends UpdateCompanion<DiaryNoteRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<LocalDate> date;
+  final Value<String?> title;
+  final Value<String> body;
+  final Value<int> rowid;
+  const DiaryNotesCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.date = const Value.absent(),
+    this.title = const Value.absent(),
+    this.body = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  DiaryNotesCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required LocalDate date,
+    this.title = const Value.absent(),
+    required String body,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       date = Value(date),
+       body = Value(body);
+  static Insertable<DiaryNoteRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? date,
+    Expression<String>? title,
+    Expression<String>? body,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (date != null) 'date': date,
+      if (title != null) 'title': title,
+      if (body != null) 'body': body,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  DiaryNotesCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<LocalDate>? date,
+    Value<String?>? title,
+    Value<String>? body,
+    Value<int>? rowid,
+  }) {
+    return DiaryNotesCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      date: date ?? this.date,
+      title: title ?? this.title,
+      body: body ?? this.body,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (date.present) {
+      map['date'] = Variable<String>(
+        $DiaryNotesTable.$converterdate.toSql(date.value),
+      );
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (body.present) {
+      map['body'] = Variable<String>(body.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DiaryNotesCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('date: $date, ')
+          ..write('title: $title, ')
+          ..write('body: $body, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $ProviderUsagesTable extends ProviderUsages
     with TableInfo<$ProviderUsagesTable, ProviderUsageRow> {
   @override
@@ -6784,6 +7242,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $SymptomCheckinsTable symptomCheckins = $SymptomCheckinsTable(
     this,
   );
+  late final $DiaryNotesTable diaryNotes = $DiaryNotesTable(this);
   late final $ProviderUsagesTable providerUsages = $ProviderUsagesTable(this);
   late final $SavedRecipeRefsTable savedRecipeRefs = $SavedRecipeRefsTable(
     this,
@@ -6808,6 +7267,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'symptom_checkins_live',
     'CREATE UNIQUE INDEX symptom_checkins_live ON symptom_checkins (date, category, symptom) WHERE deleted_at IS NULL',
   );
+  late final Index diaryNotesLive = Index(
+    'diary_notes_live',
+    'CREATE INDEX diary_notes_live ON diary_notes (date) WHERE deleted_at IS NULL',
+  );
   late final Index savedRecipeRefsLive = Index(
     'saved_recipe_refs_live',
     'CREATE UNIQUE INDEX saved_recipe_refs_live ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
@@ -6827,6 +7290,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     personalRecipes,
     diaryEntries,
     symptomCheckins,
+    diaryNotes,
     providerUsages,
     savedRecipeRefs,
     periodLogsStartLive,
@@ -6834,6 +7298,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     personalRecipesOwnerKey,
     diaryEntriesItemLive,
     symptomCheckinsLive,
+    diaryNotesLive,
     savedRecipeRefsLive,
   ];
   @override
@@ -10020,6 +10485,252 @@ typedef $$SymptomCheckinsTableProcessedTableManager =
       SymptomCheckinRow,
       PrefetchHooks Function()
     >;
+typedef $$DiaryNotesTableCreateCompanionBuilder = DiaryNotesCompanion Function({
+  required String id,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  required LocalDate date,
+  Value<String?> title,
+  required String body,
+  Value<int> rowid,
+});
+typedef $$DiaryNotesTableUpdateCompanionBuilder = DiaryNotesCompanion Function({
+  Value<String> id,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<LocalDate> date,
+  Value<String?> title,
+  Value<String> body,
+  Value<int> rowid,
+});
+
+class $$DiaryNotesTableFilterComposer
+    extends Composer<_$AppDatabase, $DiaryNotesTable> {
+  $$DiaryNotesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<LocalDate, LocalDate, String> get date =>
+      $composableBuilder(
+        column: $table.date,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$DiaryNotesTableOrderingComposer
+    extends Composer<_$AppDatabase, $DiaryNotesTable> {
+  $$DiaryNotesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get date => $composableBuilder(
+    column: $table.date,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get body => $composableBuilder(
+    column: $table.body,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$DiaryNotesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DiaryNotesTable> {
+  $$DiaryNotesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<LocalDate, String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get body =>
+      $composableBuilder(column: $table.body, builder: (column) => column);
+}
+
+class $$DiaryNotesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $DiaryNotesTable,
+          DiaryNoteRow,
+          $$DiaryNotesTableFilterComposer,
+          $$DiaryNotesTableOrderingComposer,
+          $$DiaryNotesTableAnnotationComposer,
+          $$DiaryNotesTableCreateCompanionBuilder,
+          $$DiaryNotesTableUpdateCompanionBuilder,
+          (
+            DiaryNoteRow,
+            BaseReferences<_$AppDatabase, $DiaryNotesTable, DiaryNoteRow>,
+          ),
+          DiaryNoteRow,
+          PrefetchHooks Function()
+        > {
+  $$DiaryNotesTableTableManager(_$AppDatabase db, $DiaryNotesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DiaryNotesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DiaryNotesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DiaryNotesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<LocalDate> date = const Value.absent(),
+                Value<String?> title = const Value.absent(),
+                Value<String> body = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => DiaryNotesCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                title: title,
+                body: body,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required LocalDate date,
+                Value<String?> title = const Value.absent(),
+                required String body,
+                Value<int> rowid = const Value.absent(),
+              }) => DiaryNotesCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                date: date,
+                title: title,
+                body: body,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$DiaryNotesTable, DiaryNoteRow>(table),
+                  BaseReferences<_$AppDatabase, $DiaryNotesTable, DiaryNoteRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$DiaryNotesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $DiaryNotesTable,
+      DiaryNoteRow,
+      $$DiaryNotesTableFilterComposer,
+      $$DiaryNotesTableOrderingComposer,
+      $$DiaryNotesTableAnnotationComposer,
+      $$DiaryNotesTableCreateCompanionBuilder,
+      $$DiaryNotesTableUpdateCompanionBuilder,
+      (
+        DiaryNoteRow,
+        BaseReferences<_$AppDatabase, $DiaryNotesTable, DiaryNoteRow>,
+      ),
+      DiaryNoteRow,
+      PrefetchHooks Function()
+    >;
 typedef $$ProviderUsagesTableCreateCompanionBuilder =
     ProviderUsagesCompanion Function({
       required String providerId,
@@ -10539,6 +11250,8 @@ class $AppDatabaseManager {
       $$DiaryEntriesTableTableManager(_db, _db.diaryEntries);
   $$SymptomCheckinsTableTableManager get symptomCheckins =>
       $$SymptomCheckinsTableTableManager(_db, _db.symptomCheckins);
+  $$DiaryNotesTableTableManager get diaryNotes =>
+      $$DiaryNotesTableTableManager(_db, _db.diaryNotes);
   $$ProviderUsagesTableTableManager get providerUsages =>
       $$ProviderUsagesTableTableManager(_db, _db.providerUsages);
   $$SavedRecipeRefsTableTableManager get savedRecipeRefs =>
