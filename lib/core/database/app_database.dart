@@ -26,6 +26,7 @@ part 'app_database.g.dart';
     DiaryEntries,
     SymptomCheckins,
     DiaryNotes,
+    DiaryActivities,
     ProviderUsages,
     SavedRecipeRefs,
   ],
@@ -34,7 +35,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 7;
+  int get schemaVersion => 8;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -76,6 +77,12 @@ class AppDatabase extends _$AppDatabase {
       from6To7: (m, schema) async {
         await m.createTable(schema.diaryNotes);
         await m.createIndex(schema.diaryNotesLive);
+      },
+      // 8: activity logging. Additive: a new table and index; nothing
+      // existing changes.
+      from7To8: (m, schema) async {
+        await m.createTable(schema.diaryActivities);
+        await m.createIndex(schema.diaryActivitiesLive);
       },
     ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),

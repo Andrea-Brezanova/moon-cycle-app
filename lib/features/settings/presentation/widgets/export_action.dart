@@ -55,7 +55,7 @@ class _ExportWarning extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           'Your export may contain sensitive writing: your cycle history, '
-          'diary entries and the personal Notes you wrote.',
+          'diary entries, activities and the personal Notes you wrote.',
           style: dmSans(15, height: 1.5, color: c.text),
         ),
         const SizedBox(height: 10),

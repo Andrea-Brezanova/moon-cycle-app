@@ -7,7 +7,7 @@ import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
-import 'package:moon_cycle/features/diary/presentation/diary_coming_soon_page.dart';
+import 'package:moon_cycle/features/diary/presentation/diary_activities_page.dart';
 import 'package:moon_cycle/features/diary/presentation/diary_hub_page.dart';
 import 'package:moon_cycle/features/diary/presentation/diary_page.dart';
 import 'package:moon_cycle/features/diary/presentation/log_meal_page.dart';
@@ -114,20 +114,15 @@ void main() {
     expect(find.byType(DiaryHubPage), findsOneWidget);
   });
 
-  testWidgets('Log activities is an honest Coming soon page', (tester) async {
+  testWidgets('Log activities opens the Activities list; Back returns', (
+    tester,
+  ) async {
     await pumpHub(tester);
-    for (final (card, headline) in const [
-      ('Log activities', 'Activity logging is on its way.'),
-    ]) {
-      await tester.tap(find.text(card));
-      await tester.pumpAndSettle();
-      expect(find.byType(DiaryComingSoonPage), findsOneWidget);
-      expect(find.text('COMING SOON'), findsOneWidget);
-      expect(find.text(headline), findsOneWidget);
-      expect(find.byType(TextField), findsNothing); // no fake editor or form
-      await back(tester);
-      expect(find.byType(DiaryHubPage), findsOneWidget);
-    }
+    await tester.tap(find.text('Log activities'));
+    await tester.pumpAndSettle();
+    expect(find.byType(DiaryActivitiesPage), findsOneWidget);
+    await back(tester);
+    expect(find.byType(DiaryHubPage), findsOneWidget);
   });
 
   testWidgets('the direct links to history and the forms still work', (

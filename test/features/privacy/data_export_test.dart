@@ -6,6 +6,7 @@ import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/period_log.dart';
+import 'package:moon_cycle/features/diary/domain/diary_activity.dart';
 import 'package:moon_cycle/features/diary/domain/diary_note.dart';
 import 'package:moon_cycle/features/generation/domain/generation_result.dart';
 import 'package:moon_cycle/features/generation/domain/personal_recipe.dart';
@@ -73,6 +74,7 @@ void main() {
       'shoppingList',
       'diary',
       'notes',
+      'activities',
       'savedRecipes',
       'personalRecipes',
     ]);
@@ -232,6 +234,45 @@ void main() {
         'date': '2026-10-11',
         'title': 'Sunday',
         'text': 'Walked by the river.',
+        'createdAt': '2026-10-11T18:00:00.000Z',
+        'updatedAt': '2026-10-11T18:00:00.000Z',
+      },
+    ]);
+  });
+
+  test('activities are exported with what was entered, nothing derived', () {
+    final out = buildDataExport(
+      exportedAt: DateTime.utc(2026, 10, 12, 9),
+      appVersion: '1.0.0',
+      profile: null,
+      periods: const [],
+      diet: Diet.vegetarian,
+      avoidances: const [],
+      reminders: const ReminderSettings(),
+      shoppingList: const [],
+      activities: [
+        DiaryActivity(
+          id: 'a',
+          date: LocalDate(2026, 10, 11),
+          type: ActivityType.other,
+          customName: 'Gardening',
+          minutes: 40,
+          intensity: ActivityIntensity.light,
+          note: 'Tomatoes.',
+          createdAt: DateTime.utc(2026, 10, 11, 18),
+          updatedAt: DateTime.utc(2026, 10, 11, 18),
+        ),
+      ],
+      foodName: (_) => null,
+    );
+    expect(out['activities'], [
+      {
+        'date': '2026-10-11',
+        'type': 'other',
+        'name': 'Gardening',
+        'minutes': 40,
+        'intensity': 'light',
+        'note': 'Tomatoes.',
         'createdAt': '2026-10-11T18:00:00.000Z',
         'updatedAt': '2026-10-11T18:00:00.000Z',
       },

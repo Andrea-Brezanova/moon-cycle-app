@@ -59,12 +59,15 @@ void main() {
   ) async {
     await pumpMore(tester);
     await open(tester, 'Privacy & Data');
-    expect(find.textContaining('diary and Notes'), findsWidgets);
+    expect(find.textContaining('activities and Notes'), findsWidgets);
     await tester.tap(find.text('Export my data'));
     await tester.pumpAndSettle();
     expect(find.text('Before you export'), findsOneWidget);
     expect(find.textContaining('sensitive writing'), findsOneWidget);
-    expect(find.textContaining('the personal Notes you wrote'), findsOneWidget);
+    expect(
+      find.textContaining('activities and the personal Notes you wrote'),
+      findsOneWidget,
+    );
     expect(find.textContaining('not encrypted'), findsOneWidget);
     expect(shares(), 0); // nothing is shared before the choice
 
@@ -86,7 +89,7 @@ void main() {
     await open(tester, 'Delete my data');
     expect(find.byType(DeleteDataPage), findsOneWidget);
     expect(
-      find.textContaining('diary entries and personal Notes'),
+      find.textContaining('diary entries, activities and personal Notes'),
       findsOneWidget,
     );
     await tester.tap(find.text('Export my data first'));
