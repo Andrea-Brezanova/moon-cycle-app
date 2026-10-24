@@ -11,9 +11,11 @@ import '../../../../core/design/widgets/moon_orbit.dart'
     show MoonOrbitSpec, OrbitMath;
 import '../../../../core/domain/phase.dart';
 
-/// Home's cycle ring (v2): a thick segmented ring, the day number alone in its
-/// centre (no "DAY" label), and an ivory pearl with a fine plum outline marking
-/// the day. The centre is the page colour. Everything is drawn from the same
+/// Home's cycle ring (V1 refinement): the logo ring at 1.5× (centre radius 105,
+/// stroke 30, flat ends, about 3° between segments) inside a 300-unit box, a
+/// small "DAY" label over a large day number in the centre, and a white dot with
+/// a fine dark outline marking the day, sitting directly on the ring. The centre
+/// is the page colour. Everything is drawn from the same
 /// [MoonOrbitSpec] and [OrbitMath] as before, so the ring's segments, order and
 /// today marker are driven by the real cycle data.
 ///
@@ -27,11 +29,13 @@ class HomeRing extends StatelessWidget {
   /// Ring geometry in the 300-unit design space.
   static const double viewBox = 300;
   static const double centre = 150;
-  static const double thickness = 32;
-  static const double radius = 150 - thickness / 2 - 2; // 132
-  static const double pearl = 14;
-  static const double outline = 1.75;
-  static const double gap = 0.006;
+  static const double thickness = 30;
+  static const double radius = 105;
+  static const double pearl = 15;
+  static const double outline = 1;
+
+  /// Half of the gap between two segments, as a fraction of the cycle (1.5°).
+  static const double gap = 1.5 / 360;
 
   /// The band where a drag counts as previewing a day.
   static bool onRing(Offset local, double size) {
@@ -63,12 +67,32 @@ class HomeRing extends StatelessWidget {
                     dark: dark,
                   ),
                 ),
-                Text(
-                  '${spec.dayNumber}',
-                  style: MoonType.dayNumber.copyWith(
-                    color: dark ? HeroTokens.darkText : HeroTokens.moonNumber,
-                  ),
-                  textScaler: TextScaler.noScaling,
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'DAY',
+                      style: dmSans(
+                        11,
+                        weight: FontWeight.w600,
+                        height: 1.2,
+                        tracking: 0.14,
+                        color: dark
+                            ? HeroTokens.darkMuted
+                            : HeroTokens.lightMuted,
+                      ),
+                      textScaler: TextScaler.noScaling,
+                    ),
+                    Text(
+                      '${spec.dayNumber}',
+                      style: MoonType.dayNumber.copyWith(
+                        color: dark
+                            ? HeroTokens.darkText
+                            : HeroTokens.moonNumber,
+                      ),
+                      textScaler: TextScaler.noScaling,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -115,10 +139,11 @@ class _RingPainter extends CustomPainter {
       OrbitMath.markerFraction(spec.markerDay, spec.cycleLength),
       radius: HomeRing.radius,
     );
+    // A plain white dot with a 1 pt dark outline, directly on the ring.
     canvas.drawCircle(
       dot,
       HomeRing.pearl,
-      Paint()..color = const Color(0xFFFFFDF8),
+      Paint()..color = const Color(0xFFFFFFFF),
     );
     canvas.drawCircle(
       dot,
@@ -126,7 +151,7 @@ class _RingPainter extends CustomPainter {
       Paint()
         ..style = PaintingStyle.stroke
         ..strokeWidth = HomeRing.outline
-        ..color = const Color(0xFF37255C),
+        ..color = const Color(0xFF1F1D2B),
     );
     canvas.restore();
   }

@@ -1,30 +1,49 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/design/moon_theme.dart';
+import '../../../../core/design/tokens/hero_tokens.dart';
 import '../../../../core/design/tokens/moon_typography.dart';
-import '../../../../core/design/widgets/botanical_sprig.dart';
+import '../../../../core/design/widgets/dimmed_photo.dart';
 import '../../../../core/design/widgets/editorial_text.dart';
 import '../../../../core/design/widgets/moon_icon.dart';
 import '../../../../core/design/widgets/pressable.dart';
 import '../../../../core/design/widgets/text_link.dart';
 import '../../../../core/domain/phase.dart';
-import '../../../content/domain/food.dart';
-import 'plant_photos.dart';
 
-/// A small overline above a Home section.
+/// A Home section header: DM Sans 13 bold, 0.22em tracking, uppercase, in the
+/// text colour, 2 pt in from the left. 12 pt separates it from its content.
 class HomeOverline extends StatelessWidget {
   const HomeOverline(this.text, {super.key});
 
   final String text;
 
   @override
-  Widget build(BuildContext context) =>
-      Semantics(header: true, child: Overline(text));
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Semantics(
+      header: true,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 2),
+        child: Text(
+          text.toUpperCase(),
+          style: dmSans(
+            13,
+            weight: FontWeight.w700,
+            height: 1.2,
+            tracking: 0.22,
+            color: c.text,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-/// Today's focus: a soft rounded card with the phase's headline, a short
-/// description, a link to the phase page and a botanical sprig in the corner.
-/// The copy comes from the phase content, not from this widget.
+/// Today's focus: the phase's own soft background, a Fraunces headline with
+/// its last word in italic, a paragraph, a link to the phase page and a leaf
+/// sprig in the corner. The copy comes from the phase content.
 class TodaysFocusCard extends StatelessWidget {
   const TodaysFocusCard({
     super.key,
@@ -43,53 +62,64 @@ class TodaysFocusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.moon;
     final dark = Theme.of(context).brightness == Brightness.dark;
+    final palette = c.phase(phase);
     return Container(
       decoration: BoxDecoration(
-        color: dark ? c.raised : c.phase(phase).tint.withValues(alpha: 0.55),
-        borderRadius: BorderRadius.circular(26),
+        color: dark ? HeroTokens.darkSolid : HeroTokens.lightWash[phase],
+        borderRadius: BorderRadius.circular(28),
       ),
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          // Decorative; never overlaps the text (it sits in the padded corner).
+          // Decorative, in the bottom-right corner; the text column is
+          // narrow enough to clear it.
           Positioned(
-            right: 8,
-            bottom: 6,
+            right: -14,
+            bottom: -22,
             child: ExcludeSemantics(
-              child: SizedBox(
-                width: 64,
-                height: 116,
-                child: CustomPaint(
-                  painter: SprigPainter(
-                    leaf: c.phase(phase).accent.withValues(alpha: 0.55),
-                    stem: c.phase(phase).accent.withValues(alpha: 0.8),
+              child: Transform.scale(
+                scale: 0.9,
+                alignment: Alignment.bottomRight,
+                child: SizedBox(
+                  width: 118,
+                  height: 190,
+                  child: CustomPaint(
+                    painter: FocusSprigPainter(color: palette.accent),
                   ),
                 ),
               ),
             ),
           ),
           Padding(
-            // Extra right padding keeps the text clear of the sprig.
-            padding: const EdgeInsets.fromLTRB(20, 20, 66, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Semantics(
-                  header: true,
-                  child: EditorialHeading(
-                    italicLastWord(headline),
-                    style: fraunces(26, height: 1.12),
+            padding: const EdgeInsets.fromLTRB(22, 24, 22, 16),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 232),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Semantics(
+                    header: true,
+                    child: EditorialHeading(
+                      italicLastWord(headline),
+                      style: fraunces(28, height: 1.12),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text(body, style: dmSans(14, height: 1.5, color: c.text)),
-                const SizedBox(height: 14),
-                TextLink(
-                  'Learn more about your phase\u00A0→',
-                  onTap: onMore,
-                  size: 13,
-                ),
-              ],
+                  const SizedBox(height: 10),
+                  Text(body, style: dmSans(15, height: 1.5, color: c.text)),
+                  const SizedBox(height: 10),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextLink(
+                        'Learn more about your phase\u00A0→',
+                        onTap: onMore,
+                        size: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -98,111 +128,157 @@ class TodaysFocusCard extends StatelessWidget {
   }
 }
 
-/// A small hand-drawn style sprig: a curved stem with paired leaves.
-/// One of the three optional daily suggestions: a photo, a label, a title, a
-/// line and a round chevron. Suggestions only: nothing to complete or score.
-class DailyCard extends StatelessWidget {
-  const DailyCard({
+/// The leaf sprig on Today's focus (drawn from the Home board): a curved stem
+/// with eight leaves, in line art with a light fill, in the phase colour.
+class FocusSprigPainter extends CustomPainter {
+  FocusSprigPainter({required this.color});
+
+  final Color color;
+
+  /// Where each leaf is attached on the 118 × 190 board: x, y, rotation in
+  /// degrees, scale.
+  static const _leaves = [
+    (66.0, 160.0, -150.0, 1.05),
+    (68.0, 140.0, -30.0, 0.95),
+    (61.0, 116.0, -160.0, 1.0),
+    (63.0, 96.0, -40.0, 0.9),
+    (63.0, 74.0, -150.0, 0.85),
+    (70.0, 52.0, -50.0, 0.8),
+    (78.0, 34.0, -140.0, 0.7),
+    (88.0, 16.0, -60.0, 0.6),
+  ];
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.scale(size.width / 118, size.height / 190);
+    final line = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..color = color;
+    final stem = Path()
+      ..moveTo(70, 190)
+      ..cubicTo(66, 150, 58, 110, 64, 70)
+      ..cubicTo(68, 44, 78, 24, 92, 8);
+    canvas.drawPath(stem, line..strokeWidth = 1.6);
+    final leaf = Path()
+      ..moveTo(0, 0)
+      ..cubicTo(9, -10, 27, -10, 38, 0)
+      ..cubicTo(27, 10, 9, 10, 0, 0)
+      ..close();
+    for (final (x, y, deg, scale) in _leaves) {
+      canvas
+        ..save()
+        ..translate(x, y)
+        ..rotate(deg * math.pi / 180)
+        ..scale(scale);
+      canvas
+        ..drawPath(leaf, Paint()..color = color.withValues(alpha: 0.14))
+        ..drawPath(leaf, line..strokeWidth = 1.3)
+        ..drawLine(
+          const Offset(3, 0),
+          const Offset(33, 0),
+          line..strokeWidth = 1,
+        )
+        ..restore();
+    }
+  }
+
+  @override
+  bool shouldRepaint(FocusSprigPainter old) => old.color != color;
+}
+
+/// One of the three daily picks: a photo and a text column, side by side (the
+/// photo on the left or the right), the whole block tappable. Suggestions
+/// only: nothing to complete or score.
+class PickBlock extends StatelessWidget {
+  const PickBlock({
     super.key,
+    required this.photoOnLeft,
+    required this.asset,
+    required this.focus,
     required this.label,
+    required this.labelColor,
     required this.title,
     required this.body,
-    required this.accent,
-    required this.accentFill,
-    required this.image,
+    required this.link,
     required this.onTap,
-    required this.semanticLabel,
+    this.divider = false,
   });
 
+  final bool photoOnLeft;
+  final String asset;
+
+  /// Where the subject is (0 to 1 from the top left), so the crop keeps it.
+  final Offset focus;
   final String label;
+  final Color labelColor;
   final String title;
   final String body;
-
-  /// The label colour and the chevron button's glyph.
-  final Color accent;
-
-  /// The chevron button's fill.
-  final Color accentFill;
-  final Widget image;
+  final String link;
   final VoidCallback onTap;
-  final String semanticLabel;
 
-  static const double _imageSize = 92;
+  /// A hairline above the block (blocks 2 and 3).
+  final bool divider;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final photo = ExcludeSemantics(
+      child: SizedBox(
+        height: 176,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(22),
+          child: DimmedPhoto(
+            dim: dark,
+            child: Image.asset(
+              asset,
+              fit: BoxFit.cover,
+              alignment: Alignment(focus.dx * 2 - 1, focus.dy * 2 - 1),
+            ),
+          ),
+        ),
+      ),
+    );
+    final text = Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: dmSans(
+              11,
+              weight: FontWeight.w700,
+              height: 1.2,
+              tracking: 0.18,
+              color: labelColor,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(title, style: fraunces(24, height: 1.08, color: c.text)),
+          const SizedBox(height: 6),
+          Text(body, style: dmSans(13.5, height: 1.4, color: c.textMuted)),
+          const SizedBox(height: 10),
+          _UnderlinedLink(link),
+        ],
+      ),
+    );
     return Pressable(
       onTap: onTap,
-      semanticLabel: semanticLabel,
+      semanticLabel: '$label, $title. $body $link',
       child: Container(
-        constraints: const BoxConstraints(minHeight: _imageSize),
+        padding: EdgeInsets.only(top: divider ? 18 : 0),
         decoration: BoxDecoration(
-          color: c.raised,
-          border: Border.all(color: c.line),
-          borderRadius: BorderRadius.circular(20),
+          border: divider ? Border(top: BorderSide(color: c.line)) : null,
         ),
-        clipBehavior: Clip.antiAlias,
         child: IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ExcludeSemantics(
-                child: SizedBox(width: _imageSize, child: image),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(14, 10, 4, 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        label,
-                        style: dmSans(
-                          10.5,
-                          weight: FontWeight.w700,
-                          height: 1.2,
-                          tracking: 0.14,
-                          color: accent,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        title,
-                        style: fraunces(19, height: 1.15, color: c.text),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        body,
-                        style: dmSans(12, height: 1.38, color: c.textMuted),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Center(
-                  child: ExcludeSemantics(
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: accentFill,
-                        shape: BoxShape.circle,
-                      ),
-                      child: MoonIcon(
-                        MoonIconName.chev,
-                        size: 15,
-                        strokeWidth: 2.2,
-                        color: c.text,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              Expanded(child: photoOnLeft ? photo : text),
+              const SizedBox(width: 16),
+              Expanded(child: photoOnLeft ? text : photo),
             ],
           ),
         ),
@@ -211,47 +287,36 @@ class DailyCard extends StatelessWidget {
   }
 }
 
-/// The photo for the EAT card: a curated plant photo (the day's first plant
-/// that has one) cropped to the tile, else a tinted tile with the food's emoji.
-Widget plantImage(Food? food, Color tone, String emoji) {
-  final photo = food == null ? null : plantPhotos[food.id];
-  if (photo == null) {
-    return ColoredBox(
-      color: tone,
-      child: Center(child: Text(emoji, style: const TextStyle(fontSize: 38))),
-    );
-  }
-  return Image.asset(
-    photo.asset,
-    fit: BoxFit.cover,
-    alignment: photo.alignment,
-    excludeFromSemantics: true,
-  );
-}
+/// "See the plants →": DM Sans 14 semibold with a 2 pt accent underline.
+class _UnderlinedLink extends StatelessWidget {
+  const _UnderlinedLink(this.label);
 
-/// A clearly temporary tile for a card with no photograph yet (MOVE, RELAX):
-/// a soft tint, an icon and the word "photo" so it can't be mistaken for final
-/// art. Replace with the approved photograph when it is supplied.
-class PlaceholderImage extends StatelessWidget {
-  const PlaceholderImage({super.key, required this.tone, required this.icon});
-
-  final Color tone;
-  final MoonIconName icon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    return ColoredBox(
-      color: tone,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      padding: const EdgeInsets.only(bottom: 4),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: c.ochre, width: 2)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          MoonIcon(icon, size: 30, color: c.textMuted),
-          const SizedBox(height: 6),
-          Text(
-            'photo to come',
-            style: dmSans(10, weight: FontWeight.w600, color: c.textMuted),
+          Flexible(
+            child: Text(
+              label,
+              style: dmSans(
+                14,
+                weight: FontWeight.w600,
+                height: 1.2,
+                color: c.text,
+              ),
+            ),
           ),
+          const SizedBox(width: 6),
+          MoonIcon(MoonIconName.arrow, size: 14, color: c.text, strokeWidth: 2),
         ],
       ),
     );

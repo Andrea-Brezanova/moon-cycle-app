@@ -518,3 +518,104 @@ class RecipeListCard extends StatelessWidget {
     );
   }
 }
+
+/// A recipe as a row inside the list card: a 64 pt photo (or a tinted bowl
+/// tile), the title, "Meals · 25 min", an optional ingredients line, and a
+/// top-aligned heart that saves it to My recipes.
+class RecipeRow extends StatelessWidget {
+  const RecipeRow({
+    super.key,
+    required this.recipe,
+    required this.palette,
+    required this.onTap,
+    this.subtitle,
+    this.onHeart,
+    this.hearted = false,
+  });
+
+  final Recipe recipe;
+  final PhasePalette palette;
+  final VoidCallback onTap;
+  final String? subtitle;
+  final VoidCallback? onHeart;
+  final bool hearted;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final meta = recipe.minutes > 0
+        ? '${recipe.mealType.label} · ${recipe.minutes} min'
+        : recipe.mealType.label;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Pressable(
+            onTap: onTap,
+            semanticLabel: '${recipe.title}, $meta',
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Row(
+                children: [
+                  ExcludeSemantics(
+                    child: SizedBox(
+                      width: 64,
+                      child: RecipePhoto(
+                        height: 64,
+                        radius: 16,
+                        palette: palette,
+                        image: recipeImage(recipe),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          recipe.title,
+                          style: fraunces(18, height: 1.15, color: c.text),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          meta,
+                          style: dmSans(13, height: 1.3, color: c.textMuted),
+                        ),
+                        if (subtitle != null && subtitle!.isNotEmpty)
+                          Text(
+                            subtitle!,
+                            style: dmSans(13, height: 1.35, color: c.textMuted),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        if (onHeart != null)
+          Pressable(
+            onTap: onHeart,
+            checked: hearted,
+            semanticLabel: hearted
+                ? 'Remove ${recipe.title} from My recipes'
+                : 'Save ${recipe.title} to My recipes',
+            child: SizedBox(
+              width: 44,
+              height: 44,
+              child: Center(
+                child: MoonIcon(
+                  MoonIconName.heart,
+                  size: 20,
+                  color: hearted ? palette.text : c.text,
+                  strokeWidth: hearted ? 2.6 : 1.7,
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
