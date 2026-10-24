@@ -57,6 +57,16 @@ void main() {
     expect(saved, isEmpty);
   });
 
+  testWidgets('a My recipes link beside the count opens My recipes', (
+    tester,
+  ) async {
+    await pumpRecipes(tester);
+    expect(find.byKey(const ValueKey('my-recipes-link')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('my-recipes-link')));
+    await tester.pumpAndSettle();
+    expect(find.byType(MyRecipesPage), findsOneWidget);
+  });
+
   testWidgets('a saved heart is filled and an unsaved one is an outline', (
     tester,
   ) async {
