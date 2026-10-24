@@ -27,6 +27,14 @@ class DiaryActivityRepository {
           .watch()
           .map((rows) => [for (final r in rows) ?_toDomain(r)]);
 
+  /// One day's activities, oldest first. Read-only (the count on Home).
+  Stream<List<DiaryActivity>> watchDay(LocalDate date) =>
+      (_live()
+            ..where((t) => t.date.equals(date.toString()))
+            ..orderBy([(t) => OrderingTerm.asc(t.createdAt)]))
+          .watch()
+          .map((rows) => [for (final r in rows) ?_toDomain(r)]);
+
   Future<List<DiaryActivity>> all() => watchAll().first;
 
   Future<DiaryActivity?> byId(String id) async {
@@ -135,6 +143,12 @@ class DiaryActivityRepository {
 final diaryActivityRepositoryProvider = Provider<DiaryActivityRepository>(
   (ref) => DiaryActivityRepository(ref.watch(appDatabaseProvider)),
 );
+
+/// One day's activities.
+final diaryActivitiesOnProvider = StreamProvider.autoDispose
+    .family<List<DiaryActivity>, LocalDate>(
+      (ref, date) => ref.watch(diaryActivityRepositoryProvider).watchDay(date),
+    );
 
 /// Every activity, newest first.
 final diaryActivitiesProvider = StreamProvider.autoDispose<List<DiaryActivity>>(
