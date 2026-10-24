@@ -67,6 +67,13 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// Opens the "Food type" sheet and returns the rows' semantic labels.
+  Future<void> openTypeSheet(WidgetTester tester) async {
+    await tester.tap(find.byKey(const ValueKey('type-filter')));
+    await tester.pumpAndSettle();
+    expect(find.text('Food type'), findsOneWidget);
+  }
+
   Future<void> scrollTo(
     WidgetTester tester,
     Finder finder, {
@@ -108,12 +115,8 @@ void main() {
     expect(find.text('TODAY’S FOOD'), findsOneWidget);
     final todays = container.read(todaysFoodProvider)!;
     expect(find.text(todays.why[Phase.follicular]!.short), findsOneWidget);
-    expect(find.text('ALL FOODS'), findsOneWidget);
-    expect(find.textContaining(' for your phase'), findsOneWidget);
-    // The category chips: All, then each category the phase has.
-    for (final chip in ['All', 'Grains', 'Vegetables', 'Fruit']) {
-      expect(find.text(chip), findsWidgets, reason: chip);
-    }
+    expect(find.text('All foods'), findsOneWidget); // the type control
+    expect(find.textContaining(RegExp(r'^\d+ foods$')), findsOneWidget);
     await scrollTo(tester, find.text('Farro'));
     expect(find.text('Oat bran'), findsOneWidget);
     expect(find.text('Quinoa'), findsNothing); // featured elsewhere
@@ -191,19 +194,55 @@ void main() {
     expect(find.textContaining('Featured in'), findsNothing);
   });
 
-  testWidgets('chips wrap on a narrow phone at large text', (tester) async {
+  testWidgets(
+    'the filter bar and type sheet fit a narrow phone at large text',
+    (tester) async {
+      await pumpFoods(tester);
+      tester.view.physicalSize = const Size(320, 690) * 3;
+      tester.platformDispatcher.textScaleFactorTestValue = 1.5;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      await openTypeSheet(tester);
+      expect(tester.takeException(), isNull);
+      expect(
+        find.bySemanticsLabel(RegExp(r'^All foods, \d+$')),
+        findsOneWidget,
+      );
+      await tester.tap(find.bySemanticsLabel(RegExp(r'^Grains, \d+$')));
+      await tester.pumpAndSettle();
+      expect(find.text('Grains'), findsWidgets);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('the type sheet filters the list and the count updates', (
+    tester,
+  ) async {
     await pumpFoods(tester);
-    tester.view.physicalSize = const Size(320, 690) * 3;
-    tester.platformDispatcher.textScaleFactorTestValue = 1.5;
-    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    String count() =>
+        tester.widget<Text>(find.textContaining(RegExp(r'^\d+ foods?$'))).data!;
+    final all = count();
+    await openTypeSheet(tester);
+    // Every row carries its count; the chosen one is marked.
+    await tester.tap(find.bySemanticsLabel(RegExp(r'^Grains, \d+$')));
     await tester.pumpAndSettle();
-    // Scroll through every category; an overflow would fail the test.
-    await scrollTo(tester, find.text('Fermented').first);
-    expect(tester.takeException(), isNull);
-    await browse(tester, 'All phases');
-    // The whole catalogue wraps onto many lines at this size.
-    await scrollTo(tester, find.text('Other').first, step: 600);
-    expect(tester.takeException(), isNull);
+    expect(find.text('Food type'), findsNothing); // the sheet closed
+    final grains = count();
+    expect(grains, isNot(all));
+    expect(
+      int.parse(grains.split(' ').first),
+      lessThan(int.parse(all.split(' ').first)),
+    );
+    // The featured card hides while filtered; the list holds only grains.
+    expect(find.text('TODAY’S FOOD'), findsNothing);
+    await scrollTo(tester, find.text('Farro'));
+    expect(find.text('Lettuce'), findsNothing);
+    // Back to everything.
+    await openTypeSheet(tester);
+    await tester.tap(find.bySemanticsLabel(RegExp(r'^All foods, \d+$')));
+    await tester.pumpAndSettle();
+    expect(count(), all);
   });
 
   testWidgets('another phase: the pill follows and the way back', (
@@ -226,8 +265,10 @@ void main() {
     );
     await scrollTo(tester, find.text('Pomegranate'));
     expect(find.text('Plum'), findsNothing);
-    // A category with nothing left has no chip.
+    // A category with nothing left is not in the type sheet.
+    await openTypeSheet(tester);
     expect(find.text('Dairy & alternatives'), findsNothing);
+    await tester.tapAt(const Offset(10, 10)); // dismiss
     expect(find.text('Feta'), findsNothing);
     expect(find.text('Plain yogurt'), findsNothing);
   });
@@ -267,25 +308,6 @@ void main() {
     );
   });
 
-  testWidgets('a category chip shows only its foods and hides Today’s food', (
-    tester,
-  ) async {
-    await pumpFoods(tester);
-    expect(find.text('TODAY’S FOOD'), findsOneWidget);
-    await tester.tap(find.text('Grains').first);
-    await tester.pumpAndSettle();
-    expect(find.text('TODAY’S FOOD'), findsNothing);
-    expect(find.text('GRAINS'), findsOneWidget); // the list heading
-    expect(find.text('2 for your phase'), findsOneWidget);
-    expect(find.text('Farro'), findsOneWidget);
-    expect(find.text('Broccoli'), findsNothing);
-    // "All" brings everything back.
-    await tester.tap(find.text('All').first);
-    await tester.pumpAndSettle();
-    expect(find.text('TODAY’S FOOD'), findsOneWidget);
-    expect(find.text('ALL FOODS'), findsOneWidget);
-  });
-
   testWidgets('the search icon opens a search that filters the list', (
     tester,
   ) async {
@@ -296,7 +318,7 @@ void main() {
     expect(find.text('Search foods'), findsOneWidget);
     await tester.enterText(find.byType(EditableText), 'farro');
     await tester.pumpAndSettle();
-    expect(find.text('1 for your phase'), findsOneWidget);
+    expect(find.text('1 food'), findsOneWidget);
     expect(find.text('TODAY’S FOOD'), findsNothing);
     await tester.tap(find.byKey(const ValueKey('foods-search')));
     await tester.pumpAndSettle();
@@ -377,7 +399,7 @@ void main() {
     await tester.tap(find.text('Find recipes with turnip'));
     await tester.pumpAndSettle();
     expect(find.byType(RecipesPage), findsOneWidget);
-    expect(find.text('3 follicular recipes with turnip'), findsOneWidget);
+    expect(find.text('3 recipes with turnip'), findsOneWidget);
   });
 
   testWidgets('"Find recipes" opens Recipes filtered by the food', (
@@ -392,7 +414,7 @@ void main() {
     expect(find.byType(FoodDetailPage), findsNothing);
     expect(find.byType(RecipesPage), findsOneWidget);
     expect(container.read(recipeFilterProvider).foodId, 'chicken');
-    expect(find.text('3 follicular recipes with chicken'), findsOneWidget);
+    expect(find.text('3 recipes with chicken'), findsOneWidget);
   });
 
   group('the four actions and Premium', () {

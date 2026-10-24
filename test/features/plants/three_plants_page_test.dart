@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
-import 'package:moon_cycle/core/design/widgets/moon_button.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/discovery/presentation/meal_results_page.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
@@ -48,11 +47,13 @@ void main() {
 
   Finder card(String id) => find.byKey(ValueKey('plant-$id'));
 
-  bool ctaEnabled(WidgetTester tester) =>
-      tester
-          .widget<MoonButton>(find.widgetWithText(MoonButton, 'Create my meal'))
-          .onPressed !=
-      null;
+  Finder findMeal() => find.byKey(const ValueKey('find-meal'));
+
+  String ctaLabel(WidgetTester tester) => tester
+      .widget<Text>(
+        find.descendant(of: findMeal(), matching: find.byType(Text)),
+      )
+      .data!;
 
   testWidgets('the page: title, subtitle, phase, three plants, instruction', (
     tester,
@@ -69,34 +70,49 @@ void main() {
       expect(card(p.id), findsOneWidget);
       expect(find.text(p.displayName), findsOneWidget);
     }
+    expect(find.text('TODAY’S THREE PLANTS'), findsOneWidget);
     expect(
-      find.text(
-        'Choose one, two, or all three plants. We’ll find recipes featuring '
-        'your picks.',
-      ),
+      find.text('Tap the plants you’d like to cook with.'),
       findsOneWidget,
     );
-    expect(find.text('Create my meal'), findsOneWidget);
+    expect(find.text('Find a meal with all 3'), findsOneWidget);
   });
 
-  testWidgets('nothing is picked at first; one, two or three enable the '
-      'button', (tester) async {
+  testWidgets('plant cards toggle and the button label updates', (
+    tester,
+  ) async {
     final c = await pump(tester);
     final plants = c.read(threePlantsProvider);
     expect(c.read(plantPicksProvider), isEmpty);
-    expect(ctaEnabled(tester), isFalse);
-    for (var n = 1; n <= 3; n++) {
+    // Nothing picked means all three, and the button is always available.
+    expect(ctaLabel(tester), 'Find a meal with all 3');
+    for (final (n, label) in [
+      (1, 'Find a meal with 1 plant'),
+      (2, 'Find a meal with 2 plants'),
+      (3, 'Find a meal with all 3'),
+    ]) {
       await tester.tap(card(plants[n - 1].id));
       await tester.pumpAndSettle();
       expect(c.read(plantPicksProvider), hasLength(n));
-      expect(ctaEnabled(tester), isTrue);
+      expect(ctaLabel(tester), label);
+      expect(
+        find.bySemanticsLabel(
+          '${plants[n - 1].displayName}, ${testCatalogue.categoryFor(plants[n - 1]).name.toLowerCase()}, selected',
+        ),
+        findsOneWidget,
+      );
     }
-    // Un-picking back to none disables it again.
-    for (final p in plants) {
+    // Tapping a chosen card again un-picks it.
+    await tester.tap(card(plants[0].id));
+    await tester.pumpAndSettle();
+    expect(c.read(plantPicksProvider), hasLength(2));
+    expect(ctaLabel(tester), 'Find a meal with 2 plants');
+    for (final p in plants.skip(1)) {
       await tester.tap(card(p.id));
       await tester.pumpAndSettle();
     }
-    expect(ctaEnabled(tester), isFalse);
+    expect(c.read(plantPicksProvider), isEmpty);
+    expect(ctaLabel(tester), 'Find a meal with all 3');
   });
 
   testWidgets('the same page every time it is opened on a day', (tester) async {
@@ -110,7 +126,7 @@ void main() {
   });
 
   for (final picked in [1, 2, 3]) {
-    testWidgets('$picked plant(s): Create my meal shows ranked recipes with '
+    testWidgets('$picked plant(s): Find a meal shows ranked recipes with '
         'the same search as Build a meal, free, with no generation', (
       tester,
     ) async {
@@ -120,7 +136,7 @@ void main() {
         await tester.tap(card(p.id));
         await tester.pumpAndSettle();
       }
-      await tester.tap(find.text('Create my meal'));
+      await tester.tap(findMeal());
       await tester.pumpAndSettle();
       expect(find.byType(MealResultsPage), findsOneWidget);
       // Free: the results are not locked behind Premium.

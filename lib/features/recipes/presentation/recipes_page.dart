@@ -16,7 +16,7 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/catalogue.dart';
 import '../../content/domain/recipe.dart';
-import '../../eat/presentation/phase_pill.dart';
+import '../../eat/presentation/eat_filters.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/saved_recipe_repository.dart';
 import '../../generation/domain/saved_recipe_ref.dart';
@@ -52,9 +52,6 @@ class RecipesPage extends ConsumerWidget {
         ref.watch(savedRecipeRefsProvider).value ?? const <SavedRecipeRef>[];
     final savedIds = {for (final r in saved) r.refId};
     final repo = ref.read(savedRecipeRepositoryProvider);
-    final phaseName = list.all
-        ? 'All phases'
-        : catalogue.phase(list.phase).name;
 
     Future<void> chooseIngredient() async {
       final chosen = await showCookWithSheet(context, phase: list.phase);
@@ -82,32 +79,42 @@ class RecipesPage extends ConsumerWidget {
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(AppTab.eat.path),
-              // The ingredient search lists the viewing phase's foods, so it
-              // isn't offered under "All phases".
-              trailingIcon: list.all ? null : MoonIconName.search,
-              trailingLabel: 'Search ingredients',
-              trailingKey: const ValueKey('recipes-search'),
-              onTrailing: chooseIngredient,
             ),
             gutter(
-              Align(
-                alignment: Alignment.centerLeft,
-                child: PhasePill(label: phaseName, all: list.all),
+              EatFilterBar(
+                all: list.all,
+                typeLabel: list.filter.mealType == null
+                    ? 'All meals'
+                    : list.filter.mealType!.label,
+                typeSemantic:
+                    'Showing ${list.filter.mealType == null ? 'all meals' : list.filter.mealType!.label.toLowerCase()}. Change meal type',
+                onType: () => showTypeSheet<MealType>(
+                  context,
+                  title: 'Meal type',
+                  options: [
+                    TypeOption<MealType?>(
+                      null,
+                      'All meals',
+                      list.mealCounts.values.fold<int>(0, (a, b) => a + b),
+                    ),
+                    for (final t in list.mealTypes)
+                      TypeOption<MealType?>(
+                        t,
+                        t.label,
+                        list.mealCounts[t] ?? 0,
+                      ),
+                  ],
+                  selected: list.filter.mealType,
+                  phase: list.phase,
+                  onChosen: filter.setMealType,
+                ),
               ),
-              top: 6,
+              top: 10,
             ),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.only(bottom: 42 + 76),
                 children: [
-                  gutter(
-                    MealChips(
-                      selected: list.filter.mealType,
-                      onChanged: filter.setMealType,
-                      available: list.mealTypes,
-                    ),
-                    top: 14,
-                  ),
                   if (!(food == null && list.all))
                     gutter(
                       food == null
@@ -136,7 +143,9 @@ class RecipesPage extends ConsumerWidget {
                     ),
                   gutter(
                     Text(
-                      recipeCountLine(list, foodName: foodName),
+                      '${list.recipes.length} '
+                      '${list.recipes.length == 1 ? 'recipe' : 'recipes'}'
+                      '${foodName == null ? '' : ' with $foodName'}',
                       style: dmSans(
                         13,
                         weight: FontWeight.w500,
@@ -144,7 +153,7 @@ class RecipesPage extends ConsumerWidget {
                         color: c.textMuted,
                       ),
                     ),
-                    top: 20,
+                    top: 18,
                   ),
                   if (empty != null)
                     gutter(
@@ -176,24 +185,38 @@ class RecipesPage extends ConsumerWidget {
                       top: 10,
                     )
                   else
-                    for (final r in list.recipes)
-                      gutter(
-                        RecipeListCard(
-                          recipe: r,
-                          palette: paletteOf(r),
-                          subtitle: keyIngredients(r, catalogue),
-                          onTap: () => open(r),
-                          hearted: savedIds.contains(r.id),
-                          onHeart: () => toggleSaved(r),
+                    gutter(
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14),
+                        decoration: BoxDecoration(
+                          color: c.raised,
+                          border: Border.all(color: c.line),
+                          borderRadius: BorderRadius.circular(24),
                         ),
-                        top: 12,
+                        child: Column(
+                          children: [
+                            for (final (i, r) in list.recipes.indexed) ...[
+                              if (i > 0) Divider(height: 1, color: c.line),
+                              RecipeRow(
+                                recipe: r,
+                                palette: paletteOf(r),
+                                subtitle: keyIngredients(r, catalogue),
+                                onTap: () => open(r),
+                                hearted: savedIds.contains(r.id),
+                                onHeart: () => toggleSaved(r),
+                              ),
+                            ],
+                          ],
+                        ),
                       ),
+                      top: 10,
+                    ),
                   gutter(
                     _MyRecipesButton(
                       count: mine + saved.length,
                       onTap: () => context.push(Routes.myRecipes),
                     ),
-                    top: 24,
+                    top: 8,
                   ),
                 ],
               ),

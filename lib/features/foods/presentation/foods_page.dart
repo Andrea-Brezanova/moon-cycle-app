@@ -8,7 +8,7 @@ import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/centered_header.dart';
-import '../../../core/design/widgets/editorial_text.dart';
+import '../../../core/design/widgets/dimmed_photo.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
@@ -19,7 +19,7 @@ import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/text_match.dart';
 import '../../cycle/application/viewing_phase.dart';
-import '../../eat/presentation/phase_pill.dart';
+import '../../eat/presentation/eat_filters.dart';
 import '../../home/presentation/widgets/plant_photos.dart';
 import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
@@ -140,11 +140,6 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           ),
         );
     final showSearch = all || _searching;
-    final phaseName = all ? 'All phases' : content.name;
-    final countLabel = all
-        ? '${shown.length} ${shown.length == 1 ? 'food' : 'foods'}'
-        : '${shown.length} for your phase';
-
     Widget gutter(Widget child, {double top = 0}) => Padding(
       padding: EdgeInsets.fromLTRB(MoonSpace.gutter, top, MoonSpace.gutter, 0),
       child: child,
@@ -168,11 +163,30 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
               onTrailing: _toggleSearch,
             ),
             gutter(
-              Align(
-                alignment: Alignment.centerLeft,
-                child: PhasePill(label: phaseName, all: all),
+              EatFilterBar(
+                all: all,
+                typeLabel: category ?? 'All foods',
+                typeSemantic:
+                    'Showing ${category == null ? 'all foods' : category.toLowerCase()}. '
+                    'Change food type',
+                onType: () => showTypeSheet<String>(
+                  context,
+                  title: 'Food type',
+                  options: [
+                    TypeOption<String?>(
+                      null,
+                      'All foods',
+                      allowed.fold<int>(0, (n, g) => n + g.$2.length),
+                    ),
+                    for (final (name, foods) in allowed)
+                      TypeOption<String?>(name, name, foods.length),
+                  ],
+                  selected: category,
+                  phase: phase,
+                  onChosen: (v) => setState(() => _category = v),
+                ),
               ),
-              top: 6,
+              top: 10,
             ),
             if (showSearch)
               gutter(
@@ -203,26 +217,6 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
               child: ListView(
                 padding: const EdgeInsets.only(bottom: 42 + 76),
                 children: [
-                  gutter(
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 4,
-                      children: [
-                        _CategoryChip(
-                          label: 'All',
-                          selected: category == null,
-                          onTap: () => setState(() => _category = null),
-                        ),
-                        for (final name in chips)
-                          _CategoryChip(
-                            label: name,
-                            selected: category == name,
-                            onTap: () => setState(() => _category = name),
-                          ),
-                      ],
-                    ),
-                    top: 14,
-                  ),
                   // Today's food: only unfiltered, for the phase, not searching.
                   if (!all && category == null && q.isEmpty && todays != null)
                     gutter(
@@ -243,11 +237,19 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                       top: 18,
                     ),
                   gutter(
-                    _ListHead(
-                      title: category ?? 'All foods',
-                      count: countLabel,
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        '${shown.length} ${shown.length == 1 ? 'food' : 'foods'}',
+                        style: dmSans(
+                          13,
+                          weight: FontWeight.w500,
+                          height: 1.2,
+                          color: c.textMuted,
+                        ),
+                      ),
                     ),
-                    top: 24,
+                    top: 18,
                   ),
                   if (shown.isEmpty)
                     gutter(
@@ -265,9 +267,10 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         decoration: BoxDecoration(
                           color: c.raised,
                           border: Border.all(color: c.line),
-                          borderRadius: BorderRadius.circular(22),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                         clipBehavior: Clip.antiAlias,
+                        padding: const EdgeInsets.symmetric(horizontal: 14),
                         child: Column(
                           children: [
                             for (final (i, (food, name)) in shown.indexed) ...[
@@ -295,7 +298,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                           ],
                         ),
                       ),
-                      top: 12,
+                      top: 10,
                     ),
                 ],
               ),
@@ -307,89 +310,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
   }
 }
 
-/// A category filter: plum when chosen, sand otherwise. Drawn 34 tall, with a
-/// 44 touch target.
-class _CategoryChip extends StatelessWidget {
-  const _CategoryChip({
-    required this.label,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    final slop = tapTargetSlop(height: 34);
-    return ExpandedTapTarget(
-      extra: slop,
-      child: Pressable(
-        onTap: onTap,
-        selected: selected,
-        semanticLabel: label,
-        child: Padding(
-          padding: slop,
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 34),
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-            decoration: ShapeDecoration(
-              color: selected ? c.inverseBg : c.sand,
-              shape: const StadiumBorder(),
-            ),
-            child: Text(
-              label,
-              style: dmSans(
-                13.5,
-                weight: selected ? FontWeight.w700 : FontWeight.w500,
-                height: 1.2,
-                color: selected ? c.inverseText : c.text,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// "ALL FOODS" or the chosen category, with how many foods it lists.
-class _ListHead extends StatelessWidget {
-  const _ListHead({required this.title, required this.count});
-
-  final String title;
-  final String count;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    return Semantics(
-      header: true,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.baseline,
-        textBaseline: TextBaseline.alphabetic,
-        children: [
-          Expanded(child: Overline(title)),
-          const SizedBox(width: 12),
-          Text(
-            count,
-            style: dmSans(
-              12.5,
-              weight: FontWeight.w500,
-              height: 1.2,
-              color: c.textMuted,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// One food: thumbnail, name, category and the shopping list button. Tapping
-/// the row opens the food; the button adds or removes it from the list.
+/// One food: a 64 pt thumbnail, the name, its category (and "on your shopping
+/// list"), and the shopping list button. Tapping the row opens the food; the
+/// button adds or removes it from the list.
 class _FoodRow extends StatelessWidget {
   const _FoodRow({
     required this.food,
@@ -414,103 +337,105 @@ class _FoodRow extends StatelessWidget {
     final c = context.moon;
     final photo = plantPhotos[food.id];
     final name = food.displayName;
-    return Container(
-      color: open ? c.sand : null,
-      child: Row(
-        children: [
-          Expanded(
-            child: Pressable(
-              onTap: onOpen,
-              semanticLabel: '$name, $category',
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 10, 4, 10),
-                child: Row(
-                  children: [
-                    ExcludeSemantics(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
-                        child: SizedBox(
-                          width: 52,
-                          height: 52,
-                          child: photo != null
-                              ? Image.asset(
+    return Row(
+      children: [
+        Expanded(
+          child: Pressable(
+            onTap: onOpen,
+            semanticLabel: onList
+                ? '$name, $category, on your shopping list'
+                : '$name, $category',
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Row(
+                children: [
+                  ExcludeSemantics(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: SizedBox(
+                        width: 64,
+                        height: 64,
+                        child: photo != null
+                            ? DimmedPhoto(
+                                dim:
+                                    Theme.of(context).brightness ==
+                                    Brightness.dark,
+                                child: Image.asset(
                                   photo.asset,
                                   fit: BoxFit.cover,
                                   alignment: photo.alignment,
-                                )
-                              : ColoredBox(
-                                  color: c.sand,
-                                  child: Center(
-                                    child: Text(
-                                      foodEmoji(food),
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        height: 1,
-                                      ),
+                                ),
+                              )
+                            : ColoredBox(
+                                color: c.sand,
+                                child: Center(
+                                  child: Text(
+                                    foodEmoji(food),
+                                    style: const TextStyle(
+                                      fontSize: 30,
+                                      height: 1,
                                     ),
                                   ),
                                 ),
+                              ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          style: fraunces(18, height: 1.15, color: c.text),
                         ),
-                      ),
+                        const SizedBox(height: 3),
+                        Text(
+                          onList
+                              ? '$category · on your shopping list'
+                              : category,
+                          style: dmSans(13, height: 1.3, color: c.textMuted),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            name,
-                            style: fraunces(18, height: 1.2, color: c.text),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            category,
-                            style: dmSans(
-                              12.5,
-                              height: 1.3,
-                              color: c.textMuted,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
-          Pressable(
-            onTap: onToggleList,
-            checked: onList,
-            semanticLabel: onList
-                ? 'Remove $name from shopping list'
-                : 'Add $name to shopping list',
-            child: SizedBox(
-              width: minTapTarget + 8,
-              height: minTapTarget + 8,
-              child: Center(
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: onList ? palette.tint : null,
-                    border: onList ? null : Border.all(color: c.line),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: MoonIcon(
-                      onList ? MoonIconName.check : MoonIconName.plus,
-                      size: 16,
-                      color: onList ? palette.text : c.textMuted,
-                      strokeWidth: 2.2,
-                    ),
+        ),
+        Pressable(
+          onTap: onToggleList,
+          checked: onList,
+          semanticLabel: onList
+              ? 'Remove $name from shopping list'
+              : 'Add $name to shopping list',
+          child: SizedBox(
+            width: minTapTarget + 4,
+            height: minTapTarget + 4,
+            child: Center(
+              child: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: onList ? palette.tint : null,
+                  border: onList ? null : Border.all(color: c.line),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: MoonIcon(
+                    onList ? MoonIconName.check : MoonIconName.plus,
+                    size: 16,
+                    color: onList ? palette.text : c.text,
+                    strokeWidth: 2.2,
                   ),
                 ),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -7,6 +7,7 @@ import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_list.dart';
+import '../../home/presentation/widgets/home_photos.dart';
 import '../../home/presentation/widgets/plant_photos.dart';
 
 /// More › Credits & Sources: who made the photographs and where recipes from
@@ -65,6 +66,16 @@ class CreditsPage extends StatelessWidget {
                     _Line(
                       title: e.key.replaceAll('-', ' '),
                       detail: '${e.value.photographer} / Unsplash',
+                    ),
+                  const SizedBox(height: 12),
+                  for (final e in [
+                    ('Home · eat', homePhotos.eat),
+                    ('Home · move', homePhotos.move),
+                    ('Home · relax', homePhotos.relax),
+                  ])
+                    _Line(
+                      title: e.$1,
+                      detail: '${e.$2.photographer} / Unsplash',
                     ),
                   const SizedBox(height: 30),
                   const Overline('Recipe providers'),

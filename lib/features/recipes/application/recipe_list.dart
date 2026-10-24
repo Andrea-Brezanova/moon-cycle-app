@@ -20,6 +20,7 @@ final class RecipeList {
     required this.withFoodAnyMeal,
     required this.mealTypes,
     this.mealInScope = true,
+    this.mealCounts = const {},
   });
 
   /// The shared viewing phase (also the phase "Cook with…" lists foods for).
@@ -45,6 +46,10 @@ final class RecipeList {
   /// user's preferences are applied. False means "none exist"; true with an
   /// empty list means preferences left them all out.
   final bool mealInScope;
+
+  /// How many of the recipes (after preferences and the Cook with food, before
+  /// the meal type) each meal type has: the counts in the meal type sheet.
+  final Map<MealType, int> mealCounts;
 }
 
 final recipeListProvider = Provider<RecipeList>((ref) {
@@ -83,5 +88,9 @@ final recipeListProvider = Provider<RecipeList>((ref) {
     mealInScope:
         filter.mealType == null ||
         scope.any((r) => r.mealType == filter.mealType),
+    mealCounts: {
+      for (final t in MealType.values)
+        t: withFood.where((r) => r.mealType == t).length,
+    },
   );
 });
