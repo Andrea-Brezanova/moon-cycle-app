@@ -34,4 +34,27 @@ void main() {
       );
     });
   }
+
+  for (final dark in [false, true]) {
+    testWidgets('add recipe, paste text, ${dark ? 'dark' : 'light'}', (
+      tester,
+    ) async {
+      await pumpScreen(
+        tester,
+        const AddRecipePage(),
+        dark: dark,
+        height: 1000,
+        overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Paste text'));
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(AddRecipePage),
+        matchesGoldenFile(
+          'goldens/add-recipe-paste-${dark ? 'dark' : 'light'}.png',
+        ),
+      );
+    });
+  }
 }
