@@ -8,7 +8,8 @@ import '../../../../core/domain/phase.dart';
 import '../../../content/domain/phase_content.dart';
 import '../../../cycle/domain/phase_guidance.dart';
 
-/// The phase explanation (Learn more): season and tagline, then what your
+/// The phase explanation (Learn more): season and tagline, the longer approved
+/// description, then what your
 /// body may need, why these foods and how to eat this phase, and the
 /// suggestions-not-rules note.
 class PhaseIntro extends StatelessWidget {
@@ -49,6 +50,19 @@ class PhaseIntro extends StatelessWidget {
           style: fraunces(32, height: 1.1),
         ),
         const SizedBox(height: 20),
+        if (content.learnMore.isNotEmpty) ...[
+          const Overline('About this phase'),
+          const SizedBox(height: 6),
+          for (final paragraph in content.learnMore.split('\n\n'))
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                paragraph,
+                style: MoonType.body.copyWith(color: c.text),
+              ),
+            ),
+          const SizedBox(height: 8),
+        ],
         block('What your body may need', copy.need),
         block('Why these foods', copy.why),
         block('How to eat this phase', copy.how),

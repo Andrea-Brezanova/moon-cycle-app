@@ -107,12 +107,12 @@ void main() {
     }
   });
 
-  testWidgets('Today’s focus shows the approved description in full, the '
+  testWidgets('Today’s focus shows the short approved description in full, the '
       'same every day of the phase', (tester) async {
     final c = await pumpHome(tester);
     final focus = testCatalogue.phase(Phase.follicular).homeFocus;
     final paragraphs = focus.split('\n\n');
-    expect(paragraphs, hasLength(2));
+    expect(paragraphs, hasLength(1));
     expect(c.read(viewingPhaseProvider), Phase.follicular);
     // The headline stays; only the body changed.
     expect(find.text('Fresh, light and quick'), findsOneWidget);
@@ -121,6 +121,26 @@ void main() {
       expect(find.text(p), findsOneWidget);
     }
     expect(find.text('Learn more about your phase\u00A0→'), findsOneWidget);
+  });
+
+  testWidgets('Learn more keeps its sections and adds the longer approved '
+      'explanation once', (tester) async {
+    await pumpHome(tester);
+    await scrollTo(tester, find.text('Learn more about your phase\u00A0→'));
+    await tester.tap(find.text('Learn more about your phase\u00A0→'));
+    await tester.pumpAndSettle();
+    expect(find.byType(LearnMorePage), findsOneWidget);
+    expect(find.text('ABOUT THIS PHASE'), findsOneWidget);
+    final longer = testCatalogue.phase(Phase.follicular).learnMore;
+    for (final p in longer.split('\n\n')) {
+      await scrollTo(tester, find.text(p));
+      expect(find.text(p), findsOneWidget);
+    }
+    // The existing content is still there.
+    for (final t in ['WHAT YOUR BODY MAY NEED', 'WHY THESE FOODS']) {
+      await scrollTo(tester, find.text(t));
+      expect(find.text(t), findsOneWidget, reason: t);
+    }
   });
 
   for (final (width, scale) in [(320.0, 1.0), (320.0, 2.0), (390.0, 1.5)]) {
