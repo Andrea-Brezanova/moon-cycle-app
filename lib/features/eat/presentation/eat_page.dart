@@ -14,6 +14,7 @@ import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../foods/application/browse_scope.dart';
+import '../../recipes/application/recipe_filter.dart';
 
 /// Eat: the hub. A photograph and a short introduction, then the three ways
 /// in: Foods, Recipes and the meal builder. Each opens an existing page.
@@ -101,7 +102,11 @@ class EatPage extends ConsumerWidget {
                 phase: Phase.ovulatory,
                 title: 'Recipes',
                 body: 'Find nourishing recipes for every phase.',
-                onTap: () => context.push(Routes.eatRecipes),
+                onTap: () {
+                  // Entering from Eat is plain browsing, not an earlier search.
+                  ref.read(recipeFilterProvider.notifier).reset();
+                  context.push(Routes.eatRecipes);
+                },
               ),
               const SizedBox(height: 12),
               _HubCard(

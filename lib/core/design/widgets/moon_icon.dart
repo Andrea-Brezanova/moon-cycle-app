@@ -17,6 +17,7 @@ class MoonIcon extends StatelessWidget {
     this.size = 22,
     this.color,
     this.strokeWidth = 1.7,
+    this.filled = false,
     this.semanticLabel,
   });
 
@@ -27,6 +28,9 @@ class MoonIcon extends StatelessWidget {
   final Color? color;
   final double strokeWidth;
 
+  /// Fills the shape with [color] as well as outlining it (a saved heart).
+  final bool filled;
+
   /// Leave null for decorative icons (the usual case: buttons carry labels).
   final String? semanticLabel;
 
@@ -35,7 +39,7 @@ class MoonIcon extends StatelessWidget {
     final c = color ?? DefaultTextStyle.of(context).style.color;
     final svg =
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" '
-        'fill="none" stroke="currentColor" stroke-width="$strokeWidth" '
+        'fill="${filled ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="$strokeWidth" '
         'stroke-linecap="round" stroke-linejoin="round">'
         '${moonIconPaths[name]}</svg>';
     return SvgPicture.string(

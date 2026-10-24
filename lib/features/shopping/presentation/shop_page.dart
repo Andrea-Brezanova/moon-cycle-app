@@ -15,7 +15,6 @@ import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
-import '../../cycle/presentation/phase_header.dart';
 import '../../eat/application/eat_segment.dart';
 import '../../generation/application/generation_providers.dart';
 import '../application/shopping_controller.dart';
@@ -94,7 +93,21 @@ class _ShopPageState extends ConsumerState<ShopPage> {
                       ? context.pop()
                       : context.go(AppTab.more.path),
                 ),
-                const PhaseHeader(title: 'Shopping list', showPhaseLine: false),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    MoonSpace.gutter,
+                    10,
+                    MoonSpace.gutter,
+                    0,
+                  ),
+                  child: Semantics(
+                    header: true,
+                    child: Text(
+                      'Shopping list',
+                      style: MoonType.h1.copyWith(color: c.text),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
                     MoonSpace.gutter,

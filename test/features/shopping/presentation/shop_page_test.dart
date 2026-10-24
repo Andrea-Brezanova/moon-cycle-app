@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/core/design/widgets/phase_selector.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/foods/presentation/foods_page.dart';
@@ -42,6 +43,17 @@ void main() {
     await done;
     await tester.pumpAndSettle();
   }
+
+  testWidgets('the Shopping list has a plain title and no phase tabs', (
+    tester,
+  ) async {
+    await pumpShop(tester);
+    expect(find.text('Shopping list'), findsWidgets);
+    expect(find.byType(PhaseSelector), findsNothing);
+    for (final tab in ['Menstrual', 'Follicular', 'Ovulatory', 'Luteal']) {
+      expect(find.text(tab), findsNothing, reason: tab);
+    }
+  });
 
   ShoppingController controller(ProviderContainer c) =>
       c.read(shoppingControllerProvider.notifier);

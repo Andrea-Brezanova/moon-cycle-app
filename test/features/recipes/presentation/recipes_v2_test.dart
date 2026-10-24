@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/core/design/widgets/moon_icon.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/generation/data/saved_recipe_repository.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
+import 'package:moon_cycle/features/recipes/application/recipe_filter.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 
 import '../../../goldens/screens/home_golden_test.dart' show stateOnDay;
@@ -53,6 +55,56 @@ void main() {
     await tester.pumpAndSettle();
     saved = await tester.runAsync(repo.all);
     expect(saved, isEmpty);
+  });
+
+  testWidgets('a saved heart is filled and an unsaved one is an outline', (
+    tester,
+  ) async {
+    await pumpRecipes(tester);
+    bool filled(String label) => tester
+        .widget<MoonIcon>(
+          find.descendant(
+            of: find.bySemanticsLabel(label),
+            matching: find.byType(MoonIcon),
+          ),
+        )
+        .filled;
+    expect(filled('Save $frittata to My recipes'), isFalse);
+    await tester.tap(find.bySemanticsLabel('Save $frittata to My recipes'));
+    await tester.pumpAndSettle();
+    expect(filled('Remove $frittata from My recipes'), isTrue);
+  });
+
+  testWidgets('entering Recipes from Eat is plain browsing, not an earlier '
+      'search; the search survives a trip to a recipe and back', (
+    tester,
+  ) async {
+    final (c, _) = await pumpRecipes(tester);
+    c.read(recipeFilterProvider.notifier).cookWith('chicken');
+    await tester.pumpAndSettle();
+    expect(find.text('3 recipes with chicken'), findsOneWidget);
+
+    // Into a recipe and back: the context is kept.
+    await tester.tap(find.text('Lemon Chicken & Green Bean Tray Bake'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
+    await tester.pumpAndSettle();
+    expect(find.byType(RecipesPage), findsOneWidget);
+    expect(find.text('3 recipes with chicken'), findsOneWidget);
+
+    // Leave Recipes and enter it again from Eat, twice: normal browsing.
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(RecipesPage), findsNothing);
+      await tester.tap(find.text('Recipes'));
+      await tester.pumpAndSettle();
+      expect(find.byType(RecipesPage), findsOneWidget);
+      expect(c.read(recipeFilterProvider).foodId, isNull);
+      expect(find.textContaining('recipes with'), findsNothing);
+      c.read(recipeFilterProvider.notifier).cookWith('chicken');
+      await tester.pumpAndSettle();
+    }
   });
 
   testWidgets('My recipes: filters with counts, hearts remove, empty states', (
