@@ -6,7 +6,6 @@ import 'package:moon_cycle/features/diary/application/diary_providers.dart';
 import 'package:moon_cycle/features/diary/data/diary_repository.dart';
 import 'package:moon_cycle/features/diary/domain/diary_entry.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
-import 'package:moon_cycle/features/home/presentation/widgets/home_v2.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 
 import '../../goldens/screens/home_golden_test.dart' show stateOnDay;
