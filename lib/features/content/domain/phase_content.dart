@@ -33,6 +33,7 @@ final class PhaseContent {
     required this.tagline,
     required this.summary,
     required this.focusBody,
+    required this.homeFocus,
     required this.cooking,
     required this.note,
     required this.categories,
@@ -54,6 +55,10 @@ final class PhaseContent {
 
   /// The rest of the focus copy (Home "Your focus").
   final String focusBody;
+
+  /// The approved Today's focus description on Home: paragraphs separated by a
+  /// blank line, the same all phase long.
+  final String homeFocus;
 
   /// "Light steaming, quick sautés and fresh salads."
   final String cooking;

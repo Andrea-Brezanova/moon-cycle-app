@@ -19,6 +19,7 @@ import '../../../goldens/screens/home_golden_test.dart' show stateOnDay;
 import '../../../helpers/golden_screen.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/seed.dart';
+import '../../../helpers/test_catalogue.dart';
 
 const premium = EntitlementState(tier: Tier.premium);
 
@@ -105,6 +106,49 @@ void main() {
       expect(find.text(gone), findsNothing, reason: gone);
     }
   });
+
+  testWidgets('Today’s focus shows the approved description in full, the '
+      'same every day of the phase', (tester) async {
+    final c = await pumpHome(tester);
+    final focus = testCatalogue.phase(Phase.follicular).homeFocus;
+    final paragraphs = focus.split('\n\n');
+    expect(paragraphs, hasLength(2));
+    expect(c.read(viewingPhaseProvider), Phase.follicular);
+    // The headline stays; only the body changed.
+    expect(find.text('Fresh, light and quick'), findsOneWidget);
+    for (final p in paragraphs) {
+      await scrollTo(tester, find.text(p));
+      expect(find.text(p), findsOneWidget);
+    }
+    expect(find.text('Learn more about your phase\u00A0→'), findsOneWidget);
+  });
+
+  for (final (width, scale) in [(320.0, 1.0), (320.0, 2.0), (390.0, 1.5)]) {
+    for (final phase in Phase.values) {
+      testWidgets('Today’s focus, ${phase.name}: the whole description fits '
+          'at ${width}pt, $scale× text', (tester) async {
+        tester.view.physicalSize = Size(width, 900) * 3;
+        tester.view.devicePixelRatio = 3;
+        tester.platformDispatcher.textScaleFactorTestValue = scale;
+        addTearDown(tester.view.reset);
+        addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+        final db = testDatabase();
+        await seedCycle(tester, db, start: sampleStart);
+        final c = await pumpApp(
+          tester,
+          database: db,
+          overrides: [clockProvider.overrideWithValue(designNow)],
+        );
+        c.read(viewingPhaseProvider.notifier).choose(phase);
+        await tester.pumpAndSettle();
+        for (final p in testCatalogue.phase(phase).homeFocus.split('\n\n')) {
+          await scrollTo(tester, find.text(p));
+          expect(find.text(p), findsOneWidget, reason: '${phase.name}: $p');
+        }
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
 
   testWidgets('the EAT card opens the 3 Plants a Day page', (tester) async {
     await pumpHome(tester);

@@ -79,6 +79,8 @@ Catalogue parseCatalogue({
       tagline: _str(p, 'tagline'),
       summary: _str(p, 'summary'),
       focusBody: _str(p, 'focusBody'),
+      // Falls back to the short summary if a phase has no description.
+      homeFocus: (p['homeFocus'] as String?) ?? _str(p, 'summary'),
       cooking: _str(p, 'cooking'),
       note: _str(p, 'note'),
       categories: [

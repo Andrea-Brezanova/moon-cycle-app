@@ -131,6 +131,26 @@ void main() {
         expect(testCatalogue.phase(phase).note, universalNote);
       });
 
+      test('$id: Today’s focus has the approved two paragraphs and no '
+          'treatment claims', () {
+        final focus = p['homeFocus']! as String;
+        final paragraphs = focus.split('\n\n');
+        expect(paragraphs, hasLength(2), reason: 'what happens, then support');
+        for (final para in paragraphs) {
+          expect(para.trim(), isNotEmpty);
+        }
+        expect(testCatalogue.phase(phase).homeFocus, focus);
+        expect(
+          RegExp(
+            r'detox|regulat|balanc|prevent|\btreat|\bcure|\bfix\b|'
+            r'deficien|\bpms\b|cramp|proven|clinical|heal',
+            caseSensitive: false,
+          ).hasMatch(focus),
+          isFalse,
+          reason: focus,
+        );
+      });
+
       test('$id: categories exist in the taxonomy, in taxonomy order', () {
         final used = [for (final c in list(p['categories'])) c['category']];
         expect(used.toSet(), hasLength(used.length));
