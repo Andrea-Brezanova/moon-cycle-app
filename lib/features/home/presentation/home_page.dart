@@ -47,7 +47,7 @@ class HomePage extends ConsumerWidget {
       backgroundColor: c.bg,
       body: ListView(
         controller: ref.watch(tabScrollProvider).of(AppTab.home),
-        padding: const EdgeInsets.only(bottom: 130),
+        padding: const EdgeInsets.only(bottom: 42 + 76),
         children: [
           HomeHero(state: state),
           // The late card and the preview's pill sit closer to the content.
