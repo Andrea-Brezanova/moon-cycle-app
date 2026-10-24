@@ -60,6 +60,11 @@ void main() {
   }
 
   Future<void> saveRecipe(WidgetTester tester) async {
+    await tester.scrollUntilVisible(
+      find.text('Save recipe'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(find.text('Save recipe'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Save recipe'));
@@ -183,6 +188,159 @@ void main() {
     await tester.enterText(find.byType(EditableText).first, 'Moonlight');
     await tester.pumpAndSettle();
     expect(find.text('Moonlight stew'), findsWidgets);
+  });
+
+  const pasted = '''
+Gran’s Lentil Soup
+Serves 4
+Prep time: 10 minutes
+Cook time: 30 minutes
+
+Ingredients
+150 g green lentils
+A handful of moon dust
+
+Method
+1. Simmer the lentils.
+2. Serve warm.
+''';
+
+  testWidgets('paste text: a draft to review; nothing is saved until Save', (
+    tester,
+  ) async {
+    await pumpMyRecipes(tester);
+    await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Paste text'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('never sent anywhere'), findsOneWidget);
+    // Nothing pasted: nothing to review.
+    await tester.tap(find.text('Review recipe'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(find.text('Paste your recipe here'), findsOneWidget);
+
+    await tester.enterText(find.byType(EditableText).first, pasted);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Review recipe'));
+    await tester.tap(find.text('Review recipe'));
+    await tester.pumpAndSettle();
+
+    // The editor, filled in, with what was found and what wasn't.
+    expect(find.byKey(const ValueKey('import-note')), findsOneWidget);
+    expect(
+      find.textContaining('Found: a name, 2 ingredients, 2 steps'),
+      findsOneWidget,
+    );
+    final fields = tester
+        .widgetList<EditableText>(find.byType(EditableText))
+        .map((e) => e.controller.text)
+        .toList();
+    expect(fields[0], 'Gran’s Lentil Soup');
+    expect(fields[1], '40'); // prep + cook
+    expect(fields[2], '4');
+    expect(fields[4], '150 g green lentils\nA handful of moon dust');
+    expect(fields[5], 'Simmer the lentils.\nServe warm.');
+    // The line we don't recognise is named as unchecked.
+    expect(find.byKey(const ValueKey('unchecked-note')), findsOneWidget);
+    expect(find.text('• A handful of moon dust'), findsOneWidget);
+    expect(find.text('• 150 g green lentils'), findsNothing);
+
+    // Not saved yet.
+    var mine = await tester.runAsync(
+      () => container.read(personalRecipeRepositoryProvider).allFor([
+        localRecipeOwnerId,
+      ]),
+    );
+    expect(mine, isEmpty);
+
+    // The user edits the draft, then saves explicitly.
+    await tester.enterText(find.byType(EditableText).at(0), 'Gran’s soup');
+    await saveRecipe(tester);
+    expect(find.byType(MyRecipesPage), findsOneWidget);
+    expect(find.text('Gran’s soup'), findsOneWidget);
+    mine = await tester.runAsync(
+      () => container.read(personalRecipeRepositoryProvider).allFor([
+        localRecipeOwnerId,
+      ]),
+    );
+    final r = mine!.single;
+    expect((r.isManual, r.recipe.minutes, r.recipe.serves), (true, 40, 4));
+    expect(r.recipe.ingredients.map((i) => i.label), [
+      '150 g green lentils',
+      'A handful of moon dust',
+    ]);
+    expect(r.recipe.ingredients.last.foodId, isNull); // kept as written
+    expect(r.recipe.steps, ['Simmer the lentils.', 'Serve warm.']);
+  });
+
+  testWidgets('pasting over writing asks before replacing it', (tester) async {
+    await pumpMyRecipes(tester);
+    await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
+    await tester.pumpAndSettle();
+    await fill(tester, title: 'My own start');
+    await tester.tap(find.text('Paste text'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText).first, pasted);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Review recipe'));
+    await tester.tap(find.text('Review recipe'));
+    await tester.pumpAndSettle();
+    expect(find.text('Replace what you’ve written?'), findsOneWidget);
+    await tester.tap(find.text('Keep mine'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('import-note')), findsNothing);
+    await tester.ensureVisible(find.text('Review recipe'));
+    await tester.tap(find.text('Review recipe'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Replace'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('import-note')), findsOneWidget);
+    expect(
+      tester
+          .widget<EditableText>(find.byType(EditableText).first)
+          .controller
+          .text,
+      'Gran’s Lentil Soup',
+    );
+  });
+
+  testWidgets('typing an unrecognised ingredient names it as unchecked', (
+    tester,
+  ) async {
+    await pumpMyRecipes(tester);
+    await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
+    await tester.pumpAndSettle();
+    await fill(tester, ingredients: '150 g green lentils\nunicorn tears');
+    expect(
+      find.text(
+        '1 of 2 ingredients can’t be checked against your food '
+        'preferences or allergens:',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('• unicorn tears'), findsOneWidget);
+    await fill(tester, ingredients: '150 g green lentils');
+    expect(find.byKey(const ValueKey('unchecked-note')), findsNothing);
+    expect(
+      find.text('Every ingredient was matched to a Moon Cycle food.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('editing a saved recipe has no paste tab', (tester) async {
+    await pumpMyRecipes(tester);
+    await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
+    await tester.pumpAndSettle();
+    await fill(tester, title: 'Soup', steps: 'Heat.');
+    await saveRecipe(tester);
+    await tester.tap(find.text('Soup'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Edit this recipe'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Edit this recipe'));
+    await tester.pumpAndSettle();
+    expect(find.text('Edit recipe'), findsOneWidget);
+    expect(find.text('Paste text'), findsNothing);
   });
 
   group('layout', () {
