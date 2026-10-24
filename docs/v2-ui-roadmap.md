@@ -32,7 +32,7 @@ finished items out of "Remaining".
 | Foods page | `/eat/foods` | Approved (light, dark, category-filtered), supplied in chat | In review (`feature/v2-foods-ui`; approved on device) | Photos for most foods (emoji tiles); |
 | Recipes page, Cook with | `/eat/recipes` | Approved (light, dark, Cook with ingredient), supplied in chat | In review (`feature/v2-recipes-ui`) | Done: listing, Cook with, search icon, hearts, My recipes (filters, counts). **Not built: Add a Recipe** — see below |
 | Food detail | `/eat/...` | — | Design pending | |
-| 3 Plants a Day | `/eat/three-plants` | — | Design pending | Plant photography (see Assets) |
+| 3 Plants a Day | `/eat/three-plants` | Refinement board | Done (PR #15) | More plant photography (separate content task) |
 | Learn more (phase) | `/eat/learn` | — | Design pending | Home's Focus card links here |
 | Meal Builder | `/eat/...` | — | Design pending | Home no longer has a "Create my meal" entry; decide whether Home or Eat owns it |
 | My Recipes | `/eat/my-recipes` | Approved (My Recipes), supplied in chat | In review (`feature/v2-recipes-ui`) | Plus button and Add a Recipe CTA omitted (no supported flow) |
@@ -65,7 +65,9 @@ rebase or deploy.
 | 3 | My Diary hub | `feature/v2-diary-hub` | Merged (PR #9) |
 | 4 | Free-writing diary Notes (new personal data) | `feature/v2-diary-notes` | Merged (PR #10) |
 | 5 | Activity logging (new personal data; owner approval required to merge) | `feature/v2-activity-log` | Merged |
-| 6 | V2 refinements (Home, Eat overline, Foods + Recipes filters, 3 Plants a Day; visual only) | `feature/v2-refinements` | PR open for review |
+| 6 | V2 refinements (Home, Eat overline, Foods + Recipes filters, 3 Plants a Day; visual only) | `feature/v2-refinements` | Merged (PR #15) |
+| 7 | Add a Recipe part 2, paste text | `feature/v2-add-recipe-paste-text` | Merged (PR #13) |
+| 8 | Add a Recipe part 3, URL import | not started | Plan awaiting owner decisions (`docs/add-recipe-url-import-plan.md`) |
 
 Key requirements per feature (full text was given in chat):
 
@@ -93,6 +95,27 @@ Key requirements per feature (full text was given in chat):
   estimates or Apple Health. Proposal before code.
 - **Eat follow-up:** the Meal Builder back label ("Back to Foods") is a separate,
   approved navigation change if needed.
+
+## Development installs on the owner's iPhone (permanent workflow)
+
+Local development installs only: not TestFlight, not the App Store. After every
+successfully merged PR:
+
+1. Fetch `origin/main`; verify the merge commit and that the feature is present.
+2. Check the paired iPhone is available (`xcrun devicectl list devices`).
+3. If so, build `flutter build ios --release --flavor dev
+   --dart-define-from-file=env/dev.json` and update **in place** with
+   `xcrun devicectl device install app` (never `flutter install`, which uninstalls
+   and wipes the encrypted database, diary, notes, activities, recipes, shopping
+   list and settings). Keep the bundle id `app.mooncycle.mobile.dev` and the
+   signing configuration unchanged.
+4. Launch the app and check the new feature is reachable.
+5. Report the installed commit SHA and whether the install succeeded.
+
+If the iPhone is unavailable, report the install as pending and carry on; do not
+rebuild the same commit twice. UI work awaiting visual approval may also be
+installed from its feature branch. Do not touch signing credentials, the data, or
+publish anything without approval.
 
 ## Testing policy (applies to every V2 branch)
 
