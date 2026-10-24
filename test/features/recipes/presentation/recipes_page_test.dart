@@ -30,6 +30,15 @@ Future<void> browse(WidgetTester tester, String row) async {
   await tester.pumpAndSettle();
 }
 
+/// Chooses a row in the "Meal type" sheet.
+Future<void> pickMeal(WidgetTester tester, String label) async {
+  await tester.tap(find.byKey(const ValueKey('type-filter')));
+  await tester.pumpAndSettle();
+  expect(find.text('Meal type'), findsOneWidget);
+  await tester.tap(find.bySemanticsLabel(RegExp('^$label, \\d+\$')));
+  await tester.pumpAndSettle();
+}
+
 Future<void> tapText(WidgetTester tester, String text) async {
   await tester.ensureVisible(find.text(text).first);
   await tester.pumpAndSettle();
@@ -67,47 +76,51 @@ void main() {
 
   testWidgets('the phase’s recipes as cards with a heart', (tester) async {
     await pumpRecipes(tester);
-    expect(find.text('29 follicular recipes'), findsOneWidget);
+    expect(find.text('29 recipes'), findsOneWidget);
     expect(find.text('Zucchini & Feta Herb Frittata'), findsOneWidget);
     expect(find.text('Meals · 25 min'), findsWidgets); // the card's meta
   });
 
-  testWidgets('meal tabs: the types the phase has recipes for', (tester) async {
+  testWidgets('the meal type sheet filters the list and the count updates', (
+    tester,
+  ) async {
     final (container, _) = await pumpRecipes(tester);
-    // Follicular has breakfasts, meals and snacks.
-    expect(find.text('Breakfast'), findsOneWidget);
-    expect(find.text('Meals'), findsOneWidget);
-    expect(find.text('Snacks'), findsOneWidget);
-    await tapText(tester, 'Breakfast');
-    expect(find.text('9 follicular breakfasts'), findsOneWidget);
-    await tapText(tester, 'Meals');
-    expect(find.text('18 follicular meals'), findsOneWidget);
-    await tapText(tester, 'Snacks');
-    expect(find.text('2 follicular snacks'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('type-filter')));
+    await tester.pumpAndSettle();
+    // Follicular has breakfasts, meals and snacks, with live counts.
+    expect(find.bySemanticsLabel('All meals, 29'), findsOneWidget);
+    expect(find.bySemanticsLabel('Breakfast, 9'), findsOneWidget);
+    expect(find.bySemanticsLabel('Meals, 18'), findsOneWidget);
+    expect(find.bySemanticsLabel('Snacks, 2'), findsOneWidget);
+    await tester.tapAt(const Offset(10, 60)); // the scrim
+    await tester.pumpAndSettle();
+    await pickMeal(tester, 'Breakfast');
+    expect(find.text('9 recipes'), findsOneWidget);
+    await pickMeal(tester, 'Meals');
+    expect(find.text('18 recipes'), findsOneWidget);
+    await pickMeal(tester, 'Snacks');
+    expect(find.text('2 recipes'), findsOneWidget);
 
     // Another phase keeps the selected tab and shows its own count.
     container.read(viewingPhaseProvider.notifier).choose(Phase.menstrual);
     await tester.pumpAndSettle();
-    expect(find.text('3 menstrual snacks'), findsOneWidget);
+    expect(find.text('3 recipes'), findsOneWidget);
     container.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
     await tester.pumpAndSettle();
-    expect(find.text('1 luteal snack'), findsOneWidget);
+    expect(find.text('1 recipe'), findsOneWidget);
     container.read(viewingPhaseProvider.notifier).choose(Phase.follicular);
     await tester.pumpAndSettle();
-    expect(find.text('2 follicular snacks'), findsOneWidget);
+    expect(find.text('2 recipes'), findsOneWidget);
   });
 
   testWidgets('All recipes: every meal type, all 112 recipes', (tester) async {
     await pumpRecipes(tester);
     await browse(tester, 'All phases');
-    expect(find.text('Breakfast'), findsOneWidget);
-    expect(find.text('Meals'), findsOneWidget);
-    expect(find.text('Snacks'), findsOneWidget);
     expect(find.text('112 recipes'), findsOneWidget);
-    await tapText(tester, 'Snacks');
-    expect(find.text('11 snacks'), findsOneWidget);
+    await pickMeal(tester, 'Snacks');
+    expect(find.text('11 recipes'), findsOneWidget);
     await browse(tester, 'Follicular');
-    expect(find.text('2 follicular snacks'), findsOneWidget);
+    expect(find.text('2 recipes'), findsOneWidget);
   });
 
   testWidgets('Cook with: search, choose, then breakfast has none', (
@@ -121,10 +134,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.bySemanticsLabel('Chicken, 3 recipes'));
     await tester.pumpAndSettle();
-    expect(find.text('3 follicular recipes with chicken'), findsOneWidget);
+    expect(find.text('3 recipes with chicken'), findsOneWidget);
     expect(find.text('Lemon Chicken & Green Bean Tray Bake'), findsOneWidget);
 
-    await tapText(tester, 'Breakfast');
+    await pickMeal(tester, 'Breakfast');
     expect(find.text('No breakfasts with chicken'), findsOneWidget);
     expect(
       find.text(
@@ -133,7 +146,7 @@ void main() {
       findsOneWidget,
     );
     await tapText(tester, 'Clear ingredient');
-    expect(find.text('9 follicular breakfasts'), findsOneWidget);
+    expect(find.text('9 recipes'), findsOneWidget);
   });
 
   testWidgets('Cook with: no match, then clear the search', (tester) async {
@@ -157,7 +170,7 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Chicken, 3 recipes'));
     await tester.pumpAndSettle();
     await browse(tester, 'Luteal');
-    expect(find.text('30 luteal recipes'), findsOneWidget);
+    expect(find.text('30 recipes'), findsOneWidget);
     expect(container, isNotNull);
   });
 
@@ -193,7 +206,7 @@ void main() {
         }
       },
     );
-    expect(find.text('0 follicular recipes'), findsOneWidget);
+    expect(find.text('0 recipes'), findsOneWidget);
     expect(find.text('Nothing fits your preferences'), findsOneWidget);
     expect(find.text('Review food preferences'), findsOneWidget);
   });
@@ -202,7 +215,7 @@ void main() {
     'detail: add everything, then the added state; back keeps the filter',
     (tester) async {
       final (_, db) = await pumpRecipes(tester);
-      await tapText(tester, 'Meals');
+      await pickMeal(tester, 'Meals');
       await tapText(tester, 'Zucchini & Feta Herb Frittata');
       expect(find.byType(RecipeDetailPage), findsOneWidget);
       expect(find.text('25 min · Serves 4'), findsOneWidget);
@@ -227,7 +240,7 @@ void main() {
       // The list is where it was left; scroll up to the count.
       await tester.drag(find.byType(Scrollable).first, const Offset(0, 3000));
       await tester.pumpAndSettle();
-      expect(find.text('18 follicular meals'), findsOneWidget);
+      expect(find.text('18 recipes'), findsOneWidget);
     },
   );
 

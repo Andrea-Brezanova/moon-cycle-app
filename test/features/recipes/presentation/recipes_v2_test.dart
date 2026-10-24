@@ -110,11 +110,10 @@ void main() {
     expect(find.text('No saved recipes yet'), findsOneWidget);
   });
 
-  testWidgets('the search icon opens Cook with; not offered under All phases', (
-    tester,
-  ) async {
+  testWidgets('Cook with opens the ingredient sheet; not offered under All '
+      'phases', (tester) async {
     await pumpRecipes(tester);
-    await tester.tap(find.byKey(const ValueKey('recipes-search')));
+    await tester.tap(find.bySemanticsLabel('Cook with, choose an ingredient'));
     await tester.pumpAndSettle();
     expect(find.text('Foods for your follicular phase'), findsOneWidget);
     await tester.tapAt(const Offset(10, 60)); // the scrim
@@ -124,7 +123,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('All phases'));
     await tester.pumpAndSettle();
-    expect(find.byKey(const ValueKey('recipes-search')), findsNothing);
+    expect(
+      find.bySemanticsLabel('Cook with, choose an ingredient'),
+      findsNothing,
+    );
   });
 
   group('layout', () {

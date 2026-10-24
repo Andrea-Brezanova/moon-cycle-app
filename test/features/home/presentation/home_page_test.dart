@@ -56,7 +56,7 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Inner spring'), findsOneWidget);
     expect(find.text('Follicular'), findsOneWidget);
-    expect(find.text('DAY'), findsNothing);
+    expect(find.text('DAY'), findsOneWidget);
     expect(
       find.text(
         'Day 2 of 6 in phase · Day 7 of 28 in cycle\nOvulatory in 5 days',
