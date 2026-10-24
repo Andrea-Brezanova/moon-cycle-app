@@ -83,24 +83,28 @@ final recipeCreatorProvider = Provider<RecipeCreator>((ref) {
   );
 });
 
-/// The current user's recipes, newest first. Empty when signed out.
-final personalRecipesProvider = StreamProvider<List<PersonalRecipe>>((ref) {
+/// Whose personal recipes are shown: the recipes typed on this phone (the
+/// local owner, no account needed) and, when there is a session, that user's
+/// generated ones.
+final personalRecipeOwnersProvider = Provider<List<String>>((ref) {
   final session = ref.watch(authSessionProvider);
-  if (session == null) return Stream.value(const []);
-  return ref.watch(personalRecipeRepositoryProvider).watchAll(session.userId);
+  return [localRecipeOwnerId, ?session?.userId];
 });
 
-/// One personal recipe by id (null when it is not the user's or is gone).
-final personalRecipeProvider = StreamProvider.family<PersonalRecipe?, String>((
-  ref,
-  id,
-) {
-  final session = ref.watch(authSessionProvider);
-  if (session == null) return Stream.value(null);
-  return ref
+/// The user's recipes, newest first: typed on this phone, and (with a session)
+/// generated for them.
+final personalRecipesProvider = StreamProvider<List<PersonalRecipe>>(
+  (ref) => ref
       .watch(personalRecipeRepositoryProvider)
-      .watchById(session.userId, id);
-});
+      .watchAllFor(ref.watch(personalRecipeOwnersProvider)),
+);
+
+/// One personal recipe by id (null when it is not the user's or is gone).
+final personalRecipeProvider = StreamProvider.family<PersonalRecipe?, String>(
+  (ref, id) => ref
+      .watch(personalRecipeRepositoryProvider)
+      .watchByIdFor(ref.watch(personalRecipeOwnersProvider), id),
+);
 
 /// A recipe by id: the bundled library first, then the user's own. Loading
 /// only while a personal recipe is being read.

@@ -143,6 +143,11 @@ abstract final class Routes {
   /// Recipes › the user's own generated recipes.
   static const String myRecipes = '/eat/my-recipes';
 
+  /// Write your own recipe, and edit one (on the root navigator: writing
+  /// covers the tab bar).
+  static const String addRecipe = '/eat/my-recipes/add';
+  static String editRecipe(String id) => '/eat/my-recipes/edit/$id';
+
   /// Foods › the recipes that match the foods chosen in the meal builder.
   /// The chosen foods travel as ids in the query.
   ///

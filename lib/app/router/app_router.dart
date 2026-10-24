@@ -26,6 +26,7 @@ import '../../features/foods/presentation/food_detail_page.dart';
 import '../../features/foods/presentation/learn_more_page.dart';
 import '../../features/foods/presentation/meal_builder_page.dart';
 import '../../features/generation/domain/balanced_selection.dart';
+import '../../features/generation/presentation/add_recipe_page.dart';
 import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
@@ -149,6 +150,24 @@ GoRouter buildAppRouter({
                         path: 'my-recipes',
                         pageBuilder: (context, state) =>
                             _page(state, const MyRecipesPage()),
+                        routes: [
+                          GoRoute(
+                            path: 'add',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) =>
+                                _page(state, const AddRecipePage()),
+                          ),
+                          GoRoute(
+                            path: 'edit/:recipeId',
+                            parentNavigatorKey: rootKey,
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              AddRecipePage(
+                                recipeId: state.pathParameters['recipeId'],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       GoRoute(
                         path: 'recipe/:recipeId',

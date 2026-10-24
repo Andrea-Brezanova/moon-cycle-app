@@ -36,7 +36,7 @@ finished items out of "Remaining".
 | Learn more (phase) | `/eat/learn` | — | Design pending | Home's Focus card links here |
 | Meal Builder | `/eat/...` | — | Design pending | Home no longer has a "Create my meal" entry; decide whether Home or Eat owns it |
 | My Recipes | `/eat/my-recipes` | Approved (My Recipes), supplied in chat | In review (`feature/v2-recipes-ui`) | Plus button and Add a Recipe CTA omitted (no supported flow) |
-| Add a Recipe | — | Approved (paste a link / paste text / write my own), supplied in chat | **Blocked: no flow exists** | Needs a product decision: see "Add a Recipe audit" |
+| Add a Recipe | `/eat/my-recipes/add` | Approved (paste a link / paste text / write my own), supplied in chat | Manual entry in review (`feature/v2-add-recipe`); paste-text and URL import to follow | URL import needs the licensing decision in `docs/add-recipe-review.md` |
 | Recipe detail | `/eat/recipe/:id` | — | Design pending | |
 | Move | `/move` | — | Design pending | Currently a placeholder; target of Home's MOVE card |
 | Relax | `/relax` | — | Design pending | Currently a placeholder; target of Home's RELAX card |

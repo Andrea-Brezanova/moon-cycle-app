@@ -40,7 +40,14 @@ final class PersonalRecipe {
 
   /// Shown on the recipe: this was not made by the live generator.
   bool get isDevSample => provenance.origin == GenerationOrigin.devMock;
+
+  /// Typed by the user (not generated): editable, never suggested anywhere.
+  bool get isManual => provenance.origin == GenerationOrigin.manual;
 }
+
+/// The owner of recipes the user typed. Not an account: it works without
+/// signing in, and is always included alongside the signed-in user's own.
+const localRecipeOwnerId = 'local';
 
 /// The id prefix of every personal recipe.
 const personalRecipePrefix = 'u-';

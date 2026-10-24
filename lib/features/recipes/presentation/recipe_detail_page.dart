@@ -234,6 +234,16 @@ class RecipeDetailPage extends ConsumerWidget {
                       _Method(recipe: recipe, palette: palette),
                       if (personal != null) ...[
                         const SizedBox(height: 30),
+                        if (personal.isManual) ...[
+                          Center(
+                            child: TextLink(
+                              'Edit this recipe',
+                              onTap: () =>
+                                  context.push(Routes.editRecipe(personal.id)),
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                        ],
                         Center(
                           child: TextLink(
                             'Delete this recipe',
@@ -399,7 +409,11 @@ class _PersonalNote extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          recipe.isDevSample
+          recipe.isManual
+              ? 'Added by you · saved privately on this phone. Ingredients '
+                    'you typed that we don’t recognise can’t be checked '
+                    'against your food preferences.'
+              : recipe.isDevSample
               ? 'Development sample · made from templates, not by an AI. '
                     'Saved privately to your recipes.'
               : 'Created for you · saved privately to your recipes.',

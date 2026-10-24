@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/database/app_database.dart';
 import '../../../core/database/row_ids.dart';
+import '../../content/domain/recipe.dart';
 import '../domain/generation_result.dart';
 import '../domain/personal_recipe.dart';
 import '../domain/recipe_image_service.dart';
@@ -18,6 +19,60 @@ class PersonalRecipeRepository {
 
   final AppDatabase _db;
   final RowStamp _stamp;
+
+  /// The recipes of any of [ownerIds] (the local owner and the signed-in user),
+  /// newest first.
+  Stream<List<PersonalRecipe>> watchAllFor(List<String> ownerIds) =>
+      (_db.select(_db.personalRecipes)
+            ..where((t) => t.ownerId.isIn(ownerIds) & t.deletedAt.isNull())
+            ..orderBy([(t) => OrderingTerm.desc(t.createdAt)]))
+          .watch()
+          .map((rows) => [for (final r in rows) _toDomain(r)]);
+
+  Future<List<PersonalRecipe>> allFor(List<String> ownerIds) =>
+      watchAllFor(ownerIds).first;
+
+  /// One recipe by id, if it belongs to any of [ownerIds].
+  Stream<PersonalRecipe?> watchByIdFor(List<String> ownerIds, String id) =>
+      (_db.select(_db.personalRecipes)..where(
+            (t) =>
+                t.id.equals(id) &
+                t.ownerId.isIn(ownerIds) &
+                t.deletedAt.isNull(),
+          ))
+          .watchSingleOrNull()
+          .map((row) => row == null ? null : _toDomain(row));
+
+  /// One recipe by id, if it belongs to any of [ownerIds].
+  Future<PersonalRecipe?> byIdFor(List<String> ownerIds, String id) async {
+    final row =
+        await (_db.select(_db.personalRecipes)..where(
+              (t) =>
+                  t.id.equals(id) &
+                  t.ownerId.isIn(ownerIds) &
+                  t.deletedAt.isNull(),
+            ))
+            .getSingleOrNull();
+    return row == null ? null : _toDomain(row);
+  }
+
+  /// Replaces what a recipe says (the user edited it). Its owner, origin and
+  /// lifecycle stay as they were.
+  Future<void> updateRecipe(String ownerId, String id, Recipe recipe) =>
+      (_db.update(_db.personalRecipes)..where(
+            (t) =>
+                t.id.equals(id) &
+                t.ownerId.equals(ownerId) &
+                t.deletedAt.isNull(),
+          ))
+          .write(
+            PersonalRecipesCompanion(
+              title: Value(recipe.title),
+              phase: Value(recipe.phase.name),
+              recipeJson: Value(jsonEncode(recipeToJson(recipe))),
+              updatedAt: Value(_stamp.now()),
+            ),
+          );
 
   /// Newest first.
   Stream<List<PersonalRecipe>> watchAll(String ownerId) =>

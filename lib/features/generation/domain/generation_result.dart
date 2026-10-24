@@ -3,7 +3,7 @@ import 'generated_recipe.dart';
 /// Where a recipe came from. A development mock is never presented as a live
 /// generated result: the app labels it, and builds that cannot use the mock
 /// never create one.
-enum GenerationOrigin { devMock, cloud }
+enum GenerationOrigin { devMock, cloud, manual }
 
 /// Who made a recipe, kept with it for review and for cost accounting.
 final class Provenance {
