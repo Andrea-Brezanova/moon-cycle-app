@@ -88,7 +88,7 @@ class _ShopPageState extends ConsumerState<ShopPage> {
               padding: const EdgeInsets.only(bottom: 42 + 76),
               children: [
                 SubScreenHeader(
-                  backLabel: 'More',
+                  backLabel: 'Me',
                   onBack: () => context.canPop()
                       ? context.pop()
                       : context.go(AppTab.more.path),

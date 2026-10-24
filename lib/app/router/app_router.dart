@@ -7,6 +7,9 @@ import '../../core/design/debug/component_gallery.dart';
 import '../../core/design/widgets/moon_icon.dart';
 import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
+import '../../features/collections/application/collections_providers.dart';
+import '../../features/collections/presentation/collection_category_page.dart';
+import '../../features/collections/presentation/collections_page.dart';
 import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
 import '../../features/diary/presentation/diary_activities_page.dart';
@@ -339,6 +342,24 @@ GoRouter buildAppRouter({
                               LogSymptomsPage(date: _dateOf(state)),
                             ),
                           ),
+                        ],
+                      ),
+                      GoRoute(
+                        path: 'collections',
+                        pageBuilder: (context, state) =>
+                            _page(state, const CollectionsPage()),
+                        routes: [
+                          for (final category in [
+                            CollectionCategory.workouts,
+                            CollectionCategory.sounds,
+                          ])
+                            GoRoute(
+                              path: category.name,
+                              pageBuilder: (context, state) => _page(
+                                state,
+                                CollectionCategoryPage(category: category),
+                              ),
+                            ),
                         ],
                       ),
                       GoRoute(

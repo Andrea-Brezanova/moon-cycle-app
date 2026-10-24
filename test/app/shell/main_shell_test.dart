@@ -125,7 +125,7 @@ void main() {
     expect(tester.getTopLeft(intro).dy, top);
   });
 
-  testWidgets('More sub-pages open inside More and go back', (tester) async {
+  testWidgets('Me sub-pages open inside Me and go back', (tester) async {
     await pumpApp(tester);
     await tapTab(tester, 'more');
     await tester.tap(find.text('My Cycle'));
@@ -133,7 +133,7 @@ void main() {
     expect(find.text('My Cycle').hitTestable(), findsOneWidget);
     expect(settingsRoot.hitTestable(), findsNothing);
     expect(tab('more').hitTestable(), findsOneWidget); // tab bar visible
-    await tester.tap(find.bySemanticsLabel('Back to More'));
+    await tester.tap(find.bySemanticsLabel('Back to Me'));
     await tester.pumpAndSettle();
     expect(settingsRoot.hitTestable(), findsOneWidget);
   });
