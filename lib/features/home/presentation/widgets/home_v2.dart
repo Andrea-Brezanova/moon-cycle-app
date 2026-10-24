@@ -323,17 +323,40 @@ class _UnderlinedLink extends StatelessWidget {
   }
 }
 
-/// A quick-access pill: icon, title and a small chevron.
+/// "Start your daily check-in", "1 entry today", "8 entries today".
+String diaryEntriesToday(int count) => switch (count) {
+  0 => 'Start your daily check-in',
+  1 => '1 entry today',
+  _ => '$count entries today',
+};
+
+/// "Your list is empty", "1 item to buy", "8 items to buy".
+String shoppingToBuy(int count) => switch (count) {
+  0 => 'Your list is empty',
+  1 => '1 item to buy',
+  _ => '$count items to buy',
+};
+
+/// A quiet Quick access card: a softly tinted background, a large line icon, the
+/// feature's name, one live line and a small chevron. The whole card is the tap
+/// target.
 class QuickAccessCard extends StatelessWidget {
   const QuickAccessCard({
     super.key,
     required this.icon,
     required this.title,
+    required this.subtitle,
+    required this.tint,
     required this.onTap,
   });
 
-  final MoonIconName icon;
+  /// A decorative icon, drawn about 30 pt.
+  final Widget icon;
   final String title;
+  final String subtitle;
+
+  /// The card's background.
+  final Color tint;
   final VoidCallback onTap;
 
   @override
@@ -341,33 +364,120 @@ class QuickAccessCard extends StatelessWidget {
     final c = context.moon;
     return Pressable(
       onTap: onTap,
-      semanticLabel: title,
+      semanticLabel: '$title. $subtitle',
       child: Container(
-        constraints: const BoxConstraints(minHeight: 52),
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        constraints: const BoxConstraints(minHeight: 132),
+        padding: const EdgeInsets.fromLTRB(16, 14, 14, 16),
         decoration: BoxDecoration(
-          border: Border.all(color: c.line),
-          borderRadius: BorderRadius.circular(16),
+          color: tint,
+          borderRadius: BorderRadius.circular(22),
         ),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MoonIcon(icon, size: 18, color: c.text),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                title,
-                style: dmSans(
-                  14,
-                  weight: FontWeight.w600,
-                  height: 1.2,
-                  color: c.text,
+            Row(
+              children: [
+                ExcludeSemantics(
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: c.raised,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(child: icon),
+                  ),
                 ),
-              ),
+                const Spacer(),
+                MoonIcon(
+                  MoonIconName.chev,
+                  size: 16,
+                  color: c.textMuted,
+                  strokeWidth: 2,
+                ),
+              ],
             ),
-            MoonIcon(MoonIconName.chev, size: 16, color: c.textMuted),
+            const SizedBox(height: 14),
+            Text(title, style: fraunces(20, height: 1.15, color: c.text)),
+            const SizedBox(height: 3),
+            Text(subtitle, style: dmSans(13, height: 1.35, color: c.textMuted)),
           ],
         ),
       ),
     );
   }
+}
+
+/// A calendar with four small dots, one for each thing a day can hold in My
+/// Diary: meals, symptoms, activities and notes. Drawn with the same stroke as
+/// the line icons.
+class DiaryCheckInIcon extends StatelessWidget {
+  const DiaryCheckInIcon({super.key, this.size = 30});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return SizedBox.square(
+      dimension: size,
+      child: CustomPaint(
+        painter: _CheckInPainter(
+          line: c.phase(Phase.luteal).text,
+          dots: [
+            c.phase(Phase.follicular).accent, // meals
+            c.phase(Phase.luteal).accent, // symptoms
+            c.phase(Phase.ovulatory).accent, // activities
+            c.phase(Phase.menstrual).accent, // notes
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CheckInPainter extends CustomPainter {
+  _CheckInPainter({required this.line, required this.dots});
+
+  final Color line;
+  final List<Color> dots;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final u = size.width / 24; // the 24-unit grid the line icons use
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.7 * u
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = line;
+    canvas
+      ..drawRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromLTWH(3.5 * u, 5 * u, 17 * u, 15.5 * u),
+          Radius.circular(3 * u),
+        ),
+        stroke,
+      )
+      ..drawLine(Offset(3.5 * u, 10 * u), Offset(20.5 * u, 10 * u), stroke)
+      ..drawLine(Offset(8 * u, 3 * u), Offset(8 * u, 6.5 * u), stroke)
+      ..drawLine(Offset(16 * u, 3 * u), Offset(16 * u, 6.5 * u), stroke);
+    const spots = [
+      Offset(8.5, 13.6),
+      Offset(15.5, 13.6),
+      Offset(8.5, 17.2),
+      Offset(15.5, 17.2),
+    ];
+    for (final (i, p) in spots.indexed) {
+      canvas.drawCircle(
+        Offset(p.dx * u, p.dy * u),
+        1.45 * u,
+        Paint()..color = dots[i],
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_CheckInPainter old) =>
+      old.line != line || old.dots != dots;
 }

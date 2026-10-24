@@ -11,6 +11,8 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/log_period_sheet.dart';
+import '../../diary/application/diary_providers.dart';
+import '../../shopping/application/shopping_summary.dart';
 import 'widgets/home_hero.dart';
 import 'widgets/home_photos.dart';
 import 'widgets/home_sections.dart';
@@ -34,6 +36,9 @@ class HomePage extends ConsumerWidget {
     final phase = ref.watch(viewingPhaseProvider);
     final catalogue = ref.watch(catalogueProvider);
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
+    // Read-only live counts for Quick access.
+    final diaryCount = ref.watch(todayDiaryEntryCountProvider);
+    final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
     Widget padded(Widget child) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: child,
@@ -115,13 +120,21 @@ class HomePage extends ConsumerWidget {
             LayoutBuilder(
               builder: (context, box) {
                 final diary = QuickAccessCard(
-                  icon: MoonIconName.document,
+                  icon: const DiaryCheckInIcon(),
                   title: 'My Diary',
+                  subtitle: diaryEntriesToday(diaryCount),
+                  tint: c.phase(Phase.luteal).tint,
                   onTap: () => context.push(Routes.diary),
                 );
                 final shopping = QuickAccessCard(
-                  icon: MoonIconName.basket,
+                  icon: MoonIcon(
+                    MoonIconName.basket,
+                    size: 30,
+                    color: c.phase(Phase.follicular).text,
+                  ),
                   title: 'Shopping List',
+                  subtitle: shoppingToBuy(toBuy),
+                  tint: c.phase(Phase.follicular).tint,
                   onTap: () => context.go(Routes.shopping),
                 );
                 // Narrow screens and large text stack the two cards.
@@ -132,12 +145,15 @@ class HomePage extends ConsumerWidget {
                     ? Column(
                         children: [diary, const SizedBox(height: 10), shopping],
                       )
-                    : Row(
-                        children: [
-                          Expanded(child: diary),
-                          const SizedBox(width: 10),
-                          Expanded(child: shopping),
-                        ],
+                    : IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Expanded(child: diary),
+                            const SizedBox(width: 10),
+                            Expanded(child: shopping),
+                          ],
+                        ),
                       );
               },
             ),
