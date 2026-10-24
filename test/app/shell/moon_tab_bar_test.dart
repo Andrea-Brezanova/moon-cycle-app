@@ -43,7 +43,7 @@ void main() {
       'Eat',
       'Move',
       'Relax',
-      'More',
+      'Me',
     ]);
   });
 
