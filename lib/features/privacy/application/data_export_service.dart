@@ -45,11 +45,9 @@ class DataExportService {
       diary: await _ref.read(diaryRepositoryProvider).all(),
       notes: await _ref.read(diaryNoteRepositoryProvider).all(),
       activities: await _ref.read(diaryActivityRepositoryProvider).all(),
-      personalRecipes: switch (_ref.read(authSessionProvider)) {
-        final session? =>
-          await _ref.read(personalRecipeRepositoryProvider).all(session.userId),
-        null => const [],
-      },
+      personalRecipes: await _ref
+          .read(personalRecipeRepositoryProvider)
+          .allFor(_ref.read(personalRecipeOwnersProvider)),
       foodName: (id) => catalogue.food(id)?.displayName,
     );
     return const JsonEncoder.withIndent('  ').convert(export);

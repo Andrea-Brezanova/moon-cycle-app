@@ -7,6 +7,7 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/centered_header.dart';
+import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
@@ -154,7 +155,7 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
       ),
       _Show.mine => (
         'Nothing added by you yet',
-        'Recipes made for you are listed here, privately.',
+        'Recipes you write are listed here, privately.',
       ),
       _Show.all => (
         'No recipes yet',
@@ -206,6 +207,10 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
               onBack: () => context.canPop()
                   ? context.pop()
                   : goEat(context, EatSegment.recipes),
+              trailingIcon: MoonIconName.plus,
+              trailingLabel: 'Add a recipe',
+              trailingKey: const ValueKey('add-recipe-plus'),
+              onTrailing: () => context.push(Routes.addRecipe),
             ),
             Expanded(
               child: ListView(
@@ -244,6 +249,13 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
                     )
                   else
                     for (final card in cards) gutter(card, top: 12),
+                  gutter(
+                    MoonButton(
+                      'Add a recipe',
+                      onPressed: () => context.push(Routes.addRecipe),
+                    ),
+                    top: 24,
+                  ),
                 ],
               ),
             ),

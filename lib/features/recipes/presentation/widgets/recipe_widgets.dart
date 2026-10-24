@@ -253,7 +253,9 @@ class GridRecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final meta = '${recipe.mealType.label} · ${recipe.minutes} min';
+    final meta = recipe.minutes > 0
+        ? '${recipe.mealType.label} · ${recipe.minutes} min'
+        : recipe.mealType.label;
     return Pressable(
       onTap: onTap,
       semanticLabel: '${recipe.title}, $meta',
@@ -383,7 +385,9 @@ class RecipeListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final meta = '${recipe.mealType.label} · ${recipe.minutes} min';
+    final meta = recipe.minutes > 0
+        ? '${recipe.mealType.label} · ${recipe.minutes} min'
+        : recipe.mealType.label;
     // At large text sizes the picture goes on top, so the title keeps the
     // card's whole width and words stay whole.
     final stacked = MediaQuery.textScalerOf(context).scale(16) > 22;
