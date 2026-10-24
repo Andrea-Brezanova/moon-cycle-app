@@ -38,7 +38,7 @@ class SettingsSubScaffold extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 42),
           children: [
             SubScreenHeader(
-              backLabel: 'More',
+              backLabel: 'Me',
               onBack: () => context.pop(),
               title: title,
               titleSize: titleSize,

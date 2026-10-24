@@ -15,6 +15,7 @@ import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
+import '../../collections/presentation/collections_card.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../entitlements/application/entitlement_providers.dart';
@@ -53,8 +54,9 @@ class SettingsHomePage extends ConsumerWidget {
     final sections = <Widget>[
       Semantics(
         header: true,
-        child: Text('More', style: MoonType.h1.copyWith(color: c.text)),
+        child: Text('Me', style: MoonType.h1.copyWith(color: c.text)),
       ),
+      const CollectionsCard(),
       MoonListGroup(
         title: 'Your space',
         children: [

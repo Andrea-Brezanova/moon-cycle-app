@@ -4,13 +4,14 @@ import '../../core/domain/phase.dart';
 import '../../features/diary/domain/diary_entry.dart';
 
 /// The five tabs, in their fixed order: Home, Eat (Foods and Recipes), Move,
-/// Relax (both "coming soon" for now) and More (settings and utilities).
+/// Relax (both "coming soon" for now) and Me (My Collections, diary,
+/// shopping list and settings; the route stays `/more`).
 enum AppTab {
   home('/home', 'Home', MoonIconName.home),
   eat('/eat', 'Eat', MoonIconName.recipes),
   move('/move', 'Move', MoonIconName.move),
   relax('/relax', 'Relax', MoonIconName.relax),
-  more('/more', 'More', MoonIconName.more);
+  more('/more', 'Me', MoonIconName.more);
 
   const AppTab(this.path, this.label, this.icon);
 
@@ -170,6 +171,12 @@ abstract final class Routes {
 
   /// More › the shopping list.
   static const String shopping = '/more/shopping-list';
+
+  /// Me › My Collections, and its Workouts and Sounds pages (My Recipes is the
+  /// existing [myRecipes]).
+  static const String collections = '/more/collections';
+  static const String collectionWorkouts = '/more/collections/workouts';
+  static const String collectionSounds = '/more/collections/sounds';
 
   /// More › Credits & Sources.
   static const String credits = '/more/credits';
