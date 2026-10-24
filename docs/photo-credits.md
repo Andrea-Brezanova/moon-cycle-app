@@ -21,5 +21,4 @@ Supplied by the app owner (`v2-assets`); free Unsplash photos, shown on Home and
 | `home_eat_broccoli.jpg` | Louis Hansel / Unsplash (free licence) |
 | `home_move_yoga_mat.jpg` | Louise Vildmark / Unsplash (free licence) |
 | `home_relax_tea.jpg` | Olena Bohovyk / Unsplash (free licence) |
-
-`quick_my_diary.jpg` and `quick_shopping_list.jpg` (AI-generated, supplied by the app owner) were **not added**: Quick access now uses icons instead of photographs.
+| `quick_my_diary.jpg`, `quick_shopping_list.jpg` | AI-generated with ChatGPT (supplied by the app owner), cropped for the Quick access cards |

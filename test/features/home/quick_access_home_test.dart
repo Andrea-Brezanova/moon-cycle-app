@@ -38,8 +38,17 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Start your daily check-in'), findsOneWidget);
     expect(find.text('Your list is empty'), findsOneWidget);
-    expect(find.byType(DiaryCheckInIcon), findsOneWidget);
-    expect(find.byType(Image), findsNothing); // no photographs here
+    for (final name in ['quick_my_diary', 'quick_shopping_list']) {
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Image &&
+              w.image is AssetImage &&
+              (w.image as AssetImage).assetName.contains(name),
+        ),
+        findsOneWidget,
+      );
+    }
   });
 
   testWidgets('logging an entry updates the card without leaving Home', (

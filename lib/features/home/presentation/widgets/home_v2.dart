@@ -337,70 +337,82 @@ String shoppingToBuy(int count) => switch (count) {
   _ => '$count items to buy',
 };
 
-/// A quiet Quick access card: a softly tinted background, a large line icon, the
-/// feature's name, one live line and a small chevron. The whole card is the tap
-/// target.
+/// A Quick access card: a photograph on top, then the title and a live
+/// subtitle. The photograph is decorative.
 class QuickAccessCard extends StatelessWidget {
   const QuickAccessCard({
     super.key,
-    required this.icon,
+    required this.asset,
     required this.title,
     required this.subtitle,
-    required this.tint,
     required this.onTap,
   });
 
-  /// A decorative icon, drawn about 30 pt.
-  final Widget icon;
+  final String asset;
   final String title;
   final String subtitle;
-
-  /// The card's background.
-  final Color tint;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Pressable(
       onTap: onTap,
       semanticLabel: '$title. $subtitle',
       child: Container(
-        constraints: const BoxConstraints(minHeight: 132),
-        padding: const EdgeInsets.fromLTRB(16, 14, 14, 16),
         decoration: BoxDecoration(
-          color: tint,
+          color: c.raised,
           borderRadius: BorderRadius.circular(22),
+          border: Border.all(color: c.line),
         ),
+        clipBehavior: Clip.antiAlias,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                ExcludeSemantics(
-                  child: Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      color: c.raised,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(child: icon),
+            ExcludeSemantics(
+              child: AspectRatio(
+                aspectRatio: 616 / 312,
+                child: DimmedPhoto(
+                  dim: dark,
+                  child: Image.asset(
+                    asset,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 ),
-                const Spacer(),
-                MoonIcon(
-                  MoonIconName.chev,
-                  size: 16,
-                  color: c.textMuted,
-                  strokeWidth: 2,
-                ),
-              ],
+              ),
             ),
-            const SizedBox(height: 14),
-            Text(title, style: fraunces(20, height: 1.15, color: c.text)),
-            const SizedBox(height: 3),
-            Text(subtitle, style: dmSans(13, height: 1.35, color: c.textMuted)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 12, 14),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: fraunces(19, height: 1.15, color: c.text),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          subtitle,
+                          style: dmSans(13, height: 1.35, color: c.textMuted),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  MoonIcon(
+                    MoonIconName.chev,
+                    size: 16,
+                    color: c.textMuted,
+                    strokeWidth: 2,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

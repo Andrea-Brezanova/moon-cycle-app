@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
-import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
@@ -120,21 +119,15 @@ class HomePage extends ConsumerWidget {
             LayoutBuilder(
               builder: (context, box) {
                 final diary = QuickAccessCard(
-                  icon: const DiaryCheckInIcon(),
+                  asset: 'assets/images/home/quick_my_diary.jpg',
                   title: 'My Diary',
                   subtitle: diaryEntriesToday(diaryCount),
-                  tint: c.phase(Phase.luteal).tint,
                   onTap: () => context.push(Routes.diary),
                 );
                 final shopping = QuickAccessCard(
-                  icon: MoonIcon(
-                    MoonIconName.basket,
-                    size: 30,
-                    color: c.phase(Phase.follicular).text,
-                  ),
+                  asset: 'assets/images/home/quick_shopping_list.jpg',
                   title: 'Shopping List',
                   subtitle: shoppingToBuy(toBuy),
-                  tint: c.phase(Phase.follicular).tint,
                   onTap: () => context.go(Routes.shopping),
                 );
                 // Narrow screens and large text stack the two cards.
