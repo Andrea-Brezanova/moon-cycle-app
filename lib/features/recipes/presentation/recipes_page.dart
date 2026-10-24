@@ -12,6 +12,7 @@ import '../../../core/design/widgets/moon_chip.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
+import '../../../core/design/widgets/tap_target.dart';
 import '../../../core/design/widgets/text_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/catalogue.dart';
@@ -142,16 +143,31 @@ class RecipesPage extends ConsumerWidget {
                       top: 12,
                     ),
                   gutter(
-                    Text(
-                      '${list.recipes.length} '
-                      '${list.recipes.length == 1 ? 'recipe' : 'recipes'}'
-                      '${foodName == null ? '' : ' with $foodName'}',
-                      style: dmSans(
-                        13,
-                        weight: FontWeight.w500,
-                        height: 1.2,
-                        color: c.textMuted,
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            '${list.recipes.length} '
+                            '${list.recipes.length == 1 ? 'recipe' : 'recipes'}'
+                            '${foodName == null ? '' : ' with $foodName'}',
+                            style: dmSans(
+                              13,
+                              weight: FontWeight.w500,
+                              height: 1.2,
+                              color: c.textMuted,
+                            ),
+                          ),
+                        ),
+                        ExpandedTapTarget(
+                          extra: tapTargetSlop(height: 20),
+                          child: TextLink(
+                            key: const ValueKey('my-recipes-link'),
+                            'My recipes',
+                            size: 13.5,
+                            onTap: () => context.push(Routes.myRecipes),
+                          ),
+                        ),
+                      ],
                     ),
                     top: 18,
                   ),

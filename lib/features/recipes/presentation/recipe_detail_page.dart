@@ -31,6 +31,7 @@ import '../../generation/domain/personal_recipe.dart';
 import '../../generation/domain/recipe_image_service.dart';
 import '../../generation/domain/recipe_submission_service.dart';
 import '../../generation/domain/saved_recipe_ref.dart';
+import '../../generation/presentation/delete_recipe.dart';
 import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../../shopping/domain/item_key.dart';
@@ -523,28 +524,9 @@ Future<void> _confirmDelete(
   WidgetRef ref,
   PersonalRecipe recipe,
 ) async {
-  final ok = await showDialog<bool>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: const Text('Delete this recipe?'),
-      content: const Text('It will be removed from your recipes.'),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context, false),
-          child: const Text('Keep it'),
-        ),
-        TextButton(
-          onPressed: () => Navigator.pop(context, true),
-          child: const Text('Delete'),
-        ),
-      ],
-    ),
-  );
-  if (ok != true) return;
-  await ref
-      .read(personalRecipeRepositoryProvider)
-      .delete(recipe.ownerId, recipe.id);
-  if (context.mounted) context.pop();
+  if (await confirmDeleteRecipe(context, ref, recipe) && context.mounted) {
+    context.pop();
+  }
 }
 
 class _Intro extends StatelessWidget {

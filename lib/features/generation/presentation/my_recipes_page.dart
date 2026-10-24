@@ -21,6 +21,7 @@ import '../application/generation_providers.dart';
 import '../data/saved_recipe_repository.dart';
 import '../domain/personal_recipe.dart';
 import '../domain/saved_recipe_ref.dart';
+import 'delete_recipe.dart';
 
 enum _Show { all, saved, mine }
 
@@ -124,11 +125,35 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
     Widget personalCard(PersonalRecipe p) => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        RecipeListCard(
-          recipe: p.recipe,
-          palette: c.phase(p.recipe.phase),
-          subtitle: keyIngredients(p.recipe, catalogue),
-          onTap: () => context.push(Routes.recipe(p.id)),
+        Stack(
+          children: [
+            RecipeListCard(
+              recipe: p.recipe,
+              palette: c.phase(p.recipe.phase),
+              subtitle: keyIngredients(p.recipe, catalogue),
+              onTap: () => context.push(Routes.recipe(p.id)),
+            ),
+            Positioned(
+              top: 4,
+              right: 4,
+              child: Pressable(
+                key: ValueKey('delete-${p.id}'),
+                onTap: () => confirmDeleteRecipe(context, ref, p),
+                semanticLabel: 'Delete ${p.recipe.title}',
+                child: SizedBox(
+                  width: minTapTarget,
+                  height: minTapTarget,
+                  child: Center(
+                    child: MoonIcon(
+                      MoonIconName.trash,
+                      size: 19,
+                      color: c.textMuted,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         if (p.isDevSample) ...[
           const SizedBox(height: 6),

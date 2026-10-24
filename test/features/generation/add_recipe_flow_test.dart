@@ -156,6 +156,44 @@ void main() {
     expect(find.text('Better toast'), findsNothing);
   });
 
+  testWidgets('the trash on a list card asks first, then deletes it at once; '
+      'saved built-in recipes only get Remove', (tester) async {
+    await pumpMyRecipes(tester);
+    await tester.tap(find.text('Add a recipe').last);
+    await tester.pumpAndSettle();
+    await fill(tester, title: 'Toast', steps: 'Toast the bread.');
+    await saveRecipe(tester);
+    await tester.tap(find.text('Add a recipe').last);
+    await tester.pumpAndSettle();
+    await fill(tester, title: 'Soup', steps: 'Heat.');
+    await saveRecipe(tester);
+    expect(find.text('Added by me 2'), findsOneWidget);
+
+    // Keep it: nothing is deleted.
+    await tester.tap(find.bySemanticsLabel('Delete Toast'));
+    await tester.pumpAndSettle();
+    expect(find.text('Delete this recipe?'), findsOneWidget);
+    await tester.tap(find.text('Keep it'));
+    await tester.pumpAndSettle();
+    expect(find.text('Added by me 2'), findsOneWidget);
+
+    // Delete: gone from the list immediately; the other stays.
+    await tester.tap(find.bySemanticsLabel('Delete Toast'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Delete'));
+    await tester.pumpAndSettle();
+    expect(find.text('Toast'), findsNothing);
+    expect(find.text('Soup'), findsOneWidget);
+    expect(find.text('Added by me 1'), findsOneWidget);
+    expect(find.text('All 1'), findsOneWidget);
+    final left = await tester.runAsync(
+      () => container.read(personalRecipeRepositoryProvider).allFor([
+        localRecipeOwnerId,
+      ]),
+    );
+    expect(left!.map((r) => r.recipe.title), ['Soup']);
+  });
+
   testWidgets('going back with unsaved writing asks first', (tester) async {
     await pumpMyRecipes(tester);
     await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
