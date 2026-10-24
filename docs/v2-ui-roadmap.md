@@ -64,7 +64,8 @@ rebase or deploy.
 | 2 | Recipes UI (listing, Cook with, My Recipes; Add a Recipe blocked, see audit) | `feature/v2-recipes-ui` | PR open for review |
 | 3 | My Diary hub | `feature/v2-diary-hub` | Merged (PR #9) |
 | 4 | Free-writing diary Notes (new personal data) | `feature/v2-diary-notes` | Merged (PR #10) |
-| 5 | Activity logging (new personal data; owner approval required to merge) | `feature/v2-activity-log` | PR open, awaiting owner review |
+| 5 | Activity logging (new personal data; owner approval required to merge) | `feature/v2-activity-log` | Merged |
+| 6 | V2 refinements (Home, Eat overline, Foods + Recipes filters, 3 Plants a Day; visual only) | `feature/v2-refinements` | PR open for review |
 
 Key requirements per feature (full text was given in chat):
 

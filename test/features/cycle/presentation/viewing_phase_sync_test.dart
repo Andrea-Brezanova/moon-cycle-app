@@ -72,7 +72,7 @@ void main() {
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('3 A DAY'), findsOneWidget);
+    expect(find.text('QUICK ACCESS'), findsOneWidget);
     expect(find.text('My Diary'), findsOneWidget);
   });
 
@@ -90,7 +90,7 @@ void main() {
 
     await goTo(tester, 'recipes');
     expect(container.read(recipeListProvider).phase, Phase.luteal);
-    expect(find.textContaining('luteal'), findsWidgets);
+    expect(find.text('Luteal'), findsWidgets);
   });
 
   testWidgets('choosing a phase on Foods moves Home and Recipes', (

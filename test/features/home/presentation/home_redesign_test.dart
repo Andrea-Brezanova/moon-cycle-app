@@ -74,7 +74,7 @@ void main() {
     final order = [
       find.text('Follicular'),
       find.text('TODAY’S FOCUS'),
-      find.text('3 A DAY'),
+      find.text('TODAY’S PICKS'),
       find.text('3 plants'),
       find.text('3 ways to move'),
       find.text('3 minutes of calm'),
@@ -95,13 +95,13 @@ void main() {
     tester.view.physicalSize = const Size(390, 2600) * 3;
     await tester.pumpAndSettle();
     for (final t in [
-      'Discover three plants selected for your phase today.',
-      'Three movement ideas. Pick the one that feels right.',
-      'A short breathing or mindfulness pause. Stay longer if you like.',
+      'Three plants chosen for your phase today.',
+      'Three movement ideas. Pick what feels right.',
+      'A short breathing or mindfulness pause.',
     ]) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
-    for (final gone in ['Learn more about your cycle', 'DAY', 'Streak']) {
+    for (final gone in ['Learn more about your cycle', 'Streak']) {
       expect(find.text(gone), findsNothing, reason: gone);
     }
   });

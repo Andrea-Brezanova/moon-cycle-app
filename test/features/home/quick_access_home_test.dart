@@ -6,7 +6,6 @@ import 'package:moon_cycle/features/diary/application/diary_providers.dart';
 import 'package:moon_cycle/features/diary/data/diary_repository.dart';
 import 'package:moon_cycle/features/diary/domain/diary_entry.dart';
 import 'package:moon_cycle/features/home/presentation/home_page.dart';
-import 'package:moon_cycle/features/home/presentation/widgets/home_v2.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 
 import '../../goldens/screens/home_golden_test.dart' show stateOnDay;
@@ -38,8 +37,17 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Start your daily check-in'), findsOneWidget);
     expect(find.text('Your list is empty'), findsOneWidget);
-    expect(find.byType(DiaryCheckInIcon), findsOneWidget);
-    expect(find.byType(Image), findsNothing); // no photographs here
+    for (final name in ['quick_my_diary', 'quick_shopping_list']) {
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Image &&
+              w.image is AssetImage &&
+              (w.image as AssetImage).assetName.contains(name),
+        ),
+        findsOneWidget,
+      );
+    }
   });
 
   testWidgets('logging an entry updates the card without leaving Home', (

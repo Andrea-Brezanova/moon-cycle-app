@@ -43,12 +43,13 @@ class HomeHero extends ConsumerWidget {
         ? (HeroTokens.darkText, HeroTokens.darkSub, HeroTokens.darkMuted)
         : (HeroTokens.lightText, HeroTokens.lightText, HeroTokens.lightMuted);
     final width = MediaQuery.sizeOf(context).width;
-    final moon = math.min(224.0, width - 130);
+    // The 300 pt ring box, scaled down on narrow phones.
+    final moon = math.min(300.0, width - 2 * MoonSpace.gutter);
 
     return Padding(
       padding: EdgeInsets.only(
         top: MediaQuery.viewPaddingOf(context).top + 4,
-        bottom: 8,
+        bottom: 36,
       ),
       child: Column(
         children: [
@@ -87,14 +88,16 @@ class HomeHero extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 22),
           _DraggableMoon(
             state: state,
             shownPhase: shownPhase,
             size: moon,
             dark: dark,
           ),
-          const SizedBox(height: 4),
+          // The text block starts 10 pt below the 300 pt ring box, so the
+          // gap from the ring's outer edge to "Inner spring" is 40 pt.
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: MoonSpace.gutter),
             child: Column(
@@ -107,7 +110,7 @@ class HomeHero extends ConsumerWidget {
                     height: 1.08,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 6),
                 Semantics(
                   header: true,
                   child: Text(
