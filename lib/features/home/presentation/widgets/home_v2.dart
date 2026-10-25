@@ -329,34 +329,221 @@ class _UnderlinedLink extends StatelessWidget {
   }
 }
 
-/// "Start your daily check-in", "1 entry today", "8 entries today".
-String diaryEntriesToday(int count) => switch (count) {
-  0 => 'Start your daily check-in',
-  1 => '1 entry today',
-  _ => '$count entries today',
+/// "2 meals today" or "Nothing logged yet".
+String mealsToday(int count) => switch (count) {
+  0 => 'Nothing logged yet',
+  1 => '1 meal today',
+  _ => '$count meals today',
 };
 
-/// "Your list is empty", "1 item to buy", "8 items to buy".
-String shoppingToBuy(int count) => switch (count) {
-  0 => 'Your list is empty',
-  1 => '1 item to buy',
-  _ => '$count items to buy',
-};
+/// "8 to buy" or "Nothing to buy".
+String itemsToBuy(int count) => count == 0 ? 'Nothing to buy' : '$count to buy';
 
-/// A Quick access card: a photograph on top, then the title and a live
-/// subtitle. The photograph is decorative.
-class QuickAccessCard extends StatelessWidget {
-  const QuickAccessCard({
+/// Home's bottom section, "Your space": one softly tinted card holding the
+/// My Collections row (a bookmark, a live count, a chevron) and, below a
+/// hairline, two photo shortcuts: My Diary and Shopping List. Everything shown
+/// is read live from the app's own data.
+class YourSpaceCard extends StatelessWidget {
+  const YourSpaceCard({
+    super.key,
+    required this.phase,
+    required this.collectionsCount,
+    required this.diaryLine,
+    required this.shoppingLine,
+    required this.onCollections,
+    required this.onDiary,
+    required this.onShopping,
+  });
+
+  final Phase phase;
+
+  /// The number of saved items; the badge is hidden at 0.
+  final int collectionsCount;
+  final String diaryLine;
+  final String shoppingLine;
+  final VoidCallback onCollections;
+  final VoidCallback onDiary;
+  final VoidCallback onShopping;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final big =
+        MediaQuery.sizeOf(context).width < 340 ||
+        MediaQuery.textScalerOf(context).scale(14) > 14 * 1.3;
+    final shortcuts = [
+      _Shortcut(
+        key: const ValueKey('your-space-diary'),
+        asset: 'assets/images/home/quick_my_diary.jpg',
+        focus: const Alignment(0, -0.2),
+        title: 'My Diary',
+        line: diaryLine,
+        wrap: big,
+        onTap: onDiary,
+      ),
+      _Shortcut(
+        key: const ValueKey('your-space-shopping'),
+        asset: 'assets/images/home/quick_shopping_list.jpg',
+        focus: const Alignment(-0.1, -0.2),
+        title: 'Shopping List',
+        line: shoppingLine,
+        wrap: big,
+        onTap: onShopping,
+      ),
+    ];
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: dark ? HeroTokens.darkSolid : HeroTokens.lightWash[phase],
+        borderRadius: BorderRadius.circular(28),
+      ),
+      child: Column(
+        children: [
+          Pressable(
+            key: const ValueKey('your-space-collections'),
+            onTap: onCollections,
+            semanticLabel: collectionsCount == 0
+                ? 'My Collections'
+                : 'My Collections, $collectionsCount saved',
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 48),
+              padding: const EdgeInsets.all(2),
+              child: ExcludeSemantics(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 44,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: c.raised,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: MoonIcon(
+                          MoonIconName.bookmark,
+                          size: 20,
+                          color: c.text,
+                          strokeWidth: 1.8,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 8,
+                            children: [
+                              Text(
+                                'My Collections',
+                                style: fraunces(18, height: 1.1, color: c.text),
+                              ),
+                              if (collectionsCount > 0)
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 2,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: c.raised,
+                                    borderRadius: BorderRadius.circular(999),
+                                  ),
+                                  child: Text(
+                                    '$collectionsCount',
+                                    key: const ValueKey('collections-badge'),
+                                    style: dmSans(
+                                      11.5,
+                                      weight: FontWeight.w700,
+                                      height: 1.3,
+                                      color: c.text,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                          const SizedBox(height: 3),
+                          Text(
+                            'Recipes, workouts, sounds',
+                            style: dmSans(
+                              12.5,
+                              height: 1.3,
+                              color: c.textMuted,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: c.raised,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: MoonIcon(
+                          MoonIconName.chev,
+                          size: 14,
+                          color: c.text,
+                          strokeWidth: 2.2,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Container(
+            height: 1,
+            margin: const EdgeInsets.symmetric(horizontal: 2),
+            color: c.line,
+          ),
+          const SizedBox(height: 12),
+          if (big)
+            Column(
+              children: [shortcuts[0], const SizedBox(height: 8), shortcuts[1]],
+            )
+          else
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(child: shortcuts[0]),
+                  const SizedBox(width: 8),
+                  Expanded(child: shortcuts[1]),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Shortcut extends StatelessWidget {
+  const _Shortcut({
     super.key,
     required this.asset,
+    required this.focus,
     required this.title,
-    required this.subtitle,
+    required this.line,
+    required this.wrap,
     required this.onTap,
   });
 
   final String asset;
+  final Alignment focus;
   final String title;
-  final String subtitle;
+  final String line;
+
+  /// Large text or a narrow screen: titles and lines may take two lines.
+  final bool wrap;
   final VoidCallback onTap;
 
   @override
@@ -365,137 +552,58 @@ class QuickAccessCard extends StatelessWidget {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return Pressable(
       onTap: onTap,
-      semanticLabel: '$title. $subtitle',
+      semanticLabel: '$title, $line',
       child: Container(
+        constraints: const BoxConstraints(minHeight: 58),
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
           color: c.raised,
-          borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: c.line),
+          borderRadius: BorderRadius.circular(18),
         ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ExcludeSemantics(
-              child: AspectRatio(
-                aspectRatio: 616 / 312,
-                child: DimmedPhoto(
-                  dim: dark,
-                  child: Image.asset(
-                    asset,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
+        child: ExcludeSemantics(
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: DimmedPhoto(
+                    dim: dark,
+                    child: Image.asset(
+                      asset,
+                      fit: BoxFit.cover,
+                      alignment: focus,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(14, 12, 12, 14),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: fraunces(19, height: 1.15, color: c.text),
-                        ),
-                        const SizedBox(height: 3),
-                        Text(
-                          subtitle,
-                          style: dmSans(13, height: 1.35, color: c.textMuted),
-                        ),
-                      ],
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: wrap ? 2 : 1,
+                      overflow: wrap ? null : TextOverflow.clip,
+                      style: fraunces(15, height: 1.1, color: c.text),
                     ),
-                  ),
-                  const SizedBox(width: 6),
-                  MoonIcon(
-                    MoonIconName.chev,
-                    size: 16,
-                    color: c.textMuted,
-                    strokeWidth: 2,
-                  ),
-                ],
+                    const SizedBox(height: 3),
+                    // Short lines stay on one line; a longer one ("Nothing
+                    // logged yet") wraps rather than being cut off.
+                    Text(
+                      line,
+                      style: dmSans(12, height: 1.25, color: c.textMuted),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
-}
-
-/// A calendar with four small dots, one for each thing a day can hold in My
-/// Diary: meals, symptoms, activities and notes. Drawn with the same stroke as
-/// the line icons.
-class DiaryCheckInIcon extends StatelessWidget {
-  const DiaryCheckInIcon({super.key, this.size = 30});
-
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    return SizedBox.square(
-      dimension: size,
-      child: CustomPaint(
-        painter: _CheckInPainter(
-          line: c.phase(Phase.luteal).text,
-          dots: [
-            c.phase(Phase.follicular).accent, // meals
-            c.phase(Phase.luteal).accent, // symptoms
-            c.phase(Phase.ovulatory).accent, // activities
-            c.phase(Phase.menstrual).accent, // notes
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _CheckInPainter extends CustomPainter {
-  _CheckInPainter({required this.line, required this.dots});
-
-  final Color line;
-  final List<Color> dots;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final u = size.width / 24; // the 24-unit grid the line icons use
-    final stroke = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.7 * u
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round
-      ..color = line;
-    canvas
-      ..drawRRect(
-        RRect.fromRectAndRadius(
-          Rect.fromLTWH(3.5 * u, 5 * u, 17 * u, 15.5 * u),
-          Radius.circular(3 * u),
-        ),
-        stroke,
-      )
-      ..drawLine(Offset(3.5 * u, 10 * u), Offset(20.5 * u, 10 * u), stroke)
-      ..drawLine(Offset(8 * u, 3 * u), Offset(8 * u, 6.5 * u), stroke)
-      ..drawLine(Offset(16 * u, 3 * u), Offset(16 * u, 6.5 * u), stroke);
-    const spots = [
-      Offset(8.5, 13.6),
-      Offset(15.5, 13.6),
-      Offset(8.5, 17.2),
-      Offset(15.5, 17.2),
-    ];
-    for (final (i, p) in spots.indexed) {
-      canvas.drawCircle(
-        Offset(p.dx * u, p.dy * u),
-        1.45 * u,
-        Paint()..color = dots[i],
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(_CheckInPainter old) =>
-      old.line != line || old.dots != dots;
 }
