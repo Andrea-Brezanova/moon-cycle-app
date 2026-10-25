@@ -101,7 +101,7 @@ void main() {
           tester,
           const HomePage(),
           dark: dark,
-          height: 1650,
+          height: 2000,
           overrides: overrides,
         );
         await expectLater(
@@ -110,5 +110,24 @@ void main() {
         );
       });
     }
+  }
+
+  // Your space at 320 pt with large text: the shortcuts stack.
+  for (final MapEntry(key: theme, value: dark) in themes.entries) {
+    testWidgets('home narrow large text, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const HomePage(),
+        dark: dark,
+        width: 320,
+        textScale: 1.5,
+        height: 3600,
+        overrides: cases['follicular']!,
+      );
+      await expectLater(
+        find.byType(HomePage),
+        matchesGoldenFile('goldens/$theme-home-narrow-large-text.png'),
+      );
+    });
   }
 }
