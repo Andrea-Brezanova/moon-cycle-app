@@ -90,7 +90,7 @@ void main() {
     // The content below follows the phase being browsed.
     expect(find.text('TODAY’S FOCUS'), findsOneWidget);
     expect(
-      find.textContaining('Fresh, crisp and', findRichText: true),
+      find.textContaining('Bright, vibrant &', findRichText: true),
       findsOneWidget,
     );
 

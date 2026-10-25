@@ -115,7 +115,7 @@ void main() {
     expect(paragraphs, hasLength(1));
     expect(c.read(viewingPhaseProvider), Phase.follicular);
     // The headline stays; only the body changed.
-    expect(find.text('Fresh, light and quick'), findsOneWidget);
+    expect(find.text('Fresh, curious & energising'), findsOneWidget);
     for (final p in paragraphs) {
       await scrollTo(tester, find.text(p));
       expect(find.text(p), findsOneWidget);
