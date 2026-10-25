@@ -39,10 +39,7 @@ class HomePage extends ConsumerWidget {
     // Read-only live numbers for Your space.
     final mealCount = ref.watch(todayMealCountProvider);
     final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
-    final collectionsCount = ref
-        .watch(collectionCountsProvider)
-        .values
-        .fold<int>(0, (a, b) => a + b);
+    final collectionsCount = ref.watch(collectionSummaryProvider).total;
     Widget padded(Widget child) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: child,
