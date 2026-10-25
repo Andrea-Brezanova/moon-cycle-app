@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui' show Tristate;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/app/router/app_router.dart';
 import 'package:moon_cycle/app/router/routes.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/collections/data/collection_link_repository.dart';
+import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
 import 'package:moon_cycle/features/diary/presentation/log_meal_page.dart';
 import 'package:moon_cycle/features/generation/data/personal_recipe_repository.dart';
@@ -16,6 +19,7 @@ import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart
 
 import '../../goldens/screens/home_golden_test.dart' show stateOnDay;
 import '../../helpers/golden_screen.dart';
+import '../../helpers/my_recipes_filter.dart';
 import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 
@@ -74,7 +78,7 @@ void main() {
 
   testWidgets('write a recipe: it is saved under Added by me', (tester) async {
     await pumpMyRecipes(tester);
-    expect(find.text('All 0'), findsOneWidget);
+    expect(shownCount(tester), '0 items');
     await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
     await tester.pumpAndSettle();
     expect(find.byType(AddRecipePage), findsOneWidget);
@@ -94,8 +98,8 @@ void main() {
     );
     await saveRecipe(tester);
     expect(find.byType(MyRecipesPage), findsOneWidget);
-    expect(find.text('Added by me 1'), findsOneWidget);
-    expect(find.text('All 1'), findsOneWidget);
+    await expectShowCounts(tester, {'All recipes': 1, 'Added by me': 1});
+    expect(shownCount(tester), '1 item');
     expect(find.text('Gran’s lentil soup'), findsOneWidget);
 
     final mine = await tester.runAsync(
@@ -167,7 +171,7 @@ void main() {
     await tester.pumpAndSettle();
     await fill(tester, title: 'Soup', steps: 'Heat.');
     await saveRecipe(tester);
-    expect(find.text('Added by me 2'), findsOneWidget);
+    await expectShowCounts(tester, {'Added by me': 2});
 
     // Keep it: nothing is deleted.
     await tester.tap(find.bySemanticsLabel('Delete Toast'));
@@ -175,7 +179,7 @@ void main() {
     expect(find.text('Delete this recipe?'), findsOneWidget);
     await tester.tap(find.text('Keep it'));
     await tester.pumpAndSettle();
-    expect(find.text('Added by me 2'), findsOneWidget);
+    expect(shownCount(tester), '2 items');
 
     // Delete: gone from the list immediately; the other stays.
     await tester.tap(find.bySemanticsLabel('Delete Toast'));
@@ -184,14 +188,104 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Toast'), findsNothing);
     expect(find.text('Soup'), findsOneWidget);
-    expect(find.text('Added by me 1'), findsOneWidget);
-    expect(find.text('All 1'), findsOneWidget);
+    await expectShowCounts(tester, {'All recipes': 1, 'Added by me': 1});
     final left = await tester.runAsync(
       () => container.read(personalRecipeRepositoryProvider).allFor([
         localRecipeOwnerId,
       ]),
     );
     expect(left!.map((r) => r.recipe.title), ['Soup']);
+  });
+
+  testWidgets('Add a recipe has three tabs; the third saves a link, and the '
+      'old separate link action is gone', (tester) async {
+    await pumpMyRecipes(tester);
+    expect(find.text('Add a link to a recipe'), findsNothing);
+    expect(find.byKey(const ValueKey('add-recipe-plus')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('add-recipe-plus')));
+    await tester.pumpAndSettle();
+    for (final t in ['Write my own', 'Paste text', 'Add a link']) {
+      expect(find.text(t), findsOneWidget, reason: t);
+    }
+    await tester.tap(find.text('Add a link'));
+    await tester.pumpAndSettle();
+    final fields = find.descendant(
+      of: find.byType(AddRecipePage),
+      matching: find.byType(EditableText),
+    );
+
+    // Unsafe or empty: refused with a reason, nothing saved.
+    await tester.enterText(fields.at(0), 'javascript:alert(1)');
+    await tester.enterText(fields.at(1), '  ');
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const ValueKey('save-recipe-link')));
+    await tester.tap(find.byKey(const ValueKey('save-recipe-link')));
+    await tester.pumpAndSettle();
+    expect(
+      find.textContaining('web address that starts with http'),
+      findsOneWidget,
+    );
+    expect(find.text('Give it a name.'), findsOneWidget);
+
+    await tester.enterText(fields.at(0), 'https://www.youtube.com/watch?v=abc');
+    await tester.enterText(fields.at(1), 'Lentil soup video');
+    await tester.enterText(fields.at(2), 'Sam');
+    await tester.enterText(fields.at(3), 'Try with lemon');
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.byKey(const ValueKey('save-recipe-link')));
+    await tester.tap(find.byKey(const ValueKey('save-recipe-link')));
+    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 10)); // the toast goes away
+
+    expect(find.byType(MyRecipesPage), findsOneWidget);
+    await expectShowCounts(tester, {'All recipes': 1, 'Links': 1});
+    expect(find.text('Lentil soup video'), findsOneWidget);
+    await chooseShow(tester, 'Links');
+    expect(shownCount(tester), '1 item');
+    final links = await tester.runAsync(
+      () => container.read(collectionLinkRepositoryProvider).all(),
+    );
+    expect(links!.single.category, LinkCategory.recipes);
+    expect(links.single.creator, 'Sam');
+  });
+
+  testWidgets('the dropdown: All recipes first, the chosen option marked, a '
+      'count above the results, and it keeps working after changes', (
+    tester,
+  ) async {
+    await pumpMyRecipes(tester);
+    expect(currentShow(tester), 'All recipes');
+    await tester.tap(find.text('Add a recipe').last);
+    await tester.pumpAndSettle();
+    await fill(tester, title: 'Toast', steps: 'Toast the bread.');
+    await saveRecipe(tester);
+    expect(shownCount(tester), '1 item');
+    await chooseShow(tester, 'Added by me');
+    expect(currentShow(tester), 'Added by me');
+    // The chosen option is marked as selected in the sheet.
+    await tester.tap(find.byKey(const ValueKey('my-recipes-filter')));
+    await tester.pumpAndSettle();
+    final handle = tester.ensureSemantics();
+    expect(
+      tester
+          .getSemantics(find.bySemanticsLabel('Added by me, 1'))
+          .getSemanticsData()
+          .flagsCollection
+          .isSelected,
+      Tristate.isTrue,
+    );
+    handle.dispose();
+    await tester.tapAt(const Offset(10, 60));
+    await tester.pumpAndSettle();
+
+    // Delete it: the filter stays on Added by me and the count follows.
+    await tester.tap(find.bySemanticsLabel('Delete Toast'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Delete'));
+    await tester.pumpAndSettle();
+    expect(currentShow(tester), 'Added by me');
+    expect(shownCount(tester), '0 items');
+    expect(find.text('Nothing added by you yet'), findsOneWidget);
   });
 
   testWidgets('going back with unsaved writing asks first', (tester) async {
@@ -208,7 +302,7 @@ void main() {
     await tester.tap(find.text('Discard'));
     await tester.pumpAndSettle();
     expect(find.byType(MyRecipesPage), findsOneWidget);
-    expect(find.text('Added by me 0'), findsOneWidget);
+    expect(shownCount(tester), '0 items');
   });
 
   testWidgets('a recipe you wrote can be chosen when logging a meal', (

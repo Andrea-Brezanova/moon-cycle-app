@@ -13,6 +13,7 @@ import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart
 import 'package:moon_cycle/features/recipes/application/recipe_list.dart';
 
 import '../../helpers/golden_screen.dart';
+import '../../helpers/my_recipes_filter.dart';
 import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 
@@ -351,17 +352,14 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('collection-recipes')));
     await tester.pumpAndSettle();
     expect(find.byType(MyRecipesPage), findsOneWidget);
-    expect(find.text('All 1'), findsOneWidget);
-    expect(find.text('Links 1'), findsOneWidget);
+    await expectShowCounts(tester, {'All recipes': 1, 'Links': 1});
     expect(find.text('Pin: lentil dal'), findsOneWidget);
-    await tester.tap(find.text('Saved 0'));
-    await tester.pumpAndSettle();
+    await chooseShow(tester, 'Saved / Favorites');
     expect(find.text('Pin: lentil dal'), findsNothing);
-    await tester.tap(find.text('Added by me 0'));
-    await tester.pumpAndSettle();
+    await chooseShow(tester, 'Added by me');
     expect(find.text('Pin: lentil dal'), findsNothing);
-    await tester.tap(find.text('Links 1'));
-    await tester.pumpAndSettle();
+    await chooseShow(tester, 'Links');
+    expect(shownCount(tester), '1 item');
     expect(find.text('Pin: lentil dal'), findsOneWidget);
     // It is a link, not a recipe: no search or list changes.
     expect(c.read(recipeListProvider).recipes.length, before);

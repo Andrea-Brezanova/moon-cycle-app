@@ -31,44 +31,49 @@ class MoonSegmented<T> extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       child: Container(
-        height: _height,
+        // 50 pt, growing only when a label has to wrap (large text, narrow
+        // phones) so no label is cut off.
+        constraints: const BoxConstraints(minHeight: _height),
         padding: const EdgeInsets.all(2),
         decoration: ShapeDecoration(
           color: c.bg,
           shape: StadiumBorder(side: BorderSide(color: c.line)),
         ),
-        child: Row(
-          children: [
-            for (final (value, label) in options)
-              Expanded(
-                child: Pressable(
-                  onTap: () => onChanged(value),
-                  selected: value == selected,
-                  semanticLabel: label,
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: ShapeDecoration(
-                      color: value == selected ? c.sand : null,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: Text(
-                      label,
-                      maxLines: 1,
-                      overflow: TextOverflow.fade,
-                      softWrap: false,
-                      style: dmSans(
-                        14,
-                        weight: value == selected
-                            ? FontWeight.w600
-                            : FontWeight.w500,
-                        height: 1,
-                        color: value == selected ? c.text : c.textMuted,
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (final (value, label) in options)
+                Expanded(
+                  child: Pressable(
+                    onTap: () => onChanged(value),
+                    selected: value == selected,
+                    semanticLabel: label,
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      constraints: const BoxConstraints(minHeight: 44),
+                      decoration: ShapeDecoration(
+                        color: value == selected ? c.sand : null,
+                        shape: const StadiumBorder(),
+                      ),
+                      child: Text(
+                        label,
+                        textAlign: TextAlign.center,
+                        style: dmSans(
+                          14,
+                          weight: value == selected
+                              ? FontWeight.w600
+                              : FontWeight.w500,
+                          height: 1.15,
+                          color: value == selected ? c.text : c.textMuted,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

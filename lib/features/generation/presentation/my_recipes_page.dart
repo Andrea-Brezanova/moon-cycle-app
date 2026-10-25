@@ -12,13 +12,14 @@ import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/tap_target.dart';
-import '../../../core/design/widgets/text_link.dart';
 import '../../../core/domain/phase.dart';
 import '../../collections/data/collection_link_repository.dart';
 import '../../collections/domain/collection_link.dart';
 import '../../collections/presentation/widgets/link_row.dart';
 import '../../content/application/content_providers.dart';
+import '../../cycle/application/viewing_phase.dart';
 import '../../eat/application/eat_segment.dart';
+import '../../eat/presentation/eat_filters.dart';
 import '../../recipes/presentation/recipes_page.dart' show keyIngredients;
 import '../../recipes/presentation/widgets/recipe_widgets.dart';
 import '../application/generation_providers.dart';
@@ -197,7 +198,7 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
       ),
       _Show.links => (
         'No saved links yet',
-        'Save a link to a recipe you found elsewhere with “Add a link”.',
+        'Add a link to a recipe you found elsewhere from Add a recipe.',
       ),
       _Show.all => (
         'No recipes yet',
@@ -205,38 +206,19 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
       ),
     };
 
-    Widget chip(String label, _Show value, int count) {
-      final active = _show == value;
-      final slop = tapTargetSlop(height: 34);
-      return ExpandedTapTarget(
-        extra: slop,
-        child: Pressable(
-          onTap: () => setState(() => _show = value),
-          selected: active,
-          semanticLabel: '$label, $count',
-          child: Padding(
-            padding: slop,
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 34),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
-              decoration: ShapeDecoration(
-                color: active ? c.inverseBg : c.sand,
-                shape: const StadiumBorder(),
-              ),
-              child: Text(
-                '$label $count',
-                style: dmSans(
-                  13.5,
-                  weight: active ? FontWeight.w700 : FontWeight.w500,
-                  height: 1.2,
-                  color: active ? c.inverseText : c.text,
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
+    final totals = {
+      _Show.all: saved.length + recipes.length + links.length,
+      _Show.saved: saved.length,
+      _Show.mine: recipes.length,
+      _Show.links: links.length,
+    };
+    const names = {
+      _Show.all: 'All recipes',
+      _Show.saved: 'Saved / Favorites',
+      _Show.mine: 'Added by me',
+      _Show.links: 'Links',
+    };
+    final shown = totals[_show]!;
 
     return Scaffold(
       backgroundColor: c.bg,
@@ -268,19 +250,41 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
                     top: 6,
                   ),
                   gutter(
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 4,
-                      children: [
-                        chip(
-                          'All',
-                          _Show.all,
-                          saved.length + recipes.length + links.length,
+                    EatFilterControl(
+                      key: const ValueKey('my-recipes-filter'),
+                      text: names[_show]!,
+                      semantic:
+                          'Showing ${names[_show]!.toLowerCase()}, $shown. '
+                          'Change filter',
+                      fill: c.raised,
+                      border: c.line,
+                      onTap: () => showTypeSheet<_Show>(
+                        context,
+                        title: 'Show',
+                        options: [
+                          for (final v in _Show.values)
+                            TypeOption<_Show?>(v, names[v]!, totals[v]!),
+                        ],
+                        selected: _show,
+                        phase: ref.read(viewingPhaseProvider),
+                        onChosen: (v) => setState(() => _show = v ?? _Show.all),
+                      ),
+                    ),
+                    top: 16,
+                  ),
+                  gutter(
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        '$shown ${shown == 1 ? 'item' : 'items'}',
+                        key: const ValueKey('my-recipes-count'),
+                        style: dmSans(
+                          13,
+                          weight: FontWeight.w500,
+                          height: 1.2,
+                          color: c.textMuted,
                         ),
-                        chip('Saved', _Show.saved, saved.length),
-                        chip('Added by me', _Show.mine, recipes.length),
-                        chip('Links', _Show.links, links.length),
-                      ],
+                      ),
                     ),
                     top: 16,
                   ),
@@ -302,20 +306,6 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
                       onPressed: () => context.push(Routes.addRecipe),
                     ),
                     top: 24,
-                  ),
-                  gutter(
-                    Center(
-                      child: TextLink(
-                        'Add a link to a recipe',
-                        key: const ValueKey('add-recipe-link'),
-                        onTap: () => context.push(
-                          Routes.collectionLinkNew(
-                            category: LinkCategory.recipes.name,
-                          ),
-                        ),
-                      ),
-                    ),
-                    top: 6,
                   ),
                 ],
               ),

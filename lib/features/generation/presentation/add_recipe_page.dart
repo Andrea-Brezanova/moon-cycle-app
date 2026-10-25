@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
+import '../../../core/design/tokens/moon_colors.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/centered_header.dart';
@@ -15,6 +16,8 @@ import '../../../core/design/widgets/moon_segmented.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pill_choice.dart';
 import '../../../core/domain/phase.dart';
+import '../../collections/data/collection_link_repository.dart';
+import '../../collections/domain/collection_link.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/recipe.dart';
 import '../../diary/presentation/diary_confirm_sheet.dart';
@@ -47,6 +50,11 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
   final _ingredients = TextEditingController();
   final _steps = TextEditingController();
   final _paste = TextEditingController();
+  final _linkAddress = TextEditingController();
+  final _linkTitle = TextEditingController();
+  final _linkCreator = TextEditingController();
+  final _linkNote = TextEditingController();
+  bool _linkTried = false;
   RecipeCategory _category = RecipeCategory.lunch;
 
   /// New recipes can be written, or filled in from pasted text.
@@ -78,6 +86,10 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
     _ingredients.text,
     _steps.text,
     _paste.text,
+    _linkAddress.text,
+    _linkTitle.text,
+    _linkCreator.text,
+    _linkNote.text,
   ].join('\u0000');
 
   bool get _dirty => _signature() != _start;
@@ -134,6 +146,10 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
       _ingredients,
       _steps,
       _paste,
+      _linkAddress,
+      _linkTitle,
+      _linkCreator,
+      _linkNote,
     ]) {
       c.dispose();
     }
@@ -211,6 +227,36 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
   void _leave([bool saved = false]) =>
       context.canPop() ? context.pop(saved) : context.go(Routes.myRecipes);
 
+  /// Saves the link tab: a link to a recipe found elsewhere. It is only a
+  /// link (no ingredients), kept in My recipes under Links.
+  Future<void> _saveLink() async {
+    if (_saving) return;
+    setState(() => _linkTried = true);
+    if (parseLinkAddress(_linkAddress.text) == null ||
+        _linkTitle.text.trim().isEmpty) {
+      return;
+    }
+    setState(() => _saving = true);
+    final saved = await ref
+        .read(collectionLinkRepositoryProvider)
+        .add(
+          category: LinkCategory.recipes,
+          address: _linkAddress.text,
+          title: _linkTitle.text,
+          creator: _linkCreator.text,
+          note: _linkNote.text,
+        );
+    if (!mounted) return;
+    if (saved == null) {
+      setState(() => _saving = false);
+      showDiaryToast(context, 'We couldn’t save that link. Please try again.');
+      return;
+    }
+    showDiaryToast(context, 'Link added to My recipes');
+    _start = _signature();
+    _leave(true);
+  }
+
   Future<void> _save() async {
     if (_saving) return;
     if (_input.problem != null) {
@@ -234,6 +280,65 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
     _leave(true);
   }
 
+  /// The "Add a link" tab.
+  List<Widget> _linkForm(MoonColors c) {
+    final addressBad =
+        _linkTried && parseLinkAddress(_linkAddress.text) == null;
+    final titleBad = _linkTried && _linkTitle.text.trim().isEmpty;
+    Widget label(String text) => Padding(
+      padding: const EdgeInsets.only(top: 22, bottom: 8),
+      child: Overline(text),
+    );
+    Widget problem(String text) => Padding(
+      padding: const EdgeInsets.only(top: 6, left: 6),
+      child: Text(text, style: dmSans(13, height: 1.35, color: c.destructive)),
+    );
+    return [
+      label('Link'),
+      FormFieldBox(
+        key: const ValueKey('link-address'),
+        controller: _linkAddress,
+        hint: 'youtube.com/watch?v=…',
+        keyboardType: TextInputType.url,
+        capitalization: TextCapitalization.none,
+        onChanged: (_) => setState(() {}),
+      ),
+      if (addressBad)
+        problem(
+          'Enter a web address that starts with http or https, like '
+          'youtube.com/watch?v=…',
+        ),
+      label('Name'),
+      FormFieldBox(
+        key: const ValueKey('link-title'),
+        controller: _linkTitle,
+        hint: 'What is it called?',
+        onChanged: (_) => setState(() {}),
+      ),
+      if (titleBad) problem('Give it a name.'),
+      label('Creator (optional)'),
+      FormFieldBox(
+        key: const ValueKey('link-creator'),
+        controller: _linkCreator,
+        hint: 'Who made it?',
+      ),
+      label('Your note (optional)'),
+      FormFieldBox(
+        key: const ValueKey('link-note'),
+        controller: _linkNote,
+        hint: 'Why you saved it',
+        minLines: 3,
+        keyboardType: TextInputType.multiline,
+      ),
+      const SizedBox(height: 26),
+      MoonButton(
+        'Save link',
+        key: const ValueKey('save-recipe-link'),
+        onPressed: _saving ? null : _saveLink,
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
@@ -241,6 +346,7 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
     final problem = _showProblem ? _input.problem : null;
     _checkIngredients();
     final pasting = _mode == _Mode.paste && !editing;
+    final linking = _mode == _Mode.link && !editing;
     Widget label(String text) => Padding(
       padding: const EdgeInsets.only(top: 22, bottom: 8),
       child: Overline(text),
@@ -285,6 +391,7 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
                               options: const [
                                 (_Mode.write, 'Write my own'),
                                 (_Mode.paste, 'Paste text'),
+                                (_Mode.link, 'Add a link'),
                               ],
                               selected: _mode,
                               onChanged: (m) => setState(() => _mode = m),
@@ -292,7 +399,12 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
                             const SizedBox(height: 14),
                           ],
                           Text(
-                            pasting
+                            linking
+                                ? 'Save a link to a recipe you found elsewhere. '
+                                      'It opens at its source; nothing is '
+                                      'downloaded or copied, and it isn’t used '
+                                      'to search by ingredient.'
+                                : pasting
                                 ? 'Paste a recipe you already have. It’s read '
                                       'here on your phone, never sent '
                                       'anywhere, and nothing is saved until '
@@ -302,7 +414,9 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
                             textAlign: TextAlign.center,
                             style: dmSans(14, height: 1.5, color: c.textMuted),
                           ),
-                          if (pasting) ...[
+                          if (linking) ...[
+                            ..._linkForm(c),
+                          ] else if (pasting) ...[
                             const SizedBox(height: 18),
                             FormFieldBox(
                               controller: _paste,
@@ -437,7 +551,7 @@ class _AddRecipePageState extends ConsumerState<AddRecipePage> {
   }
 }
 
-enum _Mode { write, paste }
+enum _Mode { write, paste, link }
 
 /// After a paste: what was found, and a reminder that it is a draft.
 class _ImportNote extends StatelessWidget {
