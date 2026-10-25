@@ -29,13 +29,14 @@ part 'app_database.g.dart';
     DiaryActivities,
     ProviderUsages,
     SavedRecipeRefs,
+    CollectionLinks,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -83,6 +84,12 @@ class AppDatabase extends _$AppDatabase {
       from7To8: (m, schema) async {
         await m.createTable(schema.diaryActivities);
         await m.createIndex(schema.diaryActivitiesLive);
+      },
+      // 9: links saved in My Collections. Additive: a new table and index;
+      // nothing existing changes.
+      from8To9: (m, schema) async {
+        await m.createTable(schema.collectionLinks);
+        await m.createIndex(schema.collectionLinksLive);
       },
     ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),

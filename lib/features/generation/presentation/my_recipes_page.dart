@@ -12,7 +12,11 @@ import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/tap_target.dart';
+import '../../../core/design/widgets/text_link.dart';
 import '../../../core/domain/phase.dart';
+import '../../collections/data/collection_link_repository.dart';
+import '../../collections/domain/collection_link.dart';
+import '../../collections/presentation/widgets/link_card.dart';
 import '../../content/application/content_providers.dart';
 import '../../eat/application/eat_segment.dart';
 import '../../recipes/presentation/recipes_page.dart' show keyIngredients;
@@ -23,7 +27,7 @@ import '../domain/personal_recipe.dart';
 import '../domain/saved_recipe_ref.dart';
 import 'delete_recipe.dart';
 
-enum _Show { all, saved, mine }
+enum _Show { all, saved, mine, links }
 
 /// "My recipes": recipes the user saved and the ones made for them, kept
 /// privately on this phone. Filter: All, Saved, Added by me.
@@ -44,8 +48,15 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
     final recipes = ref.watch(personalRecipesProvider).value ?? const [];
     final saved = ref.watch(savedRecipeRefsProvider).value ?? const [];
     final repo = ref.read(savedRecipeRepositoryProvider);
-    final showSaved = _show != _Show.mine;
-    final showMine = _show != _Show.saved;
+    final links = [
+      for (final l
+          in ref.watch(collectionLinksProvider).value ??
+              const <CollectionLink>[])
+        if (l.category == LinkCategory.recipes) l,
+    ];
+    final showSaved = _show == _Show.all || _show == _Show.saved;
+    final showMine = _show == _Show.all || _show == _Show.mine;
+    final showLinks = _show == _Show.all || _show == _Show.links;
 
     Widget gutter(Widget child, {double top = 0}) => Padding(
       padding: EdgeInsets.fromLTRB(MoonSpace.gutter, top, MoonSpace.gutter, 0),
@@ -173,6 +184,8 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
         for (final r in saved) savedCard(r),
       if (showMine)
         for (final p in recipes) personalCard(p),
+      if (showLinks)
+        for (final l in links) CollectionLinkCard(link: l),
     ];
     final (emptyTitle, emptyBody) = switch (_show) {
       _Show.saved => (
@@ -182,6 +195,10 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
       _Show.mine => (
         'Nothing added by you yet',
         'Recipes you write are listed here, privately.',
+      ),
+      _Show.links => (
+        'No saved links yet',
+        'Save a link to a recipe you found elsewhere with “Add a link”.',
       ),
       _Show.all => (
         'No recipes yet',
@@ -256,9 +273,14 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
                       spacing: 8,
                       runSpacing: 4,
                       children: [
-                        chip('All', _Show.all, saved.length + recipes.length),
+                        chip(
+                          'All',
+                          _Show.all,
+                          saved.length + recipes.length + links.length,
+                        ),
                         chip('Saved', _Show.saved, saved.length),
                         chip('Added by me', _Show.mine, recipes.length),
+                        chip('Links', _Show.links, links.length),
                       ],
                     ),
                     top: 16,
@@ -281,6 +303,20 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
                       onPressed: () => context.push(Routes.addRecipe),
                     ),
                     top: 24,
+                  ),
+                  gutter(
+                    Center(
+                      child: TextLink(
+                        'Add a link to a recipe',
+                        key: const ValueKey('add-recipe-link'),
+                        onTap: () => context.push(
+                          Routes.collectionLinkNew(
+                            category: LinkCategory.recipes.name,
+                          ),
+                        ),
+                      ),
+                    ),
+                    top: 6,
                   ),
                 ],
               ),

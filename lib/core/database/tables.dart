@@ -260,6 +260,30 @@ class DiaryActivities extends Table with UserRow {
   TextColumn get note => text().nullable()();
 }
 
+/// A link the user saved to one of My Collections' three categories (schema
+/// 9): a recipe, workout or sound found elsewhere. Only what the user typed is
+/// kept (address, title, creator, note); nothing is fetched from the page and
+/// no media is copied. [category] is `recipes`, `workouts` or `sounds` and can
+/// be changed later. Local only, in the encrypted database. Deleting
+/// tombstones the row and empties the creator and note.
+@TableIndex.sql(
+  'CREATE INDEX collection_links_live '
+  'ON collection_links (category) '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('CollectionLinkRow')
+class CollectionLinks extends Table with UserRow {
+  TextColumn get category => text()();
+  TextColumn get url => text()();
+  TextColumn get title => text()();
+  TextColumn get creator => text().nullable()();
+
+  /// Worked out from the address: `youtube`, `instagram`, `tiktok`,
+  /// `pinterest`, `website`.
+  TextColumn get platform => text()();
+  TextColumn get note => text().nullable()();
+}
+
 /// How many requests each external recipe provider has been sent this month,
 /// and roughly what they cost, so a monthly budget can be enforced.
 @DataClassName('ProviderUsageRow')

@@ -43,8 +43,8 @@ class PrivacyDataPage extends ConsumerWidget {
               const TextSpan(
                 text:
                     ' Cycle dates, food preferences, your shopping list, '
-                    'diary, activities and personal Notes are stored only '
-                    'here, encrypted. Nothing is sent to a server.',
+                    'diary, activities, personal Notes and saved links are '
+                    'stored only here, encrypted. Nothing is sent to a server.',
               ),
             ],
           ),
@@ -57,7 +57,7 @@ class PrivacyDataPage extends ConsumerWidget {
                 label: 'Export my data',
                 subtitle:
                     'A file with your cycle history, preferences, diary, '
-                    'activities and Notes',
+                    'activities, Notes and saved links',
                 onTap: () => exportMyData(context, ref),
               ),
             ),

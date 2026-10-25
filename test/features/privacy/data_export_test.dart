@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/domain/local_date.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
+import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/content/domain/recipe.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/period_log.dart';
@@ -75,6 +76,7 @@ void main() {
       'diary',
       'notes',
       'activities',
+      'collectionLinks',
       'savedRecipes',
       'personalRecipes',
     ]);
@@ -236,6 +238,45 @@ void main() {
         'text': 'Walked by the river.',
         'createdAt': '2026-10-11T18:00:00.000Z',
         'updatedAt': '2026-10-11T18:00:00.000Z',
+      },
+    ]);
+  });
+
+  test('saved links are exported with what the user typed', () {
+    final out = buildDataExport(
+      exportedAt: DateTime.utc(2026, 10, 12, 9),
+      appVersion: '1.0.0',
+      profile: null,
+      periods: const [],
+      diet: Diet.omnivore,
+      avoidances: const [],
+      reminders: const ReminderSettings(),
+      shoppingList: const [],
+      collectionLinks: [
+        CollectionLink(
+          id: 'l1',
+          category: LinkCategory.workouts,
+          url: Uri.parse('https://www.instagram.com/reel/x'),
+          title: 'Morning flow',
+          platform: LinkPlatform.instagram,
+          creator: 'Sam',
+          note: 'Gentle',
+          createdAt: DateTime.utc(2026, 10, 10, 8),
+          updatedAt: DateTime.utc(2026, 10, 11, 8),
+        ),
+      ],
+      foodName: (_) => null,
+    );
+    expect(out['collectionLinks'], [
+      {
+        'category': 'workouts',
+        'url': 'https://www.instagram.com/reel/x',
+        'title': 'Morning flow',
+        'creator': 'Sam',
+        'platform': 'instagram',
+        'note': 'Gentle',
+        'createdAt': '2026-10-10T08:00:00.000Z',
+        'updatedAt': '2026-10-11T08:00:00.000Z',
       },
     ]);
   });
