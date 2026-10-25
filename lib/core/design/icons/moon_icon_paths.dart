@@ -28,12 +28,14 @@ enum MoonIconName {
   heart,
   help,
   home,
+  link,
   lock,
   minus,
   more,
   move,
   pan,
   pencil,
+  play,
   plus,
   recipes,
   relax,
@@ -46,6 +48,8 @@ enum MoonIconName {
 
 /// SVG markup inside the `<svg>` element, per icon.
 const Map<MoonIconName, String> moonIconPaths = {
+  MoonIconName.play: '<path d="M8 5.500v13l11-6.500z"></path>',
+  MoonIconName.link: '<path d="M10 14a4 4 0 0 0 5.660 0l3-3a4 4 0 0 0-5.660-5.660l-1 1"></path><path d="M14 10a4 4 0 0 0-5.660 0l-3 3a4 4 0 0 0 5.660 5.660l1-1"></path>',
   MoonIconName.bookmark: '<path d="M7 4.500h10v15l-5-3.600-5 3.600z"></path>',
   MoonIconName.trash: '<path d="M4.500 7h15"></path><path d="M9.500 7V4.500h5V7"></path><path d="M6.500 7l.8 12.500h9.400L17.500 7"></path><path d="M10 11v5.500M14 11v5.500"></path>',
   MoonIconName.book: '<path d="M4 5.8c2.6-1.1 5.2-.9 8 .9 2.8-1.8 5.4-2 8-.9V19c-2.6-1.1-5.2-.9-8 .9-2.8-1.8-5.4-2-8-.9z"></path><path d="M12 6.7V19.9"></path>',

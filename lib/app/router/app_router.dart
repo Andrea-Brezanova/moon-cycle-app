@@ -10,6 +10,7 @@ import '../../core/domain/phase.dart';
 import '../../features/collections/application/collections_providers.dart';
 import '../../features/collections/domain/collection_link.dart';
 import '../../features/collections/presentation/collection_category_page.dart';
+import '../../features/collections/presentation/collection_link_detail_page.dart';
 import '../../features/collections/presentation/collection_link_page.dart';
 import '../../features/collections/presentation/collections_page.dart';
 import '../../features/credits/presentation/credits_page.dart';
@@ -354,24 +355,37 @@ GoRouter buildAppRouter({
                             _page(state, const CollectionsPage()),
                         routes: [
                           GoRoute(
-                            path: 'link/:id',
+                            path: 'link/new',
                             parentNavigatorKey: rootKey,
-                            pageBuilder: (context, state) {
-                              final id = state.pathParameters['id']!;
-                              return _page(
-                                state,
-                                id == 'new'
-                                    ? CollectionLinkPage(
-                                        category: LinkCategory.fromKey(
-                                          state
-                                                  .uri
-                                                  .queryParameters['category'] ??
-                                              '',
-                                        ),
-                                      )
-                                    : CollectionLinkPage(linkId: id),
-                              );
-                            },
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              CollectionLinkPage(
+                                category: LinkCategory.fromKey(
+                                  state.uri.queryParameters['category'] ?? '',
+                                ),
+                              ),
+                            ),
+                          ),
+                          GoRoute(
+                            path: 'link/:id',
+                            pageBuilder: (context, state) => _page(
+                              state,
+                              CollectionLinkDetailPage(
+                                linkId: state.pathParameters['id']!,
+                              ),
+                            ),
+                            routes: [
+                              GoRoute(
+                                path: 'edit',
+                                parentNavigatorKey: rootKey,
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  CollectionLinkPage(
+                                    linkId: state.pathParameters['id'],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           for (final category in [
                             CollectionCategory.workouts,
