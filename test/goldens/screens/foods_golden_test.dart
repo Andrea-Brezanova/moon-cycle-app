@@ -202,44 +202,25 @@ void main() {
 
   // Preview of a completed profile inside the existing Food Detail design
   // (review only: no profile is bundled or published).
-  for (final MapEntry(key: theme, value: dark) in themes.entries) {
-    testWidgets('food detail with a profile, spinach, $theme', (tester) async {
-      await pumpScreen(
-        tester,
-        const FoodDetailPage(foodId: 'spinach', phase: Phase.menstrual),
-        dark: dark,
-        height: 2900,
-        overrides: [
-          ...base(),
-          foodProfileProvider('spinach')
-              .overrideWithValue(loadProfiles(publishable: true)['spinach']),
-        ],
-      );
-      await expectLater(
-        find.byType(FoodDetailPage),
-        matchesGoldenFile('goldens/$theme-food-detail-profile-spinach.png'),
-      );
-    });
+  for (final (id, name) in [('spinach', 'spinach'), ('broccoli', 'broccoli')]) {
+    for (final MapEntry(key: theme, value: dark) in themes.entries) {
+      testWidgets('food detail with a profile, $name, $theme', (tester) async {
+        await pumpScreen(
+          tester,
+          FoodDetailPage(foodId: id, phase: Phase.menstrual),
+          dark: dark,
+          height: 2900,
+          overrides: [
+            ...base(),
+            foodProfileProvider(id)
+                .overrideWithValue(loadProfiles(publishable: true)[id]),
+          ],
+        );
+        await expectLater(
+          find.byType(FoodDetailPage),
+          matchesGoldenFile('goldens/$theme-food-detail-profile-$name.png'),
+        );
+      });
+    }
   }
-
-  testWidgets('food detail with a profile, pumpkin seeds, light', (
-    tester,
-  ) async {
-    await pumpScreen(
-      tester,
-      const FoodDetailPage(foodId: 'pumpkin-seeds', phase: Phase.menstrual),
-      dark: false,
-      height: 2700,
-      overrides: [
-        ...base(),
-        foodProfileProvider(
-          'pumpkin-seeds',
-        ).overrideWithValue(loadProfiles(publishable: true)['pumpkin-seeds']),
-      ],
-    );
-    await expectLater(
-      find.byType(FoodDetailPage),
-      matchesGoldenFile('goldens/light-food-detail-profile-pumpkin-seeds.png'),
-    );
-  });
 }
