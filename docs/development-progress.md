@@ -19,26 +19,26 @@ phone (Me › Settings › About) for what is installed.
 | Meal Builder free for everyone, production builds included | #35 | green | 4 merged (5eeb813); 5 installed from tool/build_ios.sh |
 | Dev-only Premium test switch (`DEV_PREMIUM`) | #24 | green | 4 merged; testing aid only |
 
-## In progress
+## Also merged and installed
 
 | Feature | PR | CI | Stage |
 |---|---|---|---|
-| Food Detail profiles for the five reference foods (spinach, lentils, pumpkin seeds, broccoli, orange) | this PR | see PR | 3 unmerged Flutter code until merged |
+| Food Detail profiles for the five reference foods (spinach cooked, lentils cooked, pumpkin seed kernels dried, broccoli cooked, orange raw) | #36 | green | 4 merged (5c25667); 5 installed (built 25 Oct 2026 23:00 UTC with tool/build_ios.sh; check Me › Settings › About) |
 
-## Open PRs (reviewed)
+## Open PRs (reviewed 25 Oct 2026)
 
-| PR | What it is | Stage | In `main`? | Decision |
+| PR | What it is | Stage | State against `main` | Decision |
 |---|---|---|---|---|
-| #28 | Food content audit and the five reference profiles (documents) | 2 documentation | no; its content is carried into the profiles PR | keep open for final editorial review |
-| #33 | Draft preview of a profile inside Food Detail | 3 draft code | superseded by the profiles PR (same code) | keep as a draft; not merged |
-| #25 | Food photo manifest | 2 documentation | **yes** (carried in by #26's stacked branch) | content already in main; left open, not closed |
-| #16 | iPhone install workflow, V2 status, TestFlight readiness | 2 documentation | partly (feature-status covers the install workflow) | left open |
+| #28 | Food content audit and the five reference profiles (documents) | 2 documentation | **Already merged as a side effect**: GitHub marked it merged when #36's merge brought all its commits into `main` (not merged on purpose; docs only, no app change) | nothing to do; its final editorial review is covered by the approved five profiles |
+| #33 | Draft preview of a profile inside Food Detail | 3 draft code | superseded: its code and goldens are in `main` through #36 | left open as a draft, not merged, not closed |
+| #25 | Food photo manifest | 2 documentation | identical files are already in `main` (carried in by #26) | redundant; left open, not closed |
+| #16 | iPhone install workflow, V2 status, TestFlight readiness | 2 documentation | 88 commits behind; its roadmap edits and TestFlight notes are stale (TestFlight is deferred; the install workflow now lives in `docs/feature-status.md` and `tool/build_ios.sh`) | **not merged**; left open for you to decide |
 
 ## Needs your approval
 
 - Anything needing a new migration (Spa sub-categories, workout metadata), new content
   (workouts, meditations, audio), image licensing or any further profile beyond the five.
-- Final editorial review of #28.
+- Whether to close the superseded PRs (#16, #25, #33); I have not closed or deleted anything.
 
 ## Not implemented (do not expect on the phone)
 
