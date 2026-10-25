@@ -14,7 +14,7 @@ import '../data/collection_link_repository.dart';
 import '../domain/collection_link.dart';
 import 'widgets/link_card.dart';
 
-/// My Workouts or My Sounds: the links saved here. Moon Cycle's own workouts
+/// My Workouts or My Spa: the links saved here. Moon Cycle's own workouts
 /// and sounds will join them when that content exists; until then this says so
 /// plainly and offers no button that does nothing.
 class CollectionCategoryPage extends ConsumerWidget {
@@ -44,7 +44,7 @@ class CollectionCategoryPage extends ConsumerWidget {
         child: Column(
           children: [
             CenteredHeader(
-              title: workouts ? 'My Workouts' : 'My Sounds',
+              title: workouts ? 'My Workouts' : 'My Spa',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(Routes.collections),
@@ -65,14 +65,16 @@ class CollectionCategoryPage extends ConsumerWidget {
                         icon: workouts ? MoonIconName.move : MoonIconName.relax,
                         title: workouts
                             ? 'No workouts saved yet'
-                            : 'No sounds saved yet',
+                            : 'Nothing in My Spa yet',
                         body: workouts
                             ? 'Save a link to a workout you like with the plus, '
                                   'and it will be kept here, privately on this '
                                   'phone.'
-                            : 'Save a link to a meditation, breathing session '
-                                  'or sound you like with the plus, and it will '
-                                  'be kept here, privately on this phone.',
+                            : 'Save a link to a meditation, breathing '
+                                  'session, sleep story, relaxing sound or '
+                                  'self-care ritual you like with the plus, and '
+                                  'it will be kept here, privately on this '
+                                  'phone.',
                         palette: c.phase(
                           workouts ? Phase.luteal : Phase.ovulatory,
                         ),

@@ -128,6 +128,8 @@ void main() {
   testWidgets('Me sub-pages open inside Me and go back', (tester) async {
     await pumpApp(tester);
     await tapTab(tester, 'more');
+    await tester.ensureVisible(find.text('My Cycle'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('My Cycle'));
     await tester.pumpAndSettle();
     expect(find.text('My Cycle').hitTestable(), findsOneWidget);
