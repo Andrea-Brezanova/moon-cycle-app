@@ -25,6 +25,7 @@ enum LinkPlatform {
   instagram('Instagram'),
   tiktok('TikTok'),
   pinterest('Pinterest'),
+  spotify('Spotify'),
   website('Website');
 
   const LinkPlatform(this.label);
@@ -71,6 +72,9 @@ final class CollectionLink {
   /// "YouTube", or the site's host for a website: shown under the title.
   String get source =>
       platform == LinkPlatform.website ? url.host : platform.label;
+
+  /// The host without a leading "www.": the address line on the detail page.
+  String get host => url.host.replaceFirst(RegExp(r'^www\.'), '');
 }
 
 /// A link address the app accepts: `http` or `https` with a host, no
@@ -104,5 +108,6 @@ LinkPlatform platformOf(Uri url) {
   if (is_('instagram.com')) return LinkPlatform.instagram;
   if (is_('tiktok.com')) return LinkPlatform.tiktok;
   if (is_('pinterest.com') || is_('pin.it')) return LinkPlatform.pinterest;
+  if (is_('spotify.com') || is_('spotify.link')) return LinkPlatform.spotify;
   return LinkPlatform.website;
 }
