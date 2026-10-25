@@ -31,3 +31,12 @@ would look more coherent than mixing stock photos.
 Phase D: produce a first batch for the highest-use plants (about 30), each a single,
 accurate subject on a plain background, reviewed by the owner and credited. Keep the
 fallback until each asset exists.
+
+## Asset manifest
+`docs/food-photo-manifest.json` lists every daily-plant food that still needs a
+photo, keyed by its catalogue id, in batches of 12 (vegetables first, then fruit,
+legumes, nuts and seeds, whole grains), each with the target file name, a
+photography brief (single identifiable food, neutral ivory background, natural
+daylight, accurate species and form), source and licence fields, and a review flag.
+Nothing is added to the app until the owner has reviewed a batch; the fallback tile
+stays until then. Changing a batch's order is a one-line edit.
