@@ -70,3 +70,26 @@ without a subscription:
 
 To restore production behaviour for a build: build a release/profile build or the prod flavour; no code
 changes are needed.
+
+## Testing Premium on the owner's iPhone (development only)
+
+Meal Builder and the other Premium features are Premium on purpose
+(`defaultFeatureTiers`); a normal build, including the release build installed on
+the phone, shows "See Premium". To test them on the phone **without touching real
+entitlements, subscriptions or paywalls**, build the dev flavour with one extra
+define and update the app in place (same bundle id and signing, so the encrypted
+database, key and data are kept; the install is an update, never an uninstall):
+
+```bash
+flutter build ios --release --flavor dev --dart-define-from-file=env/dev.json --dart-define=DEV_PREMIUM=true
+xcrun devicectl device install app --device <iPhone id> build/ios/iphoneos/Runner.app
+```
+
+- The app opens with every feature unlocked; **Me → bottom of the page → "All
+  features unlocked (dev)"** turns it off to show the production restrictions.
+- Only the **dev flavour** honours the define. The prod flavour and any build made
+  without it ignore it (tests cover all four combinations), and the define grants
+  nothing outside the dev-only Premium switch (mock recipe generation and the
+  external recipe test key stay debug-build-only).
+- To go back to the normal dev build, install a build made without the define; the
+  data is unaffected.

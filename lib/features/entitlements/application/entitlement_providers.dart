@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/config/app_config.dart';
 import '../../../app/config/app_links.dart';
 import '../../../core/time/today.dart';
 import '../domain/entitlements.dart';
@@ -13,13 +14,40 @@ final entitlementGrantsProvider = Provider<List<EntitlementGrant>>(
     // Development only: previewing Premium. Both switches must be on, and the
     // first is false in profile and release builds, so this can never grant
     // anything in a shipped app.
-    if (ref.watch(debugPreviewAllowedProvider) &&
+    if (ref.watch(devPremiumSwitchAllowedProvider) &&
         ref.watch(debugPremiumPreviewProvider))
       const EntitlementGrant(
         tier: Tier.premium,
         origin: EntitlementOrigin.debugPreview,
       ),
   ],
+);
+
+/// `--dart-define=DEV_PREMIUM=true`, set only when building the dev flavour for
+/// the owner's own test phone (see docs/feature-status.md). Absent in every
+/// normal build.
+const devPremiumDefine = bool.fromEnvironment('DEV_PREMIUM');
+
+/// Whether a build made with [define] may offer the Premium test switch: only
+/// the dev flavour, whatever else is set. The prod flavour never does.
+bool devPremiumBuildAllowed({required Flavor flavor, required bool define}) =>
+    define && flavor == Flavor.dev;
+
+/// Whether the Premium test switch may grant Premium: a debug build, or a
+/// release build of the **dev flavour** made with `DEV_PREMIUM=true`. Never the
+/// prod flavour, and never a build made without the define. It changes no real
+/// entitlement, subscription or paywall: Settings shows the switch, and turning
+/// it off shows the production restrictions.
+final devPremiumSwitchAllowedProvider = Provider<bool>(
+  (ref) =>
+      ref.watch(debugPreviewAllowedProvider) ||
+      // The define is a compile-time constant: without it the config is not
+      // even read.
+      (devPremiumDefine &&
+          devPremiumBuildAllowed(
+            flavor: ref.watch(appConfigProvider).flavor,
+            define: devPremiumDefine,
+          )),
 );
 
 /// Whether the debug Premium preview may exist at all: debug builds only.
