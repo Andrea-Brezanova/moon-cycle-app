@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
-import '../../core/design/widgets/moon_icon.dart';
 import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
 import '../../features/collections/application/collections_providers.dart';
@@ -42,7 +41,7 @@ import '../../features/onboarding/presentation/food_preferences_page.dart';
 import '../../features/onboarding/presentation/last_period_page.dart';
 import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
-import '../../features/placeholders/presentation/coming_soon_page.dart';
+import '../../features/placeholders/presentation/collection_hub_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/settings/presentation/about_page.dart';
@@ -129,14 +128,8 @@ GoRouter buildAppRouter({
                   pageBuilder: (context, state) => _page(state, switch (tab) {
                     AppTab.home => const HomePage(),
                     AppTab.eat => const EatPage(),
-                    AppTab.move => const ComingSoonPage(
-                      title: 'Move',
-                      icon: MoonIconName.move,
-                    ),
-                    AppTab.relax => const ComingSoonPage(
-                      title: 'Relax',
-                      icon: MoonIconName.relax,
-                    ),
+                    AppTab.move => const CollectionHubPage.move(),
+                    AppTab.relax => const CollectionHubPage.relax(),
                     AppTab.more => const SettingsHomePage(),
                   }),
                   routes: switch (tab) {
