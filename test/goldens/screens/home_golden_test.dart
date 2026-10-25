@@ -101,7 +101,7 @@ void main() {
           tester,
           const HomePage(),
           dark: dark,
-          height: 2000,
+          height: 1900,
           overrides: overrides,
         );
         await expectLater(
@@ -121,7 +121,7 @@ void main() {
         dark: dark,
         width: 320,
         textScale: 1.5,
-        height: 3600,
+        height: 2800,
         overrides: cases['follicular']!,
       );
       await expectLater(

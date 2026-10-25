@@ -510,12 +510,15 @@ class YourSpaceCard extends StatelessWidget {
               children: [shortcuts[0], const SizedBox(height: 8), shortcuts[1]],
             )
           else
-            Row(
-              children: [
-                Expanded(child: shortcuts[0]),
-                const SizedBox(width: 8),
-                Expanded(child: shortcuts[1]),
-              ],
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(child: shortcuts[0]),
+                  const SizedBox(width: 8),
+                  Expanded(child: shortcuts[1]),
+                ],
+              ),
             ),
         ],
       ),
@@ -552,6 +555,7 @@ class _Shortcut extends StatelessWidget {
       semanticLabel: '$title, $line',
       child: Container(
         constraints: const BoxConstraints(minHeight: 58),
+        alignment: Alignment.centerLeft,
         padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
           color: c.raised,
@@ -587,10 +591,10 @@ class _Shortcut extends StatelessWidget {
                       style: fraunces(15, height: 1.1, color: c.text),
                     ),
                     const SizedBox(height: 3),
+                    // Short lines stay on one line; a longer one ("Nothing
+                    // logged yet") wraps rather than being cut off.
                     Text(
                       line,
-                      maxLines: wrap ? 2 : 1,
-                      overflow: wrap ? null : TextOverflow.clip,
                       style: dmSans(12, height: 1.25, color: c.textMuted),
                     ),
                   ],
