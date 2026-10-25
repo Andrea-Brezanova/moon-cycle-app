@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/app/config/app_config.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
@@ -113,6 +114,32 @@ void main() {
       expect(enabled(true, false), isFalse); // debug build, prod flavour
       expect(enabled(false, true), isFalse); // release/profile, dev flavour
       expect(enabled(false, false), isFalse);
+    });
+
+    test('the owner’s test-phone build: dev flavour with the define only', () {
+      bool allowed(Flavor f, bool define) =>
+          devPremiumBuildAllowed(flavor: f, define: define);
+      expect(allowed(Flavor.dev, true), isTrue);
+      expect(allowed(Flavor.dev, false), isFalse); // every normal build
+      expect(allowed(Flavor.prod, true), isFalse); // never production
+      expect(allowed(Flavor.prod, false), isFalse);
+    });
+
+    test('without the define a release build cannot grant Premium', () {
+      // The define is absent in tests, as in every normal build.
+      final c = ProviderContainer(
+        overrides: [
+          debugPreviewAllowedProvider.overrideWithValue(false),
+          debugUnlockAtStartProvider.overrideWithValue(true),
+          clockProvider.overrideWithValue(() => DateTime(2026, 1, 5)),
+          appConfigProvider.overrideWithValue(
+            const AppConfig(flavor: Flavor.dev),
+          ),
+        ],
+      );
+      addTearDown(c.dispose);
+      expect(c.read(devPremiumSwitchAllowedProvider), isFalse);
+      expect(c.read(entitlementStateProvider).tier, isNot(Tier.premium));
     });
 
     test('nothing in configuration can turn it on', () {

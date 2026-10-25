@@ -2,8 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/domain/local_date.dart';
 import '../../../core/time/today.dart';
-import '../data/diary_activity_repository.dart';
-import '../data/diary_note_repository.dart';
 import '../data/diary_repository.dart';
 import '../data/symptom_repository.dart';
 import '../domain/diary_entry.dart';
@@ -62,18 +60,12 @@ final recentChoicesProvider = StreamProvider.autoDispose<List<DiaryChoice>>(
       .map((entries) => recentDistinct(entries, limit: 60)),
 );
 
-/// How many diary entries are recorded for today's date (the local calendar
-/// day), for Home's My Diary card: each meal entry, the day's symptom check-in
-/// (one, however many answers it has), each activity and each note. Deleted
-/// entries and unsaved drafts aren't there to be counted. It follows the
-/// diary's own streams, so it changes when something is saved, deleted or moved
-/// to another date, and when the day rolls over.
-final todayDiaryEntryCountProvider = Provider.autoDispose<int>((ref) {
+/// How many of today's meals have something logged: breakfast, lunch, dinner
+/// and snacks count once each, however many items are in them. Read-only; it
+/// follows the diary stream, so it changes when something is saved or deleted
+/// and when the day rolls over.
+final todayMealCountProvider = Provider.autoDispose<int>((ref) {
   final today = ref.watch(todayProvider);
-  final meals = ref.watch(diaryDayProvider(today)).value?.length ?? 0;
-  final symptoms = ref.watch(symptomDayProvider(today)).value == null ? 0 : 1;
-  final activities =
-      ref.watch(diaryActivitiesOnProvider(today)).value?.length ?? 0;
-  final notes = ref.watch(diaryNotesOnProvider(today)).value?.length ?? 0;
-  return meals + symptoms + activities + notes;
+  final entries = ref.watch(diaryDayProvider(today)).value ?? const [];
+  return {for (final e in entries) e.meal}.length;
 });
