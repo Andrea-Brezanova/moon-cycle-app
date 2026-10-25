@@ -29,6 +29,7 @@ class PrivacyDataPage extends ConsumerWidget {
     );
 
     return SettingsSubScaffold(
+      backLabel: 'Account & Plus',
       title: 'Privacy & Data',
       gap: 30,
       children: [

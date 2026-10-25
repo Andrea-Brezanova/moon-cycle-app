@@ -15,6 +15,7 @@ class SettingsSubScaffold extends StatelessWidget {
     this.titleSize = 40,
     this.top = 18,
     this.gap = 28,
+    this.backLabel = 'Settings',
     required this.children,
   });
 
@@ -25,6 +26,11 @@ class SettingsSubScaffold extends StatelessWidget {
   /// Space between the title and the first child.
   final double top;
   final double gap;
+
+  /// The page the back button returns to: 'Settings' for the pages under
+  /// Settings, 'Account & Plus' for the subscription and privacy pages, 'Me'
+  /// for the hubs themselves.
+  final String backLabel;
   final List<Widget> children;
 
   @override
@@ -38,7 +44,7 @@ class SettingsSubScaffold extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 42),
           children: [
             SubScreenHeader(
-              backLabel: 'Me',
+              backLabel: backLabel,
               onBack: () => context.pop(),
               title: title,
               titleSize: titleSize,

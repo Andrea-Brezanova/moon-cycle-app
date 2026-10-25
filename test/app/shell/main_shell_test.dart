@@ -9,6 +9,7 @@ import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/settings_home_page.dart';
+import 'package:moon_cycle/features/settings/presentation/settings_hub_page.dart';
 
 import '../../helpers/pump_app.dart';
 
@@ -128,13 +129,19 @@ void main() {
   testWidgets('Me sub-pages open inside Me and go back', (tester) async {
     await pumpApp(tester);
     await tapTab(tester, 'more');
-    await tester.ensureVisible(find.text('My Cycle'));
+    await tester.ensureVisible(find.byKey(const ValueKey('me-settings')));
     await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('me-settings')));
+    await tester.pumpAndSettle();
+    expect(find.byType(SettingsHubPage), findsOneWidget);
     await tester.tap(find.text('My Cycle'));
     await tester.pumpAndSettle();
     expect(find.text('My Cycle').hitTestable(), findsOneWidget);
     expect(settingsRoot.hitTestable(), findsNothing);
     expect(tab('more').hitTestable(), findsOneWidget); // tab bar visible
+    await tester.tap(find.bySemanticsLabel('Back to Settings'));
+    await tester.pumpAndSettle();
+    expect(find.byType(SettingsHubPage), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Back to Me'));
     await tester.pumpAndSettle();
     expect(settingsRoot.hitTestable(), findsOneWidget);

@@ -172,6 +172,10 @@ abstract final class Routes {
   /// More › the shopping list.
   static const String shopping = '/more/shopping-list';
 
+  /// Me › Settings and Me › Account & Plus.
+  static const String meSettings = '/more/settings';
+  static const String meAccount = '/more/account';
+
   /// Me › My Collections, and its Workouts and Spa pages (My Recipes is the
   /// existing [myRecipes]).
   static const String collections = '/more/collections';
