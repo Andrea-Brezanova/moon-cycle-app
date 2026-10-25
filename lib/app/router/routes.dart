@@ -175,6 +175,7 @@ abstract final class Routes {
   /// Me › Settings and Me › Account & Plus.
   static const String meSettings = '/more/settings';
   static const String meAccount = '/more/account';
+  static const String meAbout = '/more/settings/about';
 
   /// Me › My Collections, and its Workouts and Spa pages (My Recipes is the
   /// existing [myRecipes]).

@@ -45,6 +45,7 @@ import '../../features/onboarding/presentation/welcome_page.dart';
 import '../../features/placeholders/presentation/coming_soon_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
+import '../../features/settings/presentation/about_page.dart';
 import '../../features/settings/presentation/account_plus_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
 import '../../features/settings/presentation/appearance_page.dart';
@@ -414,6 +415,13 @@ GoRouter buildAppRouter({
                         path: 'settings',
                         pageBuilder: (context, state) =>
                             _page(state, const SettingsHubPage()),
+                        routes: [
+                          GoRoute(
+                            path: 'about',
+                            pageBuilder: (context, state) =>
+                                _page(state, const AboutPage()),
+                          ),
+                        ],
                       ),
                       GoRoute(
                         path: 'account',
