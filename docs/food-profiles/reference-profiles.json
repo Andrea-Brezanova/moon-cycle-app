@@ -1,0 +1,551 @@
+{
+  "_status": "REFERENCE DRAFT for editorial approval. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (records named in each entry), read 2026-10-25",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A), https://ods.od.nih.gov/factsheets/list-all/, read 2026-10-25",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition, read 2026-10-25"
+  },
+  "_referenceNote": "Percentages compare ONE serving with the daily reference intake for the NUTRIENT for adult women of the stated age group (RDA, or AI where noted). They are not a recommended portion of the food and not an individual target. Vitamin K is shown as an amount only.",
+  "_reviewLabel": "Nutrition data verified against USDA and NIH sources; editorial review pending; not clinically reviewed.",
+  "profiles": {
+    "spinach": {
+      "catalogueId": "spinach",
+      "name": "Spinach",
+      "sections": {
+        "whatItOffers": "Spinach is a leafy green that cooks down to a small, soft portion with folate, magnesium and vitamin A, and some plant iron.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 180 g)",
+        "howToEatIt": "Wilt it into soups, stews, omelettes or pasta, or stir it through warm lentils. Squeeze lemon over it or add a piece of orange to the meal: vitamin C helps your body absorb the iron.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because menstrual blood loss increases iron losses (NIH ODS). Spinach adds plant iron, which is absorbed less readily than iron from meat; vitamin C eaten with it helps. If your periods are heavy, it is worth talking to a health professional."
+      },
+      "source": {
+        "usdaFdcId": 168463,
+        "usdaDescription": "Spinach, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 90,
+        "portion": "½ cup cooked (USDA: 1 cup = 180 g)",
+        "whyThisRecord": "USDA has no cooked-spinach Foundation record (only raw baby and mature); the SR Legacy cooked record is the current cooked one and matches the way spinach is usually eaten and the existing catalogue wording.",
+        "per100g": {
+          "kcal": 23,
+          "protein": 2.97,
+          "fat": 0.26,
+          "carb": 3.75,
+          "fiber": 2.4,
+          "iron": 3.57,
+          "folate": 146,
+          "vitk": 494,
+          "mg": 87,
+          "k": 466,
+          "vita": 524
+        }
+      },
+      "perServing": {
+        "energyKcal": 21,
+        "proteinG": 2.7,
+        "fatG": 0.2,
+        "carbohydrateG": 3.4,
+        "fiberG": 2.2,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 3.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 131,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 33
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 78,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 25
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 472,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 67
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 445,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Spinach is high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how much to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists spinach among foods to avoid after calcium oxalate stones)"
+        },
+        {
+          "text": "Spinach is high in vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Iron requirement, menstrual loss and absorption: NIH ODS Iron. No spinach-specific cycle trial was used.",
+      "review": {
+        "composition": "verified against USDA FoodData Central",
+        "referenceIntakes": "verified against NIH ODS",
+        "cautions": "verified against NIH ODS / NIDDK",
+        "editorial": "revised after owner review; pending approval",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "green-lentil": {
+      "catalogueId": "green-lentil",
+      "name": "Lentils",
+      "sections": {
+        "whatItOffers": "Lentils are a filling, budget-friendly pulse with protein, fibre, folate and iron in one bowl.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 198 g)",
+        "howToEatIt": "Simmer into soups and dals, cool for salads, or fold into grain bowls. Serve with something rich in vitamin C, such as peppers, tomatoes or citrus: beans contain phytate, which makes minerals harder to absorb, and vitamin C works the other way.",
+        "cycleRelevance": "Like spinach, lentils add plant iron (see Spinach for why iron matters to people who menstruate), and they are also a source of folate, a nutrient some women of childbearing age do not get enough of (NIH ODS)."
+      },
+      "source": {
+        "usdaFdcId": 172421,
+        "usdaDescription": "Lentils, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 99,
+        "portion": "½ cup cooked (USDA: 1 cup = 198 g)",
+        "whyThisRecord": "USDA has only a dry lentil Foundation record; the SR Legacy cooked record is the cooked one, and it has household measures.",
+        "per100g": {
+          "kcal": 116,
+          "protein": 9.02,
+          "fat": 0.38,
+          "carb": 20.1,
+          "fiber": 7.9,
+          "iron": 3.33,
+          "folate": 181,
+          "vitk": 1.7,
+          "mg": 36,
+          "k": 369,
+          "vita": 0,
+          "zn": 1.27
+        }
+      },
+      "perServing": {
+        "energyKcal": 115,
+        "proteinG": 8.9,
+        "fatG": 0.4,
+        "carbohydrateG": 19.9,
+        "fiberG": 7.8,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 3.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 179,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 45
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 365,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Iron absorption and folate intake statements: NIH ODS Iron and Folate. No lentil-specific cycle trial was used.",
+      "review": {
+        "composition": "verified against USDA FoodData Central",
+        "referenceIntakes": "verified against NIH ODS",
+        "cautions": "none recorded",
+        "editorial": "revised after owner review; pending approval",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pumpkin-seeds": {
+      "catalogueId": "pumpkin-seeds",
+      "name": "Pumpkin seeds",
+      "sections": {
+        "whatItOffers": "Pumpkin seeds (pepitas) are a crunchy, energy-dense source of magnesium, zinc, iron and plant protein.",
+        "practicalServing": "1 ounce (28 g) of kernels (USDA: 1 cup = 129 g)",
+        "howToEatIt": "Scatter over porridge, yoghurt, soups or salads, or blend into a dressing or pesto. A little goes a long way: they are rich in fat and energy.",
+        "cycleRelevance": "We found no reliable evidence linking pumpkin seeds to a cycle phase or to period symptoms. They are here as one source of magnesium and zinc, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170556,
+        "usdaDescription": "Seeds, pumpkin and squash seed kernels, dried",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried edible kernels (hulled), unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) of kernels (USDA: 1 cup = 129 g)",
+        "whyThisRecord": "The USDA record for the edible seed kernel (the hulled pepita), with an ounce household measure. The Foundation raw-pepitas record gives only a 30 g reference amount, so this record is the clearer match for the serving shown.",
+        "per100g": {
+          "kcal": 559,
+          "protein": 30.2,
+          "fat": 49,
+          "carb": 10.7,
+          "fiber": 6,
+          "iron": 8.82,
+          "mg": 592,
+          "zn": 7.81,
+          "k": 809
+        }
+      },
+      "perServing": {
+        "energyKcal": 158,
+        "proteinG": 8.6,
+        "fatG": 13.9,
+        "carbohydrateG": 3.0,
+        "fiberG": 1.7,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 168,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 54
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 52
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only. No cycle-specific claim is made.",
+      "review": {
+        "composition": "verified against USDA FoodData Central",
+        "referenceIntakes": "verified against NIH ODS",
+        "cautions": "none recorded",
+        "editorial": "revised after owner review; pending approval",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "broccoli": {
+      "catalogueId": "broccoli",
+      "name": "Broccoli",
+      "sections": {
+        "whatItOffers": "Broccoli is a green vegetable with plenty of vitamin C and vitamin K, plus folate and fibre.",
+        "practicalServing": "½ cup chopped, cooked (78 g)",
+        "howToEatIt": "Steam, roast or stir-fry it until just tender. Serve it with beans, lentils or other plant iron foods: its vitamin C helps your body absorb the iron from them.",
+        "cycleRelevance": "We found no evidence tying broccoli to a particular phase. Its vitamin C helps your body absorb plant iron from the same meal (NIH ODS), a useful pairing for anyone who menstruates."
+      },
+      "source": {
+        "usdaFdcId": 169967,
+        "usdaDescription": "Broccoli, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 78,
+        "portion": "½ cup chopped, cooked (78 g)",
+        "whyThisRecord": "The cooked record, as broccoli is usually eaten and as NIH ODS lists it (cooked, ½ cup). USDA has no cooked-broccoli Foundation record. The raw Foundation record (747447) is not mixed in: all amounts here are cooked.",
+        "per100g": {
+          "kcal": 35,
+          "protein": 2.38,
+          "fat": 0.41,
+          "carb": 7.18,
+          "fiber": 3.3,
+          "iron": 0.67,
+          "folate": 108,
+          "vitk": 141,
+          "mg": 21,
+          "k": 293,
+          "vita": 77,
+          "vitc": 64.9,
+          "zn": 0.45
+        }
+      },
+      "perServing": {
+        "energyKcal": 27,
+        "proteinG": 1.9,
+        "fatG": 0.3,
+        "carbohydrateG": 5.6,
+        "fiberG": 2.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 51,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 67
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 110,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          },
+          {
+            "name": "Folate",
+            "amount": 84,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 229,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Broccoli contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Absorption statement: NIH ODS Vitamin C and Iron. No broccoli-specific cycle trial was used.",
+      "review": {
+        "composition": "verified against USDA FoodData Central",
+        "referenceIntakes": "verified against NIH ODS",
+        "cautions": "verified against NIH ODS / NIDDK",
+        "editorial": "revised after owner review; pending approval",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "orange": {
+      "catalogueId": "orange",
+      "name": "Orange",
+      "sections": {
+        "whatItOffers": "An orange is a juicy, portable fruit that is an excellent source of vitamin C, with some folate and fibre.",
+        "practicalServing": "1 orange (about 2⅞ in across, 140 g)",
+        "howToEatIt": "Eat it whole or in segments, add to salads, or squeeze over cooked greens and lentils. Having one with an iron-rich plant meal helps your body absorb the iron.",
+        "cycleRelevance": "We found no evidence tying oranges to a particular phase. Vitamin C improves the absorption of plant iron (NIH ODS), so an orange pairs well with lentils or spinach."
+      },
+      "source": {
+        "usdaFdcId": 746771,
+        "usdaDescription": "Oranges, raw, navels",
+        "dataType": "Foundation",
+        "published": "12/16/2019",
+        "preparationState": "raw, flesh only",
+        "portionGrams": 140,
+        "portion": "1 orange (about 2⅞ in across, 140 g)",
+        "whyThisRecord": "The current Foundation record for an orange (navel, raw) with a household measure; it replaces the generic SR Legacy \"all commercial varieties\" record.",
+        "per100g": {
+          "kcal": 47,
+          "protein": 0.91,
+          "fat": 0.15,
+          "carb": 11.8,
+          "fiber": 2.0,
+          "iron": 0.33,
+          "folate": 25,
+          "mg": 10.7,
+          "k": 166,
+          "vitc": 59.1,
+          "zn": 0.11
+        }
+      },
+      "perServing": {
+        "energyKcal": 66,
+        "proteinG": 1.3,
+        "fatG": 0.2,
+        "carbohydrateG": 16.5,
+        "fiberG": 2.8,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 83,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 110
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 35,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 232,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Absorption statement: NIH ODS Vitamin C and Iron. No orange-specific cycle trial was used.",
+      "review": {
+        "composition": "verified against USDA FoodData Central",
+        "referenceIntakes": "verified against NIH ODS",
+        "cautions": "none recorded",
+        "editorial": "revised after owner review; pending approval",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
