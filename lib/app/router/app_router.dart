@@ -373,7 +373,7 @@ GoRouter buildAppRouter({
                           ),
                           for (final category in [
                             CollectionCategory.workouts,
-                            CollectionCategory.sounds,
+                            CollectionCategory.spa,
                           ])
                             GoRoute(
                               path: category.name,

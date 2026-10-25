@@ -103,8 +103,9 @@ void main() {
     );
     expect(find.byType(CollectionsPage), findsOneWidget);
     expect(find.text('Morning flow'), findsOneWidget); // recently saved
-    expect(find.text('Workout link · Instagram'), findsOneWidget);
-    expect(find.text('1 item'), findsOneWidget);
+    expect(find.text('Instagram'), findsWidgets); // the badge
+    expect(find.text('Sam'), findsWidgets);
+    expect(find.text('1 saved link'), findsOneWidget);
     final saved = await tester.runAsync(
       () => c.read(collectionLinkRepositoryProvider).all(),
     );
@@ -150,9 +151,9 @@ void main() {
       tester,
       address: 'https://www.youtube.com/watch?v=abc',
       title: 'Evening calm',
-      category: 'Sounds',
+      category: 'Spa',
     );
-    await tester.tap(find.byKey(const ValueKey('collection-sounds')));
+    await tester.tap(find.byKey(const ValueKey('collection-spa')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Evening calm'));
     await tester.pumpAndSettle();
@@ -184,18 +185,18 @@ void main() {
           .text,
       'A walk',
     );
-    await tester.tap(find.bySemanticsLabel('Sounds'));
+    await tester.tap(find.bySemanticsLabel('Spa'));
     await tester.enterText(find.byType(EditableText).at(1), 'A calm walk');
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Save changes'));
     await tester.tap(find.text('Save changes'));
     await tester.pumpAndSettle();
-    // It left My Workouts and is now in My Sounds.
+    // It left My Workouts and is now in My Spa.
     expect(find.text('A calm walk'), findsNothing);
     expect(find.text('No workouts saved yet'), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Back').first);
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('collection-sounds')));
+    await tester.tap(find.byKey(const ValueKey('collection-spa')));
     await tester.pumpAndSettle();
     expect(find.text('A calm walk'), findsOneWidget);
 
