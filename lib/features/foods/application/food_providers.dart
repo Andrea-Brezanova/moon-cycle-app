@@ -4,6 +4,7 @@ import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/phase_content.dart';
+import '../domain/food_profile.dart';
 
 /// For each food, how many of [phase]'s recipes use it as a key ingredient,
 /// counting only recipes the user's preferences allow (what Recipes shows).
@@ -442,3 +443,15 @@ bool isMealPlant(Food food) =>
     !isHerb(food) &&
     !_preparedIds.contains(food.id) &&
     mealSlotFor(food) == MealSlot.plant;
+
+/// Every reviewed food profile, by food id. Set in `main()` from the bundled
+/// `food_profiles.json`; empty by default (tests, previews).
+final foodProfilesProvider = Provider<Map<String, FoodProfile>>(
+  (ref) => const {},
+);
+
+/// The standard profile for a food, or null. Only a profile marked
+/// publishable is ever shown. Tests and previews may override it.
+final foodProfileProvider = Provider.family<FoodProfile?, String>(
+  (ref, id) => ref.watch(foodProfilesProvider)[id],
+);

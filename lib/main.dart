@@ -16,6 +16,8 @@ import 'core/database/encryption_key_store.dart';
 import 'features/content/application/content_providers.dart';
 import 'features/content/data/bundled_catalogue.dart';
 import 'features/entitlements/application/entitlement_providers.dart';
+import 'features/foods/application/food_providers.dart';
+import 'features/foods/data/bundled_food_profiles.dart';
 import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
 import 'features/preferences/application/preference_providers.dart';
@@ -32,6 +34,7 @@ Future<void> main() async {
   final directory = await getApplicationSupportDirectory();
   final keys = EncryptionKeyStore();
   final catalogue = await loadBundledCatalogue();
+  final foodProfiles = await loadBundledFoodProfiles();
   final package = await PackageInfo.fromPlatform();
   final version = package.version;
 
@@ -68,6 +71,7 @@ Future<void> main() async {
                 ),
           ),
           catalogueProvider.overrideWithValue(catalogue),
+          foodProfilesProvider.overrideWithValue(foodProfiles),
           appVersionProvider.overrideWithValue(version),
           buildInfoProvider.overrideWithValue(
             BuildInfo.fromBuild(
