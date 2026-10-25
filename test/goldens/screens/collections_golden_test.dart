@@ -1,6 +1,7 @@
 @Tags(['golden'])
 library;
 
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/features/collections/application/collections_providers.dart';
 import 'package:moon_cycle/features/collections/data/collection_link_repository.dart';
