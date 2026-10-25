@@ -16,7 +16,7 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../../core/domain/phase.dart';
 import '../../collections/data/collection_link_repository.dart';
 import '../../collections/domain/collection_link.dart';
-import '../../collections/presentation/widgets/link_card.dart';
+import '../../collections/presentation/widgets/link_row.dart';
 import '../../content/application/content_providers.dart';
 import '../../eat/application/eat_segment.dart';
 import '../../recipes/presentation/recipes_page.dart' show keyIngredients;
@@ -184,8 +184,7 @@ class _MyRecipesPageState extends ConsumerState<MyRecipesPage> {
         for (final r in saved) savedCard(r),
       if (showMine)
         for (final p in recipes) personalCard(p),
-      if (showLinks)
-        for (final l in links) CollectionLinkCard(link: l),
+      if (showLinks && links.isNotEmpty) CollectionLinkGroup(links: links),
     ];
     final (emptyTitle, emptyBody) = switch (_show) {
       _Show.saved => (

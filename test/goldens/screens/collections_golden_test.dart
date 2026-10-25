@@ -7,6 +7,8 @@ import 'package:moon_cycle/features/collections/application/collections_provider
 import 'package:moon_cycle/features/collections/data/collection_link_repository.dart';
 import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/collections/presentation/collection_category_page.dart';
+import 'package:moon_cycle/features/collections/presentation/collection_link_detail_page.dart';
+import 'package:moon_cycle/features/collections/presentation/collection_link_page.dart';
 import 'package:moon_cycle/features/collections/presentation/collections_page.dart';
 import 'package:moon_cycle/features/generation/data/saved_recipe_repository.dart';
 import 'package:moon_cycle/features/generation/domain/saved_recipe_ref.dart';
@@ -144,4 +146,49 @@ void main() {
       matchesGoldenFile('goldens/collections-spa-dark.png'),
     );
   });
+
+  for (final (name, dark, width, scale) in [
+    ('light', false, 390.0, 1.0),
+    ('dark', true, 390.0, 1.0),
+    ('narrow-large-text', false, 320.0, 1.5),
+  ]) {
+    testWidgets('saved link detail, $name', (tester) async {
+      await pumpScreen(
+        tester,
+        const CollectionLinkDetailPage(linkId: 'l1'),
+        dark: dark,
+        width: width,
+        textScale: scale,
+        height: scale > 1 ? 1800 : 960,
+        overrides: data(),
+      );
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(CollectionLinkDetailPage),
+        matchesGoldenFile('goldens/collections-link-detail-$name.png'),
+      );
+    });
+
+    testWidgets('add to my collections, $name', (tester) async {
+      await pumpScreen(
+        tester,
+        const CollectionLinkPage(category: LinkCategory.workouts),
+        dark: dark,
+        width: width,
+        textScale: scale,
+        height: scale > 1 ? 1800 : 930,
+        overrides: data(),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(
+        find.byType(EditableText).first,
+        'youtube.com/watch?v=abc',
+      );
+      await tester.pumpAndSettle();
+      await expectLater(
+        find.byType(CollectionLinkPage),
+        matchesGoldenFile('goldens/collections-add-link-$name.png'),
+      );
+    });
+  }
 }
