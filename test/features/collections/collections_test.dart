@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/collections/data/collection_link_repository.dart';
+import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/collections/presentation/collection_category_page.dart';
 import 'package:moon_cycle/features/collections/presentation/collections_page.dart';
 import 'package:moon_cycle/features/generation/data/saved_recipe_repository.dart';
@@ -59,11 +61,14 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('my-collections-card')));
     await tester.pumpAndSettle();
     expect(find.byType(CollectionsPage), findsOneWidget);
-    for (final t in ['My Recipes', 'My Workouts', 'My Sounds']) {
+    for (final t in ['My Recipes', 'My Workouts', 'My Spa']) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
+    expect(find.text('My Sounds'), findsNothing); // renamed
     expect(find.text('Saved Links'), findsNothing); // links are not a category
-    expect(find.text('Nothing saved yet'), findsOneWidget);
+    expect(find.text('Things you love, save or want to try.'), findsOneWidget);
+    expect(find.text('Search your collections'), findsOneWidget);
+    expect(find.text('Nothing saved yet'), findsWidgets);
 
     await tester.tap(find.byKey(const ValueKey('collection-recipes')));
     await tester.pumpAndSettle();
@@ -71,11 +76,11 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Back').first);
     await tester.pumpAndSettle();
 
-    for (final key in ['collection-workouts', 'collection-sounds']) {
+    for (final key in ['collection-workouts', 'collection-spa']) {
       await tester.tap(find.byKey(ValueKey(key)));
       await tester.pumpAndSettle();
       expect(find.byType(CollectionCategoryPage), findsOneWidget, reason: key);
-      expect(find.textContaining('No '), findsWidgets);
+      expect(find.textContaining('Save a link'), findsOneWidget);
       await tester.tap(find.bySemanticsLabel('Back').first);
       await tester.pumpAndSettle();
     }
@@ -92,12 +97,64 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('my-collections-card')));
     await tester.pumpAndSettle();
     expect(find.text(frittata), findsOneWidget);
-    expect(find.text('Saved recipe'), findsOneWidget);
-    expect(find.text('1 item'), findsOneWidget); // My Recipes
-    expect(find.text('Nothing yet'), findsNWidgets(2)); // workouts, sounds
+    expect(find.text('Recipe'), findsOneWidget); // the badge
+    expect(find.text('From Moon Cycle'), findsOneWidget);
+    expect(find.text('1 saved'), findsOneWidget); // My Recipes, counted once
+    expect(find.text('Nothing yet'), findsNWidgets(2)); // workouts, spa
     await tester.tap(find.text(frittata));
     await tester.pumpAndSettle();
     expect(find.byType(RecipeDetailPage), findsOneWidget);
+  });
+
+  testWidgets('search finds items across categories by title, source or '
+      'creator', (tester) async {
+    final c = await pumpMe(tester);
+    final repo = c.read(collectionLinkRepositoryProvider);
+    // In the test's fake time, as a tap would (real async can deadlock here).
+    final done = () async {
+      await repo.add(
+        category: LinkCategory.workouts,
+        address: 'https://www.youtube.com/watch?v=1',
+        title: 'Gentle yoga flow',
+        creator: 'Slow Flow Studio',
+      );
+      await repo.add(
+        category: LinkCategory.sounds,
+        address: 'https://example.com/tea',
+        title: 'Tea ritual',
+      );
+    }();
+    await tester.pumpAndSettle();
+    await done;
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText), 'slow flow');
+    await tester.pumpAndSettle();
+    expect(find.text('1 result'), findsOneWidget);
+    expect(find.text('Gentle yoga flow'), findsOneWidget);
+    expect(find.text('Tea ritual'), findsNothing);
+    await tester.enterText(find.byType(EditableText), 'zzz');
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Nothing matches'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Clear search'));
+    await tester.pumpAndSettle();
+    expect(find.text('Recently saved'.toUpperCase()), findsOneWidget);
+    expect(find.text('Tea ritual'), findsOneWidget);
+  });
+
+  testWidgets('the Me card shows the live count, not a fixed one', (
+    tester,
+  ) async {
+    final c = await pumpMe(tester);
+    expect(find.text('Start your collection'), findsOneWidget);
+    await tester.runAsync(
+      () => c
+          .read(savedRecipeRepositoryProvider)
+          .save(providerId: 'moon-cycle', refId: 'x', title: frittata),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('1 thing you love'), findsOneWidget);
   });
 
   for (final (width, scale) in [(320.0, 1.5), (390.0, 2.0)]) {

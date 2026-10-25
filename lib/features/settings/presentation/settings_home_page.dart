@@ -52,9 +52,19 @@ class SettingsHomePage extends ConsumerWidget {
     );
 
     final sections = <Widget>[
-      Semantics(
-        header: true,
-        child: Text('Me', style: MoonType.h1.copyWith(color: c.text)),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            header: true,
+            child: Text('Me', style: MoonType.h1.copyWith(color: c.text)),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Your own space in Moon Cycle.',
+            style: dmSans(15, height: 1.45, color: c.textMuted),
+          ),
+        ],
       ),
       const CollectionsCard(),
       MoonListGroup(
@@ -173,6 +183,18 @@ class SettingsHomePage extends ConsumerWidget {
         version: ref.watch(appVersionProvider),
         flavor: ref.watch(appConfigProvider).flavor,
       ),
+      // A release build of the dev flavour made with DEV_PREMIUM=true shows
+      // just the Premium test switch (off until tapped).
+      if (!kDebugMode && ref.watch(devPremiumSwitchAllowedProvider))
+        Center(
+          child: TextLink(
+            ref.watch(debugPremiumPreviewProvider)
+                ? 'All features unlocked (dev): on'
+                : 'All features unlocked (dev): off',
+            size: 14,
+            onTap: ref.read(debugPremiumPreviewProvider.notifier).toggle,
+          ),
+        ),
       if (kDebugMode)
         Center(
           child: Column(

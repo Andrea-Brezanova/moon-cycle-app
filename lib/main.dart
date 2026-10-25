@@ -56,9 +56,14 @@ Future<void> main() async {
           // dev flavour only; see docs/feature-status.md).
           debugUnlockAtStartProvider.overrideWithValue(
             developmentUnlockEnabled(
-              isDebugBuild: kDebugMode,
-              isDevFlavour: config.flavor == Flavor.dev,
-            ),
+                  isDebugBuild: kDebugMode,
+                  isDevFlavour: config.flavor == Flavor.dev,
+                ) ||
+                // The owner's test-phone build (DEV_PREMIUM=true, dev flavour).
+                devPremiumBuildAllowed(
+                  flavor: config.flavor,
+                  define: devPremiumDefine,
+                ),
           ),
           catalogueProvider.overrideWithValue(catalogue),
           appVersionProvider.overrideWithValue(version),
