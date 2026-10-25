@@ -59,7 +59,6 @@ class MoonSegmented<T> extends StatelessWidget {
                       ),
                       child: Text(
                         label,
-                        maxLines: 2,
                         textAlign: TextAlign.center,
                         style: dmSans(
                           14,
