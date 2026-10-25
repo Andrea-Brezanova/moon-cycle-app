@@ -52,9 +52,19 @@ class SettingsHomePage extends ConsumerWidget {
     );
 
     final sections = <Widget>[
-      Semantics(
-        header: true,
-        child: Text('Me', style: MoonType.h1.copyWith(color: c.text)),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            header: true,
+            child: Text('Me', style: MoonType.h1.copyWith(color: c.text)),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Your own space in Moon Cycle.',
+            style: dmSans(15, height: 1.45, color: c.textMuted),
+          ),
+        ],
       ),
       const CollectionsCard(),
       MoonListGroup(

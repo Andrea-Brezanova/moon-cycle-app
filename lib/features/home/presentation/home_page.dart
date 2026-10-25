@@ -6,6 +6,7 @@ import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/domain/phase.dart';
+import '../../collections/application/collections_providers.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
@@ -35,9 +36,10 @@ class HomePage extends ConsumerWidget {
     final phase = ref.watch(viewingPhaseProvider);
     final catalogue = ref.watch(catalogueProvider);
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
-    // Read-only live counts for Quick access.
-    final diaryCount = ref.watch(todayDiaryEntryCountProvider);
+    // Read-only live numbers for Your space.
+    final mealCount = ref.watch(todayMealCountProvider);
     final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
+    final collectionsCount = ref.watch(collectionSummaryProvider).total;
     Widget padded(Widget child) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: child,
@@ -47,7 +49,9 @@ class HomePage extends ConsumerWidget {
       backgroundColor: c.bg,
       body: ListView(
         controller: ref.watch(tabScrollProvider).of(AppTab.home),
-        padding: const EdgeInsets.only(bottom: 42 + 76),
+        // The tab bar is a Scaffold bottom bar, so the list already ends above it:
+        // only breathing room is added here (not the bar's height again).
+        padding: const EdgeInsets.only(bottom: 40),
         children: [
           HomeHero(state: state),
           // The late card and the preview's pill sit closer to the content.
@@ -113,42 +117,17 @@ class HomePage extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 28),
-          padded(const HomeOverline('Quick access')),
+          padded(const HomeOverline('Your space')),
           const SizedBox(height: 12),
           padded(
-            LayoutBuilder(
-              builder: (context, box) {
-                final diary = QuickAccessCard(
-                  asset: 'assets/images/home/quick_my_diary.jpg',
-                  title: 'My Diary',
-                  subtitle: diaryEntriesToday(diaryCount),
-                  onTap: () => context.push(Routes.diary),
-                );
-                final shopping = QuickAccessCard(
-                  asset: 'assets/images/home/quick_shopping_list.jpg',
-                  title: 'Shopping List',
-                  subtitle: shoppingToBuy(toBuy),
-                  onTap: () => context.go(Routes.shopping),
-                );
-                // Narrow screens and large text stack the two cards.
-                final stacked =
-                    box.maxWidth < 340 ||
-                    MediaQuery.textScalerOf(context).scale(14) > 18;
-                return stacked
-                    ? Column(
-                        children: [diary, const SizedBox(height: 10), shopping],
-                      )
-                    : IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Expanded(child: diary),
-                            const SizedBox(width: 10),
-                            Expanded(child: shopping),
-                          ],
-                        ),
-                      );
-              },
+            YourSpaceCard(
+              phase: phase,
+              collectionsCount: collectionsCount,
+              diaryLine: mealsToday(mealCount),
+              shoppingLine: itemsToBuy(toBuy),
+              onCollections: () => context.push(Routes.collections),
+              onDiary: () => context.push(Routes.diary),
+              onShopping: () => context.go(Routes.shopping),
             ),
           ),
         ],

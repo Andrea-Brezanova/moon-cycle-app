@@ -172,11 +172,11 @@ abstract final class Routes {
   /// More › the shopping list.
   static const String shopping = '/more/shopping-list';
 
-  /// Me › My Collections, and its Workouts and Sounds pages (My Recipes is the
+  /// Me › My Collections, and its Workouts and Spa pages (My Recipes is the
   /// existing [myRecipes]).
   static const String collections = '/more/collections';
   static const String collectionWorkouts = '/more/collections/workouts';
-  static const String collectionSounds = '/more/collections/sounds';
+  static const String collectionSpa = '/more/collections/spa';
 
   /// A saved link: add one (in [category], a `LinkCategory` name) or open one
   /// to read, edit or delete. A form, so it covers the tab bar.

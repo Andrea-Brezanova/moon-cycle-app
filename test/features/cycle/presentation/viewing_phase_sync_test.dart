@@ -68,11 +68,11 @@ void main() {
     expect(container.read(viewingPhaseProvider), Phase.follicular);
     expect(find.text('Back to today · Day 7'), findsNothing);
     await tester.scrollUntilVisible(
-      find.text('QUICK ACCESS'),
+      find.text('YOUR SPACE'),
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('QUICK ACCESS'), findsOneWidget);
+    expect(find.text('YOUR SPACE'), findsOneWidget);
     expect(find.text('My Diary'), findsOneWidget);
   });
 

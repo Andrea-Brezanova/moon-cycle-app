@@ -12,6 +12,7 @@ enum MoonIconName {
   back,
   basket,
   bell,
+  bookmark,
   book,
   card,
   check,
@@ -45,6 +46,7 @@ enum MoonIconName {
 
 /// SVG markup inside the `<svg>` element, per icon.
 const Map<MoonIconName, String> moonIconPaths = {
+  MoonIconName.bookmark: '<path d="M7 4.500h10v15l-5-3.600-5 3.600z"></path>',
   MoonIconName.trash: '<path d="M4.500 7h15"></path><path d="M9.500 7V4.500h5V7"></path><path d="M6.500 7l.8 12.500h9.400L17.500 7"></path><path d="M10 11v5.500M14 11v5.500"></path>',
   MoonIconName.book: '<path d="M4 5.8c2.6-1.1 5.2-.9 8 .9 2.8-1.8 5.4-2 8-.9V19c-2.6-1.1-5.2-.9-8 .9-2.8-1.8-5.4-2-8-.9z"></path><path d="M12 6.7V19.9"></path>',
   MoonIconName.compass: '<circle cx="12" cy="12" r="9"></circle><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"></path>',
