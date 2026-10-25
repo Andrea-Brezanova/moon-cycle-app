@@ -79,7 +79,7 @@ void main() {
       find.text('3 plants'),
       find.text('3 ways to move'),
       find.text('3 minutes of calm'),
-      find.text('QUICK ACCESS'),
+      find.text('YOUR SPACE'),
     ];
     for (var i = 0; i < order.length - 1; i++) {
       expect(top(tester, order[i]), lessThan(top(tester, order[i + 1])));
@@ -291,7 +291,7 @@ void main() {
           );
           await tester.pumpAndSettle();
           expect(tester.takeException(), isNull);
-          expect(find.text('QUICK ACCESS'), findsOneWidget);
+          expect(find.text('YOUR SPACE'), findsOneWidget);
           if (scale == 1.5) {
             await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
             await expectLater(
