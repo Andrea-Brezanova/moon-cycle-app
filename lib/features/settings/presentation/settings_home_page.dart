@@ -12,16 +12,13 @@ import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/brand.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
+import '../../../core/domain/phase.dart';
 import '../../collections/presentation/collections_card.dart';
-import '../../content/application/content_providers.dart';
-import '../../cycle/application/cycle_providers.dart';
 import '../../entitlements/application/entitlement_providers.dart';
-import '../../preferences/application/preference_providers.dart';
 import '../../reminders/application/reminder_providers.dart';
-import '../application/settings_copy.dart';
+import '../../shopping/application/shopping_summary.dart';
 
 /// The Settings tab, v1 local-only variant (`25-settings-v1-local`): no
 /// Account row; "Delete my data" removes everything on the phone.
@@ -31,25 +28,8 @@ class SettingsHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
-    final catalogue = ref.watch(catalogueProvider);
-    final cycle = ref.watch(cycleStateProvider).value;
-    final diet = ref.watch(dietProvider).value;
-    final avoidances = ref.watch(avoidancesProvider).value ?? const [];
-    final reminders = ref.watch(reminderSettingsProvider).value;
-
+    final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
     void open(SettingsPage page) => context.push(Routes.settings(page));
-
-    MoonListRow row(
-      SettingsPage page,
-      MoonIconName icon, {
-      String? label,
-      String? subtitle,
-    }) => MoonListRow(
-      label: label ?? page.title,
-      icon: icon,
-      subtitle: subtitle == null || subtitle.isEmpty ? null : subtitle,
-      onTap: () => open(page),
-    );
 
     final sections = <Widget>[
       Column(
@@ -67,80 +47,39 @@ class SettingsHomePage extends ConsumerWidget {
         ],
       ),
       const CollectionsCard(),
-      MoonListGroup(
-        title: 'Your space',
-        children: [
-          MoonListRow(
+      _MeRows(
+        rows: [
+          _MeRow(
+            key: const ValueKey('me-diary'),
             label: 'My Diary',
+            subtitle: 'What you ate, did and felt',
             icon: MoonIconName.document,
-            subtitle: 'Your meals, by day',
+            tint: c.phase(Phase.follicular).tint,
             onTap: () => context.push(Routes.diary),
           ),
-          MoonListRow(
+          _MeRow(
+            key: const ValueKey('me-shopping'),
             label: 'Shopping list',
+            subtitle: toBuy == 0 ? 'Nothing to buy' : '$toBuy to buy',
             icon: MoonIconName.shop,
-            subtitle: 'Plan what you need',
+            tint: c.phase(Phase.ovulatory).tint,
             onTap: () => context.push(Routes.shopping),
           ),
-        ],
-      ),
-      MoonListGroup(
-        title: 'Personalisation',
-        children: [
-          row(
-            SettingsPage.myCycle,
-            MoonIconName.cycle,
-            subtitle: myCycleSummary(cycle),
+          _MeRow(
+            key: const ValueKey('me-settings'),
+            label: 'Settings',
+            subtitle: 'Cycle, food preferences, notifications',
+            icon: MoonIconName.settings,
+            tint: c.phase(Phase.luteal).tint,
+            onTap: () => context.push(Routes.meSettings),
           ),
-          row(
-            SettingsPage.foodPreferences,
-            MoonIconName.foods,
-            subtitle: diet?.label,
-          ),
-          row(
-            SettingsPage.allergies,
-            MoonIconName.avoid,
-            label: 'Allergies / Foods to Avoid',
-            subtitle: avoidancesSummary(avoidances, catalogue),
-          ),
-        ],
-      ),
-      MoonListGroup(
-        title: 'App',
-        children: [
-          row(
-            SettingsPage.notifications,
-            MoonIconName.bell,
-            subtitle: reminders == null
-                ? null
-                : (reminders.enabled ? 'On' : 'Off'),
-          ),
-          row(
-            SettingsPage.appearance,
-            MoonIconName.settings,
-            subtitle: ref.watch(appearanceProvider).label,
-          ),
-        ],
-      ),
-      MoonListGroup(
-        title: 'Account',
-        children: [
-          row(
-            SettingsPage.subscription,
-            MoonIconName.card,
-            subtitle: 'Free at launch',
-          ),
-          row(SettingsPage.privacy, MoonIconName.lock),
-        ],
-      ),
-      MoonListGroup(
-        title: 'Support',
-        children: [
-          row(SettingsPage.help, MoonIconName.help),
-          MoonListRow(
-            label: 'Credits & Sources',
-            icon: MoonIconName.book,
-            onTap: () => context.push(Routes.credits),
+          _MeRow(
+            key: const ValueKey('me-account'),
+            label: 'Account & Plus',
+            subtitle: 'Subscription, privacy and data',
+            icon: MoonIconName.account,
+            tint: c.phase(Phase.menstrual).tint,
+            onTap: () => context.push(Routes.meAccount),
           ),
         ],
       ),
@@ -292,6 +231,108 @@ class _Footer extends StatelessWidget {
               style: dmSans(12, height: 1, color: c.textMuted),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The four rows under My Collections, in one rounded card with hairlines
+/// between them.
+class _MeRows extends StatelessWidget {
+  const _MeRows({required this.rows});
+
+  final List<_MeRow> rows;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      decoration: BoxDecoration(
+        color: c.raised,
+        border: Border.all(color: c.line),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Column(
+        children: [
+          for (final (i, r) in rows.indexed) ...[
+            if (i > 0) Divider(height: 1, color: c.line),
+            r,
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _MeRow extends StatelessWidget {
+  const _MeRow({
+    super.key,
+    required this.label,
+    required this.subtitle,
+    required this.icon,
+    required this.tint,
+    required this.onTap,
+  });
+
+  final String label;
+  final String subtitle;
+  final MoonIconName icon;
+  final Color tint;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Pressable(
+      onTap: onTap,
+      semanticLabel: '$label. $subtitle',
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 68),
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: ExcludeSemantics(
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(color: tint, shape: BoxShape.circle),
+                child: Center(
+                  child: MoonIcon(
+                    icon,
+                    size: 20,
+                    color: c.text,
+                    strokeWidth: 1.7,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      label,
+                      style: fraunces(17.5, height: 1.15, color: c.text),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle,
+                      style: dmSans(12.5, height: 1.3, color: c.textMuted),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              MoonIcon(
+                MoonIconName.chev,
+                size: 18,
+                color: c.chevron,
+                strokeWidth: 2,
+              ),
+            ],
+          ),
         ),
       ),
     );

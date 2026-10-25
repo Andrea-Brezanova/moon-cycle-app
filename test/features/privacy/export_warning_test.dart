@@ -6,6 +6,7 @@ import 'package:moon_cycle/features/privacy/application/data_export_service.dart
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
 
 import '../../helpers/golden_screen.dart' show designNow;
+import '../../helpers/me_nav.dart';
 import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 
@@ -42,17 +43,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  Future<void> open(WidgetTester tester, String row) async {
-    await tester.scrollUntilVisible(
-      find.text(row),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.ensureVisible(find.text(row));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text(row));
-    await tester.pumpAndSettle();
-  }
+  Future<void> open(WidgetTester tester, String row) => openMeRow(tester, row);
 
   testWidgets('Export my data warns first: sensitive writing, not encrypted', (
     tester,

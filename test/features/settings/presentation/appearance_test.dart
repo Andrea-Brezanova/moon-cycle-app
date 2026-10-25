@@ -11,6 +11,7 @@ import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/settings/presentation/appearance_page.dart';
 
 import '../../../helpers/golden_screen.dart';
+import '../../../helpers/me_nav.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/seed.dart';
 
@@ -50,13 +51,7 @@ void main() {
   Future<void> openAppearance(WidgetTester tester) async {
     await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('Appearance'),
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.tap(find.text('Appearance'));
-    await tester.pumpAndSettle();
+    await openMeRow(tester, 'Appearance');
     expect(find.byType(AppearancePage), findsOneWidget);
   }
 
