@@ -1,0 +1,377 @@
+{
+  "_status": "REFERENCE DRAFT for editorial approval. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (SR Legacy records, published 4/1/2019), read 2026-10-25",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A), https://ods.od.nih.gov/factsheets/list-all/, read 2026-10-25"
+  },
+  "_referencePopulation": "Adult women 19–50 (a reference, not an individual target). Reference intakes describe the NUTRIENT, not a need to eat any one food daily.",
+  "profiles": {
+    "spinach": {
+      "catalogueId": "spinach",
+      "name": "Spinach",
+      "sections": {
+        "whatItOffers": "Spinach is a leafy green that cooks down to a small, soft portion rich in folate, magnesium and vitamin K, and it contributes some plant iron.",
+        "keyNutrients": "See the nutrient list per serving.",
+        "practicalServing": "½ cup cooked (1 cup = 180 g)",
+        "howToEatIt": "Wilt it into soups, stews, omelettes or pasta, or stir it through warm lentils. A squeeze of lemon or a piece of orange alongside helps your body absorb the iron.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because menstrual blood loss increases iron losses (NIH ODS). Spinach is one plant source of iron, and plant (non-heme) iron is absorbed less easily; vitamin C eaten with it helps. This is general nutrition for anyone who menstruates, not a claim that spinach changes your cycle. If your periods are heavy, it is worth talking to a health professional rather than relying on food alone."
+      },
+      "source": {
+        "usdaFdcId": 168463,
+        "usdaDescription": "Spinach, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "usdaPublished": "4/1/2019",
+        "portionGrams": 90,
+        "portion": "½ cup cooked (1 cup = 180 g)",
+        "per100g": {
+          "kcal": 23,
+          "protein": 2.97,
+          "fat": 0.26,
+          "carb": 3.75,
+          "fiber": 2.4
+        }
+      },
+      "perServing": {
+        "energyKcal": 21,
+        "proteinG": 2.7,
+        "fatG": 0.2,
+        "carbohydrateG": 3.4,
+        "fiberG": 2.2,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 3.2,
+            "unit": "mg",
+            "percentOfReference": 18,
+            "reference": "18 mg: RDA, women 19–50 (NIH ODS Iron)"
+          },
+          {
+            "name": "Folate",
+            "amount": 131.0,
+            "unit": "µg",
+            "percentOfReference": 33,
+            "reference": "400 µg DFE: RDA, women 19+ (NIH ODS Folate)"
+          },
+          {
+            "name": "Magnesium",
+            "amount": 78.0,
+            "unit": "mg",
+            "percentOfReference": 25,
+            "reference": "310 mg: RDA, women 19–30 is 310 mg, 31–50 is 320 mg (NIH ODS Magnesium); 310 used"
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 445.0,
+            "unit": "µg",
+            "percentOfReference": 494,
+            "reference": "90 µg: AI, women 19+ (NIH ODS Vitamin K)"
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 472.0,
+            "unit": "µg RAE",
+            "percentOfReference": 67,
+            "reference": "700 µg RAE: RDA, women 19–50 (NIH ODS Vitamin A)"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in oxalate",
+          "source": "existing catalogue text, retained; not re-verified in this pass"
+        },
+        {
+          "text": "Very high in vitamin K: keep intake consistent if you take warfarin or a similar blood thinner",
+          "source": "NIH ODS Vitamin K (interaction with warfarin)"
+        }
+      ],
+      "evidence": "Established requirement and iron-loss statement (NIH ODS). No food-specific trial of spinach and the menstrual cycle was used.",
+      "review": {
+        "composition": "verified against USDA FDC",
+        "referenceIntakes": "verified against NIH ODS",
+        "editorial": "pending owner approval",
+        "clinical": "not reviewed",
+        "publishable": false
+      }
+    },
+    "green-lentil": {
+      "catalogueId": "green-lentil",
+      "name": "Lentils",
+      "sections": {
+        "whatItOffers": "Lentils are a filling, budget-friendly pulse that brings protein, fibre, folate and iron in one bowl.",
+        "keyNutrients": "See the nutrient list per serving.",
+        "practicalServing": "½ cup cooked (1 cup = 198 g)",
+        "howToEatIt": "Simmer into soups and dals, cool for salads, or fold into grain bowls. Pair them with something rich in vitamin C, such as peppers, tomatoes or citrus; beans and grains contain phytate, which makes minerals harder to absorb, and vitamin C works the other way (NIH ODS).",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because menstrual blood loss increases iron losses (NIH ODS). Lentils supply plant iron, and eating them with vitamin C foods can help. They also provide folate, a nutrient some women of childbearing age do not get enough of (NIH ODS). General nutrition, not a phase-specific treatment. If your periods are heavy, it is worth talking to a health professional rather than relying on food alone."
+      },
+      "source": {
+        "usdaFdcId": 172421,
+        "usdaDescription": "Lentils, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "usdaPublished": "4/1/2019",
+        "portionGrams": 99,
+        "portion": "½ cup cooked (1 cup = 198 g)",
+        "per100g": {
+          "kcal": 116,
+          "protein": 9.02,
+          "fat": 0.38,
+          "carb": 20.1,
+          "fiber": 7.9
+        }
+      },
+      "perServing": {
+        "energyKcal": 115,
+        "proteinG": 8.9,
+        "fatG": 0.4,
+        "carbohydrateG": 19.9,
+        "fiberG": 7.8,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 3.3,
+            "unit": "mg",
+            "percentOfReference": 18,
+            "reference": "18 mg: RDA, women 19–50 (NIH ODS Iron)"
+          },
+          {
+            "name": "Folate",
+            "amount": 179.0,
+            "unit": "µg",
+            "percentOfReference": 45,
+            "reference": "400 µg DFE: RDA, women 19+ (NIH ODS Folate)"
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "percentOfReference": 16,
+            "reference": "8 mg: RDA, women 19+ (NIH ODS Zinc)"
+          },
+          {
+            "name": "Potassium",
+            "amount": 365.0,
+            "unit": "mg",
+            "percentOfReference": 14,
+            "reference": "2600 mg: AI, women 19–50 (NIH ODS Potassium)"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Established requirements and absorption statements (NIH ODS). No lentil-specific cycle trial used.",
+      "review": {
+        "composition": "verified against USDA FDC",
+        "referenceIntakes": "verified against NIH ODS",
+        "editorial": "pending owner approval",
+        "clinical": "not reviewed",
+        "publishable": false
+      }
+    },
+    "pumpkin-seeds": {
+      "catalogueId": "pumpkin-seeds",
+      "name": "Pumpkin seeds",
+      "sections": {
+        "whatItOffers": "Pumpkin seeds (pepitas) are a crunchy, energy-dense source of magnesium, zinc, iron and plant protein.",
+        "keyNutrients": "See the nutrient list per serving.",
+        "practicalServing": "1 ounce (28 g) (1 cup = 129 g)",
+        "howToEatIt": "Scatter over porridge, yoghurt, soups or salads, or blend into a dressing or pesto. A little goes a long way, as they are rich in fat and calories.",
+        "cycleRelevance": "Magnesium and zinc are part of an everyday balanced diet. We found no reliable evidence tying pumpkin seeds to a particular cycle phase or to relief of period symptoms, so they are here as one tasty source of minerals, not as a remedy. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because menstrual blood loss increases iron losses (NIH ODS). The iron they provide is plant (non-heme) iron."
+      },
+      "source": {
+        "usdaFdcId": 170556,
+        "usdaDescription": "Seeds, pumpkin and squash seed kernels, dried",
+        "dataType": "SR Legacy",
+        "usdaPublished": "4/1/2019",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (1 cup = 129 g)",
+        "per100g": {
+          "kcal": 559,
+          "protein": 30.2,
+          "fat": 49,
+          "carb": 10.7,
+          "fiber": 6
+        }
+      },
+      "perServing": {
+        "energyKcal": 158,
+        "proteinG": 8.6,
+        "fatG": 13.9,
+        "carbohydrateG": 3.0,
+        "fiberG": 1.7,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 168.0,
+            "unit": "mg",
+            "percentOfReference": 54,
+            "reference": "310 mg: RDA, women 19–30 is 310 mg, 31–50 is 320 mg (NIH ODS Magnesium); 310 used"
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.2,
+            "unit": "mg",
+            "percentOfReference": 28,
+            "reference": "8 mg: RDA, women 19+ (NIH ODS Zinc)"
+          },
+          {
+            "name": "Iron",
+            "amount": 2.5,
+            "unit": "mg",
+            "percentOfReference": 14,
+            "reference": "18 mg: RDA, women 19–50 (NIH ODS Iron)"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and references verified (USDA, NIH ODS). No cycle-specific claim made.",
+      "review": {
+        "composition": "verified against USDA FDC",
+        "referenceIntakes": "verified against NIH ODS",
+        "editorial": "pending owner approval",
+        "clinical": "not reviewed",
+        "publishable": false
+      }
+    },
+    "broccoli": {
+      "catalogueId": "broccoli",
+      "name": "Broccoli",
+      "sections": {
+        "whatItOffers": "Broccoli is a green vegetable with plenty of vitamin C and vitamin K, plus folate and fibre.",
+        "keyNutrients": "See the nutrient list per serving.",
+        "practicalServing": "½ cup chopped, cooked (78 g)",
+        "howToEatIt": "Steam, roast or stir-fry until just tender. Serve it with beans, lentils or other plant iron foods: its vitamin C helps your body absorb the iron from them.",
+        "cycleRelevance": "Vitamin C improves the absorption of non-heme iron, the form found in plant foods (NIH ODS). Broccoli has little iron of its own, so its role is as a companion to iron-rich plant foods in the same meal, relevant to everyone who menstruates (iron needs are higher for women 19–50, partly from menstrual blood loss). General nutrition, not a phase-specific treatment."
+      },
+      "source": {
+        "usdaFdcId": 169967,
+        "usdaDescription": "Broccoli, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "usdaPublished": "4/1/2019",
+        "portionGrams": 78,
+        "portion": "½ cup chopped, cooked (78 g)",
+        "per100g": {
+          "kcal": 35,
+          "protein": 2.38,
+          "fat": 0.41,
+          "carb": 7.18,
+          "fiber": 3.3
+        }
+      },
+      "perServing": {
+        "energyKcal": 27,
+        "proteinG": 1.9,
+        "fatG": 0.3,
+        "carbohydrateG": 5.6,
+        "fiberG": 2.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 51.0,
+            "unit": "mg",
+            "percentOfReference": 67,
+            "reference": "75 mg: RDA, women 19+ (NIH ODS Vitamin C)"
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 110.0,
+            "unit": "µg",
+            "percentOfReference": 122,
+            "reference": "90 µg: AI, women 19+ (NIH ODS Vitamin K)"
+          },
+          {
+            "name": "Folate",
+            "amount": 84.0,
+            "unit": "µg",
+            "percentOfReference": 21,
+            "reference": "400 µg DFE: RDA, women 19+ (NIH ODS Folate)"
+          },
+          {
+            "name": "Potassium",
+            "amount": 229.0,
+            "unit": "mg",
+            "percentOfReference": 9,
+            "reference": "2600 mg: AI, women 19–50 (NIH ODS Potassium)"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Rich in vitamin K: keep intake consistent if you take warfarin or a similar blood thinner",
+          "source": "NIH ODS Vitamin K"
+        }
+      ],
+      "evidence": "Absorption and requirement statements from NIH ODS; no broccoli-specific cycle trial used.",
+      "review": {
+        "composition": "verified against USDA FDC",
+        "referenceIntakes": "verified against NIH ODS",
+        "editorial": "pending owner approval",
+        "clinical": "not reviewed",
+        "publishable": false
+      }
+    },
+    "orange": {
+      "catalogueId": "orange",
+      "name": "Orange",
+      "sections": {
+        "whatItOffers": "An orange is a juicy, portable fruit that is an excellent source of vitamin C, with some folate and fibre.",
+        "keyNutrients": "See the nutrient list per serving.",
+        "practicalServing": "1 fruit (2⅝ in diameter, 131 g)",
+        "howToEatIt": "Eat it whole or in segments, add to salads, or squeeze over cooked greens and lentils. Having one with an iron-rich plant meal helps your body absorb the iron.",
+        "cycleRelevance": "Vitamin C improves the absorption of non-heme iron from plant foods (NIH ODS), which is why an orange pairs well with lentils or spinach. Iron needs are higher for women 19–50, partly because of menstrual blood loss. General nutrition, not a claim that oranges change your cycle."
+      },
+      "source": {
+        "usdaFdcId": 169097,
+        "usdaDescription": "Oranges, raw, all commercial varieties",
+        "dataType": "SR Legacy",
+        "usdaPublished": "4/1/2019",
+        "portionGrams": 131,
+        "portion": "1 fruit (2⅝ in diameter, 131 g)",
+        "per100g": {
+          "kcal": 47,
+          "protein": 0.94,
+          "fat": 0.12,
+          "carb": 11.8,
+          "fiber": 2.4
+        }
+      },
+      "perServing": {
+        "energyKcal": 62,
+        "proteinG": 1.2,
+        "fatG": 0.2,
+        "carbohydrateG": 15.5,
+        "fiberG": 3.1,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 70.0,
+            "unit": "mg",
+            "percentOfReference": 93,
+            "reference": "75 mg: RDA, women 19+ (NIH ODS Vitamin C)"
+          },
+          {
+            "name": "Folate",
+            "amount": 39.0,
+            "unit": "µg",
+            "percentOfReference": 10,
+            "reference": "400 µg DFE: RDA, women 19+ (NIH ODS Folate)"
+          },
+          {
+            "name": "Potassium",
+            "amount": 237.0,
+            "unit": "mg",
+            "percentOfReference": 9,
+            "reference": "2600 mg: AI, women 19–50 (NIH ODS Potassium)"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Absorption and requirement statements from NIH ODS; no orange-specific cycle trial used.",
+      "review": {
+        "composition": "verified against USDA FDC",
+        "referenceIntakes": "verified against NIH ODS",
+        "editorial": "pending owner approval",
+        "clinical": "not reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
