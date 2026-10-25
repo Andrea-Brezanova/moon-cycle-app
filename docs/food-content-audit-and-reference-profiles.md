@@ -16,7 +16,7 @@ Source: `moon_cycle_142_food_profiles_editorial_draft.md`. The companion `moon_c
 - Matched foods that the draft puts in a different phase than the catalogue: **0** (not changed)
 - Foods repeated across phases in the draft: **0**
 
-All 142 draft entries match an existing catalogue food by name or synonym (for example 'Lentils' is `green-lentil`, 'Mushrooms (button, shiitake)' is `mushrooms`), with **no unmatched names, no ambiguous matches, no repeats across phases, and no phase differences**: every draft phase assignment already equals the catalogue's. So no food IDs or phase assignments need to change. The full per-entry list can be regenerated from the draft with the script in this PR's description.
+All 142 draft entries match an existing catalogue food by name or synonym (for example 'Lentils' is `green-lentil`, 'Mushrooms (button, shiitake)' is `mushrooms`), with **no unmatched names, no ambiguous matches, no repeats across phases, and no phase differences**: every draft phase assignment already equals the catalogue's. So no food IDs or phase assignments need to change. The per-entry list is in `docs/food-profiles/mapping-142.json`, produced by `docs/food-profiles/mapping_audit.py`.
 
 **What already exists and is retained:** every food's `id`, `name`, `category`, `aisle`, `allergens`, `synonyms`, `cautions` (for example spinach's oxalate and warfarin notes), the per-phase `why.short/detail` reason, recipes, shopping and filters. **How Food Detail renders today:** a title and category, an optional phase pill, one 'Why this food?' paragraph (`why.short`) or 'About this food', a 'Good to know' box from `cautions`, then Find recipes, Add to shopping list and Log actions.
 
