@@ -2,7 +2,10 @@
 enum LinkCategory {
   recipes('Recipes'),
   workouts('Workouts'),
-  sounds('Sounds');
+
+  /// Shown as "Spa". The stored key stays `sounds`, so renaming needs no
+  /// migration.
+  sounds('Spa');
 
   const LinkCategory(this.label);
 
