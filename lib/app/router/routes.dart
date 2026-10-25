@@ -59,7 +59,7 @@ abstract final class Routes {
   static const String eatFoods = '/eat/foods';
   static const String eatRecipes = '/eat/recipes';
 
-  /// Foods › the meal builder (Premium).
+  /// Foods › the meal builder (free).
   /// With [foodId] the builder opens with that food already chosen.
   static String mealBuilder({String? foodId}) =>
       '/eat/meal-builder${foodId == null ? '' : '?food=$foodId'}';
@@ -153,7 +153,7 @@ abstract final class Routes {
   /// The chosen foods travel as ids in the query.
   ///
   /// [fromPlants] marks a search started from 3 Plants a Day, which is free
-  /// (Build a meal itself is Premium).
+  /// (Build a meal is free too).
   static String mealResults(List<String> foodIds, {bool fromPlants = false}) =>
       '/eat/meal-builder/results?foods=${foodIds.join(',')}'
       '${fromPlants ? '&from=plants' : ''}';

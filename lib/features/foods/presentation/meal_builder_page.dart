@@ -30,7 +30,7 @@ import 'widgets/food_chip.dart';
 /// A section first shows only the foods of the user's **current** phase;
 /// "Show all foods" adds the rest below, in their own group. Any food can be
 /// chosen whichever phase it is from, up to [MealBuilderConfig.maxIngredients].
-/// Premium only: a free user who reaches it sees why and is pointed to the
+/// Free for everyone. If its tier is ever raised, a user without it sees why and is pointed to the
 /// existing Subscription page.
 ///
 /// [foodId] starts the meal with that food (from its page).

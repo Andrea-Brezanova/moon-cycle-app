@@ -54,19 +54,21 @@ void main() {
 
   double top(WidgetTester tester, Finder f) => tester.getTopLeft(f).dy;
 
-  test('Premium features are not unlocked by the promo’s Plus', () {
-    const promo = EntitlementState(tier: Tier.plus);
-    const gatePromo = FeatureGate(promo);
-    expect(gatePromo.canUse(Feature.buildMeal), isFalse);
-    expect(gatePromo.canUse(Feature.logDiary), isTrue);
-    expect(gatePromo.canUse(Feature.shoppingList), isTrue);
-    const gateFree = FeatureGate(EntitlementState.free);
-    expect(gateFree.canUse(Feature.buildMeal), isFalse);
-    expect(gateFree.canUse(Feature.shoppingList), isTrue);
-    const gatePremium = FeatureGate(premium);
-    expect(gatePremium.canUse(Feature.buildMeal), isTrue);
-    expect(gatePremium.canUse(Feature.logDiary), isTrue);
-  });
+  test(
+    'Build a Meal, the diary and the shopping list are free for everyone',
+    () {
+      for (final state in [
+        EntitlementState.free,
+        const EntitlementState(tier: Tier.plus),
+        premium,
+      ]) {
+        final gate = FeatureGate(state);
+        expect(gate.canUse(Feature.buildMeal), isTrue);
+        expect(gate.canUse(Feature.logDiary), isTrue);
+        expect(gate.canUse(Feature.shoppingList), isTrue);
+      }
+    },
+  );
 
   testWidgets('hierarchy: hero, focus, 3 a day, quick access', (tester) async {
     await pumpHome(tester);
@@ -237,7 +239,7 @@ void main() {
       handle.dispose();
     });
 
-    testWidgets('the meal builder page is locked for a free user', (
+    testWidgets('the meal builder page is open for a free user', (
       tester,
     ) async {
       await pumpScreen(
@@ -246,8 +248,8 @@ void main() {
         dark: false,
         overrides: [cycleStateProvider.overrideWithValue(stateOnDay(7))],
       );
-      expect(find.text('Proteins'), findsNothing);
-      expect(find.text('See Premium'), findsOneWidget);
+      expect(find.text('Proteins'), findsOneWidget);
+      expect(find.text('See Premium'), findsNothing);
     });
   });
 

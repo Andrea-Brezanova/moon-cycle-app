@@ -162,22 +162,23 @@ void main() {
   });
 
   group('Meal builder card', () {
-    testWidgets('free: the builder page keeps its Premium lock', (
-      tester,
-    ) async {
+    testWidgets('a free user (normal release setup) opens the builder: no '
+        'lock, no Premium prompt', (tester) async {
       await pumpEat(tester);
       await tester.ensureVisible(find.text('Meal builder'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Meal builder'));
       await tester.pumpAndSettle();
       expect(find.byType(MealBuilderPage), findsOneWidget);
-      expect(find.text('See Premium'), findsOneWidget);
+      expect(find.text('Proteins'), findsOneWidget);
+      expect(find.text('See Premium'), findsNothing);
+      expect(find.textContaining('Premium'), findsNothing);
       await tester.tap(find.bySemanticsLabel('Back'));
       await tester.pumpAndSettle();
       expect(find.byType(EatPage), findsOneWidget);
     });
 
-    testWidgets('Premium: the builder opens', (tester) async {
+    testWidgets('a Premium user gets the same builder', (tester) async {
       await pumpEat(
         tester,
         more: [entitlementStateProvider.overrideWithValue(premium)],

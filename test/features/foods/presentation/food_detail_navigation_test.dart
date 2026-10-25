@@ -178,15 +178,17 @@ void main() {
     expect(find.byType(FoodDetailPage), findsOneWidget);
   });
 
-  testWidgets('Make your own meal stays Premium for a free user', (
-    tester,
-  ) async {
+  testWidgets('Make your own meal works for a free user: no lock, opens the '
+      'builder with the food chosen', (tester) async {
     final container = await pumpApp_(tester);
     await openFromFoods(tester, container, 'turnip', general: true);
     await reveal(tester, find.text('Make your own meal with turnip'));
+    expect(find.byIcon(Icons.lock), findsNothing);
     await tester.tap(find.text('Make your own meal with turnip'));
     await tester.pumpAndSettle();
-    expect(find.byType(MealBuilderPage), findsNothing);
+    expect(find.byType(MealBuilderPage), findsOneWidget);
+    expect(find.text('See Premium'), findsNothing);
+    expect(container.read(mealSelectionProvider).ids, ['turnip']);
   });
 
   testWidgets('a herb: the meal button is disabled, with the reason', (

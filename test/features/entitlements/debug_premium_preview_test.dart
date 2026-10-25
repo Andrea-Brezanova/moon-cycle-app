@@ -19,15 +19,35 @@ ProviderContainer make({bool allowed = true, bool unlockAtStart = false}) {
   return c;
 }
 
+/// Production has no Premium-only feature (Build a Meal is free), so these tests
+/// gate Build a Meal as if it were Premium to exercise the preview machinery.
+const _gated = {Feature.buildMeal: Tier.premium};
+
+FeatureGate gateOf(ProviderContainer c) =>
+    FeatureGate(c.read(entitlementStateProvider), tiers: _gated);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('a release build, free user: Build a Meal is allowed with no Premium '
+      'switch, no debug preview and no unlock', () {
+    final c = make(allowed: false); // what kDebugMode is in a shipped app
+    expect(c.read(devPremiumSwitchAllowedProvider), isFalse);
+    expect(c.read(debugPremiumPreviewProvider), isFalse);
+    expect(c.read(featureGateProvider).canUse(Feature.buildMeal), isTrue);
+    // And with no entitlement at all (promo over, no account).
+    expect(
+      const FeatureGate(EntitlementState.free).canUse(Feature.buildMeal),
+      isTrue,
+    );
+  });
 
   test('real entitlements: the launch promo only, never Premium', () {
     final c = make();
     final state = c.read(entitlementStateProvider);
     expect(state.tier, Tier.plus);
     expect(state.grant?.origin, EntitlementOrigin.launchPromo);
-    final gate = c.read(featureGateProvider);
+    final gate = gateOf(c);
     expect(gate.canUse(Feature.buildMeal), isFalse);
     expect(gate.canUse(Feature.shoppingList), isTrue);
   });
@@ -44,7 +64,7 @@ void main() {
       c.read(entitlementStateProvider).grant?.origin,
       EntitlementOrigin.debugPreview,
     );
-    expect(c.read(featureGateProvider).canUse(Feature.buildMeal), isTrue);
+    expect(gateOf(c).canUse(Feature.buildMeal), isTrue);
     // The launch promo is untouched underneath.
     expect(
       c.read(entitlementGrantsProvider).first.origin,
@@ -59,21 +79,23 @@ void main() {
     c.read(debugPremiumPreviewProvider.notifier).toggle();
     expect(c.read(debugPremiumPreviewProvider), isTrue);
     expect(c.read(entitlementStateProvider).tier, Tier.plus);
-    expect(c.read(featureGateProvider).canUse(Feature.buildMeal), isFalse);
+    expect(gateOf(c).canUse(Feature.buildMeal), isFalse);
     expect(c.read(entitlementGrantsProvider).map((g) => g.origin), [
       EntitlementOrigin.launchPromo,
     ]);
   });
 
-  test('the Premium designation of the unbuilt features is preserved', () {
-    expect(defaultFeatureTiers[Feature.buildMeal], Tier.premium);
-    expect(defaultFeatureTiers[Feature.logDiary], Tier.free); // basic diary
+  test('production: no feature is Premium-only; Build a Meal is free', () {
+    for (final f in Feature.values) {
+      expect(defaultFeatureTiers[f] ?? Tier.free, Tier.free, reason: f.name);
+    }
+    expect(defaultFeatureTiers[Feature.buildMeal], Tier.free);
   });
 
   group('development: every feature unlocked from the start', () {
     test('a dev run (UNLOCK_ALL_FEATURES) starts fully unlocked', () {
       final c = make(unlockAtStart: true);
-      final gate = c.read(featureGateProvider);
+      final gate = gateOf(c);
       for (final f in Feature.values) {
         expect(gate.canUse(f), isTrue, reason: f.name);
       }
@@ -87,7 +109,7 @@ void main() {
     test('the switch restores the production restrictions, no rebuild', () {
       final c = make(unlockAtStart: true);
       c.read(debugPremiumPreviewProvider.notifier).toggle(); // off
-      final gate = c.read(featureGateProvider);
+      final gate = gateOf(c);
       expect(gate.canUse(Feature.buildMeal), isFalse);
       expect(gate.canUse(Feature.logDiary), isTrue); // free in production
       expect(gate.canUse(Feature.shoppingList), isTrue);
@@ -95,14 +117,14 @@ void main() {
 
     test('a profile or release build never unlocks, whatever is set', () {
       final c = make(allowed: false, unlockAtStart: true);
-      expect(c.read(featureGateProvider).canUse(Feature.buildMeal), isFalse);
+      expect(gateOf(c).canUse(Feature.buildMeal), isFalse);
       expect(c.read(entitlementGrantsProvider).map((g) => g.origin), [
         EntitlementOrigin.launchPromo,
       ]);
     });
 
-    test('the production tier settings are untouched', () {
-      expect(defaultFeatureTiers[Feature.buildMeal], Tier.premium);
+    test('the production tier settings: everything free', () {
+      expect(defaultFeatureTiers[Feature.buildMeal], Tier.free);
       expect(defaultFeatureTiers[Feature.logDiary], Tier.free);
       expect(defaultFeatureTiers[Feature.shoppingList], Tier.free);
     });
