@@ -15,6 +15,7 @@ import 'package:moon_cycle/features/reminders/domain/reminder_plan.dart';
 
 import '../../helpers/fake_reminders.dart';
 import '../../helpers/golden_screen.dart';
+import '../../helpers/me_nav.dart';
 import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 import '../../helpers/test_catalogue.dart';
@@ -48,6 +49,9 @@ void main() {
   }
 
   Future<void> open(WidgetTester tester, String row) async {
+    if (isNestedSettingsRow(row) || row == 'Delete my data') {
+      return openMeRow(tester, row);
+    }
     await tester.ensureVisible(find.text(row));
     await tester.pumpAndSettle();
     await tester.tap(find.text(row));
@@ -71,6 +75,19 @@ void main() {
         await prefs.avoidAllergen('shellfish');
       },
     );
+    // Me: the four rows.
+    for (final t in [
+      'My Diary',
+      'Shopping list',
+      'Settings',
+      'Account & Plus',
+    ]) {
+      await tester.ensureVisible(find.text(t));
+      expect(find.text(t), findsOneWidget, reason: t);
+    }
+    // Settings: what each setting is set to.
+    await tester.tap(find.byKey(const ValueKey('me-settings')));
+    await tester.pumpAndSettle();
     expect(
       find.text('28-day cycle · 5-day period · Next period 26 Oct'),
       findsOneWidget,
@@ -78,8 +95,13 @@ void main() {
     expect(find.text('Omnivore'), findsOneWidget);
     expect(find.text('Peanuts, shellfish'), findsOneWidget);
     expect(find.text('Off'), findsOneWidget); // reminders start off
+    await tester.tap(find.bySemanticsLabel('Back to Me'));
+    await tester.pumpAndSettle();
+    // Account & Plus.
+    await tester.ensureVisible(find.byKey(const ValueKey('me-account')));
+    await tester.tap(find.byKey(const ValueKey('me-account')));
+    await tester.pumpAndSettle();
     expect(find.text('Free at launch'), findsOneWidget);
-    expect(find.text('ACCOUNT'), findsOneWidget);
     expect(find.text('Sign in'), findsNothing); // no accounts in v1
   });
 

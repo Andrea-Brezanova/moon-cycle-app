@@ -45,6 +45,7 @@ import '../../features/onboarding/presentation/welcome_page.dart';
 import '../../features/placeholders/presentation/coming_soon_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
+import '../../features/settings/presentation/account_plus_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
 import '../../features/settings/presentation/appearance_page.dart';
 import '../../features/settings/presentation/delete_data_page.dart';
@@ -54,6 +55,7 @@ import '../../features/settings/presentation/my_cycle_page.dart';
 import '../../features/settings/presentation/notifications_page.dart';
 import '../../features/settings/presentation/privacy_data_page.dart';
 import '../../features/settings/presentation/settings_home_page.dart';
+import '../../features/settings/presentation/settings_hub_page.dart';
 import '../../features/settings/presentation/subscription_page.dart';
 import '../../features/shopping/presentation/shop_page.dart';
 import '../shell/main_shell.dart';
@@ -407,6 +409,16 @@ GoRouter buildAppRouter({
                         path: 'credits',
                         pageBuilder: (context, state) =>
                             _page(state, const CreditsPage()),
+                      ),
+                      GoRoute(
+                        path: 'settings',
+                        pageBuilder: (context, state) =>
+                            _page(state, const SettingsHubPage()),
+                      ),
+                      GoRoute(
+                        path: 'account',
+                        pageBuilder: (context, state) =>
+                            _page(state, const AccountPlusPage()),
                       ),
                       for (final page in SettingsPage.values)
                         GoRoute(
