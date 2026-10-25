@@ -81,7 +81,7 @@ define and update the app in place (same bundle id and signing, so the encrypted
 database, key and data are kept; the install is an update, never an uninstall):
 
 ```bash
-flutter build ios --release --flavor dev --dart-define-from-file=env/dev.json --dart-define=DEV_PREMIUM=true
+tool/build_ios.sh --dart-define=DEV_PREMIUM=true
 xcrun devicectl device install app --device <iPhone id> build/ios/iphoneos/Runner.app
 ```
 
@@ -93,3 +93,12 @@ xcrun devicectl device install app --device <iPhone id> build/ios/iphoneos/Runne
   external recipe test key stay debug-build-only).
 - To go back to the normal dev build, install a build made without the define; the
   data is unaffected.
+
+## Which build is on the phone
+
+Always build with `tool/build_ios.sh` (it passes the Git commit and the build
+date from the checkout being built) and update in place with `devicectl` (never
+`flutter install`, which uninstalls and wipes data). Then open **Me › Settings ›
+About**: it shows the version and build number, the short commit (with `-dirty`
+if the source had uncommitted changes), the build date and the flavour. A build
+made another way says `unknown`.

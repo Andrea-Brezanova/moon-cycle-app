@@ -8,6 +8,7 @@ import 'package:sqlite3/sqlite3.dart';
 import 'app/app_root.dart';
 import 'app/config/app_config.dart';
 import 'app/config/app_version.dart';
+import 'app/config/build_info.dart';
 import 'core/crash/crash_reporting.dart';
 import 'core/database/app_database.dart';
 import 'core/database/database_opener.dart';
@@ -31,7 +32,8 @@ Future<void> main() async {
   final directory = await getApplicationSupportDirectory();
   final keys = EncryptionKeyStore();
   final catalogue = await loadBundledCatalogue();
-  final version = (await PackageInfo.fromPlatform()).version;
+  final package = await PackageInfo.fromPlatform();
+  final version = package.version;
 
   // Opened again after "Delete my data", on a new database and key.
   Future<List<Override>> openSession() async {
@@ -67,6 +69,13 @@ Future<void> main() async {
           ),
           catalogueProvider.overrideWithValue(catalogue),
           appVersionProvider.overrideWithValue(version),
+          buildInfoProvider.overrideWithValue(
+            BuildInfo.fromBuild(
+              version: version,
+              buildNumber: package.buildNumber,
+              flavor: config.flavor,
+            ),
+          ),
           databaseDirectoryProvider.overrideWithValue(directory),
           encryptionKeyStoreProvider.overrideWithValue(keys),
         ],

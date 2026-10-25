@@ -89,6 +89,13 @@ class SettingsHubPage extends ConsumerWidget {
               icon: MoonIconName.book,
               onTap: () => context.push(Routes.credits),
             ),
+            MoonListRow(
+              key: const ValueKey('settings-about'),
+              label: 'About',
+              icon: MoonIconName.help,
+              subtitle: 'Version and build',
+              onTap: () => context.push(Routes.meAbout),
+            ),
           ],
         ),
       ],
