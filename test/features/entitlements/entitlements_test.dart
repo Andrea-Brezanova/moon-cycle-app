@@ -54,20 +54,24 @@ void main() {
   });
 
   group('FeatureGate', () {
-    test('the existing features are free; only Premium ones are gated', () {
+    test('every feature is free in production, Build a Meal included', () {
       const gate = FeatureGate(EntitlementState.free);
-      const premiumOnly = {Feature.buildMeal};
       for (final f in Feature.values) {
-        expect(gate.canUse(f), !premiumOnly.contains(f), reason: f.name);
+        expect(gate.canUse(f), isTrue, reason: f.name);
       }
     });
 
     test('Plus (the launch promo’s tier) does not unlock Premium features', () {
-      const plus = FeatureGate(EntitlementState(tier: Tier.plus));
+      // The gate itself still works: a feature set to Premium stays locked.
+      const tiers = {Feature.buildMeal: Tier.premium};
+      const plus = FeatureGate(EntitlementState(tier: Tier.plus), tiers: tiers);
       expect(plus.canUse(Feature.buildMeal), isFalse);
       expect(plus.canUse(Feature.logDiary), isTrue); // the diary is free
       expect(plus.canUse(Feature.shoppingList), isTrue);
-      const premium = FeatureGate(EntitlementState(tier: Tier.premium));
+      const premium = FeatureGate(
+        EntitlementState(tier: Tier.premium),
+        tiers: tiers,
+      );
       expect(premium.canUse(Feature.buildMeal), isTrue);
       expect(premium.canUse(Feature.logDiary), isTrue);
     });

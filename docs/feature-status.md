@@ -48,9 +48,10 @@ Updated through Stage 7 on `feature/home-choices-food-detail`.
 ## Premium at launch (configuration, unchanged)
 
 `defaultFeatureTiers` in `lib/features/entitlements/domain/entitlements.dart`:
-Build a meal and Log diary are **Premium**; the shopping list, recipes and
-foods are **free**. The launch promo grants Plus, which does not unlock
-Premium. This table is the only thing that decides production access.
+**Build a meal is free for everyone, in production builds too**, as are the
+shopping list, recipes, foods and the basic diary. No feature is Premium-only
+today. This table is the only thing that decides production access; the gate
+stays so a tier can be set here later without touching the screens.
 
 ## Development access: everything unlocked
 
@@ -73,9 +74,10 @@ changes are needed.
 
 ## Testing Premium on the owner's iPhone (development only)
 
-Meal Builder and the other Premium features are Premium on purpose
-(`defaultFeatureTiers`); a normal build, including the release build installed on
-the phone, shows "See Premium". To test them on the phone **without touching real
+Meal Builder is **free** and needs no switch. This section is only for any
+feature that is later made Premium (`defaultFeatureTiers`): a normal build,
+including the release build installed on the phone, would then show "See
+Premium". To test such a feature on the phone **without touching real
 entitlements, subscriptions or paywalls**, build the dev flavour with one extra
 define and update the app in place (same bundle id and signing, so the encrypted
 database, key and data are kept; the install is an update, never an uninstall):

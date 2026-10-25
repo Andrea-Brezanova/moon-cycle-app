@@ -159,16 +159,12 @@ void main() {
     });
   }
 
-  testWidgets('Build a meal results stay Premium for a free user', (
-    tester,
-  ) async {
+  testWidgets('Build a meal results are free for a free user', (tester) async {
     final c = await pump(tester);
     c.read(appRouterProvider).go(Routes.mealResults(['kale']));
     await tester.pumpAndSettle();
-    expect(
-      find.text('Build a Meal is part of Moon Cycle Premium.'),
-      findsOneWidget,
-    );
+    expect(find.text('Recipes for your meal'), findsOneWidget);
+    expect(find.textContaining('Premium'), findsNothing);
   });
 }
 

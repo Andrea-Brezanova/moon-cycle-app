@@ -417,7 +417,7 @@ void main() {
     expect(find.text('3 recipes with chicken'), findsOneWidget);
   });
 
-  group('the four actions and Premium', () {
+  group('the four actions are free', () {
     Future<void> openChicken(WidgetTester tester) async {
       await scrollTo(tester, find.text('Chicken'));
       await tester.tap(find.text('Chicken'));
@@ -425,12 +425,15 @@ void main() {
       await reveal(tester, find.text('Log meal'));
     }
 
-    testWidgets('free: the meal builder is locked', (tester) async {
+    testWidgets('free: the meal builder opens (no Subscription page)', (
+      tester,
+    ) async {
       await pumpFoods(tester);
       await openChicken(tester);
       await tester.tap(find.text('Make your own meal with chicken'));
       await tester.pumpAndSettle();
-      expect(find.byType(SubscriptionPage), findsOneWidget);
+      expect(find.byType(MealBuilderPage), findsOneWidget);
+      expect(find.byType(SubscriptionPage), findsNothing);
     });
 
     testWidgets('free: Log meal is free and opens the form', (tester) async {
