@@ -14,15 +14,18 @@ import '../../helpers/pump_app.dart';
 import '../../helpers/seed.dart';
 
 void main() {
-  Future<void> scrollToQuick(WidgetTester tester) => tester.scrollUntilVisible(
-    find.text('QUICK ACCESS'),
-    300,
-    scrollable: find.byType(Scrollable).first,
-  );
+  Future<void> scrollToQuick(WidgetTester tester) async {
+    await tester.scrollUntilVisible(
+      find.text('QUICK ACCESS'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    // The cards sit below their heading; bring them fully into view.
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, -500));
+    await tester.pumpAndSettle();
+  }
 
-  testWidgets('empty day and empty list: the quiet wording, icons not photos', (
-    tester,
-  ) async {
+  testWidgets('empty day and empty list: the quiet wording', (tester) async {
     tester.view.physicalSize = const Size(390, 844) * 3;
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);

@@ -42,7 +42,7 @@ class HomeOverline extends StatelessWidget {
 }
 
 /// Today's focus: the phase's own soft background, a Fraunces headline with
-/// its last word in italic, a paragraph, a link to the phase page and a leaf
+/// its last word in italic, its paragraphs (the card grows to fit them), a link to the phase page and a leaf
 /// sprig in the corner. The copy comes from the phase content.
 class TodaysFocusCard extends StatelessWidget {
   const TodaysFocusCard({
@@ -105,7 +105,13 @@ class TodaysFocusCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text(body, style: dmSans(15, height: 1.5, color: c.text)),
+                  for (final (i, paragraph) in body.split('\n\n').indexed) ...[
+                    if (i > 0) const SizedBox(height: 10),
+                    Text(
+                      paragraph,
+                      style: dmSans(15, height: 1.5, color: c.text),
+                    ),
+                  ],
                   const SizedBox(height: 10),
                   ConstrainedBox(
                     constraints: const BoxConstraints(minHeight: 44),

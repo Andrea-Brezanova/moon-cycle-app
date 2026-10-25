@@ -62,7 +62,7 @@ class HomePage extends ConsumerWidget {
             TodaysFocusCard(
               phase: phase,
               headline: catalogue.phase(phase).tagline,
-              body: catalogue.phase(phase).summary,
+              body: catalogue.phase(phase).homeFocus,
               onMore: () => context.push(Routes.learnMore),
             ),
           ),
