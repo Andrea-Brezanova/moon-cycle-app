@@ -78,8 +78,8 @@ class _DeleteDataPageState extends ConsumerState<DeleteDataPage> {
                     const SizedBox(height: 18),
                     Text(
                       'This permanently deletes your cycle history, food '
-                      'preferences, shopping list, diary entries, activities and '
-                      'personal Notes from this phone. It can’t be undone.',
+                      'preferences, shopping list, diary entries, activities, '
+                      'personal Notes and saved links from this phone. It can’t be undone.',
                       style: dmSans(16, height: 1.55, color: c.text),
                     ),
                     const SizedBox(height: 18),

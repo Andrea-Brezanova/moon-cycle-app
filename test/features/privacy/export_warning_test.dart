@@ -59,13 +59,16 @@ void main() {
   ) async {
     await pumpMore(tester);
     await open(tester, 'Privacy & Data');
-    expect(find.textContaining('activities and Notes'), findsWidgets);
+    expect(
+      find.textContaining('activities, Notes and saved links'),
+      findsWidgets,
+    );
     await tester.tap(find.text('Export my data'));
     await tester.pumpAndSettle();
     expect(find.text('Before you export'), findsOneWidget);
     expect(find.textContaining('sensitive writing'), findsOneWidget);
     expect(
-      find.textContaining('activities and the personal Notes you wrote'),
+      find.textContaining('activities, the personal Notes you wrote'),
       findsOneWidget,
     );
     expect(find.textContaining('not encrypted'), findsOneWidget);
@@ -89,7 +92,9 @@ void main() {
     await open(tester, 'Delete my data');
     expect(find.byType(DeleteDataPage), findsOneWidget);
     expect(
-      find.textContaining('diary entries, activities and personal Notes'),
+      find.textContaining(
+        'diary entries, activities, personal Notes and saved links',
+      ),
       findsOneWidget,
     );
     await tester.tap(find.text('Export my data first'));

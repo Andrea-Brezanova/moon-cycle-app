@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../app/config/app_version.dart';
 import '../../../core/time/today.dart';
+import '../../collections/data/collection_link_repository.dart';
 import '../../content/application/content_providers.dart';
 import '../../cycle/data/cycle_repository.dart';
 import '../../diary/data/diary_activity_repository.dart';
@@ -42,6 +43,7 @@ class DataExportService {
       reminders: await preferences.watchReminders().first,
       shoppingList: await _ref.read(shoppingRepositoryProvider).items(),
       savedRecipes: await _ref.read(savedRecipeRepositoryProvider).all(),
+      collectionLinks: await _ref.read(collectionLinkRepositoryProvider).all(),
       diary: await _ref.read(diaryRepositoryProvider).all(),
       notes: await _ref.read(diaryNoteRepositoryProvider).all(),
       activities: await _ref.read(diaryActivityRepositoryProvider).all(),

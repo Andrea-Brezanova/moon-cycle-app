@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/database_opener.dart';
+import 'package:moon_cycle/features/collections/data/collection_link_repository.dart';
+import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/cycle/data/cycle_repository.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/privacy/data/local_data_wiper.dart';
@@ -54,5 +56,19 @@ void main() {
     addTearDown(fresh.close);
     expect(await CycleRepository(fresh).profile(), isNull);
     expect(keys.value, isNot(oldKey));
+  });
+
+  test('saved links do not survive a wipe', () async {
+    final db = await openAppDatabase(directory: dir, keys: keys);
+    await CollectionLinkRepository(db).add(
+      category: LinkCategory.sounds,
+      address: 'https://example.com/calm',
+      title: 'Calm',
+    );
+    await LocalDataWiper(database: db, directory: dir, keys: keys).wipe();
+    final fresh = await openAppDatabase(directory: dir, keys: keys);
+    addTearDown(fresh.close);
+    expect(await CollectionLinkRepository(fresh).all(), isEmpty);
+    expect(await fresh.select(fresh.collectionLinks).get(), isEmpty);
   });
 }

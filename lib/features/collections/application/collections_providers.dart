@@ -1,8 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/router/routes.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/saved_recipe_repository.dart';
+import '../data/collection_link_repository.dart';
+import '../domain/collection_link.dart';
 
 /// The three My Collections categories. Workouts and sounds fill in as their
 /// libraries arrive; recipes are the existing saved and written recipes.
@@ -38,10 +41,13 @@ const recentlySavedCount = 5;
 final collectionCountsProvider = Provider<Map<CollectionCategory, int>>((ref) {
   final saved = ref.watch(savedRecipeRefsProvider).value ?? const [];
   final mine = ref.watch(personalRecipesProvider).value ?? const [];
+  final links = ref.watch(collectionLinksProvider).value ?? const [];
+  int linksIn(LinkCategory c) => links.where((l) => l.category == c).length;
   return {
-    CollectionCategory.recipes: saved.length + mine.length,
-    CollectionCategory.workouts: 0,
-    CollectionCategory.sounds: 0,
+    CollectionCategory.recipes:
+        saved.length + mine.length + linksIn(LinkCategory.recipes),
+    CollectionCategory.workouts: linksIn(LinkCategory.workouts),
+    CollectionCategory.sounds: linksIn(LinkCategory.sounds),
   };
 });
 
@@ -50,6 +56,7 @@ final collectionCountsProvider = Provider<Map<CollectionCategory, int>>((ref) {
 final recentlySavedProvider = Provider<List<RecentItem>>((ref) {
   final saved = ref.watch(savedRecipeRefsProvider).value ?? const [];
   final mine = ref.watch(personalRecipesProvider).value ?? const [];
+  final links = ref.watch(collectionLinksProvider).value ?? const [];
   final items = <RecentItem>[
     for (final r in saved)
       RecentItem(
@@ -69,6 +76,24 @@ final recentlySavedProvider = Provider<List<RecentItem>>((ref) {
         route: Routes.recipe(p.id),
         category: CollectionCategory.recipes,
       ),
+    for (final l in links)
+      RecentItem(
+        id: 'link-${l.id}',
+        title: l.title,
+        kind:
+            '${l.category.label.replaceAll(RegExp(r's$'), '')} link · '
+            '${l.source}',
+        savedAt: l.createdAt,
+        route: Routes.collectionLink(l.id),
+        category: CollectionCategory.values.byName(l.category.name),
+      ),
   ]..sort((a, b) => b.savedAt.compareTo(a.savedAt));
   return items.take(recentlySavedCount).toList();
 });
+
+/// Opens an address in the system browser or the source's own app. Tests
+/// replace it; it returns whether something opened.
+final linkLauncherProvider = Provider<Future<bool> Function(Uri)>(
+  (ref) =>
+      (uri) => launchUrl(uri, mode: LaunchMode.externalApplication),
+);

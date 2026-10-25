@@ -40,6 +40,10 @@ class CollectionsPage extends ConsumerWidget {
               title: 'My Collections',
               onBack: () =>
                   context.canPop() ? context.pop() : context.go('/more'),
+              trailingIcon: MoonIconName.plus,
+              trailingLabel: 'Add a link to My Collections',
+              trailingKey: const ValueKey('add-to-collections'),
+              onTrailing: () => context.push(Routes.collectionLinkNew()),
             ),
             Expanded(
               child: ListView(

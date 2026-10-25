@@ -178,6 +178,12 @@ abstract final class Routes {
   static const String collectionWorkouts = '/more/collections/workouts';
   static const String collectionSounds = '/more/collections/sounds';
 
+  /// A saved link: add one (in [category], a `LinkCategory` name) or open one
+  /// to read, edit or delete. A form, so it covers the tab bar.
+  static String collectionLinkNew({String? category}) =>
+      '/more/collections/link/new${category == null ? '' : '?category=$category'}';
+  static String collectionLink(String id) => '/more/collections/link/$id';
+
   /// More › Credits & Sources.
   static const String credits = '/more/credits';
   static String settings(SettingsPage page) =>

@@ -1,4 +1,5 @@
 import '../../../core/domain/local_date.dart';
+import '../../collections/domain/collection_link.dart';
 import '../../cycle/domain/cycle_profile.dart';
 import '../../cycle/domain/period_log.dart';
 import '../../diary/domain/diary_activity.dart';
@@ -38,6 +39,7 @@ Map<String, Object?> buildDataExport({
   List<DiaryNote> notes = const [],
   List<DiaryActivity> activities = const [],
   List<SavedRecipeRef> savedRecipes = const [],
+  List<CollectionLink> collectionLinks = const [],
   required String? Function(String foodId) foodName,
 }) => {
   'format': exportFormat,
@@ -140,6 +142,19 @@ Map<String, Object?> buildDataExport({
         'note': a.note,
         'createdAt': a.createdAt.toUtc().toIso8601String(),
         'updatedAt': a.updatedAt.toUtc().toIso8601String(),
+      },
+  ],
+  'collectionLinks': [
+    for (final l in collectionLinks)
+      {
+        'category': l.category.name,
+        'url': l.url.toString(),
+        'title': l.title,
+        'creator': l.creator,
+        'platform': l.platform.name,
+        'note': l.note,
+        'createdAt': l.createdAt.toUtc().toIso8601String(),
+        'updatedAt': l.updatedAt.toUtc().toIso8601String(),
       },
   ],
   'savedRecipes': [
