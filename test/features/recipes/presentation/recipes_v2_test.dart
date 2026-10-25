@@ -11,6 +11,7 @@ import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 
 import '../../../goldens/screens/home_golden_test.dart' show stateOnDay;
 import '../../../helpers/golden_screen.dart';
+import '../../../helpers/my_recipes_filter.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/seed.dart';
 
@@ -133,9 +134,13 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(MyRecipesPage), findsOneWidget);
     expect(find.text('My recipes'), findsWidgets);
-    expect(find.text('All 0'), findsOneWidget);
-    expect(find.text('Saved 0'), findsOneWidget);
-    expect(find.text('Added by me 0'), findsOneWidget);
+    expect(currentShow(tester), 'All recipes');
+    await expectShowCounts(tester, {
+      'All recipes': 0,
+      'Saved / Favorites': 0,
+      'Added by me': 0,
+      'Links': 0,
+    });
     expect(find.text('No recipes yet'), findsOneWidget);
 
     // Back to Recipes, save one, and open My recipes again.
@@ -155,16 +160,16 @@ void main() {
     expect(find.text('My recipes (1)'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('my-recipes-button')));
     await tester.pumpAndSettle();
-    expect(find.text('All 1'), findsOneWidget);
-    expect(find.text('Saved 1'), findsOneWidget);
+    await expectShowCounts(tester, {'All recipes': 1, 'Saved / Favorites': 1});
+    expect(shownCount(tester), '1 item');
     expect(find.text(frittata), findsOneWidget);
 
-    await tester.tap(find.text('Added by me 0'));
-    await tester.pumpAndSettle();
+    await chooseShow(tester, 'Added by me');
+    expect(currentShow(tester), 'Added by me');
+    expect(shownCount(tester), '0 items');
     expect(find.text('Nothing added by you yet'), findsOneWidget);
     expect(find.text(frittata), findsNothing);
-    await tester.tap(find.text('Saved 1'));
-    await tester.pumpAndSettle();
+    await chooseShow(tester, 'Saved / Favorites');
     expect(find.text(frittata), findsOneWidget);
 
     await tester.tap(find.bySemanticsLabel('Remove $frittata from My recipes'));

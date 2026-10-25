@@ -41,66 +41,10 @@ class EatFilterBar extends ConsumerWidget {
     final label = all ? 'All phases' : phaseName;
     final palette = c.phase(viewing);
 
-    Widget control({
-      Key? key,
-      required String text,
-      required String semantic,
-      required VoidCallback onTap,
-      required Color fill,
-      Color? border,
-      Color? dot,
-    }) => Pressable(
-      key: key,
-      onTap: onTap,
-      semanticLabel: semantic,
-      child: Container(
-        height: 44,
-        padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
-        decoration: ShapeDecoration(
-          color: fill,
-          shape: StadiumBorder(
-            side: border == null ? BorderSide.none : BorderSide(color: border),
-          ),
-        ),
-        child: Row(
-          children: [
-            if (dot != null) ...[
-              Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(color: dot, shape: BoxShape.circle),
-              ),
-              const SizedBox(width: 8),
-            ],
-            Expanded(
-              child: Text(
-                text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: dmSans(
-                  14.5,
-                  weight: FontWeight.w600,
-                  height: 1,
-                  color: c.text,
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            MoonIcon(
-              MoonIconName.down,
-              size: 17,
-              color: c.text,
-              strokeWidth: 2,
-            ),
-          ],
-        ),
-      ),
-    );
-
     return Row(
       children: [
         Expanded(
-          child: control(
+          child: EatFilterControl(
             key: const ValueKey('phase-pill'),
             text: label,
             semantic: all
@@ -113,7 +57,7 @@ class EatFilterBar extends ConsumerWidget {
         ),
         const SizedBox(width: 10),
         Expanded(
-          child: control(
+          child: EatFilterControl(
             key: const ValueKey('type-filter'),
             text: typeLabel,
             semantic: typeSemantic,
@@ -268,6 +212,79 @@ class _Radio extends StatelessWidget {
               strokeWidth: 2.6,
             )
           : null,
+    );
+  }
+}
+
+/// One filter control: a 44 pt pill with an optional phase dot, its label and a
+/// down chevron. Used side by side on Foods and Recipes, and full width on My
+/// recipes.
+class EatFilterControl extends StatelessWidget {
+  const EatFilterControl({
+    super.key,
+    required this.text,
+    required this.semantic,
+    required this.onTap,
+    required this.fill,
+    this.border,
+    this.dot,
+  });
+
+  final String text;
+  final String semantic;
+  final VoidCallback onTap;
+  final Color fill;
+  final Color? border;
+  final Color? dot;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Pressable(
+      onTap: onTap,
+      semanticLabel: semantic,
+      child: Container(
+        height: 44,
+        padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
+        decoration: ShapeDecoration(
+          color: fill,
+          shape: StadiumBorder(
+            side: border == null ? BorderSide.none : BorderSide(color: border!),
+          ),
+        ),
+        child: Row(
+          children: [
+            if (dot != null) ...[
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(color: dot, shape: BoxShape.circle),
+              ),
+              const SizedBox(width: 8),
+            ],
+            Expanded(
+              child: Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: dmSans(
+                  14.5,
+                  weight: FontWeight.w600,
+                  height: 1,
+                  color: c.text,
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            MoonIcon(
+              MoonIconName.down,
+              size: 17,
+              color: c.text,
+              strokeWidth: 2,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
