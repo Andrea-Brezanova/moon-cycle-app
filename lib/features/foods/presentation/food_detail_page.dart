@@ -29,6 +29,7 @@ import '../../shopping/application/shopping_controller.dart';
 import '../../shopping/application/shopping_summary.dart';
 import '../application/food_providers.dart';
 import 'food_emoji.dart';
+import 'widgets/food_profile_sections.dart';
 
 /// Opens [food]'s page. A food featured in [phase] shows that phase's "Why
 /// this food?"; any other food opens without phase context, so no phase
@@ -119,6 +120,11 @@ class FoodDetailPage extends ConsumerWidget {
         .where((i) => i.foodId == food.id)
         .firstOrNull;
     final gate = ref.watch(featureGateProvider);
+    // Only a reviewed, publishable profile is shown; none is bundled yet.
+    final profile = switch (ref.watch(foodProfileProvider(foodId))) {
+      final p? when p.publishable => p,
+      _ => null,
+    };
     final canMeal = gate.canUse(Feature.buildMeal);
     final canDiary = gate.canUse(Feature.logDiary);
     final category = catalogue.categoryFor(food).name;
@@ -194,9 +200,10 @@ class FoodDetailPage extends ConsumerWidget {
                       style: MoonType.body.copyWith(color: c.text),
                     ),
                   ],
-                  if (food.cautions.isNotEmpty) ...[
+                  if (profile != null) FoodProfileSections(profile: profile),
+                  if ((profile?.cautions ?? food.cautions).isNotEmpty) ...[
                     const SizedBox(height: 16),
-                    _GoodToKnow(cautions: food.cautions),
+                    _GoodToKnow(cautions: profile?.cautions ?? food.cautions),
                   ],
                   const SizedBox(height: 26),
                   // 1. Recipes with this food. Always shown; disabled, with the

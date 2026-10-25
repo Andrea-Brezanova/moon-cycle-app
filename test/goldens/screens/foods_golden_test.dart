@@ -13,11 +13,13 @@ import 'package:moon_cycle/features/eat/presentation/eat_browse_page.dart';
 import 'package:moon_cycle/features/entitlements/application/entitlement_providers.dart';
 import 'package:moon_cycle/features/entitlements/domain/entitlements.dart';
 import 'package:moon_cycle/features/foods/application/browse_scope.dart';
+import 'package:moon_cycle/features/foods/application/food_providers.dart';
 import 'package:moon_cycle/features/foods/presentation/food_detail_page.dart';
 import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 
+import '../../features/foods/food_profile_test.dart' show loadProfiles;
 import '../../helpers/golden_screen.dart';
 import '../../helpers/moon_fonts.dart';
 import 'home_golden_test.dart' show stateOnDay;
@@ -195,6 +197,49 @@ void main() {
     await expectLater(
       find.byType(EatBrowsePage),
       matchesGoldenFile('goldens/light-foods-narrow-large-text.png'),
+    );
+  });
+
+  // Preview of a completed profile inside the existing Food Detail design
+  // (review only: no profile is bundled or published).
+  for (final MapEntry(key: theme, value: dark) in themes.entries) {
+    testWidgets('food detail with a profile, spinach, $theme', (tester) async {
+      await pumpScreen(
+        tester,
+        const FoodDetailPage(foodId: 'spinach', phase: Phase.menstrual),
+        dark: dark,
+        height: 2900,
+        overrides: [
+          ...base(),
+          foodProfileProvider('spinach')
+              .overrideWithValue(loadProfiles(publishable: true)['spinach']),
+        ],
+      );
+      await expectLater(
+        find.byType(FoodDetailPage),
+        matchesGoldenFile('goldens/$theme-food-detail-profile-spinach.png'),
+      );
+    });
+  }
+
+  testWidgets('food detail with a profile, pumpkin seeds, light', (
+    tester,
+  ) async {
+    await pumpScreen(
+      tester,
+      const FoodDetailPage(foodId: 'pumpkin-seeds', phase: Phase.menstrual),
+      dark: false,
+      height: 2700,
+      overrides: [
+        ...base(),
+        foodProfileProvider(
+          'pumpkin-seeds',
+        ).overrideWithValue(loadProfiles(publishable: true)['pumpkin-seeds']),
+      ],
+    );
+    await expectLater(
+      find.byType(FoodDetailPage),
+      matchesGoldenFile('goldens/light-food-detail-profile-pumpkin-seeds.png'),
     );
   });
 }

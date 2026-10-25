@@ -4,6 +4,7 @@ import '../../../core/domain/phase.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
 import '../../content/domain/phase_content.dart';
+import '../domain/food_profile.dart';
 
 /// For each food, how many of [phase]'s recipes use it as a key ingredient,
 /// counting only recipes the user's preferences allow (what Recipes shows).
@@ -442,3 +443,10 @@ bool isMealPlant(Food food) =>
     !isHerb(food) &&
     !_preparedIds.contains(food.id) &&
     mealSlotFor(food) == MealSlot.plant;
+
+/// The standard profile for a food, or null. No profile is bundled yet: content
+/// arrives in reviewed batches, and only a profile marked publishable is ever
+/// shown. Tests and previews override this.
+final foodProfileProvider = Provider.family<FoodProfile?, String>(
+  (ref, id) => null,
+);
