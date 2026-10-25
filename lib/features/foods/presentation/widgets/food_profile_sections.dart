@@ -28,16 +28,11 @@ class FoodProfileSections extends StatelessWidget {
     Widget text(String t) =>
         Text(t, style: MoonType.body.copyWith(color: c.text));
 
-    String percents(ProfileNutrient n) {
-      if (n.references.isEmpty) return '';
-      return n.references.length == 1
-          ? '${n.references.single.percent}%'
-          : n.references.map((r) => '${r.percent}%').join(' · ');
-    }
-
-    String groups(ProfileNutrient n) => n.references.length > 1
-        ? n.references.map((r) => r.group).join(' · ')
-        : '';
+    // "18% of daily reference", or one share per age group.
+    String reference(ProfileNutrient n) => n.references.length == 1
+        ? '${n.references.single.percent}% of daily reference'
+        : '${n.references.map((r) => '${r.percent}% (${r.group})').join(' · ')} '
+              'of daily reference';
 
     return Column(
       key: const ValueKey('food-profile'),
@@ -70,7 +65,7 @@ class FoodProfileSections extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      Flexible(
+                      Expanded(
                         flex: 3,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -87,8 +82,7 @@ class FoodProfileSections extends StatelessWidget {
                             ),
                             if (n.references.isNotEmpty)
                               Text(
-                                '${percents(n)} of daily reference'
-                                '${groups(n).isEmpty ? '' : ' (${groups(n)})'}',
+                                reference(n),
                                 textAlign: TextAlign.end,
                                 style: dmSans(
                                   12,
