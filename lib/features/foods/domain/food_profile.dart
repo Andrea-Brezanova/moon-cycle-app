@@ -117,3 +117,22 @@ final class FoodProfile {
   final String reviewLabel;
   final bool publishable;
 }
+
+/// Reads the bundled `food_profiles.json`: the reviewed profiles by food id.
+/// A profile not marked publishable is left out, so nothing unreviewed can
+/// reach the app.
+Map<String, FoodProfile> parseFoodProfiles(Map<String, Object?> json) {
+  final label = json['reviewLabel']! as String;
+  final profiles = json['profiles']! as Map<String, Object?>;
+  return {
+    for (final e in profiles.entries)
+      if (FoodProfile.fromJson(
+        e.value! as Map<String, Object?>,
+        reviewLabel: label,
+      ).publishable)
+        e.key: FoodProfile.fromJson(
+          e.value! as Map<String, Object?>,
+          reviewLabel: label,
+        ),
+  };
+}

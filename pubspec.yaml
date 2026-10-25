@@ -54,6 +54,8 @@ flutter:
     - assets/content/phases.json
     - assets/content/foods.json
     - assets/content/recipes.json
+    # The five reviewed Food Detail profiles (assets/content/README.md).
+    - assets/content/food_profiles.json
     # One photo per recipe, named <recipe-id>.jpg.
     - assets/images/recipes/
     # Curated plant photos for Home's "3 plants a day" (see docs/photo-credits.md).

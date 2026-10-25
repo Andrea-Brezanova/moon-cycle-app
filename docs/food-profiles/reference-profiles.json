@@ -6,7 +6,7 @@
     "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition, read 2026-10-25"
   },
   "_referenceNote": "Percentages compare ONE serving with the daily reference intake for the NUTRIENT for adult women of the stated age group (RDA, or AI where noted). They are not a recommended portion of the food and not an individual target. Vitamin K is shown as an amount only.",
-  "_reviewLabel": "Nutrition data verified against USDA and NIH sources; editorial review pending; not clinically reviewed.",
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
   "profiles": {
     "spinach": {
       "catalogueId": "spinach",

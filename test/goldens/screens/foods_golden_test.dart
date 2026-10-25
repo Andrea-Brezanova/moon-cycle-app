@@ -19,7 +19,7 @@ import 'package:moon_cycle/features/foods/presentation/learn_more_page.dart';
 import 'package:moon_cycle/features/foods/presentation/meal_builder_page.dart';
 import 'package:moon_cycle/features/shopping/application/shopping_summary.dart';
 
-import '../../features/foods/food_profile_test.dart' show loadProfiles;
+import '../../features/foods/food_profile_test.dart' show bundledProfiles;
 import '../../helpers/golden_screen.dart';
 import '../../helpers/moon_fonts.dart';
 import 'home_golden_test.dart' show stateOnDay;
@@ -202,9 +202,16 @@ void main() {
 
   // Preview of a completed profile inside the existing Food Detail design
   // (review only: no profile is bundled or published).
-  for (final (id, name) in [('spinach', 'spinach'), ('broccoli', 'broccoli')]) {
+  // The five bundled profiles inside the existing Food Detail design.
+  for (final id in const [
+    'spinach',
+    'green-lentil',
+    'pumpkin-seeds',
+    'broccoli',
+    'orange',
+  ]) {
     for (final MapEntry(key: theme, value: dark) in themes.entries) {
-      testWidgets('food detail with a profile, $name, $theme', (tester) async {
+      testWidgets('food detail with a profile, $id, $theme', (tester) async {
         await pumpScreen(
           tester,
           FoodDetailPage(foodId: id, phase: Phase.menstrual),
@@ -212,13 +219,12 @@ void main() {
           height: 2900,
           overrides: [
             ...base(),
-            foodProfileProvider(id)
-                .overrideWithValue(loadProfiles(publishable: true)[id]),
+            foodProfilesProvider.overrideWithValue(bundledProfiles()),
           ],
         );
         await expectLater(
           find.byType(FoodDetailPage),
-          matchesGoldenFile('goldens/$theme-food-detail-profile-$name.png'),
+          matchesGoldenFile('goldens/$theme-food-detail-profile-$id.png'),
         );
       });
     }

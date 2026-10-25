@@ -1,6 +1,8 @@
 """Builds reference-profiles.json from the verified USDA and NIH ODS values below.
 
 Run from the repo root: python3 docs/food-profiles/build_reference_profiles.py
+It writes the review copy (docs/food-profiles/reference-profiles.json, not publishable)
+and the app bundle (assets/content/food_profiles.json, the five reviewed profiles).
 Every number is either copied from the USDA FoodData Central record named in the
 entry (per 100 g, read on fdc.nal.usda.gov on 2026-10-25) or computed from it for
 the stated portion. Reference intakes are NIH ODS values (same date).
@@ -102,7 +104,7 @@ out = {
         'niddk': 'NIDDK, Eating, Diet & Nutrition for Kidney Stones, https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition, read 2026-10-25',
     },
     '_referenceNote': 'Percentages compare ONE serving with the daily reference intake for the NUTRIENT for adult women of the stated age group (RDA, or AI where noted). They are not a recommended portion of the food and not an individual target. Vitamin K is shown as an amount only.',
-    '_reviewLabel': 'Nutrition data verified against USDA and NIH sources; editorial review pending; not clinically reviewed.',
+    '_reviewLabel': 'Nutrition values checked against USDA and NIH sources; not clinically reviewed.',
     'profiles': {},
 }
 for fid, f in FOODS.items():
@@ -131,3 +133,19 @@ for fid, f in FOODS.items():
 json.dump(out, open('docs/food-profiles/reference-profiles.json', 'w'), indent=2, ensure_ascii=False)
 for fid, p in out['profiles'].items():
     print(fid, p['perServing']['energyKcal'], [(k['name'], k['amount'], [r['percent'] for r in k.get('reference', [])]) for k in p['perServing']['keyNutrients']])
+
+# The app bundle: the same five reviewed profiles, marked publishable.
+import copy
+bundle = {
+    'version': 1,
+    'reviewLabel': out['_reviewLabel'],
+    'referenceNote': out['_referenceNote'],
+    'sources': out['_sources'],
+    'profiles': {},
+}
+for fid, pr in out['profiles'].items():
+    b = copy.deepcopy(pr)
+    b['review']['editorial'] = 'wording and preparations approved by the owner (five reference profiles)'
+    b['review']['publishable'] = True
+    bundle['profiles'][fid] = b
+json.dump(bundle, open('assets/content/food_profiles.json', 'w'), indent=2, ensure_ascii=False)

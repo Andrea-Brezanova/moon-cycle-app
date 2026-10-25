@@ -27,6 +27,12 @@ Map<String, FoodProfile> loadProfiles({bool? publishable}) {
   };
 }
 
+/// The profiles bundled with the app, as the app loads them.
+Map<String, FoodProfile> bundledProfiles() => parseFoodProfiles(
+  jsonDecode(File('assets/content/food_profiles.json').readAsStringSync())
+      as Map<String, Object?>,
+);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 

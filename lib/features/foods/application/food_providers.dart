@@ -444,9 +444,14 @@ bool isMealPlant(Food food) =>
     !_preparedIds.contains(food.id) &&
     mealSlotFor(food) == MealSlot.plant;
 
-/// The standard profile for a food, or null. No profile is bundled yet: content
-/// arrives in reviewed batches, and only a profile marked publishable is ever
-/// shown. Tests and previews override this.
+/// Every reviewed food profile, by food id. Set in `main()` from the bundled
+/// `food_profiles.json`; empty by default (tests, previews).
+final foodProfilesProvider = Provider<Map<String, FoodProfile>>(
+  (ref) => const {},
+);
+
+/// The standard profile for a food, or null. Only a profile marked
+/// publishable is ever shown. Tests and previews may override it.
 final foodProfileProvider = Provider.family<FoodProfile?, String>(
-  (ref, id) => null,
+  (ref, id) => ref.watch(foodProfilesProvider)[id],
 );
