@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/design/moon_theme.dart';
+import '../../../core/design/tokens/hero_tokens.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/pressable.dart';
@@ -312,7 +313,11 @@ class _CollectionLinkPageState extends ConsumerState<CollectionLinkPage> {
                               vertical: 12,
                             ),
                             decoration: BoxDecoration(
-                              color: c.sand,
+                              color:
+                                  Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? HeroTokens.darkSolid
+                                  : HeroTokens.lightWash[Phase.follicular],
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Row(
