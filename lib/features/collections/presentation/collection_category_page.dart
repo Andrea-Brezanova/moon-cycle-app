@@ -12,26 +12,48 @@ import '../../../core/domain/phase.dart';
 import '../application/collections_providers.dart';
 import '../data/collection_link_repository.dart';
 import '../domain/collection_link.dart';
-import 'widgets/link_card.dart';
+import 'widgets/collection_chips.dart';
+import 'widgets/link_row.dart';
 
-/// My Workouts or My Spa: the links saved here. Moon Cycle's own workouts
-/// and sounds will join them when that content exists; until then this says so
-/// plainly and offers no button that does nothing.
-class CollectionCategoryPage extends ConsumerWidget {
+/// My Workouts or My Spa: the links saved here, filtered by where they are
+/// from. Moon Cycle's own workouts and sounds will join them when that content
+/// exists; until then an empty page says so plainly and offers no button that
+/// does nothing.
+class CollectionCategoryPage extends ConsumerStatefulWidget {
   const CollectionCategoryPage({super.key, required this.category});
 
   final CollectionCategory category;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CollectionCategoryPage> createState() =>
+      _CollectionCategoryPageState();
+}
+
+class _CollectionCategoryPageState
+    extends ConsumerState<CollectionCategoryPage> {
+  /// The chosen source; null is "All".
+  LinkPlatform? _source;
+
+  @override
+  Widget build(BuildContext context) {
     final c = context.moon;
-    final workouts = category == CollectionCategory.workouts;
+    final workouts = widget.category == CollectionCategory.workouts;
     final linkCategory = workouts ? LinkCategory.workouts : LinkCategory.sounds;
-    final links = [
+    final all = <CollectionLink>[
       for (final l
           in ref.watch(collectionLinksProvider).value ??
               const <CollectionLink>[])
         if (l.category == linkCategory) l,
+    ];
+    // One chip per source that has something, in a steady order.
+    final sources = <LinkPlatform>[
+      for (final p in LinkPlatform.values)
+        if (all.any((l) => l.platform == p)) p,
+    ];
+    final source = sources.contains(_source) ? _source : null;
+    final links = <CollectionLink>[
+      for (final l in all)
+        if (source == null || l.platform == source) l,
     ];
     Widget gutter(Widget child, {double top = 0}) => Padding(
       padding: EdgeInsets.fromLTRB(MoonSpace.gutter, top, MoonSpace.gutter, 0),
@@ -49,7 +71,7 @@ class CollectionCategoryPage extends ConsumerWidget {
                   ? context.pop()
                   : context.go(Routes.collections),
               trailingIcon: MoonIconName.plus,
-              trailingLabel: 'Add a link',
+              trailingLabel: workouts ? 'Add a workout' : 'Add to My Spa',
               trailingKey: const ValueKey('add-link-plus'),
               onTrailing: () => context.push(
                 Routes.collectionLinkNew(category: linkCategory.name),
@@ -57,8 +79,25 @@ class CollectionCategoryPage extends ConsumerWidget {
             ),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.only(bottom: 42 + 76),
+                padding: const EdgeInsets.only(bottom: 40),
                 children: [
+                  if (sources.length > 1)
+                    gutter(
+                      CollectionChips(
+                        options: [
+                          ('All', all.length),
+                          for (final p in sources)
+                            (p.label, all.where((l) => l.platform == p).length),
+                        ],
+                        selected: source == null
+                            ? 0
+                            : sources.indexOf(source) + 1,
+                        onSelected: (i) => setState(
+                          () => _source = i == 0 ? null : sources[i - 1],
+                        ),
+                      ),
+                      top: 14,
+                    ),
                   if (links.isEmpty)
                     gutter(
                       EmptyState(
@@ -70,11 +109,10 @@ class CollectionCategoryPage extends ConsumerWidget {
                             ? 'Save a link to a workout you like with the plus, '
                                   'and it will be kept here, privately on this '
                                   'phone.'
-                            : 'Save a link to a meditation, breathing '
-                                  'session, sleep story, relaxing sound or '
-                                  'self-care ritual you like with the plus, and '
-                                  'it will be kept here, privately on this '
-                                  'phone.',
+                            : 'Save a link to a meditation, breathing session, '
+                                  'sleep story, relaxing sound or self-care '
+                                  'ritual you like with the plus, and it will '
+                                  'be kept here, privately on this phone.',
                         palette: c.phase(
                           workouts ? Phase.luteal : Phase.ovulatory,
                         ),
@@ -82,8 +120,7 @@ class CollectionCategoryPage extends ConsumerWidget {
                       top: 24,
                     )
                   else
-                    for (final l in links)
-                      gutter(CollectionLinkCard(link: l), top: 12),
+                    gutter(CollectionLinkGroup(links: links), top: 18),
                 ],
               ),
             ),
