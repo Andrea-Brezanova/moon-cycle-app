@@ -482,19 +482,21 @@ class _CategoryPill extends StatelessWidget {
           child: Container(
             height: 38,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            alignment: Alignment.center,
             decoration: BoxDecoration(
               color: selected ? c.inverseBg : c.raised,
               border: selected ? null : Border.all(color: c.line),
               borderRadius: BorderRadius.circular(999),
             ),
-            child: Text(
-              label,
-              style: dmSans(
-                14,
-                weight: selected ? FontWeight.w600 : FontWeight.w500,
-                height: 1.2,
-                color: selected ? c.inverseText : c.text,
+            child: Center(
+              widthFactor: 1,
+              child: Text(
+                label,
+                style: dmSans(
+                  14,
+                  weight: selected ? FontWeight.w600 : FontWeight.w500,
+                  height: 1.2,
+                  color: selected ? c.inverseText : c.text,
+                ),
               ),
             ),
           ),

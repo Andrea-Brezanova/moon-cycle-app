@@ -43,19 +43,21 @@ class CollectionChips extends StatelessWidget {
                     child: Container(
                       constraints: const BoxConstraints(minHeight: 38),
                       padding: const EdgeInsets.symmetric(horizontal: 14),
-                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: active ? c.inverseBg : c.raised,
                         border: active ? null : Border.all(color: c.line),
                         borderRadius: BorderRadius.circular(999),
                       ),
-                      child: Text(
-                        '$label $count',
-                        style: dmSans(
-                          14,
-                          weight: active ? FontWeight.w600 : FontWeight.w500,
-                          height: 1.2,
-                          color: active ? c.inverseText : c.text,
+                      child: Center(
+                        widthFactor: 1,
+                        child: Text(
+                          '$label $count',
+                          style: dmSans(
+                            14,
+                            weight: active ? FontWeight.w600 : FontWeight.w500,
+                            height: 1.2,
+                            color: active ? c.inverseText : c.text,
+                          ),
                         ),
                       ),
                     ),
