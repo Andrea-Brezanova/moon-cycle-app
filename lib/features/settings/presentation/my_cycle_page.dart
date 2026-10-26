@@ -33,7 +33,7 @@ class MyCyclePage extends ConsumerWidget {
         useAverages && used > 0 ? 'Average of your last $used $what' : null;
 
     return SettingsSubScaffold(
-      backLabel: 'Personalization',
+      backLabel: 'My App',
       title: 'My Cycle',
       top: 22,
       gap: 34,

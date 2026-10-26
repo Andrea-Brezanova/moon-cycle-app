@@ -19,9 +19,9 @@ import 'package:moon_cycle/features/settings/presentation/allergies_page.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/food_preferences_page.dart';
 import 'package:moon_cycle/features/settings/presentation/help_page.dart';
+import 'package:moon_cycle/features/settings/presentation/my_app_page.dart';
 import 'package:moon_cycle/features/settings/presentation/my_cycle_page.dart';
 import 'package:moon_cycle/features/settings/presentation/notifications_page.dart';
-import 'package:moon_cycle/features/settings/presentation/personalization_page.dart';
 import 'package:moon_cycle/features/settings/presentation/privacy_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/settings_home_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
@@ -73,8 +73,8 @@ void main() {
   setUpAll(loadMoonFonts);
 
   final screens = <String, (Widget, double)>{
-    'settings': (const SettingsHomePage(), 1300),
-    'personalization': (const PersonalizationPage(), 600),
+    'settings': (const SettingsHomePage(), 900),
+    'my-app': (const MyAppPage(), 1100),
     'my-cycle': (const MyCyclePage(), 1100),
     'food-preferences': (const FoodPreferencesSettingsPage(), 844),
     'allergies': (const AllergiesPage(), 844),
