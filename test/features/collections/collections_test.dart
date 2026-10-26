@@ -6,6 +6,7 @@ import 'package:moon_cycle/features/collections/data/collection_link_repository.
 import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/collections/presentation/collection_category_page.dart';
 import 'package:moon_cycle/features/collections/presentation/collections_page.dart';
+import 'package:moon_cycle/features/collections/presentation/my_routines_page.dart';
 import 'package:moon_cycle/features/generation/data/saved_recipe_repository.dart';
 import 'package:moon_cycle/features/generation/presentation/my_recipes_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
@@ -55,36 +56,76 @@ void main() {
     }
   });
 
-  testWidgets('the landing page: three categories, recently saved, links to '
-      'the existing My recipes', (tester) async {
-    await pumpMe(tester);
-    await tester.tap(find.byKey(const ValueKey('me-collections')));
-    await tester.pumpAndSettle();
-    expect(find.byType(CollectionsPage), findsOneWidget);
-    for (final t in ['My Recipes', 'My Workouts', 'My Spa']) {
-      expect(find.text(t), findsOneWidget, reason: t);
-    }
-    expect(find.text('My Sounds'), findsNothing); // renamed
-    expect(find.text('Saved Links'), findsNothing); // links are not a category
-    expect(find.text('Things you love, save or want to try.'), findsOneWidget);
-    expect(find.text('Search your collections'), findsOneWidget);
-    expect(find.text('Nothing saved yet'), findsWidgets);
-
-    await tester.tap(find.byKey(const ValueKey('collection-recipes')));
-    await tester.pumpAndSettle();
-    expect(find.byType(MyRecipesPage), findsOneWidget); // the existing screen
-    await tester.tap(find.bySemanticsLabel('Back').first);
-    await tester.pumpAndSettle();
-
-    for (final key in ['collection-workouts', 'collection-spa']) {
-      await tester.tap(find.byKey(ValueKey(key)));
+  testWidgets(
+    'the landing page: four equal square tiles, recently saved, links to '
+    'the existing My recipes',
+    (tester) async {
+      await pumpMe(tester);
+      await tester.tap(find.byKey(const ValueKey('me-collections')));
       await tester.pumpAndSettle();
-      expect(find.byType(CollectionCategoryPage), findsOneWidget, reason: key);
-      expect(find.textContaining('Save a link'), findsOneWidget);
+      expect(find.byType(CollectionsPage), findsOneWidget);
+      for (final t in ['My Recipes', 'My Workouts', 'My Spa', 'My Routines']) {
+        expect(find.text(t), findsOneWidget, reason: t);
+      }
+      expect(find.text('My Sounds'), findsNothing); // renamed
+      expect(
+        find.text('Saved Links'),
+        findsNothing,
+      ); // links are not a category
+      expect(
+        find.text('Things you love, save or want to try.'),
+        findsOneWidget,
+      );
+      expect(find.text('Search your collections'), findsOneWidget);
+      expect(find.text('Nothing saved yet'), findsWidgets);
+      // Four tiles, all the same square size, two per row.
+      final sizes = [
+        for (final k in [
+          'collection-recipes',
+          'collection-workouts',
+          'collection-spa',
+          'collection-routines',
+        ])
+          tester.getSize(find.byKey(ValueKey(k))),
+      ];
+      for (final z in sizes) {
+        expect(z.width, closeTo(z.height, 0.5));
+        expect(z.width, closeTo(sizes.first.width, 0.5));
+      }
+      expect(
+        tester.getTopLeft(find.byKey(const ValueKey('collection-spa'))).dy,
+        greaterThan(
+          tester
+              .getTopLeft(find.byKey(const ValueKey('collection-workouts')))
+              .dy,
+        ),
+      );
+
+      await tester.tap(find.byKey(const ValueKey('collection-recipes')));
+      await tester.pumpAndSettle();
+      expect(find.byType(MyRecipesPage), findsOneWidget); // the existing screen
       await tester.tap(find.bySemanticsLabel('Back').first);
       await tester.pumpAndSettle();
-    }
-  });
+
+      for (final key in ['collection-workouts', 'collection-spa']) {
+        await tester.tap(find.byKey(ValueKey(key)));
+        await tester.pumpAndSettle();
+        expect(
+          find.byType(CollectionCategoryPage),
+          findsOneWidget,
+          reason: key,
+        );
+        expect(find.textContaining('Save a link'), findsOneWidget);
+        await tester.tap(find.bySemanticsLabel('Back').first);
+        await tester.pumpAndSettle();
+      }
+
+      await tester.tap(find.byKey(const ValueKey('collection-routines')));
+      await tester.pumpAndSettle();
+      expect(find.byType(MyRoutinesPage), findsOneWidget);
+      expect(find.text('Routines are not available yet'), findsOneWidget);
+    },
+  );
 
   testWidgets('a hearted recipe appears under recently saved and counts once, '
       'with no second copy', (tester) async {
