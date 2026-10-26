@@ -75,18 +75,11 @@ void main() {
         await prefs.avoidAllergen('shellfish');
       },
     );
-    // Me: the four rows.
-    for (final t in [
-      'My Diary',
-      'Shopping list',
-      'Settings',
-      'Account & Plus',
-    ]) {
-      await tester.ensureVisible(find.text(t));
-      expect(find.text(t), findsOneWidget, reason: t);
-    }
-    // Settings: what each setting is set to.
-    await tester.tap(find.byKey(const ValueKey('me-settings')));
+    // Personalization: what each setting is set to.
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('me-personalization')),
+    );
+    await tester.tap(find.byKey(const ValueKey('me-personalization')));
     await tester.pumpAndSettle();
     expect(
       find.text('28-day cycle · 5-day period · Next period 26 Oct'),
@@ -94,13 +87,10 @@ void main() {
     );
     expect(find.text('Omnivore'), findsOneWidget);
     expect(find.text('Peanuts, shellfish'), findsOneWidget);
-    expect(find.text('Off'), findsOneWidget); // reminders start off
     await tester.tap(find.bySemanticsLabel('Back to Me'));
     await tester.pumpAndSettle();
-    // Account & Plus.
-    await tester.ensureVisible(find.byKey(const ValueKey('me-account')));
-    await tester.tap(find.byKey(const ValueKey('me-account')));
-    await tester.pumpAndSettle();
+    // Subscription is on Me itself.
+    await tester.ensureVisible(find.byKey(const ValueKey('me-subscription')));
     expect(find.text('Free at launch'), findsOneWidget);
     expect(find.text('Sign in'), findsNothing); // no accounts in v1
   });

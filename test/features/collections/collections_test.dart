@@ -43,14 +43,14 @@ void main() {
     await pumpMe(tester);
     expect(find.text('Me'), findsWidgets);
     expect(find.text('More'), findsNothing);
-    final card = find.byKey(const ValueKey('my-collections-card'));
+    final card = find.byKey(const ValueKey('me-collections'));
     expect(card, findsOneWidget);
     // First section, above My Diary; the rest stays.
     expect(
       tester.getTopLeft(card).dy,
       lessThan(tester.getTopLeft(find.text('My Diary')).dy),
     );
-    for (final t in ['My Diary', 'Shopping list']) {
+    for (final t in ['My Diary', 'Shopping List']) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
   });
@@ -58,7 +58,7 @@ void main() {
   testWidgets('the landing page: three categories, recently saved, links to '
       'the existing My recipes', (tester) async {
     await pumpMe(tester);
-    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+    await tester.tap(find.byKey(const ValueKey('me-collections')));
     await tester.pumpAndSettle();
     expect(find.byType(CollectionsPage), findsOneWidget);
     for (final t in ['My Recipes', 'My Workouts', 'My Spa']) {
@@ -94,7 +94,7 @@ void main() {
       () => repo.save(providerId: 'moon-cycle', refId: 'x', title: frittata),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+    await tester.tap(find.byKey(const ValueKey('me-collections')));
     await tester.pumpAndSettle();
     expect(find.text(frittata), findsOneWidget);
     expect(find.text('Recipe'), findsOneWidget); // the badge
@@ -127,7 +127,7 @@ void main() {
     await tester.pumpAndSettle();
     await done;
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+    await tester.tap(find.byKey(const ValueKey('me-collections')));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(EditableText), 'slow flow');
     await tester.pumpAndSettle();
@@ -143,18 +143,18 @@ void main() {
     expect(find.text('Tea ritual'), findsOneWidget);
   });
 
-  testWidgets('the Me card shows the live count, not a fixed one', (
+  testWidgets('the Me row shows the live count, not a fixed one', (
     tester,
   ) async {
     final c = await pumpMe(tester);
-    expect(find.text('Start your collection'), findsOneWidget);
-    await tester.runAsync(
-      () => c
-          .read(savedRecipeRepositoryProvider)
-          .save(providerId: 'moon-cycle', refId: 'x', title: frittata),
-    );
+    expect(find.text('Recipes, workouts and spa'), findsOneWidget);
+    final done = c
+        .read(savedRecipeRepositoryProvider)
+        .save(providerId: 'moon-cycle', refId: 'x', title: frittata);
     await tester.pumpAndSettle();
-    expect(find.text('1 thing you love'), findsOneWidget);
+    await done;
+    await tester.pumpAndSettle();
+    expect(find.text('1 saved'), findsOneWidget);
   });
 
   for (final (width, scale) in [(320.0, 1.5), (390.0, 2.0)]) {
@@ -163,7 +163,7 @@ void main() {
     ) async {
       await pumpMe(tester, width: width, scale: scale);
       expect(tester.takeException(), isNull);
-      await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+      await tester.tap(find.byKey(const ValueKey('me-collections')));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       expect(find.byType(CollectionsPage), findsOneWidget);

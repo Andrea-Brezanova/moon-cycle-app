@@ -46,7 +46,6 @@ import '../../features/placeholders/presentation/coming_soon_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/settings/presentation/about_page.dart';
-import '../../features/settings/presentation/account_plus_page.dart';
 import '../../features/settings/presentation/allergies_page.dart';
 import '../../features/settings/presentation/appearance_page.dart';
 import '../../features/settings/presentation/delete_data_page.dart';
@@ -54,9 +53,9 @@ import '../../features/settings/presentation/food_preferences_page.dart';
 import '../../features/settings/presentation/help_page.dart';
 import '../../features/settings/presentation/my_cycle_page.dart';
 import '../../features/settings/presentation/notifications_page.dart';
+import '../../features/settings/presentation/personalization_page.dart';
 import '../../features/settings/presentation/privacy_data_page.dart';
 import '../../features/settings/presentation/settings_home_page.dart';
-import '../../features/settings/presentation/settings_hub_page.dart';
 import '../../features/settings/presentation/subscription_page.dart';
 import '../../features/shopping/presentation/shop_page.dart';
 import '../shell/main_shell.dart';
@@ -412,21 +411,9 @@ GoRouter buildAppRouter({
                             _page(state, const CreditsPage()),
                       ),
                       GoRoute(
-                        path: 'settings',
+                        path: 'about',
                         pageBuilder: (context, state) =>
-                            _page(state, const SettingsHubPage()),
-                        routes: [
-                          GoRoute(
-                            path: 'about',
-                            pageBuilder: (context, state) =>
-                                _page(state, const AboutPage()),
-                          ),
-                        ],
-                      ),
-                      GoRoute(
-                        path: 'account',
-                        pageBuilder: (context, state) =>
-                            _page(state, const AccountPlusPage()),
+                            _page(state, const AboutPage()),
                       ),
                       for (final page in SettingsPage.values)
                         GoRoute(
@@ -437,6 +424,8 @@ GoRouter buildAppRouter({
                           pageBuilder: (context, state) => _page(
                             state,
                             switch (page) {
+                              SettingsPage.personalization =>
+                                const PersonalizationPage(),
                               SettingsPage.myCycle => const MyCyclePage(),
                               SettingsPage.foodPreferences =>
                                 const FoodPreferencesSettingsPage(),

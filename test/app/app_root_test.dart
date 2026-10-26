@@ -76,15 +76,17 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('Delete my data'),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.drag(find.byType(ListView).first, const Offset(0, -200));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Delete my data'));
-    await tester.pumpAndSettle();
+    for (final key in ['me-privacy', 'privacy-delete-data']) {
+      await tester.scrollUntilVisible(
+        find.byKey(ValueKey(key)),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(find.byKey(ValueKey(key)));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(ValueKey(key)));
+      await tester.pumpAndSettle();
+    }
     expect(find.byType(DeleteDataPage), findsOneWidget);
 
     await tester.tap(find.text('Delete my data'));

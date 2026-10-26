@@ -11,17 +11,17 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/brand.dart';
+import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/design/widgets/text_link.dart';
-import '../../../core/domain/phase.dart';
-import '../../collections/presentation/collections_card.dart';
+import '../../collections/application/collections_providers.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../reminders/application/reminder_providers.dart';
 import '../../shopping/application/shopping_summary.dart';
 
-/// The Settings tab, v1 local-only variant (`25-settings-v1-local`): no
-/// Account row; "Delete my data" removes everything on the phone.
+/// The Me tab: four sections (Your space, Your app, Your account, Support),
+/// each a compact group of rows.
 class SettingsHomePage extends ConsumerWidget {
   const SettingsHomePage({super.key});
 
@@ -29,6 +29,7 @@ class SettingsHomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
+    final collections = ref.watch(collectionSummaryProvider).total;
     void open(SettingsPage page) => context.push(Routes.settings(page));
 
     final sections = <Widget>[
@@ -46,77 +47,100 @@ class SettingsHomePage extends ConsumerWidget {
           ),
         ],
       ),
-      const CollectionsCard(),
-      _MeRows(
+      _MeSection(
+        title: 'Your space',
         rows: [
+          _MeRow(
+            key: const ValueKey('me-collections'),
+            label: 'My Collections',
+            subtitle: collections == 0
+                ? 'Recipes, workouts and spa'
+                : '$collections saved',
+            icon: MoonIconName.bookmark,
+            onTap: () => context.push(Routes.collections),
+          ),
           _MeRow(
             key: const ValueKey('me-diary'),
             label: 'My Diary',
             subtitle: 'What you ate, did and felt',
             icon: MoonIconName.document,
-            tint: c.phase(Phase.follicular).tint,
             onTap: () => context.push(Routes.diary),
           ),
           _MeRow(
             key: const ValueKey('me-shopping'),
-            label: 'Shopping list',
+            label: 'Shopping List',
             subtitle: toBuy == 0 ? 'Nothing to buy' : '$toBuy to buy',
             icon: MoonIconName.shop,
-            tint: c.phase(Phase.ovulatory).tint,
             onTap: () => context.push(Routes.shopping),
-          ),
-          _MeRow(
-            key: const ValueKey('me-settings'),
-            label: 'Settings',
-            subtitle: 'Cycle, food preferences, notifications',
-            icon: MoonIconName.settings,
-            tint: c.phase(Phase.luteal).tint,
-            onTap: () => context.push(Routes.meSettings),
-          ),
-          _MeRow(
-            key: const ValueKey('me-account'),
-            label: 'Account & Plus',
-            subtitle: 'Subscription, privacy and data',
-            icon: MoonIconName.account,
-            tint: c.phase(Phase.menstrual).tint,
-            onTap: () => context.push(Routes.meAccount),
           ),
         ],
       ),
-      Padding(
-        padding: const EdgeInsets.only(top: 6),
-        child: Column(
-          children: [
-            Pressable(
-              onTap: () => open(SettingsPage.deleteData),
-              semanticLabel: 'Delete my data',
-              child: Container(
-                height: 48,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                alignment: Alignment.center,
-                child: Text(
-                  'Delete my data',
-                  style: dmSans(
-                    16,
-                    weight: FontWeight.w600,
-                    height: 1,
-                    color: c.destructive,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 6),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 300),
-              child: Text(
-                'Permanently removes your cycle history, preferences and '
-                'list from this phone.',
-                textAlign: TextAlign.center,
-                style: dmSans(13, height: 1.4, color: c.textMuted),
-              ),
-            ),
-          ],
-        ),
+      _MeSection(
+        title: 'Your app',
+        rows: [
+          _MeRow(
+            key: const ValueKey('me-personalization'),
+            label: 'Personalization',
+            subtitle: 'My Cycle, food preferences, allergies',
+            icon: MoonIconName.cycle,
+            onTap: () => open(SettingsPage.personalization),
+          ),
+          _MeRow(
+            key: const ValueKey('me-appearance'),
+            label: 'Appearance',
+            icon: MoonIconName.settings,
+            onTap: () => open(SettingsPage.appearance),
+          ),
+          _MeRow(
+            key: const ValueKey('me-notifications'),
+            label: 'Notifications',
+            icon: MoonIconName.bell,
+            onTap: () => open(SettingsPage.notifications),
+          ),
+        ],
+      ),
+      _MeSection(
+        title: 'Your account',
+        rows: [
+          _MeRow(
+            key: const ValueKey('me-subscription'),
+            label: 'Subscription',
+            subtitle: 'Free at launch',
+            icon: MoonIconName.card,
+            onTap: () => open(SettingsPage.subscription),
+          ),
+          _MeRow(
+            key: const ValueKey('me-privacy'),
+            label: 'Privacy & Data',
+            subtitle: 'Export or delete your data',
+            icon: MoonIconName.lock,
+            onTap: () => open(SettingsPage.privacy),
+          ),
+        ],
+      ),
+      _MeSection(
+        title: 'Support',
+        rows: [
+          _MeRow(
+            key: const ValueKey('me-help'),
+            label: 'Help',
+            icon: MoonIconName.help,
+            onTap: () => open(SettingsPage.help),
+          ),
+          _MeRow(
+            key: const ValueKey('me-credits'),
+            label: 'Credits & Sources',
+            icon: MoonIconName.book,
+            onTap: () => context.push(Routes.credits),
+          ),
+          _MeRow(
+            key: const ValueKey('me-about'),
+            label: 'About',
+            subtitle: 'Version and build',
+            icon: MoonIconName.compass,
+            onTap: () => context.push(Routes.meAbout),
+          ),
+        ],
       ),
       _Footer(
         version: ref.watch(appVersionProvider),
@@ -187,7 +211,7 @@ class SettingsHomePage extends ConsumerWidget {
           ),
           children: [
             for (final (i, s) in sections.indexed) ...[
-              if (i > 0) const SizedBox(height: 34),
+              if (i > 0) SizedBox(height: i < 5 ? 24 : 34),
               s,
             ],
           ],
@@ -237,31 +261,44 @@ class _Footer extends StatelessWidget {
   }
 }
 
-/// The four rows under My Collections, in one rounded card with hairlines
-/// between them.
-class _MeRows extends StatelessWidget {
-  const _MeRows({required this.rows});
+/// A restrained overline heading and one rounded card of compact rows with
+/// hairlines between them.
+class _MeSection extends StatelessWidget {
+  const _MeSection({required this.title, required this.rows});
 
+  final String title;
   final List<_MeRow> rows;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14),
-      decoration: BoxDecoration(
-        color: c.raised,
-        border: Border.all(color: c.line),
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Column(
-        children: [
-          for (final (i, r) in rows.indexed) ...[
-            if (i > 0) Divider(height: 1, color: c.line),
-            r,
-          ],
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          header: true,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 4, bottom: 8),
+            child: Overline(title),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          decoration: BoxDecoration(
+            color: c.raised,
+            border: Border.all(color: c.line),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            children: [
+              for (final (i, r) in rows.indexed) ...[
+                if (i > 0) Divider(height: 1, color: c.line),
+                r,
+              ],
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -270,16 +307,14 @@ class _MeRow extends StatelessWidget {
   const _MeRow({
     super.key,
     required this.label,
-    required this.subtitle,
+    this.subtitle,
     required this.icon,
-    required this.tint,
     required this.onTap,
   });
 
   final String label;
-  final String subtitle;
+  final String? subtitle;
   final MoonIconName icon;
-  final Color tint;
   final VoidCallback onTap;
 
   @override
@@ -287,21 +322,25 @@ class _MeRow extends StatelessWidget {
     final c = context.moon;
     return Pressable(
       onTap: onTap,
-      semanticLabel: '$label. $subtitle',
+      semanticLabel: subtitle == null ? label : '$label. $subtitle',
       child: Container(
-        constraints: const BoxConstraints(minHeight: 68),
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        constraints: const BoxConstraints(minHeight: 56),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: ExcludeSemantics(
           child: Row(
             children: [
               Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(color: tint, shape: BoxShape.circle),
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: c.bg,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: c.line),
+                ),
                 child: Center(
                   child: MoonIcon(
                     icon,
-                    size: 20,
+                    size: 18,
                     color: c.text,
                     strokeWidth: 1.7,
                   ),
@@ -314,13 +353,15 @@ class _MeRow extends StatelessWidget {
                   children: [
                     Text(
                       label,
-                      style: fraunces(17.5, height: 1.15, color: c.text),
+                      style: fraunces(17, height: 1.15, color: c.text),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      subtitle,
-                      style: dmSans(12.5, height: 1.3, color: c.textMuted),
-                    ),
+                    if (subtitle != null) ...[
+                      const SizedBox(height: 3),
+                      Text(
+                        subtitle!,
+                        style: dmSans(12.5, height: 1.3, color: c.textMuted),
+                      ),
+                    ],
                   ],
                 ),
               ),

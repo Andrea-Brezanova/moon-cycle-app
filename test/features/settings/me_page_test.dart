@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/collections/presentation/collections_page.dart';
+import 'package:moon_cycle/features/credits/presentation/credits_page.dart';
 import 'package:moon_cycle/features/diary/presentation/diary_hub_page.dart';
-import 'package:moon_cycle/features/settings/presentation/account_plus_page.dart';
+import 'package:moon_cycle/features/settings/presentation/about_page.dart';
+import 'package:moon_cycle/features/settings/presentation/allergies_page.dart';
+import 'package:moon_cycle/features/settings/presentation/appearance_page.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
-import 'package:moon_cycle/features/settings/presentation/settings_hub_page.dart';
+import 'package:moon_cycle/features/settings/presentation/food_preferences_page.dart';
+import 'package:moon_cycle/features/settings/presentation/help_page.dart';
+import 'package:moon_cycle/features/settings/presentation/my_cycle_page.dart';
+import 'package:moon_cycle/features/settings/presentation/notifications_page.dart';
+import 'package:moon_cycle/features/settings/presentation/personalization_page.dart';
+import 'package:moon_cycle/features/settings/presentation/privacy_data_page.dart';
+import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../helpers/golden_screen.dart';
@@ -34,83 +43,131 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('Me shows My Collections on top, then the four rows in order, '
-      'with Delete my data kept below', (tester) async {
+  const sections = {
+    'YOUR SPACE': ['me-collections', 'me-diary', 'me-shopping'],
+    'YOUR APP': ['me-personalization', 'me-appearance', 'me-notifications'],
+    'YOUR ACCOUNT': ['me-subscription', 'me-privacy'],
+    'SUPPORT': ['me-help', 'me-credits', 'me-about'],
+  };
+
+  testWidgets('Me has exactly four sections with their rows in order', (
+    tester,
+  ) async {
     await pumpMe(tester);
     double top(Finder f) => tester.getTopLeft(f).dy;
-    final order = [
-      find.byKey(const ValueKey('my-collections-card')),
-      find.byKey(const ValueKey('me-diary')),
-      find.byKey(const ValueKey('me-shopping')),
-      find.byKey(const ValueKey('me-settings')),
-      find.byKey(const ValueKey('me-account')),
-    ];
-    for (final f in order) {
+    final ordered = <Finder>[];
+    for (final MapEntry(key: title, value: keys) in sections.entries) {
+      ordered.add(find.text(title));
+      for (final k in keys) {
+        ordered.add(find.byKey(ValueKey(k)));
+      }
+    }
+    for (final f in ordered) {
+      await tester.ensureVisible(f);
       expect(f, findsOneWidget);
     }
-    for (var i = 0; i < order.length - 1; i++) {
-      expect(top(order[i]), lessThan(top(order[i + 1])));
+    await tester.pumpAndSettle();
+    // Top to bottom in the order of the list: sample a scroll offset-free
+    // check through the list's own children.
+    final tops = <double>[];
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    scrollable.position.jumpTo(0);
+    await tester.pumpAndSettle();
+    for (final f in ordered) {
+      scrollable.position.jumpTo(0);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(f);
+      await tester.pumpAndSettle();
+      tops.add(top(f) + scrollable.position.pixels);
     }
-    expect(find.text('What you ate, did and felt'), findsOneWidget);
-    expect(find.text('Nothing to buy'), findsOneWidget);
-    expect(find.text('Cycle, food preferences, notifications'), findsOneWidget);
-    expect(find.text('Subscription, privacy and data'), findsOneWidget);
-    expect(find.text('Delete my data'), findsOneWidget);
-    // The old groups moved into the two hubs.
-    for (final t in ['PERSONALISATION', 'APP', 'SUPPORT', 'ACCOUNT']) {
+    for (var i = 0; i < tops.length - 1; i++) {
+      expect(tops[i], lessThan(tops[i + 1]), reason: 'row $i');
+    }
+    // My Cycle and the old hubs are not on Me.
+    for (final t in [
+      'My Cycle',
+      'Settings',
+      'Account & Plus',
+      'Delete my data',
+    ]) {
       expect(find.text(t), findsNothing, reason: t);
     }
   });
 
-  testWidgets('each row opens its page; Settings and Account & Plus hold the '
-      'rows that used to sit on Me', (tester) async {
+  Future<void> back(WidgetTester tester) async {
+    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> openRow(WidgetTester tester, String key) async {
+    final f = find.byKey(ValueKey(key));
+    await tester.scrollUntilVisible(
+      f,
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(f);
+    await tester.pumpAndSettle();
+    await tester.tap(f);
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('every row opens its page and goes back to Me', (tester) async {
     await pumpMe(tester);
-    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
-    await tester.pumpAndSettle();
-    expect(find.byType(CollectionsPage), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.byKey(const ValueKey('me-diary')));
-    await tester.pumpAndSettle();
-    expect(find.byType(DiaryHubPage), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.byKey(const ValueKey('me-shopping')));
-    await tester.pumpAndSettle();
-    expect(find.byType(ShopPage), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.byKey(const ValueKey('me-settings')));
-    await tester.pumpAndSettle();
-    expect(find.byType(SettingsHubPage), findsOneWidget);
-    for (final t in [
-      'My Cycle',
-      'Food Preferences',
-      'Allergies / Foods to Avoid',
-      'Notifications',
-      'Appearance',
-      'Help',
-      'Credits & Sources',
-    ]) {
-      await tester.ensureVisible(find.text(t));
-      expect(find.text(t), findsOneWidget, reason: t);
+    final pages = <String, Finder>{
+      'me-collections': find.byType(CollectionsPage),
+      'me-diary': find.byType(DiaryHubPage),
+      'me-shopping': find.byType(ShopPage),
+      'me-personalization': find.byType(PersonalizationPage),
+      'me-appearance': find.byType(AppearancePage),
+      'me-notifications': find.byType(NotificationsPage),
+      'me-subscription': find.byType(SubscriptionPage),
+      'me-privacy': find.byType(PrivacyDataPage),
+      'me-help': find.byType(HelpPage),
+      'me-credits': find.byType(CreditsPage),
+      'me-about': find.byType(AboutPage),
+    };
+    for (final MapEntry(key: key, value: page) in pages.entries) {
+      await openRow(tester, key);
+      expect(page, findsOneWidget, reason: key);
+      await back(tester);
+      expect(find.byKey(ValueKey(key)), findsOneWidget, reason: 'back $key');
     }
-    await tester.tap(find.bySemanticsLabel('Back to Me'));
-    await tester.pumpAndSettle();
+  });
 
-    await tester.tap(find.byKey(const ValueKey('me-account')));
-    await tester.pumpAndSettle();
-    expect(find.byType(AccountPlusPage), findsOneWidget);
-    expect(find.text('Subscription'), findsOneWidget);
-    expect(find.text('Privacy & Data'), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('Back to Me'));
-    await tester.pumpAndSettle();
+  testWidgets('Personalization holds My Cycle, Food Preferences and '
+      'allergies, each reachable', (tester) async {
+    await pumpMe(tester);
+    await openRow(tester, 'me-personalization');
+    expect(find.text('Movement'), findsNothing);
+    expect(find.text('Relaxation'), findsNothing);
+    final pages = {
+      'My Cycle': find.byType(MyCyclePage),
+      'Food Preferences': find.byType(FoodPreferencesSettingsPage),
+      'Allergies / Foods to Avoid': find.byType(AllergiesPage),
+    };
+    for (final MapEntry(key: label, value: page) in pages.entries) {
+      await tester.tap(find.text(label));
+      await tester.pumpAndSettle();
+      expect(page, findsOneWidget, reason: label);
+      await tester.tap(find.bySemanticsLabel('Back to Personalization'));
+      await tester.pumpAndSettle();
+      expect(find.byType(PersonalizationPage), findsOneWidget);
+    }
+  });
 
-    await tester.ensureVisible(find.text('Delete my data'));
-    await tester.tap(find.text('Delete my data'));
+  testWidgets('Delete my data sits under Privacy & Data and opens the '
+      'confirmation page', (tester) async {
+    await pumpMe(tester);
+    await openRow(tester, 'me-privacy');
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('privacy-delete-data')),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.byKey(const ValueKey('privacy-delete-data')));
     await tester.pumpAndSettle();
     expect(find.byType(DeleteDataPage), findsOneWidget);
   });
@@ -119,7 +176,11 @@ void main() {
     testWidgets('Me fits at ${width}pt with $scale× text', (tester) async {
       await pumpMe(tester, width: width, scale: scale);
       expect(tester.takeException(), isNull);
-      await tester.ensureVisible(find.byKey(const ValueKey('me-account')));
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('me-about')),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(tester.takeException(), isNull);
     });
   }
