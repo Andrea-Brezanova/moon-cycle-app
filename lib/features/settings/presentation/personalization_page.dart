@@ -11,10 +11,11 @@ import '../../preferences/application/preference_providers.dart';
 import '../application/settings_copy.dart';
 import 'widgets/settings_widgets.dart';
 
-/// Me › Settings: the personal settings and app preferences, with Help and
-/// Credits. (Account & Plus has its own page.)
-class SettingsHubPage extends ConsumerWidget {
-  const SettingsHubPage({super.key});
+/// Me › Personalization: what Moon Cycle knows about you to tailor food
+/// suggestions, kept in one place (My Cycle, Food Preferences, and dietary
+/// exclusions and allergies).
+class PersonalizationPage extends ConsumerWidget {
+  const PersonalizationPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,9 +23,6 @@ class SettingsHubPage extends ConsumerWidget {
     final cycle = ref.watch(cycleStateProvider).value;
     final diet = ref.watch(dietProvider).value;
     final avoidances = ref.watch(avoidancesProvider).value ?? const [];
-    final reminders = ref.watch(reminderSettingsProvider).value;
-
-    void open(SettingsPage page) => context.push(Routes.settings(page));
 
     MoonListRow row(
       SettingsPage page,
@@ -32,18 +30,17 @@ class SettingsHubPage extends ConsumerWidget {
       String? label,
       String? subtitle,
     }) => MoonListRow(
+      key: ValueKey('personalization-${page.segment}'),
       label: label ?? page.title,
       icon: icon,
       subtitle: subtitle == null || subtitle.isEmpty ? null : subtitle,
-      onTap: () => open(page),
+      onTap: () => context.push(Routes.settings(page)),
     );
 
     return SettingsSubScaffold(
-      title: 'Settings',
-      backLabel: 'Me',
+      title: 'Personalization',
       children: [
         MoonListGroup(
-          title: 'Personalisation',
           children: [
             row(
               SettingsPage.myCycle,
@@ -60,41 +57,6 @@ class SettingsHubPage extends ConsumerWidget {
               MoonIconName.avoid,
               label: 'Allergies / Foods to Avoid',
               subtitle: avoidancesSummary(avoidances, catalogue),
-            ),
-          ],
-        ),
-        MoonListGroup(
-          title: 'App',
-          children: [
-            row(
-              SettingsPage.notifications,
-              MoonIconName.bell,
-              subtitle: reminders == null
-                  ? null
-                  : (reminders.enabled ? 'On' : 'Off'),
-            ),
-            row(
-              SettingsPage.appearance,
-              MoonIconName.settings,
-              subtitle: ref.watch(appearanceProvider).label,
-            ),
-          ],
-        ),
-        MoonListGroup(
-          title: 'Support',
-          children: [
-            row(SettingsPage.help, MoonIconName.help),
-            MoonListRow(
-              label: 'Credits & Sources',
-              icon: MoonIconName.book,
-              onTap: () => context.push(Routes.credits),
-            ),
-            MoonListRow(
-              key: const ValueKey('settings-about'),
-              label: 'About',
-              icon: MoonIconName.help,
-              subtitle: 'Version and build',
-              onTap: () => context.push(Routes.meAbout),
             ),
           ],
         ),

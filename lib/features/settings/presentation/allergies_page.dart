@@ -59,6 +59,7 @@ class AllergiesPage extends ConsumerWidget {
     }
 
     return SettingsSubScaffold(
+      backLabel: 'Personalization',
       title: 'Allergies & foods to *avoid*',
       titleSize: 36,
       children: [

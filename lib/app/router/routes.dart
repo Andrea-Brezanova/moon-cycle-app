@@ -23,6 +23,7 @@ enum AppTab {
 
 /// Settings sub-pages in v1 (no Account page until accounts arrive).
 enum SettingsPage {
+  personalization('personalization', 'Personalization'),
   myCycle('my-cycle', 'My Cycle'),
   foodPreferences('food-preferences', 'Food Preferences'),
   allergies('allergies', 'Allergies & foods to avoid'),
@@ -172,10 +173,8 @@ abstract final class Routes {
   /// More › the shopping list.
   static const String shopping = '/more/shopping-list';
 
-  /// Me › Settings and Me › Account & Plus.
-  static const String meSettings = '/more/settings';
-  static const String meAccount = '/more/account';
-  static const String meAbout = '/more/settings/about';
+  /// Me › About.
+  static const String meAbout = '/more/about';
 
   /// Me › My Collections, and its Workouts and Spa pages (My Recipes is the
   /// existing [myRecipes]).

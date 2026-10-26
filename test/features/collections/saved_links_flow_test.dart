@@ -48,7 +48,7 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('my-collections-card')));
+    await tester.tap(find.byKey(const ValueKey('me-collections')));
     await tester.pumpAndSettle();
     expect(find.byType(CollectionsPage), findsOneWidget);
     return container;

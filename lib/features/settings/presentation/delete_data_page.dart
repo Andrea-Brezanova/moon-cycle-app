@@ -47,7 +47,10 @@ class _DeleteDataPageState extends ConsumerState<DeleteDataPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SubScreenHeader(backLabel: 'Me', onBack: () => context.pop()),
+            SubScreenHeader(
+              backLabel: 'Privacy & Data',
+              onBack: () => context.pop(),
+            ),
             Expanded(
               child: PinnedActionsScroll(
                 padding: EdgeInsets.fromLTRB(

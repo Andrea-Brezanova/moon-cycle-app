@@ -23,6 +23,7 @@ class FoodPreferencesSettingsPage extends ConsumerWidget {
     final repository = ref.read(preferencesRepositoryProvider);
 
     return SettingsSubScaffold(
+      backLabel: 'Personalization',
       title: 'Food Preferences',
       gap: 26,
       children: [
