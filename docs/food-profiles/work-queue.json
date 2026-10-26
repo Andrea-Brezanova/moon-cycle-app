@@ -1,0 +1,1375 @@
+{
+ "_note": "Work queue for the remaining Food Detail profiles. status: queued -> drafted -> validated -> in-review -> approved (approval is an editorial decision made by the owner; nothing here is published). No profile is bundled until approved.",
+ "items": [
+  {
+   "foodId": "wild-rice",
+   "name": "Wild rice",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "beets",
+   "name": "Beets",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "kale",
+   "name": "Kale",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mushrooms",
+   "name": "Mushrooms (button, shiitake)",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "blueberry",
+   "name": "Blueberry",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "black-turtle-bean",
+   "name": "Black beans",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "kidney-bean",
+   "name": "Kidney bean",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sesame-seeds",
+   "name": "Sesame seeds",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "clam",
+   "name": "Clam",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mussel",
+   "name": "Mussel",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "oyster",
+   "name": "Oyster",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sardine",
+   "name": "Sardine",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "miso",
+   "name": "Miso",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "grapefruit",
+   "name": "Grapefruit",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cashew",
+   "name": "Cashew",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "quinoa",
+   "name": "Quinoa",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "brussels-sprouts",
+   "name": "Brussels sprouts",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "chard",
+   "name": "Chard",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "eggplant",
+   "name": "Eggplant",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "collard",
+   "name": "Collard",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "beef",
+   "name": "Beef",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "anchovies",
+   "name": "Anchovies",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "grapes",
+   "name": "Grapes",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "green-bell-pepper",
+   "name": "Green bell pepper",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "kiwi",
+   "name": "Kiwi",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "papaya",
+   "name": "Papaya",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "tempeh",
+   "name": "Tempeh",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "white-beans",
+   "name": "White beans",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "white-potato",
+   "name": "White potato",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "yellow-bell-pepper",
+   "name": "Yellow bell pepper",
+   "phase": "menstrual",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "scallop",
+   "name": "Scallop",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "carrot",
+   "name": "Carrot",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "lettuce",
+   "name": "Lettuce (Bibb, Boston, romaine)",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "green-pea",
+   "name": "Green pea",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "string-bean",
+   "name": "String bean",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "zucchini",
+   "name": "Zucchini",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "avocado",
+   "name": "Avocado",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "plum",
+   "name": "Plum",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pomegranate",
+   "name": "Pomegranate",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "black-eyed-pea",
+   "name": "Black-eyed pea",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "brazil-nut",
+   "name": "Brazil nut",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "flaxseeds",
+   "name": "Flaxseeds",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "chicken",
+   "name": "Chicken",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "eggs",
+   "name": "Eggs",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "trout",
+   "name": "Trout",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sauerkraut",
+   "name": "Sauerkraut",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pecan",
+   "name": "Pecan",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cabbage",
+   "name": "Cabbage",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "arugula",
+   "name": "Arugula (rocket)",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "bok-choy",
+   "name": "Bok choy",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "canned-salmon",
+   "name": "Canned salmon",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "canned-tuna",
+   "name": "Canned tuna",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "farro",
+   "name": "Farro",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "feta",
+   "name": "Feta",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "haddock",
+   "name": "Haddock",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "hummus",
+   "name": "Hummus",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "napa-cabbage",
+   "name": "Napa cabbage",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "nectarine",
+   "name": "Nectarine",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "oat-bran",
+   "name": "Oat bran",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "plain-yogurt",
+   "name": "Plain yogurt",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pollock",
+   "name": "Pollock",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "turnip",
+   "name": "Turnip",
+   "phase": "follicular",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "watermelon",
+   "name": "Watermelon",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "crab",
+   "name": "Crab",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pickles",
+   "name": "Pickles",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "asparagus",
+   "name": "Asparagus",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "red-bell-pepper",
+   "name": "Red bell pepper",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "tomato",
+   "name": "Tomato",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "apricot",
+   "name": "Apricot",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cantaloupe",
+   "name": "Cantaloupe",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "raspberry",
+   "name": "Raspberry",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "strawberry",
+   "name": "Strawberry",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "almond",
+   "name": "Almond",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pistachio",
+   "name": "Pistachio",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "shrimp",
+   "name": "Shrimp",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "celery",
+   "name": "Celery",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cucumber",
+   "name": "Cucumber",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "radish",
+   "name": "Radish",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "peach",
+   "name": "Peach",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "bean-sprouts",
+   "name": "Bean sprouts",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cottage-cheese",
+   "name": "Cottage cheese",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "hazelnuts",
+   "name": "Hazelnuts",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "honeydew",
+   "name": "Honeydew melon",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "kefir",
+   "name": "Kefir",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mandarin",
+   "name": "Mandarin / tangerine",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mango",
+   "name": "Mango",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pineapple",
+   "name": "Pineapple",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "red-cabbage",
+   "name": "Red cabbage",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "ricotta",
+   "name": "Ricotta",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sea-bass",
+   "name": "Sea bass",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sugar-snap-peas",
+   "name": "Sugar snap peas",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sweet-cherry",
+   "name": "Sweet cherry",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "tofu",
+   "name": "Tofu",
+   "phase": "ovulatory",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "buckwheat",
+   "name": "Buckwheat (kasha)",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "blackberry",
+   "name": "Blackberry",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sunflower-seeds",
+   "name": "Sunflower seeds",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pork",
+   "name": "Pork",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "barley",
+   "name": "Barley",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "oat",
+   "name": "Oat",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "artichoke",
+   "name": "Artichoke",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "lima-bean",
+   "name": "Lima bean",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "split-pea",
+   "name": "Split pea",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "nut-butter",
+   "name": "Nut butter",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "fig",
+   "name": "Fig",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "red-lentil",
+   "name": "Red lentil",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "lamb",
+   "name": "Lamb",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "salmon",
+   "name": "Salmon",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "brown-rice",
+   "name": "Brown rice",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cauliflower",
+   "name": "Cauliflower",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "parsnip",
+   "name": "Parsnip",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pumpkin",
+   "name": "Pumpkin",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "squash",
+   "name": "Squash",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "sweet-potato",
+   "name": "Sweet potato",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "apple",
+   "name": "Apple",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pear",
+   "name": "Pear",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "chickpea",
+   "name": "Chickpea",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "walnut",
+   "name": "Walnut",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "turkey",
+   "name": "Turkey",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "cod",
+   "name": "Cod",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "flounder",
+   "name": "Flounder",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "halibut",
+   "name": "Halibut",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "banana",
+   "name": "Banana",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "bulgur",
+   "name": "Bulgur",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "chia-seeds",
+   "name": "Chia seeds",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "edamame",
+   "name": "Edamame",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "goat-cheese",
+   "name": "Goat cheese",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "greek-yogurt",
+   "name": "Greek yogurt",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "kimchi",
+   "name": "Kimchi",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mackerel",
+   "name": "Mackerel",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mixed-nuts",
+   "name": "Mixed nuts",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "mozzarella",
+   "name": "Mozzarella",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "peanuts",
+   "name": "Peanuts",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "pinto-beans",
+   "name": "Pinto beans",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "red-snapper",
+   "name": "Snapper",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "swiss-cheese",
+   "name": "Swiss cheese",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "tilapia",
+   "name": "Tilapia",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  },
+  {
+   "foodId": "whole-grain-bread",
+   "name": "Whole-grain bread",
+   "phase": "luteal",
+   "match": "exact",
+   "status": "queued",
+   "usdaFdcId": null,
+   "preparationState": null,
+   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+  }
+ ]
+}

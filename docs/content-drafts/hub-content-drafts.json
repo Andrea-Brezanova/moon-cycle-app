@@ -1,0 +1,226 @@
+{
+  "_note": "DRAFT proposals for review. Not bundled in the app. To publish an item, an editor reviews it, sets reviewStatus to approved with reviewedBy and reviewedOn, and moves it to assets/content/hub_content.json. No cycle-phase claims; no detox, lymphatic, hormone or treatment claims.",
+  "items": [
+    {
+      "id": "ex-easy-walk",
+      "kind": "exercise",
+      "title": "Easy walk",
+      "summary": "A relaxed walk at a pace where you can still chat.",
+      "category": "Walking",
+      "steps": [
+        "Start by walking slowly for a minute.",
+        "Settle into a comfortable pace and keep your shoulders loose.",
+        "Walk for as long as feels good, then slow down for the last minute."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 10,
+      "intensity": "gentle",
+      "equipment": [
+        "Comfortable shoes"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "ex-morning-wake-up",
+      "kind": "exercise",
+      "title": "Morning wake-up stretch",
+      "summary": "A few slow stretches to start the day.",
+      "category": "Mobility",
+      "steps": [
+        "Stand tall and roll your shoulders back five times.",
+        "Reach both arms overhead and take two slow breaths.",
+        "Gently tilt your head to one side, then the other, without forcing.",
+        "Sway your hips side to side for a few breaths."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 5,
+      "intensity": "gentle",
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "ex-seated-neck",
+      "kind": "exercise",
+      "title": "Desk break: neck and shoulders",
+      "summary": "Loosen up between tasks, seated.",
+      "category": "Mobility",
+      "steps": [
+        "Sit tall with your feet flat.",
+        "Lift your shoulders toward your ears, then let them drop, five times.",
+        "Turn your head slowly to look over each shoulder."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 4,
+      "intensity": "gentle",
+      "equipment": [
+        "A chair"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "wo-evening-unwind",
+      "kind": "workout",
+      "title": "Evening unwind stretches",
+      "summary": "A short, slow stretching routine for the end of the day.",
+      "category": "Stretching",
+      "steps": [
+        "Sit on the floor or a bed with your legs out and reach gently toward your toes.",
+        "Lie on your back and hug one knee to your chest, then the other.",
+        "Let both knees fall to one side for a gentle twist, then switch.",
+        "Finish lying still for five slow breaths."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 8,
+      "intensity": "gentle",
+      "equipment": [
+        "A mat or soft surface"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "wo-bodyweight-basics",
+      "kind": "workout",
+      "title": "Bodyweight basics",
+      "summary": "A simple beginner circuit using your own weight.",
+      "category": "Strength",
+      "steps": [
+        "March on the spot for one minute to warm up.",
+        "Do 8–10 chair sits (stand up from a chair and sit back down slowly).",
+        "Do 8–10 wall push-ups.",
+        "Rest as long as you like, then repeat once if it feels good."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 12,
+      "intensity": "easy",
+      "equipment": [
+        "A sturdy chair",
+        "A wall"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "med-three-breaths",
+      "kind": "meditation",
+      "title": "Three calm breaths",
+      "summary": "One minute of slow breathing.",
+      "category": "Breathing",
+      "steps": [
+        "Sit or stand comfortably and relax your shoulders.",
+        "Breathe in through your nose for a count of four.",
+        "Breathe out slowly for a count of six. Repeat for three breaths."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 1
+    },
+    {
+      "id": "med-paced-breathing",
+      "kind": "meditation",
+      "title": "Paced breathing",
+      "summary": "A few minutes of slow, even breathing.",
+      "category": "Breathing",
+      "steps": [
+        "Get comfortable and soften your jaw.",
+        "Breathe in for four counts and out for four counts.",
+        "If your mind wanders, gently return to counting. Continue for three minutes."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 3
+    },
+    {
+      "id": "med-body-scan",
+      "kind": "meditation",
+      "title": "Short body scan",
+      "summary": "A five-minute check-in from head to toe.",
+      "category": "Mindfulness",
+      "steps": [
+        "Lie down or sit and close your eyes if you like.",
+        "Bring attention to your forehead, then slowly move down: face, neck, shoulders, arms, belly, legs, feet.",
+        "At each place, notice how it feels without trying to change it.",
+        "Finish with a slow breath and open your eyes."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 5
+    },
+    {
+      "id": "sp-warm-foot-soak",
+      "kind": "ritual",
+      "title": "Warm foot soak",
+      "summary": "A quiet evening ritual for tired feet.",
+      "category": "Evening",
+      "steps": [
+        "Fill a basin with comfortably warm water; test it with your hand first.",
+        "Sit with your feet in the water for 10–15 minutes.",
+        "Dry your feet well and, if you like, rub in a little moisturiser."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 15,
+      "equipment": [
+        "A basin",
+        "A towel"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "sp-gentle-face-massage",
+      "kind": "ritual",
+      "title": "Gentle facial massage",
+      "summary": "A slow, light-touch moment for yourself.",
+      "category": "Self-care",
+      "steps": [
+        "Wash your hands and apply a little of your usual face oil or cream.",
+        "With your fingertips, stroke lightly from the centre of your face outward.",
+        "Keep the pressure light and stop if your skin feels irritated."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 5,
+      "equipment": [
+        "Your usual face oil or cream"
+      ],
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+    },
+    {
+      "id": "sp-mindful-tea",
+      "kind": "ritual",
+      "title": "Mindful tea break",
+      "summary": "Five minutes with a warm drink and nothing else.",
+      "category": "Pause",
+      "steps": [
+        "Make a cup of tea you enjoy.",
+        "Sit somewhere comfortable, phone away.",
+        "Notice the warmth of the cup, the smell and each sip."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 5,
+      "equipment": [
+        "A warm drink"
+      ]
+    },
+    {
+      "id": "sp-evening-wind-down",
+      "kind": "ritual",
+      "title": "Relaxing evening routine",
+      "summary": "A simple sequence to close the day.",
+      "category": "Evening",
+      "steps": [
+        "Dim the lights and put screens away for a while.",
+        "Have a warm drink and do the evening unwind stretches.",
+        "Write down one thing from the day you are glad about."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 30
+    },
+    {
+      "id": "sp-simple-grounding",
+      "kind": "ritual",
+      "title": "Simple grounding",
+      "summary": "A short pause using your senses.",
+      "category": "Pause",
+      "steps": [
+        "Stand or sit and feel your feet on the floor.",
+        "Name five things you can see, four you can feel, three you can hear.",
+        "Take a slow breath out."
+      ],
+      "reviewStatus": "draft",
+      "durationMinutes": 3
+    }
+  ]
+}

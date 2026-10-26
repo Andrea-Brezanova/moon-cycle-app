@@ -191,6 +191,11 @@ abstract final class Routes {
   static String collectionLinkEdit(String id) =>
       '/more/collections/link/$id/edit';
 
+  /// The Move and Relax libraries (by [kind], a `HubKind` name) and one item.
+  static String hubLibrary(AppTab tab, String kind) =>
+      '${tab.path}/library/$kind';
+  static String hubItem(AppTab tab, String id) => '${tab.path}/item/$id';
+
   /// More › Credits & Sources.
   static const String credits = '/more/credits';
   static String settings(SettingsPage page) =>
