@@ -37,3 +37,12 @@ The app's bundled, read-only catalogue. `test/content/content_validation_test.da
 ## Diet counts: the app's number is the source of truth
 
 Research counts the 112 recipes as vegan 44, vegetarian-only 29, pescatarian-only 28, omnivore 11. The app derives 44 / **28** / **29** / 11, deliberately: `FoodFilter` keeps the conservative rule that a recipe with a food that only *may* contain fish or shellfish (kimchi) is not offered as vegetarian or vegan, because it cannot be called meat-free with confidence. That moves `kimchi-egg-brown-rice-bowl` from vegetarian to pescatarian. The rule is not relaxed to match a target count; `test/content/recipes_v112_test.dart` pins the app's numbers.
+
+## hub_content.json (Move and Relax libraries)
+
+Items for Exercises, Workouts, Meditations, Sounds and Spa. The app shows only items
+with `reviewStatus: "approved"`; an approved item must have `reviewedBy`, `reviewedOn`,
+steps or a verified http(s) `sourceUrl`, a `safetyNote` for exercises and workouts, and
+`rights` for sounds (`parseHubItems` rejects the file otherwise, and a test runs it on
+the bundled file). The file ships empty. Draft proposals are in
+`docs/content-drafts/hub-content-drafts.json` and are not bundled.

@@ -54,6 +54,8 @@ flutter:
     - assets/content/phases.json
     - assets/content/foods.json
     - assets/content/recipes.json
+    # Move and Relax library: only editor-approved items are shown.
+    - assets/content/hub_content.json
     # The five reviewed Food Detail profiles (assets/content/README.md).
     - assets/content/food_profiles.json
     # One photo per recipe, named <recipe-id>.jpg.

@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/debug/component_gallery.dart';
-import '../../core/design/widgets/moon_icon.dart';
 import '../../core/domain/local_date.dart';
 import '../../core/domain/phase.dart';
 import '../../features/collections/application/collections_providers.dart';
@@ -37,13 +36,16 @@ import '../../features/generation/presentation/add_recipe_page.dart';
 import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
+import '../../features/hubs/domain/hub_item.dart';
+import '../../features/hubs/presentation/hub_home_page.dart';
+import '../../features/hubs/presentation/hub_item_page.dart';
+import '../../features/hubs/presentation/hub_library_page.dart';
 import '../../features/onboarding/application/onboarding_status.dart';
 import '../../features/onboarding/presentation/cycle_length_page.dart';
 import '../../features/onboarding/presentation/food_preferences_page.dart';
 import '../../features/onboarding/presentation/last_period_page.dart';
 import '../../features/onboarding/presentation/phase_reveal_page.dart';
 import '../../features/onboarding/presentation/welcome_page.dart';
-import '../../features/placeholders/presentation/coming_soon_page.dart';
 import '../../features/plants/presentation/three_plants_page.dart';
 import '../../features/recipes/presentation/recipe_detail_page.dart';
 import '../../features/settings/presentation/about_page.dart';
@@ -56,10 +58,12 @@ import '../../features/settings/presentation/my_cycle_page.dart';
 import '../../features/settings/presentation/notifications_page.dart';
 import '../../features/settings/presentation/personalization_page.dart';
 import '../../features/settings/presentation/privacy_data_page.dart';
+
 import '../../features/settings/presentation/settings_home_page.dart';
 import '../../features/settings/presentation/subscription_page.dart';
 import '../../features/shopping/presentation/shop_page.dart';
 import '../shell/main_shell.dart';
+
 import 'routes.dart';
 
 /// The app's router.
@@ -129,17 +133,35 @@ GoRouter buildAppRouter({
                   pageBuilder: (context, state) => _page(state, switch (tab) {
                     AppTab.home => const HomePage(),
                     AppTab.eat => const EatPage(),
-                    AppTab.move => const ComingSoonPage(
-                      title: 'Move',
-                      icon: MoonIconName.move,
-                    ),
-                    AppTab.relax => const ComingSoonPage(
-                      title: 'Relax',
-                      icon: MoonIconName.relax,
-                    ),
+                    AppTab.move => const HubHomePage.move(),
+                    AppTab.relax => const HubHomePage.relax(),
                     AppTab.more => const SettingsHomePage(),
                   }),
                   routes: switch (tab) {
+                    AppTab.move || AppTab.relax => [
+                      GoRoute(
+                        path: 'library/:kind',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          HubLibraryPage(
+                            kind:
+                                HubKind.fromJson(
+                                  state.pathParameters['kind'],
+                                ) ??
+                                (tab == AppTab.move
+                                    ? HubKind.exercise
+                                    : HubKind.meditation),
+                          ),
+                        ),
+                      ),
+                      GoRoute(
+                        path: 'item/:id',
+                        pageBuilder: (context, state) => _page(
+                          state,
+                          HubItemPage(itemId: state.pathParameters['id']!),
+                        ),
+                      ),
+                    ],
                     AppTab.eat => [
                       GoRoute(
                         path: 'foods',
