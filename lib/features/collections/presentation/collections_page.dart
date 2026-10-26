@@ -14,7 +14,8 @@ import '../../../core/domain/phase.dart';
 import '../application/collections_providers.dart';
 import 'collection_photos.dart';
 
-/// My Collections: a large My Recipes tile, My Workouts and My Spa, a search
+/// My Collections: four equal square tiles (My Recipes, My Workouts, My Spa,
+/// My Routines), a search
 /// over everything saved, and what was saved most recently. All counts and
 /// rows come from the real stores (the recipe tables and the links table); it
 /// keeps no copy of anything.
@@ -67,23 +68,35 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
     String linksLine(int n) =>
         n == 0 ? 'Nothing yet' : '$n saved ${n == 1 ? 'link' : 'links'}';
 
-    final workouts = _Tile(
-      key: const ValueKey('collection-workouts'),
-      category: CollectionCategory.workouts,
-      title: 'My Workouts',
-      line: linksLine(summary.workoutLinks),
-      onTap: () => context.push(Routes.collectionWorkouts),
-    );
-    final spa = _Tile(
-      key: const ValueKey('collection-spa'),
-      category: CollectionCategory.spa,
-      title: 'My Spa',
-      line: linksLine(summary.spaLinks),
-      onTap: () => context.push(Routes.collectionSpa),
-    );
-    final narrow =
-        MediaQuery.sizeOf(context).width < 340 ||
-        MediaQuery.textScalerOf(context).scale(14) > 18;
+    final tiles = [
+      _Tile(
+        key: const ValueKey('collection-recipes'),
+        category: CollectionCategory.recipes,
+        title: 'My Recipes',
+        line: recipesLine(),
+        onTap: () => context.push(Routes.myRecipes),
+      ),
+      _Tile(
+        key: const ValueKey('collection-workouts'),
+        category: CollectionCategory.workouts,
+        title: 'My Workouts',
+        line: linksLine(summary.workoutLinks),
+        onTap: () => context.push(Routes.collectionWorkouts),
+      ),
+      _Tile(
+        key: const ValueKey('collection-spa'),
+        category: CollectionCategory.spa,
+        title: 'My Spa',
+        line: linksLine(summary.spaLinks),
+        onTap: () => context.push(Routes.collectionSpa),
+      ),
+      _Tile(
+        key: const ValueKey('collection-routines'),
+        title: 'My Routines',
+        line: 'Not available yet',
+        onTap: () => context.push(Routes.collectionRoutines),
+      ),
+    ];
 
     return Scaffold(
       backgroundColor: c.bg,
@@ -201,30 +214,21 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
               for (final item in results) gutter(_ItemRow(item: item), top: 10),
             ] else ...[
               gutter(
-                _Tile(
-                  key: const ValueKey('collection-recipes'),
-                  category: CollectionCategory.recipes,
-                  title: 'My Recipes',
-                  line: recipesLine(),
-                  big: true,
-                  onTap: () => context.push(Routes.myRecipes),
-                ),
-                top: 18,
-              ),
-              gutter(
-                narrow
-                    ? Column(
-                        children: [workouts, const SizedBox(height: 12), spa],
-                      )
-                    : Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                Column(
+                  children: [
+                    for (var r = 0; r < 2; r++) ...[
+                      if (r > 0) const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Expanded(child: workouts),
+                          Expanded(child: tiles[r * 2]),
                           const SizedBox(width: 12),
-                          Expanded(child: spa),
+                          Expanded(child: tiles[r * 2 + 1]),
                         ],
                       ),
-                top: 12,
+                    ],
+                  ],
+                ),
+                top: 18,
               ),
               gutter(const Overline('Recently saved'), top: 30),
               if (recent.isEmpty)
@@ -250,82 +254,126 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
   }
 }
 
-/// A category tile: photograph on top, title and live count below. The large
-/// version (My Recipes) has a taller photograph.
+/// A square category tile: photograph on top (or a tinted icon when the
+/// category has none), title and live count below. All four are the same size.
 class _Tile extends StatelessWidget {
   const _Tile({
     super.key,
-    required this.category,
+    this.category,
     required this.title,
     required this.line,
     required this.onTap,
-    this.big = false,
   });
 
-  final CollectionCategory category;
+  /// Null for My Routines, which has no photograph.
+  final CollectionCategory? category;
   final String title;
   final String line;
   final VoidCallback onTap;
-  final bool big;
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
+    final square = MediaQuery.textScalerOf(context).scale(14) <= 14.7;
     return Pressable(
       onTap: onTap,
       semanticLabel: '$title. $line',
-      child: Container(
-        decoration: BoxDecoration(
-          color: c.raised,
-          border: Border.all(color: c.line),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: big ? 2.3 : 1.55,
-              child: CollectionPhoto(category),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 12, 14),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: fraunces(
-                            big ? 22 : 18,
-                            height: 1.15,
-                            color: c.text,
+      child: _TileFrame(
+        // Square at the normal text size; with enlarged text it grows to fit
+        // the title and count instead.
+        square: square,
+        child: Container(
+          decoration: BoxDecoration(
+            color: c.raised,
+            border: Border.all(color: c.line),
+            borderRadius: BorderRadius.circular(24),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            mainAxisSize: square ? MainAxisSize.max : MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _TilePhoto(category: category, square: square),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 10, 10, 12),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title,
+                            style: fraunces(17.5, height: 1.15, color: c.text),
                           ),
-                        ),
-                        const SizedBox(height: 3),
-                        Text(
-                          line,
-                          style: dmSans(13, height: 1.35, color: c.textMuted),
-                        ),
-                      ],
+                          const SizedBox(height: 2),
+                          Text(
+                            line,
+                            style: dmSans(
+                              12.5,
+                              height: 1.3,
+                              color: c.textMuted,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 6),
-                  MoonIcon(
-                    MoonIconName.chev,
-                    size: 16,
-                    color: c.textMuted,
-                    strokeWidth: 2,
-                  ),
-                ],
+                    MoonIcon(
+                      MoonIconName.chev,
+                      size: 15,
+                      color: c.textMuted,
+                      strokeWidth: 2,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+}
+
+/// Gives a tile a 1:1 box, or lets it size to its content.
+class _TileFrame extends StatelessWidget {
+  const _TileFrame({required this.square, required this.child});
+
+  final bool square;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) =>
+      square ? AspectRatio(aspectRatio: 1, child: child) : child;
+}
+
+/// The photograph (or My Routines' tinted icon) at the top of a tile: it takes
+/// the space left over in a square tile and a fixed height otherwise.
+class _TilePhoto extends StatelessWidget {
+  const _TilePhoto({required this.category, required this.square});
+
+  final CollectionCategory? category;
+  final bool square;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    final photo = category != null
+        ? CollectionPhoto(category!)
+        : ColoredBox(
+            color: c.phase(Phase.luteal).tint,
+            child: Center(
+              child: ExcludeSemantics(
+                child: MoonIcon(
+                  MoonIconName.clock,
+                  size: 34,
+                  color: c.text,
+                  strokeWidth: 1.6,
+                ),
+              ),
+            ),
+          );
+    return square ? Expanded(child: photo) : SizedBox(height: 72, child: photo);
   }
 }
 
