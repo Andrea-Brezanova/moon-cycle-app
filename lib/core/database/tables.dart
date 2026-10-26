@@ -284,6 +284,31 @@ class CollectionLinks extends Table with UserRow {
   TextColumn get note => text().nullable()();
 }
 
+/// A routine the user built in My Routines (schema 10, DRAFT): a title and
+/// optional note. Its ordered steps are in [RoutineSteps]. Local only, in the
+/// encrypted database; deleting tombstones the row and empties the note.
+@DataClassName('RoutineRow')
+class Routines extends Table with UserRow {
+  TextColumn get title => text()();
+  TextColumn get note => text().nullable()();
+}
+
+/// One step of a routine, in [position] order: a saved link (by id, never a
+/// copy) or a line of the user's own text. [kind] is `link` or `text`.
+@TableIndex.sql(
+  'CREATE INDEX routine_steps_live '
+  'ON routine_steps (routine_id, position) '
+  'WHERE deleted_at IS NULL',
+)
+@DataClassName('RoutineStepRow')
+class RoutineSteps extends Table with UserRow {
+  TextColumn get routineId => text().references(Routines, #id)();
+  IntColumn get position => integer()();
+  TextColumn get kind => text()();
+  TextColumn get linkId => text().nullable()();
+  TextColumn get body => text().nullable()();
+}
+
 /// How many requests each external recipe provider has been sent this month,
 /// and roughly what they cost, so a monthly budget can be enforced.
 @DataClassName('ProviderUsageRow')

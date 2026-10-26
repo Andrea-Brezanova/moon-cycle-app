@@ -30,13 +30,15 @@ part 'app_database.g.dart';
     ProviderUsages,
     SavedRecipeRefs,
     CollectionLinks,
+    Routines,
+    RoutineSteps,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 9;
+  int get schemaVersion => 10;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -90,6 +92,13 @@ class AppDatabase extends _$AppDatabase {
       from8To9: (m, schema) async {
         await m.createTable(schema.collectionLinks);
         await m.createIndex(schema.collectionLinksLive);
+      },
+      // 10 (DRAFT, not for merge until approved): My Routines. Additive: two
+      // new tables and an index; nothing existing changes.
+      from9To10: (m, schema) async {
+        await m.createTable(schema.routines);
+        await m.createTable(schema.routineSteps);
+        await m.createIndex(schema.routineStepsLive);
       },
     ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),

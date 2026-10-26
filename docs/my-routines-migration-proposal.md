@@ -47,3 +47,11 @@ file is backed up by the existing pre-migration copy.
 
 Approve schema v10 with `routines` and `routine_steps` as above. The implementation is
 prepared on the draft branch `draft/my-routines` and is not for merge until approved.
+
+## Draft implementation (this branch, unmerged)
+
+Schema v10 (`routines`, `routine_steps`), the `from9To10` step, the generated schema
+snapshot and migration test, and `RoutineRepository` with tests (create, rename, ordered
+steps, move, remove, tombstone delete). **Not included yet:** the My Routines screens
+(list, editor, add a saved link as a step), export of routines in Export my data, and
+the Move hub's "Build Your Routine" flow; they follow once the schema is approved.
