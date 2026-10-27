@@ -7,23 +7,27 @@ import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
+import '../../../core/design/widgets/hub_card.dart';
+import '../../../core/design/widgets/hub_hero.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../../core/design/widgets/pressable.dart';
-import '../../../core/domain/phase.dart';
 import '../../collections/application/collections_providers.dart';
+import '../../cycle/application/viewing_phase.dart';
+import '../../cycle/presentation/phase_overline.dart';
 import '../application/hub_providers.dart';
 import '../domain/hub_item.dart';
 
-/// The Move and Relax tabs: a hub of sections, like Eat. A library section
-/// says how many reviewed items it holds, or that none are ready yet; a
-/// "My ..." section opens what the user has saved.
+/// The Move and Relax tabs: a hub laid out like Eat (phase line and title, a
+/// hero card, then the section cards in the colours of the phase being
+/// viewed). A library section says how many reviewed items it holds, or that
+/// none are ready yet; a "My ..." section opens what the user has saved.
 class HubHomePage extends ConsumerWidget {
   const HubHomePage.move({super.key})
     : tab = AppTab.move,
-      intro =
-          'Gentle ways to move, at your own pace. Browse, save what you '
-          'like, or put a routine together.',
-      phase = Phase.luteal,
+      heroAsset = 'assets/images/home/home_move_yoga_mat.jpg',
+      heroHeading = 'Move your way',
+      heroBody =
+          'Gentle ways to move at your own pace, whatever your phase. Browse, '
+          'save what you like, or build a workout.',
       sections = const [
         HubSection(
           'exercises',
@@ -38,11 +42,11 @@ class HubHomePage extends ConsumerWidget {
           kind: HubKind.workout,
         ),
         HubSection(
-          'routine',
-          MoonIconName.clock,
-          'Build Your Routine',
-          body: 'String saved workouts into a routine',
-          route: Routes.collectionRoutines,
+          'build',
+          MoonIconName.plus,
+          'Build Your Workout',
+          body: 'Put a workout together from exercises',
+          route: Routes.buildWorkout,
         ),
         HubSection(
           'mine',
@@ -55,10 +59,11 @@ class HubHomePage extends ConsumerWidget {
 
   const HubHomePage.relax({super.key})
     : tab = AppTab.relax,
-      intro =
-          'Small moments of calm: breathing, listening and simple rituals. '
-          'Save the ones you come back to.',
-      phase = Phase.ovulatory,
+      heroAsset = 'assets/images/home/home_relax_tea.jpg',
+      heroHeading = 'Make a moment of calm',
+      heroBody =
+          'Breathing, listening and simple rituals. Save the ones you come '
+          'back to.',
       sections = const [
         HubSection(
           'meditations',
@@ -78,14 +83,19 @@ class HubHomePage extends ConsumerWidget {
       ];
 
   final AppTab tab;
-  final String intro;
-  final Phase phase;
+
+  /// The hero photograph: an image already in the app that fits the section,
+  /// standing in until a dedicated one is approved (docs/hero-image-requests.md).
+  final String heroAsset;
+  final String heroHeading;
+  final String heroBody;
   final List<HubSection> sections;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final summary = ref.watch(collectionSummaryProvider);
+    final phase = ref.watch(viewingPhaseProvider);
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -101,21 +111,28 @@ class HubHomePage extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Semantics(
-                header: true,
-                child: Text(
-                  tab.label,
-                  style: MoonType.h1.copyWith(color: c.text),
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const PhaseOverline(),
+                  Semantics(
+                    header: true,
+                    child: Text(
+                      tab.label,
+                      style: MoonType.h1.copyWith(color: c.text),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 10),
-              Text(intro, style: dmSans(15, height: 1.5, color: c.textMuted)),
-              const SizedBox(height: 22),
+              const SizedBox(height: 14),
+              HubHero(asset: heroAsset, heading: heroHeading, body: heroBody),
+              const SizedBox(height: 16),
               for (final s in sections) ...[
-                _SectionCard(
+                HubCard(
                   key: ValueKey('hub-${tab.name}-${s.key}'),
-                  section: s,
+                  icon: s.icon,
                   phase: phase,
+                  title: s.title,
                   body: s.body ?? _body(ref, s, summary),
                   onTap: () => context.push(
                     s.route ?? Routes.hubLibrary(tab, s.kind!.json),
@@ -142,6 +159,7 @@ class HubHomePage extends ConsumerWidget {
   }
 }
 
+/// One card on a hub.
 class HubSection {
   const HubSection(
     this.key,
@@ -160,74 +178,4 @@ class HubSection {
   final CollectionCategory? saved;
   final String? body;
   final String? route;
-}
-
-class _SectionCard extends StatelessWidget {
-  const _SectionCard({
-    super.key,
-    required this.section,
-    required this.phase,
-    required this.body,
-    required this.onTap,
-  });
-
-  final HubSection section;
-  final Phase phase;
-  final String body;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    final palette = c.phase(phase);
-    return Pressable(
-      onTap: onTap,
-      semanticLabel: '${section.title}. $body',
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 84),
-        padding: const EdgeInsets.fromLTRB(18, 14, 16, 14),
-        decoration: BoxDecoration(
-          color: c.raised,
-          border: Border.all(color: c.line),
-          borderRadius: BorderRadius.circular(22),
-        ),
-        child: ExcludeSemantics(
-          child: Row(
-            children: [
-              Container(
-                width: 52,
-                height: 52,
-                decoration: BoxDecoration(
-                  color: palette.tint,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: MoonIcon(section.icon, size: 22, color: palette.text),
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      section.title,
-                      style: fraunces(21, height: 1.15, color: c.text),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      body,
-                      style: dmSans(14, height: 1.4, color: c.textMuted),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 8),
-              MoonIcon(MoonIconName.chev, size: 18, color: c.chevron),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }

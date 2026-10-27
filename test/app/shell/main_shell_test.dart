@@ -67,7 +67,7 @@ void main() {
     expect(find.text('Nourish your cycle'), findsOneWidget);
     await tapTab(tester, 'move');
     expect(find.byType(HubHomePage), findsOneWidget);
-    expect(find.text('Build Your Routine'), findsOneWidget);
+    expect(find.text('Build Your Workout'), findsOneWidget);
     await tapTab(tester, 'relax');
     expect(find.text('Meditations'), findsOneWidget);
     await tapTab(tester, 'more');
