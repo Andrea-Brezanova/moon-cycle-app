@@ -13,6 +13,7 @@ import 'package:moon_cycle/features/cycle/domain/cycle_lengths.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_state.dart';
 import 'package:moon_cycle/features/foods/application/todays_food.dart';
+import 'package:moon_cycle/features/home/application/home_providers.dart';
 import 'package:moon_cycle/features/plants/application/plant_providers.dart';
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
@@ -130,11 +131,165 @@ void main() {
       });
     }
 
-    test('a browsed phase changes nothing', () {
+    test('today, without touching the wheel, is the real phase and day', () {
       final c = on(start.addDays(9), start: start);
-      final before = ids(c);
-      c.read(viewingPhaseProvider.notifier).choose(Phase.menstrual);
-      expect(ids(c), before);
+      final d = c.read(plantsDayProvider);
+      expect(d.preview, isFalse);
+      expect(d.phase, c.read(actualPhaseProvider));
+      expect(d.day, 10);
+    });
+  });
+
+  group('the day Home’s cycle wheel is on (a preview)', () {
+    // Today is cycle day 10 (follicular) of a 28/5 cycle.
+    ProviderContainer wheel() => on(start.addDays(9), start: start);
+
+    test(
+      'a day in the same phase gives different plants from the same pool',
+      () {
+        final c = wheel();
+        final today = ids(c);
+        c.read(homePreviewProvider.notifier).preview(8);
+        expect(c.read(plantsDayProvider).preview, isTrue);
+        expect(c.read(plantsDayProvider).phase, Phase.follicular);
+        final other = ids(c);
+        expect(other, hasLength(3));
+        expect(other, isNot(today));
+        final featured = testCatalogue.phase(Phase.follicular).foodIds.toSet();
+        expect(featured.containsAll(other), isTrue);
+      },
+    );
+
+    test('crossing a phase boundary swaps the pool to that phase', () {
+      final c = wheel();
+      for (final (day, phase) in [
+        (3, Phase.menstrual),
+        (14, Phase.ovulatory),
+        (21, Phase.luteal),
+        (10, Phase.follicular),
+      ]) {
+        c.read(homePreviewProvider.notifier).preview(day);
+        expect(c.read(plantsDayProvider).phase, phase, reason: 'day $day');
+        final featured = testCatalogue.phase(phase).foodIds.toSet();
+        expect(featured.containsAll(ids(c)), isTrue, reason: 'day $day');
+        expect(ids(c), hasLength(3));
+      }
+    });
+
+    test('returning to a day shows the same three again', () {
+      final c = wheel();
+      final notifier = c.read(homePreviewProvider.notifier);
+      notifier.preview(20);
+      final first = ids(c);
+      notifier.preview(4);
+      expect(ids(c), isNot(first));
+      notifier.preview(20);
+      expect(ids(c), first);
+    });
+
+    test('back to today restores today’s plants', () {
+      final c = wheel();
+      final today = ids(c);
+      c.read(homePreviewProvider.notifier).preview(18);
+      expect(ids(c), isNot(today));
+      c.read(homePreviewProvider.notifier).backToToday();
+      expect(c.read(plantsDayProvider).preview, isFalse);
+      expect(ids(c), today);
+    });
+
+    test('a phase chosen elsewhere previews that phase', () {
+      final c = wheel();
+      c.read(viewingPhaseProvider.notifier).choose(Phase.luteal);
+      expect(c.read(plantsDayProvider).phase, Phase.luteal);
+      final featured = testCatalogue.phase(Phase.luteal).foodIds.toSet();
+      expect(featured.containsAll(ids(c)), isTrue);
+    });
+
+    test(
+      'a restart (new container) gives the same plants for the same day',
+      () {
+        final a = wheel();
+        a.read(homePreviewProvider.notifier).preview(19);
+        final fresh = wheel();
+        fresh.read(homePreviewProvider.notifier).preview(19);
+        expect(ids(fresh), ids(a));
+      },
+    );
+
+    test('consecutive days never repeat the same trio', () {
+      final c = wheel();
+      final n = c.read(homePreviewProvider.notifier);
+      List<String>? previous;
+      for (var day = 1; day <= 28; day++) {
+        n.preview(day);
+        final now = ids(c);
+        if (previous != null &&
+            c.read(plantPoolProvider).length > 3 &&
+            c.read(plantsDayProvider).phase ==
+                c
+                    .read(cycleStateProvider)
+                    .value!
+                    .ranges
+                    .forDay(day - 1)
+                    .phase) {
+          expect(now.toSet(), isNot(previous.toSet()), reason: 'day $day');
+        }
+        previous = now;
+      }
+    });
+
+    test('dietary exclusions apply to previewed days', () {
+      const filter = FoodFilter(
+        diet: Diet.vegan,
+        avoidances: [AllergenAvoidance(id: 'a', allergenId: 'tree-nut')],
+      );
+      final c = on(start.addDays(9), start: start, filter: filter);
+      for (var day = 1; day <= 28; day++) {
+        c.read(homePreviewProvider.notifier).preview(day);
+        for (final p in c.read(threePlantsProvider)) {
+          expect(filter.allowsFood(p), isTrue, reason: '${p.id} day $day');
+        }
+      }
+    });
+
+    test('irregular and late cycles still give three plants per day', () {
+      for (final length in [21, 35]) {
+        final c = on(
+          start.addDays(length ~/ 2),
+          start: start,
+          cycleLength: length,
+        );
+        for (var day = 1; day <= length; day++) {
+          c.read(homePreviewProvider.notifier).preview(day);
+          expect(ids(c), hasLength(3), reason: '$length-day cycle, day $day');
+        }
+      }
+      // A late period (today is past the cycle length): today still gives three
+      // and previewing an earlier day works.
+      final late = on(start.addDays(33), start: start);
+      expect(ids(late), hasLength(3));
+      late.read(homePreviewProvider.notifier).preview(8);
+      expect(ids(late), hasLength(3));
+    });
+
+    test('previewing changes no stored cycle data', () {
+      final c = wheel();
+      final before = c.read(cycleStateProvider).value!;
+      c.read(homePreviewProvider.notifier).preview(22);
+      final after = c.read(cycleStateProvider).value!;
+      expect(identical(before, after), isTrue);
+      expect(after.cycleDay, 10);
+      expect(after.lastPeriodStart, start);
+    });
+
+    test('picks reset when the day changes', () {
+      final c = wheel();
+      c.listen(plantPicksProvider, (_, _) {});
+      final first = c.read(threePlantsProvider).first.id;
+      c.read(plantPicksProvider.notifier).toggle(first);
+      expect(c.read(plantPicksProvider), {first});
+      c.read(homePreviewProvider.notifier).preview(13);
+      expect(c.read(plantPicksProvider), isEmpty);
     });
   });
 
