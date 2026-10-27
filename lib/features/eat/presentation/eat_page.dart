@@ -7,13 +7,12 @@ import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
-import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/hub_card.dart';
+import '../../../core/design/widgets/hub_hero.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/pressable.dart';
-import '../../../core/domain/phase.dart';
-import '../../content/application/content_providers.dart';
-import '../../cycle/application/cycle_providers.dart';
+import '../../cycle/application/viewing_phase.dart';
+import '../../cycle/presentation/phase_overline.dart';
 import '../../foods/application/browse_scope.dart';
 import '../../recipes/application/recipe_filter.dart';
 
@@ -30,6 +29,8 @@ class EatPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
+    // The icons wear the colours of the phase being viewed.
+    final phase = ref.watch(viewingPhaseProvider);
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -54,7 +55,7 @@ class EatPage extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _PhaseOverline(),
+                        const PhaseOverline(),
                         Semantics(
                           header: true,
                           child: Text(
@@ -88,11 +89,17 @@ class EatPage extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 14),
-              const _Intro(),
+              const HubHero(
+                asset: heroAsset,
+                heading: 'Nourish your cycle',
+                body:
+                    'Seasonal foods, simple recipes and meal ideas to support '
+                    'your current phase.',
+              ),
               const SizedBox(height: 16),
               HubCard(
                 icon: MoonIconName.apple,
-                phase: Phase.menstrual,
+                phase: phase,
                 title: 'Foods',
                 body: 'Browse foods by phase and benefit.',
                 onTap: () => context.push(Routes.eatFoods),
@@ -100,7 +107,7 @@ class EatPage extends ConsumerWidget {
               const SizedBox(height: 12),
               HubCard(
                 icon: MoonIconName.utensils,
-                phase: Phase.ovulatory,
+                phase: phase,
                 title: 'Recipes',
                 body: 'Find nourishing recipes for every phase.',
                 onTap: () {
@@ -112,7 +119,7 @@ class EatPage extends ConsumerWidget {
               const SizedBox(height: 12),
               HubCard(
                 icon: MoonIconName.recipes,
-                phase: Phase.luteal,
+                phase: phase,
                 title: 'Meal builder',
                 body: 'Create a balanced meal with foods or recipes.',
                 onTap: () => context.push(Routes.mealBuilder()),
@@ -120,101 +127,6 @@ class EatPage extends ConsumerWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-/// The photograph with the "Nourish your cycle" card joined beneath it.
-class _Intro extends StatelessWidget {
-  const _Intro();
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    return Container(
-      decoration: BoxDecoration(
-        color: c.raised,
-        border: Border.all(color: c.line),
-        borderRadius: BorderRadius.circular(24),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Decorative: the heading below says what the page is.
-          ExcludeSemantics(
-            child: AspectRatio(
-              aspectRatio: 1.86,
-              child: Image.asset(
-                EatPage.heroAsset,
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.medium,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(22, 16, 22, 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                EditorialHeading(
-                  italicLastWord('Nourish your cycle'),
-                  style: fraunces(28, height: 1.15, color: c.text),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Seasonal foods, simple recipes and meal ideas to support '
-                  'your current phase.',
-                  style: dmSans(15, height: 1.5, color: c.textMuted),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// A phase dot and "FOLLICULAR · DAY 7" (the real phase and cycle day), 8 pt
-/// above the title.
-class _PhaseOverline extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final c = context.moon;
-    final state = ref.watch(cycleStateProvider).value;
-    if (state == null) return const SizedBox.shrink();
-    final name = ref.watch(catalogueProvider).phase(state.phase).name;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ExcludeSemantics(
-            child: Container(
-              width: 7,
-              height: 7,
-              decoration: BoxDecoration(
-                color: c.phase(state.phase).accent,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          const SizedBox(width: 7),
-          Flexible(
-            child: Text(
-              '${name.toUpperCase()} · DAY ${state.cycleDay}',
-              style: dmSans(
-                12,
-                weight: FontWeight.w700,
-                height: 1.2,
-                tracking: 0.18,
-                color: c.textMuted,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
