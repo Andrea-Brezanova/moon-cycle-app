@@ -1,0 +1,1091 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-26",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A), https://ods.od.nih.gov/factsheets/list-all/",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones: nuts and nut products listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "apple": {
+      "catalogueId": "apple",
+      "name": "Apple",
+      "sections": {
+        "whatItOffers": "An apple is a crunchy, portable fruit with fibre (more of it in the skin) and a little vitamin C.",
+        "practicalServing": "1 medium apple (USDA: 1 medium, 3 in across = 182 g)",
+        "howToEatIt": "Eat whole with the skin on, slice into salads or porridge, or bake or stew with cinnamon. Pair with nut butter for a more filling snack.",
+        "cycleRelevance": "This profile makes no claim linking apple to a cycle phase or to period symptoms; it is here as one source of vitamin C and fibre, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 171688,
+        "usdaDescription": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, with skin",
+        "portionGrams": 182,
+        "portion": "1 medium apple (USDA: 1 medium, 3 in across = 182 g)",
+        "per100g": {
+          "kcal": 52,
+          "protein": 0.26,
+          "fat": 0.17,
+          "carb": 13.8,
+          "fiber": 2.4,
+          "iron": 0.12,
+          "mg": 5,
+          "k": 107,
+          "zn": 0.04,
+          "vitc": 4.6,
+          "folate": 3,
+          "vita": 3,
+          "vitk": 2.2
+        }
+      },
+      "perServing": {
+        "energyKcal": 95,
+        "proteinG": 0.5,
+        "fatG": 0.3,
+        "carbohydrateG": 25.1,
+        "fiberG": 4.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 195,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "banana": {
+      "catalogueId": "banana",
+      "name": "Banana",
+      "sections": {
+        "whatItOffers": "A banana is an easy, filling fruit with potassium, some magnesium and vitamin C.",
+        "practicalServing": "1 medium banana (USDA: 1 medium, 7 to 7-7/8 in long = 118 g)",
+        "howToEatIt": "Eat as it is, slice over porridge or yoghurt, blend into smoothies, or mash into pancakes and baking. Riper bananas are softer and sweeter.",
+        "cycleRelevance": "This profile makes no claim linking banana to a cycle phase or to period symptoms; it is here as one source of potassium and vitamin C, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173944,
+        "usdaDescription": "Bananas, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, peeled",
+        "portionGrams": 118,
+        "portion": "1 medium banana (USDA: 1 medium, 7 to 7-7/8 in long = 118 g)",
+        "per100g": {
+          "kcal": 89,
+          "protein": 1.09,
+          "fat": 0.33,
+          "carb": 22.8,
+          "fiber": 2.6,
+          "iron": 0.26,
+          "mg": 27,
+          "k": 358,
+          "zn": 0.15,
+          "vitc": 8.7,
+          "folate": 20,
+          "vita": 3,
+          "vitk": 0.5
+        }
+      },
+      "perServing": {
+        "energyKcal": 105,
+        "proteinG": 1.3,
+        "fatG": 0.4,
+        "carbohydrateG": 26.9,
+        "fiberG": 3.1,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 422,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 32,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 10
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 10,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "avocado": {
+      "catalogueId": "avocado",
+      "name": "Avocado",
+      "sections": {
+        "whatItOffers": "Avocado is a creamy, energy-dense fruit rich in unsaturated fat, with fibre, folate and potassium.",
+        "practicalServing": "about 1/3 of an avocado (USDA NLEA serving = 50 g)",
+        "howToEatIt": "Mash onto toast, slice into salads and bowls, blend into dressings or smoothies, or eat with a squeeze of lime. A third of a fruit is a typical serving.",
+        "cycleRelevance": "This profile makes no claim linking avocado to a cycle phase or to period symptoms; it is here as one source of folate, potassium and fibre, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 171705,
+        "usdaDescription": "Avocados, raw, all commercial varieties",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, flesh only",
+        "portionGrams": 50,
+        "portion": "about 1/3 of an avocado (USDA NLEA serving = 50 g)",
+        "per100g": {
+          "kcal": 160,
+          "protein": 2,
+          "fat": 14.7,
+          "carb": 8.53,
+          "fiber": 6.7,
+          "iron": 0.55,
+          "mg": 29,
+          "k": 485,
+          "zn": 0.64,
+          "vitc": 10,
+          "folate": 81,
+          "vita": 7,
+          "vitk": 21
+        }
+      },
+      "perServing": {
+        "energyKcal": 80,
+        "proteinG": 1.0,
+        "fatG": 7.4,
+        "carbohydrateG": 4.3,
+        "fiberG": 3.4,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 41,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 243,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 15,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 5
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "strawberry": {
+      "catalogueId": "strawberry",
+      "name": "Strawberry",
+      "sections": {
+        "whatItOffers": "Strawberries are sweet, juicy berries that are an excellent source of vitamin C.",
+        "practicalServing": "140 g (USDA reference amount), about a generous handful",
+        "howToEatIt": "Eat fresh, slice over yoghurt or porridge, blend into smoothies, or toss into salads. Frozen berries work well for cooking and smoothies.",
+        "cycleRelevance": "This profile makes no claim linking strawberry to a cycle phase or to period symptoms; it is here as one source of vitamin C, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 2346409,
+        "usdaDescription": "Strawberries, raw",
+        "dataType": "Foundation",
+        "published": "10/28/2022",
+        "preparationState": "raw, hulled",
+        "portionGrams": 140,
+        "portion": "140 g (USDA reference amount), about a generous handful",
+        "per100g": {
+          "kcal": 36,
+          "protein": 0.64,
+          "fat": 0.22,
+          "carb": 7.96,
+          "iron": 0.26,
+          "mg": 12.5,
+          "k": 161,
+          "zn": 0.11,
+          "vitc": 59.6
+        }
+      },
+      "perServing": {
+        "energyKcal": 50,
+        "proteinG": 0.9,
+        "fatG": 0.3,
+        "carbohydrateG": 11.1,
+        "fiberG": null,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 83,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 111
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 225,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cauliflower": {
+      "catalogueId": "cauliflower",
+      "name": "Cauliflower",
+      "sections": {
+        "whatItOffers": "Cauliflower is a mild, versatile vegetable with vitamin C, folate and fibre.",
+        "practicalServing": "½ cup cooked, 1 in pieces (USDA: 0.5 cup = 62 g)",
+        "howToEatIt": "Roast until golden, steam, blend into soups, or break into rice-like crumbs. Curry spices and lemon suit it well.",
+        "cycleRelevance": "This profile makes no claim linking cauliflower to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170397,
+        "usdaDescription": "Cauliflower, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 62,
+        "portion": "½ cup cooked, 1 in pieces (USDA: 0.5 cup = 62 g)",
+        "per100g": {
+          "kcal": 23,
+          "protein": 1.84,
+          "fat": 0.45,
+          "carb": 4.11,
+          "fiber": 2.3,
+          "iron": 0.32,
+          "mg": 9,
+          "k": 142,
+          "zn": 0.17,
+          "vitc": 44.3,
+          "folate": 44,
+          "vita": 1,
+          "vitk": 13.8
+        }
+      },
+      "perServing": {
+        "energyKcal": 14,
+        "proteinG": 1.1,
+        "fatG": 0.3,
+        "carbohydrateG": 2.5,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 27,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 37
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 27,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 88,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cabbage": {
+      "catalogueId": "cabbage",
+      "name": "Cabbage",
+      "sections": {
+        "whatItOffers": "Cabbage is a hardy, inexpensive vegetable with vitamin C, folate and plenty of vitamin K.",
+        "practicalServing": "½ cup shredded, cooked (USDA: 0.5 cup = 75 g)",
+        "howToEatIt": "Shred raw into slaws, sauté or braise until soft, simmer into soups, or ferment into sauerkraut. Cooking softens its sharpness.",
+        "cycleRelevance": "This profile makes no claim linking cabbage to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169976,
+        "usdaDescription": "Cabbage, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 75,
+        "portion": "½ cup shredded, cooked (USDA: 0.5 cup = 75 g)",
+        "per100g": {
+          "kcal": 23,
+          "protein": 1.27,
+          "fat": 0.06,
+          "carb": 5.51,
+          "fiber": 1.9,
+          "iron": 0.17,
+          "mg": 15,
+          "k": 196,
+          "zn": 0.2,
+          "vitc": 37.5,
+          "folate": 30,
+          "vita": 4,
+          "vitk": 109
+        }
+      },
+      "perServing": {
+        "energyKcal": 17,
+        "proteinG": 1.0,
+        "fatG": 0.0,
+        "carbohydrateG": 4.1,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 28,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 38
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 82,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          },
+          {
+            "name": "Folate",
+            "amount": 23,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cabbage contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pumpkin": {
+      "catalogueId": "pumpkin",
+      "name": "Pumpkin",
+      "sections": {
+        "whatItOffers": "Pumpkin is a soft, mildly sweet squash and a good source of vitamin A (from beta-carotene) with some potassium.",
+        "practicalServing": "½ cup mashed, cooked (USDA: 1 cup mashed = 245 g)",
+        "howToEatIt": "Roast in wedges, simmer into soup, mash into curries and stews, or fold into porridge and baking.",
+        "cycleRelevance": "This profile makes no claim linking pumpkin to a cycle phase or to period symptoms; it is here as one source of vitamin A and potassium, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168449,
+        "usdaDescription": "Pumpkin, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 122.5,
+        "portion": "½ cup mashed, cooked (USDA: 1 cup mashed = 245 g)",
+        "per100g": {
+          "kcal": 20,
+          "protein": 0.72,
+          "fat": 0.07,
+          "carb": 4.9,
+          "fiber": 1.1,
+          "iron": 0.57,
+          "mg": 9,
+          "k": 230,
+          "zn": 0.23,
+          "vitc": 4.7,
+          "folate": 9,
+          "vita": 288,
+          "vitk": 0.8
+        }
+      },
+      "perServing": {
+        "energyKcal": 25,
+        "proteinG": 0.9,
+        "fatG": 0.1,
+        "carbohydrateG": 6.0,
+        "fiberG": 1.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 353,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 50
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 282,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "walnut": {
+      "catalogueId": "walnut",
+      "name": "Walnut",
+      "sections": {
+        "whatItOffers": "Walnuts are a rich, slightly bitter tree nut with plant fats, protein and fibre, plus magnesium, iron and zinc. They are energy dense, so a small handful is a typical serving.",
+        "practicalServing": "30 g (USDA reference amount), about a small handful",
+        "howToEatIt": "Eat as a snack, chop over porridge, yoghurt or salads, or bake into bread and cakes. Store in a cool place as the oils can turn rancid.",
+        "cycleRelevance": "This profile makes no claim linking walnut to a cycle phase or to period symptoms; it is here as one source of magnesium, iron and zinc, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 2346394,
+        "usdaDescription": "Nuts, walnuts, English, halves, raw",
+        "dataType": "Foundation",
+        "published": "10/28/2022",
+        "preparationState": "raw, halves, unsalted",
+        "portionGrams": 30,
+        "portion": "30 g (USDA reference amount), about a small handful",
+        "per100g": {
+          "kcal": 730,
+          "protein": 14.6,
+          "fat": 69.7,
+          "carb": 10.9,
+          "fiber": 5.2,
+          "iron": 2.24,
+          "mg": 142,
+          "k": 424,
+          "zn": 2.76,
+          "vitk": 1.7
+        }
+      },
+      "perServing": {
+        "energyKcal": 219,
+        "proteinG": 4.4,
+        "fatG": 20.9,
+        "carbohydrateG": 3.3,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 43,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 0.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 4
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "brown-rice": {
+      "catalogueId": "brown-rice",
+      "name": "Brown rice",
+      "sections": {
+        "whatItOffers": "Brown rice is a whole grain that keeps its bran, which means more fibre and magnesium than white rice.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 202 g)",
+        "howToEatIt": "Rinse and simmer until tender, then use as a base for bowls, stir-fries and curries. Cook extra and chill for quick meals.",
+        "cycleRelevance": "This profile makes no claim linking brown rice to a cycle phase or to period symptoms; it is here as one source of magnesium and fibre, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169704,
+        "usdaDescription": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled",
+        "portionGrams": 101,
+        "portion": "½ cup cooked (USDA: 1 cup = 202 g)",
+        "per100g": {
+          "kcal": 123,
+          "protein": 2.74,
+          "fat": 0.97,
+          "carb": 25.6,
+          "fiber": 1.6,
+          "iron": 0.56,
+          "mg": 39,
+          "k": 86,
+          "zn": 0.71,
+          "vitc": 0,
+          "folate": 9,
+          "vita": 0,
+          "vitk": 0.2
+        }
+      },
+      "perServing": {
+        "energyKcal": 124,
+        "proteinG": 2.8,
+        "fatG": 1.0,
+        "carbohydrateG": 25.9,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 39,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 13
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cucumber": {
+      "catalogueId": "cucumber",
+      "name": "Cucumber",
+      "sections": {
+        "whatItOffers": "Cucumber is a crisp, watery vegetable that is very low in energy, with some potassium and vitamin K.",
+        "practicalServing": "85 g, about a third of a cucumber (USDA: 1 = 85 g)",
+        "howToEatIt": "Slice into salads, sandwiches and bowls, dip in hummus or yoghurt sauce, or pickle thinly. Keep the peel on for extra crunch and fibre.",
+        "cycleRelevance": "This profile makes no claim linking cucumber to a cycle phase or to period symptoms; it is here as one source of potassium, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 2346406,
+        "usdaDescription": "Cucumber, with peel, raw",
+        "dataType": "Foundation",
+        "published": "10/28/2022",
+        "preparationState": "raw, with peel",
+        "portionGrams": 85,
+        "portion": "85 g, about a third of a cucumber (USDA: 1 = 85 g)",
+        "per100g": {
+          "kcal": 16,
+          "protein": 0.62,
+          "fat": 0.18,
+          "carb": 2.95,
+          "mg": 10.1,
+          "k": 170,
+          "zn": 0.2,
+          "vitk": 24
+        }
+      },
+      "perServing": {
+        "energyKcal": 14,
+        "proteinG": 0.5,
+        "fatG": 0.2,
+        "carbohydrateG": 2.5,
+        "fiberG": null,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 145,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 20,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "red-bell-pepper": {
+      "catalogueId": "red-bell-pepper",
+      "name": "Red bell pepper",
+      "sections": {
+        "whatItOffers": "A red bell pepper is a sweet, crunchy vegetable that is an exceptional source of vitamin C, with vitamin A and folate.",
+        "practicalServing": "1 medium pepper (USDA: 1 medium = 119 g)",
+        "howToEatIt": "Eat raw in strips with dips, roast until soft and sweet, or stir-fry and stuff. Having it with beans or lentils adds vitamin C, which helps your body absorb plant iron.",
+        "cycleRelevance": "This profile makes no claim linking red bell pepper to a cycle phase or to period symptoms; it is here as one source of vitamin C, vitamin A and folate, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170108,
+        "usdaDescription": "Peppers, sweet, red, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 119,
+        "portion": "1 medium pepper (USDA: 1 medium = 119 g)",
+        "per100g": {
+          "kcal": 26,
+          "protein": 0.99,
+          "fat": 0.3,
+          "carb": 6.03,
+          "fiber": 2.1,
+          "iron": 0.43,
+          "mg": 12,
+          "k": 211,
+          "zn": 0.25,
+          "vitc": 128,
+          "folate": 46,
+          "vita": 157,
+          "vitk": 4.9
+        }
+      },
+      "perServing": {
+        "energyKcal": 31,
+        "proteinG": 1.2,
+        "fatG": 0.4,
+        "carbohydrateG": 7.2,
+        "fiberG": 2.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 152,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 203
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 187,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 27
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 55,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "green-pea": {
+      "catalogueId": "green-pea",
+      "name": "Green pea",
+      "sections": {
+        "whatItOffers": "Green peas are a sweet little legume with plant protein, fibre, folate and some iron and vitamin C.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 160 g)",
+        "howToEatIt": "Stir into risottos, soups, pasta and curries, mash with mint, or eat from the freezer, lightly cooked. Frozen peas are a handy staple.",
+        "cycleRelevance": "This profile makes no claim linking green pea to a cycle phase or to period symptoms; it is here as one source of folate, fibre and iron, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170420,
+        "usdaDescription": "Peas, green, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 80,
+        "portion": "½ cup cooked (USDA: 1 cup = 160 g)",
+        "per100g": {
+          "kcal": 84,
+          "protein": 5.36,
+          "fat": 0.22,
+          "carb": 15.6,
+          "fiber": 5.5,
+          "iron": 1.54,
+          "mg": 39,
+          "k": 271,
+          "zn": 1.19,
+          "vitc": 14.2,
+          "folate": 63,
+          "vita": 40,
+          "vitk": 25.9
+        }
+      },
+      "perServing": {
+        "energyKcal": 67,
+        "proteinG": 4.3,
+        "fatG": 0.2,
+        "carbohydrateG": 12.5,
+        "fiberG": 4.4,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 50,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 11,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
