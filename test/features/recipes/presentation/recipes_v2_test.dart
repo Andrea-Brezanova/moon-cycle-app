@@ -177,7 +177,7 @@ void main() {
     expect(find.text('No saved recipes yet'), findsOneWidget);
   });
 
-  testWidgets('Cook with opens the ingredient sheet; not offered under All '
+  testWidgets('Cook with opens the ingredient sheet; still offered under All '
       'phases', (tester) async {
     await pumpRecipes(tester);
     await tester.tap(find.bySemanticsLabel('Cook with, choose an ingredient'));
@@ -192,7 +192,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(
       find.bySemanticsLabel('Cook with, choose an ingredient'),
-      findsNothing,
+      findsOneWidget,
     );
   });
 

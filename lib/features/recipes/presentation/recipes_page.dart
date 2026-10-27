@@ -55,7 +55,11 @@ class RecipesPage extends ConsumerWidget {
     final repo = ref.read(savedRecipeRepositoryProvider);
 
     Future<void> chooseIngredient() async {
-      final chosen = await showCookWithSheet(context, phase: list.phase);
+      final chosen = await showCookWithSheet(
+        context,
+        phase: list.phase,
+        all: list.all,
+      );
       if (chosen != null) filter.cookWith(chosen.id);
     }
 
@@ -116,32 +120,30 @@ class RecipesPage extends ConsumerWidget {
               child: ListView(
                 padding: const EdgeInsets.only(bottom: 42 + 76),
                 children: [
-                  if (!(food == null && list.all))
-                    gutter(
-                      food == null
-                          ? CookWithField(
-                              palette: palette,
-                              onTap: chooseIngredient,
-                            )
-                          : Row(
-                              children: [
-                                Flexible(
-                                  child: MoonRemovableChip(
-                                    prefix: 'Cook with: ',
-                                    label: food.displayName,
-                                    tint: palette.tint,
-                                    height: 44,
-                                    onRemove: filter.clearIngredient,
-                                    removeLabel: 'Clear ingredient',
-                                  ),
+                  gutter(
+                    food == null
+                        ? CookWithField(
+                            palette: palette,
+                            onTap: chooseIngredient,
+                          )
+                        : Row(
+                            children: [
+                              Flexible(
+                                child: MoonRemovableChip(
+                                  prefix: 'Cook with: ',
+                                  label: food.displayName,
+                                  tint: palette.tint,
+                                  height: 44,
+                                  onRemove: filter.clearIngredient,
+                                  removeLabel: 'Clear ingredient',
                                 ),
-                                const SizedBox(width: 14),
-                                if (!list.all)
-                                  TextLink('Change', onTap: chooseIngredient),
-                              ],
-                            ),
-                      top: 12,
-                    ),
+                              ),
+                              const SizedBox(width: 14),
+                              TextLink('Change', onTap: chooseIngredient),
+                            ],
+                          ),
+                    top: 12,
+                  ),
                   gutter(
                     Row(
                       children: [

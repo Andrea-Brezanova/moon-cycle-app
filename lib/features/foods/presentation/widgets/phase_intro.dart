@@ -10,8 +10,7 @@ import '../../../cycle/domain/phase_guidance.dart';
 
 /// The phase explanation (Learn more): season and tagline, the longer approved
 /// description, then what your
-/// body may need, why these foods and how to eat this phase, and the
-/// suggestions-not-rules note.
+/// body may need and how to eat this phase, and the suggestions-not-rules note.
 class PhaseIntro extends StatelessWidget {
   const PhaseIntro({
     super.key,
@@ -64,7 +63,6 @@ class PhaseIntro extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         block('What your body may need', copy.need),
-        block('Why these foods', copy.why),
         block('How to eat this phase', copy.how),
         Text(
           foodsUniversalNote,

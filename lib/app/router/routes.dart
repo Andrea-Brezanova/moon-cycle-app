@@ -192,6 +192,9 @@ abstract final class Routes {
   static String collectionLinkEdit(String id) =>
       '/more/collections/link/$id/edit';
 
+  /// Move › Build Your Workout.
+  static const String buildWorkout = '/move/build-workout';
+
   /// The Move and Relax libraries (by [kind], a `HubKind` name) and one item.
   static String hubLibrary(AppTab tab, String kind) =>
       '${tab.path}/library/$kind';
