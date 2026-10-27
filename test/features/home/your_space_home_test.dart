@@ -43,16 +43,20 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the section replaces Quick access and shows the quiet wording '
-      'with nothing saved', (tester) async {
+  testWidgets('the section replaces Quick access; the shortcuts show headlines '
+      'only', (tester) async {
     await pumpHome(tester);
     await toYourSpace(tester);
     expect(find.text('QUICK ACCESS'), findsNothing);
     expect(find.text('My Collections'), findsOneWidget);
     expect(find.text('Recipes, workouts, sounds'), findsOneWidget);
     expect(find.byKey(const ValueKey('collections-badge')), findsNothing);
-    expect(find.text('Nothing logged yet'), findsOneWidget);
-    expect(find.text('Nothing to buy'), findsOneWidget);
+    // The shortcuts carry headlines only: no status or count text.
+    expect(find.text('My Diary'), findsOneWidget);
+    expect(find.text('Shopping List'), findsOneWidget);
+    for (final t in ['Nothing logged yet', 'Nothing to buy']) {
+      expect(find.text(t), findsNothing, reason: t);
+    }
   });
 
   testWidgets('the three shortcuts open My Collections, My Diary and the '
@@ -113,7 +117,9 @@ void main() {
       tester.widget<Text>(find.byKey(const ValueKey('collections-badge'))).data,
       '1',
     );
-    expect(find.text('2 meals today'), findsOneWidget);
+    // Logged meals do not show up as text on the shortcut.
+    expect(find.text('2 meals today'), findsNothing);
+    expect(find.textContaining('meals today'), findsNothing);
     expect(find.bySemanticsLabel('My Collections, 1 saved'), findsOneWidget);
   });
 
