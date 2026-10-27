@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-/// Rows that live under Me › Personalization; the rest are on Me itself.
-const _personalizationRows = {
+/// The rows on Me › My App, with "Delete my data" at its bottom.
+const _myAppRows = {
   'My Cycle',
   'Food Preferences',
-  'Allergies / Foods to Avoid',
+  'Allergies / dietary exclusions',
+  'Appearance',
+  'Notifications',
+  'Subscription',
+  'Privacy & Data',
+  'Help',
+  'Credits & Sources',
+  'About',
+  'Delete my data',
 };
 
-/// Whether [row] is one of the pages that sits under Personalization.
-bool isNestedSettingsRow(String row) => _personalizationRows.contains(row);
+/// Whether [row] is a row on My App (reached from Me through it).
+bool isNestedSettingsRow(String row) => _myAppRows.contains(row);
 
-/// From the Me page, opens a settings row: directly for the rows on Me, through
-/// Personalization for My Cycle, Food Preferences and allergies, and through
-/// Privacy & Data for "Delete my data".
+/// From the Me page, opens a settings row through My App (or "Delete my data"
+/// at the bottom of My App).
 Future<void> openMeRow(WidgetTester tester, String row) async {
   Future<void> tapVisible(Finder f) async {
     await tester.scrollUntilVisible(
@@ -27,12 +34,10 @@ Future<void> openMeRow(WidgetTester tester, String row) async {
     await tester.pumpAndSettle();
   }
 
-  if (row == 'Delete my data') {
-    await tapVisible(find.byKey(const ValueKey('me-privacy')));
-    return tapVisible(find.byKey(const ValueKey('privacy-delete-data')));
-  }
-  if (_personalizationRows.contains(row)) {
-    await tapVisible(find.byKey(const ValueKey('me-personalization')));
-  }
-  await tapVisible(find.text(row));
+  await tapVisible(find.byKey(const ValueKey('me-app')));
+  await tapVisible(
+    row == 'Delete my data'
+        ? find.byKey(const ValueKey('app-delete-data'))
+        : find.text(row),
+  );
 }

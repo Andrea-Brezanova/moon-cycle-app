@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/config/app_links.dart';
-import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_list.dart';
@@ -31,7 +29,7 @@ class PrivacyDataPage extends ConsumerWidget {
     );
 
     return SettingsSubScaffold(
-      backLabel: 'Me',
+      backLabel: 'My App',
       title: 'Privacy & Data',
       gap: 30,
       children: [
@@ -62,23 +60,6 @@ class PrivacyDataPage extends ConsumerWidget {
                     'A file with your cycle history, preferences, diary, '
                     'activities, Notes and saved links',
                 onTap: () => exportMyData(context, ref),
-              ),
-            ),
-          ],
-        ),
-        MoonListGroup(
-          title: 'Delete',
-          children: [
-            Builder(
-              builder: (context) => MoonListRow(
-                key: const ValueKey('privacy-delete-data'),
-                label: 'Delete my data',
-                subtitle:
-                    'Permanently removes your cycle history, preferences and '
-                    'list from this phone',
-                labelColor: c.destructive,
-                onTap: () =>
-                    context.push(Routes.settings(SettingsPage.deleteData)),
               ),
             ),
           ],

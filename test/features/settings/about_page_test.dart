@@ -26,12 +26,14 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('me-app')));
+    await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('me-about')),
+      find.byKey(const ValueKey('app-about')),
       300,
       scrollable: find.byType(Scrollable).first,
     );
-    await tester.tap(find.byKey(const ValueKey('me-about')));
+    await tester.tap(find.byKey(const ValueKey('app-about')));
     await tester.pumpAndSettle();
     expect(find.byType(AboutPage), findsOneWidget);
   }
