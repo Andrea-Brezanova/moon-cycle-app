@@ -350,6 +350,7 @@ void main() {
     expect(out['routines'], [
       {
         'title': 'Morning stretch',
+        'kind': 'routine',
         'note': 'Gentle',
         'steps': [
           {

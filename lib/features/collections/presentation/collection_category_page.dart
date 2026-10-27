@@ -6,12 +6,16 @@ import '../../../app/router/routes.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/widgets/centered_header.dart';
+import '../../../core/design/widgets/editorial_text.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/domain/phase.dart';
+import '../../routines/data/routine_repository.dart';
+import '../../routines/domain/routine.dart';
 import '../application/collections_providers.dart';
 import '../data/collection_link_repository.dart';
 import '../domain/collection_link.dart';
+import 'my_routines_page.dart' show RoutineCard;
 import 'widgets/collection_chips.dart';
 import 'widgets/link_row.dart';
 
@@ -39,6 +43,9 @@ class _CollectionCategoryPageState
     final c = context.moon;
     final workouts = widget.category == CollectionCategory.workouts;
     final linkCategory = workouts ? LinkCategory.workouts : LinkCategory.sounds;
+    final built = workouts
+        ? ref.watch(builtWorkoutsProvider).value ?? const <Routine>[]
+        : const <Routine>[];
     final all = <CollectionLink>[
       for (final l
           in ref.watch(collectionLinksProvider).value ??
@@ -98,7 +105,17 @@ class _CollectionCategoryPageState
                       ),
                       top: 14,
                     ),
-                  if (links.isEmpty)
+                  if (workouts && built.isNotEmpty) ...[
+                    gutter(const Overline('Workouts you built'), top: 18),
+                    for (final w in built)
+                      gutter(
+                        RoutineCard(key: ValueKey('built-${w.id}'), routine: w),
+                        top: 10,
+                      ),
+                    if (links.isNotEmpty)
+                      gutter(const Overline('Saved links'), top: 24),
+                  ],
+                  if (links.isEmpty && !(workouts && built.isNotEmpty))
                     gutter(
                       EmptyState(
                         icon: workouts ? MoonIconName.move : MoonIconName.relax,
@@ -119,8 +136,8 @@ class _CollectionCategoryPageState
                       ),
                       top: 24,
                     )
-                  else
-                    gutter(CollectionLinkGroup(links: links), top: 18),
+                  else if (links.isNotEmpty)
+                    gutter(CollectionLinkGroup(links: links), top: 12),
                 ],
               ),
             ),

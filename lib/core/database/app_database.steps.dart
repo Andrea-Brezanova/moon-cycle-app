@@ -3610,6 +3610,453 @@ i1.GeneratedColumn<String> _column_74(String aliasedName) =>
       type: i1.DriftSqlType.string,
       $customConstraints: 'NULL',
     );
+
+final class Schema11 extends i0.VersionedSchema {
+  Schema11({required super.database}) : super(version: 11);
+  @override
+  late final List<i1.DatabaseSchemaEntity> entities = [
+    cycleProfiles,
+    periodLogs,
+    userPreferences,
+    foodAvoidances,
+    shoppingItems,
+    shoppingSources,
+    appStates,
+    personalRecipes,
+    diaryEntries,
+    symptomCheckins,
+    diaryNotes,
+    diaryActivities,
+    providerUsages,
+    savedRecipeRefs,
+    collectionLinks,
+    routines,
+    routineSteps,
+    periodLogsStartLive,
+    shoppingItemsKeyLive,
+    personalRecipesOwnerKey,
+    diaryEntriesItemLive,
+    symptomCheckinsLive,
+    diaryNotesLive,
+    diaryActivitiesLive,
+    savedRecipeRefsLive,
+    collectionLinksLive,
+    routineStepsLive,
+  ];
+  late final Shape0 cycleProfiles = Shape0(
+    source: i0.VersionedTable(
+      entityName: 'cycle_profiles',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_4,
+        _column_5,
+        _column_6,
+        _column_7,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape1 periodLogs = Shape1(
+    source: i0.VersionedTable(
+      entityName: 'period_logs',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_8,
+        _column_9,
+        _column_10,
+        _column_11,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape2 userPreferences = Shape2(
+    source: i0.VersionedTable(
+      entityName: 'user_preferences',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_12,
+        _column_13,
+        _column_14,
+        _column_15,
+        _column_16,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape3 foodAvoidances = Shape3(
+    source: i0.VersionedTable(
+      entityName: 'food_avoidances',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_17,
+        _column_18,
+        _column_19,
+        _column_20,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape4 shoppingItems = Shape4(
+    source: i0.VersionedTable(
+      entityName: 'shopping_items',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_21,
+        _column_19,
+        _column_22,
+        _column_23,
+        _column_24,
+        _column_25,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape5 shoppingSources = Shape5(
+    source: i0.VersionedTable(
+      entityName: 'shopping_sources',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_26,
+        _column_27,
+        _column_28,
+        _column_29,
+        _column_30,
+        _column_31,
+        _column_32,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape6 appStates = Shape6(
+    source: i0.VersionedTable(
+      entityName: 'app_states',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [_column_33, _column_34],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape7 personalRecipes = Shape7(
+    source: i0.VersionedTable(
+      entityName: 'personal_recipes',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_35,
+        _column_36,
+        _column_37,
+        _column_38,
+        _column_39,
+        _column_40,
+        _column_41,
+        _column_42,
+        _column_43,
+        _column_44,
+        _column_45,
+        _column_46,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape11 diaryEntries = Shape11(
+    source: i0.VersionedTable(
+      entityName: 'diary_entries',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_47,
+        _column_48,
+        _column_17,
+        _column_49,
+        _column_38,
+        _column_50,
+        _column_51,
+        _column_59,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape12 symptomCheckins = Shape12(
+    source: i0.VersionedTable(
+      entityName: 'symptom_checkins',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_47,
+        _column_60,
+        _column_61,
+        _column_62,
+        _column_59,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape13 diaryNotes = Shape13(
+    source: i0.VersionedTable(
+      entityName: 'diary_notes',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_47,
+        _column_63,
+        _column_64,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape14 diaryActivities = Shape14(
+    source: i0.VersionedTable(
+      entityName: 'diary_activities',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_47,
+        _column_27,
+        _column_65,
+        _column_66,
+        _column_67,
+        _column_59,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape9 providerUsages = Shape9(
+    source: i0.VersionedTable(
+      entityName: 'provider_usages',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(provider_id, month)'],
+      columns: [_column_52, _column_53, _column_54, _column_55],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape10 savedRecipeRefs = Shape10(
+    source: i0.VersionedTable(
+      entityName: 'saved_recipe_refs',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_52,
+        _column_56,
+        _column_57,
+        _column_38,
+        _column_58,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape15 collectionLinks = Shape15(
+    source: i0.VersionedTable(
+      entityName: 'collection_links',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_60,
+        _column_68,
+        _column_38,
+        _column_69,
+        _column_70,
+        _column_59,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape18 routines = Shape18(
+    source: i0.VersionedTable(
+      entityName: 'routines',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_38,
+        _column_59,
+        _column_75,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape17 routineSteps = Shape17(
+    source: i0.VersionedTable(
+      entityName: 'routine_steps',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(id)'],
+      columns: [
+        _column_0,
+        _column_1,
+        _column_2,
+        _column_3,
+        _column_71,
+        _column_72,
+        _column_17,
+        _column_73,
+        _column_74,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index periodLogsStartLive = i1.Index(
+    'period_logs_start_live',
+    'CREATE UNIQUE INDEX period_logs_start_live ON period_logs (start_date) WHERE deleted_at IS NULL',
+  );
+  final i1.Index shoppingItemsKeyLive = i1.Index(
+    'shopping_items_key_live',
+    'CREATE UNIQUE INDEX shopping_items_key_live ON shopping_items ("key") WHERE deleted_at IS NULL',
+  );
+  final i1.Index personalRecipesOwnerKey = i1.Index(
+    'personal_recipes_owner_key',
+    'CREATE UNIQUE INDEX personal_recipes_owner_key ON personal_recipes (owner_id, idempotency_key) WHERE deleted_at IS NULL',
+  );
+  final i1.Index diaryEntriesItemLive = i1.Index(
+    'diary_entries_item_live',
+    'CREATE UNIQUE INDEX diary_entries_item_live ON diary_entries (date, meal, kind, item_id, unit) WHERE deleted_at IS NULL',
+  );
+  final i1.Index symptomCheckinsLive = i1.Index(
+    'symptom_checkins_live',
+    'CREATE UNIQUE INDEX symptom_checkins_live ON symptom_checkins (date, category, symptom) WHERE deleted_at IS NULL',
+  );
+  final i1.Index diaryNotesLive = i1.Index(
+    'diary_notes_live',
+    'CREATE INDEX diary_notes_live ON diary_notes (date) WHERE deleted_at IS NULL',
+  );
+  final i1.Index diaryActivitiesLive = i1.Index(
+    'diary_activities_live',
+    'CREATE INDEX diary_activities_live ON diary_activities (date) WHERE deleted_at IS NULL',
+  );
+  final i1.Index savedRecipeRefsLive = i1.Index(
+    'saved_recipe_refs_live',
+    'CREATE UNIQUE INDEX saved_recipe_refs_live ON saved_recipe_refs (provider_id, ref_id) WHERE deleted_at IS NULL',
+  );
+  final i1.Index collectionLinksLive = i1.Index(
+    'collection_links_live',
+    'CREATE INDEX collection_links_live ON collection_links (category) WHERE deleted_at IS NULL',
+  );
+  final i1.Index routineStepsLive = i1.Index(
+    'routine_steps_live',
+    'CREATE INDEX routine_steps_live ON routine_steps (routine_id, position) WHERE deleted_at IS NULL',
+  );
+}
+
+class Shape18 extends i0.VersionedTable {
+  Shape18({required super.source, required super.alias}) : super.aliased();
+  i1.GeneratedColumn<String> get id =>
+      columnsByName['id']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get createdAt =>
+      columnsByName['created_at']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get updatedAt =>
+      columnsByName['updated_at']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get deletedAt =>
+      columnsByName['deleted_at']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get title =>
+      columnsByName['title']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get note =>
+      columnsByName['note']! as i1.GeneratedColumn<String>;
+  i1.GeneratedColumn<String> get kind =>
+      columnsByName['kind']! as i1.GeneratedColumn<String>;
+}
+
+i1.GeneratedColumn<String> _column_75(String aliasedName) =>
+    i1.GeneratedColumn<String>(
+      'kind',
+      aliasedName,
+      false,
+      type: i1.DriftSqlType.string,
+      $customConstraints: 'NOT NULL DEFAULT \'routine\'',
+      defaultValue: const i1.CustomExpression('\'routine\''),
+    );
 i0.MigrationStepWithVersion migrationSteps({
   required Future<void> Function(i1.Migrator m, Schema2 schema) from1To2,
   required Future<void> Function(i1.Migrator m, Schema3 schema) from2To3,
@@ -3620,6 +4067,7 @@ i0.MigrationStepWithVersion migrationSteps({
   required Future<void> Function(i1.Migrator m, Schema8 schema) from7To8,
   required Future<void> Function(i1.Migrator m, Schema9 schema) from8To9,
   required Future<void> Function(i1.Migrator m, Schema10 schema) from9To10,
+  required Future<void> Function(i1.Migrator m, Schema11 schema) from10To11,
 }) {
   return (currentVersion, database) async {
     switch (currentVersion) {
@@ -3668,6 +4116,11 @@ i0.MigrationStepWithVersion migrationSteps({
         final migrator = i1.Migrator(database, schema);
         await from9To10(migrator, schema);
         return 10;
+      case 10:
+        final schema = Schema11(database: database);
+        final migrator = i1.Migrator(database, schema);
+        await from10To11(migrator, schema);
+        return 11;
       default:
         throw ArgumentError.value('Unknown migration from $currentVersion');
     }
@@ -3684,6 +4137,7 @@ i1.OnUpgrade stepByStep({
   required Future<void> Function(i1.Migrator m, Schema8 schema) from7To8,
   required Future<void> Function(i1.Migrator m, Schema9 schema) from8To9,
   required Future<void> Function(i1.Migrator m, Schema10 schema) from9To10,
+  required Future<void> Function(i1.Migrator m, Schema11 schema) from10To11,
 }) => i0.VersionedSchema.stepByStepHelper(
   step: migrationSteps(
     from1To2: from1To2,
@@ -3695,5 +4149,6 @@ i1.OnUpgrade stepByStep({
     from7To8: from7To8,
     from8To9: from8To9,
     from9To10: from9To10,
+    from10To11: from10To11,
   ),
 );
