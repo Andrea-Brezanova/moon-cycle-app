@@ -15,7 +15,7 @@ class SettingsSubScaffold extends StatelessWidget {
     this.titleSize = 40,
     this.top = 18,
     this.gap = 28,
-    this.backLabel = 'Me',
+    this.backLabel = 'My App',
     required this.children,
   });
 
@@ -27,8 +27,7 @@ class SettingsSubScaffold extends StatelessWidget {
   final double top;
   final double gap;
 
-  /// The page the back button returns to: 'Me' for the pages opened from the
-  /// Me page, 'Personalization' for the pages under it.
+  /// The page the back button returns to: 'My App' for the settings pages.
   final String backLabel;
   final List<Widget> children;
 
