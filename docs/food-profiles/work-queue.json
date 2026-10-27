@@ -336,10 +336,10 @@
    "name": "Green pea",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 170420,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "string-bean",
@@ -366,10 +366,10 @@
    "name": "Avocado",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 171705,
+   "preparationState": "raw, flesh only",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "plum",
@@ -476,10 +476,10 @@
    "name": "Cabbage",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 169976,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "arugula",
@@ -666,10 +666,10 @@
    "name": "Red bell pepper",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 170108,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "tomato",
@@ -716,10 +716,10 @@
    "name": "Strawberry",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 2346409,
+   "preparationState": "raw, hulled",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "almond",
@@ -766,10 +766,10 @@
    "name": "Cucumber",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 2346406,
+   "preparationState": "raw, with peel",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "radish",
@@ -1076,20 +1076,20 @@
    "name": "Brown rice",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 169704,
+   "preparationState": "cooked, boiled",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "cauliflower",
    "name": "Cauliflower",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 170397,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "parsnip",
@@ -1106,10 +1106,10 @@
    "name": "Pumpkin",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 168449,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "squash",
@@ -1136,10 +1136,10 @@
    "name": "Apple",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 171688,
+   "preparationState": "raw, with skin",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "pear",
@@ -1166,10 +1166,10 @@
    "name": "Walnut",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 2346394,
+   "preparationState": "raw, halves, unsalted",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "turkey",
@@ -1216,10 +1216,10 @@
    "name": "Banana",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 2)",
+   "usdaFdcId": 173944,
+   "preparationState": "raw, peeled",
+   "notes": "Draft in draft-batch-2.json; see batch-2-review.md. Not published."
   },
   {
    "foodId": "bulgur",

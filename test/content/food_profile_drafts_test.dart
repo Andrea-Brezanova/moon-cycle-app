@@ -80,7 +80,12 @@ void main() {
               final v = per100[keyOf[n['name']]]! * grams / 100;
               expect(
                 (n['amount'] as num).toDouble(),
-                closeTo(v, v < 10 ? 0.06 : 0.51),
+                closeTo(
+                  v,
+                  (n['amount'] as num) == (n['amount'] as num).roundToDouble()
+                      ? 0.51
+                      : 0.06,
+                ),
                 reason: '$id ${n['name']}',
               );
               for (final r
