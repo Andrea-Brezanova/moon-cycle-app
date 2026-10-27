@@ -1,0 +1,2127 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "beef": {
+      "catalogueId": "beef",
+      "name": "Beef",
+      "sections": {
+        "whatItOffers": "Cooked 90% lean ground beef is a dense source of vitamin B12 (about 99% of the reference in 3 ounces), zinc (about 67%) and iron (about 13%), with about 21 g of protein.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Brown for sauces, chilli and tacos, shape into burgers, or mix with grated vegetables or lentils to stretch it. Pair with vitamin C foods such as tomatoes or peppers.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Iron from meat is absorbed more readily than iron from plant foods, so beef is an efficient source; 3 ounces provide about 2.4 mg."
+      },
+      "source": {
+        "usdaFdcId": 171793,
+        "usdaDescription": "Beef, ground, 90% lean meat / 10% fat, patty, cooked, pan-broiled",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, pan-broiled patty (90% lean)",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 25.2,
+          "fat": 10.7,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 15,
+          "iron": 2.77,
+          "mg": 23,
+          "k": 363,
+          "zn": 6.33,
+          "vitc": 0,
+          "folate": 8,
+          "b12": 2.79,
+          "vita": 3,
+          "vite": 0.13,
+          "vitk": 1.1,
+          "kcal": 204
+        }
+      },
+      "perServing": {
+        "energyKcal": 173,
+        "proteinG": 21.4,
+        "fatG": 9.1,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 99
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 5.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 67
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 21.4,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tempeh": {
+      "catalogueId": "tempeh",
+      "name": "Tempeh",
+      "sections": {
+        "whatItOffers": "Tempeh is a firm, nutty cake of fermented whole soybeans. Half a cup gives about 17 g of protein, magnesium (about 22% of the reference), potassium and iron.",
+        "practicalServing": "½ cup (USDA: 1 cup = 166 g)",
+        "howToEatIt": "Slice or crumble and pan-fry, bake or grill with a marinade, or simmer into curries and chilli. Steaming it for a few minutes first mellows its flavour.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Tempeh adds plant iron (about 2.2 mg in this serving), which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+      },
+      "source": {
+        "usdaFdcId": 174272,
+        "usdaDescription": "Tempeh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "as sold (fermented soybean cake), not cooked",
+        "portionGrams": 83,
+        "portion": "½ cup (USDA: 1 cup = 166 g)",
+        "per100g": {
+          "protein": 20.3,
+          "fat": 10.8,
+          "carb": 7.64,
+          "ca": 111,
+          "iron": 2.7,
+          "mg": 81,
+          "k": 412,
+          "zn": 1.14,
+          "vitc": 0,
+          "folate": 24,
+          "b12": 0.08,
+          "vita": 0,
+          "vitd": 0,
+          "kcal": 192
+        }
+      },
+      "perServing": {
+        "energyKcal": 159,
+        "proteinG": 16.8,
+        "fatG": 9.0,
+        "carbohydrateG": 6.3,
+        "fiberG": null,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 67,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 22
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 342,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 16.8,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Soy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Check the label for gluten-containing grains",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "chicken": {
+      "catalogueId": "chicken",
+      "name": "Chicken",
+      "sections": {
+        "whatItOffers": "Roasted skinless chicken breast is a lean, high-protein food: half a breast gives about 27 g of protein for about 142 calories, plus vitamin B12 and zinc.",
+        "practicalServing": "½ breast, skinless (USDA: 0.5 breast, bone and skin removed = 86 g)",
+        "howToEatIt": "Roast, grill, poach or pan-fry, then slice into salads and wraps, shred into soups and bowls, or serve with vegetables and grains.",
+        "cycleRelevance": "No cycle-phase claim is made for chicken; it is mainly a lean protein source."
+      },
+      "source": {
+        "usdaFdcId": 171477,
+        "usdaDescription": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted breast, meat only (no skin)",
+        "portionGrams": 86,
+        "portion": "½ breast, skinless (USDA: 0.5 breast, bone and skin removed = 86 g)",
+        "per100g": {
+          "protein": 31,
+          "fat": 3.57,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 15,
+          "iron": 1.04,
+          "mg": 29,
+          "k": 256,
+          "zn": 1,
+          "vitc": 0,
+          "folate": 4,
+          "b12": 0.34,
+          "vita": 6,
+          "vite": 0.27,
+          "vitd": 0.1,
+          "vitk": 0.3,
+          "kcal": 165
+        }
+      },
+      "perServing": {
+        "energyKcal": 142,
+        "proteinG": 26.7,
+        "fatG": 3.1,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 26.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "eggs": {
+      "catalogueId": "eggs",
+      "name": "Eggs",
+      "sections": {
+        "whatItOffers": "A hard-boiled egg gives about 6 g of protein, vitamin B12, vitamin A and some vitamin D for about 78 calories.",
+        "practicalServing": "1 large egg (USDA: 1 large = 50 g)",
+        "howToEatIt": "Boil, poach, scramble or bake; slice into salads, grain bowls and sandwiches. Cook until the white and yolk are firm.",
+        "cycleRelevance": "No cycle-phase claim is made for eggs. A single egg supplies a modest share of most nutrients, and one of the few foods with some vitamin D."
+      },
+      "source": {
+        "usdaFdcId": 173424,
+        "usdaDescription": "Egg, whole, cooked, hard-boiled",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "hard-boiled, whole",
+        "portionGrams": 50,
+        "portion": "1 large egg (USDA: 1 large = 50 g)",
+        "per100g": {
+          "protein": 12.6,
+          "fat": 10.6,
+          "carb": 1.12,
+          "fiber": 0,
+          "ca": 50,
+          "iron": 1.19,
+          "mg": 10,
+          "k": 126,
+          "zn": 1.05,
+          "vitc": 0,
+          "folate": 44,
+          "b12": 1.11,
+          "vita": 149,
+          "vite": 1.03,
+          "vitd": 2.2,
+          "vitk": 0.3,
+          "kcal": 155
+        }
+      },
+      "perServing": {
+        "energyKcal": 78,
+        "proteinG": 6.3,
+        "fatG": 5.3,
+        "carbohydrateG": 0.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 75,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Egg allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook eggs to 160 °F (71.1 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tofu": {
+      "catalogueId": "tofu",
+      "name": "Tofu",
+      "sections": {
+        "whatItOffers": "Firm tofu set with calcium sulfate is a plant protein with a lot of calcium: a quarter block gives about 14 g of protein and about 55% of the calcium reference, plus zinc and magnesium.",
+        "practicalServing": "¼ block (USDA: 0.25 block = 81 g)",
+        "howToEatIt": "Press and cube for stir-fries and curries, crumble into scrambles, bake or pan-fry until golden, or blend silken types into sauces. It takes on the flavour of what it is cooked with.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Tofu made with calcium sulfate is one of the richer non-dairy sources; check the label, as tofu set with other coagulants has much less."
+      },
+      "source": {
+        "usdaFdcId": 172475,
+        "usdaDescription": "Tofu, raw, firm, prepared with calcium sulfate",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw (as sold), firm, set with calcium sulfate",
+        "portionGrams": 81,
+        "portion": "¼ block (USDA: 0.25 block = 81 g)",
+        "per100g": {
+          "protein": 17.3,
+          "fat": 8.72,
+          "carb": 2.78,
+          "fiber": 2.3,
+          "ca": 683,
+          "iron": 2.66,
+          "mg": 58,
+          "k": 237,
+          "zn": 1.57,
+          "vitc": 0.2,
+          "folate": 29,
+          "kcal": 144
+        }
+      },
+      "perServing": {
+        "energyKcal": 117,
+        "proteinG": 14.0,
+        "fatG": 7.1,
+        "carbohydrateG": 2.3,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Calcium",
+            "amount": 553,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 55
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 47,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 14.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Soy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pork": {
+      "catalogueId": "pork",
+      "name": "Pork",
+      "sections": {
+        "whatItOffers": "Roasted lean pork loin gives about 24 g of protein, zinc (about 27% of the reference), vitamin B12 and potassium in 3 ounces, for about 178 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Roast, grill or pan-sear, then slice thinly; it works with fruit, mustard and herbs, in stir-fries, or shredded into tacos.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lean loin is a modest source of iron (about 0.9 mg in this serving); other cuts and organ meats differ."
+      },
+      "source": {
+        "usdaFdcId": 168233,
+        "usdaDescription": "Pork, fresh, loin, whole, separable lean only, cooked, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted loin, lean only",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 28.6,
+          "fat": 9.63,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 18,
+          "iron": 1.09,
+          "mg": 28,
+          "k": 425,
+          "zn": 2.53,
+          "vitc": 0.6,
+          "folate": 1,
+          "b12": 0.73,
+          "vita": 2,
+          "vite": 0.2,
+          "vitd": 0.7,
+          "vitk": 0,
+          "kcal": 209
+        }
+      },
+      "perServing": {
+        "energyKcal": 178,
+        "proteinG": 24.3,
+        "fatG": 8.2,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 2.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 27
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 361,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 24.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lamb": {
+      "catalogueId": "lamb",
+      "name": "Lamb",
+      "sections": {
+        "whatItOffers": "Roasted lean leg of lamb is a dense source of vitamin B12 (about 96% of the reference in 3 ounces), zinc (about 53%) and protein (about 24 g).",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Roast with garlic, rosemary and lemon, grill slices, or braise in stews and curries; rest the meat before carving.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lamb provides iron from meat (about 1.8 mg in this serving), absorbed more readily than iron from plants."
+      },
+      "source": {
+        "usdaFdcId": 172487,
+        "usdaDescription": "Lamb, leg, shank half, separable lean only, trimmed to 1/4\" fat, choice, cooked, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted leg (shank half), lean only",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 28.2,
+          "fat": 6.67,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 8,
+          "iron": 2.06,
+          "mg": 26,
+          "k": 342,
+          "zn": 5.02,
+          "vitc": 0,
+          "folate": 24,
+          "b12": 2.71,
+          "vita": 0,
+          "vite": 0.18,
+          "kcal": 180
+        }
+      },
+      "perServing": {
+        "energyKcal": 153,
+        "proteinG": 24.0,
+        "fatG": 5.7,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 96
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 4.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 53
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 291,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 24.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "turkey": {
+      "catalogueId": "turkey",
+      "name": "Turkey",
+      "sections": {
+        "whatItOffers": "Roasted turkey breast is a very lean, high-protein meat: 3 ounces give about 26 g of protein for 125 calories, plus zinc and a little vitamin B12.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Roast and slice for sandwiches and salads, shred into soups, or use in stir-fries and bowls.",
+        "cycleRelevance": "No cycle-phase claim is made for turkey; it is mainly a lean protein source."
+      },
+      "source": {
+        "usdaFdcId": 171496,
+        "usdaDescription": "Turkey, whole, breast, meat only, cooked, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted breast, meat only",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 30.1,
+          "fat": 2.08,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 9,
+          "iron": 0.71,
+          "mg": 32,
+          "k": 249,
+          "zn": 1.72,
+          "vitc": 0,
+          "folate": 9,
+          "b12": 0.39,
+          "vita": 3,
+          "vite": 0.06,
+          "vitd": 0.3,
+          "vitk": 0,
+          "kcal": 147,
+          "omega3": 0.008
+        }
+      },
+      "perServing": {
+        "energyKcal": 125,
+        "proteinG": 25.6,
+        "fatG": 1.8,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 1.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 25.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "feta": {
+      "catalogueId": "feta",
+      "name": "Feta",
+      "sections": {
+        "whatItOffers": "Feta is a brined, tangy white cheese. An ounce gives calcium (about 14% of the reference), vitamin B12 and zinc for about 75 calories. It is salty.",
+        "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Crumble over salads, roasted vegetables and eggs, bake with tomatoes, or serve with olives and bread.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce of feta supplies about 140 mg, about 14% of that."
+      },
+      "source": {
+        "usdaFdcId": 173420,
+        "usdaDescription": "Cheese, feta",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "as sold",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 14.2,
+          "fat": 21.5,
+          "carb": 3.88,
+          "fiber": 0,
+          "ca": 493,
+          "iron": 0.65,
+          "mg": 19,
+          "k": 62,
+          "zn": 2.88,
+          "vitc": 0,
+          "folate": 32,
+          "b12": 1.69,
+          "vita": 125,
+          "vite": 0.18,
+          "vitd": 0.4,
+          "vitk": 1.8,
+          "kcal": 265
+        }
+      },
+      "perServing": {
+        "energyKcal": 75,
+        "proteinG": 4.0,
+        "fatG": 6.1,
+        "carbohydrateG": 1.1,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.5,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 140,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "plain-yogurt": {
+      "catalogueId": "plain-yogurt",
+      "name": "Plain yogurt",
+      "sections": {
+        "whatItOffers": "A 6-ounce container of plain whole-milk yogurt gives calcium (about 21% of the reference), vitamin B12, zinc and about 6 g of protein.",
+        "practicalServing": "1 container, 6 ounces (USDA: 1 container, 6 oz = 170 g)",
+        "howToEatIt": "Eat with fruit, nuts and seeds, stir into soups and curries, blend into smoothies and dressings, or use in baking in place of cream.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A container of plain yogurt supplies about 206 mg, about 21% of that. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 171284,
+        "usdaDescription": "Yogurt, plain, whole milk",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "plain, whole milk",
+        "portionGrams": 170,
+        "portion": "1 container, 6 ounces (USDA: 1 container, 6 oz = 170 g)",
+        "per100g": {
+          "protein": 3.47,
+          "fat": 3.25,
+          "carb": 4.66,
+          "fiber": 0,
+          "ca": 121,
+          "iron": 0.05,
+          "mg": 12,
+          "k": 155,
+          "zn": 0.59,
+          "vitc": 0.5,
+          "folate": 7,
+          "b12": 0.37,
+          "vita": 27,
+          "vite": 0.06,
+          "vitd": 0.1,
+          "vitk": 0.2,
+          "kcal": 61
+        }
+      },
+      "perServing": {
+        "energyKcal": 104,
+        "proteinG": 5.9,
+        "fatG": 5.5,
+        "carbohydrateG": 7.9,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 206,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.9,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cottage-cheese": {
+      "catalogueId": "cottage-cheese",
+      "name": "Cottage cheese",
+      "sections": {
+        "whatItOffers": "Half a cup of low-fat cottage cheese gives about 12 g of protein, vitamin B12 and calcium (about 13% of the reference) for only 92 calories.",
+        "practicalServing": "½ cup (USDA: 4 oz = 113 g)",
+        "howToEatIt": "Eat with fruit or tomatoes, spread on toast, blend into pancake batter and dips, or layer into lasagne.",
+        "cycleRelevance": "No cycle-phase claim is made for cottage cheese; it is mainly a high-protein, lower-fat dairy food."
+      },
+      "source": {
+        "usdaFdcId": 172182,
+        "usdaDescription": "Cheese, cottage, lowfat, 2% milkfat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "low-fat (2% milkfat)",
+        "portionGrams": 113,
+        "portion": "½ cup (USDA: 4 oz = 113 g)",
+        "per100g": {
+          "protein": 10.4,
+          "fat": 2.27,
+          "carb": 4.76,
+          "fiber": 0,
+          "ca": 111,
+          "iron": 0.13,
+          "mg": 9,
+          "k": 125,
+          "zn": 0.51,
+          "vitc": 0,
+          "folate": 8,
+          "b12": 0.47,
+          "vita": 68,
+          "vite": 0.08,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 81,
+          "omega3": 0.001
+        }
+      },
+      "perServing": {
+        "energyKcal": 92,
+        "proteinG": 11.8,
+        "fatG": 2.6,
+        "carbohydrateG": 5.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.5,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 125,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 77,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 11.8,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kefir": {
+      "catalogueId": "kefir",
+      "name": "Kefir",
+      "sections": {
+        "whatItOffers": "A cup of low-fat plain kefir, a tangy drinkable fermented milk, gives calcium (about 32% of the reference), vitamin A, vitamin B12 and about 9 g of protein for 104 calories.",
+        "practicalServing": "1 cup (USDA: 1 cup = 243 g)",
+        "howToEatIt": "Drink cold on its own, blend into smoothies, pour over cereal or fruit, or use in place of buttermilk in baking and dressings.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A cup of kefir supplies about 316 mg, about 32% of that. No phase-specific claim is made for kefir."
+      },
+      "source": {
+        "usdaFdcId": 170904,
+        "usdaDescription": "Kefir, lowfat, plain, LIFEWAY",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "low-fat plain kefir (a branded USDA record)",
+        "portionGrams": 243,
+        "portion": "1 cup (USDA: 1 cup = 243 g)",
+        "per100g": {
+          "protein": 3.79,
+          "fat": 1.02,
+          "carb": 4.77,
+          "fiber": 0,
+          "ca": 130,
+          "iron": 0.04,
+          "mg": 12,
+          "k": 164,
+          "zn": 0.46,
+          "vitc": 0.2,
+          "folate": 13,
+          "b12": 0.29,
+          "vita": 171,
+          "vite": 0.02,
+          "vitd": 1,
+          "vitk": 0.1,
+          "kcal": 43
+        }
+      },
+      "perServing": {
+        "energyKcal": 104,
+        "proteinG": 9.2,
+        "fatG": 2.5,
+        "carbohydrateG": 11.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 416,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 59
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 316,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 32
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.7,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 29
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 9.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "ricotta": {
+      "catalogueId": "ricotta",
+      "name": "Ricotta",
+      "sections": {
+        "whatItOffers": "Half a cup of whole-milk ricotta, a soft, mild fresh cheese, gives calcium (about 26% of the reference), vitamin A and vitamin B12 with about 9 g of protein.",
+        "practicalServing": "½ cup (USDA: 0.5 cup = 124 g)",
+        "howToEatIt": "Spread on toast with honey or fruit, fold into pasta and lasagne, or mix into pancakes and baking.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Half a cup supplies about 255 mg, about 26% of that."
+      },
+      "source": {
+        "usdaFdcId": 170851,
+        "usdaDescription": "Cheese, ricotta, whole milk",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole milk",
+        "portionGrams": 124,
+        "portion": "½ cup (USDA: 0.5 cup = 124 g)",
+        "per100g": {
+          "protein": 7.54,
+          "fat": 10.2,
+          "carb": 7.27,
+          "fiber": 0,
+          "ca": 206,
+          "iron": 0.13,
+          "mg": 20,
+          "k": 219,
+          "zn": 0.53,
+          "vitc": 0,
+          "folate": 4,
+          "b12": 0.85,
+          "vita": 120,
+          "vite": 0.11,
+          "vitd": 0.2,
+          "vitk": 1.1,
+          "kcal": 150
+        }
+      },
+      "perServing": {
+        "energyKcal": 186,
+        "proteinG": 9.3,
+        "fatG": 12.6,
+        "carbohydrateG": 9.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 44
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 255,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 149,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 9.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "goat-cheese": {
+      "catalogueId": "goat-cheese",
+      "name": "Goat cheese",
+      "sections": {
+        "whatItOffers": "An ounce of soft goat cheese gives about 5 g of protein and vitamin A (about 12% of the reference), with some calcium and iron, for about 75 calories.",
+        "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Crumble over salads and roasted vegetables, spread on toast, or bake until warm and soft.",
+        "cycleRelevance": "No cycle-phase claim is made for goat cheese."
+      },
+      "source": {
+        "usdaFdcId": 173435,
+        "usdaDescription": "Cheese, goat, soft type",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "soft goat cheese",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 18.5,
+          "fat": 21.1,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 140,
+          "iron": 1.9,
+          "mg": 16,
+          "k": 26,
+          "zn": 0.92,
+          "vitc": 0,
+          "folate": 12,
+          "b12": 0.19,
+          "vita": 288,
+          "vite": 0.18,
+          "vitd": 0.4,
+          "vitk": 1.8,
+          "kcal": 264
+        }
+      },
+      "perServing": {
+        "energyKcal": 75,
+        "proteinG": 5.2,
+        "fatG": 6.0,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 82,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "greek-yogurt": {
+      "catalogueId": "greek-yogurt",
+      "name": "Greek yogurt",
+      "sections": {
+        "whatItOffers": "A 6-ounce container of plain whole-milk Greek yogurt gives about 15 g of protein, vitamin B12 (about 53% of the reference) and calcium (about 17%).",
+        "practicalServing": "1 container, 6 ounces (170 g; USDA lists no household measure for this record)",
+        "howToEatIt": "Eat with fruit and honey, use in dips and dressings such as tzatziki, or in place of cream or sour cream.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A container supplies about 170 mg, about 17% of that. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 171304,
+        "usdaDescription": "Yogurt, Greek, plain, whole milk",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "plain, whole milk, strained",
+        "portionGrams": 170,
+        "portion": "1 container, 6 ounces (170 g; USDA lists no household measure for this record)",
+        "per100g": {
+          "protein": 9,
+          "fat": 5,
+          "carb": 3.98,
+          "fiber": 0,
+          "ca": 100,
+          "iron": 0,
+          "mg": 11,
+          "k": 141,
+          "zn": 0.52,
+          "vitc": 0,
+          "folate": 5,
+          "b12": 0.75,
+          "vita": 2,
+          "vite": 0.01,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 97
+        }
+      },
+      "perServing": {
+        "energyKcal": 165,
+        "proteinG": 15.3,
+        "fatG": 8.5,
+        "carbohydrateG": 6.8,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 53
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 170,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 15.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mozzarella": {
+      "catalogueId": "mozzarella",
+      "name": "Mozzarella",
+      "sections": {
+        "whatItOffers": "An ounce of whole-milk mozzarella gives about 6 g of protein, calcium (about 14% of the reference) and vitamin B12 for about 85 calories.",
+        "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Melt on pizza and baked pasta, tear fresh mozzarella over tomatoes and basil, or add to sandwiches and salads.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce supplies about 143 mg, about 14% of that."
+      },
+      "source": {
+        "usdaFdcId": 170845,
+        "usdaDescription": "Cheese, mozzarella, whole milk",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole milk",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 22.2,
+          "fat": 22.1,
+          "carb": 2.4,
+          "fiber": 0,
+          "ca": 505,
+          "iron": 0.44,
+          "mg": 20,
+          "k": 76,
+          "zn": 2.92,
+          "vitc": 0,
+          "folate": 7,
+          "b12": 2.28,
+          "vita": 179,
+          "vite": 0.19,
+          "vitd": 0.4,
+          "vitk": 2.3,
+          "kcal": 299
+        }
+      },
+      "perServing": {
+        "energyKcal": 85,
+        "proteinG": 6.3,
+        "fatG": 6.3,
+        "carbohydrateG": 0.7,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 27
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 143,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "swiss-cheese": {
+      "catalogueId": "swiss-cheese",
+      "name": "Swiss cheese",
+      "sections": {
+        "whatItOffers": "A slice of Swiss cheese gives calcium (about 25% of the reference), vitamin B12 and zinc, with about 7.6 g of protein for about 110 calories.",
+        "practicalServing": "1 slice, 1 ounce (USDA: 1 slice = 28 g)",
+        "howToEatIt": "Melt into sandwiches, quiche and gratins, or slice with fruit and bread.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A slice supplies about 249 mg, about 25% of that."
+      },
+      "source": {
+        "usdaFdcId": 171251,
+        "usdaDescription": "Cheese, swiss",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "as sold",
+        "portionGrams": 28,
+        "portion": "1 slice, 1 ounce (USDA: 1 slice = 28 g)",
+        "per100g": {
+          "protein": 27,
+          "fat": 31,
+          "carb": 1.44,
+          "fiber": 0,
+          "ca": 890,
+          "iron": 0.13,
+          "mg": 33,
+          "k": 72,
+          "zn": 4.37,
+          "vitc": 0,
+          "folate": 10,
+          "b12": 3.06,
+          "vita": 288,
+          "vite": 0.6,
+          "vitd": 0,
+          "vitk": 1.4,
+          "kcal": 393
+        }
+      },
+      "perServing": {
+        "energyKcal": 110,
+        "proteinG": 7.6,
+        "fatG": 8.7,
+        "carbohydrateG": 0.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.9,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 36
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 249,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 25
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "miso": {
+      "catalogueId": "miso",
+      "name": "Miso",
+      "sections": {
+        "whatItOffers": "Miso is a salty, savoury fermented soybean paste. A tablespoon gives protein, fibre and a little zinc and iron for about 34 calories, mainly as flavour.",
+        "practicalServing": "1 tablespoon (USDA: 1 tbsp = 17 g)",
+        "howToEatIt": "Whisk into hot (not boiling) water for soup, stir into dressings and marinades, or glaze vegetables and fish. A little goes a long way.",
+        "cycleRelevance": "No cycle-phase claim is made for miso. It is used in small amounts and is high in sodium (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 172442,
+        "usdaDescription": "Miso",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "as sold (fermented soybean paste)",
+        "portionGrams": 17,
+        "portion": "1 tablespoon (USDA: 1 tbsp = 17 g)",
+        "per100g": {
+          "protein": 12.8,
+          "fat": 6.01,
+          "carb": 25.4,
+          "fiber": 5.4,
+          "ca": 57,
+          "iron": 2.49,
+          "mg": 48,
+          "k": 210,
+          "zn": 2.56,
+          "vitc": 0,
+          "folate": 19,
+          "b12": 0.08,
+          "vita": 4,
+          "vite": 0.01,
+          "vitd": 0,
+          "vitk": 29.3,
+          "kcal": 198
+        }
+      },
+      "perServing": {
+        "energyKcal": 34,
+        "proteinG": 2.2,
+        "fatG": 1.0,
+        "carbohydrateG": 4.3,
+        "fiberG": 0.9,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in salt",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Soy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sauerkraut": {
+      "catalogueId": "sauerkraut",
+      "name": "Sauerkraut",
+      "sections": {
+        "whatItOffers": "Canned sauerkraut is salty, tangy fermented cabbage with vitamin C (about 14% of the reference in half a cup), some iron and fibre, for only about 13 calories.",
+        "practicalServing": "½ cup (USDA: 1 cup = 142 g)",
+        "howToEatIt": "Serve alongside sausages and roast meats, pile onto sandwiches, or add to salads and grain bowls. Drain or rinse to reduce the salt.",
+        "cycleRelevance": "No cycle-phase claim is made for sauerkraut. This record is canned and pasteurised; raw sauerkraut differs."
+      },
+      "source": {
+        "usdaFdcId": 169279,
+        "usdaDescription": "Sauerkraut, canned, solids and liquids",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned, solids and liquid",
+        "portionGrams": 71,
+        "portion": "½ cup (USDA: 1 cup = 142 g)",
+        "per100g": {
+          "protein": 0.91,
+          "fat": 0.14,
+          "carb": 4.28,
+          "fiber": 2.9,
+          "ca": 30,
+          "iron": 1.47,
+          "mg": 13,
+          "k": 170,
+          "zn": 0.19,
+          "vitc": 14.7,
+          "folate": 24,
+          "b12": 0,
+          "vita": 1,
+          "vite": 0.14,
+          "vitd": 0,
+          "vitk": 13,
+          "kcal": 19
+        }
+      },
+      "perServing": {
+        "energyKcal": 13,
+        "proteinG": 0.6,
+        "fatG": 0.1,
+        "carbohydrateG": 3.0,
+        "fiberG": 2.1,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 10,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in salt",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pickles": {
+      "catalogueId": "pickles",
+      "name": "Pickles",
+      "sections": {
+        "whatItOffers": "A dill pickle spear is a very low-energy, salty condiment with little else nutritionally: a small spear is about 4 calories.",
+        "practicalServing": "1 small spear (USDA: 1 spear, small = 35 g)",
+        "howToEatIt": "Eat with sandwiches and burgers, chop into dressings and tartare sauce, or serve with cheese and cold meats.",
+        "cycleRelevance": "No cycle-phase claim is made for pickles. They are high in sodium (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 168558,
+        "usdaDescription": "Pickles, cucumber, dill or kosher dill",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dill or kosher dill pickle",
+        "portionGrams": 35,
+        "portion": "1 small spear (USDA: 1 spear, small = 35 g)",
+        "per100g": {
+          "protein": 0.5,
+          "fat": 0.3,
+          "carb": 2.41,
+          "fiber": 1,
+          "ca": 57,
+          "iron": 0.26,
+          "mg": 7,
+          "k": 117,
+          "zn": 0.1,
+          "vitc": 2.3,
+          "folate": 8,
+          "b12": 0,
+          "vita": 6,
+          "vite": 0.03,
+          "vitd": 0,
+          "vitk": 17.3,
+          "kcal": 12
+        }
+      },
+      "perServing": {
+        "energyKcal": 4,
+        "proteinG": 0.2,
+        "fatG": 0.1,
+        "carbohydrateG": 0.8,
+        "fiberG": 0.4,
+        "keyNutrients": [
+          {
+            "name": "Calcium",
+            "amount": 20,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 41,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in salt",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kimchi": {
+      "catalogueId": "kimchi",
+      "name": "Kimchi",
+      "sections": {
+        "whatItOffers": "Kimchi is spicy fermented cabbage. Half a cup gives folate and iron (about 10% each), vitamin K and a little fibre for only about 11 calories.",
+        "practicalServing": "½ cup (USDA: 1 cup = 150 g)",
+        "howToEatIt": "Eat as a side, stir into fried rice, noodles and soups, or add to eggs and sandwiches.",
+        "cycleRelevance": "No cycle-phase claim is made for kimchi. It is high in sodium, and many kimchis contain fish sauce (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 170392,
+        "usdaDescription": "Cabbage, kimchi",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "as sold (fermented cabbage)",
+        "portionGrams": 75,
+        "portion": "½ cup (USDA: 1 cup = 150 g)",
+        "per100g": {
+          "protein": 1.1,
+          "fat": 0.5,
+          "carb": 2.4,
+          "fiber": 1.6,
+          "ca": 33,
+          "iron": 2.5,
+          "mg": 14,
+          "k": 151,
+          "zn": 0.22,
+          "vitc": 0,
+          "folate": 52,
+          "b12": 0,
+          "vita": 5,
+          "vite": 0.11,
+          "vitd": 0,
+          "vitk": 43.6,
+          "kcal": 15
+        }
+      },
+      "perServing": {
+        "energyKcal": 11,
+        "proteinG": 0.8,
+        "fatG": 0.4,
+        "carbohydrateG": 1.8,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 1.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 39,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 33,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Check the label for fish sauce or shrimp, and for vegetarian or vegan status",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "High in salt",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

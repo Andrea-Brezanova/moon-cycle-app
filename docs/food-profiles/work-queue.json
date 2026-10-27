@@ -126,10 +126,10 @@
    "name": "Miso",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 172442,
+   "preparationState": "as sold (fermented soybean paste)",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Miso is very high in sodium (existing catalogue caution: high in salt). Sodium is not in the key list and no sourced salt caution has been added."
   },
   {
    "foodId": "grapefruit",
@@ -206,10 +206,10 @@
    "name": "Beef",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171793,
+   "preparationState": "cooked, pan-broiled patty (90% lean)",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: The catalogue entry \"beef\" is generic. The record is 90% lean ground beef, cooked; steaks, roasts and fattier mince differ."
   },
   {
    "foodId": "anchovies",
@@ -266,10 +266,10 @@
    "name": "Tempeh",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 174272,
+   "preparationState": "as sold (fermented soybean cake), not cooked",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "white-beans",
@@ -426,20 +426,20 @@
    "name": "Chicken",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171477,
+   "preparationState": "roasted breast, meat only (no skin)",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: The catalogue entry \"chicken\" is generic; the record is skinless breast. Thighs and skin-on cuts have more fat and more iron and zinc."
   },
   {
    "foodId": "eggs",
    "name": "Eggs",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 173424,
+   "preparationState": "hard-boiled, whole",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "trout",
@@ -456,10 +456,10 @@
    "name": "Sauerkraut",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 169279,
+   "preparationState": "canned, solids and liquid",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Canned sauerkraut is pasteurised; raw, refrigerated sauerkraut keeps live cultures, which a nutrient record does not capture. It is high in sodium (existing caution)."
   },
   {
    "foodId": "pecan",
@@ -536,10 +536,10 @@
    "name": "Feta",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 173420,
+   "preparationState": "as sold",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "haddock",
@@ -596,10 +596,10 @@
    "name": "Plain yogurt",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171284,
+   "preparationState": "plain, whole milk",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Whole-milk plain yogurt; low-fat and fat-free versions have similar protein and calcium with less fat. Vitamin D is only present if the milk is fortified."
   },
   {
    "foodId": "pollock",
@@ -646,10 +646,10 @@
    "name": "Pickles",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 168558,
+   "preparationState": "dill or kosher dill pickle",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Vinegar pickles are not live-fermented; fermented pickles differ. Very high in sodium (existing caution), not shown."
   },
   {
    "foodId": "asparagus",
@@ -806,10 +806,10 @@
    "name": "Cottage cheese",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 172182,
+   "preparationState": "low-fat (2% milkfat)",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "hazelnuts",
@@ -836,10 +836,10 @@
    "name": "Kefir",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 170904,
+   "preparationState": "low-fat plain kefir (a branded USDA record)",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: The only USDA kefir records are branded (Lifeway); values for other kefirs differ, and live-culture content is not in a nutrient record."
   },
   {
    "foodId": "mandarin",
@@ -886,10 +886,10 @@
    "name": "Ricotta",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 170851,
+   "preparationState": "whole milk",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "sea-bass",
@@ -926,10 +926,10 @@
    "name": "Tofu",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 172475,
+   "preparationState": "raw (as sold), firm, set with calcium sulfate",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Calcium depends on the coagulant: tofu set with calcium sulfate is high in calcium, tofu set with nigari (magnesium chloride) is not. The record is the calcium-sulfate type."
   },
   {
    "foodId": "buckwheat",
@@ -966,10 +966,10 @@
    "name": "Pork",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 168233,
+   "preparationState": "roasted loin, lean only",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: The catalogue entry \"pork\" is generic; the record is roasted lean loin. Other cuts, and processed pork, differ."
   },
   {
    "foodId": "barley",
@@ -1056,10 +1056,10 @@
    "name": "Lamb",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 172487,
+   "preparationState": "roasted leg (shank half), lean only",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: The catalogue entry \"lamb\" is generic; the record is roasted lean leg (shank half). Other cuts differ."
   },
   {
    "foodId": "salmon",
@@ -1176,10 +1176,10 @@
    "name": "Turkey",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171496,
+   "preparationState": "roasted breast, meat only",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Roasted breast, meat only; dark meat and deli turkey differ."
   },
   {
    "foodId": "cod",
@@ -1256,30 +1256,30 @@
    "name": "Goat cheese",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 173435,
+   "preparationState": "soft goat cheese",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "greek-yogurt",
    "name": "Greek yogurt",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171304,
+   "preparationState": "plain, whole milk, strained",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: USDA lists no household measure for this record; 170 g (a 6-ounce container) is my choice, not USDA's. The catalogue entry is generic: fat-free Greek yogurt has less fat and similar protein."
   },
   {
    "foodId": "kimchi",
    "name": "Kimchi",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 170392,
+   "preparationState": "as sold (fermented cabbage)",
+   "notes": "Draft in draft-batch-7.json. Not published. REVIEW: Kimchi recipes vary (fish sauce, salt, chilli); the record is a USDA average. It is high in sodium; no caution is recorded in the catalogue."
   },
   {
    "foodId": "mackerel",
@@ -1306,10 +1306,10 @@
    "name": "Mozzarella",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 170845,
+   "preparationState": "whole milk",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "peanuts",
@@ -1346,10 +1346,10 @@
    "name": "Swiss cheese",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 7)",
+   "usdaFdcId": 171251,
+   "preparationState": "as sold",
+   "notes": "Draft in draft-batch-7.json. Not published."
   },
   {
    "foodId": "tilapia",
