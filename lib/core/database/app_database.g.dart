@@ -8509,6 +8509,16 @@ class $RoutinesTable extends Routines
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  @override
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+    'kind',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('routine'),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -8517,6 +8527,7 @@ class $RoutinesTable extends Routines
     deletedAt,
     title,
     note,
+    kind,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -8571,6 +8582,12 @@ class $RoutinesTable extends Routines
         note.isAcceptableOrUnknown(data['note']!, _noteMeta),
       );
     }
+    if (data.containsKey('kind')) {
+      context.handle(
+        _kindMeta,
+        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
+      );
+    }
     return context;
   }
 
@@ -8604,6 +8621,10 @@ class $RoutinesTable extends Routines
         DriftSqlType.string,
         data['${effectivePrefix}note'],
       ),
+      kind: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}kind'],
+      )!,
     );
   }
 
@@ -8622,6 +8643,11 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
   final DateTime? deletedAt;
   final String title;
   final String? note;
+
+  /// `routine` (My Routines) or `workout` (a workout built in Move › Build
+  /// Your Workout and kept in My Workouts). Added in schema 11; rows from
+  /// schema 10 are routines.
+  final String kind;
   const RoutineRow({
     required this.id,
     required this.createdAt,
@@ -8629,6 +8655,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
     this.deletedAt,
     required this.title,
     this.note,
+    required this.kind,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -8643,6 +8670,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
     if (!nullToAbsent || note != null) {
       map['note'] = Variable<String>(note);
     }
+    map['kind'] = Variable<String>(kind);
     return map;
   }
 
@@ -8656,6 +8684,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
           : Value(deletedAt),
       title: Value(title),
       note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      kind: Value(kind),
     );
   }
 
@@ -8671,6 +8700,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
       deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
       title: serializer.fromJson<String>(json['title']),
       note: serializer.fromJson<String?>(json['note']),
+      kind: serializer.fromJson<String>(json['kind']),
     );
   }
   @override
@@ -8683,6 +8713,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
       'deletedAt': serializer.toJson<DateTime?>(deletedAt),
       'title': serializer.toJson<String>(title),
       'note': serializer.toJson<String?>(note),
+      'kind': serializer.toJson<String>(kind),
     };
   }
 
@@ -8693,6 +8724,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
     Value<DateTime?> deletedAt = const Value.absent(),
     String? title,
     Value<String?> note = const Value.absent(),
+    String? kind,
   }) => RoutineRow(
     id: id ?? this.id,
     createdAt: createdAt ?? this.createdAt,
@@ -8700,6 +8732,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
     deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
     title: title ?? this.title,
     note: note.present ? note.value : this.note,
+    kind: kind ?? this.kind,
   );
   RoutineRow copyWithCompanion(RoutinesCompanion data) {
     return RoutineRow(
@@ -8709,6 +8742,7 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
       deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
       title: data.title.present ? data.title.value : this.title,
       note: data.note.present ? data.note.value : this.note,
+      kind: data.kind.present ? data.kind.value : this.kind,
     );
   }
 
@@ -8720,14 +8754,15 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
           ..write('updatedAt: $updatedAt, ')
           ..write('deletedAt: $deletedAt, ')
           ..write('title: $title, ')
-          ..write('note: $note')
+          ..write('note: $note, ')
+          ..write('kind: $kind')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode =>
-      Object.hash(id, createdAt, updatedAt, deletedAt, title, note);
+      Object.hash(id, createdAt, updatedAt, deletedAt, title, note, kind);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -8737,7 +8772,8 @@ class RoutineRow extends DataClass implements Insertable<RoutineRow> {
           other.updatedAt == this.updatedAt &&
           other.deletedAt == this.deletedAt &&
           other.title == this.title &&
-          other.note == this.note);
+          other.note == this.note &&
+          other.kind == this.kind);
 }
 
 class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
@@ -8747,6 +8783,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
   final Value<DateTime?> deletedAt;
   final Value<String> title;
   final Value<String?> note;
+  final Value<String> kind;
   final Value<int> rowid;
   const RoutinesCompanion({
     this.id = const Value.absent(),
@@ -8755,6 +8792,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
     this.deletedAt = const Value.absent(),
     this.title = const Value.absent(),
     this.note = const Value.absent(),
+    this.kind = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   RoutinesCompanion.insert({
@@ -8764,6 +8802,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
     this.deletedAt = const Value.absent(),
     required String title,
     this.note = const Value.absent(),
+    this.kind = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        createdAt = Value(createdAt),
@@ -8776,6 +8815,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
     Expression<DateTime>? deletedAt,
     Expression<String>? title,
     Expression<String>? note,
+    Expression<String>? kind,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -8785,6 +8825,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
       if (deletedAt != null) 'deleted_at': deletedAt,
       if (title != null) 'title': title,
       if (note != null) 'note': note,
+      if (kind != null) 'kind': kind,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -8796,6 +8837,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
     Value<DateTime?>? deletedAt,
     Value<String>? title,
     Value<String?>? note,
+    Value<String>? kind,
     Value<int>? rowid,
   }) {
     return RoutinesCompanion(
@@ -8805,6 +8847,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
       deletedAt: deletedAt ?? this.deletedAt,
       title: title ?? this.title,
       note: note ?? this.note,
+      kind: kind ?? this.kind,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -8830,6 +8873,9 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
     if (note.present) {
       map['note'] = Variable<String>(note.value);
     }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -8845,6 +8891,7 @@ class RoutinesCompanion extends UpdateCompanion<RoutineRow> {
           ..write('deletedAt: $deletedAt, ')
           ..write('title: $title, ')
           ..write('note: $note, ')
+          ..write('kind: $kind, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -14073,6 +14120,7 @@ typedef $$RoutinesTableCreateCompanionBuilder = RoutinesCompanion Function({
   Value<DateTime?> deletedAt,
   required String title,
   Value<String?> note,
+  Value<String> kind,
   Value<int> rowid,
 });
 typedef $$RoutinesTableUpdateCompanionBuilder = RoutinesCompanion Function({
@@ -14082,6 +14130,7 @@ typedef $$RoutinesTableUpdateCompanionBuilder = RoutinesCompanion Function({
   Value<DateTime?> deletedAt,
   Value<String> title,
   Value<String?> note,
+  Value<String> kind,
   Value<int> rowid,
 });
 
@@ -14144,6 +14193,11 @@ class $$RoutinesTableFilterComposer
 
   ColumnFilters<String> get note => $composableBuilder(
     column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get kind => $composableBuilder(
+    column: $table.kind,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -14211,6 +14265,11 @@ class $$RoutinesTableOrderingComposer
     column: $table.note,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$RoutinesTableAnnotationComposer
@@ -14239,6 +14298,9 @@ class $$RoutinesTableAnnotationComposer
 
   GeneratedColumn<String> get note =>
       $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
 
   Expression<T> routineStepsRefs<T extends Object>(
     Expression<T> Function($$RoutineStepsTableAnnotationComposer a) f,
@@ -14300,6 +14362,7 @@ class $$RoutinesTableTableManager
                 Value<DateTime?> deletedAt = const Value.absent(),
                 Value<String> title = const Value.absent(),
                 Value<String?> note = const Value.absent(),
+                Value<String> kind = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RoutinesCompanion(
                 id: id,
@@ -14308,6 +14371,7 @@ class $$RoutinesTableTableManager
                 deletedAt: deletedAt,
                 title: title,
                 note: note,
+                kind: kind,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -14318,6 +14382,7 @@ class $$RoutinesTableTableManager
                 Value<DateTime?> deletedAt = const Value.absent(),
                 required String title,
                 Value<String?> note = const Value.absent(),
+                Value<String> kind = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RoutinesCompanion.insert(
                 id: id,
@@ -14326,6 +14391,7 @@ class $$RoutinesTableTableManager
                 deletedAt: deletedAt,
                 title: title,
                 note: note,
+                kind: kind,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

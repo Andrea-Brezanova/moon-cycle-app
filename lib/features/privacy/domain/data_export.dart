@@ -163,6 +163,7 @@ Map<String, Object?> buildDataExport({
     for (final r in routines)
       {
         'title': r.title,
+        'kind': r.kind.name,
         'note': r.note,
         'steps': [
           for (final st in r.steps)

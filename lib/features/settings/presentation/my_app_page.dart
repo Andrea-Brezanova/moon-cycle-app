@@ -12,6 +12,7 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../preferences/application/preference_providers.dart';
 import '../application/settings_copy.dart';
+import 'widgets/app_footer.dart';
 import 'widgets/settings_widgets.dart';
 
 /// Me › My App: every setting, the account pages and support, in four groups,
@@ -39,6 +40,7 @@ class MyAppPage extends ConsumerWidget {
       label: label,
       icon: icon,
       subtitle: subtitle == null || subtitle.isEmpty ? null : subtitle,
+      compact: true,
       onTap: onTap,
     );
     MoonListRow page(
@@ -57,6 +59,7 @@ class MyAppPage extends ConsumerWidget {
     return SettingsSubScaffold(
       title: 'My App',
       backLabel: 'Me',
+      gap: 22,
       children: [
         MoonListGroup(
           title: 'Personalization',
@@ -146,6 +149,8 @@ class MyAppPage extends ConsumerWidget {
             ),
           ),
         ),
+        // Shown once, here, below Delete my data.
+        const Padding(padding: EdgeInsets.only(top: 14), child: AppFooter()),
       ],
     );
   }

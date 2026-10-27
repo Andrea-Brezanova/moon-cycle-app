@@ -228,7 +228,7 @@ class _PlantTile extends StatelessWidget {
   }
 }
 
-/// "Make something good": the Build a meal card.
+/// "Make something good": the Build a Meal card.
 class BuildMealCard extends StatelessWidget {
   const BuildMealCard({
     super.key,
@@ -269,7 +269,7 @@ class BuildMealCard extends StatelessWidget {
                     Semantics(
                       header: true,
                       child: Text(
-                        'Build a meal',
+                        'Build a Meal',
                         style: fraunces(32, height: 1.05, color: c.text),
                       ),
                     ),

@@ -17,7 +17,7 @@ import '../../foods/application/browse_scope.dart';
 import '../../recipes/application/recipe_filter.dart';
 
 /// Eat: the hub. A photograph and a short introduction, then the three ways
-/// in: Foods, Recipes and the meal builder. Each opens an existing page.
+/// in: Foods, Recipes and Build a Meal. Each opens an existing page.
 class EatPage extends ConsumerWidget {
   const EatPage({super.key});
 
@@ -120,7 +120,7 @@ class EatPage extends ConsumerWidget {
               HubCard(
                 icon: MoonIconName.recipes,
                 phase: phase,
-                title: 'Meal builder',
+                title: 'Build a Meal',
                 body: 'Create a balanced meal with foods or recipes.',
                 onTap: () => context.push(Routes.mealBuilder()),
               ),
