@@ -137,7 +137,10 @@ class _CollectionCategoryPageState
                       top: 24,
                     )
                   else if (links.isNotEmpty)
-                    gutter(CollectionLinkGroup(links: links), top: 12),
+                    gutter(
+                      CollectionLinkGroup(links: links),
+                      top: workouts && built.isNotEmpty ? 12 : 18,
+                    ),
                 ],
               ),
             ),
