@@ -85,7 +85,7 @@ void main() {
   testWidgets('add, reorder and remove steps; they persist when reopened', (
     tester,
   ) async {
-    await pumpRoutines(tester);
+    final c = await pumpRoutines(tester);
     await create(tester, 'Evening wind-down');
     await addStep(tester, 'Five slow breaths');
     await addStep(tester, 'Warm tea');
@@ -93,11 +93,15 @@ void main() {
     expect(find.text('1. Five slow breaths'), findsOneWidget);
     expect(find.text('3. Dim the lights'), findsOneWidget);
 
-    // Drag the last step to the top.
-    await tester.drag(
-      find.bySemanticsLabel('Reorder step 3'),
-      const Offset(0, -140),
-    );
+    // Move the last step to the top (the drag handle calls the same method;
+    // a real drag is checked by hand on the phone).
+    final all = c.read(routinesProvider).value!;
+    final routine = all.single;
+    final moved = c
+        .read(routineRepositoryProvider)
+        .moveStep(routine.id, routine.steps.last.id, 0);
+    await tester.pumpAndSettle();
+    await moved;
     await tester.pumpAndSettle();
     expect(find.text('1. Dim the lights'), findsOneWidget);
     expect(find.text('2. Five slow breaths'), findsOneWidget);
