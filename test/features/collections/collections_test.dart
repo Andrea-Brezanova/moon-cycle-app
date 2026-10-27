@@ -93,36 +93,48 @@ void main() {
         expect(z.width, closeTo(sizes.first.width, 0.5));
         expect(z.height, closeTo(sizes.first.height, 0.5));
       }
-      double dy(String key, Finder inside) =>
-          tester.getTopLeft(inside).dy -
-          tester.getTopLeft(find.byKey(ValueKey(key))).dy;
-      final titles = {
-        'collection-recipes': 'My Recipes',
-        'collection-workouts': 'My Workouts',
-        'collection-spa': 'My Spa',
-        'collection-routines': 'My Routines',
-      };
-      final offsets = [
-        for (final e in titles.entries)
-          dy(
-            e.key,
-            find.descendant(
-              of: find.byKey(ValueKey(e.key)),
-              matching: find.text(e.value),
-            ),
-          ),
-      ];
-      for (final o in offsets) {
-        expect(o, closeTo(offsets.first, 3)); // same title position
+      // In every tile the title and the arrow share one horizontal centre
+      // line, and that line sits in the same place in all four tiles.
+      final lines = <double>[];
+      for (final k in [
+        'collection-recipes',
+        'collection-workouts',
+        'collection-spa',
+        'collection-routines',
+      ]) {
+        final tile = find.byKey(ValueKey(k));
+        final top = tester.getTopLeft(tile).dy;
+        Rect part(String key) => tester.getRect(
+          find.descendant(of: tile, matching: find.byKey(ValueKey(key))),
+        );
+        final title = part('tile-title');
+        final arrow = part('tile-arrow');
+        expect(title.center.dy, closeTo(arrow.center.dy, 1), reason: k);
+        lines.add(arrow.center.dy - top);
       }
-      expect(
-        tester.getTopLeft(find.byKey(const ValueKey('collection-spa'))).dy,
-        greaterThan(
+      for (final l in lines) {
+        expect(l, closeTo(lines.first, 1));
+      }
+      // Same picture height and divider position in every tile.
+      final pictures = <double>[
+        for (final k in [
+          'collection-recipes',
+          'collection-workouts',
+          'collection-spa',
+          'collection-routines',
+        ])
           tester
-              .getTopLeft(find.byKey(const ValueKey('collection-workouts')))
-              .dy,
-        ),
-      );
+              .getSize(
+                find.descendant(
+                  of: find.byKey(ValueKey(k)),
+                  matching: find.byType(AspectRatio),
+                ),
+              )
+              .height,
+      ];
+      for (final h in pictures) {
+        expect(h, closeTo(pictures.first, 0.5));
+      }
 
       await tester.tap(find.byKey(const ValueKey('collection-recipes')));
       await tester.pumpAndSettle();
