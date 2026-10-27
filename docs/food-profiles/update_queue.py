@@ -6,6 +6,14 @@ Reads draft-batch-*.json (and batch-*.src.json for review notes); nothing is pub
 import glob, json, re
 
 q = json.load(open('docs/food-profiles/work-queue.json'))
+# Every catalogue food without an approved profile is tracked, phase-assigned or not.
+approved = set(json.load(open('assets/content/food_profiles.json'))['profiles'])
+have = {i['foodId'] for i in q['items']}
+for f in json.load(open('assets/content/foods.json'))['foods']:
+    if f['id'] not in approved and f['id'] not in have:
+        q['items'].append({'foodId': f['id'], 'name': f['name'], 'phase': None, 'match': 'not phase-assigned', 'category': f.get('category'),
+                           'status': 'queued', 'usdaFdcId': None, 'preparationState': None,
+                           'notes': 'Not in the 142 phase-assigned foods; researched after them.'})
 drafted = {}
 for path in sorted(glob.glob('docs/food-profiles/draft-batch-*.json')):
     n = re.search(r'draft-batch-(\d+)\.json', path).group(1)
@@ -25,4 +33,4 @@ for i in q['items']:
         i['notes'] = f'Draft in draft-batch-{n}.json. Not published.' + (f' REVIEW: {note}' if note else '')
 json.dump(q, open('docs/food-profiles/work-queue.json', 'w'), indent=1, ensure_ascii=False)
 done = sum(1 for i in q['items'] if i['status'].startswith('drafted'))
-print(f'{done} drafted, {len(q["items"]) - done} queued (of {len(q["items"])} phase-assigned foods without an approved profile)')
+print(f'{done} drafted, {len(q["items"]) - done} not yet drafted (of {len(q["items"])} catalogue foods without an approved profile)')

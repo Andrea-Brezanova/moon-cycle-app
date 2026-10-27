@@ -48,6 +48,8 @@ CAUTIONS = {
     'temp-poultry': dict(text='Cook poultry to an internal temperature of 165 °F (73.9 °C).', source=FSIS),
     'temp-meat': dict(text='Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).', source=FSIS),
     'temp-eggs': dict(text='Cook eggs to 160 °F (71.1 °C).', source=FSIS),
+    'oxalate-list': dict(text='{n} is high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how much to eat.',
+                         source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones)'),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
@@ -85,7 +87,7 @@ def auto_keys(f):
 CATALOGUE = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
 EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
 # A sourced caution is skipped when the catalogue already carries one on the same topic.
-TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
+TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
           'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
 
 n = sys.argv[1]
