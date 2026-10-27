@@ -134,18 +134,38 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('Move: four sections, each opens a real screen', (tester) async {
-    await pumpTab(tester, 'move');
-    for (final t in [
-      'Exercises',
-      'Workouts',
-      'Build Your Workout',
-      'My Workouts',
-    ]) {
-      expect(find.text(t), findsOneWidget, reason: t);
-    }
-    expect(find.text('Being prepared and reviewed'), findsNWidgets(2));
+  /// The section cards on a hub, top to bottom.
+  List<Finder> cardsOf(String tab) => [
+    for (final k
+        in (tab == 'move'
+            ? ['exercises', 'workouts', 'build']
+            : ['meditations', 'sounds', 'spa']))
+      find.byKey(ValueKey('hub-$tab-$k')),
+  ];
 
+  for (final tab in ['move', 'relax']) {
+    testWidgets('$tab: exactly three cards, evenly spaced, and no My '
+        'collection card (those live in Me › My Collections)', (tester) async {
+      await pumpTab(tester, tab);
+      expect(find.byType(HubCard), findsNWidgets(3));
+      for (final t in ['My Workouts', 'My Spa']) {
+        expect(find.text(t), findsNothing, reason: t);
+      }
+      expect(find.byKey(ValueKey('hub-$tab-mine')), findsNothing);
+      final cards = cardsOf(tab);
+      final rects = [for (final f in cards) tester.getRect(f)];
+      for (var i = 0; i < rects.length - 1; i++) {
+        expect(rects[i + 1].top - rects[i].bottom, closeTo(12, 0.5));
+        expect(rects[i].left, closeTo(rects[0].left, 0.5));
+        expect(rects[i].width, closeTo(rects[0].width, 0.5));
+      }
+    });
+  }
+
+  testWidgets('Move: Exercises, Workouts and Build Your Workout each open a '
+      'real screen', (tester) async {
+    await pumpTab(tester, 'move');
+    expect(find.text('Being prepared and reviewed'), findsNWidgets(2));
     for (final (key, page) in [
       ('hub-move-exercises', find.byType(HubLibraryPage)),
       ('hub-move-workouts', find.byType(HubLibraryPage)),
@@ -156,14 +176,11 @@ void main() {
       expect(page, findsOneWidget, reason: key);
       await back(tester);
     }
-    await tester.tap(find.byKey(const ValueKey('hub-move-mine')));
-    await tester.pumpAndSettle();
-    expect(find.text('My Workouts'), findsWidgets);
   });
 
-  testWidgets('Relax: Meditations, Sounds, Spa and My Spa', (tester) async {
+  testWidgets('Relax: Meditations, Sounds and Spa', (tester) async {
     await pumpTab(tester, 'relax');
-    for (final t in ['Meditations', 'Sounds', 'Spa', 'My Spa']) {
+    for (final t in ['Meditations', 'Sounds', 'Spa']) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
     await tester.tap(find.byKey(const ValueKey('hub-relax-sounds')));

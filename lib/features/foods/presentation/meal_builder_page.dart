@@ -88,7 +88,7 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
             // Back goes to whichever screen opened this one (a food's page, or
             // Eat); with nothing to go back to, to Eat.
             CenteredHeader(
-              title: 'Meal builder',
+              title: 'Build a Meal',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(AppTab.eat.path),
@@ -287,7 +287,7 @@ class _MealBuilderPageState extends ConsumerState<MealBuilderPage> {
         Semantics(
           header: true,
           child: Text(
-            'Build a meal',
+            'Build a Meal',
             style: fraunces(26, height: 1.12, color: c.text),
           ),
         ),

@@ -250,7 +250,7 @@ class FoodDetailPage extends ConsumerWidget {
                   // 2. Make your own meal (Premium). Herbs season a meal and
                   // are not chosen as its ingredients, so theirs is disabled.
                   MoonButton(
-                    'Make your own meal with $name',
+                    'Build a Meal with $name',
                     variant: MoonButtonVariant.ghost,
                     trailingIcon: canMeal ? null : MoonIconName.lock,
                     onPressed: isHerb(food)
@@ -265,7 +265,7 @@ class FoodDetailPage extends ConsumerWidget {
                     Text(
                       key: const ValueKey('herb-meal-note'),
                       'Herbs season a meal; they aren’t chosen as ingredients '
-                      'in the meal builder.',
+                      'in Build a Meal.',
                       style: dmSans(14, height: 1.4, color: c.textMuted),
                     ),
                   ],
