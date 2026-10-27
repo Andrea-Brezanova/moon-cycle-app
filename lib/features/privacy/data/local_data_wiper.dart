@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/database/app_database.dart';
 import '../../../core/database/database_opener.dart';
 import '../../../core/database/encryption_key_store.dart';
+import '../../../core/storage/ui_prefs.dart';
+
 import '../../reminders/application/reminder_providers.dart';
 
 /// "Delete my data" without an account (plan §12): closes the database,
@@ -56,7 +58,11 @@ final encryptionKeyStoreProvider = Provider<EncryptionKeyStore>(
 
 /// Steps other features add to the wipe: cancelling scheduled reminders.
 final wipeStepsProvider = Provider<List<Future<void> Function()>>(
-  (ref) => [ref.watch(reminderSchedulerProvider).cancelAll],
+  (ref) => [
+    ref.watch(reminderSchedulerProvider).cancelAll,
+    // Interface settings and the personal Me hero image go too.
+    ref.watch(uiPrefsStoreProvider).deleteAll,
+  ],
 );
 
 final localDataWiperProvider = Provider<LocalDataWiper>(

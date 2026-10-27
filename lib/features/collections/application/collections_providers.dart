@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/router/routes.dart';
+import '../../../core/storage/ui_prefs.dart';
 import '../../content/application/content_providers.dart';
 import '../../generation/application/generation_providers.dart';
 import '../../generation/data/saved_recipe_repository.dart';
@@ -152,4 +153,39 @@ final recentlySavedProvider = Provider<List<RecentItem>>(
 final linkLauncherProvider = Provider<Future<bool> Function(Uri)>(
   (ref) =>
       (uri) => launchUrl(uri, mode: LaunchMode.externalApplication),
+);
+
+/// The My Collections tiles in their default order.
+const defaultCollectionTileOrder = ['recipes', 'workouts', 'spa', 'routines'];
+
+/// [saved] made complete and safe: unknown or repeated keys are dropped and any
+/// missing tile is added back in its default place, so a stale or damaged
+/// setting can never hide a collection.
+List<String> normaliseCollectionOrder(List<String> saved) {
+  final out = <String>[];
+  for (final k in saved) {
+    if (defaultCollectionTileOrder.contains(k) && !out.contains(k)) out.add(k);
+  }
+  for (final k in defaultCollectionTileOrder) {
+    if (!out.contains(k)) out.add(k);
+  }
+  return out;
+}
+
+/// Moves [key] so it ends up at [toIndex] in [order] (drag it onto a tile, or
+/// Move earlier / Move later). Returns the new order.
+List<String> moveCollectionTile(List<String> order, String key, int toIndex) {
+  final from = order.indexOf(key);
+  if (from < 0) return order;
+  final next = [...order]..removeAt(from);
+  next.insert(toIndex.clamp(0, next.length), key);
+  return next;
+}
+
+/// The order the user chose for the tiles (a local interface setting; it does
+/// not touch any collection).
+final collectionOrderProvider = Provider<List<String>>(
+  (ref) => normaliseCollectionOrder(
+    ref.watch(uiPrefsProvider.select((p) => p.collectionOrder)),
+  ),
 );
