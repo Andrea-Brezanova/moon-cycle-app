@@ -1,65 +1,68 @@
 # Development progress
 
 One report, kept current. **Stage** means exactly one of: 1 Mockup, 2 Documentation,
-3 Unmerged Flutter code, 4 Merged into `main`, 5 Installed on the iPhone. A feature is
-only "done" at the stage stated; documentation and previews are not features.
+3 Unmerged Flutter code, 4 Merged into `main`, 5 Installed on the iPhone. Bugs carry a
+second, separate status: **Implemented, awaiting device verification** (passes automated
+tests, not yet checked by a person on the phone) or **Verified on device**. Nothing below is
+"Verified on device" yet.
 
-Last updated: 26 Oct 2026. `main` was at 3700800 (PR #41) when the Stage 1-8 work below was
-merged. The commit actually installed is shown on Me › About.
+Last updated: 27 Oct 2026. `main` at the time of writing: d0d6f74 (PR #51), plus docs-only
+PR #52 and this report. **Installed on the iPhone: d0d6f74**, built 2026-10-27 02:48 UTC with
+`tool/build_ios.sh` and installed in place (data kept); Me › My App › About shows it. The
+phone screen was not inspected by me.
 
-## Done and merged
+## Bugs and corrections (second brief, 26–27 Oct)
 
-| Feature | PR | CI | Stage |
+| Bug | Failing test before the fix | Fix | Regression tests | PR / merge commit | Installed | Device verification |
+|---|---|---|---|---|---|---|
+| **Cook with disappears when the ingredient is cleared (All phases)** | Yes, run on unfixed code: "Found 0 widgets with a semantics label named 'Cook with, choose an ingredient'" | Field always shown; in All phases the sheet lists every food that has a recipe; Change works there | choose / clear / choose repeatedly, Change, meal type kept, empty result recovers, sheet content, phase browse unchanged | #46 `e3d9d3d` | Yes (in d0d6f74) | **Awaiting** |
+| **3 Plants a Day ignores the day the cycle wheel is on** | Yes, run on unfixed code: same trio `bok-choy, oat-bran, napa-cabbage` after moving the wheel | Plants follow the wheel's day (preview only; reads the wheel, writes nothing) | same day = same plants, phase boundary swaps pool, return to a day, restart, irregular/late cycles, exclusions, no stored-data change, picks reset | #48 `4afe667` | Yes | **Awaiting** |
+| **Collection tiles uneven; counts and status text on them** | Not run on old code (layout change); the new tests assert equal size, equal title position and no count text, which the previous layout could not satisfy | One shared tile: fixed-proportion picture, fixed-height title area, titles only | equal size and title offset, no "N saved / Nothing yet / Not available yet", 320 pt and large text | #45 `90655f0` | Yes | **Awaiting** |
+| **Home shortcuts show counts / "Nothing logged yet"; "Why these foods" in phase info** | Old tests asserted the text was present; they now assert it is absent | Headlines only; section and its copy removed | shortcuts show titles only; Learn more has no WHY THESE FOODS | #47 `f1a88ac` | Yes | **Awaiting** |
+
+Not bugs but changes asked for: Me restructure (#44 `274bc85`), hub consistency (#49
+`2912a0d`), My Routines storage (#42 `5b133f4`) and screens (#51 `d0d6f74`). All are
+"merged and installed; device verification awaiting".
+
+## What changed (all merged and installed in d0d6f74)
+
+| Feature | PR | Stage | Notes |
 |---|---|---|---|
-| Me page: four sections (Your space / Your app / Your account / Support); My Cycle, Food Preferences and Allergies under Personalization; Delete my data under Privacy & Data (Stage 1) | #39 | green | 4 merged (0a61edf); 5 installed |
-| My Collections: four equal square tiles (My Recipes, My Workouts, My Spa, My Routines) (Stage 2); My Routines page is an honest "not available yet" until the migration is approved | #40 | green | 4 merged (f99e9e6); 5 installed (f99e9e6, built 26 Oct 2026 22:24 UTC) |
-| Move hub (Exercises, Workouts, Build Your Routine, My Workouts) and Relax hub (Meditations, Sounds, Spa, My Spa): navigation, library and item pages, safety note, source attribution, Save to My Workouts / My Spa for verified links; **no approved content yet** (Stages 6, 7) | #41 | green | 4 merged (3700800); 5 installed (3700800, built 26 Oct 2026 22:51 UTC; the binary contains that commit; the phone screen was not inspected by me) |
-| My Collections (landing, My Recipes, My Workouts, My Spa, saved links, details, filters; schema v9) | #19, #23, #27, #30 | green | 4 merged; 5 installed |
-| My Recipes filter dropdown; Add a recipe with an Add a link tab | #32 | green | 4 merged; 5 installed |
-| Home "Your space", Today's Focus text and headlines, MoonCycle name and icon | #20, #21, #22, #29 | green | 4 merged; 5 installed |
-| About screen (version, build number, commit, build date, flavor) | #34 | green | 4 merged; 5 installed (shows 4ec4471 when installed) |
-| Meal Builder free for everyone, production builds included | #35 | green | 4 merged (5eeb813); 5 installed from tool/build_ios.sh |
-| Dev-only Premium test switch (`DEV_PREMIUM`) | #24 | green | 4 merged; testing aid only |
+| Me: four destinations (My Collections, My Diary, My Shopping List, My App) as hub cards; person icon on the tab | #44 | 5 | My App holds Personalization (My Cycle, Food Preferences, Allergies / dietary exclusions), App preferences, Account, Support (Help, Credits & Sources, About). **Delete my data** is the discreet last row of My App and only opens the existing confirmation page. |
+| My Collections: four equal tiles, titles only | #45 | 5 | |
+| My Routines (schema v10 + screens) | #42, #51 | 5 | Create, rename, add your own steps or saved links, reorder, remove, delete with confirmation. Included in Export; removed by Delete my data. Migration tested (v9→v10, v8→v10, foreign keys). Real drag-to-reorder is a hand check. |
+| Eat, Move, Relax look alike: shared hero card and hub cards; icon colours follow the viewed phase | #49 | 5 | Move and Relax heroes use images already in the app as stand-ins; request in `docs/hero-image-requests.md`. |
+| Build Your Workout (Move) | #49 | 5 | Choose exercises (reviewed library, empty for now, or add your own), reorder, remove. **Save to My Workouts is NOT available** (see approvals). Separate from My Routines. |
+| Move and Relax hubs, libraries, item pages (infrastructure) | #41 | 5 | No approved content yet: libraries are empty by design. |
+| Cook with, 3 Plants wheel, Home headlines, Why these foods removal | #46, #48, #47 | 5 | see bugs table |
+| Meal Builder free, five approved Food Detail profiles, About build info | #35, #36, #34 | 5 | unchanged |
 
-## Also merged and installed
+## Content and research (not published)
 
-| Feature | PR | CI | Stage |
-|---|---|---|---|
-| Food Detail profiles for the five reference foods (spinach cooked, lentils cooked, pumpkin seed kernels dried, broccoli cooked, orange raw) | #36 | green | 4 merged (5c25667); 5 installed (built 25 Oct 2026 23:00 UTC with tool/build_ios.sh; check Me › Settings › About) |
-
-## Stage results (autonomous run, 26 Oct 2026)
-
-| Stage | Result |
+| Item | Status |
 |---|---|
-| 1 Me page | Done, merged (#39). |
-| 2 My Collections | Four equal tiles merged (#40). **My Routines storage is blocked on your approval**: proposal in `docs/my-routines-migration-proposal.md`; implementation is **draft PR #42** (schema v10, migration test, repository), not merged. No My Routines screens until approved. |
-| 3 Bugs | Verified on `main`, no code change needed, no PR opened: recipe delete (trash on your own recipe cards, with confirmation; un-favoriting never deletes), Home bottom spacing, Meal Builder free and needs only one food (no mandatory protein/base/plant step, search first), 3 Plants rotation (tests cover day boundary, phase change, 24/28/35-day cycles, late period, exclusions, determinism, no consecutive repeats; not reproducible). Please tell me dates if you still see repeats. |
-| 4 Photography | **Blocked: no authorised image-generation or licensed-asset tool in this environment**, so no image was made or added. Ready: `docs/food-photo-manifest.json` (161 foods in batches of 12 with briefs, file names = food ids, 1200 px square JPEG), `docs/food-photo-audit-v2.md`. Integration after you supply reviewed images: add the file under `assets/images/foods/`, add the id to `plant_photos.dart`, add credit. |
-| 5 Food Detail profiles | The five approved profiles are unchanged (their values are recomputed from USDA records by tests). The other 137 foods are queued in `docs/food-profiles/work-queue.json` (status `queued`); none researched or published yet. Needs your editorial review of any draft before it can be bundled. |
-| 6 Move | Hub merged (#41). Libraries are empty by design until content is approved; draft proposals (not bundled) in `docs/content-drafts/hub-content-drafts.json` need professional/editorial review. |
-| 7 Relax | Hub merged (#41); no audio or content published; drafts as above (spa rituals carry no detox/hormone claims). |
-| 8 QA | CI green on every merged PR (format/analyze/layers/tests, goldens on macOS, Android build). Not done: a full manual pass on the phone, and testing with real data (no destructive tests were run against the phone's data). |
+| Food Detail profiles | The 5 approved profiles are unchanged. **24 more are drafted** (batch 1 #50 `f6bb78e` merged; batch 2 #52 open): composition from USDA FoodData Central recomputed by script and test, none publishable, none in the app. 113 of the 137 remain queued (`docs/food-profiles/work-queue.json`). Review notes: `batch-1-review.md`, `batch-2-review.md`. **Researched/drafted is not implemented.** |
+| Move and Relax content | 13 original draft items in `docs/content-drafts/` (not bundled) with a review package; need professional/editorial review. The app shows nothing until an item is approved. |
+| Sounds | Concepts only. **Blocked**: no audio with confirmed rights, and no audio plugin yet. |
+| Food photography | **Blocked, not started**: no authorised image generation or licensed source in this environment. The manifest (`docs/food-photo-manifest.json`, 161 foods in batches of 12) and integration steps exist; no image was produced or added. |
 
-## Open PRs (reviewed 26 Oct 2026)
+## Needs your approval or input
 
-| PR | What it is | Stage | State against `main` | Decision |
-|---|---|---|---|---|
-| #42 | My Routines schema v10, migration test, repository | 3 draft code | draft, not merged | **waiting for your migration approval** |
-| #38 | Draft Move/Relax hubs (saved items and Save a Link only) | 3 draft code | superseded by #41 (merged), which has the full hub architecture | left open as a draft, not merged, not closed |
-| #28 | Food content audit and the five reference profiles (documents) | 2 documentation | **Already merged as a side effect**: GitHub marked it merged when #36's merge brought all its commits into `main` (not merged on purpose; docs only, no app change) | nothing to do; its final editorial review is covered by the approved five profiles |
-| #33 | Draft preview of a profile inside Food Detail | 3 draft code | superseded: its code and goldens are in `main` through #36 | left open as a draft, not merged, not closed |
-| #25 | Food photo manifest | 2 documentation | identical files are already in `main` (carried in by #26) | redundant; left open, not closed |
-| #16 | iPhone install workflow, V2 status, TestFlight readiness | 2 documentation | 88 commits behind; its roadmap edits and TestFlight notes are stale (TestFlight is deferred; the install workflow now lives in `docs/feature-status.md` and `tool/build_ios.sh`) | **not merged**; left open for you to decide |
+1. **Build Your Workout: saving to My Workouts.** A built workout needs storage. Smallest
+   option: add a `kind` column (`routine` | `workout`) to the approved `routines` table (one
+   additive migration, schema v11). Alternative: separate workout tables. Not done; not
+   covered by the v10 approval.
+2. Review/approval of the Move and Relax drafts and of food-profile drafts (batches 1 and 2).
+3. Hero photographs for Move, Relax and Eat; food photographs (all 271 foods have 3).
+4. Audio with confirmed rights if you want Sounds.
 
-## Needs your approval
+## PRs
 
-- **Schema v10 for My Routines (draft #42).**
-- Anything else needing a new migration (Spa sub-categories, workout metadata), new content
-  (workouts, meditations, audio), image licensing or any further profile beyond the five.
-- Whether to close the superseded PRs (#16, #25, #33); I have not closed or deleted anything.
+Open: #52 (docs, batch 2 profile drafts; merging), #16 (stale; its unique TestFlight
+checklist is kept in `docs/release-readiness.md` by this report's PR, so it can be closed
+after this merges). Closed as superseded or redundant, branches kept: #25, #33, #38.
 
 ## Not implemented (do not expect on the phone)
 
-Food photography beyond the 3 original photos (blocked, manifest only); any Move or Relax
-content (libraries are empty until reviewed); My Routines screens (waiting on migration
-approval, draft #42); profiles for the other 137 foods.
+Any food photograph beyond the original 3; any Move or Relax library content; Sounds; saving a
+built workout; profiles for foods other than the five approved.
