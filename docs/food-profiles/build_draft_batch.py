@@ -73,6 +73,11 @@ def auto_keys(f):
     return keys[:5]
 
 
+CATALOGUE = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
+EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
+# A sourced caution is skipped when the catalogue already carries one on the same topic.
+TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'grapefruit-meds': 'medicine'}
+
 n = sys.argv[1]
 src = json.load(open(f'docs/food-profiles/batch-{n}.src.json'))
 out = {'_status': 'DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.',
@@ -103,7 +108,19 @@ for fid, f in src['foods'].items():
     if f['per100'].get('vitk', 0) >= 100 and 'vitk' not in names:
         names.append('vitk')
     f['cautions'] = names
-    cautions = [dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']) for c in f.get('cautions', [])]
+    # The app shows a profile's cautions INSTEAD of the catalogue's, so every
+    # existing catalogue caution is carried over first, then the sourced ones
+    # (unless the catalogue already covers that topic).
+    existing = CATALOGUE[fid].get('cautions', [])
+    cautions = [dict(text=t, source=EXISTING) for t in existing]
+    for c in names:
+        same = [x for x in cautions if TOPICS.get(c, c) in x['text'].lower()]
+        if same:
+            # Keep the existing wording; record the source that backs it.
+            same[0]['source'] = CAUTIONS[c]['source'] + ' (supports the existing caution)'
+            continue
+        cautions.append(dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']))
+    assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
     out['profiles'][fid] = {
         'catalogueId': fid, 'name': f['name'],
         'sections': {'whatItOffers': f['offers'], 'practicalServing': f['portion'], 'howToEatIt': f['how'], 'cycleRelevance': f['cycle']},

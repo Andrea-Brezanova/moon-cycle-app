@@ -81,8 +81,8 @@
       },
       "cautions": [
         {
-          "text": "Grapefruit and grapefruit juice can change the way some medicines work, including some statins and some blood pressure medicines. If your medicine label or pharmacist warns against grapefruit, avoid it.",
-          "source": "FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27)"
+          "text": "Can interact with some medicines",
+          "source": "FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -262,12 +262,17 @@
           }
         ]
       },
-      "cautions": [],
+      "cautions": [
+        {
+          "text": "Kiwi can cause allergic reactions; people with latex allergy may also react.",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -862,12 +867,17 @@
           }
         ]
       },
-      "cautions": [],
+      "cautions": [
+        {
+          "text": "Wash the rind before cutting",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

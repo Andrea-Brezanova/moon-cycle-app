@@ -273,8 +273,12 @@
       },
       "cautions": [
         {
-          "text": "Chard contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "text": "High in oxalate",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -481,8 +485,8 @@
       },
       "cautions": [
         {
-          "text": "Collard contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1551,12 +1555,17 @@
           }
         ]
       },
-      "cautions": [],
+      "cautions": [
+        {
+          "text": "Celery allergen (EU)",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

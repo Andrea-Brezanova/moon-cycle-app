@@ -99,8 +99,8 @@
       },
       "cautions": [
         {
-          "text": "Kale contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
@@ -713,6 +713,10 @@
       },
       "cautions": [
         {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
           "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
           "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
         }
@@ -1087,12 +1091,17 @@
           }
         ]
       },
-      "cautions": [],
+      "cautions": [
+        {
+          "text": "Choose certified gluten-free oats if avoiding gluten.",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1186,12 +1195,17 @@
           }
         ]
       },
-      "cautions": [],
+      "cautions": [
+        {
+          "text": "Soak before eating: dry seeds swell when wet",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
