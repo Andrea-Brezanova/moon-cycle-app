@@ -1454,10 +1454,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 174682,
+   "preparationState": "raw, American (slip-skin) type",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: USDA's American-type slip-skin grape is the Concord type. Grape juice is a different food."
   },
   {
    "foodId": "adzuki-bean",
@@ -1465,10 +1465,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 173728,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: USDA lists no vitamin E or K values for this record."
   },
   {
    "foodId": "black-soybean",
@@ -1487,10 +1487,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 170190,
+   "preparationState": "European, roasted",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Unlike most nuts, chestnuts are low in fat and high in starch. Raw, boiled and dried chestnuts differ; the record is roasted."
   },
   {
    "foodId": "duck",
@@ -1498,10 +1498,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "protein",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 172411,
+   "preparationState": "roasted, meat only (skin removed)",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Meat only without skin. Duck with skin has far more fat."
   },
   {
    "foodId": "catfish",
@@ -1641,10 +1641,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 167746,
+   "preparationState": "raw, without peel",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Whole lemon without peel; most people use juice or a wedge, so the serving here is much larger than a squeeze."
   },
   {
    "foodId": "lime",
@@ -1652,10 +1652,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 168155,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: A whole lime is a larger serving than the juice or wedge people usually use."
   },
   {
    "foodId": "sour-cherry",
@@ -1663,10 +1663,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 173954,
+   "preparationState": "raw, pitted",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Raw sour cherries; tart cherry juice and dried cherries are separate foods."
   },
   {
    "foodId": "mung-bean",
@@ -1674,10 +1674,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 174257,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Whole mung beans; sprouted mung beans have their own record."
   },
   {
    "foodId": "lychee",
@@ -1685,10 +1685,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 169086,
+   "preparationState": "raw, peeled and seeded",
+   "notes": "Draft in draft-batch-9.json. Not published."
   },
   {
    "foodId": "fresh-water-clam",
@@ -1839,10 +1839,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 170169,
+   "preparationState": "raw coconut meat",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Raw coconut meat. Coconut milk, coconut water and coconut oil are separate foods with different composition. This is a high-fat food (about 34 g per 100 g, mostly saturated); no amount is recommended here."
   },
   {
    "foodId": "guava",
@@ -1850,10 +1850,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 173044,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-9.json. Not published."
   },
   {
    "foodId": "persimmon",
@@ -1861,10 +1861,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 169941,
+   "preparationState": "raw, Japanese (Fuyu/Hachiya type)",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Japanese persimmon, the common supermarket type. USDA's \"native\" (American) persimmon record is a different fruit with sparse data and was not used. Dried persimmon is far more concentrated."
   },
   {
    "foodId": "tuna",
@@ -2026,10 +2026,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 168191,
+   "preparationState": "Medjool, pitted",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Medjool dates; the existing catalogue entry does not say which variety, and deglet noor dates differ somewhat. Dates are concentrated in sugar (about 66 g per 100 g by the record's carbohydrate)."
   },
   {
    "foodId": "raisin",
@@ -2037,10 +2037,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 168165,
+   "preparationState": "dark, seedless",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Dark seedless raisins; golden raisins (often treated with sulphites) are a separate USDA record."
   },
   {
    "foodId": "great-northern-bean",
@@ -2048,10 +2048,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 175191,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-10.json. Not published."
   },
   {
    "foodId": "navy-bean",
@@ -2059,10 +2059,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 173746,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-10.json. Not published."
   },
   {
    "foodId": "hickory",
@@ -2070,10 +2070,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 170177,
+   "preparationState": "dried",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: USDA lists no vitamin E or K values for this record."
   },
   {
    "foodId": "pine-nut",
@@ -2081,10 +2081,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 170591,
+   "preparationState": "dried",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Pine nuts as sold in shops. USDA's pinyon pine nut is a separate record."
   },
   {
    "foodId": "mint",
@@ -2147,10 +2147,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "protein",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 167914,
+   "preparationState": "cured pork bacon, cooked",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: A cured, processed meat that is high in salt and fat (sodium is not shown here). No sourced caution was added beyond the catalogue's own."
   },
   {
    "foodId": "bagel",
@@ -2169,10 +2169,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 175182,
+   "preparationState": "canned, plain or vegetarian",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Canned baked beans in sauce, which usually contains added sugar and salt (not shown in this nutrient set); varies by brand."
   },
   {
    "foodId": "butter",
@@ -2257,10 +2257,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 171722,
+   "preparationState": "raw, whole",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Raw cranberries (tart). Dried sweetened cranberries and cranberry juice are different foods."
   },
   {
    "foodId": "cream-cheese",
@@ -2279,10 +2279,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 173941,
+   "preparationState": "dried, sulfured",
+   "notes": "Draft in draft-batch-9.json. Not published. REVIEW: Sulfured dried apricots (the orange kind); unsulfured ones are brown and the record differs. Sulphite sensitivity is a real caution for sulphited dried fruit; the catalogue caution is carried over without an external source here."
   },
   {
    "foodId": "egg-noodles",
@@ -2301,10 +2301,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "legumes",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 173753,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Dried fava beans, cooked. Fresh young fava pods are a different food."
   },
   {
    "foodId": "fennel",
@@ -2345,10 +2345,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "protein",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 168296,
+   "preparationState": "cured boneless ham, roasted",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: A cured, processed meat that is high in salt (sodium not shown here). Deli ham varies by brand."
   },
   {
    "foodId": "hemp-seeds",
@@ -2356,10 +2356,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 170148,
+   "preparationState": "hulled (hemp hearts)",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: Hulled hemp seed. Omega-3 and vitamin K are not given in this USDA record, so they are not shown."
   },
   {
    "foodId": "herring",
@@ -2400,10 +2400,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 170178,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-10.json. Not published."
   },
   {
    "foodId": "maple-syrup",
@@ -2543,10 +2543,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "fruit",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 9)",
+   "usdaFdcId": 168162,
+   "preparationState": "dried, pitted",
+   "notes": "Draft in draft-batch-9.json. Not published."
   },
   {
    "foodId": "radicchio",
@@ -2686,10 +2686,10 @@
    "phase": null,
    "match": "not phase-assigned",
    "category": "nuts-seeds",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Not in the 142 phase-assigned foods; researched after them."
+   "status": "drafted (batch 10)",
+   "usdaFdcId": 168604,
+   "preparationState": "sesame paste, kernel type unspecified",
+   "notes": "Draft in draft-batch-10.json. Not published. REVIEW: USDA has several tahini records (roasted, raw, unroasted); the \"kernels unspecified\" one was chosen because the catalogue does not specify. Values differ between them, notably calcium."
   },
   {
    "foodId": "tortillas",

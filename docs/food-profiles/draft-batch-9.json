@@ -1,0 +1,1119 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "concord-grape": {
+      "catalogueId": "concord-grape",
+      "name": "Concord grape",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 cup (USDA: 92 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 174682,
+        "usdaDescription": "Grapes, american type (slip skin), raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, American (slip-skin) type",
+        "portionGrams": 92,
+        "portion": "1 cup (USDA: 92 g)",
+        "per100g": {
+          "protein": 0.63,
+          "fat": 0.35,
+          "carb": 17.2,
+          "fiber": 0.9,
+          "ca": 14,
+          "iron": 0.29,
+          "mg": 5,
+          "k": 191,
+          "zn": 0.04,
+          "vitc": 4,
+          "folate": 4,
+          "vita": 5,
+          "vite": 0.19,
+          "vitk": 14.6,
+          "kcal": 67
+        }
+      },
+      "perServing": {
+        "energyKcal": 62,
+        "proteinG": 0.6,
+        "fatG": 0.3,
+        "carbohydrateG": 15.8,
+        "fiberG": 0.8,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 176,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lemon": {
+      "catalogueId": "lemon",
+      "name": "Lemon",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 lemon, 2⅛ in across (USDA: 58 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 167746,
+        "usdaDescription": "Lemons, raw, without peel",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, without peel",
+        "portionGrams": 58,
+        "portion": "1 lemon, 2⅛ in across (USDA: 58 g)",
+        "per100g": {
+          "protein": 1.1,
+          "fat": 0.3,
+          "carb": 9.32,
+          "fiber": 2.8,
+          "ca": 26,
+          "iron": 0.6,
+          "mg": 8,
+          "k": 138,
+          "zn": 0.06,
+          "vitc": 53,
+          "folate": 11,
+          "vita": 1,
+          "vite": 0.15,
+          "vitk": 0,
+          "kcal": 29
+        }
+      },
+      "perServing": {
+        "energyKcal": 17,
+        "proteinG": 0.6,
+        "fatG": 0.2,
+        "carbohydrateG": 5.4,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 31,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 41
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lime": {
+      "catalogueId": "lime",
+      "name": "Lime",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 lime, 2 in across (USDA: 67 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 168155,
+        "usdaDescription": "Limes, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 67,
+        "portion": "1 lime, 2 in across (USDA: 67 g)",
+        "per100g": {
+          "protein": 0.7,
+          "fat": 0.2,
+          "carb": 10.5,
+          "fiber": 2.8,
+          "ca": 33,
+          "iron": 0.6,
+          "mg": 6,
+          "k": 102,
+          "zn": 0.11,
+          "vitc": 29.1,
+          "folate": 8,
+          "vita": 2,
+          "vite": 0.22,
+          "vitk": 0.6,
+          "kcal": 30
+        }
+      },
+      "perServing": {
+        "energyKcal": 20,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 7.0,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 19,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 26
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sour-cherry": {
+      "catalogueId": "sour-cherry",
+      "name": "Sour cherry",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 cup, pitted (USDA: 155 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 173954,
+        "usdaDescription": "Cherries, sour, red, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, pitted",
+        "portionGrams": 155,
+        "portion": "1 cup, pitted (USDA: 155 g)",
+        "per100g": {
+          "protein": 1,
+          "fat": 0.3,
+          "carb": 12.2,
+          "fiber": 1.6,
+          "ca": 16,
+          "iron": 0.32,
+          "mg": 9,
+          "k": 173,
+          "zn": 0.1,
+          "vitc": 10,
+          "folate": 8,
+          "vita": 64,
+          "vite": 0.07,
+          "vitk": 2.1,
+          "kcal": 50
+        }
+      },
+      "perServing": {
+        "energyKcal": 78,
+        "proteinG": 1.6,
+        "fatG": 0.5,
+        "carbohydrateG": 18.9,
+        "fiberG": 2.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 16,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 99,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 268,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lychee": {
+      "catalogueId": "lychee",
+      "name": "Lychee",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "½ cup (USDA: 1 cup = 190 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 169086,
+        "usdaDescription": "Litchis, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, peeled and seeded",
+        "portionGrams": 95,
+        "portion": "½ cup (USDA: 1 cup = 190 g)",
+        "per100g": {
+          "protein": 0.83,
+          "fat": 0.44,
+          "carb": 16.5,
+          "fiber": 1.3,
+          "ca": 5,
+          "iron": 0.31,
+          "mg": 10,
+          "k": 171,
+          "zn": 0.07,
+          "vitc": 71.5,
+          "folate": 14,
+          "vita": 0,
+          "vite": 0.07,
+          "vitk": 0.4,
+          "kcal": 66
+        }
+      },
+      "perServing": {
+        "energyKcal": 63,
+        "proteinG": 0.8,
+        "fatG": 0.4,
+        "carbohydrateG": 15.7,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 68,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 91
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 162,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "coconut": {
+      "catalogueId": "coconut",
+      "name": "Coconut",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 piece, 2 × 2 × ½ in (USDA: 45 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 170169,
+        "usdaDescription": "Nuts, coconut meat, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw coconut meat",
+        "portionGrams": 45,
+        "portion": "1 piece, 2 × 2 × ½ in (USDA: 45 g)",
+        "per100g": {
+          "protein": 3.33,
+          "fat": 33.5,
+          "carb": 15.2,
+          "fiber": 9,
+          "ca": 14,
+          "iron": 2.43,
+          "mg": 32,
+          "k": 356,
+          "zn": 1.1,
+          "vitc": 3.3,
+          "folate": 26,
+          "vite": 0.24,
+          "vitk": 0.2,
+          "kcal": 354
+        }
+      },
+      "perServing": {
+        "energyKcal": 159,
+        "proteinG": 1.5,
+        "fatG": 15.1,
+        "carbohydrateG": 6.8,
+        "fiberG": 4.1,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 160,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 4.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "guava": {
+      "catalogueId": "guava",
+      "name": "Guava",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "2 fruits (USDA: 1 fruit, without refuse = 55 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 173044,
+        "usdaDescription": "Guavas, common, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 110,
+        "portion": "2 fruits (USDA: 1 fruit, without refuse = 55 g)",
+        "per100g": {
+          "protein": 2.55,
+          "fat": 0.95,
+          "carb": 14.3,
+          "fiber": 5.4,
+          "ca": 18,
+          "iron": 0.26,
+          "mg": 22,
+          "k": 417,
+          "zn": 0.23,
+          "vitc": 228,
+          "folate": 49,
+          "vita": 31,
+          "vite": 0.73,
+          "vitk": 2.6,
+          "kcal": 68
+        }
+      },
+      "perServing": {
+        "energyKcal": 75,
+        "proteinG": 2.8,
+        "fatG": 1.0,
+        "carbohydrateG": 15.7,
+        "fiberG": 5.9,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 251,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 334
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 459,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 54,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.9,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "persimmon": {
+      "catalogueId": "persimmon",
+      "name": "Persimmon",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 fruit, 2½ in across (USDA: 168 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 169941,
+        "usdaDescription": "Persimmons, japanese, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, Japanese (Fuyu/Hachiya type)",
+        "portionGrams": 168,
+        "portion": "1 fruit, 2½ in across (USDA: 168 g)",
+        "per100g": {
+          "protein": 0.58,
+          "fat": 0.19,
+          "carb": 18.6,
+          "fiber": 3.6,
+          "ca": 8,
+          "iron": 0.15,
+          "mg": 9,
+          "k": 161,
+          "zn": 0.11,
+          "vitc": 7.5,
+          "folate": 8,
+          "vita": 81,
+          "vite": 0.73,
+          "vitk": 2.6,
+          "kcal": 70
+        }
+      },
+      "perServing": {
+        "energyKcal": 118,
+        "proteinG": 1.0,
+        "fatG": 0.3,
+        "carbohydrateG": 31.2,
+        "fiberG": 6.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 136,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 13,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 270,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 6.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "date": {
+      "catalogueId": "date",
+      "name": "Date",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "2 dates (USDA: 1 date, pitted = 24 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 168191,
+        "usdaDescription": "Dates, medjool",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "Medjool, pitted",
+        "portionGrams": 48,
+        "portion": "2 dates (USDA: 1 date, pitted = 24 g)",
+        "per100g": {
+          "protein": 1.81,
+          "fat": 0.15,
+          "carb": 75,
+          "fiber": 6.7,
+          "ca": 64,
+          "iron": 0.9,
+          "mg": 54,
+          "k": 696,
+          "zn": 0.44,
+          "vitc": 0,
+          "folate": 15,
+          "vita": 7,
+          "vitk": 2.7,
+          "kcal": 277
+        }
+      },
+      "perServing": {
+        "energyKcal": 133,
+        "proteinG": 0.9,
+        "fatG": 0.1,
+        "carbohydrateG": 36.0,
+        "fiberG": 3.2,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 334,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 26,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 8
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "raisin": {
+      "catalogueId": "raisin",
+      "name": "Raisin",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 small box, 1.5 oz (USDA: 43 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 168165,
+        "usdaDescription": "Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dark, seedless",
+        "portionGrams": 43,
+        "portion": "1 small box, 1.5 oz (USDA: 43 g)",
+        "per100g": {
+          "protein": 3.3,
+          "fat": 0.25,
+          "carb": 79.3,
+          "fiber": 4.5,
+          "ca": 62,
+          "iron": 1.79,
+          "mg": 36,
+          "k": 744,
+          "zn": 0.36,
+          "vitc": 2.3,
+          "folate": 5,
+          "vite": 0.12,
+          "vitk": 3.5,
+          "vita": 0,
+          "kcal": 299
+        }
+      },
+      "perServing": {
+        "energyKcal": 129,
+        "proteinG": 1.4,
+        "fatG": 0.1,
+        "carbohydrateG": 34.1,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 320,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cranberry": {
+      "catalogueId": "cranberry",
+      "name": "Cranberry",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "1 cup whole (USDA: 100 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 171722,
+        "usdaDescription": "Cranberries, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, whole",
+        "portionGrams": 100,
+        "portion": "1 cup whole (USDA: 100 g)",
+        "per100g": {
+          "protein": 0.46,
+          "fat": 0.13,
+          "carb": 12,
+          "fiber": 3.6,
+          "ca": 8,
+          "iron": 0.23,
+          "mg": 6,
+          "k": 80,
+          "zn": 0.09,
+          "vitc": 14,
+          "folate": 1,
+          "vita": 3,
+          "vite": 1.32,
+          "vitk": 5,
+          "kcal": 46
+        }
+      },
+      "perServing": {
+        "energyKcal": 46,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 12.0,
+        "fiberG": 3.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 14,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "dried-apricots": {
+      "catalogueId": "dried-apricots",
+      "name": "Dried apricots",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "10 halves (USDA: 1 half = 3.5 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 173941,
+        "usdaDescription": "Apricots, dried, sulfured, uncooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried, sulfured",
+        "portionGrams": 35,
+        "portion": "10 halves (USDA: 1 half = 3.5 g)",
+        "per100g": {
+          "protein": 3.39,
+          "fat": 0.51,
+          "carb": 62.6,
+          "fiber": 7.3,
+          "ca": 55,
+          "iron": 2.66,
+          "mg": 32,
+          "k": 1160,
+          "zn": 0.39,
+          "vitc": 1,
+          "folate": 10,
+          "vita": 180,
+          "vite": 4.33,
+          "vitk": 3.1,
+          "kcal": 241
+        }
+      },
+      "perServing": {
+        "energyKcal": 84,
+        "proteinG": 1.2,
+        "fatG": 0.2,
+        "carbohydrateG": 21.9,
+        "fiberG": 2.6,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 406,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 1.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "prunes": {
+      "catalogueId": "prunes",
+      "name": "Prunes (dried plums)",
+      "sections": {
+        "whatItOffers": "TBD",
+        "practicalServing": "4 prunes (USDA: 1 prune, pitted = 9.5 g)",
+        "howToEatIt": "TBD",
+        "cycleRelevance": "TBD"
+      },
+      "source": {
+        "usdaFdcId": 168162,
+        "usdaDescription": "Plums, dried (prunes), uncooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried, pitted",
+        "portionGrams": 38,
+        "portion": "4 prunes (USDA: 1 prune, pitted = 9.5 g)",
+        "per100g": {
+          "protein": 2.18,
+          "fat": 0.38,
+          "carb": 63.9,
+          "fiber": 7.1,
+          "ca": 43,
+          "iron": 0.93,
+          "mg": 41,
+          "k": 732,
+          "zn": 0.44,
+          "vitc": 0.6,
+          "folate": 4,
+          "vita": 39,
+          "vite": 0.43,
+          "vitk": 59.5,
+          "kcal": 240
+        }
+      },
+      "perServing": {
+        "energyKcal": 91,
+        "proteinG": 0.8,
+        "fatG": 0.1,
+        "carbohydrateG": 24.3,
+        "fiberG": 2.7,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 278,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 16,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 5
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 23,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
