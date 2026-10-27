@@ -73,6 +73,13 @@ void main() {
               'Zinc': 'zn',
               'Potassium': 'k',
               'Vitamin A': 'vita',
+              'Calcium': 'ca',
+              'Vitamin B12': 'b12',
+              'Vitamin D': 'vitd',
+              'Vitamin E': 'vite',
+              'Protein': 'protein',
+              'Fiber': 'fiber',
+              'Omega-3 (EPA + DHA)': 'omega3',
             };
             for (final n
                 in (serving['keyNutrients']! as List)

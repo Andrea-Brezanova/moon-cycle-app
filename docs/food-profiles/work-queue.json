@@ -36,10 +36,10 @@
    "name": "Mushrooms (button, shiitake)",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169251,
+   "preparationState": "raw white (button) mushrooms",
+   "notes": "Draft in draft-batch-3.json. Not published. REVIEW: The catalogue entry covers button and shiitake; this is the white (button) mushroom record. Shiitake and others differ."
   },
   {
    "foodId": "blueberry",
@@ -166,40 +166,40 @@
    "name": "Brussels sprouts",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169971,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "chard",
    "name": "Chard",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170401,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "eggplant",
    "name": "Eggplant",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169229,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "collard",
    "name": "Collard",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170407,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "beef",
@@ -236,10 +236,10 @@
    "name": "Green bell pepper",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170427,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "kiwi",
@@ -286,20 +286,20 @@
    "name": "White potato",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170093,
+   "preparationState": "baked, flesh and skin, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "yellow-bell-pepper",
    "name": "Yellow bell pepper",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169383,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "scallop",
@@ -326,10 +326,10 @@
    "name": "Lettuce (Bibb, Boston, romaine)",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169247,
+   "preparationState": "raw romaine (cos) lettuce",
+   "notes": "Draft in draft-batch-3.json. Not published. REVIEW: The catalogue entry covers Bibb, Boston and romaine; this is the romaine record. Other lettuces differ."
   },
   {
    "foodId": "green-pea",
@@ -346,20 +346,20 @@
    "name": "String bean",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169141,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "zucchini",
    "name": "Zucchini",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169291,
+   "preparationState": "raw, with skin",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "avocado",
@@ -486,20 +486,20 @@
    "name": "Arugula (rocket)",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169387,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "bok-choy",
    "name": "Bok choy",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170391,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "canned-salmon",
@@ -566,10 +566,10 @@
    "name": "Napa cabbage",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169979,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "nectarine",
@@ -616,10 +616,10 @@
    "name": "Turnip",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170058,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "watermelon",
@@ -656,10 +656,10 @@
    "name": "Asparagus",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 168390,
+   "preparationState": "cooked, boiled, drained (USDA record is without added salt where stated; this record has none listed)",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "red-bell-pepper",
@@ -756,10 +756,10 @@
    "name": "Celery",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169988,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "cucumber",
@@ -776,10 +776,10 @@
    "name": "Radish",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169276,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "peach",
@@ -796,10 +796,10 @@
    "name": "Bean sprouts",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169957,
+   "preparationState": "raw mung bean sprouts",
+   "notes": "Draft in draft-batch-3.json. Not published. REVIEW: Catalogue \"bean sprouts\" is read as mung bean sprouts, the common kind. Raw sprouts carry a food-safety caution (FDA/USDA) that has not been added; see the editorial list."
   },
   {
    "foodId": "cottage-cheese",
@@ -876,10 +876,10 @@
    "name": "Red cabbage",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 169977,
+   "preparationState": "raw",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "ricotta",
@@ -906,10 +906,10 @@
    "name": "Sugar snap peas",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170010,
+   "preparationState": "raw, whole pods",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "sweet-cherry",
@@ -996,10 +996,10 @@
    "name": "Artichoke",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 168386,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "lima-bean",
@@ -1096,10 +1096,10 @@
    "name": "Parsnip",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170009,
+   "preparationState": "cooked, boiled, drained, no salt",
+   "notes": "Draft in draft-batch-3.json. Not published."
   },
   {
    "foodId": "pumpkin",
@@ -1116,10 +1116,10 @@
    "name": "Squash",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 3)",
+   "usdaFdcId": 170490,
+   "preparationState": "baked, no salt, all winter varieties",
+   "notes": "Draft in draft-batch-3.json. Not published. REVIEW: The catalogue entry \"squash\" is not specific. This is the USDA record for winter squash, all varieties, baked; butternut, acorn and others vary."
   },
   {
    "foodId": "sweet-potato",

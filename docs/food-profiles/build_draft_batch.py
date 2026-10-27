@@ -16,6 +16,7 @@ def rhu(x, dec=0):
     r = math.floor(x * m + 0.5) / m
     return int(r) if dec == 0 else r
 
+# Reference intakes for adult women (NIH ODS; read 2026-10-25 and 2026-10-27).
 REF = {
     'iron': ('mg', [('19–50 y', 18)], 'RDA', 'Iron'),
     'folate': ('µg DFE', [('19–50 y', 400)], 'RDA', 'Folate'),
@@ -25,13 +26,50 @@ REF = {
     'zn': ('mg', [('19–50 y', 8)], 'RDA', 'Zinc'),
     'k': ('mg', [('19–50 y', 2600)], 'AI', 'Potassium'),
     'vita': ('µg RAE', [('19–50 y', 700)], 'RDA', 'Vitamin A'),
+    'ca': ('mg', [('19–50 y', 1000)], 'RDA', 'Calcium'),
+    'b12': ('µg', [('19+ y', 2.4)], 'RDA', 'Vitamin B12'),
+    'vitd': ('µg', [('19–50 y', 15)], 'RDA', 'Vitamin D'),
+    'vite': ('mg', [('19+ y', 15)], 'RDA', 'Vitamin E'),
 }
+# Shown as an amount only: no population reference is quoted for these.
+AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': ('g', 'Omega-3 (EPA + DHA)')}
+DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
                  source='NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)'),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
+
+def auto_keys(f):
+    """Picks the key nutrients for one serving: up to three reference nutrients at
+    10% or more (two at 5% if nothing reaches 10%), vitamin K when it is 20 µg or
+    more (amount only), then protein (5 g), fibre (3 g), omega-3 (0.25 g). A
+    nutrient the USDA record does not report is skipped, never treated as zero."""
+    g = f['grams']
+    per = f['per100']
+    pct = []
+    for k in ('ca', 'iron', 'mg', 'k', 'zn', 'vitc', 'folate', 'vita', 'b12', 'vitd', 'vite'):
+        if per.get(k):
+            pct.append((per[k] * g / 100 / REF[k][1][0][1], k))
+    pct.sort(reverse=True)
+    picks = [k for p, k in pct if p >= 0.10][:3]
+    if len(picks) < 2:
+        picks = [k for p, k in pct if p >= 0.05][:2] or picks
+    keys = [(k, DECIMALS.get(k, 0)) for k in picks]
+    if per.get('vitk') and per['vitk'] * g / 100 >= 20:
+        keys.append(('vitk', 0))
+    for k, minimum in (('protein', 5), ('fiber', 3), ('omega3', 0.25)):
+        if per.get(k) and per[k] * g / 100 >= minimum:
+            keys.append((k, DECIMALS[k]))
+    if not keys:
+        # A food with little to report: its two best reference nutrients (any
+        # amount), plus fibre if there is a gram or more.
+        keys = [(k, DECIMALS.get(k, 0)) for p, k in pct if p > 0][:2]
+        if per.get('fiber') and per['fiber'] * g / 100 >= 1:
+            keys.append(('fiber', DECIMALS['fiber']))
+    return keys[:5]
+
 
 n = sys.argv[1]
 src = json.load(open(f'docs/food-profiles/batch-{n}.src.json'))
@@ -40,17 +78,29 @@ out = {'_status': 'DRAFT BATCH for editorial review. Not production content. Not
        'profiles': {}}
 for fid, f in src['foods'].items():
     amt = lambda k: f['per100'][k] * f['grams'] / 100
+    if f['keys'] == 'auto':
+        f['keys'] = auto_keys(f)
     keys = []
     for key, dec in f['keys']:
-        unit, groups, kind, nm = REF[key]
         assert key in f['per100'], (fid, key)
         v = amt(key)
+        if key in AMOUNT_ONLY:
+            unit, nm = AMOUNT_ONLY[key]
+            keys.append({'name': nm, 'amount': rhu(v, dec), 'unit': unit})
+            continue
+        unit, groups, kind, nm = REF[key]
         e = {'name': nm, 'amount': rhu(v, dec), 'unit': unit}
         if key != 'vitk':
             e['reference'] = [{'group': g, 'kind': kind, 'value': val, 'unit': unit, 'percent': rhu(100 * v / val)} for g, val in groups]
         else:
             e['referenceNote'] = 'Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners.'
         keys.append(e)
+    assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
+    names = list(f.get('cautions', []))
+    # Vitamin K at 100 µg or more per 100 g carries the blood-thinner note.
+    if f['per100'].get('vitk', 0) >= 100 and 'vitk' not in names:
+        names.append('vitk')
+    f['cautions'] = names
     cautions = [dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']) for c in f.get('cautions', [])]
     out['profiles'][fid] = {
         'catalogueId': fid, 'name': f['name'],
