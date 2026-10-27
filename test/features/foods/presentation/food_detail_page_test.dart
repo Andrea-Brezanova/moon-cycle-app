@@ -165,7 +165,7 @@ void main() {
     final tops = [
       for (final t in [
         'Find recipes with broccoli',
-        'Make your own meal with broccoli',
+        'Build a Meal with broccoli',
         'Add to shopping list',
         'Log meal',
       ])

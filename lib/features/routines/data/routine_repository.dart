@@ -5,7 +5,7 @@ import '../../../core/database/app_database.dart';
 import '../../../core/database/row_ids.dart';
 import '../domain/routine.dart';
 
-/// My Routines (DRAFT, schema 10): reusable ordered lists of steps. A step is
+/// My Routines and built workouts: reusable ordered lists of steps. A step is
 /// a saved link, by reference, or a line of the user's own text. No schedule,
 /// no reminders, no recommendations. Local only, in the encrypted database.
 class RoutineRepository {
@@ -14,7 +14,11 @@ class RoutineRepository {
   final AppDatabase _db;
   final RowStamp _stamp;
 
-  Future<String?> create(String title, {String? note}) async {
+  Future<String?> create(
+    String title, {
+    String? note,
+    RoutineKind kind = RoutineKind.routine,
+  }) async {
     final name = _clean(title);
     if (name == null) return null;
     final now = _stamp.now();
@@ -28,6 +32,7 @@ class RoutineRepository {
             updatedAt: now,
             title: name,
             note: Value(_clean(note)),
+            kind: Value(kind.name),
           ),
         );
     return id;
@@ -53,6 +58,7 @@ class RoutineRepository {
       Routine(
         id: r.id,
         title: r.title,
+        kind: RoutineKind.fromKey(r.kind),
         note: r.note,
         createdAt: r.createdAt,
         updatedAt: r.updatedAt,
@@ -229,7 +235,31 @@ final routineRepositoryProvider = Provider<RoutineRepository>(
   (ref) => RoutineRepository(ref.watch(appDatabaseProvider)),
 );
 
-/// Every routine, newest first, live.
+/// Every routine and built workout, newest first, live.
 final routinesProvider = StreamProvider.autoDispose<List<Routine>>(
   (ref) => ref.watch(routineRepositoryProvider).watchAll(),
+);
+
+/// Only the My Routines entries.
+final myRoutinesProvider = Provider.autoDispose<AsyncValue<List<Routine>>>(
+  (ref) => ref
+      .watch(routinesProvider)
+      .whenData(
+        (all) => [
+          for (final r in all)
+            if (r.kind == RoutineKind.routine) r,
+        ],
+      ),
+);
+
+/// Only the workouts built in Move › Build Your Workout (My Workouts).
+final builtWorkoutsProvider = Provider.autoDispose<AsyncValue<List<Routine>>>(
+  (ref) => ref
+      .watch(routinesProvider)
+      .whenData(
+        (all) => [
+          for (final r in all)
+            if (r.kind == RoutineKind.workout) r,
+        ],
+      ),
 );
