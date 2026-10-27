@@ -37,6 +37,7 @@ import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
 import '../../features/hubs/domain/hub_item.dart';
+import '../../features/hubs/presentation/build_workout_page.dart';
 import '../../features/hubs/presentation/hub_home_page.dart';
 import '../../features/hubs/presentation/hub_item_page.dart';
 import '../../features/hubs/presentation/hub_library_page.dart';
@@ -139,6 +140,12 @@ GoRouter buildAppRouter({
                   }),
                   routes: switch (tab) {
                     AppTab.move || AppTab.relax => [
+                      if (tab == AppTab.move)
+                        GoRoute(
+                          path: 'build-workout',
+                          pageBuilder: (context, state) =>
+                              _page(state, const BuildWorkoutPage()),
+                        ),
                       GoRoute(
                         path: 'library/:kind',
                         pageBuilder: (context, state) => _page(
