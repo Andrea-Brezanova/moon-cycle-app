@@ -17,17 +17,24 @@ import '../../foods/application/food_providers.dart';
 /// "Cook with…" (`13-cook-with-sheet`, `14-cook-with-no-results`): every
 /// food recommended for [phase] that the user eats, by category, with its
 /// recipe count. Returns the chosen food.
-Future<Food?> showCookWithSheet(BuildContext context, {required Phase phase}) =>
-    showMoonSheet<Food>(
-      context,
-      fromTop: 96,
-      builder: (_) => _CookWithSheet(phase: phase),
-    );
+///
+/// With [all] (the "All phases" scope) it lists every food that has a recipe,
+/// from any phase, A to Z.
+Future<Food?> showCookWithSheet(
+  BuildContext context, {
+  required Phase phase,
+  bool all = false,
+}) => showMoonSheet<Food>(
+  context,
+  fromTop: 96,
+  builder: (_) => _CookWithSheet(phase: phase, all: all),
+);
 
 class _CookWithSheet extends ConsumerStatefulWidget {
-  const _CookWithSheet({required this.phase});
+  const _CookWithSheet({required this.phase, required this.all});
 
   final Phase phase;
+  final bool all;
 
   @override
   ConsumerState<_CookWithSheet> createState() => _CookWithSheetState();
@@ -53,20 +60,32 @@ class _CookWithSheetState extends ConsumerState<_CookWithSheet> {
     final c = context.moon;
     final catalogue = ref.watch(catalogueProvider);
     final filter = ref.watch(foodFilterProvider);
-    final counts = ref.watch(recipeCountsProvider(widget.phase));
+    final counts = widget.all
+        ? ref.watch(allRecipeCountsProvider)
+        : ref.watch(recipeCountsProvider(widget.phase));
     final q = normaliseName(_query);
     bool matches(Food f) =>
         q.isEmpty ||
         normaliseName(f.name).contains(q) ||
         f.synonyms.any((s) => normaliseName(s).contains(q));
-    final groups = [
-      for (final category in catalogue.phase(widget.phase).categories)
-        if ([for (final id in category.foodIds) ?catalogue.food(id)]
-                .where((f) => filter.allowsFood(f) && matches(f))
-                .toList()
-            case final foods when foods.isNotEmpty)
-          (category.category.name, foods),
-    ];
+    final groups = <(String, List<Food>)>[];
+    if (widget.all) {
+      final foods = [
+        for (final f in catalogue.foods)
+          if ((counts[f.id] ?? 0) > 0 && filter.allowsFood(f) && matches(f)) f,
+      ]..sort((a, b) => a.displayName.compareTo(b.displayName));
+      if (foods.isNotEmpty) groups.add(('All foods', foods));
+    } else {
+      for (final category in catalogue.phase(widget.phase).categories) {
+        final foods = [
+          for (final id in category.foodIds)
+            if (catalogue.food(id) case final f?
+                when filter.allowsFood(f) && matches(f))
+              f,
+        ];
+        if (foods.isNotEmpty) groups.add((category.category.name, foods));
+      }
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -77,7 +96,9 @@ class _CookWithSheetState extends ConsumerState<_CookWithSheet> {
         ),
         const SizedBox(height: 8),
         Text(
-          'Foods for your ${widget.phase.name} phase',
+          widget.all
+              ? 'Foods with recipes, from every phase'
+              : 'Foods for your ${widget.phase.name} phase',
           style: dmSans(15, height: 1.4, color: c.textMuted),
         ),
         const SizedBox(height: 16),
@@ -105,7 +126,7 @@ class _CookWithSheetState extends ConsumerState<_CookWithSheet> {
         Expanded(
           child: groups.isEmpty
               ? _NoMatch(
-                  phase: widget.phase,
+                  phase: widget.all ? null : widget.phase,
                   query: _query.trim(),
                   onClear: _clear,
                 )
@@ -195,7 +216,7 @@ class _NoMatch extends StatelessWidget {
     required this.onClear,
   });
 
-  final Phase phase;
+  final Phase? phase;
   final String query;
   final VoidCallback onClear;
 
@@ -208,7 +229,7 @@ class _NoMatch extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'No ${phase.name} foods match “$query”',
+            'No ${phase == null ? '' : '${phase!.name} '}foods match “$query”',
             style: dmSans(
               16,
               weight: FontWeight.w500,

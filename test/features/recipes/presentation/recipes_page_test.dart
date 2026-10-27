@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/core/design/widgets/moon_chip.dart';
 import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
@@ -174,22 +175,120 @@ void main() {
     expect(container, isNotNull);
   });
 
-  testWidgets('All recipes: no phase-derived Cook with…', (tester) async {
+  const cookWith = 'Cook with, choose an ingredient';
+
+  Future<void> chooseFood(
+    WidgetTester tester,
+    String query,
+    String name,
+  ) async {
+    await tester.tap(find.bySemanticsLabel(cookWith));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), query);
+    await tester.pumpAndSettle();
+    await tester.tap(find.bySemanticsLabel(RegExp('^$name, \\d+ recipes?\$')));
+    await tester.pumpAndSettle();
+  }
+
+  group('Cook with, in All phases', () {
+    testWidgets('the field stays, before choosing and after clearing', (
+      tester,
+    ) async {
+      await pumpRecipes(tester);
+      await browse(tester, 'All phases');
+      expect(find.bySemanticsLabel(cookWith), findsOneWidget);
+
+      await chooseFood(tester, 'beet', 'Beets');
+      expect(find.byType(MoonRemovableChip), findsOneWidget);
+      expect(find.bySemanticsLabel(cookWith), findsNothing);
+      expect(find.textContaining('with beets'), findsOneWidget);
+
+      await tester.tap(find.bySemanticsLabel('Clear ingredient'));
+      await tester.pumpAndSettle();
+      // The field is back and usable, and the phase scope is untouched.
+      expect(find.bySemanticsLabel(cookWith), findsOneWidget);
+      expect(find.byType(MoonRemovableChip), findsNothing);
+      expect(find.text('112 recipes'), findsOneWidget);
+      expect(find.byKey(const ValueKey('phase-pill')), findsOneWidget);
+    });
+
+    testWidgets('choose, clear and choose again, repeatedly', (tester) async {
+      await pumpRecipes(tester);
+      await browse(tester, 'All phases');
+      for (final (query, name) in [
+        ('beet', 'Beets'),
+        ('chicken', 'Chicken'),
+        ('beet', 'Beets'),
+      ]) {
+        await chooseFood(tester, query, name);
+        expect(
+          find.textContaining('with ${name.toLowerCase()}'),
+          findsOneWidget,
+        );
+        await tester.tap(find.bySemanticsLabel('Clear ingredient'));
+        await tester.pumpAndSettle();
+        expect(find.bySemanticsLabel(cookWith), findsOneWidget);
+      }
+    });
+
+    testWidgets('Change swaps the ingredient without leaving All phases', (
+      tester,
+    ) async {
+      await pumpRecipes(tester);
+      await browse(tester, 'All phases');
+      await chooseFood(tester, 'beet', 'Beets');
+      await tester.tap(find.text('Change'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'chicken');
+      await tester.pumpAndSettle();
+      await tester.tap(
+        find.bySemanticsLabel(RegExp('^Chicken, \\d+ recipes?\$')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.textContaining('with chicken'), findsOneWidget);
+      expect(find.textContaining('with beets'), findsNothing);
+    });
+
+    testWidgets('clearing keeps the meal type; an empty result recovers', (
+      tester,
+    ) async {
+      await pumpRecipes(tester);
+      await browse(tester, 'All phases');
+      await pickMeal(tester, 'Breakfast');
+      await chooseFood(tester, 'chicken', 'Chicken');
+      // With no breakfast using chicken the empty state offers it too.
+      await tester.tap(find.bySemanticsLabel('Clear ingredient').first);
+      await tester.pumpAndSettle();
+      expect(find.bySemanticsLabel(cookWith), findsOneWidget);
+      // Still on Breakfast: the filter chip row shows it.
+      expect(find.text('Breakfast'), findsWidgets);
+      await pickMeal(tester, 'All meals');
+      expect(find.text('112 recipes'), findsOneWidget);
+    });
+
+    testWidgets('the sheet lists foods from every phase', (tester) async {
+      await pumpRecipes(tester);
+      await browse(tester, 'All phases');
+      await tester.tap(find.bySemanticsLabel(cookWith));
+      await tester.pumpAndSettle();
+      expect(find.text('Foods with recipes, from every phase'), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'zzzz');
+      await tester.pumpAndSettle();
+      expect(find.text('No foods match “zzzz”'), findsOneWidget);
+    });
+  });
+
+  testWidgets('a phase browse still lists only that phase’s foods', (
+    tester,
+  ) async {
     await pumpRecipes(tester);
-    expect(
-      find.bySemanticsLabel('Cook with, choose an ingredient'),
-      findsOneWidget,
-    );
+    expect(find.bySemanticsLabel(cookWith), findsOneWidget);
     await browse(tester, 'All phases');
-    expect(
-      find.bySemanticsLabel('Cook with, choose an ingredient'),
-      findsNothing,
-    );
     await browse(tester, 'Follicular');
-    expect(
-      find.bySemanticsLabel('Cook with, choose an ingredient'),
-      findsOneWidget,
-    );
+    expect(find.bySemanticsLabel(cookWith), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel(cookWith));
+    await tester.pumpAndSettle();
+    expect(find.text('Foods for your follicular phase'), findsOneWidget);
   });
 
   testWidgets('nothing fits the preferences', (tester) async {
