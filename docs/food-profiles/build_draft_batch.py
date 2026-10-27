@@ -34,11 +34,20 @@ REF = {
 # Shown as an amount only: no population reference is quoted for these.
 AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': ('g', 'Omega-3 (EPA + DHA)')}
 DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
+FSIS = 'USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)'
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
                  source='NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)'),
     'grapefruit-meds': dict(text='Grapefruit and grapefruit juice can change the way some medicines work, including some statins and some blood pressure medicines. If your medicine label or pharmacist warns against grapefruit, avoid it.',
                             source="FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27)"),
+    'mercury-good': dict(text='Mercury: the FDA and EPA list {n} as a "Good Choice", with more mercury than their "Best Choices". For people who are or might become pregnant, or who are breastfeeding, the advice is 2 to 3 servings a week from the Best Choices or 1 serving from the Good Choices.',
+                         source='FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)'),
+    'mackerel-king': dict(text='This profile is Atlantic mackerel, a "Best Choice" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it.',
+                          source='FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)'),
+    'temp-fish': dict(text='Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).', source=FSIS),
+    'temp-poultry': dict(text='Cook poultry to an internal temperature of 165 °F (73.9 °C).', source=FSIS),
+    'temp-meat': dict(text='Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).', source=FSIS),
+    'temp-eggs': dict(text='Cook eggs to 160 °F (71.1 °C).', source=FSIS),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
@@ -76,7 +85,8 @@ def auto_keys(f):
 CATALOGUE = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
 EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
 # A sourced caution is skipped when the catalogue already carries one on the same topic.
-TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'grapefruit-meds': 'medicine'}
+TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
+          'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
 
 n = sys.argv[1]
 src = json.load(open(f'docs/food-profiles/batch-{n}.src.json'))

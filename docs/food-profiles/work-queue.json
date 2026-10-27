@@ -6,10 +6,10 @@
    "name": "Wild rice",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 168897,
+   "preparationState": "cooked",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "beets",
@@ -56,70 +56,70 @@
    "name": "Black beans",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 175187,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "kidney-bean",
    "name": "Kidney bean",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 173740,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externally sourced)."
   },
   {
    "foodId": "sesame-seeds",
    "name": "Sesame seeds",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170150,
+   "preparationState": "dried, whole (with hulls), unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "clam",
    "name": "Clam",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 171975,
+   "preparationState": "cooked, moist heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "mussel",
    "name": "Mussel",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174217,
+   "preparationState": "cooked, moist heat, shelled",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "oyster",
    "name": "Oyster",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 171980,
+   "preparationState": "cooked, moist heat, shelled",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: Six oysters provide about 33 mg of zinc, over four times the reference intake in one serving. NIH ODS lists a tolerable upper intake for zinc, but that value has not been read this session: check it before publishing and consider a caution or a smaller serving."
   },
   {
    "foodId": "sardine",
    "name": "Sardine",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 175139,
+   "preparationState": "canned in oil, drained, with bones",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "miso",
@@ -146,10 +146,10 @@
    "name": "Cashew",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170162,
+   "preparationState": "raw, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "quinoa",
@@ -216,10 +216,10 @@
    "name": "Anchovies",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174183,
+   "preparationState": "canned in oil, drained",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: Canned anchovies are very salty; sodium is not shown and no salt caution has a source yet."
   },
   {
    "foodId": "grapes",
@@ -276,10 +276,10 @@
    "name": "White beans",
    "phase": "menstrual",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 175203,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: The catalogue entry \"white beans\" covers cannellini, navy and great northern; this is the USDA \"white\" record."
   },
   {
    "foodId": "white-potato",
@@ -306,10 +306,10 @@
    "name": "Scallop",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 167742,
+   "preparationState": "cooked, steamed",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "carrot",
@@ -396,20 +396,20 @@
    "name": "Black-eyed pea",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 173759,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "brazil-nut",
    "name": "Brazil nut",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170569,
+   "preparationState": "dried, unblanched",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: The catalogue limit is 1–2 nuts a day, so the serving is 2 kernels. Brazil nuts are extremely high in selenium; selenium is not in the key list (no selenium reference was read this session) and the limit comes from the existing catalogue caution, not re-sourced here."
   },
   {
    "foodId": "flaxseeds",
@@ -446,10 +446,10 @@
    "name": "Trout",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 173718,
+   "preparationState": "cooked, dry heat, rainbow trout (farmed)",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "sauerkraut",
@@ -466,10 +466,10 @@
    "name": "Pecan",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170182,
+   "preparationState": "raw, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "cabbage",
@@ -506,30 +506,30 @@
    "name": "Canned salmon",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 175175,
+   "preparationState": "canned pink salmon, drained solids (with skin and bones)",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "canned-tuna",
    "name": "Canned tuna",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 173709,
+   "preparationState": "canned light tuna in water, drained",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: Light (skipjack) tuna, a \"Best Choice\" in FDA/EPA advice. Albacore (white) tuna is a different record and a \"Good Choice\"."
   },
   {
    "foodId": "farro",
    "name": "Farro",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 2710828,
+   "preparationState": "dry, uncooked, pearled (no cooked farro record in USDA)",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: USDA has only a DRY pearled farro record (Foundation); amounts are before cooking. Whole (unpearled) farro has more fibre."
   },
   {
    "foodId": "feta",
@@ -546,20 +546,20 @@
    "name": "Haddock",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174198,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "hummus",
    "name": "Hummus",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 174289,
+   "preparationState": "prepared, commercial (contains tahini, oil and salt)",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: A prepared food that varies by brand (salt, oil, tahini); the record is the USDA commercial average."
   },
   {
    "foodId": "napa-cabbage",
@@ -586,10 +586,10 @@
    "name": "Oat bran",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 168873,
+   "preparationState": "cooked with water",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "plain-yogurt",
@@ -606,10 +606,10 @@
    "name": "Pollock",
    "phase": "follicular",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174237,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "turnip",
@@ -636,10 +636,10 @@
    "name": "Crab",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174202,
+   "preparationState": "cooked, moist heat (Alaska king crab)",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: The catalogue entry \"crab\" is generic; the record is Alaska king crab."
   },
   {
    "foodId": "pickles",
@@ -736,20 +736,20 @@
    "name": "Pistachio",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170184,
+   "preparationState": "raw, shelled, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "shrimp",
    "name": "Shrimp",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 171971,
+   "preparationState": "cooked, moist heat (may contain additives)",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "celery",
@@ -816,10 +816,10 @@
    "name": "Hazelnuts",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170581,
+   "preparationState": "raw, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "honeydew",
@@ -896,10 +896,10 @@
    "name": "Sea bass",
    "phase": "ovulatory",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 173694,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: \"Sea bass\" is ambiguous. FDA/EPA lists black sea bass as a Best Choice and Chilean sea bass as a Good Choice (more mercury). The USDA record is \"sea bass, mixed species\". Decide which fish the catalogue means before publishing."
   },
   {
    "foodId": "sugar-snap-peas",
@@ -936,10 +936,10 @@
    "name": "Buckwheat (kasha)",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170686,
+   "preparationState": "roasted groats (kasha), cooked",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "blackberry",
@@ -956,10 +956,10 @@
    "name": "Sunflower seeds",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170562,
+   "preparationState": "dried kernels, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "pork",
@@ -976,10 +976,10 @@
    "name": "Barley",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170285,
+   "preparationState": "pearled, cooked",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: Pearled barley has had part of its bran removed; hulled barley has more fibre."
   },
   {
    "foodId": "oat",
@@ -1006,30 +1006,30 @@
    "name": "Lima bean",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 174253,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "split-pea",
    "name": "Split pea",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 172429,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "nut-butter",
    "name": "Nut butter",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 172470,
+   "preparationState": "smooth peanut butter, no added salt",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: The catalogue entry \"nut butter\" is generic (the existing caution says tree-nut or peanut allergen, depending on type). The record is peanut butter; almond butter and others differ."
   },
   {
    "foodId": "fig",
@@ -1046,10 +1046,10 @@
    "name": "Red lentil",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 174284,
+   "preparationState": "dry, uncooked (no cooked red-lentil record in USDA)",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: USDA has no cooked red-lentil record, so amounts are for the DRY lentils; red lentils roughly triple in weight when cooked. The profile says so."
   },
   {
    "foodId": "lamb",
@@ -1066,10 +1066,10 @@
    "name": "Salmon",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 175168,
+   "preparationState": "cooked, dry heat, Atlantic salmon (farmed)",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: Farmed Atlantic salmon; wild salmon differs (less fat, less omega-3)."
   },
   {
    "foodId": "brown-rice",
@@ -1186,30 +1186,30 @@
    "name": "Cod",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 171956,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "flounder",
    "name": "Flounder",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174197,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "halibut",
    "name": "Halibut",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 174201,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "banana",
@@ -1226,10 +1226,10 @@
    "name": "Bulgur",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170287,
+   "preparationState": "cooked",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "chia-seeds",
@@ -1246,10 +1246,10 @@
    "name": "Edamame",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 168411,
+   "preparationState": "frozen, prepared (boiled), shelled beans",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "goat-cheese",
@@ -1286,20 +1286,20 @@
    "name": "Mackerel",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 175120,
+   "preparationState": "cooked, dry heat, Atlantic mackerel",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: The catalogue entry \"mackerel\" is generic; the record is Atlantic mackerel. A caution about king mackerel (a different, high-mercury fish) is added."
   },
   {
    "foodId": "mixed-nuts",
    "name": "Mixed nuts",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 170585,
+   "preparationState": "dry roasted, with peanuts, no salt added",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: A blend that varies by product; the record is a USDA dry-roasted mix with peanuts and no added salt."
   },
   {
    "foodId": "mozzarella",
@@ -1316,30 +1316,30 @@
    "name": "Peanuts",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 172430,
+   "preparationState": "raw, unsalted",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "pinto-beans",
    "name": "Pinto beans",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 175200,
+   "preparationState": "cooked, boiled, no salt",
+   "notes": "Draft in draft-batch-5.json. Not published."
   },
   {
    "foodId": "red-snapper",
    "name": "Snapper",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 173699,
+   "preparationState": "cooked, dry heat (snapper, mixed species)",
+   "notes": "Draft in draft-batch-6.json. Not published. REVIEW: The record is snapper, mixed species, not specifically red snapper."
   },
   {
    "foodId": "swiss-cheese",
@@ -1356,20 +1356,20 @@
    "name": "Tilapia",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 6)",
+   "usdaFdcId": 175177,
+   "preparationState": "cooked, dry heat",
+   "notes": "Draft in draft-batch-6.json. Not published."
   },
   {
    "foodId": "whole-grain-bread",
    "name": "Whole-grain bread",
    "phase": "luteal",
    "match": "exact",
-   "status": "queued",
-   "usdaFdcId": null,
-   "preparationState": null,
-   "notes": "Needs USDA record chosen for the stated preparation, serving, sources, then editorial review."
+   "status": "drafted (batch 5)",
+   "usdaFdcId": 172688,
+   "preparationState": "commercially prepared whole-wheat bread",
+   "notes": "Draft in draft-batch-5.json. Not published. REVIEW: Commercial breads vary a lot (fibre, salt, added calcium). The record is a USDA average of whole-wheat bread, which is not necessarily whole GRAIN bread."
   }
  ]
 }
