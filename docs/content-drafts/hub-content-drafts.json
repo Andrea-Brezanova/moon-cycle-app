@@ -18,7 +18,8 @@
       "equipment": [
         "Comfortable shoes"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "ex-morning-wake-up",
@@ -35,7 +36,8 @@
       "reviewStatus": "draft",
       "durationMinutes": 5,
       "intensity": "gentle",
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "ex-seated-neck",
@@ -54,7 +56,8 @@
       "equipment": [
         "A chair"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "wo-evening-unwind",
@@ -74,7 +77,8 @@
       "equipment": [
         "A mat or soft surface"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "wo-bodyweight-basics",
@@ -95,7 +99,8 @@
         "A sturdy chair",
         "A wall"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "med-three-breaths",
@@ -109,7 +114,8 @@
         "Breathe out slowly for a count of six. Repeat for three breaths."
       ],
       "reviewStatus": "draft",
-      "durationMinutes": 1
+      "durationMinutes": 1,
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "med-paced-breathing",
@@ -123,7 +129,8 @@
         "If your mind wanders, gently return to counting. Continue for three minutes."
       ],
       "reviewStatus": "draft",
-      "durationMinutes": 3
+      "durationMinutes": 3,
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "med-body-scan",
@@ -138,7 +145,8 @@
         "Finish with a slow breath and open your eyes."
       ],
       "reviewStatus": "draft",
-      "durationMinutes": 5
+      "durationMinutes": 5,
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "sp-warm-foot-soak",
@@ -157,7 +165,8 @@
         "A basin",
         "A towel"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "sp-gentle-face-massage",
@@ -175,7 +184,8 @@
       "equipment": [
         "Your usual face oil or cream"
       ],
-      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure."
+      "safetyNote": "Stop if anything hurts or feels wrong. This is general wellbeing information, not medical advice; check with a health professional if you have a condition, are pregnant or are unsure.",
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "sp-mindful-tea",
@@ -192,7 +202,8 @@
       "durationMinutes": 5,
       "equipment": [
         "A warm drink"
-      ]
+      ],
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "sp-evening-wind-down",
@@ -206,7 +217,8 @@
         "Write down one thing from the day you are glad about."
       ],
       "reviewStatus": "draft",
-      "durationMinutes": 30
+      "durationMinutes": 30,
+      "sourceName": "Moon Cycle (original draft; no external source)"
     },
     {
       "id": "sp-simple-grounding",
@@ -220,7 +232,8 @@
         "Take a slow breath out."
       ],
       "reviewStatus": "draft",
-      "durationMinutes": 3
+      "durationMinutes": 3,
+      "sourceName": "Moon Cycle (original draft; no external source)"
     }
   ]
 }
