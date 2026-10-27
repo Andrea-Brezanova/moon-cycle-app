@@ -18,6 +18,7 @@ import '../../generation/application/generation_providers.dart';
 import '../../generation/data/personal_recipe_repository.dart';
 import '../../generation/data/saved_recipe_repository.dart';
 import '../../preferences/data/preferences_repository.dart';
+import '../../routines/data/routine_repository.dart';
 import '../../shopping/data/shopping_repository.dart';
 import '../domain/data_export.dart';
 
@@ -44,6 +45,7 @@ class DataExportService {
       shoppingList: await _ref.read(shoppingRepositoryProvider).items(),
       savedRecipes: await _ref.read(savedRecipeRepositoryProvider).all(),
       collectionLinks: await _ref.read(collectionLinkRepositoryProvider).all(),
+      routines: await _ref.read(routineRepositoryProvider).all(),
       diary: await _ref.read(diaryRepositoryProvider).all(),
       notes: await _ref.read(diaryNoteRepositoryProvider).all(),
       activities: await _ref.read(diaryActivityRepositoryProvider).all(),

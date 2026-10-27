@@ -7,6 +7,7 @@ import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/cycle/data/cycle_repository.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
 import 'package:moon_cycle/features/privacy/data/local_data_wiper.dart';
+import 'package:moon_cycle/features/routines/data/routine_repository.dart';
 
 import '../../helpers/memory_key_store.dart';
 
@@ -70,5 +71,17 @@ void main() {
     addTearDown(fresh.close);
     expect(await CollectionLinkRepository(fresh).all(), isEmpty);
     expect(await fresh.select(fresh.collectionLinks).get(), isEmpty);
+  });
+
+  test('routines and their steps do not survive a wipe', () async {
+    final db = await openAppDatabase(directory: dir, keys: keys);
+    final repo = RoutineRepository(db);
+    final id = (await repo.create('Private routine'))!;
+    await repo.addTextStep(id, 'private step');
+    await LocalDataWiper(database: db, directory: dir, keys: keys).wipe();
+    final fresh = await openAppDatabase(directory: dir, keys: keys);
+    addTearDown(fresh.close);
+    expect(await fresh.select(fresh.routines).get(), isEmpty);
+    expect(await fresh.select(fresh.routineSteps).get(), isEmpty);
   });
 }
