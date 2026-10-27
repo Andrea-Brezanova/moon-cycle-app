@@ -51,7 +51,7 @@ void main() {
       tester.getTopLeft(card).dy,
       lessThan(tester.getTopLeft(find.text('My Diary')).dy),
     );
-    for (final t in ['My Diary', 'Shopping List']) {
+    for (final t in ['My Diary', 'My Shopping List']) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
   });
@@ -207,6 +207,19 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Recently saved'.toUpperCase()), findsOneWidget);
     expect(find.text('Tea ritual'), findsOneWidget);
+  });
+
+  testWidgets('the Me card shows no count', (tester) async {
+    final c = await pumpMe(tester);
+    expect(find.text('Recipes, workouts, spa and routines'), findsOneWidget);
+    final done = c
+        .read(savedRecipeRepositoryProvider)
+        .save(providerId: 'moon-cycle', refId: 'x', title: frittata);
+    await tester.pumpAndSettle();
+    await done;
+    await tester.pumpAndSettle();
+    expect(find.text('1 saved'), findsNothing);
+    expect(find.text('Recipes, workouts, spa and routines'), findsOneWidget);
   });
 
   for (final (width, scale) in [(320.0, 1.5), (390.0, 2.0)]) {

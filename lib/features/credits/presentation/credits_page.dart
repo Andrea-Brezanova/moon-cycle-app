@@ -37,7 +37,7 @@ class CreditsPage extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 42),
           children: [
             SubScreenHeader(
-              backLabel: 'Me',
+              backLabel: 'My App',
               title: 'Credits & Sources',
               titleSize: 36,
               onBack: () => context.canPop()

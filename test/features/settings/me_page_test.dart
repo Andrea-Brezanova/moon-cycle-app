@@ -10,9 +10,9 @@ import 'package:moon_cycle/features/settings/presentation/appearance_page.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/food_preferences_page.dart';
 import 'package:moon_cycle/features/settings/presentation/help_page.dart';
+import 'package:moon_cycle/features/settings/presentation/my_app_page.dart';
 import 'package:moon_cycle/features/settings/presentation/my_cycle_page.dart';
 import 'package:moon_cycle/features/settings/presentation/notifications_page.dart';
-import 'package:moon_cycle/features/settings/presentation/personalization_page.dart';
 import 'package:moon_cycle/features/settings/presentation/privacy_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
@@ -43,54 +43,36 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  const sections = {
-    'YOUR SPACE': ['me-collections', 'me-diary', 'me-shopping'],
-    'YOUR APP': ['me-personalization', 'me-appearance', 'me-notifications'],
-    'YOUR ACCOUNT': ['me-subscription', 'me-privacy'],
-    'SUPPORT': ['me-help', 'me-credits', 'me-about'],
-  };
+  const destinations = ['me-collections', 'me-diary', 'me-shopping', 'me-app'];
 
-  testWidgets('Me has exactly four sections with their rows in order', (
-    tester,
-  ) async {
+  testWidgets('Me has exactly four destinations, in order, and nothing else '
+      'to tap', (tester) async {
     await pumpMe(tester);
-    double top(Finder f) => tester.getTopLeft(f).dy;
-    final ordered = <Finder>[];
-    for (final MapEntry(key: title, value: keys) in sections.entries) {
-      ordered.add(find.text(title));
-      for (final k in keys) {
-        ordered.add(find.byKey(ValueKey(k)));
-      }
-    }
-    for (final f in ordered) {
-      await tester.ensureVisible(f);
-      expect(f, findsOneWidget);
-    }
-    await tester.pumpAndSettle();
-    // Top to bottom in the order of the list: sample a scroll offset-free
-    // check through the list's own children.
-    final tops = <double>[];
-    final scrollable = tester.state<ScrollableState>(
-      find.byType(Scrollable).first,
-    );
-    scrollable.position.jumpTo(0);
-    await tester.pumpAndSettle();
-    for (final f in ordered) {
-      scrollable.position.jumpTo(0);
-      await tester.pumpAndSettle();
-      await tester.ensureVisible(f);
-      await tester.pumpAndSettle();
-      tops.add(top(f) + scrollable.position.pixels);
-    }
+    final tops = [
+      for (final k in destinations)
+        tester.getTopLeft(find.byKey(ValueKey(k))).dy,
+    ];
     for (var i = 0; i < tops.length - 1; i++) {
-      expect(tops[i], lessThan(tops[i + 1]), reason: 'row $i');
+      expect(tops[i], lessThan(tops[i + 1]), reason: destinations[i]);
     }
-    // My Cycle and the old hubs are not on Me.
     for (final t in [
+      'My Collections',
+      'My Diary',
+      'My Shopping List',
+      'My App',
+    ]) {
+      expect(find.text(t), findsOneWidget, reason: t);
+    }
+    // The old groupings, settings rows and the delete row are not on Me.
+    for (final t in [
+      'YOUR SPACE',
+      'YOUR APP',
+      'YOUR ACCOUNT',
+      'SUPPORT',
       'My Cycle',
-      'Settings',
-      'Account & Plus',
+      'Appearance',
       'Delete my data',
+      'Personalization',
     ]) {
       expect(find.text(t), findsNothing, reason: t);
     }
@@ -114,20 +96,15 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('every row opens its page and goes back to Me', (tester) async {
+  testWidgets('each destination opens its page and goes back to Me', (
+    tester,
+  ) async {
     await pumpMe(tester);
     final pages = <String, Finder>{
       'me-collections': find.byType(CollectionsPage),
       'me-diary': find.byType(DiaryHubPage),
       'me-shopping': find.byType(ShopPage),
-      'me-personalization': find.byType(PersonalizationPage),
-      'me-appearance': find.byType(AppearancePage),
-      'me-notifications': find.byType(NotificationsPage),
-      'me-subscription': find.byType(SubscriptionPage),
-      'me-privacy': find.byType(PrivacyDataPage),
-      'me-help': find.byType(HelpPage),
-      'me-credits': find.byType(CreditsPage),
-      'me-about': find.byType(AboutPage),
+      'me-app': find.byType(MyAppPage),
     };
     for (final MapEntry(key: key, value: page) in pages.entries) {
       await openRow(tester, key);
@@ -137,50 +114,86 @@ void main() {
     }
   });
 
-  testWidgets('Personalization holds My Cycle, Food Preferences and '
-      'allergies, each reachable', (tester) async {
+  testWidgets('My App holds every setting, in four groups, with Delete my '
+      'data last', (tester) async {
     await pumpMe(tester);
-    await openRow(tester, 'me-personalization');
-    expect(find.text('Movement'), findsNothing);
-    expect(find.text('Relaxation'), findsNothing);
-    final pages = {
-      'My Cycle': find.byType(MyCyclePage),
-      'Food Preferences': find.byType(FoodPreferencesSettingsPage),
-      'Allergies / Foods to Avoid': find.byType(AllergiesPage),
-    };
-    for (final MapEntry(key: label, value: page) in pages.entries) {
-      await tester.tap(find.text(label));
+    await openRow(tester, 'me-app');
+    final order = [
+      'PERSONALIZATION',
+      'My Cycle',
+      'Food Preferences',
+      'Allergies / dietary exclusions',
+      'APP PREFERENCES',
+      'Appearance',
+      'Notifications',
+      'ACCOUNT',
+      'Subscription',
+      'Privacy & Data',
+      'SUPPORT',
+      'Help',
+      'Credits & Sources',
+      'About',
+      'Delete my data',
+    ];
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    final tops = <double>[];
+    for (final t in order) {
+      scrollable.position.jumpTo(0);
       await tester.pumpAndSettle();
-      expect(page, findsOneWidget, reason: label);
-      await tester.tap(find.bySemanticsLabel('Back to Personalization'));
-      await tester.pumpAndSettle();
-      expect(find.byType(PersonalizationPage), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text(t),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      tops.add(tester.getTopLeft(find.text(t)).dy + scrollable.position.pixels);
+    }
+    for (var i = 0; i < tops.length - 1; i++) {
+      expect(tops[i], lessThan(tops[i + 1]), reason: order[i]);
     }
   });
 
-  testWidgets('Delete my data sits under Privacy & Data and opens the '
-      'confirmation page', (tester) async {
+  testWidgets('every My App row opens its page', (tester) async {
     await pumpMe(tester);
-    await openRow(tester, 'me-privacy');
-    await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('privacy-delete-data')),
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.tap(find.byKey(const ValueKey('privacy-delete-data')));
-    await tester.pumpAndSettle();
+    await openRow(tester, 'me-app');
+    final pages = <String, Finder>{
+      'app-my-cycle': find.byType(MyCyclePage),
+      'app-food-preferences': find.byType(FoodPreferencesSettingsPage),
+      'app-allergies': find.byType(AllergiesPage),
+      'app-appearance': find.byType(AppearancePage),
+      'app-notifications': find.byType(NotificationsPage),
+      'app-subscription': find.byType(SubscriptionPage),
+      'app-privacy': find.byType(PrivacyDataPage),
+      'app-help': find.byType(HelpPage),
+      'app-credits': find.byType(CreditsPage),
+      'app-about': find.byType(AboutPage),
+    };
+    for (final MapEntry(key: key, value: page) in pages.entries) {
+      await openRow(tester, key);
+      expect(page, findsOneWidget, reason: key);
+      await back(tester);
+      expect(find.byType(MyAppPage), findsOneWidget, reason: 'back $key');
+    }
+  });
+
+  testWidgets('Delete my data only opens the confirmation page and deletes '
+      'nothing by itself', (tester) async {
+    await pumpMe(tester);
+    await openRow(tester, 'me-app');
+    await openRow(tester, 'app-delete-data');
     expect(find.byType(DeleteDataPage), findsOneWidget);
+    // Backing out leaves the data and the settings page in place.
+    await tester.tap(find.bySemanticsLabel(RegExp('^Back')).first);
+    await tester.pumpAndSettle();
+    expect(find.byType(MyAppPage), findsOneWidget);
   });
 
   for (final (width, scale) in [(320.0, 1.5), (390.0, 2.0)]) {
     testWidgets('Me fits at ${width}pt with $scale× text', (tester) async {
       await pumpMe(tester, width: width, scale: scale);
       expect(tester.takeException(), isNull);
-      await tester.scrollUntilVisible(
-        find.byKey(const ValueKey('me-about')),
-        300,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await tester.ensureVisible(find.byKey(const ValueKey('me-app')));
       expect(tester.takeException(), isNull);
     });
   }

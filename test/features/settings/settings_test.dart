@@ -49,7 +49,7 @@ void main() {
   }
 
   Future<void> open(WidgetTester tester, String row) async {
-    if (isNestedSettingsRow(row) || row == 'Delete my data') {
+    if (isNestedSettingsRow(row)) {
       return openMeRow(tester, row);
     }
     await tester.ensureVisible(find.text(row));
@@ -75,11 +75,8 @@ void main() {
         await prefs.avoidAllergen('shellfish');
       },
     );
-    // Personalization: what each setting is set to.
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('me-personalization')),
-    );
-    await tester.tap(find.byKey(const ValueKey('me-personalization')));
+    // My App: what each setting is set to.
+    await tester.tap(find.byKey(const ValueKey('me-app')));
     await tester.pumpAndSettle();
     expect(
       find.text('28-day cycle · 5-day period · Next period 26 Oct'),
@@ -87,10 +84,7 @@ void main() {
     );
     expect(find.text('Omnivore'), findsOneWidget);
     expect(find.text('Peanuts, shellfish'), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('Back to Me'));
-    await tester.pumpAndSettle();
-    // Subscription is on Me itself.
-    await tester.ensureVisible(find.byKey(const ValueKey('me-subscription')));
+    expect(find.text('Off'), findsOneWidget); // reminders start off
     expect(find.text('Free at launch'), findsOneWidget);
     expect(find.text('Sign in'), findsNothing); // no accounts in v1
   });
@@ -179,7 +173,7 @@ void main() {
   group('Allergies', () {
     testWidgets('allergen chips save and remove', (tester) async {
       final (container, _) = await pumpSettings(tester);
-      await open(tester, 'Allergies / Foods to Avoid');
+      await open(tester, 'Allergies / dietary exclusions');
       await tapAndSave(tester, find.text('Peanuts'));
       expect(container.read(avoidancesProvider).value, [
         isA<AllergenAvoidance>(),
@@ -196,7 +190,7 @@ void main() {
           await PreferencesRepository(db).avoidCustom('Coriander');
         },
       );
-      await open(tester, 'Allergies / Foods to Avoid');
+      await open(tester, 'Allergies / dietary exclusions');
       expect(find.text('Chicken'), findsOneWidget);
       expect(find.text('Coriander'), findsOneWidget);
       await tapAndSave(tester, find.bySemanticsLabel('Remove chicken'));
@@ -207,7 +201,7 @@ void main() {
 
     testWidgets('the search opens the food search sheet', (tester) async {
       final (container, _) = await pumpSettings(tester);
-      await open(tester, 'Allergies / Foods to Avoid');
+      await open(tester, 'Allergies / dietary exclusions');
       await open(tester, 'Search foods to avoid');
       await tester.enterText(find.byType(EditableText), 'chicken');
       await tester.pumpAndSettle();

@@ -54,9 +54,9 @@ import '../../features/settings/presentation/appearance_page.dart';
 import '../../features/settings/presentation/delete_data_page.dart';
 import '../../features/settings/presentation/food_preferences_page.dart';
 import '../../features/settings/presentation/help_page.dart';
+import '../../features/settings/presentation/my_app_page.dart';
 import '../../features/settings/presentation/my_cycle_page.dart';
 import '../../features/settings/presentation/notifications_page.dart';
-import '../../features/settings/presentation/personalization_page.dart';
 import '../../features/settings/presentation/privacy_data_page.dart';
 
 import '../../features/settings/presentation/settings_home_page.dart';
@@ -439,6 +439,11 @@ GoRouter buildAppRouter({
                             _page(state, const CreditsPage()),
                       ),
                       GoRoute(
+                        path: 'my-app',
+                        pageBuilder: (context, state) =>
+                            _page(state, const MyAppPage()),
+                      ),
+                      GoRoute(
                         path: 'about',
                         pageBuilder: (context, state) =>
                             _page(state, const AboutPage()),
@@ -452,8 +457,6 @@ GoRouter buildAppRouter({
                           pageBuilder: (context, state) => _page(
                             state,
                             switch (page) {
-                              SettingsPage.personalization =>
-                                const PersonalizationPage(),
                               SettingsPage.myCycle => const MyCyclePage(),
                               SettingsPage.foodPreferences =>
                                 const FoodPreferencesSettingsPage(),

@@ -8,7 +8,7 @@ import 'package:moon_cycle/features/hubs/presentation/hub_home_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipe_detail_page.dart';
 import 'package:moon_cycle/features/recipes/presentation/recipes_page.dart';
 import 'package:moon_cycle/features/settings/presentation/delete_data_page.dart';
-import 'package:moon_cycle/features/settings/presentation/personalization_page.dart';
+import 'package:moon_cycle/features/settings/presentation/my_app_page.dart';
 import 'package:moon_cycle/features/settings/presentation/settings_home_page.dart';
 
 import '../../helpers/pump_app.dart';
@@ -129,49 +129,44 @@ void main() {
   testWidgets('Me sub-pages open inside Me and go back', (tester) async {
     await pumpApp(tester);
     await tapTab(tester, 'more');
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('me-personalization')),
-    );
+    await tester.tap(find.byKey(const ValueKey('me-app')));
     await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const ValueKey('me-personalization')));
-    await tester.pumpAndSettle();
-    expect(find.byType(PersonalizationPage), findsOneWidget);
+    expect(find.byType(MyAppPage), findsOneWidget);
     await tester.tap(find.text('My Cycle'));
     await tester.pumpAndSettle();
     expect(find.text('My Cycle').hitTestable(), findsOneWidget);
     expect(settingsRoot.hitTestable(), findsNothing);
     expect(tab('more').hitTestable(), findsOneWidget); // tab bar visible
-    await tester.tap(find.bySemanticsLabel('Back to Personalization'));
+    await tester.tap(find.bySemanticsLabel('Back to My App'));
     await tester.pumpAndSettle();
-    expect(find.byType(PersonalizationPage), findsOneWidget);
+    expect(find.byType(MyAppPage), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Back to Me'));
     await tester.pumpAndSettle();
     expect(settingsRoot.hitTestable(), findsOneWidget);
   });
 
-  testWidgets(
-    'Delete my data covers the tab bar; back returns to Privacy & Data',
-    (tester) async {
-      await pumpApp(tester);
-      await tapTab(tester, 'more');
-      for (final key in ['me-privacy', 'privacy-delete-data']) {
-        await tester.scrollUntilVisible(
-          find.byKey(ValueKey(key)),
-          300,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.ensureVisible(find.byKey(ValueKey(key)));
-        await tester.pumpAndSettle();
-        await tester.tap(find.byKey(ValueKey(key)));
-        await tester.pumpAndSettle();
-      }
-      expect(find.text('Delete my data').hitTestable(), findsOneWidget);
-      expect(tab('more').hitTestable(), findsNothing); // no tab bar
-      await systemBack(tester);
-      expect(find.byType(DeleteDataPage), findsNothing);
-      expect(tab('more').hitTestable(), findsOneWidget);
-    },
-  );
+  testWidgets('Delete my data covers the tab bar; back returns to My App', (
+    tester,
+  ) async {
+    await pumpApp(tester);
+    await tapTab(tester, 'more');
+    for (final key in ['me-app', 'app-delete-data']) {
+      await tester.scrollUntilVisible(
+        find.byKey(ValueKey(key)),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(find.byKey(ValueKey(key)));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(ValueKey(key)));
+      await tester.pumpAndSettle();
+    }
+    expect(find.text('Delete my data').hitTestable(), findsOneWidget);
+    expect(tab('more').hitTestable(), findsNothing); // no tab bar
+    await systemBack(tester);
+    expect(find.byType(DeleteDataPage), findsNothing);
+    expect(tab('more').hitTestable(), findsOneWidget);
+  });
 
   group('Android back', () {
     testWidgets('inside a tab: one screen back', (tester) async {

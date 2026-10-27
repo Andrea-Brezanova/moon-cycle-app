@@ -6,7 +6,7 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import 'widgets/settings_widgets.dart';
 
-/// Me › Settings › About: exactly which build is installed.
+/// Me › My App › About: exactly which build is installed.
 class AboutPage extends ConsumerWidget {
   const AboutPage({super.key});
 
