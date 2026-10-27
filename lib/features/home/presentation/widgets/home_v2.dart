@@ -562,19 +562,26 @@ class _Shortcut extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
+              // The title is centred on the same line as the picture and the
+              // arrow, whatever height the card stretches to.
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      maxLines: wrap ? 2 : 1,
-                      overflow: wrap ? null : TextOverflow.clip,
-                      style: fraunces(15, height: 1.1, color: c.text),
-                    ),
-                  ],
+                child: Text(
+                  title,
+                  key: const ValueKey('shortcut-title'),
+                  maxLines: wrap ? 2 : 1,
+                  overflow: wrap ? null : TextOverflow.clip,
+                  style: fraunces(15, height: 1.1, color: c.text),
                 ),
               ),
+              const SizedBox(width: 6),
+              MoonIcon(
+                MoonIconName.chev,
+                key: const ValueKey('shortcut-arrow'),
+                size: 14,
+                color: c.textMuted,
+                strokeWidth: 2.2,
+              ),
+              const SizedBox(width: 4),
             ],
           ),
         ),

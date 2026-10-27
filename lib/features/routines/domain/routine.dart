@@ -17,19 +17,32 @@ final class RoutineStep {
   final String? text;
 }
 
-/// A reusable ordered sequence of steps the user made in My Routines.
+/// What a [Routine] row holds: a reusable routine, or a workout built in
+/// Move › Build Your Workout. Both are an ordered list of steps.
+enum RoutineKind {
+  routine,
+  workout;
+
+  static RoutineKind fromKey(String key) =>
+      key == 'workout' ? workout : routine;
+}
+
+/// An ordered sequence of steps the user made: a routine in My Routines or a
+/// built workout in My Workouts.
 final class Routine {
   const Routine({
     required this.id,
     required this.title,
     required this.createdAt,
     required this.updatedAt,
+    this.kind = RoutineKind.routine,
     this.note,
     this.steps = const [],
   });
 
   final String id;
   final String title;
+  final RoutineKind kind;
   final String? note;
   final DateTime createdAt;
   final DateTime updatedAt;

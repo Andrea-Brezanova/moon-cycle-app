@@ -50,8 +50,8 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
   Future<void> _rename(Routine r) async {
     final title = await askForText(
       context,
-      title: 'Rename routine',
-      hint: 'Name your routine',
+      title: 'Rename ${r.kind.name}',
+      hint: 'Name your ${r.kind.name}',
       action: 'Save',
       initial: r.title,
     );
@@ -71,7 +71,7 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete this routine?'),
+        title: Text('Delete this ${r.kind.name}?'),
         content: Text(
           '“${r.title}” and its steps will be removed. Saved links stay in '
           'My Collections.',
@@ -103,6 +103,8 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
     for (final r in routines ?? const <Routine>[]) {
       if (r.id == widget.routineId) routine = r;
     }
+    final workout = routine?.kind == RoutineKind.workout;
+    final noun = workout ? 'workout' : 'routine';
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -113,9 +115,13 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
               title: '',
               onBack: () => context.canPop()
                   ? context.pop()
-                  : context.go(Routes.collectionRoutines),
+                  : context.go(
+                      workout
+                          ? Routes.collectionWorkouts
+                          : Routes.collectionRoutines,
+                    ),
               trailingIcon: routine == null ? null : MoonIconName.pencil,
-              trailingLabel: 'Rename routine',
+              trailingLabel: 'Rename $noun',
               trailingKey: const ValueKey('routine-rename'),
               onTrailing: routine == null ? null : () => _rename(routine!),
             ),
@@ -126,11 +132,11 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
                   ? Padding(
                       padding: const EdgeInsets.all(MoonSpace.gutter),
                       child: Text(
-                        'This routine is no longer available.',
+                        'This is no longer available.',
                         style: MoonType.body.copyWith(color: c.text),
                       ),
                     )
-                  : _body(context, routine, links),
+                  : _body(context, routine, links, noun),
             ),
           ],
         ),
@@ -142,6 +148,7 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
     BuildContext context,
     Routine routine,
     List<CollectionLink> links,
+    String noun,
   ) {
     final c = context.moon;
     final byId = {for (final l in links) l.id: l};
@@ -232,12 +239,12 @@ class _RoutinePageState extends ConsumerState<RoutinePage> {
         Pressable(
           key: const ValueKey('routine-delete'),
           onTap: () => _delete(routine),
-          semanticLabel: 'Delete routine',
+          semanticLabel: 'Delete $noun',
           child: Container(
             constraints: const BoxConstraints(minHeight: 48),
             alignment: Alignment.centerLeft,
             child: Text(
-              'Delete routine',
+              'Delete $noun',
               style: dmSans(
                 15,
                 weight: FontWeight.w600,

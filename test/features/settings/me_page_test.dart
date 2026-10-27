@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/core/design/widgets/brand.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/collections/presentation/collections_page.dart';
 import 'package:moon_cycle/features/credits/presentation/credits_page.dart';
@@ -15,6 +16,7 @@ import 'package:moon_cycle/features/settings/presentation/my_cycle_page.dart';
 import 'package:moon_cycle/features/settings/presentation/notifications_page.dart';
 import 'package:moon_cycle/features/settings/presentation/privacy_data_page.dart';
 import 'package:moon_cycle/features/settings/presentation/subscription_page.dart';
+import 'package:moon_cycle/features/settings/presentation/widgets/app_footer.dart';
 import 'package:moon_cycle/features/shopping/presentation/shop_page.dart';
 
 import '../../helpers/golden_screen.dart';
@@ -76,6 +78,9 @@ void main() {
     ]) {
       expect(find.text(t), findsNothing, reason: t);
     }
+    // The logo and version live at the bottom of My App now, not here.
+    expect(find.byType(Wordmark), findsNothing);
+    expect(find.textContaining('Version'), findsNothing);
   });
 
   Future<void> back(WidgetTester tester) async {
@@ -152,6 +157,62 @@ void main() {
     for (var i = 0; i < tops.length - 1; i++) {
       expect(tops[i], lessThan(tops[i + 1]), reason: order[i]);
     }
+  });
+
+  testWidgets('My App rows are compact, like Shopping List rows', (
+    tester,
+  ) async {
+    await pumpMe(tester);
+    await openRow(tester, 'me-app');
+    // Rows without a subtitle: one Shopping List row high (60, plus a hairline).
+    for (final key in ['app-privacy', 'app-help', 'app-credits']) {
+      final h = tester.getSize(find.byKey(ValueKey(key))).height;
+      expect(h, inInclusiveRange(60, 66), reason: key);
+      expect(h, greaterThanOrEqualTo(44)); // a comfortable touch target
+    }
+    // The old settings rows were 80 high.
+    for (final key in ['app-about', 'app-appearance', 'app-subscription']) {
+      expect(
+        tester.getSize(find.byKey(ValueKey(key))).height,
+        lessThan(76),
+        reason: key,
+      );
+    }
+    // Same left edge and width for every row.
+    final a = tester.getRect(find.byKey(const ValueKey('app-privacy')));
+    final b = tester.getRect(find.byKey(const ValueKey('app-help')));
+    expect(a.left, b.left);
+    expect(a.width, b.width);
+  });
+
+  testWidgets('the logo and version sit below Delete my data, once', (
+    tester,
+  ) async {
+    await pumpMe(tester);
+    await openRow(tester, 'me-app');
+    final del = find.byKey(const ValueKey('app-delete-data'));
+    await tester.scrollUntilVisible(
+      find.byType(AppFooter),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.byType(AppFooter), findsOneWidget);
+    expect(find.byType(Wordmark), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byType(AppFooter),
+        matching: find.textContaining('Version'),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      tester.getTopLeft(find.byType(AppFooter)).dy,
+      greaterThan(tester.getBottomLeft(del).dy),
+    );
+    // Delete my data still only opens the confirmation page.
+    await tester.tap(del);
+    await tester.pumpAndSettle();
+    expect(find.byType(DeleteDataPage), findsOneWidget);
   });
 
   testWidgets('every My App row opens its page', (tester) async {

@@ -20,6 +20,7 @@ class MoonListRow extends StatelessWidget {
     this.trailing,
     this.showChevron = true,
     this.labelColor,
+    this.compact = false,
   });
 
   final String label;
@@ -37,20 +38,26 @@ class MoonListRow extends StatelessWidget {
   /// e.g. the destructive colour.
   final Color? labelColor;
 
+  /// A tighter row with the height of a Shopping List row, for long lists of
+  /// destinations (Me › My App).
+  final bool compact;
+
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
     // The design's rows are CSS content-box: 64 high inside the 8 pt
     // padding, 80 in all.
     final row = Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: compact ? 2 : 8),
       child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: MoonSize.settingsRow),
+        constraints: BoxConstraints(
+          minHeight: compact ? MoonSize.shopRow : MoonSize.settingsRow,
+        ),
         child: Row(
           children: [
             if (icon != null) ...[
               MoonIcon(icon!, size: 22, color: c.text, strokeWidth: 1.6),
-              const SizedBox(width: 16),
+              SizedBox(width: compact ? 14 : 16),
             ],
             Expanded(
               child: Column(
@@ -64,10 +71,14 @@ class MoonListRow extends StatelessWidget {
                     ),
                   ),
                   if (subtitle != null) ...[
-                    const SizedBox(height: 2),
+                    SizedBox(height: compact ? 1 : 2),
                     Text(
                       subtitle!,
-                      style: dmSans(14, height: 1.35, color: c.textMuted),
+                      style: dmSans(
+                        compact ? 13 : 14,
+                        height: 1.35,
+                        color: c.textMuted,
+                      ),
                     ),
                   ],
                 ],

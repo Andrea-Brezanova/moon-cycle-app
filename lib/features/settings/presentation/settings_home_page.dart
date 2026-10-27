@@ -3,14 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../app/config/app_config.dart';
-import '../../../app/config/app_version.dart';
 import '../../../app/router/routes.dart';
 import '../../../app/shell/tab_scroll.dart';
 import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
-import '../../../core/design/widgets/brand.dart';
 import '../../../core/design/widgets/hub_card.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/text_link.dart';
@@ -83,10 +80,6 @@ class SettingsHomePage extends ConsumerWidget {
           ),
         ],
       ),
-      _Footer(
-        version: ref.watch(appVersionProvider),
-        flavor: ref.watch(appConfigProvider).flavor,
-      ),
       // A release build of the dev flavour made with DEV_PREMIUM=true shows
       // just the Premium test switch (off until tapped).
       if (!kDebugMode && ref.watch(devPremiumSwitchAllowedProvider))
@@ -155,46 +148,6 @@ class SettingsHomePage extends ConsumerWidget {
               if (i > 0) SizedBox(height: i == 1 ? 14 : (i == 2 ? 16 : 28)),
               s,
             ],
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _Footer extends StatelessWidget {
-  const _Footer({required this.version, required this.flavor});
-
-  final String version;
-  final Flavor flavor;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Opacity(
-        opacity: 0.9,
-        child: Column(
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const PhaseRingMark(size: 16),
-                const SizedBox(width: 4),
-                // 26.1 pt in the design; the Home header's 34.8 pt is
-                // x-height 12.
-                Wordmark(xHeight: 9, color: c.text),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              [
-                'Version $version',
-                if (flavor != Flavor.prod) flavor.name,
-              ].join(' · '),
-              style: dmSans(12, height: 1, color: c.textMuted),
-            ),
           ],
         ),
       ),
