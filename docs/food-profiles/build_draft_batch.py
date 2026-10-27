@@ -78,7 +78,7 @@ def auto_keys(f):
     if not keys:
         # A food with little to report: its two best reference nutrients (any
         # amount), plus fibre if there is a gram or more.
-        keys = [(k, DECIMALS.get(k, 0)) for p, k in pct if p > 0][:2]
+        keys = [(k, DECIMALS.get(k, 0)) for p, k in pct if p >= 0.01][:2]
         if per.get('fiber') and per['fiber'] * g / 100 >= 1:
             keys.append(('fiber', DECIMALS['fiber']))
     return keys[:5]
@@ -89,6 +89,39 @@ EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
 # A sourced caution is skipped when the catalogue already carries one on the same topic.
 TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
           'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
+
+def short_portion(portion):
+    return portion.split(' (USDA')[0]
+
+
+def offers_text(f, keys, kcal):
+    """Plain sentence built only from the recomputed numbers (no claims)."""
+    bits = []
+    for e in keys:
+        if e.get('reference'):
+            bits.append(f"{e['name'][0].lower() + e['name'][1:]} (about {e['reference'][0]['percent']}%)")
+        elif e['name'] == 'Vitamin K':
+            bits.append(f"{e['amount']} µg of vitamin K")
+        else:
+            bits.append(f"{e['amount']} {e['unit']} of {e['name'][0].lower() + e['name'][1:]}")
+    label = f['name'] if f['name'].lower() in f['state'].lower() else f"{f['name']}, {f['state']}"
+    base = f"{label}: {short_portion(f['portion'])} gives about {kcal} calories"
+    if not bits:
+        return base + ' and supplies little of the vitamins and minerals tracked here.'
+    pct = ' Percentages are of the NIH reference intake for adult women.' if any(e.get('reference') for e in keys) else ''
+    return base + ', with ' + ', '.join(bits[:-1]) + (' and ' if len(bits) > 1 else '') + bits[-1] + '.' + pct
+
+
+def cycle_text(f, keys):
+    low = f['name'].lower()
+    out = f"No cycle-phase claim is made for {low}; this profile covers what it provides nutritionally, as part of a varied diet."
+    for e in keys:
+        if e['name'] == 'Iron':
+            out += f" Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about {e['amount']} mg."
+        if e['name'] == 'Calcium':
+            out += f" Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about {e['amount']} mg."
+    return out
+
 
 n = sys.argv[1]
 src = json.load(open(f'docs/food-profiles/batch-{n}.src.json'))
@@ -114,7 +147,11 @@ for fid, f in src['foods'].items():
         else:
             e['referenceNote'] = 'Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners.'
         keys.append(e)
-    assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
+    if f['offers'] == 'TBD':
+        f['offers'] = offers_text(f, keys, rhu(amt('kcal')))
+    if f['cycle'] == 'TBD':
+        f['cycle'] = cycle_text(f, keys)
+    assert all(f.get(x, '').strip() and f[x] != 'TBD' for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
     names = list(f.get('cautions', []))
     # Vitamin K at 100 µg or more per 100 g carries the blood-thinner note.
     if f['per100'].get('vitk', 0) >= 100 and 'vitk' not in names:

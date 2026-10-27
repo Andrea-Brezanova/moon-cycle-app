@@ -11,10 +11,10 @@
       "catalogueId": "adzuki-bean",
       "name": "Adzuki bean",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Adzuki bean, cooked, boiled, no salt: ½ cup cooked gives about 147 calories, with folate (about 35%), zinc (about 25%), potassium (about 24%), 8.6 g of protein and 8.4 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 230 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Simmer until soft, then use in rice dishes, soups, salads or sweetened bean paste.",
+        "cycleRelevance": "No cycle-phase claim is made for adzuki bean; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173728,
@@ -116,10 +116,10 @@
       "catalogueId": "mung-bean",
       "name": "Mung bean",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Mung bean, cooked, boiled, no salt: ½ cup cooked gives about 106 calories, with folate (about 40%), magnesium (about 16%), zinc (about 11%), 7.1 g of protein and 7.7 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 202 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Simmer until tender for dal, soups and porridge; whole mung beans cook faster than most beans.",
+        "cycleRelevance": "No cycle-phase claim is made for mung bean; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 174257,
@@ -235,10 +235,10 @@
       "catalogueId": "great-northern-bean",
       "name": "Great northern bean",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Great northern bean, cooked, boiled, no salt: ½ cup cooked gives about 104 calories, with folate (about 23%), magnesium (about 14%), potassium (about 13%), 7.4 g of protein and 6.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 177 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Soak, then simmer until creamy for soups, stews, casseroles and purees.",
+        "cycleRelevance": "No cycle-phase claim is made for great northern bean; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 175191,
@@ -347,10 +347,10 @@
       "catalogueId": "navy-bean",
       "name": "Navy bean",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Navy bean, cooked, boiled, no salt: ½ cup cooked gives about 127 calories, with folate (about 32%), magnesium (about 16%), potassium (about 14%), 7.5 g of protein and 9.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 182 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Soak, then simmer for soups, stews and homemade baked beans.",
+        "cycleRelevance": "No cycle-phase claim is made for navy bean; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173746,
@@ -461,10 +461,10 @@
       "catalogueId": "baked-beans",
       "name": "Baked beans",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Baked beans, canned, plain or vegetarian: ½ cup gives about 119 calories, with zinc (about 36%), magnesium (about 11%), potassium (about 11%), 6.0 g of protein and 5.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup (USDA: 1 cup = 254 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Serve on toast, with eggs, or as a side; choose lower-sugar, lower-salt versions if you can.",
+        "cycleRelevance": "No cycle-phase claim is made for baked beans; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 175182,
@@ -575,10 +575,10 @@
       "catalogueId": "fava-beans",
       "name": "Fava (broad) beans",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Fava (broad) beans, cooked, boiled, no salt: ½ cup cooked gives about 94 calories, with folate (about 22%), magnesium (about 12%), zinc (about 11%), 6.5 g of protein and 4.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 170 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Soak dried beans, then simmer for stews, dips and salads; peel the tough skins for a smoother texture.",
+        "cycleRelevance": "No cycle-phase claim is made for fava (broad) beans; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173753,
@@ -689,10 +689,10 @@
       "catalogueId": "chestnut",
       "name": "Chestnut",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Chestnut, European, roasted: 1 oz, about 3 kernels gives about 69 calories, with vitamin C (about 10%) and potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz, about 3 kernels (USDA: 10 kernels = 84 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Roast or boil and peel, then eat as is or add to stuffings, soups and purees.",
+        "cycleRelevance": "No cycle-phase claim is made for chestnut; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170190,
@@ -777,10 +777,10 @@
       "catalogueId": "hickory",
       "name": "Hickory",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Hickory, dried: 1 oz gives about 186 calories, with magnesium (about 16%) and zinc (about 15%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz (USDA: 28.35 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat shelled nuts as a snack or chop into baking and porridge.",
+        "cycleRelevance": "No cycle-phase claim is made for hickory; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170177,
@@ -870,10 +870,10 @@
       "catalogueId": "pine-nut",
       "name": "Pine nut",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Pine nut, dried: 1 oz, about 167 kernels gives about 191 calories, with magnesium (about 23%), zinc (about 23%) and vitamin E (about 18%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz, about 167 kernels (USDA: 28.35 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Toast lightly and scatter on salads and pasta, or blend into pesto.",
+        "cycleRelevance": "No cycle-phase claim is made for pine nut; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170591,
@@ -979,10 +979,10 @@
       "catalogueId": "hemp-seeds",
       "name": "Hemp seeds",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Hemp seeds, hulled (hemp hearts): 3 tablespoons gives about 166 calories, with magnesium (about 68%), zinc (about 37%), potassium (about 14%) and 9.5 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 tablespoons (USDA: 30 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Sprinkle over porridge, yoghurt, salads and smoothies.",
+        "cycleRelevance": "No cycle-phase claim is made for hemp seeds; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170148,
@@ -1087,10 +1087,10 @@
       "catalogueId": "macadamia-nuts",
       "name": "Macadamia nuts",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Macadamia nuts, raw: 1 oz, 10–12 kernels gives about 204 calories, with magnesium (about 12%) and iron (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz, 10–12 kernels (USDA: 28.35 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat a small handful, or chop into baking, granola and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for macadamia nuts; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.0 mg."
       },
       "source": {
         "usdaFdcId": 170178,
@@ -1176,10 +1176,10 @@
       "catalogueId": "tahini",
       "name": "Tahini",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Tahini, sesame paste, kernel type unspecified: 1 tablespoon gives about 89 calories, with zinc (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 15 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Stir into dressings, hummus and sauces, or drizzle over roasted vegetables; stir the jar first as the oil separates.",
+        "cycleRelevance": "No cycle-phase claim is made for tahini; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168604,
@@ -1243,10 +1243,10 @@
       "catalogueId": "duck",
       "name": "Duck",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Duck, roasted, meat only (skin removed): about 3½ oz gives about 201 calories, with zinc (about 33%), vitamin B12 (about 17%), iron (about 15%) and 23.5 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "about 3½ oz (USDA: 1 unit = 100 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Roast or pan-sear, and remove the skin and extra fat if you want less fat.",
+        "cycleRelevance": "No cycle-phase claim is made for duck; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.7 mg."
       },
       "source": {
         "usdaFdcId": 172411,
@@ -1352,10 +1352,10 @@
       "catalogueId": "bacon",
       "name": "Bacon",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Bacon: 3 slices cooked gives about 133 calories, with vitamin B12 (about 12%), zinc (about 10%) and 8.7 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 slices cooked (USDA: 1 slice = 8.1 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Cook until crisp and use sparingly, for example crumbled over soups, salads and vegetables.",
+        "cycleRelevance": "No cycle-phase claim is made for bacon; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 167914,
@@ -1441,10 +1441,10 @@
       "catalogueId": "ham",
       "name": "Ham",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Ham: 3 oz gives about 140 calories, with zinc (about 28%), vitamin B12 (about 24%), potassium (about 12%) and 18.7 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz (USDA: 85 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice into sandwiches and salads, or dice into eggs, soups and pasta.",
+        "cycleRelevance": "No cycle-phase claim is made for ham; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168296,

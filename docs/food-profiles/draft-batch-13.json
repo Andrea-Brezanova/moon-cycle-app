@@ -1,0 +1,810 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "almond-milk": {
+      "catalogueId": "almond-milk",
+      "name": "Almond milk",
+      "sections": {
+        "whatItOffers": "Almond milk, unsweetened, shelf-stable, fortified: 1 cup gives about 39 calories, with vitamin E (about 111%), calcium (about 48%) and vitamin D (about 17%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup (USDA: 262 g)",
+        "howToEatIt": "Pour over cereal, blend into smoothies, or use in baking and coffee.",
+        "cycleRelevance": "No cycle-phase claim is made for almond milk; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 482 mg."
+      },
+      "source": {
+        "usdaFdcId": 174832,
+        "usdaDescription": "Beverages, almond milk, unsweetened, shelf stable",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "unsweetened, shelf-stable, fortified",
+        "portionGrams": 262,
+        "portion": "1 cup (USDA: 262 g)",
+        "per100g": {
+          "protein": 0.4,
+          "fat": 0.96,
+          "carb": 1.31,
+          "fiber": 0.2,
+          "ca": 184,
+          "iron": 0.28,
+          "mg": 6,
+          "k": 67,
+          "zn": 0.06,
+          "vitc": 0,
+          "folate": 1,
+          "vita": 0,
+          "vite": 6.33,
+          "vitd": 1,
+          "vitk": 0,
+          "kcal": 15
+        }
+      },
+      "perServing": {
+        "energyKcal": 39,
+        "proteinG": 1.0,
+        "fatG": 2.5,
+        "carbohydrateG": 3.4,
+        "fiberG": 0.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 16.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 111
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 482,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 48
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 2.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 17
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "butter": {
+      "catalogueId": "butter",
+      "name": "Butter",
+      "sections": {
+        "whatItOffers": "Butter: 1 tablespoon gives about 102 calories, with vitamin A (about 14%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 tablespoon (USDA: 14.2 g)",
+        "howToEatIt": "Spread thinly on bread, melt over vegetables, or use in cooking and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for butter; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173410,
+        "usdaDescription": "Butter, salted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "salted butter",
+        "portionGrams": 14.2,
+        "portion": "1 tablespoon (USDA: 14.2 g)",
+        "per100g": {
+          "protein": 0.85,
+          "fat": 81.1,
+          "carb": 0.06,
+          "fiber": 0,
+          "ca": 24,
+          "iron": 0.02,
+          "mg": 2,
+          "k": 24,
+          "zn": 0.09,
+          "vitc": 0,
+          "folate": 3,
+          "b12": 0.17,
+          "vita": 684,
+          "vite": 2.32,
+          "vitk": 7,
+          "kcal": 717
+        }
+      },
+      "perServing": {
+        "energyKcal": 102,
+        "proteinG": 0.1,
+        "fatG": 11.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 97,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cheddar": {
+      "catalogueId": "cheddar",
+      "name": "Cheddar cheese",
+      "sections": {
+        "whatItOffers": "Cheddar cheese, sharp cheddar, sliced: 1 slice, 1 oz gives about 115 calories, with calcium (about 20%), zinc (about 13%), vitamin A (about 11%) and 6.8 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 slice, 1 oz (USDA: 28 g)",
+        "howToEatIt": "Slice into sandwiches, grate over vegetables, eggs and baked potatoes, or melt into sauces.",
+        "cycleRelevance": "No cycle-phase claim is made for cheddar cheese; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 199 mg."
+      },
+      "source": {
+        "usdaFdcId": 170899,
+        "usdaDescription": "Cheese, cheddar, sharp, sliced",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "sharp cheddar, sliced",
+        "portionGrams": 28,
+        "portion": "1 slice, 1 oz (USDA: 28 g)",
+        "per100g": {
+          "protein": 24.2,
+          "fat": 33.8,
+          "carb": 2.13,
+          "fiber": 0,
+          "ca": 711,
+          "iron": 0.16,
+          "mg": 27,
+          "k": 76,
+          "zn": 3.74,
+          "vitc": 0,
+          "folate": 27,
+          "b12": 0.88,
+          "vita": 263,
+          "vite": 0.78,
+          "vitd": 1,
+          "vitk": 2.4,
+          "kcal": 410
+        }
+      },
+      "perServing": {
+        "energyKcal": 115,
+        "proteinG": 6.8,
+        "fatG": 9.5,
+        "carbohydrateG": 0.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Calcium",
+            "amount": 199,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 74,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.8,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cream-cheese": {
+      "catalogueId": "cream-cheese",
+      "name": "Cream cheese",
+      "sections": {
+        "whatItOffers": "Cream cheese: 2 tablespoons, 1 oz gives about 102 calories, with vitamin A (about 13%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons, 1 oz (USDA: 1 oz = 28.35 g; 1 tbsp = 14.5 g)",
+        "howToEatIt": "Spread on bread or bagels, stir into sauces and soups, or use in dips and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for cream cheese; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173418,
+        "usdaDescription": "Cheese, cream",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "regular cream cheese",
+        "portionGrams": 29,
+        "portion": "2 tablespoons, 1 oz (USDA: 1 oz = 28.35 g; 1 tbsp = 14.5 g)",
+        "per100g": {
+          "protein": 6.15,
+          "fat": 34.4,
+          "carb": 5.52,
+          "fiber": 0,
+          "ca": 97,
+          "iron": 0.11,
+          "mg": 9,
+          "k": 132,
+          "zn": 0.5,
+          "vitc": 0,
+          "folate": 9,
+          "b12": 0.22,
+          "vita": 308,
+          "vite": 0.86,
+          "vitd": 0,
+          "vitk": 2.1,
+          "kcal": 350
+        }
+      },
+      "perServing": {
+        "energyKcal": 102,
+        "proteinG": 1.8,
+        "fatG": 10.0,
+        "carbohydrateG": 1.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 89,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 13
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "milk": {
+      "catalogueId": "milk",
+      "name": "Milk",
+      "sections": {
+        "whatItOffers": "Milk: 1 cup gives about 149 calories, with vitamin B12 (about 46%), calcium (about 28%), vitamin D (about 21%) and 7.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup (USDA: 244 g)",
+        "howToEatIt": "Drink it, pour over cereal, or use in porridge, soups, sauces and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for milk; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 276 mg."
+      },
+      "source": {
+        "usdaFdcId": 171265,
+        "usdaDescription": "Milk, whole, 3.25% milkfat, with added vitamin D",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole milk, vitamin D added",
+        "portionGrams": 244,
+        "portion": "1 cup (USDA: 244 g)",
+        "per100g": {
+          "protein": 3.15,
+          "fat": 3.25,
+          "carb": 4.8,
+          "fiber": 0,
+          "ca": 113,
+          "iron": 0.03,
+          "mg": 10,
+          "k": 132,
+          "zn": 0.37,
+          "vitc": 0,
+          "folate": 5,
+          "b12": 0.45,
+          "vita": 46,
+          "vite": 0.07,
+          "vitd": 1.3,
+          "vitk": 0.3,
+          "kcal": 61
+        }
+      },
+      "perServing": {
+        "energyKcal": 149,
+        "proteinG": 7.7,
+        "fatG": 7.9,
+        "carbohydrateG": 11.7,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 46
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 276,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 3.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "parmesan": {
+      "catalogueId": "parmesan",
+      "name": "Parmesan",
+      "sections": {
+        "whatItOffers": "Parmesan: 2 tablespoons grated gives about 42 calories, with calcium (about 9%) and vitamin B12 (about 6%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons grated (USDA: 1 tbsp = 5 g)",
+        "howToEatIt": "Grate over pasta, soups, salads and roasted vegetables; a little adds a lot of flavour.",
+        "cycleRelevance": "No cycle-phase claim is made for parmesan; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 85 mg."
+      },
+      "source": {
+        "usdaFdcId": 171247,
+        "usdaDescription": "Cheese, parmesan, grated",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "grated parmesan",
+        "portionGrams": 10,
+        "portion": "2 tablespoons grated (USDA: 1 tbsp = 5 g)",
+        "per100g": {
+          "protein": 28.4,
+          "fat": 27.8,
+          "carb": 13.9,
+          "fiber": 0,
+          "ca": 853,
+          "iron": 0.49,
+          "mg": 34,
+          "k": 180,
+          "zn": 4.2,
+          "vitc": 0,
+          "folate": 6,
+          "b12": 1.4,
+          "vita": 262,
+          "vite": 0.53,
+          "vitd": 0.5,
+          "vitk": 1.7,
+          "kcal": 420
+        }
+      },
+      "perServing": {
+        "energyKcal": 42,
+        "proteinG": 2.8,
+        "fatG": 2.8,
+        "carbohydrateG": 1.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Calcium",
+            "amount": 85,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sour-cream": {
+      "catalogueId": "sour-cream",
+      "name": "Sour cream",
+      "sections": {
+        "whatItOffers": "Sour cream: 2 tablespoons gives about 48 calories, with vitamin A (about 4%) and calcium (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 1 tbsp = 12 g)",
+        "howToEatIt": "Dollop onto soups, baked potatoes, tacos and chilli, or mix into dips.",
+        "cycleRelevance": "No cycle-phase claim is made for sour cream; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 24 mg."
+      },
+      "source": {
+        "usdaFdcId": 171257,
+        "usdaDescription": "Cream, sour, cultured",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "regular sour cream",
+        "portionGrams": 24,
+        "portion": "2 tablespoons (USDA: 1 tbsp = 12 g)",
+        "per100g": {
+          "protein": 2.44,
+          "fat": 19.4,
+          "carb": 4.63,
+          "fiber": 0,
+          "ca": 101,
+          "iron": 0.07,
+          "mg": 10,
+          "k": 125,
+          "zn": 0.33,
+          "vitc": 0.9,
+          "folate": 6,
+          "b12": 0.21,
+          "vita": 124,
+          "vite": 0.38,
+          "vitd": 0,
+          "vitk": 1.5,
+          "kcal": 198
+        }
+      },
+      "perServing": {
+        "energyKcal": 48,
+        "proteinG": 0.6,
+        "fatG": 4.7,
+        "carbohydrateG": 1.1,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 30,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 4
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 24,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "soy-milk": {
+      "catalogueId": "soy-milk",
+      "name": "Soy milk",
+      "sections": {
+        "whatItOffers": "Soy milk, original, unfortified: 1 cup gives about 131 calories, with magnesium (about 20%), potassium (about 11%), folate (about 11%) and 7.9 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup (USDA: 243 g)",
+        "howToEatIt": "Drink it, use on cereal, or use in smoothies and baking; check whether the carton is fortified and unsweetened.",
+        "cycleRelevance": "No cycle-phase claim is made for soy milk; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 172446,
+        "usdaDescription": "Soymilk, original and vanilla, unfortified",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "original, unfortified",
+        "portionGrams": 243,
+        "portion": "1 cup (USDA: 243 g)",
+        "per100g": {
+          "protein": 3.27,
+          "fat": 1.75,
+          "carb": 6.28,
+          "fiber": 0.6,
+          "ca": 25,
+          "iron": 0.64,
+          "mg": 25,
+          "k": 118,
+          "zn": 0.12,
+          "vitc": 0,
+          "folate": 18,
+          "b12": 0,
+          "vita": 0,
+          "vite": 0.11,
+          "vitd": 0,
+          "vitk": 3,
+          "kcal": 54
+        }
+      },
+      "perServing": {
+        "energyKcal": 131,
+        "proteinG": 7.9,
+        "fatG": 4.3,
+        "carbohydrateG": 15.3,
+        "fiberG": 1.5,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 61,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 20
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 287,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 44,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.9,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "heavy-cream": {
+      "catalogueId": "heavy-cream",
+      "name": "Heavy cream",
+      "sections": {
+        "whatItOffers": "Heavy cream, heavy whipping cream: 1 tablespoon gives about 51 calories, with vitamin A (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 tablespoon (USDA: 15 g)",
+        "howToEatIt": "Whip for desserts or stir a little into soups and sauces.",
+        "cycleRelevance": "No cycle-phase claim is made for heavy cream; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170859,
+        "usdaDescription": "Cream, fluid, heavy whipping",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "heavy whipping cream",
+        "portionGrams": 15,
+        "portion": "1 tablespoon (USDA: 15 g)",
+        "per100g": {
+          "protein": 2.84,
+          "fat": 36.1,
+          "carb": 2.84,
+          "fiber": 0,
+          "ca": 66,
+          "iron": 0.1,
+          "mg": 7,
+          "k": 95,
+          "zn": 0.24,
+          "vitc": 0.6,
+          "folate": 4,
+          "b12": 0.16,
+          "vita": 411,
+          "vite": 0.92,
+          "vitd": 1.6,
+          "vitk": 3.2,
+          "kcal": 340
+        }
+      },
+      "perServing": {
+        "energyKcal": 51,
+        "proteinG": 0.4,
+        "fatG": 5.4,
+        "carbohydrateG": 0.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 62,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

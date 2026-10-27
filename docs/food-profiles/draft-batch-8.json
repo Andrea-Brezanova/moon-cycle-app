@@ -11,10 +11,10 @@
       "catalogueId": "burdock",
       "name": "Burdock",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Burdock, cooked, boiled, drained, no salt: ½ cup pieces, cooked gives about 55 calories, with potassium (about 9%) and magnesium (about 8%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup pieces, cooked (USDA: 1 cup of 1 in pieces = 125 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Peel or scrub, then slice thin and simmer or stir-fry (kinpira style); it keeps a firm, earthy bite.",
+        "cycleRelevance": "No cycle-phase claim is made for burdock; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170384,
@@ -100,10 +100,10 @@
       "catalogueId": "wakame",
       "name": "Wakame",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Wakame, raw: 2 tablespoons gives about 5 calories, with folate (about 5%) and magnesium (about 3%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 10 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Soak dried wakame briefly, then add to miso soup or a cucumber salad. This record is raw wakame, so a rehydrated serving is the closer match.",
+        "cycleRelevance": "No cycle-phase claim is made for wakame; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170496,
@@ -195,10 +195,10 @@
       "catalogueId": "kelp",
       "name": "Kelp",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Kelp, raw: 2 tablespoons gives about 4 calories, with folate (about 5%) and magnesium (about 4%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 10 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Add small pieces to soups and grain pots or rehydrate for salads; a little goes a long way.",
+        "cycleRelevance": "No cycle-phase claim is made for kelp; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168457,
@@ -294,10 +294,10 @@
       "catalogueId": "water-chestnut",
       "name": "Water chestnut",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Water chestnut, raw: ½ cup slices gives about 60 calories, with potassium (about 14%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup slices (USDA: 0.5 cup = 62 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice raw or tinned for stir-fries, salads and dumpling fillings, where it stays crisp when cooked.",
+        "cycleRelevance": "No cycle-phase claim is made for water chestnut; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170066,
@@ -362,10 +362,10 @@
       "catalogueId": "parsley",
       "name": "Parsley",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Parsley, raw: 2 tablespoons chopped gives about 3 calories, with vitamin C (about 13%) and 125 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 3.8 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Chop into salads, grain dishes, sauces and soups, or stir through at the end of cooking so the flavour stays fresh.",
+        "cycleRelevance": "No cycle-phase claim is made for parsley; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170416,
@@ -442,10 +442,10 @@
       "catalogueId": "rhubarb",
       "name": "Rhubarb",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Rhubarb, raw stalks: ½ cup diced gives about 13 calories, with potassium (about 7%) and vitamin C (about 7%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup diced (USDA: 1 cup diced = 122 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Cook the stalks with a little sweetener into compotes, crumbles or sauces. Only the stalks are eaten.",
+        "cycleRelevance": "No cycle-phase claim is made for rhubarb; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 167758,
@@ -534,10 +534,10 @@
       "catalogueId": "olives",
       "name": "Olives",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Olives, ripe, canned (brined): 5 large olives gives about 26 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "5 large olives (USDA: 1 large = 4.4 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat as a snack, chop into salads and pasta, or blend into a tapenade; rinse if you want less brine.",
+        "cycleRelevance": "No cycle-phase claim is made for olives; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.4 mg."
       },
       "source": {
         "usdaFdcId": 169094,
@@ -608,10 +608,10 @@
       "catalogueId": "corn",
       "name": "Corn",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Corn, cooked, boiled, drained, no salt: 1 medium ear gives about 99 calories, with magnesium (about 9%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 medium ear (USDA: 6¾–7½ in long = 103 g of kernels)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Boil or steam an ear, cut the kernels into salads and soups, or grill the whole ear.",
+        "cycleRelevance": "No cycle-phase claim is made for corn; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169999,
@@ -698,10 +698,10 @@
       "catalogueId": "chicory",
       "name": "Chicory",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Chicory, raw leaves: 1 cup chopped gives about 7 calories, with vitamin A (about 12%), vitamin C (about 9%) and 86 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup chopped (USDA: 29 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use the bitter leaves raw in mixed salads, or wilt them in a pan with garlic.",
+        "cycleRelevance": "No cycle-phase claim is made for chicory; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169992,
@@ -792,10 +792,10 @@
       "catalogueId": "chive",
       "name": "Chive",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Chive, raw: 2 tablespoons chopped gives about 2 calories, with vitamin C (about 5%) and vitamin A (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 3 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Snip over eggs, potatoes, soups and dips just before serving.",
+        "cycleRelevance": "No cycle-phase claim is made for chive; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169994,
@@ -880,10 +880,10 @@
       "catalogueId": "dandelion",
       "name": "Dandelion",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Dandelion, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 17 calories, with vitamin A (about 26%), vitamin C (about 13%) and 289 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup chopped, cooked (USDA: 1 cup = 105 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Sauté or simmer the greens; blanching first softens their bitterness.",
+        "cycleRelevance": "No cycle-phase claim is made for dandelion; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169227,
@@ -974,10 +974,10 @@
       "catalogueId": "endive",
       "name": "Endive",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Endive, raw: 1 cup chopped gives about 9 calories, with folate (about 18%), vitamin A (about 8%) and 116 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup chopped (USDA: 0.5 cup = 25 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use the crisp, slightly bitter leaves raw in salads, or braise or grill them.",
+        "cycleRelevance": "No cycle-phase claim is made for endive; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168412,
@@ -1068,10 +1068,10 @@
       "catalogueId": "escarole",
       "name": "Escarole",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Escarole, cooked, boiled, drained, no salt: ½ cup cooked gives about 11 calories, with folate (about 15%), vitamin A (about 10%) and 159 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 150 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Wilt into soups and bean stews, sauté with garlic, or use the inner leaves raw.",
+        "cycleRelevance": "No cycle-phase claim is made for escarole; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168413,
@@ -1162,10 +1162,10 @@
       "catalogueId": "okra",
       "name": "Okra",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Okra, cooked, boiled, drained, no salt: ½ cup slices gives about 18 calories, with vitamin C (about 17%), magnesium (about 9%) and 32 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup slices (USDA: 0.5 cup = 80 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Sauté, roast, grill or add to stews; cooking whole or quickly keeps it less slippery.",
+        "cycleRelevance": "No cycle-phase claim is made for okra; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169261,
@@ -1258,10 +1258,10 @@
       "catalogueId": "scallion",
       "name": "Scallion",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Scallion, raw, tops and bulb: 2 medium scallions gives about 10 calories, with vitamin C (about 8%) and 62 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 medium scallions (USDA: 1 medium = 15 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice the white and green parts into stir-fries, noodles, eggs and dips, raw or cooked.",
+        "cycleRelevance": "No cycle-phase claim is made for scallion; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170005,
@@ -1338,10 +1338,10 @@
       "catalogueId": "daikon",
       "name": "Daikon",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Daikon, raw: 1 cup slices gives about 21 calories, with vitamin C (about 34%) and potassium (about 10%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup slices (USDA: 116 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice or grate raw into salads and pickles, or simmer in soups and braises.",
+        "cycleRelevance": "No cycle-phase claim is made for daikon; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168451,
@@ -1421,10 +1421,10 @@
       "catalogueId": "garlic",
       "name": "Garlic",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Garlic, raw: 3 cloves gives about 13 calories, with vitamin C (about 4%) and calcium (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 cloves (USDA: 3 cloves = 9 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Crush or chop into sautés, dressings and soups; resting crushed garlic for a few minutes before cooking is a common kitchen habit.",
+        "cycleRelevance": "No cycle-phase claim is made for garlic; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 16 mg."
       },
       "source": {
         "usdaFdcId": 169230,
@@ -1504,10 +1504,10 @@
       "catalogueId": "ginger",
       "name": "Ginger",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Ginger, raw: 5 slices gives about 9 calories, with potassium (about 2%) and magnesium (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "5 slices (USDA: 5 slices, 1 in across = 11 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Grate or slice into stir-fries, soups, teas and marinades.",
+        "cycleRelevance": "No cycle-phase claim is made for ginger; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169231,
@@ -1594,10 +1594,10 @@
       "catalogueId": "leek",
       "name": "Leek",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Leek, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 16 calories, with iron (about 3%) and folate (about 3%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup chopped, cooked (USDA: ¼ cup = 26 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Wash well between the layers, slice, then sauté or simmer into soups, tarts and braises.",
+        "cycleRelevance": "No cycle-phase claim is made for leek; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.6 mg."
       },
       "source": {
         "usdaFdcId": 168426,
@@ -1677,10 +1677,10 @@
       "catalogueId": "mustard-greens",
       "name": "Mustard greens",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Mustard greens, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 18 calories, with vitamin A (about 62%), vitamin C (about 24%) and 415 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup chopped, cooked (USDA: 1 cup = 140 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Sauté or simmer with garlic and a splash of acid; cooking softens their peppery bite.",
+        "cycleRelevance": "No cycle-phase claim is made for mustard greens; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169257,
@@ -1771,10 +1771,10 @@
       "catalogueId": "onion",
       "name": "Onion",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Onion, raw: ½ cup chopped gives about 32 calories, with vitamin C (about 8%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup chopped (USDA: 1 cup = 160 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice or chop raw into salads, or cook slowly until soft and sweet as a base for soups, stews and sauces.",
+        "cycleRelevance": "No cycle-phase claim is made for onion; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170000,
@@ -1840,10 +1840,10 @@
       "catalogueId": "watercress",
       "name": "Watercress",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Watercress, raw: 1 cup chopped gives about 4 calories, with vitamin C (about 19%), vitamin A (about 8%) and 85 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup chopped (USDA: 34 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat raw in salads and sandwiches, or stir into hot soup at the last minute.",
+        "cycleRelevance": "No cycle-phase claim is made for watercress; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170068,
@@ -1934,10 +1934,10 @@
       "catalogueId": "mint",
       "name": "Mint",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Mint: 2 tablespoons gives about 5 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 11.4 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Tear fresh leaves into salads, yoghurt sauces, fruit and drinks.",
+        "cycleRelevance": "No cycle-phase claim is made for mint; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.4 mg."
       },
       "source": {
         "usdaFdcId": 173475,
@@ -2001,10 +2001,10 @@
       "catalogueId": "peppermint",
       "name": "Peppermint",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Peppermint: 2 tablespoons gives about 2 calories, with vitamin C (about 1%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 3.2 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use fresh leaves for tea or a garnish; the flavour is stronger than spearmint.",
+        "cycleRelevance": "No cycle-phase claim is made for peppermint; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173474,
@@ -2050,20 +2050,6 @@
                 "percent": 1
               }
             ]
-          },
-          {
-            "name": "Vitamin A",
-            "amount": 7,
-            "unit": "µg RAE",
-            "reference": [
-              {
-                "group": "19–50 y",
-                "kind": "RDA",
-                "value": 700,
-                "unit": "µg RAE",
-                "percent": 1
-              }
-            ]
           }
         ]
       },
@@ -2082,10 +2068,10 @@
       "catalogueId": "canned-tomatoes",
       "name": "Canned tomatoes",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Canned tomatoes, canned in tomato juice (with salt): ½ cup gives about 19 calories, with vitamin C (about 20%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup (USDA: 1 cup = 240 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use as the base for soups, stews, sauces and braises; choose no-salt-added if you prefer to control salt.",
+        "cycleRelevance": "No cycle-phase claim is made for canned tomatoes; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170051,
@@ -2165,10 +2151,10 @@
       "catalogueId": "celeriac",
       "name": "Celeriac",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Celeriac, raw: ½ cup gives about 33 calories, with potassium (about 9%), vitamin C (about 8%) and 32 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup (USDA: 1 cup = 156 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Peel, then roast, mash or simmer; or grate raw into slaws.",
+        "cycleRelevance": "No cycle-phase claim is made for celeriac; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170400,
@@ -2254,10 +2240,10 @@
       "catalogueId": "chili-pepper",
       "name": "Chili pepper",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Chili pepper, raw, red hot chili: 1 chili pepper gives about 18 calories, with vitamin C (about 86%) and potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 chili pepper (USDA: 1 pepper = 45 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Remove the seeds for less heat, and use sparingly in sauces, stir-fries, soups and salsas.",
+        "cycleRelevance": "No cycle-phase claim is made for chili pepper; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170106,
@@ -2337,10 +2323,10 @@
       "catalogueId": "fennel",
       "name": "Fennel",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Fennel, raw bulb: 1 cup sliced gives about 27 calories, with vitamin C (about 14%), potassium (about 14%) and 55 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup sliced (USDA: 87 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Slice the bulb thin for salads, or roast or braise it until soft and sweet.",
+        "cycleRelevance": "No cycle-phase claim is made for fennel; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169385,
@@ -2426,10 +2412,10 @@
       "catalogueId": "kohlrabi",
       "name": "Kohlrabi",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Kohlrabi, raw: ½ cup gives about 18 calories, with vitamin C (about 56%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup (USDA: 1 cup = 135 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Peel and eat raw in slaws, or roast, steam or add to soups.",
+        "cycleRelevance": "No cycle-phase claim is made for kohlrabi; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168424,
@@ -2509,10 +2495,10 @@
       "catalogueId": "plantain",
       "name": "Plantain",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Plantain, raw, yellow (usually eaten cooked): ½ cup sliced gives about 90 calories, with vitamin C (about 18%), potassium (about 14%) and 21 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup sliced (USDA: 1 cup = 148 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Cook before eating: boil, bake or pan-fry slices; riper plantain is sweeter.",
+        "cycleRelevance": "No cycle-phase claim is made for plantain; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169130,
@@ -2598,10 +2584,10 @@
       "catalogueId": "radicchio",
       "name": "Radicchio",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Radicchio, raw: 1 cup shredded gives about 9 calories, with vitamin E (about 6%), folate (about 6%) and 102 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup shredded (USDA: 40 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use raw in salads for a bitter note, or grill or roast wedges to soften it.",
+        "cycleRelevance": "No cycle-phase claim is made for radicchio; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168564,
@@ -2692,10 +2678,10 @@
       "catalogueId": "salsa",
       "name": "Salsa",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Salsa, ready-to-serve (with salt): 2 tablespoons gives about 10 calories, with potassium (about 4%) and vitamin E (about 3%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 36 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Serve with eggs, beans, tacos or grilled vegetables; check the label if you watch sodium.",
+        "cycleRelevance": "No cycle-phase claim is made for salsa; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 174524,
@@ -2775,10 +2761,10 @@
       "catalogueId": "shallot",
       "name": "Shallot",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Shallot, raw: 2 tablespoons chopped gives about 14 calories, with potassium (about 3%) and vitamin C (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 10 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Mince raw for dressings, or sauté gently as a milder alternative to onion.",
+        "cycleRelevance": "No cycle-phase claim is made for shallot; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170499,
@@ -2858,10 +2844,10 @@
       "catalogueId": "basil",
       "name": "Basil",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Basil, raw leaves: 2 tablespoons chopped gives about 1 calories, with 22 µg of vitamin K.",
         "practicalServing": "2 tablespoons chopped (USDA: 5.3 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Tear fresh leaves into salads, tomatoes and pasta, or blend into pesto; add to hot dishes at the end.",
+        "cycleRelevance": "No cycle-phase claim is made for basil; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 172232,
@@ -2924,10 +2910,10 @@
       "catalogueId": "cilantro",
       "name": "Cilantro (coriander)",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Cilantro (coriander), raw leaves: ¼ cup leaves gives about 1 calories, with vitamin A (about 2%) and vitamin C (about 1%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "¼ cup leaves (USDA: 0.25 cup = 4 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Chop the leaves and tender stems into salsas, curries, rice and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for cilantro (coriander); this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169997,
@@ -3012,10 +2998,10 @@
       "catalogueId": "dill",
       "name": "Dill",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Dill, raw sprigs: 1 cup sprigs gives about 4 calories, with vitamin C (about 10%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup sprigs (USDA: 8.9 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Use fresh sprigs with fish, potatoes, yoghurt sauces and pickles.",
+        "cycleRelevance": "No cycle-phase claim is made for dill; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 172233,
@@ -3079,10 +3065,10 @@
       "catalogueId": "tomato-paste",
       "name": "Tomato paste",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Tomato paste, canned paste, no salt added: 1 tablespoon gives about 13 calories, with potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 1 tbsp = 16 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Fry a spoonful in oil at the start of a sauce or stew to deepen the flavour.",
+        "cycleRelevance": "No cycle-phase claim is made for tomato paste; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170459,

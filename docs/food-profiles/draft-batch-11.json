@@ -1,0 +1,746 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "catfish": {
+      "catalogueId": "catfish",
+      "name": "Catfish",
+      "sections": {
+        "whatItOffers": "Catfish: 3 oz cooked gives about 122 calories, with vitamin B12 (about 98%), potassium (about 12%) and 15.6 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz cooked (USDA: 85 g)",
+        "howToEatIt": "Bake, grill or pan-fry fillets; a light coating of cornmeal or spices works well.",
+        "cycleRelevance": "No cycle-phase claim is made for catfish; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 175166,
+        "usdaDescription": "Fish, catfish, channel, farmed, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "farmed channel catfish, cooked (dry heat)",
+        "portionGrams": 85,
+        "portion": "3 oz cooked (USDA: 85 g)",
+        "per100g": {
+          "protein": 18.4,
+          "fat": 7.19,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 9,
+          "iron": 0.28,
+          "mg": 23,
+          "k": 366,
+          "zn": 0.58,
+          "vitc": 0,
+          "folate": 12,
+          "b12": 2.78,
+          "vita": 1,
+          "vite": 0.97,
+          "vitd": 0.3,
+          "vitk": 2.5,
+          "kcal": 144,
+          "omega3": 0.089
+        }
+      },
+      "perServing": {
+        "energyKcal": 122,
+        "proteinG": 15.6,
+        "fatG": 6.1,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 98
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 311,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 15.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lobster": {
+      "catalogueId": "lobster",
+      "name": "Lobster",
+      "sections": {
+        "whatItOffers": "Lobster: 3 oz cooked gives about 76 calories, with vitamin B12 (about 51%), zinc (about 43%), magnesium (about 12%) and 16.2 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz cooked (USDA: 85 g)",
+        "howToEatIt": "Steam or boil, then eat the meat with lemon, or add it to salads and pasta.",
+        "cycleRelevance": "No cycle-phase claim is made for lobster; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 174209,
+        "usdaDescription": "Crustaceans, lobster, northern, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "northern lobster, cooked (moist heat)",
+        "portionGrams": 85,
+        "portion": "3 oz cooked (USDA: 85 g)",
+        "per100g": {
+          "protein": 19,
+          "fat": 0.86,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 96,
+          "iron": 0.29,
+          "mg": 43,
+          "k": 230,
+          "zn": 4.05,
+          "vitc": 0,
+          "folate": 11,
+          "b12": 1.43,
+          "vita": 1,
+          "vite": 1,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 89,
+          "omega3": 0.195
+        }
+      },
+      "perServing": {
+        "energyKcal": 76,
+        "proteinG": 16.2,
+        "fatG": 0.7,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 51
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 3.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 43
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 37,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 16.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Crustacean allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "octopus": {
+      "catalogueId": "octopus",
+      "name": "Octopus",
+      "sections": {
+        "whatItOffers": "Octopus: 3 oz cooked gives about 139 calories, with vitamin B12 (about 1275%), iron (about 45%), zinc (about 36%), 25.3 g of protein and 0.27 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz cooked (USDA: 85 g)",
+        "howToEatIt": "Simmer slowly until tender, then slice for salads or grill briefly.",
+        "cycleRelevance": "No cycle-phase claim is made for octopus; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 8.1 mg."
+      },
+      "source": {
+        "usdaFdcId": 174249,
+        "usdaDescription": "Mollusks, octopus, common, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "common octopus, cooked (moist heat)",
+        "portionGrams": 85,
+        "portion": "3 oz cooked (USDA: 85 g)",
+        "per100g": {
+          "protein": 29.8,
+          "fat": 2.08,
+          "carb": 4.4,
+          "fiber": 0,
+          "ca": 106,
+          "iron": 9.54,
+          "mg": 60,
+          "k": 630,
+          "zn": 3.36,
+          "vitc": 8,
+          "folate": 24,
+          "b12": 36,
+          "vita": 90,
+          "vite": 1.2,
+          "vitd": 0,
+          "vitk": 0.1,
+          "kcal": 164,
+          "omega3": 0.314
+        }
+      },
+      "perServing": {
+        "energyKcal": 139,
+        "proteinG": 25.3,
+        "fatG": 1.8,
+        "carbohydrateG": 3.7,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 30.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 1275
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 8.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 45
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 36
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 25.3,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.27,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "squid": {
+      "catalogueId": "squid",
+      "name": "Squid",
+      "sections": {
+        "whatItOffers": "Squid, raw (cook before eating): 3 oz raw gives about 78 calories, with vitamin B12 (about 46%), zinc (about 16%), 13.3 g of protein and 0.41 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz raw (USDA: 85 g)",
+        "howToEatIt": "Cook quickly over high heat or simmer slowly; in between it turns tough.",
+        "cycleRelevance": "No cycle-phase claim is made for squid; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 174223,
+        "usdaDescription": "Mollusks, squid, mixed species, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw (cook before eating)",
+        "portionGrams": 85,
+        "portion": "3 oz raw (USDA: 85 g)",
+        "per100g": {
+          "protein": 15.6,
+          "fat": 1.38,
+          "carb": 3.08,
+          "fiber": 0,
+          "ca": 32,
+          "iron": 0.68,
+          "mg": 33,
+          "k": 246,
+          "zn": 1.53,
+          "vitc": 4.7,
+          "folate": 5,
+          "b12": 1.3,
+          "vita": 10,
+          "vite": 1.2,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 92,
+          "omega3": 0.488
+        }
+      },
+      "perServing": {
+        "energyKcal": 78,
+        "proteinG": 13.3,
+        "fatG": 1.2,
+        "carbohydrateG": 2.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 46
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 13.3,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.41,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tuna": {
+      "catalogueId": "tuna",
+      "name": "Tuna",
+      "sections": {
+        "whatItOffers": "Tuna: 3 oz drained gives about 99 calories, with vitamin B12 (about 106%), zinc (about 8%) and 21.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz drained (USDA: 85 g)",
+        "howToEatIt": "Drain and mix into salads, sandwiches, pasta and grain bowls.",
+        "cycleRelevance": "No cycle-phase claim is made for tuna; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 171986,
+        "usdaDescription": "Fish, tuna, light, canned in water, without salt, drained solids",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "light tuna, canned in water, no salt, drained",
+        "portionGrams": 85,
+        "portion": "3 oz drained (USDA: 85 g)",
+        "per100g": {
+          "protein": 25.5,
+          "fat": 0.82,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 11,
+          "iron": 1.53,
+          "mg": 27,
+          "k": 237,
+          "zn": 0.77,
+          "vitc": 0,
+          "folate": 4,
+          "b12": 2.99,
+          "kcal": 116,
+          "omega3": 0.27
+        }
+      },
+      "perServing": {
+        "energyKcal": 99,
+        "proteinG": 21.7,
+        "fatG": 0.7,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.5,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 106
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 21.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Mercury: prefer light/skipjack",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "herring": {
+      "catalogueId": "herring",
+      "name": "Herring",
+      "sections": {
+        "whatItOffers": "Herring: 3 oz cooked gives about 173 calories, with vitamin B12 (about 464%), vitamin D (about 31%), potassium (about 14%), 19.6 g of protein and 1.71 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz cooked (USDA: 85 g)",
+        "howToEatIt": "Pan-fry or grill fillets, or serve with potatoes and onions.",
+        "cycleRelevance": "No cycle-phase claim is made for herring; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 175117,
+        "usdaDescription": "Fish, herring, Atlantic, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "Atlantic herring, cooked (dry heat)",
+        "portionGrams": 85,
+        "portion": "3 oz cooked (USDA: 85 g)",
+        "per100g": {
+          "protein": 23,
+          "fat": 11.6,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 74,
+          "iron": 1.41,
+          "mg": 41,
+          "k": 419,
+          "zn": 1.27,
+          "vitc": 0.7,
+          "folate": 12,
+          "b12": 13.1,
+          "vita": 36,
+          "vite": 1.37,
+          "vitd": 5.4,
+          "vitk": 0.1,
+          "kcal": 203,
+          "omega3": 2.009
+        }
+      },
+      "perServing": {
+        "energyKcal": 173,
+        "proteinG": 19.6,
+        "fatG": 9.9,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 11.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 464
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 4.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 31
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 356,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 19.6,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 1.71,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "smoked-salmon": {
+      "catalogueId": "smoked-salmon",
+      "name": "Smoked salmon",
+      "sections": {
+        "whatItOffers": "Smoked salmon, smoked chinook salmon (lox): 2 oz gives about 67 calories, with vitamin B12 (about 77%), 10.4 g of protein and 0.26 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 oz (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Serve on toast or bagels, with eggs, or in salads and pasta.",
+        "cycleRelevance": "No cycle-phase claim is made for smoked salmon; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 171985,
+        "usdaDescription": "Fish, salmon, chinook, smoked, (lox), regular",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "smoked chinook salmon (lox)",
+        "portionGrams": 57,
+        "portion": "2 oz (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 18.3,
+          "fat": 4.32,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 11,
+          "iron": 0.85,
+          "mg": 18,
+          "k": 175,
+          "zn": 0.31,
+          "vitc": 0,
+          "folate": 2,
+          "b12": 3.26,
+          "vita": 26,
+          "kcal": 117,
+          "omega3": 0.45
+        }
+      },
+      "perServing": {
+        "energyKcal": 67,
+        "proteinG": 10.4,
+        "fatG": 2.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.9,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 77
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 10.4,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.26,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

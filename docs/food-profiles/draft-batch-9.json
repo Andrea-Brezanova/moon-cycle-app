@@ -11,10 +11,10 @@
       "catalogueId": "concord-grape",
       "name": "Concord grape",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Concord grape, raw, American (slip-skin) type: 1 cup gives about 62 calories, with potassium (about 7%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup (USDA: 92 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat fresh as a snack (the skins slip off, and the seeds are edible), or chill them first for a cold snack.",
+        "cycleRelevance": "No cycle-phase claim is made for concord grape; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 174682,
@@ -80,10 +80,10 @@
       "catalogueId": "lemon",
       "name": "Lemon",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Lemon, raw, without peel: 1 lemon, 2⅛ in across gives about 17 calories, with vitamin C (about 41%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 lemon, 2⅛ in across (USDA: 58 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Squeeze juice over fish, vegetables and salads, or add zest to baking and dressings.",
+        "cycleRelevance": "No cycle-phase claim is made for lemon; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 167746,
@@ -149,10 +149,10 @@
       "catalogueId": "lime",
       "name": "Lime",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Lime, raw: 1 lime, 2 in across gives about 20 calories, with vitamin C (about 26%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 lime, 2 in across (USDA: 67 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Squeeze over tacos, soups, salads and drinks, or use the zest in marinades.",
+        "cycleRelevance": "No cycle-phase claim is made for lime; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168155,
@@ -218,10 +218,10 @@
       "catalogueId": "sour-cherry",
       "name": "Sour cherry",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Sour cherry, raw, pitted: 1 cup, pitted gives about 78 calories, with vitamin C (about 21%), vitamin A (about 14%) and potassium (about 10%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup, pitted (USDA: 155 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Cook into compotes, pies and sauces with some sweetener, since they are tart; or eat them fresh if you like the tartness.",
+        "cycleRelevance": "No cycle-phase claim is made for sour cherry; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173954,
@@ -315,10 +315,10 @@
       "catalogueId": "lychee",
       "name": "Lychee",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Lychee, raw, peeled and seeded: ½ cup gives about 63 calories, with vitamin C (about 91%) and potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup (USDA: 1 cup = 190 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Peel, remove the seed and eat fresh, or add to fruit salad.",
+        "cycleRelevance": "No cycle-phase claim is made for lychee; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169086,
@@ -398,10 +398,10 @@
       "catalogueId": "coconut",
       "name": "Coconut",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Coconut: 1 piece, 2 × 2 × ½ in gives about 159 calories, with zinc (about 6%), potassium (about 6%) and 4.1 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 piece, 2 × 2 × ½ in (USDA: 45 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat fresh pieces as a snack, or grate or shave over porridge, yoghurt and curries.",
+        "cycleRelevance": "No cycle-phase claim is made for coconut; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 170169,
@@ -485,10 +485,10 @@
       "catalogueId": "guava",
       "name": "Guava",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Guava, raw: 2 fruits gives about 75 calories, with vitamin C (about 334%), potassium (about 18%), folate (about 13%) and 5.9 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 fruits (USDA: 1 fruit, without refuse = 55 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat ripe fruit fresh, skin and all, or slice into fruit salad.",
+        "cycleRelevance": "No cycle-phase claim is made for guava; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173044,
@@ -587,10 +587,10 @@
       "catalogueId": "persimmon",
       "name": "Persimmon",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Persimmon, raw, Japanese (Fuyu/Hachiya type): 1 fruit, 2½ in across gives about 118 calories, with vitamin A (about 19%), vitamin C (about 17%), potassium (about 10%) and 6.0 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 fruit, 2½ in across (USDA: 168 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat a ripe Fuyu type like an apple, or scoop soft ripe Hachiya type with a spoon.",
+        "cycleRelevance": "No cycle-phase claim is made for persimmon; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 169941,
@@ -689,10 +689,10 @@
       "catalogueId": "date",
       "name": "Date",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Date, Medjool, pitted: 2 dates gives about 133 calories, with potassium (about 13%), magnesium (about 8%) and 3.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 dates (USDA: 1 date, pitted = 24 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat on their own, stuffed with nut butter, or chop into porridge and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for date; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168191,
@@ -783,10 +783,10 @@
       "catalogueId": "raisin",
       "name": "Raisin",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Raisin, dark, seedless: 1 small box, 1.5 oz gives about 129 calories, with potassium (about 12%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 small box, 1.5 oz (USDA: 43 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Add to porridge, salads and baking, or eat a small handful as a snack.",
+        "cycleRelevance": "No cycle-phase claim is made for raisin; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168165,
@@ -852,10 +852,10 @@
       "catalogueId": "cranberry",
       "name": "Cranberry",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Cranberry, raw, whole: 1 cup whole gives about 46 calories, with vitamin C (about 19%), vitamin E (about 9%) and 3.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup whole (USDA: 100 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Cook with a sweetener into sauces and compotes, or add to baking; raw cranberries are very tart.",
+        "cycleRelevance": "No cycle-phase claim is made for cranberry; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 171722,
@@ -940,10 +940,10 @@
       "catalogueId": "dried-apricots",
       "name": "Dried apricots",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Dried apricots, dried, sulfured: 10 halves gives about 84 calories, with potassium (about 16%) and vitamin E (about 10%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "10 halves (USDA: 1 half = 3.5 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat a few as a snack, chop into porridge and grain dishes, or simmer into compotes.",
+        "cycleRelevance": "No cycle-phase claim is made for dried apricots; this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 173941,
@@ -1023,10 +1023,10 @@
       "catalogueId": "prunes",
       "name": "Prunes (dried plums)",
       "sections": {
-        "whatItOffers": "TBD",
+        "whatItOffers": "Prunes (dried plums), dried, pitted: 4 prunes gives about 91 calories, with potassium (about 11%), magnesium (about 5%) and 23 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "4 prunes (USDA: 1 prune, pitted = 9.5 g)",
-        "howToEatIt": "TBD",
-        "cycleRelevance": "TBD"
+        "howToEatIt": "Eat a few as a snack, stew them, or chop into baking and porridge.",
+        "cycleRelevance": "No cycle-phase claim is made for prunes (dried plums); this profile covers what it provides nutritionally, as part of a varied diet."
       },
       "source": {
         "usdaFdcId": 168162,

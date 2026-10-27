@@ -31,6 +31,13 @@ for i in q['items']:
         i['usdaFdcId'] = s['usdaFdcId']
         i['preparationState'] = s['preparationState']
         i['notes'] = f'Draft in draft-batch-{n}.json. Not published.' + (f' REVIEW: {note}' if note else '')
+blocked = json.load(open('docs/food-profiles/blocked.json'))
+for i in q['items']:
+    if i['foodId'] in blocked:
+        assert not i['status'].startswith('drafted'), i['foodId']
+        i['status'] = 'blocked'
+        i['notes'] = 'BLOCKED: ' + blocked[i['foodId']]
 json.dump(q, open('docs/food-profiles/work-queue.json', 'w'), indent=1, ensure_ascii=False)
 done = sum(1 for i in q['items'] if i['status'].startswith('drafted'))
-print(f'{done} drafted, {len(q["items"]) - done} not yet drafted (of {len(q["items"])} catalogue foods without an approved profile)')
+nb = sum(1 for i in q['items'] if i['status'] == 'blocked')
+print(f'{done} drafted, {nb} blocked, {len(q["items"]) - done - nb} still queued (of {len(q["items"])} catalogue foods without an approved profile)')
