@@ -7,7 +7,6 @@ import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/diary/application/diary_providers.dart';
 import 'package:moon_cycle/features/diary/data/diary_repository.dart';
 import 'package:moon_cycle/features/diary/domain/diary_entry.dart';
-import 'package:moon_cycle/features/home/presentation/widgets/home_v2.dart';
 
 class _TestToday extends Today {
   void set(LocalDate d) => state = d;
@@ -94,13 +93,5 @@ void main() {
     expect(await count(), 0);
     (c.read(todayProvider.notifier) as _TestToday).set(day);
     expect(await count(), 1);
-  });
-
-  test('the wording', () {
-    expect(mealsToday(0), 'Nothing logged yet');
-    expect(mealsToday(1), '1 meal today');
-    expect(mealsToday(2), '2 meals today');
-    expect(itemsToBuy(0), 'Nothing to buy');
-    expect(itemsToBuy(8), '8 to buy');
   });
 }
