@@ -13,6 +13,7 @@ import '../../features/collections/presentation/collection_link_detail_page.dart
 import '../../features/collections/presentation/collection_link_page.dart';
 import '../../features/collections/presentation/collections_page.dart';
 import '../../features/collections/presentation/my_routines_page.dart';
+import '../../features/collections/presentation/routine_page.dart';
 import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
 import '../../features/diary/presentation/diary_activities_page.dart';
@@ -414,6 +415,17 @@ GoRouter buildAppRouter({
                             path: 'routines',
                             pageBuilder: (context, state) =>
                                 _page(state, const MyRoutinesPage()),
+                            routes: [
+                              GoRoute(
+                                path: ':id',
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  RoutinePage(
+                                    routineId: state.pathParameters['id']!,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           for (final category in [
                             CollectionCategory.workouts,

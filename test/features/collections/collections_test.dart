@@ -146,7 +146,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('collection-routines')));
       await tester.pumpAndSettle();
       expect(find.byType(MyRoutinesPage), findsOneWidget);
-      expect(find.text('Routines are not available yet'), findsOneWidget);
+      expect(find.text('No routines yet'), findsOneWidget);
     },
   );
 
