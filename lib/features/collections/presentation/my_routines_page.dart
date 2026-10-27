@@ -38,7 +38,7 @@ class MyRoutinesPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
-    final routines = ref.watch(routinesProvider).value ?? const <Routine>[];
+    final routines = ref.watch(myRoutinesProvider).value ?? const <Routine>[];
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -84,7 +84,7 @@ class MyRoutinesPage extends ConsumerWidget {
                     )
                   else
                     for (final r in routines) ...[
-                      _RoutineCard(routine: r),
+                      RoutineCard(routine: r),
                       const SizedBox(height: 10),
                     ],
                 ],
@@ -97,8 +97,9 @@ class MyRoutinesPage extends ConsumerWidget {
   }
 }
 
-class _RoutineCard extends StatelessWidget {
-  const _RoutineCard({required this.routine});
+/// A routine or built workout as a card: its name and step count.
+class RoutineCard extends StatelessWidget {
+  const RoutineCard({super.key, required this.routine});
 
   final Routine routine;
 
