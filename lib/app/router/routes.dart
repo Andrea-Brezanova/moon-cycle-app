@@ -11,7 +11,7 @@ enum AppTab {
   eat('/eat', 'Eat', MoonIconName.recipes),
   move('/move', 'Move', MoonIconName.move),
   relax('/relax', 'Relax', MoonIconName.relax),
-  more('/more', 'Me', MoonIconName.more);
+  more('/more', 'Me', MoonIconName.account);
 
   const AppTab(this.path, this.label, this.icon);
 
@@ -23,7 +23,6 @@ enum AppTab {
 
 /// Settings sub-pages in v1 (no Account page until accounts arrive).
 enum SettingsPage {
-  personalization('personalization', 'Personalization'),
   myCycle('my-cycle', 'My Cycle'),
   foodPreferences('food-preferences', 'Food Preferences'),
   allergies('allergies', 'Allergies & foods to avoid'),
@@ -173,7 +172,8 @@ abstract final class Routes {
   /// More › the shopping list.
   static const String shopping = '/more/shopping-list';
 
-  /// Me › About.
+  /// Me › My App, and My App › About.
+  static const String myApp = '/more/my-app';
   static const String meAbout = '/more/about';
 
   /// Me › My Collections, and its Workouts and Spa pages (My Recipes is the

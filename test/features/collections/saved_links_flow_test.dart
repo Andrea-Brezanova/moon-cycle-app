@@ -112,7 +112,7 @@ void main() {
     expect(find.text('Morning flow'), findsOneWidget); // recently saved
     expect(find.text('Instagram'), findsWidgets); // the badge
     expect(find.text('Sam'), findsWidgets);
-    expect(find.text('1 saved link'), findsOneWidget);
+    expect(find.text('1 saved link'), findsNothing); // tiles show titles only
     final saved = await tester.runAsync(
       () => c.read(collectionLinkRepositoryProvider).all(),
     );

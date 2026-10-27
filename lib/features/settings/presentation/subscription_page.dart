@@ -27,7 +27,7 @@ class SubscriptionPage extends ConsumerWidget {
         : longDate(grant!.endsOn!);
 
     return SettingsSubScaffold(
-      backLabel: 'Me',
+      backLabel: 'My App',
       title: 'Subscription',
       top: 22,
       gap: 26,

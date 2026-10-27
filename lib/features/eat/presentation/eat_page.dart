@@ -8,6 +8,7 @@ import '../../../core/design/moon_theme.dart';
 import '../../../core/design/tokens/moon_layout.dart';
 import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/editorial_text.dart';
+import '../../../core/design/widgets/hub_card.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/phase.dart';
@@ -89,7 +90,7 @@ class EatPage extends ConsumerWidget {
               const SizedBox(height: 14),
               const _Intro(),
               const SizedBox(height: 16),
-              _HubCard(
+              HubCard(
                 icon: MoonIconName.apple,
                 phase: Phase.menstrual,
                 title: 'Foods',
@@ -97,7 +98,7 @@ class EatPage extends ConsumerWidget {
                 onTap: () => context.push(Routes.eatFoods),
               ),
               const SizedBox(height: 12),
-              _HubCard(
+              HubCard(
                 icon: MoonIconName.utensils,
                 phase: Phase.ovulatory,
                 title: 'Recipes',
@@ -109,7 +110,7 @@ class EatPage extends ConsumerWidget {
                 },
               ),
               const SizedBox(height: 12),
-              _HubCard(
+              HubCard(
                 icon: MoonIconName.recipes,
                 phase: Phase.luteal,
                 title: 'Meal builder',
@@ -171,77 +172,6 @@ class _Intro extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-/// A full-width navigation card: pastel icon disc, title, a line, a chevron.
-class _HubCard extends StatelessWidget {
-  const _HubCard({
-    required this.icon,
-    required this.phase,
-    required this.title,
-    required this.body,
-    required this.onTap,
-  });
-
-  final MoonIconName icon;
-
-  /// The phase whose palette tints the icon disc.
-  final Phase phase;
-  final String title;
-  final String body;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    final palette = c.phase(phase);
-    return Pressable(
-      onTap: onTap,
-      semanticLabel: '$title. $body',
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 88),
-        padding: const EdgeInsets.fromLTRB(18, 14, 16, 14),
-        decoration: BoxDecoration(
-          color: c.raised,
-          border: Border.all(color: c.line),
-          borderRadius: BorderRadius.circular(22),
-        ),
-        child: Row(
-          children: [
-            ExcludeSemantics(
-              child: Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: palette.tint,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: MoonIcon(icon, size: 24, color: palette.text),
-                ),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: fraunces(21, height: 1.15, color: c.text)),
-                  const SizedBox(height: 3),
-                  Text(
-                    body,
-                    style: dmSans(14, height: 1.4, color: c.textMuted),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 8),
-            MoonIcon(MoonIconName.chev, size: 18, color: c.chevron),
-          ],
-        ),
       ),
     );
   }

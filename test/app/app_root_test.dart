@@ -76,7 +76,7 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('tab-more')));
     await tester.pumpAndSettle();
-    for (final key in ['me-privacy', 'privacy-delete-data']) {
+    for (final key in ['me-app', 'app-delete-data']) {
       await tester.scrollUntilVisible(
         find.byKey(ValueKey(key)),
         300,
