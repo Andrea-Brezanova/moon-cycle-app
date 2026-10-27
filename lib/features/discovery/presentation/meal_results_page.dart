@@ -69,7 +69,7 @@ class _MealResultsPageState extends ConsumerState<MealResultsPage> {
           padding: const EdgeInsets.only(bottom: 42 + 76),
           children: [
             SubScreenHeader(
-              backLabel: widget.fromPlants ? '3 Plants a Day' : 'Build a meal',
+              backLabel: widget.fromPlants ? '3 Plants a Day' : 'Build a Meal',
               onBack: () => context.canPop()
                   ? context.pop()
                   : context.go(
