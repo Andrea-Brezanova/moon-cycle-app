@@ -15,6 +15,7 @@ import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import 'package:moon_cycle/features/preferences/domain/reminder_settings.dart';
 import 'package:moon_cycle/features/privacy/domain/data_export.dart';
+import 'package:moon_cycle/features/routines/domain/routine.dart';
 import 'package:moon_cycle/features/shopping/domain/shopping_item.dart';
 
 void main() {
@@ -77,6 +78,7 @@ void main() {
       'notes',
       'activities',
       'collectionLinks',
+      'routines',
       'savedRecipes',
       'personalRecipes',
     ]);
@@ -316,6 +318,50 @@ void main() {
         'note': 'Tomatoes.',
         'createdAt': '2026-10-11T18:00:00.000Z',
         'updatedAt': '2026-10-11T18:00:00.000Z',
+      },
+    ]);
+  });
+
+  test('routines are exported with their ordered steps', () {
+    final out = buildDataExport(
+      exportedAt: DateTime.utc(2026, 10, 12, 9),
+      appVersion: '1.0.0',
+      profile: null,
+      periods: const [],
+      diet: Diet.omnivore,
+      avoidances: const [],
+      reminders: const ReminderSettings(),
+      shoppingList: const [],
+      routines: [
+        Routine(
+          id: 'r1',
+          title: 'Morning stretch',
+          note: 'Gentle',
+          createdAt: DateTime.utc(2026, 10, 10, 8),
+          updatedAt: DateTime.utc(2026, 10, 11, 8),
+          steps: const [
+            RoutineStep(id: 's1', position: 0, text: 'Five slow breaths'),
+            RoutineStep(id: 's2', position: 1, linkId: 'l1'),
+          ],
+        ),
+      ],
+      foodName: (_) => null,
+    );
+    expect(out['routines'], [
+      {
+        'title': 'Morning stretch',
+        'note': 'Gentle',
+        'steps': [
+          {
+            'position': 0,
+            'type': 'text',
+            'linkId': null,
+            'text': 'Five slow breaths',
+          },
+          {'position': 1, 'type': 'link', 'linkId': 'l1', 'text': null},
+        ],
+        'createdAt': '2026-10-10T08:00:00.000Z',
+        'updatedAt': '2026-10-11T08:00:00.000Z',
       },
     ]);
   });

@@ -3,25 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/database/app_database.dart';
 import '../../../core/database/row_ids.dart';
-
-/// One routine step as the app sees it.
-final class RoutineStep {
-  const RoutineStep({
-    required this.id,
-    required this.position,
-    this.linkId,
-    this.text,
-  });
-
-  final String id;
-  final int position;
-
-  /// The saved link this step points at (never a copy), or null.
-  final String? linkId;
-
-  /// The user's own words, or null for a link step.
-  final String? text;
-}
+import '../domain/routine.dart';
 
 /// My Routines (DRAFT, schema 10): reusable ordered lists of steps. A step is
 /// a saved link, by reference, or a line of the user's own text. No schedule,
@@ -51,11 +33,49 @@ class RoutineRepository {
     return id;
   }
 
-  Future<List<RoutineRow>> all() =>
+  /// Every routine with its steps, newest first.
+  Future<List<Routine>> all() async => _toDomain(await _liveRows());
+
+  Stream<List<Routine>> watchAll() => _db
+      .select(_db.routines)
+      .watch()
+      .asyncMap((_) async => _toDomain(await _liveRows()));
+
+  Future<List<RoutineRow>> _liveRows() =>
       (_db.select(_db.routines)
             ..where((t) => t.deletedAt.isNull())
             ..orderBy([(t) => OrderingTerm.desc(t.createdAt)]))
           .get();
+
+  Future<List<Routine>> _toDomain(List<RoutineRow> rows) async => [
+    for (final r in rows)
+      Routine(
+        id: r.id,
+        title: r.title,
+        note: r.note,
+        createdAt: r.createdAt,
+        updatedAt: r.updatedAt,
+        steps: await steps(r.id),
+      ),
+  ];
+
+  Future<Routine?> byId(String id) async {
+    final row = await (_db.select(
+      _db.routines,
+    )..where((t) => t.id.equals(id) & t.deletedAt.isNull())).getSingleOrNull();
+    return row == null ? null : (await _toDomain([row])).single;
+  }
+
+  /// Changes a routine's note (empty clears it).
+  Future<void> setNote(String id, String? note) =>
+      (_db.update(
+        _db.routines,
+      )..where((t) => t.id.equals(id) & t.deletedAt.isNull())).write(
+        RoutinesCompanion(
+          note: Value(_clean(note)),
+          updatedAt: Value(_stamp.now()),
+        ),
+      );
 
   Future<bool> rename(String id, String title) async {
     final name = _clean(title);
@@ -206,4 +226,9 @@ class RoutineRepository {
 
 final routineRepositoryProvider = Provider<RoutineRepository>(
   (ref) => RoutineRepository(ref.watch(appDatabaseProvider)),
+);
+
+/// Every routine, newest first, live.
+final routinesProvider = StreamProvider.autoDispose<List<Routine>>(
+  (ref) => ref.watch(routineRepositoryProvider).watchAll(),
 );

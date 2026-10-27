@@ -76,4 +76,64 @@ void main() {
     expect(await db.select(db.routines).get(), hasLength(1));
     await db.close();
   });
+
+  test('a v8 database upgrades straight to v10 with its data intact', () async {
+    final schema = await verifier.schemaAt(8);
+    final old = v9.DatabaseAtV9(schema.newConnection()); // same tables as v8
+    await old.close();
+    final fresh = await verifier.schemaAt(8);
+    final db = AppDatabase(fresh.newConnection());
+    await verifier.migrateAndValidate(db, 10);
+    expect(await db.select(db.routines).get(), isEmpty);
+    expect(await db.select(db.collectionLinks).get(), isEmpty);
+    await db.close();
+  });
+
+  test('foreign keys hold: a step needs an existing routine; tombstoned '
+      'routines keep their steps referenced', () async {
+    final schema = await verifier.schemaAt(9);
+    final db = AppDatabase(schema.newConnection());
+    await verifier.migrateAndValidate(db, 10);
+    final now = DateTime(2026, 10, 20, 9);
+    await expectLater(
+      db
+          .into(db.routineSteps)
+          .insert(
+            RoutineStepsCompanion.insert(
+              id: 's0',
+              createdAt: now,
+              updatedAt: now,
+              routineId: 'missing',
+              position: 0,
+              kind: 'text',
+            ),
+          ),
+      throwsA(anything),
+    );
+    await db
+        .into(db.routines)
+        .insert(
+          RoutinesCompanion.insert(
+            id: 'r1',
+            createdAt: now,
+            updatedAt: now,
+            title: 'Morning',
+          ),
+        );
+    await db
+        .into(db.routineSteps)
+        .insert(
+          RoutineStepsCompanion.insert(
+            id: 's1',
+            createdAt: now,
+            updatedAt: now,
+            routineId: 'r1',
+            position: 0,
+            kind: 'text',
+            body: const Value('Breathe'),
+          ),
+        );
+    expect(await db.select(db.routineSteps).get(), hasLength(1));
+    await db.close();
+  });
 }
