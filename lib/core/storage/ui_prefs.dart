@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
+import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Small interface settings kept on the phone, outside the encrypted database:
@@ -13,7 +15,8 @@ final class UiPrefs {
   /// Keys of the My Collections tiles, in the user's order (may be partial).
   final List<String> collectionOrder;
 
-  /// The Me hero: `bundled:<id>`, `custom`, or null for the default.
+  /// The Me hero: `bundled:<id>`, `custom:<file name>`, or null for the
+  /// default.
   final String? meHero;
 
   static const empty = UiPrefs();
@@ -52,7 +55,18 @@ abstract interface class UiPrefsStore {
   Future<UiPrefs> load();
   Future<void> save(UiPrefs prefs);
 
-  /// Removes the preferences and any personal image kept with them.
+  /// Keeps [bytes] (an already resized, re-encoded JPEG) as the personal Me
+  /// image and returns its file name. Each call makes a new name, so a changed
+  /// picture is never shown from a stale cache.
+  Future<String> saveHeroImage(Uint8List bytes);
+
+  /// The personal image saved under [name], or null if it is gone.
+  ImageProvider? heroImage(String name);
+
+  /// Removes one personal image.
+  Future<void> deleteHeroImage(String name);
+
+  /// Removes the preferences and every personal image kept with them.
   Future<void> deleteAll();
 }
 
@@ -64,10 +78,16 @@ class FileUiPrefsStore implements UiPrefsStore {
   final Directory directory;
 
   static const fileName = 'ui_preferences.json';
-  static const heroFileName = 'me_hero.jpg';
+  static const heroPrefix = 'me_hero_';
+  static final _heroName = RegExp(r'^me_hero_\d+\.jpg$');
 
   File get _file => File('${directory.path}/$fileName');
-  File get heroFile => File('${directory.path}/$heroFileName');
+
+  Iterable<File> get _heroFiles => directory.existsSync()
+      ? directory.listSync().whereType<File>().where(
+          (f) => f.uri.pathSegments.last.startsWith(heroPrefix),
+        )
+      : const [];
 
   @override
   Future<UiPrefs> load() async {
@@ -89,8 +109,30 @@ class FileUiPrefsStore implements UiPrefsStore {
   }
 
   @override
+  Future<String> saveHeroImage(Uint8List bytes) async {
+    final name = '$heroPrefix${DateTime.now().microsecondsSinceEpoch}.jpg';
+    await File('${directory.path}/$name').writeAsBytes(bytes, flush: true);
+    return name;
+  }
+
+  @override
+  ImageProvider? heroImage(String name) {
+    // Only names this store made: never a path chosen from outside.
+    if (!_heroName.hasMatch(name)) return null;
+    final f = File('${directory.path}/$name');
+    return f.existsSync() ? FileImage(f) : null;
+  }
+
+  @override
+  Future<void> deleteHeroImage(String name) async {
+    if (!_heroName.hasMatch(name)) return;
+    final f = File('${directory.path}/$name');
+    if (f.existsSync()) f.deleteSync();
+  }
+
+  @override
   Future<void> deleteAll() async {
-    for (final f in [_file, File('${_file.path}.tmp'), heroFile]) {
+    for (final f in [_file, File('${_file.path}.tmp'), ..._heroFiles]) {
       if (f.existsSync()) f.deleteSync();
     }
   }
@@ -103,6 +145,9 @@ class MemoryUiPrefsStore implements UiPrefsStore {
   UiPrefs prefs;
   int deletes = 0;
 
+  /// The personal images kept, by name.
+  final Map<String, Uint8List> images = {};
+
   @override
   Future<UiPrefs> load() async => prefs;
 
@@ -110,8 +155,23 @@ class MemoryUiPrefsStore implements UiPrefsStore {
   Future<void> save(UiPrefs next) async => prefs = next;
 
   @override
+  Future<String> saveHeroImage(Uint8List bytes) async {
+    final name = 'me_hero_${images.length + 1}_${bytes.length}.jpg';
+    images[name] = bytes;
+    return name;
+  }
+
+  @override
+  ImageProvider? heroImage(String name) =>
+      images[name] == null ? null : MemoryImage(images[name]!);
+
+  @override
+  Future<void> deleteHeroImage(String name) async => images.remove(name);
+
+  @override
   Future<void> deleteAll() async {
     prefs = UiPrefs.empty;
+    images.clear();
     deletes++;
   }
 }

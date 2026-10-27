@@ -57,5 +57,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>MoonCycle uses the camera only when you choose to take a picture for the top of your Me page. The picture stays on this phone.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MoonCycle shows only the one photo you choose for the top of your Me page. It is copied to this phone and never uploaded.</string>
 </dict>
 </plist>
