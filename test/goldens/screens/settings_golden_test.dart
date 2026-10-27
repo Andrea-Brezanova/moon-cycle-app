@@ -74,7 +74,7 @@ void main() {
 
   final screens = <String, (Widget, double)>{
     'settings': (const SettingsHomePage(), 900),
-    'my-app': (const MyAppPage(), 1100),
+    'my-app': (const MyAppPage(), 1400),
     'my-cycle': (const MyCyclePage(), 1100),
     'food-preferences': (const FoodPreferencesSettingsPage(), 844),
     'allergies': (const AllergiesPage(), 844),
