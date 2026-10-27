@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/time/today.dart';
+import 'package:moon_cycle/features/collections/presentation/collection_category_page.dart';
 import 'package:moon_cycle/features/hubs/application/hub_providers.dart';
 import 'package:moon_cycle/features/hubs/application/workout_draft.dart';
 import 'package:moon_cycle/features/hubs/domain/hub_item.dart';
 import 'package:moon_cycle/features/hubs/presentation/build_workout_page.dart';
+import 'package:moon_cycle/features/routines/data/routine_repository.dart';
+import 'package:moon_cycle/features/routines/domain/routine.dart';
 
 import '../../helpers/golden_screen.dart';
 import '../../helpers/pump_app.dart';
@@ -133,13 +136,62 @@ void main() {
     expect(find.text('2. Easy walk'), findsOneWidget);
   });
 
-  testWidgets('saving is honestly unavailable, not faked', (tester) async {
+  testWidgets('Save is disabled until something is added', (tester) async {
     await pumpBuilder(tester);
+    expect(find.byKey(const ValueKey('workout-save-note')), findsOneWidget);
     final button = find.byKey(const ValueKey('workout-save'));
     await tester.ensureVisible(button);
-    expect(find.byKey(const ValueKey('workout-save-note')), findsOneWidget);
     await tester.tap(button, warnIfMissed: false);
     await tester.pumpAndSettle();
-    expect(find.byType(BuildWorkoutPage), findsOneWidget);
+    expect(find.byType(BuildWorkoutPage), findsOneWidget); // nothing happened
+    expect(find.text('Save your workout'), findsNothing);
+  });
+
+  testWidgets('save names the workout, keeps it in My Workouts and clears '
+      'the draft; it is not a routine', (tester) async {
+    final c = await pumpBuilder(tester);
+    for (final name in ['Squats', 'Plank']) {
+      await tester.enterText(
+        find.descendant(
+          of: find.byKey(const ValueKey('workout-add-field')),
+          matching: find.byType(EditableText),
+        ),
+        name,
+      );
+      await tester.tap(find.byKey(const ValueKey('workout-add')));
+      await tester.pumpAndSettle();
+    }
+    final save = find.byKey(const ValueKey('workout-save'));
+    await tester.ensureVisible(save);
+    await tester.tap(save);
+    await tester.pumpAndSettle();
+    expect(find.text('Save your workout'), findsOneWidget);
+    await tester.enterText(
+      find.descendant(
+        of: find.byKey(const ValueKey('ask-field')),
+        matching: find.byType(EditableText),
+      ),
+      'Morning basics',
+    );
+    await tester.tap(find.byKey(const ValueKey('ask-submit')));
+    await tester.pumpAndSettle();
+
+    // We land in My Workouts, with the built workout listed.
+    expect(find.byType(CollectionCategoryPage), findsOneWidget);
+    expect(find.text('Workouts you built'.toUpperCase()), findsOneWidget);
+    expect(find.text('Morning basics'), findsOneWidget);
+    expect(find.text('2 steps'), findsOneWidget);
+    expect(c.read(workoutDraftProvider), isEmpty);
+
+    // Opening it shows the exercises in order, as a workout (not a routine).
+    await tester.tap(find.text('Morning basics'));
+    await tester.pumpAndSettle();
+    expect(find.text('1. Squats'), findsOneWidget);
+    expect(find.text('2. Plank'), findsOneWidget);
+    expect(find.text('Delete workout'), findsOneWidget);
+    final all = c.read(routinesProvider).value!;
+    expect(all.single.kind, RoutineKind.workout);
+    expect(c.read(myRoutinesProvider).value, isEmpty);
+    expect(c.read(builtWorkoutsProvider).value, hasLength(1));
   });
 }

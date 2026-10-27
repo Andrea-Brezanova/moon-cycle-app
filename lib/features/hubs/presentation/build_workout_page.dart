@@ -12,15 +12,18 @@ import '../../../core/design/widgets/moon_button.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
+import '../../collections/presentation/my_routines_page.dart' show askForText;
+import '../../routines/data/routine_repository.dart';
+import '../../routines/domain/routine.dart';
 import '../application/hub_providers.dart';
 import '../application/workout_draft.dart';
 import '../domain/hub_item.dart';
 
 /// Move › Build Your Workout: put a workout together from individual
 /// exercises. Choose from the Exercises library (reviewed items only) or type
-/// your own, reorder with the handles, remove with the minus. Saving the
-/// finished workout to My Workouts needs a storage addition that is awaiting
-/// approval, so the button says so instead of pretending to save.
+/// your own, reorder with the handles, remove with the minus. Save names the
+/// workout and keeps it in Me › My Collections › My Workouts (stored locally,
+/// in the encrypted database, with the routines).
 class BuildWorkoutPage extends ConsumerStatefulWidget {
   const BuildWorkoutPage({super.key});
 
@@ -40,6 +43,26 @@ class _BuildWorkoutPageState extends ConsumerState<BuildWorkoutPage> {
   void _addTyped() {
     ref.read(workoutDraftProvider.notifier).addCustom(_name.text);
     _name.clear();
+  }
+
+  Future<void> _save() async {
+    final draft = ref.read(workoutDraftProvider);
+    if (draft.isEmpty) return;
+    final title = await askForText(
+      context,
+      title: 'Save your workout',
+      hint: 'Name your workout',
+      action: 'Save',
+    );
+    if (title == null) return;
+    final repo = ref.read(routineRepositoryProvider);
+    final id = await repo.create(title, kind: RoutineKind.workout);
+    if (id == null) return;
+    for (final e in draft) {
+      await repo.addTextStep(id, e.name);
+    }
+    ref.read(workoutDraftProvider.notifier).clear();
+    if (mounted) context.go(Routes.collectionWorkouts);
   }
 
   @override
@@ -136,20 +159,22 @@ class _BuildWorkoutPageState extends ConsumerState<BuildWorkoutPage> {
                       ],
                     ),
                   const SizedBox(height: 22),
-                  const MoonButton(
+                  MoonButton(
                     'Save to My Workouts',
-                    key: ValueKey('workout-save'),
-                    variant: MoonButtonVariant.ghost,
-                    onPressed: null,
+                    key: const ValueKey('workout-save'),
+                    variant: draft.isEmpty
+                        ? MoonButtonVariant.ghost
+                        : MoonButtonVariant.primary,
+                    onPressed: draft.isEmpty ? null : _save,
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Saving a built workout is not available yet: it needs a '
-                    'small storage addition that is waiting for approval. '
-                    'Your list is kept only while you are on this page.',
-                    key: const ValueKey('workout-save-note'),
-                    style: dmSans(13, height: 1.45, color: c.textMuted),
-                  ),
+                  if (draft.isEmpty) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      'Add at least one exercise to save a workout.',
+                      key: const ValueKey('workout-save-note'),
+                      style: dmSans(13, height: 1.45, color: c.textMuted),
+                    ),
+                  ],
                 ],
               ),
             ),
