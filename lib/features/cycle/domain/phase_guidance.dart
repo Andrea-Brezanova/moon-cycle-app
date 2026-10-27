@@ -44,60 +44,45 @@ List<String> phaseFocusPrinciples(Phase phase) => switch (phase) {
   ],
 };
 
-/// The Foods page's three explanatory points for [phase], in order: what your
-/// body may need, why these foods, how to eat this phase. Approved wording,
+/// The Foods page's two explanatory points for [phase], in order: what your
+/// body may need, how to eat this phase. Approved wording,
 /// aligned with the featured-phase model (one featured phase per food).
-({String need, String why, String how}) foodsIntroCopy(Phase phase) =>
-    switch (phase) {
-      Phase.menstrual => (
-        need:
-            'Iron is the main nutrition focus because menstrual blood loss '
-            'increases iron losses. Vitamin C helps the body absorb '
-            'plant-based iron.',
-        why:
-            'We feature iron-rich foods, vitamin-C-rich companions and '
-            'nourishing foods that fit warm menstrual meals. Each food is '
-            'featured in one phase to encourage variety across the cycle.',
-        how:
-            'Warm, comforting meals such as soups, stews, porridge and warm '
-            'bowls.',
-      ),
-      Phase.follicular => (
-        need:
-            'Think fresh starts: colourful produce, nourishing whole foods and '
-            'plenty of variety to build light, balanced meals.',
-        why:
-            'We feature fresh, versatile foods that make it easy to build '
-            'colourful, lighter meals and bring new variety into the cycle.',
-        how:
-            'Fresh, light and quick: salads, bowls, light steaming and quick '
-            'sautés.',
-      ),
-      Phase.ovulatory => (
-        need:
-            'Keep it bright and fresh: juicy fruit, crisp vegetables and '
-            'balanced meals that feel light and vibrant.',
-        why:
-            'We feature crisp, colourful and hydrating foods that work '
-            'naturally in fresh bowls, salads and quick meals.',
-        how:
-            'Crisp, fresh and lightly cooked: salads, chilled dishes, bowls '
-            'and quick-cooked meals.',
-      ),
-      Phase.luteal => (
-        need:
-            'Appetite and energy intake may increase for some people, so '
-            'protein, fibre and slower-digesting carbohydrates can help make '
-            'meals more satisfying.',
-        why:
-            'We feature foods that help build filling meals with protein, '
-            'fibre and substantial whole-food carbohydrates, while '
-            'introducing foods not emphasized earlier in the cycle.',
-        how:
-            'Hearty, grounding meals such as roasting, baking, warm bowls '
-            'and one-pot dishes.',
-      ),
-    };
+({String need, String how}) foodsIntroCopy(Phase phase) => switch (phase) {
+  Phase.menstrual => (
+    need:
+        'Iron is the main nutrition focus because menstrual blood loss '
+        'increases iron losses. Vitamin C helps the body absorb '
+        'plant-based iron.',
+    how:
+        'Warm, comforting meals such as soups, stews, porridge and warm '
+        'bowls.',
+  ),
+  Phase.follicular => (
+    need:
+        'Think fresh starts: colourful produce, nourishing whole foods and '
+        'plenty of variety to build light, balanced meals.',
+    how:
+        'Fresh, light and quick: salads, bowls, light steaming and quick '
+        'sautés.',
+  ),
+  Phase.ovulatory => (
+    need:
+        'Keep it bright and fresh: juicy fruit, crisp vegetables and '
+        'balanced meals that feel light and vibrant.',
+    how:
+        'Crisp, fresh and lightly cooked: salads, chilled dishes, bowls '
+        'and quick-cooked meals.',
+  ),
+  Phase.luteal => (
+    need:
+        'Appetite and energy intake may increase for some people, so '
+        'protein, fibre and slower-digesting carbohydrates can help make '
+        'meals more satisfying.',
+    how:
+        'Hearty, grounding meals such as roasting, baking, warm bowls '
+        'and one-pot dishes.',
+  ),
+};
 
 /// Shown under the Foods intro.
 const foodsUniversalNote =

@@ -78,7 +78,8 @@ void main() {
       );
       expect(find.text('Search your collections'), findsOneWidget);
       expect(find.text('Nothing saved yet'), findsWidgets);
-      // Four tiles, all the same square size, two per row.
+      // Four tiles, all exactly the same size, two per row, with the picture,
+      // the divider and the title in the same place on each.
       final sizes = [
         for (final k in [
           'collection-recipes',
@@ -89,8 +90,30 @@ void main() {
           tester.getSize(find.byKey(ValueKey(k))),
       ];
       for (final z in sizes) {
-        expect(z.width, closeTo(z.height, 0.5));
         expect(z.width, closeTo(sizes.first.width, 0.5));
+        expect(z.height, closeTo(sizes.first.height, 0.5));
+      }
+      double dy(String key, Finder inside) =>
+          tester.getTopLeft(inside).dy -
+          tester.getTopLeft(find.byKey(ValueKey(key))).dy;
+      final titles = {
+        'collection-recipes': 'My Recipes',
+        'collection-workouts': 'My Workouts',
+        'collection-spa': 'My Spa',
+        'collection-routines': 'My Routines',
+      };
+      final offsets = [
+        for (final e in titles.entries)
+          dy(
+            e.key,
+            find.descendant(
+              of: find.byKey(ValueKey(e.key)),
+              matching: find.text(e.value),
+            ),
+          ),
+      ];
+      for (final o in offsets) {
+        expect(o, closeTo(offsets.first, 3)); // same title position
       }
       expect(
         tester.getTopLeft(find.byKey(const ValueKey('collection-spa'))).dy,
@@ -140,8 +163,10 @@ void main() {
     expect(find.text(frittata), findsOneWidget);
     expect(find.text('Recipe'), findsOneWidget); // the badge
     expect(find.text('From Moon Cycle'), findsOneWidget);
-    expect(find.text('1 saved'), findsOneWidget); // My Recipes, counted once
-    expect(find.text('Nothing yet'), findsNWidgets(2)); // workouts, spa
+    // The tiles carry only their titles: no counts or status text.
+    for (final t in ['1 saved', 'Nothing yet', '1 link', 'Not available yet']) {
+      expect(find.text(t), findsNothing, reason: t);
+    }
     await tester.tap(find.text(frittata));
     await tester.pumpAndSettle();
     expect(find.byType(RecipeDetailPage), findsOneWidget);
