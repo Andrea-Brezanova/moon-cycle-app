@@ -13,6 +13,7 @@ import '../../features/collections/presentation/collection_link_detail_page.dart
 import '../../features/collections/presentation/collection_link_page.dart';
 import '../../features/collections/presentation/collections_page.dart';
 import '../../features/collections/presentation/my_routines_page.dart';
+import '../../features/collections/presentation/routine_page.dart';
 import '../../features/credits/presentation/credits_page.dart';
 import '../../features/diary/domain/diary_entry.dart';
 import '../../features/diary/presentation/diary_activities_page.dart';
@@ -37,6 +38,7 @@ import '../../features/generation/presentation/create_recipe_page.dart';
 import '../../features/generation/presentation/my_recipes_page.dart';
 import '../../features/home/presentation/home_page.dart';
 import '../../features/hubs/domain/hub_item.dart';
+import '../../features/hubs/presentation/build_workout_page.dart';
 import '../../features/hubs/presentation/hub_home_page.dart';
 import '../../features/hubs/presentation/hub_item_page.dart';
 import '../../features/hubs/presentation/hub_library_page.dart';
@@ -139,6 +141,12 @@ GoRouter buildAppRouter({
                   }),
                   routes: switch (tab) {
                     AppTab.move || AppTab.relax => [
+                      if (tab == AppTab.move)
+                        GoRoute(
+                          path: 'build-workout',
+                          pageBuilder: (context, state) =>
+                              _page(state, const BuildWorkoutPage()),
+                        ),
                       GoRoute(
                         path: 'library/:kind',
                         pageBuilder: (context, state) => _page(
@@ -414,6 +422,17 @@ GoRouter buildAppRouter({
                             path: 'routines',
                             pageBuilder: (context, state) =>
                                 _page(state, const MyRoutinesPage()),
+                            routes: [
+                              GoRoute(
+                                path: ':id',
+                                pageBuilder: (context, state) => _page(
+                                  state,
+                                  RoutinePage(
+                                    routineId: state.pathParameters['id']!,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           for (final category in [
                             CollectionCategory.workouts,

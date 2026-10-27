@@ -36,8 +36,9 @@ class RoutineRepository {
   /// Every routine with its steps, newest first.
   Future<List<Routine>> all() async => _toDomain(await _liveRows());
 
+  /// Live: re-emits when a routine or any step changes.
   Stream<List<Routine>> watchAll() => _db
-      .select(_db.routines)
+      .customSelect('SELECT 1', readsFrom: {_db.routines, _db.routineSteps})
       .watch()
       .asyncMap((_) async => _toDomain(await _liveRows()));
 

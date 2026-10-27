@@ -12,7 +12,6 @@ import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
-import '../../cycle/application/viewing_phase.dart' show actualPhaseProvider;
 import '../../home/presentation/widgets/home_v2.dart' show HomeOverline;
 import '../../home/presentation/widgets/plant_photos.dart';
 import '../application/plant_providers.dart';
@@ -28,7 +27,8 @@ class ThreePlantsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final dark = Theme.of(context).brightness == Brightness.dark;
-    final phase = ref.watch(actualPhaseProvider);
+    final selected = ref.watch(plantsDayProvider);
+    final phase = selected.phase;
     final palette = c.phase(phase);
     final catalogue = ref.watch(catalogueProvider);
     final content = catalogue.phase(phase);
@@ -85,7 +85,10 @@ class ThreePlantsPage extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'YOUR ${content.name.toUpperCase()} PHASE',
+                          selected.preview
+                              ? 'PREVIEW · DAY ${selected.day} · '
+                                    '${content.name.toUpperCase()} PHASE'
+                              : 'YOUR ${content.name.toUpperCase()} PHASE',
                           style: dmSans(
                             12,
                             weight: FontWeight.w600,

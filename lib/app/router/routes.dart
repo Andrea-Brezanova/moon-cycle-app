@@ -182,6 +182,7 @@ abstract final class Routes {
   static const String collectionWorkouts = '/more/collections/workouts';
   static const String collectionSpa = '/more/collections/spa';
   static const String collectionRoutines = '/more/collections/routines';
+  static String routine(String id) => '/more/collections/routines/$id';
 
   /// A saved link: add one (in [category], a `LinkCategory` name), open one's
   /// details, or edit it. The form covers the tab bar.
@@ -190,6 +191,9 @@ abstract final class Routes {
   static String collectionLink(String id) => '/more/collections/link/$id';
   static String collectionLinkEdit(String id) =>
       '/more/collections/link/$id/edit';
+
+  /// Move › Build Your Workout.
+  static const String buildWorkout = '/move/build-workout';
 
   /// The Move and Relax libraries (by [kind], a `HubKind` name) and one item.
   static String hubLibrary(AppTab tab, String kind) =>

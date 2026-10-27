@@ -4,12 +4,17 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:moon_cycle/core/design/moon_theme.dart';
+import 'package:moon_cycle/core/design/widgets/hub_card.dart';
+import 'package:moon_cycle/core/design/widgets/hub_hero.dart';
+import 'package:moon_cycle/core/domain/phase.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/collections/application/collections_providers.dart';
 import 'package:moon_cycle/features/collections/presentation/collection_link_page.dart';
-import 'package:moon_cycle/features/collections/presentation/my_routines_page.dart';
+import 'package:moon_cycle/features/cycle/application/viewing_phase.dart';
 import 'package:moon_cycle/features/hubs/application/hub_providers.dart';
 import 'package:moon_cycle/features/hubs/domain/hub_item.dart';
+import 'package:moon_cycle/features/hubs/presentation/build_workout_page.dart';
 import 'package:moon_cycle/features/hubs/presentation/hub_item_page.dart';
 import 'package:moon_cycle/features/hubs/presentation/hub_library_page.dart';
 
@@ -134,7 +139,7 @@ void main() {
     for (final t in [
       'Exercises',
       'Workouts',
-      'Build Your Routine',
+      'Build Your Workout',
       'My Workouts',
     ]) {
       expect(find.text(t), findsOneWidget, reason: t);
@@ -144,7 +149,7 @@ void main() {
     for (final (key, page) in [
       ('hub-move-exercises', find.byType(HubLibraryPage)),
       ('hub-move-workouts', find.byType(HubLibraryPage)),
-      ('hub-move-routine', find.byType(MyRoutinesPage)),
+      ('hub-move-build', find.byType(BuildWorkoutPage)),
     ]) {
       await tester.tap(find.byKey(ValueKey(key)));
       await tester.pumpAndSettle();
@@ -217,6 +222,74 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Saved'), findsOneWidget);
     expect(c.read(collectionSummaryProvider).workoutLinks, 1);
+  });
+
+  group('Eat, Move and Relax look like one app', () {
+    Future<Rect> heroRect(WidgetTester tester, String tab) async {
+      await tester.tap(find.byKey(ValueKey('tab-$tab')));
+      await tester.pumpAndSettle();
+      return tester.getRect(find.byType(HubHero));
+    }
+
+    testWidgets('the three hero cards share width, left edge and image '
+        'proportions', (tester) async {
+      await pumpTab(tester, 'eat');
+      final eat = tester.getRect(find.byType(HubHero));
+      final eatImage = tester.getSize(
+        find.descendant(
+          of: find.byType(HubHero),
+          matching: find.byType(AspectRatio),
+        ),
+      );
+      for (final tab in ['move', 'relax']) {
+        final r = await heroRect(tester, tab);
+        expect(r.left, closeTo(eat.left, 0.5), reason: tab);
+        expect(r.width, closeTo(eat.width, 0.5), reason: tab);
+        final image = tester.getSize(
+          find.descendant(
+            of: find.byType(HubHero),
+            matching: find.byType(AspectRatio),
+          ),
+        );
+        expect(image.width / image.height, closeTo(1.86, 0.01), reason: tab);
+        expect(eatImage.width / eatImage.height, closeTo(1.86, 0.01));
+        // The hero sits above the first section card.
+        final firstCard = tester.getTopLeft(
+          find.byKey(
+            ValueKey('hub-$tab-${tab == 'move' ? 'exercises' : 'meditations'}'),
+          ),
+        );
+        expect(r.bottom, lessThan(firstCard.dy));
+      }
+    });
+
+    for (final tab in ['eat', 'move', 'relax']) {
+      testWidgets('$tab: card icons wear the viewed phase and follow it', (
+        tester,
+      ) async {
+        final c = await pumpTab(tester, tab);
+        Color? disc() {
+          final deco = tester
+              .widgetList<Container>(
+                find.descendant(
+                  of: find.byType(HubCard).first,
+                  matching: find.byType(Container),
+                ),
+              )
+              .map((e) => e.decoration)
+              .whereType<BoxDecoration>()
+              .firstWhere((d) => d.shape == BoxShape.circle);
+          return deco.color;
+        }
+
+        final context = tester.element(find.byType(HubCard).first);
+        for (final phase in Phase.values) {
+          c.read(viewingPhaseProvider.notifier).choose(phase);
+          await tester.pumpAndSettle();
+          expect(disc(), context.moon.phase(phase).tint, reason: phase.name);
+        }
+      });
+    }
   });
 
   for (final (width, scale) in [(320.0, 1.5), (390.0, 2.0)]) {
