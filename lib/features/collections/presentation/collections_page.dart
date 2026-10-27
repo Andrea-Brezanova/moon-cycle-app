@@ -39,7 +39,6 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final summary = ref.watch(collectionSummaryProvider);
     final recent = ref.watch(recentlySavedProvider);
     final q = _query.trim().toLowerCase();
     final results = q.isEmpty
@@ -55,45 +54,28 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
       child: child,
     );
 
-    String recipesLine() {
-      final parts = [
-        if (summary.recipesSaved > 0) '${summary.recipesSaved} saved',
-        if (summary.recipesMine > 0) '${summary.recipesMine} added by me',
-        if (summary.recipeLinks > 0)
-          '${summary.recipeLinks} ${summary.recipeLinks == 1 ? 'link' : 'links'}',
-      ];
-      return parts.isEmpty ? 'Nothing saved yet' : parts.join(' · ');
-    }
-
-    String linksLine(int n) =>
-        n == 0 ? 'Nothing yet' : '$n saved ${n == 1 ? 'link' : 'links'}';
-
     final tiles = [
       _Tile(
         key: const ValueKey('collection-recipes'),
         category: CollectionCategory.recipes,
         title: 'My Recipes',
-        line: recipesLine(),
         onTap: () => context.push(Routes.myRecipes),
       ),
       _Tile(
         key: const ValueKey('collection-workouts'),
         category: CollectionCategory.workouts,
         title: 'My Workouts',
-        line: linksLine(summary.workoutLinks),
         onTap: () => context.push(Routes.collectionWorkouts),
       ),
       _Tile(
         key: const ValueKey('collection-spa'),
         category: CollectionCategory.spa,
         title: 'My Spa',
-        line: linksLine(summary.spaLinks),
         onTap: () => context.push(Routes.collectionSpa),
       ),
       _Tile(
         key: const ValueKey('collection-routines'),
         title: 'My Routines',
-        line: 'Not available yet',
         onTap: () => context.push(Routes.collectionRoutines),
       ),
     ];
@@ -254,68 +236,89 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
   }
 }
 
-/// A square category tile: photograph on top (or a tinted icon when the
-/// category has none), title and live count below. All four are the same size.
+/// The one tile every collection category uses: a photograph of fixed
+/// proportions above a title area of fixed height, so the picture, the divider
+/// and the title sit in the same place on all four tiles. It shows the title
+/// only: no counts or status text.
 class _Tile extends StatelessWidget {
   const _Tile({
     super.key,
     this.category,
     required this.title,
-    required this.line,
     required this.onTap,
   });
 
-  /// Null for My Routines, which has no photograph.
+  /// Null for My Routines, which has no photograph yet.
   final CollectionCategory? category;
   final String title;
-  final String line;
   final VoidCallback onTap;
+
+  /// Width over height of the picture area.
+  static const imageAspect = 1.25;
+
+  static const titleSize = 17.5;
+  static const titleLines = 2;
+  static const titleHeightFactor = 1.15;
+  static const titlePadding = EdgeInsets.fromLTRB(14, 10, 10, 12);
 
   @override
   Widget build(BuildContext context) {
     final c = context.moon;
-    final square = MediaQuery.textScalerOf(context).scale(14) <= 14.7;
+    // Room for two lines at the current text size, the same on every tile.
+    final scale = MediaQuery.textScalerOf(context).scale(titleSize) / titleSize;
+    final titleArea =
+        titlePadding.vertical +
+        titleSize * titleHeightFactor * titleLines * scale;
     return Pressable(
       onTap: onTap,
-      semanticLabel: '$title. $line',
-      child: _TileFrame(
-        // Square at the normal text size; with enlarged text it grows to fit
-        // the title and count instead.
-        square: square,
-        child: Container(
-          decoration: BoxDecoration(
-            color: c.raised,
-            border: Border.all(color: c.line),
-            borderRadius: BorderRadius.circular(24),
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            mainAxisSize: square ? MainAxisSize.max : MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _TilePhoto(category: category, square: square),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(14, 10, 10, 12),
+      semanticLabel: title,
+      child: Container(
+        decoration: BoxDecoration(
+          color: c.raised,
+          border: Border.all(color: c.line),
+          borderRadius: BorderRadius.circular(24),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            AspectRatio(
+              aspectRatio: imageAspect,
+              child: category != null
+                  ? CollectionPhoto(category!)
+                  : ColoredBox(
+                      color: c.phase(Phase.luteal).tint,
+                      child: Center(
+                        child: ExcludeSemantics(
+                          child: MoonIcon(
+                            MoonIconName.clock,
+                            size: 34,
+                            color: c.text,
+                            strokeWidth: 1.6,
+                          ),
+                        ),
+                      ),
+                    ),
+            ),
+            SizedBox(
+              height: titleArea,
+              child: Padding(
+                padding: titlePadding,
                 child: Row(
                   children: [
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: fraunces(17.5, height: 1.15, color: c.text),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          title,
+                          maxLines: titleLines,
+                          overflow: TextOverflow.ellipsis,
+                          style: fraunces(
+                            titleSize,
+                            height: titleHeightFactor,
+                            color: c.text,
                           ),
-                          const SizedBox(height: 2),
-                          Text(
-                            line,
-                            style: dmSans(
-                              12.5,
-                              height: 1.3,
-                              color: c.textMuted,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                     MoonIcon(
@@ -327,53 +330,11 @@ class _Tile extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
-  }
-}
-
-/// Gives a tile a 1:1 box, or lets it size to its content.
-class _TileFrame extends StatelessWidget {
-  const _TileFrame({required this.square, required this.child});
-
-  final bool square;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) =>
-      square ? AspectRatio(aspectRatio: 1, child: child) : child;
-}
-
-/// The photograph (or My Routines' tinted icon) at the top of a tile: it takes
-/// the space left over in a square tile and a fixed height otherwise.
-class _TilePhoto extends StatelessWidget {
-  const _TilePhoto({required this.category, required this.square});
-
-  final CollectionCategory? category;
-  final bool square;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.moon;
-    final photo = category != null
-        ? CollectionPhoto(category!)
-        : ColoredBox(
-            color: c.phase(Phase.luteal).tint,
-            child: Center(
-              child: ExcludeSemantics(
-                child: MoonIcon(
-                  MoonIconName.clock,
-                  size: 34,
-                  color: c.text,
-                  strokeWidth: 1.6,
-                ),
-              ),
-            ),
-          );
-    return square ? Expanded(child: photo) : SizedBox(height: 72, child: photo);
   }
 }
 
