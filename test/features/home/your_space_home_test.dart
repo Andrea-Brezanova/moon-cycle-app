@@ -161,6 +161,52 @@ void main() {
     });
   }
 
+  for (final (width, scale) in [
+    (390.0, 1.0),
+    (320.0, 1.0),
+    (390.0, 1.5),
+    (320.0, 2.0),
+  ]) {
+    testWidgets('${width}pt at $scale× text: in each shortcut the title, the '
+        'picture and the arrow share one centre line', (tester) async {
+      await pumpHome(tester, width: width, scale: scale);
+      await toYourSpace(tester);
+      final rows = <Rect>[];
+      for (final key in ['your-space-diary', 'your-space-shopping']) {
+        final card = find.byKey(ValueKey(key));
+        final title = tester.getRect(
+          find.descendant(
+            of: card,
+            matching: find.byKey(const ValueKey('shortcut-title')),
+          ),
+        );
+        final arrow = tester.getRect(
+          find.descendant(
+            of: card,
+            matching: find.byKey(const ValueKey('shortcut-arrow')),
+          ),
+        );
+        final photo = tester.getRect(
+          find.descendant(of: card, matching: find.byType(ClipRRect)),
+        );
+        final center = tester.getRect(card).center.dy;
+        for (final (name, r) in [
+          ('title', title),
+          ('arrow', arrow),
+          ('photo', photo),
+        ]) {
+          expect(r.center.dy, closeTo(center, 1.5), reason: '$key $name');
+        }
+        rows.add(tester.getRect(card));
+      }
+      // Both cards use the same padding rules: same height when side by side.
+      if (rows[0].top == rows[1].top) {
+        expect(rows[0].height, closeTo(rows[1].height, 1));
+      }
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('the list ends about 40 pt above the tab bar, with no dead '
       'space', (tester) async {
     await pumpHome(tester);
