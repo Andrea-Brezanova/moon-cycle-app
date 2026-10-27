@@ -40,10 +40,10 @@ void main() {
     expect(text, isNot(contains('lasts')));
   });
 
-  test('Foods intro copy: three points per phase, no exclusivity wording', () {
+  test('Foods intro copy: two points per phase, no exclusivity wording', () {
     for (final phase in Phase.values) {
       final c = foodsIntroCopy(phase);
-      for (final text in [c.need, c.why, c.how]) {
+      for (final text in [c.need, c.how]) {
         expect(text.trim(), isNotEmpty);
         expect(text.toLowerCase(), isNot(contains(' only ')));
         expect(text.toLowerCase(), isNot(contains('should')));

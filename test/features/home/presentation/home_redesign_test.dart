@@ -139,10 +139,10 @@ void main() {
       expect(find.text(p), findsOneWidget);
     }
     // The existing content is still there.
-    for (final t in ['WHAT YOUR BODY MAY NEED', 'WHY THESE FOODS']) {
-      await scrollTo(tester, find.text(t));
-      expect(find.text(t), findsOneWidget, reason: t);
-    }
+    await scrollTo(tester, find.text('WHAT YOUR BODY MAY NEED'));
+    expect(find.text('WHAT YOUR BODY MAY NEED'), findsOneWidget);
+    // "Why these foods" was removed as redundant.
+    expect(find.text('WHY THESE FOODS'), findsNothing);
   });
 
   for (final (width, scale) in [(320.0, 1.0), (320.0, 2.0), (390.0, 1.5)]) {
@@ -205,7 +205,7 @@ void main() {
     expect(find.byType(LearnMorePage), findsOneWidget);
     expect(find.text('YOUR FOCUS · LUTEAL'), findsOneWidget);
     expect(find.text('WHAT YOUR BODY MAY NEED'), findsOneWidget);
-    expect(find.text('WHY THESE FOODS'), findsOneWidget);
+    expect(find.text('WHY THESE FOODS'), findsNothing);
     expect(find.text('HOW TO EAT THIS PHASE'), findsOneWidget);
     expect(find.textContaining('Appetite and energy intake'), findsOneWidget);
     expect(

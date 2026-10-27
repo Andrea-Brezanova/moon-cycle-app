@@ -329,16 +329,6 @@ class _UnderlinedLink extends StatelessWidget {
   }
 }
 
-/// "2 meals today" or "Nothing logged yet".
-String mealsToday(int count) => switch (count) {
-  0 => 'Nothing logged yet',
-  1 => '1 meal today',
-  _ => '$count meals today',
-};
-
-/// "8 to buy" or "Nothing to buy".
-String itemsToBuy(int count) => count == 0 ? 'Nothing to buy' : '$count to buy';
-
 /// Home's bottom section, "Your space": one softly tinted card holding the
 /// My Collections row (a bookmark, a live count, a chevron) and, below a
 /// hairline, two photo shortcuts: My Diary and Shopping List. Everything shown
@@ -348,8 +338,6 @@ class YourSpaceCard extends StatelessWidget {
     super.key,
     required this.phase,
     required this.collectionsCount,
-    required this.diaryLine,
-    required this.shoppingLine,
     required this.onCollections,
     required this.onDiary,
     required this.onShopping,
@@ -359,8 +347,6 @@ class YourSpaceCard extends StatelessWidget {
 
   /// The number of saved items; the badge is hidden at 0.
   final int collectionsCount;
-  final String diaryLine;
-  final String shoppingLine;
   final VoidCallback onCollections;
   final VoidCallback onDiary;
   final VoidCallback onShopping;
@@ -378,7 +364,6 @@ class YourSpaceCard extends StatelessWidget {
         asset: 'assets/images/home/quick_my_diary.jpg',
         focus: const Alignment(0, -0.2),
         title: 'My Diary',
-        line: diaryLine,
         wrap: big,
         onTap: onDiary,
       ),
@@ -387,7 +372,6 @@ class YourSpaceCard extends StatelessWidget {
         asset: 'assets/images/home/quick_shopping_list.jpg',
         focus: const Alignment(-0.1, -0.2),
         title: 'Shopping List',
-        line: shoppingLine,
         wrap: big,
         onTap: onShopping,
       ),
@@ -532,7 +516,6 @@ class _Shortcut extends StatelessWidget {
     required this.asset,
     required this.focus,
     required this.title,
-    required this.line,
     required this.wrap,
     required this.onTap,
   });
@@ -540,9 +523,8 @@ class _Shortcut extends StatelessWidget {
   final String asset;
   final Alignment focus;
   final String title;
-  final String line;
 
-  /// Large text or a narrow screen: titles and lines may take two lines.
+  /// Large text or a narrow screen: titles may take two lines.
   final bool wrap;
   final VoidCallback onTap;
 
@@ -552,7 +534,7 @@ class _Shortcut extends StatelessWidget {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return Pressable(
       onTap: onTap,
-      semanticLabel: '$title, $line',
+      semanticLabel: title,
       child: Container(
         constraints: const BoxConstraints(minHeight: 58),
         alignment: Alignment.centerLeft,
@@ -589,13 +571,6 @@ class _Shortcut extends StatelessWidget {
                       maxLines: wrap ? 2 : 1,
                       overflow: wrap ? null : TextOverflow.clip,
                       style: fraunces(15, height: 1.1, color: c.text),
-                    ),
-                    const SizedBox(height: 3),
-                    // Short lines stay on one line; a longer one ("Nothing
-                    // logged yet") wraps rather than being cut off.
-                    Text(
-                      line,
-                      style: dmSans(12, height: 1.25, color: c.textMuted),
                     ),
                   ],
                 ),

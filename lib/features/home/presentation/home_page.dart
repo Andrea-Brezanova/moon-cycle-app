@@ -11,8 +11,6 @@ import '../../content/application/content_providers.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/log_period_sheet.dart';
-import '../../diary/application/diary_providers.dart';
-import '../../shopping/application/shopping_summary.dart';
 import 'widgets/home_hero.dart';
 import 'widgets/home_photos.dart';
 import 'widgets/home_sections.dart';
@@ -37,8 +35,6 @@ class HomePage extends ConsumerWidget {
     final catalogue = ref.watch(catalogueProvider);
     final late = state.isLate && state.daysLate >= latePromptAfterDays;
     // Read-only live numbers for Your space.
-    final mealCount = ref.watch(todayMealCountProvider);
-    final toBuy = ref.watch(shoppingSummaryProvider).toBuy;
     final collectionsCount = ref.watch(collectionSummaryProvider).total;
     Widget padded(Widget child) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -123,8 +119,6 @@ class HomePage extends ConsumerWidget {
             YourSpaceCard(
               phase: phase,
               collectionsCount: collectionsCount,
-              diaryLine: mealsToday(mealCount),
-              shoppingLine: itemsToBuy(toBuy),
               onCollections: () => context.push(Routes.collections),
               onDiary: () => context.push(Routes.diary),
               onShopping: () => context.go(Routes.shopping),
