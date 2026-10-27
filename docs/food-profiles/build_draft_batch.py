@@ -37,6 +37,8 @@ DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'f
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
                  source='NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)'),
+    'grapefruit-meds': dict(text='Grapefruit and grapefruit juice can change the way some medicines work, including some statins and some blood pressure medicines. If your medicine label or pharmacist warns against grapefruit, avoid it.',
+                            source="FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27)"),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }

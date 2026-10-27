@@ -1,0 +1,1761 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "grapefruit": {
+      "catalogueId": "grapefruit",
+      "name": "Grapefruit",
+      "sections": {
+        "whatItOffers": "Half a pink or red grapefruit gives about half the daily vitamin C reference and some vitamin A, for around 50 calories. It is tart and juicy, with a pleasantly bitter edge.",
+        "practicalServing": "½ grapefruit (USDA: 0.5 fruit, 3¾ in across = 123 g)",
+        "howToEatIt": "Eat in segments with a spoon, add to salads with avocado or fennel, or grill with a little cinnamon.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of grapefruit alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 174673,
+        "usdaDescription": "Grapefruit, raw, pink and red, all areas",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, pink and red, flesh",
+        "portionGrams": 123,
+        "portion": "½ grapefruit (USDA: 0.5 fruit, 3¾ in across = 123 g)",
+        "per100g": {
+          "protein": 0.77,
+          "fat": 0.14,
+          "carb": 10.7,
+          "fiber": 1.6,
+          "ca": 22,
+          "iron": 0.08,
+          "mg": 9,
+          "k": 135,
+          "zn": 0.07,
+          "vitc": 31.2,
+          "folate": 13,
+          "vita": 58,
+          "vite": 0.13,
+          "vitk": 0,
+          "kcal": 42
+        }
+      },
+      "perServing": {
+        "energyKcal": 52,
+        "proteinG": 0.9,
+        "fatG": 0.2,
+        "carbohydrateG": 13.2,
+        "fiberG": 2.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 38,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 51
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 71,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Grapefruit and grapefruit juice can change the way some medicines work, including some statins and some blood pressure medicines. If your medicine label or pharmacist warns against grapefruit, avoid it.",
+          "source": "FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "grapes": {
+      "catalogueId": "grapes",
+      "name": "Grapes",
+      "sections": {
+        "whatItOffers": "Grapes are sweet, easy-to-eat fruit with some potassium and vitamin K. A cup is mostly water and natural sugars, so it is more refreshing than filling.",
+        "practicalServing": "1 cup (USDA: 1 cup = 151 g)",
+        "howToEatIt": "Eat them as they are, chilled or frozen, or add halved grapes to chicken or grain salads and cheese boards.",
+        "cycleRelevance": "No cycle-phase claim is made for grapes; they are a simple, hydrating snack at any point in the cycle."
+      },
+      "source": {
+        "usdaFdcId": 174683,
+        "usdaDescription": "Grapes, red or green (European type, such as Thompson seedless), raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, red or green",
+        "portionGrams": 151,
+        "portion": "1 cup (USDA: 1 cup = 151 g)",
+        "per100g": {
+          "protein": 0.72,
+          "fat": 0.16,
+          "carb": 18.1,
+          "fiber": 0.9,
+          "ca": 10,
+          "iron": 0.36,
+          "mg": 7,
+          "k": 191,
+          "zn": 0.07,
+          "vitc": 3.2,
+          "folate": 2,
+          "vita": 3,
+          "vite": 0.19,
+          "vitk": 14.6,
+          "kcal": 69
+        }
+      },
+      "perServing": {
+        "energyKcal": 104,
+        "proteinG": 1.1,
+        "fatG": 0.2,
+        "carbohydrateG": 27.3,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 288,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 22,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kiwi": {
+      "catalogueId": "kiwi",
+      "name": "Kiwi",
+      "sections": {
+        "whatItOffers": "One kiwifruit supplies about 85% of the daily vitamin C reference, along with potassium, vitamin K and a little vitamin E and fibre.",
+        "practicalServing": "1 kiwifruit (USDA: 1 fruit, 2 in across = 69 g)",
+        "howToEatIt": "Halve and scoop with a spoon, slice into yoghurt or salads, or blend into smoothies. The skin is edible if washed, though many people peel it.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of kiwi alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 168153,
+        "usdaDescription": "Kiwifruit, green, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, green, flesh",
+        "portionGrams": 69,
+        "portion": "1 kiwifruit (USDA: 1 fruit, 2 in across = 69 g)",
+        "per100g": {
+          "protein": 1.14,
+          "fat": 0.52,
+          "carb": 14.7,
+          "fiber": 3,
+          "ca": 34,
+          "iron": 0.31,
+          "mg": 17,
+          "k": 312,
+          "zn": 0.14,
+          "vitc": 92.7,
+          "folate": 25,
+          "vita": 4,
+          "vite": 1.46,
+          "vitk": 40.3,
+          "kcal": 61
+        }
+      },
+      "perServing": {
+        "energyKcal": 42,
+        "proteinG": 0.8,
+        "fatG": 0.4,
+        "carbohydrateG": 10.1,
+        "fiberG": 2.1,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 64,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 85
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 215,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 28,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "papaya": {
+      "catalogueId": "papaya",
+      "name": "Papaya",
+      "sections": {
+        "whatItOffers": "Papaya is a soft, sweet tropical fruit that is an excellent source of vitamin C (about 118% of the reference in a cup) with folate and potassium.",
+        "practicalServing": "1 cup of 1 in pieces (USDA: 145 g)",
+        "howToEatIt": "Scoop ripe papaya with lime juice, cube it into fruit salads and salsas, or blend it into smoothies.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS), and a cup of papaya provides about 13% of the reference. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169926,
+        "usdaDescription": "Papayas, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 145,
+        "portion": "1 cup of 1 in pieces (USDA: 145 g)",
+        "per100g": {
+          "protein": 0.47,
+          "fat": 0.26,
+          "carb": 10.8,
+          "fiber": 1.7,
+          "ca": 20,
+          "iron": 0.25,
+          "mg": 21,
+          "k": 182,
+          "zn": 0.08,
+          "vitc": 60.9,
+          "folate": 37,
+          "vita": 47,
+          "vite": 0.3,
+          "vitk": 2.6,
+          "kcal": 43
+        }
+      },
+      "perServing": {
+        "energyKcal": 62,
+        "proteinG": 0.7,
+        "fatG": 0.4,
+        "carbohydrateG": 15.7,
+        "fiberG": 2.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 88,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 118
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 54,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 264,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "plum": {
+      "catalogueId": "plum",
+      "name": "Plum",
+      "sections": {
+        "whatItOffers": "A plum is a juicy stone fruit with a little vitamin C, potassium and fibre for about 30 calories, and it is easy to carry.",
+        "practicalServing": "1 plum (USDA: 1 fruit, 2⅛ in across = 66 g)",
+        "howToEatIt": "Eat whole, slice over porridge or yoghurt, roast with spices, or stew into a compote.",
+        "cycleRelevance": "No cycle-phase claim is made for plums; they are a light fruit that adds a little vitamin C and fibre."
+      },
+      "source": {
+        "usdaFdcId": 169949,
+        "usdaDescription": "Plums, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 66,
+        "portion": "1 plum (USDA: 1 fruit, 2⅛ in across = 66 g)",
+        "per100g": {
+          "protein": 0.7,
+          "fat": 0.28,
+          "carb": 11.4,
+          "fiber": 1.4,
+          "ca": 6,
+          "iron": 0.17,
+          "mg": 7,
+          "k": 157,
+          "zn": 0.1,
+          "vitc": 9.5,
+          "folate": 5,
+          "vita": 17,
+          "vite": 0.26,
+          "vitk": 6.4,
+          "kcal": 46
+        }
+      },
+      "perServing": {
+        "energyKcal": 30,
+        "proteinG": 0.5,
+        "fatG": 0.2,
+        "carbohydrateG": 7.5,
+        "fiberG": 0.9,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pomegranate": {
+      "catalogueId": "pomegranate",
+      "name": "Pomegranate",
+      "sections": {
+        "whatItOffers": "Pomegranate arils are jewel-like, tart-sweet seeds with fibre (about 3.5 g in half a cup), vitamin C and folate.",
+        "practicalServing": "½ cup arils (USDA: 0.5 cup = 87 g)",
+        "howToEatIt": "Sprinkle over salads, rice and yoghurt, or stir into dips and salsas. To open, score the skin and break it apart under water.",
+        "cycleRelevance": "No cycle-phase claim is made for pomegranate; it is a source of fibre and vitamin C like other fruit."
+      },
+      "source": {
+        "usdaFdcId": 169134,
+        "usdaDescription": "Pomegranates, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, arils (seeds with juice sacs)",
+        "portionGrams": 87,
+        "portion": "½ cup arils (USDA: 0.5 cup = 87 g)",
+        "per100g": {
+          "protein": 1.67,
+          "fat": 1.17,
+          "carb": 18.7,
+          "fiber": 4,
+          "ca": 10,
+          "iron": 0.3,
+          "mg": 12,
+          "k": 236,
+          "zn": 0.35,
+          "vitc": 10.2,
+          "folate": 38,
+          "vita": 0,
+          "vite": 0.6,
+          "vitk": 16.4,
+          "kcal": 83
+        }
+      },
+      "perServing": {
+        "energyKcal": 72,
+        "proteinG": 1.5,
+        "fatG": 1.0,
+        "carbohydrateG": 16.3,
+        "fiberG": 3.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 33,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "nectarine": {
+      "catalogueId": "nectarine",
+      "name": "Nectarine",
+      "sections": {
+        "whatItOffers": "A nectarine is a smooth-skinned stone fruit with potassium and vitamin C, and a little vitamin A and fibre.",
+        "practicalServing": "1 medium nectarine (USDA: 2½ in across = 142 g)",
+        "howToEatIt": "Eat it ripe and whole, slice into salads and yoghurt, or grill halves for a few minutes.",
+        "cycleRelevance": "No cycle-phase claim is made for nectarines."
+      },
+      "source": {
+        "usdaFdcId": 169914,
+        "usdaDescription": "Nectarines, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 142,
+        "portion": "1 medium nectarine (USDA: 2½ in across = 142 g)",
+        "per100g": {
+          "protein": 1.06,
+          "fat": 0.32,
+          "carb": 10.6,
+          "fiber": 1.7,
+          "ca": 6,
+          "iron": 0.28,
+          "mg": 9,
+          "k": 201,
+          "zn": 0.17,
+          "vitc": 5.4,
+          "folate": 5,
+          "vita": 17,
+          "vite": 0.77,
+          "vitk": 2.2,
+          "kcal": 44
+        }
+      },
+      "perServing": {
+        "energyKcal": 62,
+        "proteinG": 1.5,
+        "fatG": 0.5,
+        "carbohydrateG": 15.1,
+        "fiberG": 2.4,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 285,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "watermelon": {
+      "catalogueId": "watermelon",
+      "name": "Watermelon",
+      "sections": {
+        "whatItOffers": "Watermelon is a hydrating fruit that is mostly water, with some vitamin C and potassium and about 46 calories in a cup.",
+        "practicalServing": "1 cup diced (USDA: 152 g)",
+        "howToEatIt": "Serve chilled in cubes or wedges, blend into drinks, or pair with feta and mint in a salad.",
+        "cycleRelevance": "No cycle-phase claim is made for watermelon; it is a refreshing way to take in fluid and some vitamin C."
+      },
+      "source": {
+        "usdaFdcId": 167765,
+        "usdaDescription": "Watermelon, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 152,
+        "portion": "1 cup diced (USDA: 152 g)",
+        "per100g": {
+          "protein": 0.61,
+          "fat": 0.15,
+          "carb": 7.55,
+          "fiber": 0.4,
+          "ca": 7,
+          "iron": 0.24,
+          "mg": 10,
+          "k": 112,
+          "zn": 0.1,
+          "vitc": 8.1,
+          "folate": 3,
+          "vita": 28,
+          "vite": 0.05,
+          "vitk": 0.1,
+          "kcal": 30
+        }
+      },
+      "perServing": {
+        "energyKcal": 46,
+        "proteinG": 0.9,
+        "fatG": 0.2,
+        "carbohydrateG": 11.5,
+        "fiberG": 0.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 12,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 170,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "apricot": {
+      "catalogueId": "apricot",
+      "name": "Apricot",
+      "sections": {
+        "whatItOffers": "Apricots are small, tangy-sweet fruits with vitamin A (from beta-carotene), vitamin C and potassium. Two apricots are about 34 calories.",
+        "practicalServing": "2 apricots (USDA: 1 apricot = 35 g)",
+        "howToEatIt": "Eat fresh, halve and roast with honey or spices, or chop into grain salads and porridge.",
+        "cycleRelevance": "No cycle-phase claim is made for apricots."
+      },
+      "source": {
+        "usdaFdcId": 171697,
+        "usdaDescription": "Apricots, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 70,
+        "portion": "2 apricots (USDA: 1 apricot = 35 g)",
+        "per100g": {
+          "protein": 1.4,
+          "fat": 0.39,
+          "carb": 11.1,
+          "fiber": 2,
+          "ca": 13,
+          "iron": 0.39,
+          "mg": 10,
+          "k": 259,
+          "zn": 0.2,
+          "vitc": 10,
+          "folate": 9,
+          "vita": 96,
+          "vite": 0.89,
+          "vitk": 3.3,
+          "kcal": 48
+        }
+      },
+      "perServing": {
+        "energyKcal": 34,
+        "proteinG": 1.0,
+        "fatG": 0.3,
+        "carbohydrateG": 7.8,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 67,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cantaloupe": {
+      "catalogueId": "cantaloupe",
+      "name": "Cantaloupe",
+      "sections": {
+        "whatItOffers": "Cantaloupe is a sweet orange melon rich in vitamin C (about 78% of the reference in a cup) and vitamin A (about 39%), with potassium.",
+        "practicalServing": "1 cup cubes (USDA: 160 g)",
+        "howToEatIt": "Cube it for fruit salads, wrap slices with ham or cheese, or blend into a chilled soup or smoothie.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of cantaloupe alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169092,
+        "usdaDescription": "Melons, cantaloupe, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 160,
+        "portion": "1 cup cubes (USDA: 160 g)",
+        "per100g": {
+          "protein": 0.84,
+          "fat": 0.19,
+          "carb": 8.16,
+          "fiber": 0.9,
+          "ca": 9,
+          "iron": 0.21,
+          "mg": 12,
+          "k": 267,
+          "zn": 0.18,
+          "vitc": 36.7,
+          "folate": 21,
+          "vita": 169,
+          "vite": 0.05,
+          "vitk": 2.5,
+          "kcal": 34
+        }
+      },
+      "perServing": {
+        "energyKcal": 54,
+        "proteinG": 1.3,
+        "fatG": 0.3,
+        "carbohydrateG": 13.1,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 59,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 78
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 270,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 39
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 427,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "raspberry": {
+      "catalogueId": "raspberry",
+      "name": "Raspberry",
+      "sections": {
+        "whatItOffers": "Raspberries are delicate, tart berries with plenty of fibre (about 8 g in a cup) and vitamin C, plus some magnesium.",
+        "practicalServing": "1 cup (USDA: 123 g)",
+        "howToEatIt": "Eat fresh, fold into yoghurt or porridge, blend into sauces, or freeze for smoothies.",
+        "cycleRelevance": "No cycle-phase claim is made for raspberries; they are an easy way to add fibre and vitamin C."
+      },
+      "source": {
+        "usdaFdcId": 167755,
+        "usdaDescription": "Raspberries, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 123,
+        "portion": "1 cup (USDA: 123 g)",
+        "per100g": {
+          "protein": 1.2,
+          "fat": 0.65,
+          "carb": 11.9,
+          "fiber": 6.5,
+          "ca": 25,
+          "iron": 0.69,
+          "mg": 22,
+          "k": 151,
+          "zn": 0.42,
+          "vitc": 26.2,
+          "folate": 21,
+          "vita": 2,
+          "vite": 0.87,
+          "vitk": 7.8,
+          "kcal": 52
+        }
+      },
+      "perServing": {
+        "energyKcal": 64,
+        "proteinG": 1.5,
+        "fatG": 0.8,
+        "carbohydrateG": 14.6,
+        "fiberG": 8.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 32,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 43
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 27,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 9
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 8.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "peach": {
+      "catalogueId": "peach",
+      "name": "Peach",
+      "sections": {
+        "whatItOffers": "A medium peach is a juicy, fragrant stone fruit with potassium and vitamin C for about 60 calories.",
+        "practicalServing": "1 medium peach (USDA: 2⅔ in across = 150 g)",
+        "howToEatIt": "Eat ripe and whole, slice into salads and porridge, grill halves, or bake into crumbles.",
+        "cycleRelevance": "No cycle-phase claim is made for peaches."
+      },
+      "source": {
+        "usdaFdcId": 169928,
+        "usdaDescription": "Peaches, yellow, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, yellow",
+        "portionGrams": 150,
+        "portion": "1 medium peach (USDA: 2⅔ in across = 150 g)",
+        "per100g": {
+          "protein": 0.91,
+          "fat": 0.25,
+          "carb": 9.54,
+          "fiber": 1.5,
+          "ca": 6,
+          "iron": 0.25,
+          "mg": 9,
+          "k": 190,
+          "zn": 0.17,
+          "vitc": 6.6,
+          "folate": 4,
+          "vita": 16,
+          "vite": 0.73,
+          "vitk": 2.6,
+          "kcal": 39
+        }
+      },
+      "perServing": {
+        "energyKcal": 59,
+        "proteinG": 1.4,
+        "fatG": 0.4,
+        "carbohydrateG": 14.3,
+        "fiberG": 2.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 10,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 285,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "honeydew": {
+      "catalogueId": "honeydew",
+      "name": "Honeydew melon",
+      "sections": {
+        "whatItOffers": "Honeydew is a pale, mild melon with vitamin C (about 41% of the reference in a cup) and potassium (about 15% of the adequate intake).",
+        "practicalServing": "1 cup diced (USDA: 170 g)",
+        "howToEatIt": "Cube it into fruit salads, serve chilled with lime, or blend into drinks.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of honeydew alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169911,
+        "usdaDescription": "Melons, honeydew, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 170,
+        "portion": "1 cup diced (USDA: 170 g)",
+        "per100g": {
+          "protein": 0.54,
+          "fat": 0.14,
+          "carb": 9.09,
+          "fiber": 0.8,
+          "ca": 6,
+          "iron": 0.17,
+          "mg": 10,
+          "k": 228,
+          "zn": 0.09,
+          "vitc": 18,
+          "folate": 19,
+          "vita": 3,
+          "vite": 0.02,
+          "vitk": 2.9,
+          "kcal": 36
+        }
+      },
+      "perServing": {
+        "energyKcal": 61,
+        "proteinG": 0.9,
+        "fatG": 0.2,
+        "carbohydrateG": 15.5,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 31,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 41
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 388,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mandarin": {
+      "catalogueId": "mandarin",
+      "name": "Mandarin / tangerine",
+      "sections": {
+        "whatItOffers": "A mandarin is an easy-peel citrus with vitamin C (about 31% of the reference in one medium fruit) and a little potassium and fibre.",
+        "practicalServing": "1 medium mandarin (USDA: 2½ in across = 88 g)",
+        "howToEatIt": "Peel and eat in segments, add to salads and grain bowls, or use the juice in dressings.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of mandarin alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169105,
+        "usdaDescription": "Tangerines, (mandarin oranges), raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 88,
+        "portion": "1 medium mandarin (USDA: 2½ in across = 88 g)",
+        "per100g": {
+          "protein": 0.81,
+          "fat": 0.31,
+          "carb": 13.3,
+          "fiber": 1.8,
+          "ca": 37,
+          "iron": 0.15,
+          "mg": 12,
+          "k": 166,
+          "zn": 0.07,
+          "vitc": 26.7,
+          "folate": 16,
+          "vita": 34,
+          "vite": 0.2,
+          "vitk": 0,
+          "kcal": 53
+        }
+      },
+      "perServing": {
+        "energyKcal": 47,
+        "proteinG": 0.7,
+        "fatG": 0.3,
+        "carbohydrateG": 11.7,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 23,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 31
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 146,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mango": {
+      "catalogueId": "mango",
+      "name": "Mango",
+      "sections": {
+        "whatItOffers": "Mango is a sweet tropical fruit with plenty of vitamin C (about 80% of the reference in a cup), folate and some vitamin A.",
+        "practicalServing": "1 cup pieces (USDA: 165 g)",
+        "howToEatIt": "Slice or cube fresh, blend into smoothies and lassi, or add to salsas and curries. Frozen mango works well for blending.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); a cup of mango provides about 18% of the reference. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169910,
+        "usdaDescription": "Mangos, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, flesh",
+        "portionGrams": 165,
+        "portion": "1 cup pieces (USDA: 165 g)",
+        "per100g": {
+          "protein": 0.82,
+          "fat": 0.38,
+          "carb": 15,
+          "fiber": 1.6,
+          "ca": 11,
+          "iron": 0.16,
+          "mg": 10,
+          "k": 168,
+          "zn": 0.09,
+          "vitc": 36.4,
+          "folate": 43,
+          "vita": 54,
+          "vite": 0.9,
+          "vitk": 4.2,
+          "kcal": 60
+        }
+      },
+      "perServing": {
+        "energyKcal": 99,
+        "proteinG": 1.4,
+        "fatG": 0.6,
+        "carbohydrateG": 24.8,
+        "fiberG": 2.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 60,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 80
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 71,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 89,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 13
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pineapple": {
+      "catalogueId": "pineapple",
+      "name": "Pineapple",
+      "sections": {
+        "whatItOffers": "Pineapple is a sweet-tart tropical fruit that gives more than a day's vitamin C reference in a cup (about 105%), plus folate.",
+        "practicalServing": "1 cup chunks (USDA: 165 g)",
+        "howToEatIt": "Eat fresh in chunks, grill rings, or add to stir-fries, salsas and smoothies.",
+        "cycleRelevance": "Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of pineapple alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 169124,
+        "usdaDescription": "Pineapple, raw, all varieties",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 165,
+        "portion": "1 cup chunks (USDA: 165 g)",
+        "per100g": {
+          "protein": 0.54,
+          "fat": 0.12,
+          "carb": 13.1,
+          "fiber": 1.4,
+          "ca": 13,
+          "iron": 0.29,
+          "mg": 12,
+          "k": 109,
+          "zn": 0.12,
+          "vitc": 47.8,
+          "folate": 18,
+          "vita": 3,
+          "vite": 0.02,
+          "vitk": 0.7,
+          "kcal": 50
+        }
+      },
+      "perServing": {
+        "energyKcal": 83,
+        "proteinG": 0.9,
+        "fatG": 0.2,
+        "carbohydrateG": 21.6,
+        "fiberG": 2.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 79,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 105
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 30,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sweet-cherry": {
+      "catalogueId": "sweet-cherry",
+      "name": "Sweet cherry",
+      "sections": {
+        "whatItOffers": "Sweet cherries are dark, juicy stone fruit with potassium, vitamin C and about 3 g of fibre in a cup.",
+        "practicalServing": "1 cup pitted (USDA: 154 g)",
+        "howToEatIt": "Eat fresh and pitted, freeze for a cold snack, or add to porridge, yoghurt and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for cherries."
+      },
+      "source": {
+        "usdaFdcId": 171719,
+        "usdaDescription": "Cherries, sweet, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, pitted",
+        "portionGrams": 154,
+        "portion": "1 cup pitted (USDA: 154 g)",
+        "per100g": {
+          "protein": 1.06,
+          "fat": 0.2,
+          "carb": 16,
+          "fiber": 2.1,
+          "ca": 13,
+          "iron": 0.36,
+          "mg": 11,
+          "k": 222,
+          "zn": 0.07,
+          "vitc": 7,
+          "folate": 4,
+          "vita": 3,
+          "vite": 0.07,
+          "vitk": 2.1,
+          "kcal": 63
+        }
+      },
+      "perServing": {
+        "energyKcal": 97,
+        "proteinG": 1.6,
+        "fatG": 0.3,
+        "carbohydrateG": 24.6,
+        "fiberG": 3.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 11,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 342,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "blackberry": {
+      "catalogueId": "blackberry",
+      "name": "Blackberry",
+      "sections": {
+        "whatItOffers": "Blackberries are deep, tart berries with a lot of fibre (about 7.6 g in a cup), vitamin C, vitamin E and vitamin K.",
+        "practicalServing": "1 cup (USDA: 144 g)",
+        "howToEatIt": "Eat fresh, fold into yoghurt or porridge, bake into crumbles, or blend into sauces and smoothies.",
+        "cycleRelevance": "No cycle-phase claim is made for blackberries; they are a notable fruit source of fibre."
+      },
+      "source": {
+        "usdaFdcId": 173946,
+        "usdaDescription": "Blackberries, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 144,
+        "portion": "1 cup (USDA: 144 g)",
+        "per100g": {
+          "protein": 1.39,
+          "fat": 0.49,
+          "carb": 9.61,
+          "fiber": 5.3,
+          "ca": 29,
+          "iron": 0.62,
+          "mg": 20,
+          "k": 162,
+          "zn": 0.53,
+          "vitc": 21,
+          "folate": 25,
+          "vita": 11,
+          "vite": 1.17,
+          "vitk": 19.8,
+          "kcal": 43
+        }
+      },
+      "perServing": {
+        "energyKcal": 62,
+        "proteinG": 2.0,
+        "fatG": 0.7,
+        "carbohydrateG": 13.8,
+        "fiberG": 7.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 30,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 40
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 1.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 29,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          },
+          {
+            "name": "Fiber",
+            "amount": 7.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "fig": {
+      "catalogueId": "fig",
+      "name": "Fig",
+      "sections": {
+        "whatItOffers": "Fresh figs are soft, honey-sweet fruits with potassium and a little magnesium, calcium and fibre. Two medium figs are about 74 calories.",
+        "practicalServing": "2 medium figs (USDA: 1 medium, 2¼ in across = 50 g)",
+        "howToEatIt": "Eat fresh and whole, halve and serve with soft cheese or yoghurt, or roast with a drizzle of honey.",
+        "cycleRelevance": "No cycle-phase claim is made for figs. Amounts here are for fresh figs; dried figs are far more concentrated."
+      },
+      "source": {
+        "usdaFdcId": 173021,
+        "usdaDescription": "Figs, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 100,
+        "portion": "2 medium figs (USDA: 1 medium, 2¼ in across = 50 g)",
+        "per100g": {
+          "protein": 0.75,
+          "fat": 0.3,
+          "carb": 19.2,
+          "fiber": 2.9,
+          "ca": 35,
+          "iron": 0.37,
+          "mg": 17,
+          "k": 232,
+          "zn": 0.15,
+          "vitc": 2,
+          "folate": 6,
+          "vita": 7,
+          "vite": 0.11,
+          "vitk": 4.7,
+          "kcal": 74
+        }
+      },
+      "perServing": {
+        "energyKcal": 74,
+        "proteinG": 0.8,
+        "fatG": 0.3,
+        "carbohydrateG": 19.2,
+        "fiberG": 2.9,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 232,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 17,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 5
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pear": {
+      "catalogueId": "pear",
+      "name": "Pear",
+      "sections": {
+        "whatItOffers": "A medium pear is a fibre-rich fruit (about 5.5 g when eaten with the skin) with a little vitamin C and potassium.",
+        "practicalServing": "1 medium pear (USDA: 178 g)",
+        "howToEatIt": "Eat crisp and raw with the skin on, slice into salads with nuts, or poach in spiced tea or juice.",
+        "cycleRelevance": "No cycle-phase claim is made for pears."
+      },
+      "source": {
+        "usdaFdcId": 169118,
+        "usdaDescription": "Pears, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, with skin",
+        "portionGrams": 178,
+        "portion": "1 medium pear (USDA: 178 g)",
+        "per100g": {
+          "protein": 0.36,
+          "fat": 0.14,
+          "carb": 15.2,
+          "fiber": 3.1,
+          "ca": 9,
+          "iron": 0.18,
+          "mg": 7,
+          "k": 116,
+          "zn": 0.1,
+          "vitc": 4.3,
+          "folate": 7,
+          "vita": 1,
+          "vite": 0.12,
+          "vitk": 4.4,
+          "kcal": 57
+        }
+      },
+      "perServing": {
+        "energyKcal": 101,
+        "proteinG": 0.6,
+        "fatG": 0.2,
+        "carbohydrateG": 27.1,
+        "fiberG": 5.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 206,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
