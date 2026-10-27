@@ -38,7 +38,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -93,12 +93,18 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(schema.collectionLinks);
         await m.createIndex(schema.collectionLinksLive);
       },
-      // 10 (DRAFT, not for merge until approved): My Routines. Additive: two
+      // 10: My Routines. Additive: two
       // new tables and an index; nothing existing changes.
       from9To10: (m, schema) async {
         await m.createTable(schema.routines);
         await m.createTable(schema.routineSteps);
         await m.createIndex(schema.routineStepsLive);
+      },
+      // 11: built workouts are kept in the routines tables, told apart by a
+      // `kind` column. Additive: one column with a default, so every existing
+      // routine stays a routine and nothing is rewritten.
+      from10To11: (m, schema) async {
+        await m.addColumn(schema.routines, schema.routines.kind);
       },
     ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),

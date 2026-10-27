@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
 import 'package:moon_cycle/features/routines/data/routine_repository.dart';
+import 'package:moon_cycle/features/routines/domain/routine.dart';
 
 import '../../helpers/pump_app.dart';
 
@@ -77,4 +78,15 @@ void main() {
       expect(await repo.addTextStep(id, 'x'), isNull); // routine is gone
     },
   );
+
+  test('kinds are kept apart: a workout is not a routine', () async {
+    final r = (await repo.create('Stretch'))!;
+    final w = (await repo.create('Basics', kind: RoutineKind.workout))!;
+    final all = await repo.all();
+    expect(
+      {for (final x in all) x.id: x.kind},
+      {r: RoutineKind.routine, w: RoutineKind.workout},
+    );
+    expect((await repo.byId(w))!.kind, RoutineKind.workout);
+  });
 }

@@ -61,7 +61,9 @@ void main() {
   test('the migrated database accepts routines', () async {
     final schema = await verifier.schemaAt(9);
     final db = AppDatabase(schema.newConnection());
-    await verifier.migrateAndValidate(db, 10);
+    // The app's tables are now schema 11 (a `kind` column on routines), so
+    // reading them back needs the full upgrade from 9.
+    await verifier.migrateAndValidate(db, 11);
     final now = DateTime(2026, 10, 20, 9);
     await db
         .into(db.routines)
