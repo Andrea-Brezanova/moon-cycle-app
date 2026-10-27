@@ -11,6 +11,7 @@ import '../../generation/domain/saved_recipe_ref.dart';
 import '../../preferences/domain/diet.dart';
 import '../../preferences/domain/food_avoidance.dart';
 import '../../preferences/domain/reminder_settings.dart';
+import '../../routines/domain/routine.dart';
 import '../../shopping/domain/shopping_item.dart';
 
 /// Identifies the file, so a later import can recognise it.
@@ -40,6 +41,7 @@ Map<String, Object?> buildDataExport({
   List<DiaryActivity> activities = const [],
   List<SavedRecipeRef> savedRecipes = const [],
   List<CollectionLink> collectionLinks = const [],
+  List<Routine> routines = const [],
   required String? Function(String foodId) foodName,
 }) => {
   'format': exportFormat,
@@ -155,6 +157,24 @@ Map<String, Object?> buildDataExport({
         'note': l.note,
         'createdAt': l.createdAt.toUtc().toIso8601String(),
         'updatedAt': l.updatedAt.toUtc().toIso8601String(),
+      },
+  ],
+  'routines': [
+    for (final r in routines)
+      {
+        'title': r.title,
+        'note': r.note,
+        'steps': [
+          for (final st in r.steps)
+            {
+              'position': st.position,
+              'type': st.linkId != null ? 'link' : 'text',
+              'linkId': st.linkId,
+              'text': st.text,
+            },
+        ],
+        'createdAt': r.createdAt.toUtc().toIso8601String(),
+        'updatedAt': r.updatedAt.toUtc().toIso8601String(),
       },
   ],
   'savedRecipes': [
