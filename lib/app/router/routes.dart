@@ -182,6 +182,7 @@ abstract final class Routes {
   static const String collectionWorkouts = '/more/collections/workouts';
   static const String collectionSpa = '/more/collections/spa';
   static const String collectionRoutines = '/more/collections/routines';
+  static String routine(String id) => '/more/collections/routines/$id';
 
   /// A saved link: add one (in [category], a `LinkCategory` name), open one's
   /// details, or edit it. The form covers the tab bar.
