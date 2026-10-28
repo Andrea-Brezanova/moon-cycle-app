@@ -62,11 +62,11 @@ dart run drift_dev make-migrations
 ```
 
 ## Golden tests
-Golden screenshot tests run locally on macOS (CI skips them):
+Golden screenshot tests are recorded on macOS 15 and compared on a pinned macOS 15 runner in CI. Your Mac renders them identically, so check them before pushing:
 ```bash
 flutter test --tags golden
 ```
-After an intentional visual change, regenerate them with `flutter test --tags golden --update-goldens` and check the images in `test/goldens/goldens/`.
+After an intentional visual change, regenerate them with `flutter test --tags golden --update-goldens` and check the images in `test/goldens/goldens/`. `tool/precheck.sh` runs everything CI runs (format, analyze, layers, tests, goldens); `tool/precheck.sh --update-goldens` re-records the goldens first.
 
 To look at every component: run the dev flavour and tap **Component gallery** (debug builds only).
 
