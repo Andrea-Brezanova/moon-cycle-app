@@ -76,6 +76,12 @@ void main() {
       },
     );
     // My App: what each setting is set to.
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('me-app')),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('me-app')));
     await tester.pumpAndSettle();
     expect(

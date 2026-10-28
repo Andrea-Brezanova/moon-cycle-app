@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^2.3.0
   flutter_timezone: ^5.1.1
   go_router: ^18.0.2
+  image_picker: ^1.2.4
   package_info_plus: ^10.2.2
   path_provider: ^2.1.6
   sentry_flutter: ^10.0.0

@@ -14,6 +14,7 @@ import '../../../core/design/widgets/text_link.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../entitlements/application/entitlement_providers.dart';
 import '../../reminders/application/reminder_providers.dart';
+import 'widgets/me_hero_card.dart';
 
 /// The Me tab: four destinations, as hub cards like Eat, Move and Relax.
 class SettingsHomePage extends ConsumerWidget {
@@ -39,6 +40,7 @@ class SettingsHomePage extends ConsumerWidget {
           ),
         ],
       ),
+      const MeHeroCard(),
       Column(
         children: [
           HubCard(
@@ -143,7 +145,7 @@ class SettingsHomePage extends ConsumerWidget {
           ),
           children: [
             for (final (i, s) in sections.indexed) ...[
-              if (i > 0) const SizedBox(height: 28),
+              if (i > 0) SizedBox(height: i == 1 ? 14 : (i == 2 ? 16 : 28)),
               s,
             ],
           ],

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/gestures.dart' show kLongPressTimeout;
 import 'package:flutter/material.dart';
@@ -80,7 +81,8 @@ void main() {
     test('deleteAll removes the file and the personal image', () async {
       final store = FileUiPrefsStore(dir);
       await store.save(const UiPrefs(collectionOrder: ['spa']));
-      store.heroFile.writeAsBytesSync([1, 2, 3]);
+      final name = await store.saveHeroImage(Uint8List.fromList([1, 2, 3]));
+      expect(store.heroImage(name), isNotNull);
       await store.deleteAll();
       expect(dir.listSync(), isEmpty);
     });
