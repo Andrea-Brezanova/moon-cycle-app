@@ -10,7 +10,6 @@ import '../../../core/design/tokens/moon_typography.dart';
 import '../../../core/design/widgets/hub_card.dart';
 import '../../../core/design/widgets/hub_hero.dart';
 import '../../../core/design/widgets/moon_icon.dart';
-import '../../collections/application/collections_providers.dart';
 import '../../cycle/application/viewing_phase.dart';
 import '../../cycle/presentation/phase_overline.dart';
 import '../application/hub_providers.dart';
@@ -19,7 +18,7 @@ import '../domain/hub_item.dart';
 /// The Move and Relax tabs: a hub laid out like Eat (phase line and title, a
 /// hero card, then the section cards in the colours of the phase being
 /// viewed). A library section says how many reviewed items it holds, or that
-/// none are ready yet; a "My ..." section opens what the user has saved.
+/// none are ready yet; saved workouts and spa items are in Me › My Collections.
 class HubHomePage extends ConsumerWidget {
   const HubHomePage.move({super.key})
     : tab = AppTab.move,
@@ -48,13 +47,6 @@ class HubHomePage extends ConsumerWidget {
           body: 'Put a workout together from exercises',
           route: Routes.buildWorkout,
         ),
-        HubSection(
-          'mine',
-          MoonIconName.bookmark,
-          'My Workouts',
-          saved: CollectionCategory.workouts,
-          route: Routes.collectionWorkouts,
-        ),
       ];
 
   const HubHomePage.relax({super.key})
@@ -73,13 +65,6 @@ class HubHomePage extends ConsumerWidget {
         ),
         HubSection('sounds', MoonIconName.play, 'Sounds', kind: HubKind.sound),
         HubSection('spa', MoonIconName.cup, 'Spa', kind: HubKind.ritual),
-        HubSection(
-          'mine',
-          MoonIconName.bookmark,
-          'My Spa',
-          saved: CollectionCategory.spa,
-          route: Routes.collectionSpa,
-        ),
       ];
 
   final AppTab tab;
@@ -94,7 +79,6 @@ class HubHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
-    final summary = ref.watch(collectionSummaryProvider);
     final phase = ref.watch(viewingPhaseProvider);
     return Scaffold(
       backgroundColor: c.bg,
@@ -133,7 +117,7 @@ class HubHomePage extends ConsumerWidget {
                   icon: s.icon,
                   phase: phase,
                   title: s.title,
-                  body: s.body ?? _body(ref, s, summary),
+                  body: s.body ?? _body(ref, s),
                   onTap: () => context.push(
                     s.route ?? Routes.hubLibrary(tab, s.kind!.json),
                   ),
@@ -147,13 +131,7 @@ class HubHomePage extends ConsumerWidget {
     );
   }
 
-  String _body(WidgetRef ref, HubSection s, CollectionSummary summary) {
-    if (s.saved != null) {
-      final n = summary.of(s.saved!);
-      return n == 0
-          ? 'Nothing saved yet'
-          : '$n saved ${n == 1 ? 'item' : 'items'}';
-    }
+  String _body(WidgetRef ref, HubSection s) {
     final n = ref.watch(hubItemsOfKindProvider(s.kind!)).length;
     return n == 0 ? 'Being prepared and reviewed' : '$n to browse';
   }
@@ -166,7 +144,6 @@ class HubSection {
     this.icon,
     this.title, {
     this.kind,
-    this.saved,
     this.body,
     this.route,
   });
@@ -175,7 +152,6 @@ class HubSection {
   final MoonIconName icon;
   final String title;
   final HubKind? kind;
-  final CollectionCategory? saved;
   final String? body;
   final String? route;
 }

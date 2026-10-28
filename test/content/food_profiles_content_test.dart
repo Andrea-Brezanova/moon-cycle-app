@@ -192,7 +192,7 @@ void main() {
           300,
           scrollable: find.byType(Scrollable).first,
         );
-        expect(find.textContaining('Make your own meal'), findsOneWidget);
+        expect(find.textContaining('Build a Meal'), findsOneWidget);
         expect(tester.takeException(), isNull);
       });
     }

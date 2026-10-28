@@ -291,6 +291,11 @@ class CollectionLinks extends Table with UserRow {
 class Routines extends Table with UserRow {
   TextColumn get title => text()();
   TextColumn get note => text().nullable()();
+
+  /// `routine` (My Routines) or `workout` (a workout built in Move › Build
+  /// Your Workout and kept in My Workouts). Added in schema 11; rows from
+  /// schema 10 are routines.
+  TextColumn get kind => text().withDefault(const Constant('routine'))();
 }
 
 /// One step of a routine, in [position] order: a saved link (by id, never a

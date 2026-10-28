@@ -129,6 +129,12 @@ void main() {
   testWidgets('Me sub-pages open inside Me and go back', (tester) async {
     await pumpApp(tester);
     await tapTab(tester, 'more');
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('me-app')),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('me-app')));
     await tester.pumpAndSettle();
     expect(find.byType(MyAppPage), findsOneWidget);

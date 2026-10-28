@@ -59,7 +59,9 @@ void main() {
 
   testWidgets('new copy and three optional sections', (tester) async {
     await pumpBuilder(tester);
-    expect(find.text('Build a meal'), findsOneWidget);
+    expect(find.text('Build a Meal'), findsNWidgets(2)); // header and heading
+    expect(find.textContaining('Meal builder'), findsNothing);
+    expect(find.textContaining('meal builder'), findsNothing);
     expect(
       find.text(
         'Choose one or more foods you feel like eating. We’ll find recipes '

@@ -79,11 +79,13 @@ void main() {
       'Browse foods by phase and benefit.',
       'Recipes',
       'Find nourishing recipes for every phase.',
-      'Meal builder',
+      'Build a Meal',
       'Create a balanced meal with foods or recipes.',
     ]) {
       expect(find.text(t), findsOneWidget, reason: t);
     }
+    // The feature is called Build a Meal everywhere, not "Meal builder".
+    expect(find.text('Meal builder'), findsNothing);
     // The old segmented Foods / Recipes view is gone from the hub.
     expect(find.byType(FoodsPage), findsNothing);
     expect(find.byType(RecipesPage), findsNothing);
@@ -161,13 +163,13 @@ void main() {
     expect(find.byType(EatPage), findsOneWidget);
   });
 
-  group('Meal builder card', () {
+  group('Build a Meal card', () {
     testWidgets('a free user (normal release setup) opens the builder: no '
         'lock, no Premium prompt', (tester) async {
       await pumpEat(tester);
-      await tester.ensureVisible(find.text('Meal builder'));
+      await tester.ensureVisible(find.text('Build a Meal'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Meal builder'));
+      await tester.tap(find.text('Build a Meal'));
       await tester.pumpAndSettle();
       expect(find.byType(MealBuilderPage), findsOneWidget);
       expect(find.text('Proteins'), findsOneWidget);
@@ -183,9 +185,9 @@ void main() {
         tester,
         more: [entitlementStateProvider.overrideWithValue(premium)],
       );
-      await tester.ensureVisible(find.text('Meal builder'));
+      await tester.ensureVisible(find.text('Build a Meal'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Meal builder'));
+      await tester.tap(find.text('Build a Meal'));
       await tester.pumpAndSettle();
       expect(find.byType(MealBuilderPage), findsOneWidget);
       expect(find.text('Proteins'), findsOneWidget);
@@ -240,7 +242,7 @@ void main() {
             );
             await tester.pumpAndSettle();
             expect(tester.takeException(), isNull);
-            expect(find.text('Meal builder'), findsOneWidget);
+            expect(find.text('Build a Meal'), findsOneWidget);
             await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
             await expectLater(
               tester,

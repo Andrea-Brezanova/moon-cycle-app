@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart' show CustomSemanticsAction;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +12,7 @@ import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
 import '../../../core/design/widgets/pressable.dart';
 import '../../../core/domain/phase.dart';
+import '../../../core/storage/ui_prefs.dart';
 import '../application/collections_providers.dart';
 import 'collection_photos.dart';
 
@@ -54,30 +56,50 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
       child: child,
     );
 
-    final tiles = [
-      _Tile(
-        key: const ValueKey('collection-recipes'),
+    Widget tile(String key, {bool preview = false}) => switch (key) {
+      'recipes' => _Tile(
+        key: preview ? null : const ValueKey('collection-recipes'),
         category: CollectionCategory.recipes,
         title: 'My Recipes',
         onTap: () => context.push(Routes.myRecipes),
       ),
-      _Tile(
-        key: const ValueKey('collection-workouts'),
+      'workouts' => _Tile(
+        key: preview ? null : const ValueKey('collection-workouts'),
         category: CollectionCategory.workouts,
         title: 'My Workouts',
         onTap: () => context.push(Routes.collectionWorkouts),
       ),
-      _Tile(
-        key: const ValueKey('collection-spa'),
+      'spa' => _Tile(
+        key: preview ? null : const ValueKey('collection-spa'),
         category: CollectionCategory.spa,
         title: 'My Spa',
         onTap: () => context.push(Routes.collectionSpa),
       ),
-      _Tile(
-        key: const ValueKey('collection-routines'),
+      _ => _Tile(
+        key: preview ? null : const ValueKey('collection-routines'),
         title: 'My Routines',
         onTap: () => context.push(Routes.collectionRoutines),
       ),
+    };
+    final order = ref.watch(collectionOrderProvider);
+    void moveTile(String key, int to) => ref
+        .read(uiPrefsProvider.notifier)
+        .update(
+          ref
+              .read(uiPrefsProvider)
+              .copyWith(collectionOrder: moveCollectionTile(order, key, to)),
+        );
+    final tiles = [
+      for (final (i, key) in order.indexed)
+        _ReorderableTile(
+          key: ValueKey('cell-$key'),
+          tileKey: key,
+          index: i,
+          count: order.length,
+          title: _tileTitles[key]!,
+          onMove: moveTile,
+          builder: ({required bool preview}) => tile(key, preview: preview),
+        ),
     ];
 
     return Scaffold(
@@ -236,6 +258,96 @@ class _CollectionsPageState extends ConsumerState<CollectionsPage> {
   }
 }
 
+const _tileTitles = {
+  'recipes': 'My Recipes',
+  'workouts': 'My Workouts',
+  'spa': 'My Spa',
+  'routines': 'My Routines',
+};
+
+/// A tile that can be picked up with a long press and dropped on another tile
+/// to change the order. Screen readers get "Move earlier" and "Move later"
+/// actions instead of dragging. It never touches what a collection holds.
+class _ReorderableTile extends StatelessWidget {
+  const _ReorderableTile({
+    super.key,
+    required this.tileKey,
+    required this.index,
+    required this.count,
+    required this.title,
+    required this.onMove,
+    required this.builder,
+  });
+
+  final String tileKey;
+  final int index;
+  final int count;
+  final String title;
+  final void Function(String key, int toIndex) onMove;
+  final Widget Function({required bool preview}) builder;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.moon;
+    return Semantics(
+      customSemanticsActions: {
+        if (index > 0)
+          const CustomSemanticsAction(label: 'Move earlier'): () =>
+              onMove(tileKey, index - 1),
+        if (index < count - 1)
+          const CustomSemanticsAction(label: 'Move later'): () =>
+              onMove(tileKey, index + 1),
+      },
+      child: DragTarget<String>(
+        onWillAcceptWithDetails: (d) => d.data != tileKey,
+        onAcceptWithDetails: (d) => onMove(d.data, index),
+        builder: (context, over, _) => LayoutBuilder(
+          builder: (context, box) => LongPressDraggable<String>(
+            data: tileKey,
+            feedback: SizedBox(
+              width: box.maxWidth,
+              child: Transform.scale(
+                scale: 1.05,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: [
+                        BoxShadow(
+                          color: c.text.withValues(alpha: 0.22),
+                          blurRadius: 22,
+                          offset: const Offset(0, 10),
+                        ),
+                      ],
+                    ),
+                    child: IgnorePointer(child: builder(preview: true)),
+                  ),
+                ),
+              ),
+            ),
+            childWhenDragging: Opacity(
+              opacity: 0.3,
+              child: IgnorePointer(child: builder(preview: true)),
+            ),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 120),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(26),
+                border: Border.all(
+                  color: over.isEmpty ? const Color(0x00000000) : c.ochre,
+                  width: 2,
+                ),
+              ),
+              child: builder(preview: false),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// The one tile every collection category uses: a photograph of fixed
 /// proportions above a title area of fixed height, so the picture, the divider
 /// and the title sit in the same place on all four tiles. It shows the title
@@ -308,9 +420,10 @@ class _Tile extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Align(
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.centerLeft,
                         child: Text(
                           title,
+                          key: const ValueKey('tile-title'),
                           maxLines: titleLines,
                           overflow: TextOverflow.ellipsis,
                           style: fraunces(
@@ -323,6 +436,7 @@ class _Tile extends StatelessWidget {
                     ),
                     MoonIcon(
                       MoonIconName.chev,
+                      key: const ValueKey('tile-arrow'),
                       size: 15,
                       color: c.textMuted,
                       strokeWidth: 2,

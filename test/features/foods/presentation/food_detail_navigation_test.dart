@@ -101,7 +101,7 @@ void main() {
         await openFromFoods(tester, container, id, general: true);
         final labels = [
           'Find recipes with $name',
-          'Make your own meal with $name',
+          'Build a Meal with $name',
           'Add to shopping list',
           'Log meal',
         ];
@@ -161,15 +161,15 @@ void main() {
     expect(find.byType(FoodsPage), findsOneWidget);
   });
 
-  testWidgets('Make your own meal: opens with the food chosen; Back returns '
+  testWidgets('Build a Meal: opens with the food chosen; Back returns '
       'to the food', (tester) async {
     final container = await pumpApp_(
       tester,
       more: [entitlementStateProvider.overrideWithValue(premium)],
     );
     await openFromFoods(tester, container, 'turnip', general: true);
-    await reveal(tester, find.text('Make your own meal with turnip'));
-    await tester.tap(find.text('Make your own meal with turnip'));
+    await reveal(tester, find.text('Build a Meal with turnip'));
+    await tester.tap(find.text('Build a Meal with turnip'));
     await tester.pumpAndSettle();
     expect(find.byType(MealBuilderPage), findsOneWidget);
     expect(container.read(mealSelectionProvider).contains('turnip'), isTrue);
@@ -178,13 +178,13 @@ void main() {
     expect(find.byType(FoodDetailPage), findsOneWidget);
   });
 
-  testWidgets('Make your own meal works for a free user: no lock, opens the '
+  testWidgets('Build a Meal works for a free user: no lock, opens the '
       'builder with the food chosen', (tester) async {
     final container = await pumpApp_(tester);
     await openFromFoods(tester, container, 'turnip', general: true);
-    await reveal(tester, find.text('Make your own meal with turnip'));
+    await reveal(tester, find.text('Build a Meal with turnip'));
     expect(find.byIcon(Icons.lock), findsNothing);
-    await tester.tap(find.text('Make your own meal with turnip'));
+    await tester.tap(find.text('Build a Meal with turnip'));
     await tester.pumpAndSettle();
     expect(find.byType(MealBuilderPage), findsOneWidget);
     expect(find.text('See Premium'), findsNothing);
@@ -199,10 +199,10 @@ void main() {
       more: [entitlementStateProvider.overrideWithValue(premium)],
     );
     await openFromFoods(tester, container, 'parsley', general: true);
-    await reveal(tester, find.text('Make your own meal with parsley'));
+    await reveal(tester, find.text('Build a Meal with parsley'));
     expect(find.byKey(const ValueKey('herb-meal-note')), findsOneWidget);
     await tester.tap(
-      find.text('Make your own meal with parsley'),
+      find.text('Build a Meal with parsley'),
       warnIfMissed: false,
     );
     await tester.pumpAndSettle();

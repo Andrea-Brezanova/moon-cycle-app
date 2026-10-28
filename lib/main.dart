@@ -13,6 +13,7 @@ import 'core/crash/crash_reporting.dart';
 import 'core/database/app_database.dart';
 import 'core/database/database_opener.dart';
 import 'core/database/encryption_key_store.dart';
+import 'core/storage/ui_prefs.dart';
 import 'features/content/application/content_providers.dart';
 import 'features/content/data/bundled_catalogue.dart';
 import 'features/entitlements/application/entitlement_providers.dart';
@@ -33,6 +34,7 @@ Future<void> main() async {
   sqlite3.tempDirectory = (await getTemporaryDirectory()).path;
   final directory = await getApplicationSupportDirectory();
   final keys = EncryptionKeyStore();
+  final uiPrefsStore = FileUiPrefsStore(directory);
   final catalogue = await loadBundledCatalogue();
   final foodProfiles = await loadBundledFoodProfiles();
   final package = await PackageInfo.fromPlatform();
@@ -43,10 +45,12 @@ Future<void> main() async {
     final database = await openAppDatabase(directory: directory, keys: keys);
     final onboarded = await AppStateRepository(database).isOnboardingComplete();
     final appearance = await PreferencesRepository(database).appearance();
+    final uiPrefs = await uiPrefsStore.load();
     return [
       appDatabaseProvider.overrideWithValue(database),
       initialOnboardingCompletedProvider.overrideWithValue(onboarded),
       initialAppearanceProvider.overrideWithValue(appearance),
+      initialUiPrefsProvider.overrideWithValue(uiPrefs),
     ];
   }
 
@@ -82,6 +86,7 @@ Future<void> main() async {
           ),
           databaseDirectoryProvider.overrideWithValue(directory),
           encryptionKeyStoreProvider.overrideWithValue(keys),
+          uiPrefsStoreProvider.overrideWithValue(uiPrefsStore),
         ],
         session: session,
         openSession: openSession,
