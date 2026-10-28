@@ -35,6 +35,31 @@ void main() {
 
   test('there is at least one draft batch', () => expect(files, isNotEmpty));
 
+  test(
+    'every catalogue food is approved, drafted or blocked with a reason',
+    () {
+      final drafted = <String>{
+        for (final f in files)
+          ...((jsonDecode(f.readAsStringSync()) as Map)['profiles'] as Map).keys
+              .cast<String>(),
+      };
+      final blocked = (jsonDecode(
+        File('docs/food-profiles/blocked.json').readAsStringSync(),
+      ) as Map).cast<String, String>();
+      for (final id in foods) {
+        final states = [
+          approved.containsKey(id),
+          drafted.contains(id),
+          blocked.containsKey(id),
+        ];
+        expect(states.where((s) => s).length, 1, reason: '$id: $states');
+      }
+      for (final reason in blocked.values) {
+        expect(reason.trim(), isNotEmpty);
+      }
+    },
+  );
+
   for (final file in files) {
     final profiles =
         (jsonDecode(file.readAsStringSync()) as Map)['profiles'] as Map;
@@ -73,6 +98,13 @@ void main() {
               'Zinc': 'zn',
               'Potassium': 'k',
               'Vitamin A': 'vita',
+              'Calcium': 'ca',
+              'Vitamin B12': 'b12',
+              'Vitamin D': 'vitd',
+              'Vitamin E': 'vite',
+              'Protein': 'protein',
+              'Fiber': 'fiber',
+              'Omega-3 (EPA + DHA)': 'omega3',
             };
             for (final n
                 in (serving['keyNutrients']! as List)
@@ -122,6 +154,11 @@ void main() {
             expect(text, isNotNull, reason: '$id $k');
             expect(text!.trim(), isNotEmpty, reason: '$id $k');
             expect(banned.hasMatch(text), isFalse, reason: '$id $k: $text');
+            expect(
+              text.contains('TBD'),
+              isFalse,
+              reason: '$id $k is a placeholder',
+            );
           }
           expect(
             (p['source']! as Map<String, Object?>)['usdaFdcId'],

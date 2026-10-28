@@ -1,0 +1,1545 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "adzuki-bean": {
+      "catalogueId": "adzuki-bean",
+      "name": "Adzuki bean",
+      "sections": {
+        "whatItOffers": "Adzuki bean, cooked, boiled, no salt: ½ cup cooked gives about 147 calories, with folate (about 35%), zinc (about 25%), potassium (about 24%), 8.6 g of protein and 8.4 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 230 g)",
+        "howToEatIt": "Simmer until soft, then use in rice dishes, soups, salads or sweetened bean paste.",
+        "cycleRelevance": "No cycle-phase claim is made for adzuki bean; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173728,
+        "usdaDescription": "Beans, adzuki, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 115,
+        "portion": "½ cup cooked (USDA: 1 cup = 230 g)",
+        "per100g": {
+          "protein": 7.52,
+          "fat": 0.1,
+          "carb": 24.8,
+          "fiber": 7.3,
+          "ca": 28,
+          "iron": 2,
+          "mg": 52,
+          "k": 532,
+          "zn": 1.77,
+          "vitc": 0,
+          "folate": 121,
+          "vita": 0,
+          "kcal": 128
+        }
+      },
+      "perServing": {
+        "energyKcal": 147,
+        "proteinG": 8.6,
+        "fatG": 0.1,
+        "carbohydrateG": 28.5,
+        "fiberG": 8.4,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 139,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 35
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 25
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 612,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 8.6,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 8.4,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mung-bean": {
+      "catalogueId": "mung-bean",
+      "name": "Mung bean",
+      "sections": {
+        "whatItOffers": "Mung bean, cooked, boiled, no salt: ½ cup cooked gives about 106 calories, with folate (about 40%), magnesium (about 16%), zinc (about 11%), 7.1 g of protein and 7.7 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 202 g)",
+        "howToEatIt": "Simmer until tender for dal, soups and porridge; whole mung beans cook faster than most beans.",
+        "cycleRelevance": "No cycle-phase claim is made for mung bean; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 174257,
+        "usdaDescription": "Mung beans, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 101,
+        "portion": "½ cup cooked (USDA: 1 cup = 202 g)",
+        "per100g": {
+          "protein": 7.02,
+          "fat": 0.38,
+          "carb": 19.2,
+          "fiber": 7.6,
+          "ca": 27,
+          "iron": 1.4,
+          "mg": 48,
+          "k": 266,
+          "zn": 0.84,
+          "vitc": 1,
+          "folate": 159,
+          "vita": 1,
+          "vite": 0.15,
+          "vitk": 2.7,
+          "kcal": 105
+        }
+      },
+      "perServing": {
+        "energyKcal": 106,
+        "proteinG": 7.1,
+        "fatG": 0.4,
+        "carbohydrateG": 19.4,
+        "fiberG": 7.7,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 161,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 40
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 48,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 16
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.1,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 7.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Raw sprouts: food-safety risk",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "great-northern-bean": {
+      "catalogueId": "great-northern-bean",
+      "name": "Great northern bean",
+      "sections": {
+        "whatItOffers": "Great northern bean, cooked, boiled, no salt: ½ cup cooked gives about 104 calories, with folate (about 23%), magnesium (about 14%), potassium (about 13%), 7.4 g of protein and 6.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 177 g)",
+        "howToEatIt": "Soak, then simmer until creamy for soups, stews, casseroles and purees.",
+        "cycleRelevance": "No cycle-phase claim is made for great northern bean; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 175191,
+        "usdaDescription": "Beans, great northern, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 88.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 177 g)",
+        "per100g": {
+          "protein": 8.33,
+          "fat": 0.45,
+          "carb": 21.1,
+          "fiber": 7,
+          "ca": 68,
+          "iron": 2.13,
+          "mg": 50,
+          "k": 391,
+          "zn": 0.88,
+          "vitc": 1.3,
+          "folate": 102,
+          "vita": 0,
+          "kcal": 118
+        }
+      },
+      "perServing": {
+        "energyKcal": 104,
+        "proteinG": 7.4,
+        "fatG": 0.4,
+        "carbohydrateG": 18.7,
+        "fiberG": 6.2,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 90,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 44,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 346,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.4,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 6.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "navy-bean": {
+      "catalogueId": "navy-bean",
+      "name": "Navy bean",
+      "sections": {
+        "whatItOffers": "Navy bean, cooked, boiled, no salt: ½ cup cooked gives about 127 calories, with folate (about 32%), magnesium (about 16%), potassium (about 14%), 7.5 g of protein and 9.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 182 g)",
+        "howToEatIt": "Soak, then simmer for soups, stews and homemade baked beans.",
+        "cycleRelevance": "No cycle-phase claim is made for navy bean; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173746,
+        "usdaDescription": "Beans, navy, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 91,
+        "portion": "½ cup cooked (USDA: 1 cup = 182 g)",
+        "per100g": {
+          "protein": 8.23,
+          "fat": 0.62,
+          "carb": 26,
+          "fiber": 10.5,
+          "ca": 69,
+          "iron": 2.36,
+          "mg": 53,
+          "k": 389,
+          "zn": 1.03,
+          "vitc": 0.9,
+          "folate": 140,
+          "vita": 0,
+          "vite": 0.01,
+          "vitk": 0.6,
+          "kcal": 140
+        }
+      },
+      "perServing": {
+        "energyKcal": 127,
+        "proteinG": 7.5,
+        "fatG": 0.6,
+        "carbohydrateG": 23.7,
+        "fiberG": 9.6,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 127,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 32
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 48,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 16
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 354,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.5,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 9.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "baked-beans": {
+      "catalogueId": "baked-beans",
+      "name": "Baked beans",
+      "sections": {
+        "whatItOffers": "Baked beans, canned, plain or vegetarian: ½ cup gives about 119 calories, with zinc (about 36%), magnesium (about 11%), potassium (about 11%), 6.0 g of protein and 5.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup (USDA: 1 cup = 254 g)",
+        "howToEatIt": "Serve on toast, with eggs, or as a side; choose lower-sugar, lower-salt versions if you can.",
+        "cycleRelevance": "No cycle-phase claim is made for baked beans; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 175182,
+        "usdaDescription": "Beans, baked, canned, plain or vegetarian",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned, plain or vegetarian",
+        "portionGrams": 127,
+        "portion": "½ cup (USDA: 1 cup = 254 g)",
+        "per100g": {
+          "protein": 4.75,
+          "fat": 0.37,
+          "carb": 21.1,
+          "fiber": 4.1,
+          "ca": 34,
+          "iron": 1.19,
+          "mg": 27,
+          "k": 224,
+          "zn": 2.28,
+          "vitc": 0,
+          "folate": 12,
+          "vita": 5,
+          "vite": 0.15,
+          "vitk": 0.8,
+          "kcal": 94
+        }
+      },
+      "perServing": {
+        "energyKcal": 119,
+        "proteinG": 6.0,
+        "fatG": 0.5,
+        "carbohydrateG": 26.8,
+        "fiberG": 5.2,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 2.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 36
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 34,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 11
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 284,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.0,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "fava-beans": {
+      "catalogueId": "fava-beans",
+      "name": "Fava (broad) beans",
+      "sections": {
+        "whatItOffers": "Fava (broad) beans, cooked, boiled, no salt: ½ cup cooked gives about 94 calories, with folate (about 22%), magnesium (about 12%), zinc (about 11%), 6.5 g of protein and 4.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 170 g)",
+        "howToEatIt": "Soak dried beans, then simmer for stews, dips and salads; peel the tough skins for a smoother texture.",
+        "cycleRelevance": "No cycle-phase claim is made for fava (broad) beans; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173753,
+        "usdaDescription": "Broadbeans (fava beans), mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 85,
+        "portion": "½ cup cooked (USDA: 1 cup = 170 g)",
+        "per100g": {
+          "protein": 7.6,
+          "fat": 0.4,
+          "carb": 19.6,
+          "fiber": 5.4,
+          "ca": 36,
+          "iron": 1.5,
+          "mg": 43,
+          "k": 268,
+          "zn": 1.01,
+          "vitc": 0.3,
+          "folate": 104,
+          "vita": 1,
+          "vite": 0.02,
+          "vitk": 2.9,
+          "kcal": 110
+        }
+      },
+      "perServing": {
+        "energyKcal": 94,
+        "proteinG": 6.5,
+        "fatG": 0.3,
+        "carbohydrateG": 16.7,
+        "fiberG": 4.6,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 88,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 37,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.5,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 4.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "chestnut": {
+      "catalogueId": "chestnut",
+      "name": "Chestnut",
+      "sections": {
+        "whatItOffers": "Chestnut, European, roasted: 1 oz, about 3 kernels gives about 69 calories, with vitamin C (about 10%) and potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 oz, about 3 kernels (USDA: 10 kernels = 84 g)",
+        "howToEatIt": "Roast or boil and peel, then eat as is or add to stuffings, soups and purees.",
+        "cycleRelevance": "No cycle-phase claim is made for chestnut; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170190,
+        "usdaDescription": "Nuts, chestnuts, european, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "European, roasted",
+        "portionGrams": 28.35,
+        "portion": "1 oz, about 3 kernels (USDA: 10 kernels = 84 g)",
+        "per100g": {
+          "protein": 3.17,
+          "fat": 2.2,
+          "carb": 53,
+          "fiber": 5.1,
+          "ca": 29,
+          "iron": 0.91,
+          "mg": 33,
+          "k": 592,
+          "zn": 0.57,
+          "vitc": 26,
+          "folate": 70,
+          "vita": 1,
+          "vite": 0.5,
+          "vitk": 7.8,
+          "kcal": 245
+        }
+      },
+      "perServing": {
+        "energyKcal": 69,
+        "proteinG": 0.9,
+        "fatG": 0.6,
+        "carbohydrateG": 15.0,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 168,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "hickory": {
+      "catalogueId": "hickory",
+      "name": "Hickory",
+      "sections": {
+        "whatItOffers": "Hickory, dried: 1 oz gives about 186 calories, with magnesium (about 16%) and zinc (about 15%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 oz (USDA: 28.35 g)",
+        "howToEatIt": "Eat shelled nuts as a snack or chop into baking and porridge.",
+        "cycleRelevance": "No cycle-phase claim is made for hickory; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170177,
+        "usdaDescription": "Nuts, hickorynuts, dried",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried",
+        "portionGrams": 28.35,
+        "portion": "1 oz (USDA: 28.35 g)",
+        "per100g": {
+          "protein": 12.7,
+          "fat": 64.4,
+          "carb": 18.2,
+          "fiber": 6.4,
+          "ca": 61,
+          "iron": 2.12,
+          "mg": 173,
+          "k": 436,
+          "zn": 4.31,
+          "vitc": 2,
+          "folate": 40,
+          "vita": 7,
+          "kcal": 657
+        }
+      },
+      "perServing": {
+        "energyKcal": 186,
+        "proteinG": 3.6,
+        "fatG": 18.3,
+        "carbohydrateG": 5.2,
+        "fiberG": 1.8,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 49,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 16
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pine-nut": {
+      "catalogueId": "pine-nut",
+      "name": "Pine nut",
+      "sections": {
+        "whatItOffers": "Pine nut, dried: 1 oz, about 167 kernels gives about 191 calories, with magnesium (about 23%), zinc (about 23%) and vitamin E (about 18%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 oz, about 167 kernels (USDA: 28.35 g)",
+        "howToEatIt": "Toast lightly and scatter on salads and pasta, or blend into pesto.",
+        "cycleRelevance": "No cycle-phase claim is made for pine nut; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170591,
+        "usdaDescription": "Nuts, pine nuts, dried",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried",
+        "portionGrams": 28.35,
+        "portion": "1 oz, about 167 kernels (USDA: 28.35 g)",
+        "per100g": {
+          "protein": 13.7,
+          "fat": 68.4,
+          "carb": 13.1,
+          "fiber": 3.7,
+          "ca": 16,
+          "iron": 5.53,
+          "mg": 251,
+          "k": 597,
+          "zn": 6.45,
+          "vitc": 0.8,
+          "folate": 34,
+          "vita": 1,
+          "vite": 9.33,
+          "vitk": 53.9,
+          "kcal": 673
+        }
+      },
+      "perServing": {
+        "energyKcal": 191,
+        "proteinG": 3.9,
+        "fatG": 19.4,
+        "carbohydrateG": 3.7,
+        "fiberG": 1.0,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 71,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 23
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 2.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "hemp-seeds": {
+      "catalogueId": "hemp-seeds",
+      "name": "Hemp seeds",
+      "sections": {
+        "whatItOffers": "Hemp seeds, hulled (hemp hearts): 3 tablespoons gives about 166 calories, with magnesium (about 68%), zinc (about 37%), potassium (about 14%) and 9.5 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 tablespoons (USDA: 30 g)",
+        "howToEatIt": "Sprinkle over porridge, yoghurt, salads and smoothies.",
+        "cycleRelevance": "No cycle-phase claim is made for hemp seeds; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170148,
+        "usdaDescription": "Seeds, hemp seed, hulled",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "hulled (hemp hearts)",
+        "portionGrams": 30,
+        "portion": "3 tablespoons (USDA: 30 g)",
+        "per100g": {
+          "protein": 31.6,
+          "fat": 48.8,
+          "carb": 8.67,
+          "fiber": 4,
+          "ca": 70,
+          "iron": 7.95,
+          "mg": 700,
+          "k": 1200,
+          "zn": 9.9,
+          "vitc": 0.5,
+          "folate": 110,
+          "vita": 1,
+          "vite": 0.8,
+          "kcal": 553
+        }
+      },
+      "perServing": {
+        "energyKcal": 166,
+        "proteinG": 9.5,
+        "fatG": 14.6,
+        "carbohydrateG": 2.6,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 210,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 68
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 66
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 3.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 37
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 360,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 9.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "macadamia-nuts": {
+      "catalogueId": "macadamia-nuts",
+      "name": "Macadamia nuts",
+      "sections": {
+        "whatItOffers": "Macadamia nuts, raw: 1 oz, 10–12 kernels gives about 204 calories, with magnesium (about 12%) and iron (about 6%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 oz, 10–12 kernels (USDA: 28.35 g)",
+        "howToEatIt": "Eat a small handful, or chop into baking, granola and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for macadamia nuts; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.0 mg."
+      },
+      "source": {
+        "usdaFdcId": 170178,
+        "usdaDescription": "Nuts, macadamia nuts, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 28.35,
+        "portion": "1 oz, 10–12 kernels (USDA: 28.35 g)",
+        "per100g": {
+          "protein": 7.91,
+          "fat": 75.8,
+          "carb": 13.8,
+          "fiber": 8.6,
+          "ca": 85,
+          "iron": 3.69,
+          "mg": 130,
+          "k": 368,
+          "zn": 1.3,
+          "vitc": 1.2,
+          "folate": 11,
+          "vita": 0,
+          "vite": 0.54,
+          "kcal": 718
+        }
+      },
+      "perServing": {
+        "energyKcal": 204,
+        "proteinG": 2.2,
+        "fatG": 21.5,
+        "carbohydrateG": 3.9,
+        "fiberG": 2.4,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 37,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tahini": {
+      "catalogueId": "tahini",
+      "name": "Tahini",
+      "sections": {
+        "whatItOffers": "Tahini, sesame paste, kernel type unspecified: 1 tablespoon gives about 89 calories, with zinc (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 tablespoon (USDA: 15 g)",
+        "howToEatIt": "Stir into dressings, hummus and sauces, or drizzle over roasted vegetables; stir the jar first as the oil separates.",
+        "cycleRelevance": "No cycle-phase claim is made for tahini; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168604,
+        "usdaDescription": "Seeds, sesame butter, tahini, type of kernels unspecified",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "sesame paste, kernel type unspecified",
+        "portionGrams": 15,
+        "portion": "1 tablespoon (USDA: 15 g)",
+        "per100g": {
+          "protein": 17.4,
+          "fat": 53,
+          "carb": 21.5,
+          "fiber": 4.7,
+          "ca": 141,
+          "iron": 4.42,
+          "mg": 95,
+          "k": 459,
+          "zn": 4.62,
+          "vitc": 4.2,
+          "folate": 98,
+          "vita": 3,
+          "kcal": 592
+        }
+      },
+      "perServing": {
+        "energyKcal": 89,
+        "proteinG": 2.6,
+        "fatG": 8.0,
+        "carbohydrateG": 3.2,
+        "fiberG": 0.7,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "duck": {
+      "catalogueId": "duck",
+      "name": "Duck",
+      "sections": {
+        "whatItOffers": "Duck, roasted, meat only (skin removed): about 3½ oz gives about 201 calories, with zinc (about 33%), vitamin B12 (about 17%), iron (about 15%) and 23.5 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "about 3½ oz (USDA: 1 unit = 100 g)",
+        "howToEatIt": "Roast or pan-sear, and remove the skin and extra fat if you want less fat.",
+        "cycleRelevance": "No cycle-phase claim is made for duck; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.7 mg."
+      },
+      "source": {
+        "usdaFdcId": 172411,
+        "usdaDescription": "Duck, domesticated, meat only, cooked, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted, meat only (skin removed)",
+        "portionGrams": 100,
+        "portion": "about 3½ oz (USDA: 1 unit = 100 g)",
+        "per100g": {
+          "protein": 23.5,
+          "fat": 11.2,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 12,
+          "iron": 2.7,
+          "mg": 20,
+          "k": 252,
+          "zn": 2.6,
+          "vitc": 0,
+          "folate": 10,
+          "b12": 0.4,
+          "vita": 23,
+          "vite": 0.7,
+          "vitd": 0.1,
+          "vitk": 3.8,
+          "kcal": 201
+        }
+      },
+      "perServing": {
+        "energyKcal": 201,
+        "proteinG": 23.5,
+        "fatG": 11.2,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 2.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 33
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 23.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "bacon": {
+      "catalogueId": "bacon",
+      "name": "Bacon",
+      "sections": {
+        "whatItOffers": "Bacon: 3 slices cooked gives about 133 calories, with vitamin B12 (about 12%), zinc (about 10%) and 8.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 slices cooked (USDA: 1 slice = 8.1 g)",
+        "howToEatIt": "Cook until crisp and use sparingly, for example crumbled over soups, salads and vegetables.",
+        "cycleRelevance": "No cycle-phase claim is made for bacon; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 167914,
+        "usdaDescription": "Pork, cured, bacon, cooked, baked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cured pork bacon, cooked",
+        "portionGrams": 24.3,
+        "portion": "3 slices cooked (USDA: 1 slice = 8.1 g)",
+        "per100g": {
+          "protein": 35.7,
+          "fat": 43.3,
+          "carb": 1.35,
+          "fiber": 0,
+          "ca": 10,
+          "iron": 1.49,
+          "mg": 30,
+          "k": 539,
+          "zn": 3.36,
+          "vitc": 0,
+          "folate": 2,
+          "b12": 1.16,
+          "vita": 11,
+          "vite": 0.32,
+          "vitk": 0.1,
+          "kcal": 548
+        }
+      },
+      "perServing": {
+        "energyKcal": 133,
+        "proteinG": 8.7,
+        "fatG": 10.5,
+        "carbohydrateG": 0.3,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 8.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "ham": {
+      "catalogueId": "ham",
+      "name": "Ham",
+      "sections": {
+        "whatItOffers": "Ham: 3 oz gives about 140 calories, with zinc (about 28%), vitamin B12 (about 24%), potassium (about 12%) and 18.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 oz (USDA: 85 g)",
+        "howToEatIt": "Slice into sandwiches and salads, or dice into eggs, soups and pasta.",
+        "cycleRelevance": "No cycle-phase claim is made for ham; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168296,
+        "usdaDescription": "Pork, cured, ham, boneless, extra lean and regular, roasted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cured boneless ham, roasted",
+        "portionGrams": 85,
+        "portion": "3 oz (USDA: 85 g)",
+        "per100g": {
+          "protein": 22,
+          "fat": 7.66,
+          "carb": 0.5,
+          "fiber": 0,
+          "ca": 8,
+          "iron": 1.4,
+          "mg": 19,
+          "k": 362,
+          "zn": 2.63,
+          "vitc": 0,
+          "folate": 3,
+          "b12": 0.68,
+          "vita": 0,
+          "vite": 0.28,
+          "vitd": 0.8,
+          "vitk": 0,
+          "kcal": 165
+        }
+      },
+      "perServing": {
+        "energyKcal": 140,
+        "proteinG": 18.7,
+        "fatG": 6.5,
+        "carbohydrateG": 0.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 2.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 308,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 18.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

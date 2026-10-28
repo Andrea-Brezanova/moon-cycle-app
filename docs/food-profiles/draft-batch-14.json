@@ -1,0 +1,2043 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "rye": {
+      "catalogueId": "rye",
+      "name": "Rye",
+      "sections": {
+        "whatItOffers": "Rye: ¼ cup dry gives about 142 calories, with magnesium (about 15%), zinc (about 14%) and 6.3 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "¼ cup dry (USDA: 1 cup = 169 g)",
+        "howToEatIt": "Soak, then simmer rye berries until chewy for grain salads and side dishes.",
+        "cycleRelevance": "No cycle-phase claim is made for rye; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168884,
+        "usdaDescription": "Rye grain",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole rye grain, dry (uncooked)",
+        "portionGrams": 42,
+        "portion": "¼ cup dry (USDA: 1 cup = 169 g)",
+        "per100g": {
+          "protein": 10.3,
+          "fat": 1.63,
+          "carb": 75.9,
+          "fiber": 15.1,
+          "ca": 24,
+          "iron": 2.63,
+          "mg": 110,
+          "k": 510,
+          "zn": 2.65,
+          "vitc": 0,
+          "folate": 38,
+          "vita": 1,
+          "vite": 0.85,
+          "vitk": 5.9,
+          "kcal": 338
+        }
+      },
+      "perServing": {
+        "energyKcal": 142,
+        "proteinG": 4.3,
+        "fatG": 0.7,
+        "carbohydrateG": 31.9,
+        "fiberG": 6.3,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 46,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 6.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "wheat": {
+      "catalogueId": "wheat",
+      "name": "Wheat",
+      "sections": {
+        "whatItOffers": "Wheat: ¼ cup dry gives about 163 calories, with zinc (about 25%), magnesium (about 22%) and 6.6 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "¼ cup dry (USDA: 1 cup = 192 g)",
+        "howToEatIt": "Simmer whole wheat berries until tender for salads and pilafs; soaking first shortens the cooking time.",
+        "cycleRelevance": "No cycle-phase claim is made for wheat; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169721,
+        "usdaDescription": "Wheat, durum",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "durum wheat grain, dry (uncooked)",
+        "portionGrams": 48,
+        "portion": "¼ cup dry (USDA: 1 cup = 192 g)",
+        "per100g": {
+          "protein": 13.7,
+          "fat": 2.47,
+          "carb": 71.1,
+          "ca": 34,
+          "iron": 3.52,
+          "mg": 144,
+          "k": 431,
+          "zn": 4.16,
+          "vitc": 0,
+          "folate": 43,
+          "vita": 0,
+          "kcal": 339
+        }
+      },
+      "perServing": {
+        "energyKcal": 163,
+        "proteinG": 6.6,
+        "fatG": 1.2,
+        "carbohydrateG": 34.1,
+        "fiberG": null,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 2.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 25
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 69,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 22
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "amaranth": {
+      "catalogueId": "amaranth",
+      "name": "Amaranth",
+      "sections": {
+        "whatItOffers": "Amaranth, cooked grain: ½ cup cooked gives about 125 calories, with magnesium (about 26%), iron (about 14%) and zinc (about 13%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 246 g)",
+        "howToEatIt": "Simmer in water until soft and porridge-like, or pop it like popcorn.",
+        "cycleRelevance": "No cycle-phase claim is made for amaranth; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.6 mg."
+      },
+      "source": {
+        "usdaFdcId": 170683,
+        "usdaDescription": "Amaranth grain, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked grain",
+        "portionGrams": 123,
+        "portion": "½ cup cooked (USDA: 1 cup = 246 g)",
+        "per100g": {
+          "protein": 3.8,
+          "fat": 1.58,
+          "carb": 18.7,
+          "fiber": 2.1,
+          "ca": 47,
+          "iron": 2.1,
+          "mg": 65,
+          "k": 135,
+          "zn": 0.86,
+          "vite": 0.19,
+          "kcal": 102
+        }
+      },
+      "perServing": {
+        "energyKcal": 125,
+        "proteinG": 4.7,
+        "fatG": 1.9,
+        "carbohydrateG": 23.0,
+        "fiberG": 2.6,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 80,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 26
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 25
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "millet": {
+      "catalogueId": "millet",
+      "name": "Millet",
+      "sections": {
+        "whatItOffers": "Millet, cooked: ½ cup cooked gives about 104 calories, with magnesium (about 12%) and zinc (about 10%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 174 g)",
+        "howToEatIt": "Simmer until fluffy for side dishes, porridge, or in place of rice.",
+        "cycleRelevance": "No cycle-phase claim is made for millet; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168871,
+        "usdaDescription": "Millet, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 87,
+        "portion": "½ cup cooked (USDA: 1 cup = 174 g)",
+        "per100g": {
+          "protein": 3.51,
+          "fat": 1,
+          "carb": 23.7,
+          "fiber": 1.3,
+          "ca": 3,
+          "iron": 0.63,
+          "mg": 44,
+          "k": 62,
+          "zn": 0.91,
+          "vitc": 0,
+          "folate": 19,
+          "vita": 0,
+          "vite": 0.02,
+          "vitk": 0.3,
+          "kcal": 119
+        }
+      },
+      "perServing": {
+        "energyKcal": 104,
+        "proteinG": 3.1,
+        "fatG": 0.9,
+        "carbohydrateG": 20.6,
+        "fiberG": 1.1,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 38,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "bagel": {
+      "catalogueId": "bagel",
+      "name": "Bagel",
+      "sections": {
+        "whatItOffers": "Bagel, plain, enriched: 1 medium bagel, 3½–4 in gives about 277 calories, with vitamin E (about 52%), folate (about 43%), calcium (about 23%) and 11.1 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 medium bagel, 3½–4 in (USDA: 105 g)",
+        "howToEatIt": "Toast and top with eggs, avocado, cheese or nut butter.",
+        "cycleRelevance": "No cycle-phase claim is made for bagel; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 230 mg."
+      },
+      "source": {
+        "usdaFdcId": 174899,
+        "usdaDescription": "Bagels, plain, enriched, with calcium propionate (includes onion, poppy, sesame)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "plain, enriched",
+        "portionGrams": 105,
+        "portion": "1 medium bagel, 3½–4 in (USDA: 105 g)",
+        "per100g": {
+          "protein": 10.6,
+          "fat": 1.32,
+          "carb": 52.4,
+          "fiber": 1.6,
+          "ca": 219,
+          "iron": 3.57,
+          "mg": 29,
+          "k": 107,
+          "zn": 0.83,
+          "vitc": 0,
+          "folate": 163,
+          "vita": 0,
+          "vite": 7.46,
+          "vitk": 0.2,
+          "kcal": 264
+        }
+      },
+      "perServing": {
+        "energyKcal": 277,
+        "proteinG": 11.1,
+        "fatG": 1.4,
+        "carbohydrateG": 55.0,
+        "fiberG": 1.7,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 7.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 52
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 171,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 43
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 230,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 11.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "couscous": {
+      "catalogueId": "couscous",
+      "name": "Couscous",
+      "sections": {
+        "whatItOffers": "Couscous, cooked (made from semolina wheat): ½ cup cooked gives about 88 calories, with folate (about 3%), zinc (about 3%) and 1.1 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 157 g)",
+        "howToEatIt": "Steep in hot water or stock, fluff with a fork, and add vegetables, beans or herbs.",
+        "cycleRelevance": "No cycle-phase claim is made for couscous; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169700,
+        "usdaDescription": "Couscous, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked (made from semolina wheat)",
+        "portionGrams": 78.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 157 g)",
+        "per100g": {
+          "protein": 3.79,
+          "fat": 0.16,
+          "carb": 23.2,
+          "fiber": 1.4,
+          "ca": 8,
+          "iron": 0.38,
+          "mg": 8,
+          "k": 58,
+          "zn": 0.26,
+          "vitc": 0,
+          "folate": 15,
+          "vita": 0,
+          "vite": 0.13,
+          "vitk": 0.1,
+          "kcal": 112
+        }
+      },
+      "perServing": {
+        "energyKcal": 88,
+        "proteinG": 3.0,
+        "fatG": 0.1,
+        "carbohydrateG": 18.2,
+        "fiberG": 1.1,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 12,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 3
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 1.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "egg-noodles": {
+      "catalogueId": "egg-noodles",
+      "name": "Egg noodles",
+      "sections": {
+        "whatItOffers": "Egg noodles: ½ cup cooked gives about 110 calories, with folate (about 28%) and iron (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 160 g)",
+        "howToEatIt": "Boil briefly, then add to soups, stir-fries or serve with sauce and vegetables.",
+        "cycleRelevance": "No cycle-phase claim is made for egg noodles; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.2 mg."
+      },
+      "source": {
+        "usdaFdcId": 169732,
+        "usdaDescription": "Noodles, egg, enriched, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "egg noodles, enriched, cooked",
+        "portionGrams": 80,
+        "portion": "½ cup cooked (USDA: 1 cup = 160 g)",
+        "per100g": {
+          "protein": 4.54,
+          "fat": 2.07,
+          "carb": 25.2,
+          "fiber": 1.2,
+          "ca": 12,
+          "iron": 1.47,
+          "mg": 21,
+          "k": 38,
+          "zn": 0.65,
+          "vitc": 0,
+          "folate": 138,
+          "b12": 0.09,
+          "vita": 6,
+          "vite": 0.17,
+          "vitd": 0.1,
+          "vitk": 0,
+          "kcal": 138
+        }
+      },
+      "perServing": {
+        "energyKcal": 110,
+        "proteinG": 3.6,
+        "fatG": 1.7,
+        "carbohydrateG": 20.2,
+        "fiberG": 1.0,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 110,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "granola": {
+      "catalogueId": "granola",
+      "name": "Granola",
+      "sections": {
+        "whatItOffers": "Granola: 1 oz gives about 139 calories, with vitamin E (about 21%), magnesium (about 15%) and zinc (about 15%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 oz (USDA: 28.35 g; 1 cup = 122 g)",
+        "howToEatIt": "Spoon over yoghurt or fruit, or eat with milk; a small portion goes a long way because it is calorie-dense.",
+        "cycleRelevance": "No cycle-phase claim is made for granola; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 171646,
+        "usdaDescription": "Cereals ready-to-eat, granola, homemade",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "homemade-style granola",
+        "portionGrams": 28.35,
+        "portion": "1 oz (USDA: 28.35 g; 1 cup = 122 g)",
+        "per100g": {
+          "protein": 13.7,
+          "fat": 24.3,
+          "carb": 53.9,
+          "fiber": 8.9,
+          "ca": 76,
+          "iron": 3.95,
+          "mg": 168,
+          "k": 539,
+          "zn": 4.17,
+          "vitc": 1.2,
+          "folate": 84,
+          "vita": 1,
+          "vite": 11.1,
+          "vitk": 5.3,
+          "kcal": 489
+        }
+      },
+      "perServing": {
+        "energyKcal": 139,
+        "proteinG": 3.9,
+        "fatG": 6.9,
+        "carbohydrateG": 15.3,
+        "fiberG": 2.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 3.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 48,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "naan": {
+      "catalogueId": "naan",
+      "name": "Naan",
+      "sections": {
+        "whatItOffers": "Naan, plain, commercially prepared: 1 piece gives about 262 calories, with iron (about 16%), zinc (about 9%) and 8.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 piece (USDA: 90 g)",
+        "howToEatIt": "Warm and serve with curries, dals and dips, or use as a base for flatbread toppings.",
+        "cycleRelevance": "No cycle-phase claim is made for naan; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.9 mg."
+      },
+      "source": {
+        "usdaFdcId": 171845,
+        "usdaDescription": "Bread, naan, plain, commercially prepared, refrigerated",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "plain, commercially prepared",
+        "portionGrams": 90,
+        "portion": "1 piece (USDA: 90 g)",
+        "per100g": {
+          "protein": 9.62,
+          "fat": 5.65,
+          "carb": 50.4,
+          "fiber": 2.2,
+          "ca": 84,
+          "iron": 3.25,
+          "mg": 27,
+          "k": 125,
+          "zn": 0.81,
+          "vite": 0.79,
+          "kcal": 291
+        }
+      },
+      "perServing": {
+        "energyKcal": 262,
+        "proteinG": 8.7,
+        "fatG": 5.1,
+        "carbohydrateG": 45.4,
+        "fiberG": 2.0,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 2.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 8.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pasta": {
+      "catalogueId": "pasta",
+      "name": "Pasta",
+      "sections": {
+        "whatItOffers": "Pasta, cooked, enriched, no salt: 1 cup cooked spaghetti gives about 196 calories, with folate (about 37%), iron (about 9%) and 7.2 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup cooked spaghetti (USDA: 124 g)",
+        "howToEatIt": "Boil until al dente and toss with vegetables, beans, olive oil or sauce.",
+        "cycleRelevance": "No cycle-phase claim is made for pasta; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.6 mg."
+      },
+      "source": {
+        "usdaFdcId": 169737,
+        "usdaDescription": "Pasta, cooked, enriched, without added salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, enriched, no salt",
+        "portionGrams": 124,
+        "portion": "1 cup cooked spaghetti (USDA: 124 g)",
+        "per100g": {
+          "protein": 5.8,
+          "fat": 0.93,
+          "carb": 30.9,
+          "fiber": 1.8,
+          "ca": 7,
+          "iron": 1.28,
+          "mg": 18,
+          "k": 44,
+          "zn": 0.51,
+          "vitc": 0,
+          "folate": 119,
+          "b12": 0,
+          "vita": 0,
+          "vite": 0.06,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 158
+        }
+      },
+      "perServing": {
+        "energyKcal": 196,
+        "proteinG": 7.2,
+        "fatG": 1.2,
+        "carbohydrateG": 38.3,
+        "fiberG": 2.2,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 148,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 37
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pita-bread": {
+      "catalogueId": "pita-bread",
+      "name": "Pita bread (whole-wheat)",
+      "sections": {
+        "whatItOffers": "Pita bread (whole-wheat), whole-wheat pita: 1 large pita, 6½ in gives about 168 calories, with magnesium (about 14%), zinc (about 12%), iron (about 11%), 6.3 g of protein and 3.9 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 large pita, 6½ in (USDA: 64 g)",
+        "howToEatIt": "Warm and fill with salad and protein, or cut into wedges for dips.",
+        "cycleRelevance": "No cycle-phase claim is made for pita bread (whole-wheat); this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
+      },
+      "source": {
+        "usdaFdcId": 174916,
+        "usdaDescription": "Bread, pita, whole-wheat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole-wheat pita",
+        "portionGrams": 64,
+        "portion": "1 large pita, 6½ in (USDA: 64 g)",
+        "per100g": {
+          "protein": 9.8,
+          "fat": 1.71,
+          "carb": 55.9,
+          "fiber": 6.1,
+          "ca": 15,
+          "iron": 3.06,
+          "mg": 69,
+          "k": 170,
+          "zn": 1.52,
+          "vitc": 0,
+          "folate": 35,
+          "vita": 0,
+          "vite": 0.61,
+          "vitk": 1.4,
+          "kcal": 262
+        }
+      },
+      "perServing": {
+        "energyKcal": 168,
+        "proteinG": 6.3,
+        "fatG": 1.1,
+        "carbohydrateG": 35.8,
+        "fiberG": 3.9,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 44,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.3,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.9,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "polenta": {
+      "catalogueId": "polenta",
+      "name": "Polenta / cornmeal",
+      "sections": {
+        "whatItOffers": "Polenta / cornmeal, whole-grain yellow cornmeal, dry (uncooked): ¼ cup dry gives about 110 calories, with magnesium (about 12%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "¼ cup dry (USDA: 1 cup = 122 g)",
+        "howToEatIt": "Whisk into simmering water or stock until thick and creamy, then top with vegetables, cheese or beans.",
+        "cycleRelevance": "No cycle-phase claim is made for polenta / cornmeal; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169697,
+        "usdaDescription": "Cornmeal, whole-grain, yellow",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole-grain yellow cornmeal, dry (uncooked)",
+        "portionGrams": 30.5,
+        "portion": "¼ cup dry (USDA: 1 cup = 122 g)",
+        "per100g": {
+          "protein": 8.12,
+          "fat": 3.59,
+          "carb": 76.9,
+          "fiber": 7.3,
+          "ca": 6,
+          "iron": 3.45,
+          "mg": 127,
+          "k": 287,
+          "zn": 1.82,
+          "vitc": 0,
+          "folate": 25,
+          "vita": 11,
+          "vite": 0.42,
+          "vitk": 0.3,
+          "kcal": 362
+        }
+      },
+      "perServing": {
+        "energyKcal": 110,
+        "proteinG": 2.5,
+        "fatG": 1.1,
+        "carbohydrateG": 23.5,
+        "fiberG": 2.2,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 39,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "popcorn": {
+      "catalogueId": "popcorn",
+      "name": "Popcorn (plain)",
+      "sections": {
+        "whatItOffers": "Popcorn (plain), air-popped, unsalted: 3 cups popped gives about 92 calories, with zinc (about 10%), magnesium (about 10%) and 3.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 cups popped (USDA: 1 cup = 8 g)",
+        "howToEatIt": "Air-pop and season lightly with herbs or a little oil and salt.",
+        "cycleRelevance": "No cycle-phase claim is made for popcorn (plain); this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170246,
+        "usdaDescription": "Snacks, popcorn, air-popped (Unsalted)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "air-popped, unsalted",
+        "portionGrams": 24,
+        "portion": "3 cups popped (USDA: 1 cup = 8 g)",
+        "per100g": {
+          "protein": 12,
+          "fat": 4.2,
+          "carb": 77.9,
+          "fiber": 15.1,
+          "ca": 10,
+          "iron": 2.66,
+          "mg": 131,
+          "k": 301,
+          "zn": 3.44,
+          "vitc": 0,
+          "folate": 23,
+          "vita": 1,
+          "kcal": 382
+        }
+      },
+      "perServing": {
+        "energyKcal": 92,
+        "proteinG": 2.9,
+        "fatG": 1.0,
+        "carbohydrateG": 18.7,
+        "fiberG": 3.6,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 31,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 10
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "rice-cakes": {
+      "catalogueId": "rice-cakes",
+      "name": "Rice cakes",
+      "sections": {
+        "whatItOffers": "Rice cakes, brown rice, plain, unsalted: 2 cakes gives about 70 calories, with magnesium (about 8%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 cakes (USDA: 18 g)",
+        "howToEatIt": "Top with nut butter, avocado, cottage cheese or hummus.",
+        "cycleRelevance": "No cycle-phase claim is made for rice cakes; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170250,
+        "usdaDescription": "Snacks, rice cakes, brown rice, plain, unsalted",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "brown rice, plain, unsalted",
+        "portionGrams": 18,
+        "portion": "2 cakes (USDA: 18 g)",
+        "per100g": {
+          "protein": 8.2,
+          "fat": 2.8,
+          "carb": 81.5,
+          "fiber": 4.2,
+          "ca": 11,
+          "iron": 1.49,
+          "mg": 131,
+          "k": 290,
+          "zn": 3,
+          "vitc": 0,
+          "folate": 21,
+          "vita": 0,
+          "vite": 1.24,
+          "vitk": 1.9,
+          "kcal": 387
+        }
+      },
+      "perServing": {
+        "energyKcal": 70,
+        "proteinG": 1.5,
+        "fatG": 0.5,
+        "carbohydrateG": 14.7,
+        "fiberG": 0.8,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 24,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 8
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "rice-noodles": {
+      "catalogueId": "rice-noodles",
+      "name": "Rice noodles",
+      "sections": {
+        "whatItOffers": "Rice noodles, cooked: ½ cup cooked gives about 95 calories, with zinc (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 176 g)",
+        "howToEatIt": "Soak or boil as the packet says, then add to soups, stir-fries and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for rice noodles; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168914,
+        "usdaDescription": "Rice noodles, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 88,
+        "portion": "½ cup cooked (USDA: 1 cup = 176 g)",
+        "per100g": {
+          "protein": 1.79,
+          "fat": 0.2,
+          "carb": 24,
+          "fiber": 1,
+          "ca": 4,
+          "iron": 0.14,
+          "mg": 3,
+          "k": 4,
+          "zn": 0.25,
+          "vitc": 0,
+          "folate": 1,
+          "vita": 0,
+          "vite": 0.03,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 108
+        }
+      },
+      "perServing": {
+        "energyKcal": 95,
+        "proteinG": 1.6,
+        "fatG": 0.2,
+        "carbohydrateG": 21.1,
+        "fiberG": 0.9,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "rye-bread": {
+      "catalogueId": "rye-bread",
+      "name": "Rye bread",
+      "sections": {
+        "whatItOffers": "Rye bread: 1 regular slice gives about 83 calories, with folate (about 12%) and iron (about 5%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 regular slice (USDA: 32 g)",
+        "howToEatIt": "Toast and top with eggs, fish, cheese or vegetables, or use for sandwiches.",
+        "cycleRelevance": "No cycle-phase claim is made for rye bread; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.9 mg."
+      },
+      "source": {
+        "usdaFdcId": 172684,
+        "usdaDescription": "Bread, rye",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "rye bread (not toasted)",
+        "portionGrams": 32,
+        "portion": "1 regular slice (USDA: 32 g)",
+        "per100g": {
+          "protein": 8.5,
+          "fat": 3.3,
+          "carb": 48.3,
+          "fiber": 5.8,
+          "ca": 73,
+          "iron": 2.83,
+          "mg": 40,
+          "k": 166,
+          "zn": 1.14,
+          "vitc": 0.4,
+          "folate": 151,
+          "vita": 0,
+          "vite": 0.33,
+          "vitk": 1.2,
+          "kcal": 259
+        }
+      },
+      "perServing": {
+        "energyKcal": 83,
+        "proteinG": 2.7,
+        "fatG": 1.1,
+        "carbohydrateG": 15.5,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 48,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "soba-noodles": {
+      "catalogueId": "soba-noodles",
+      "name": "Soba noodles",
+      "sections": {
+        "whatItOffers": "Soba noodles, cooked: ½ cup cooked gives about 56 calories, with magnesium (about 2%) and iron (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 114 g)",
+        "howToEatIt": "Boil briefly, rinse, and serve cold with a dipping sauce or hot in broth.",
+        "cycleRelevance": "No cycle-phase claim is made for soba noodles; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.3 mg."
+      },
+      "source": {
+        "usdaFdcId": 168907,
+        "usdaDescription": "Noodles, japanese, soba, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 57,
+        "portion": "½ cup cooked (USDA: 1 cup = 114 g)",
+        "per100g": {
+          "protein": 5.06,
+          "fat": 0.1,
+          "carb": 21.4,
+          "ca": 4,
+          "iron": 0.48,
+          "mg": 9,
+          "k": 35,
+          "zn": 0.12,
+          "vitc": 0,
+          "folate": 7,
+          "vita": 0,
+          "kcal": 99
+        }
+      },
+      "perServing": {
+        "energyKcal": 56,
+        "proteinG": 2.9,
+        "fatG": 0.1,
+        "carbohydrateG": 12.2,
+        "fiberG": null,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 2
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 0.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sourdough-bread": {
+      "catalogueId": "sourdough-bread",
+      "name": "Sourdough bread",
+      "sections": {
+        "whatItOffers": "Sourdough bread: 2 oz slices worth gives about 154 calories, with folate (about 24%), iron (about 12%) and 6.1 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 oz slices worth (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Toast and top with eggs, avocado or beans, or serve with soups and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for sourdough bread; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.2 mg."
+      },
+      "source": {
+        "usdaFdcId": 172675,
+        "usdaDescription": "Bread, french or vienna (includes sourdough)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "French/Vienna/sourdough bread",
+        "portionGrams": 56.7,
+        "portion": "2 oz slices worth (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 10.8,
+          "fat": 2.42,
+          "carb": 51.9,
+          "fiber": 2.2,
+          "ca": 52,
+          "iron": 3.91,
+          "mg": 32,
+          "k": 117,
+          "zn": 1.04,
+          "vitc": 0,
+          "folate": 170,
+          "vita": 0,
+          "vite": 0.21,
+          "vitk": 0.7,
+          "kcal": 272
+        }
+      },
+      "perServing": {
+        "energyKcal": 154,
+        "proteinG": 6.1,
+        "fatG": 1.4,
+        "carbohydrateG": 29.4,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 96,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tortillas": {
+      "catalogueId": "tortillas",
+      "name": "Tortillas (wheat)",
+      "sections": {
+        "whatItOffers": "Tortillas (wheat), flour, shelf stable: 1 tortilla gives about 146 calories, with folate (about 23%) and iron (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 tortilla (USDA: 49 g)",
+        "howToEatIt": "Warm and fill with beans, vegetables, eggs or meat, or bake into wraps and quesadillas.",
+        "cycleRelevance": "No cycle-phase claim is made for tortillas (wheat); this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.6 mg."
+      },
+      "source": {
+        "usdaFdcId": 167535,
+        "usdaDescription": "Tortillas, ready-to-bake or -fry, flour, shelf stable",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "flour, shelf stable",
+        "portionGrams": 49,
+        "portion": "1 tortilla (USDA: 49 g)",
+        "per100g": {
+          "protein": 8.01,
+          "fat": 7.58,
+          "carb": 49.3,
+          "fiber": 2.4,
+          "ca": 163,
+          "iron": 3.32,
+          "mg": 21,
+          "k": 133,
+          "zn": 0.57,
+          "vitc": 0,
+          "folate": 188,
+          "vita": 0,
+          "vite": 0.86,
+          "vitk": 4.2,
+          "kcal": 297
+        }
+      },
+      "perServing": {
+        "energyKcal": 146,
+        "proteinG": 3.9,
+        "fatG": 3.7,
+        "carbohydrateG": 24.2,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 92,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "wheat-flour": {
+      "catalogueId": "wheat-flour",
+      "name": "Wheat flour (whole-grain)",
+      "sections": {
+        "whatItOffers": "Wheat flour (whole-grain), whole-grain wheat flour: ¼ cup gives about 102 calories, with magnesium (about 13%), zinc (about 10%) and 3.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "¼ cup (USDA: 1 cup = 120 g)",
+        "howToEatIt": "Use in baking, pancakes and flatbreads, often combined with white flour for a lighter texture.",
+        "cycleRelevance": "No cycle-phase claim is made for wheat flour (whole-grain); this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168893,
+        "usdaDescription": "Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "whole-grain wheat flour",
+        "portionGrams": 30,
+        "portion": "¼ cup (USDA: 1 cup = 120 g)",
+        "per100g": {
+          "protein": 13.2,
+          "fat": 2.5,
+          "carb": 72,
+          "fiber": 10.7,
+          "ca": 34,
+          "iron": 3.6,
+          "mg": 137,
+          "k": 363,
+          "zn": 2.6,
+          "vitc": 0,
+          "folate": 44,
+          "vita": 0,
+          "vite": 0.71,
+          "vitk": 1.9,
+          "kcal": 340
+        }
+      },
+      "perServing": {
+        "energyKcal": 102,
+        "proteinG": 4.0,
+        "fatG": 0.8,
+        "carbohydrateG": 21.6,
+        "fiberG": 3.2,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 41,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 13
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "white-rice": {
+      "catalogueId": "white-rice",
+      "name": "White rice",
+      "sections": {
+        "whatItOffers": "White rice, long-grain, enriched, cooked: ½ cup cooked gives about 103 calories, with folate (about 19%) and iron (about 5%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 158 g)",
+        "howToEatIt": "Rinse, then simmer until tender, and serve with vegetables, beans, fish or meat.",
+        "cycleRelevance": "No cycle-phase claim is made for white rice; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.9 mg."
+      },
+      "source": {
+        "usdaFdcId": 168878,
+        "usdaDescription": "Rice, white, long-grain, regular, enriched, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "long-grain, enriched, cooked",
+        "portionGrams": 79,
+        "portion": "½ cup cooked (USDA: 1 cup = 158 g)",
+        "per100g": {
+          "protein": 2.69,
+          "fat": 0.28,
+          "carb": 28.2,
+          "fiber": 0.4,
+          "ca": 10,
+          "iron": 1.2,
+          "mg": 12,
+          "k": 35,
+          "zn": 0.49,
+          "vitc": 0,
+          "folate": 97,
+          "vita": 0,
+          "vite": 0.04,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 130
+        }
+      },
+      "perServing": {
+        "energyKcal": 103,
+        "proteinG": 2.1,
+        "fatG": 0.2,
+        "carbohydrateG": 22.3,
+        "fiberG": 0.3,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 77,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "whole-wheat-pasta": {
+      "catalogueId": "whole-wheat-pasta",
+      "name": "Whole-wheat pasta",
+      "sections": {
+        "whatItOffers": "Whole-wheat pasta, cooked: 1 cup cooked spaghetti gives about 174 calories, with magnesium (about 20%), zinc (about 20%), iron (about 11%), 7.0 g of protein and 4.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup cooked spaghetti (USDA: 117 g)",
+        "howToEatIt": "Boil until just tender and toss with vegetables, beans or a simple sauce.",
+        "cycleRelevance": "No cycle-phase claim is made for whole-wheat pasta; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
+      },
+      "source": {
+        "usdaFdcId": 168910,
+        "usdaDescription": "Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 117,
+        "portion": "1 cup cooked spaghetti (USDA: 117 g)",
+        "per100g": {
+          "protein": 5.99,
+          "fat": 1.71,
+          "carb": 30.1,
+          "fiber": 3.9,
+          "ca": 13,
+          "iron": 1.72,
+          "mg": 54,
+          "k": 96,
+          "zn": 1.34,
+          "vitc": 0,
+          "folate": 21,
+          "vita": 0,
+          "vite": 0.23,
+          "vitd": 0,
+          "vitk": 0.6,
+          "kcal": 149
+        }
+      },
+      "perServing": {
+        "energyKcal": 174,
+        "proteinG": 7.0,
+        "fatG": 2.0,
+        "carbohydrateG": 35.2,
+        "fiberG": 4.6,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 63,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 20
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.0,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 4.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

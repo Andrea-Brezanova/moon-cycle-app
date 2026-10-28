@@ -1,0 +1,2377 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "clam": {
+      "catalogueId": "clam",
+      "name": "Clam",
+      "sections": {
+        "whatItOffers": "Cooked clams are an exceptional source of vitamin B12 (about 84 µg in 3 ounces, many times the 2.4 µg reference), with zinc, vitamin C and about 22 g of protein for 126 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Steam in their shells with garlic, wine or broth, or add shucked clams to chowder, pasta and rice dishes. Discard any that stay closed after cooking.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Clams provide iron too (about 2.4 mg in this serving), in a form that is absorbed more readily than plant iron."
+      },
+      "source": {
+        "usdaFdcId": 171975,
+        "usdaDescription": "Mollusks, clam, mixed species, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, moist heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 25.6,
+          "fat": 1.95,
+          "carb": 5.13,
+          "fiber": 0,
+          "ca": 92,
+          "iron": 2.81,
+          "mg": 18,
+          "k": 628,
+          "zn": 2.73,
+          "vitc": 22.1,
+          "folate": 29,
+          "b12": 98.9,
+          "vita": 171,
+          "kcal": 148,
+          "omega3": 0.284
+        }
+      },
+      "perServing": {
+        "energyKcal": 126,
+        "proteinG": 21.8,
+        "fatG": 1.7,
+        "carbohydrateG": 4.4,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 84.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 3503
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 29
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 19,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 25
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 21.8,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook thoroughly",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)"
+        },
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mussel": {
+      "catalogueId": "mussel",
+      "name": "Mussel",
+      "sections": {
+        "whatItOffers": "Mussels are rich in vitamin B12 (about 20 µg in 3 ounces), iron (about 32% of the reference), zinc and protein (about 20 g), with some omega-3 fats.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Steam in a covered pot with garlic, wine or tomato until the shells open, then serve with the broth. Discard any that stay closed.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Three ounces of mussels supply about 5.7 mg."
+      },
+      "source": {
+        "usdaFdcId": 174217,
+        "usdaDescription": "Mollusks, mussel, blue, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, moist heat, shelled",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 23.8,
+          "fat": 4.48,
+          "carb": 7.39,
+          "fiber": 0,
+          "ca": 33,
+          "iron": 6.72,
+          "mg": 37,
+          "k": 268,
+          "zn": 2.67,
+          "vitc": 13.6,
+          "folate": 76,
+          "b12": 24,
+          "vita": 91,
+          "kcal": 172,
+          "omega3": 0.782
+        }
+      },
+      "perServing": {
+        "energyKcal": 146,
+        "proteinG": 20.2,
+        "fatG": 3.8,
+        "carbohydrateG": 6.3,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 20.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 850
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 5.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 32
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 2.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 20.2,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.66,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook thoroughly",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)"
+        },
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "oyster": {
+      "catalogueId": "oyster",
+      "name": "Oyster",
+      "sections": {
+        "whatItOffers": "Six cooked oysters give an exceptional amount of zinc (about 33 mg, over four times the reference), vitamin B12 and iron, for only about 43 calories.",
+        "practicalServing": "6 medium oysters, cooked (USDA: 6 medium = 42 g)",
+        "howToEatIt": "Eat cooked: steam, bake or fry them, or add to stews. Raw oysters carry a food-safety risk (see the caution).",
+        "cycleRelevance": "No cycle-phase claim is made for oysters. Their very high zinc content means a smaller portion is plenty."
+      },
+      "source": {
+        "usdaFdcId": 171980,
+        "usdaDescription": "Mollusks, oyster, eastern, wild, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, moist heat, shelled",
+        "portionGrams": 42,
+        "portion": "6 medium oysters, cooked (USDA: 6 medium = 42 g)",
+        "per100g": {
+          "protein": 11.4,
+          "fat": 3.42,
+          "carb": 5.45,
+          "fiber": 0,
+          "ca": 116,
+          "iron": 9.21,
+          "mg": 35,
+          "k": 139,
+          "zn": 78.6,
+          "vitc": 0,
+          "folate": 14,
+          "b12": 17.5,
+          "vita": 26,
+          "vite": 1.7,
+          "vitd": 0,
+          "vitk": 2,
+          "kcal": 102,
+          "omega3": 0.624
+        }
+      },
+      "perServing": {
+        "energyKcal": 43,
+        "proteinG": 4.8,
+        "fatG": 1.4,
+        "carbohydrateG": 2.3,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 33.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 413
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 7.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 306
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 3.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.26,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Raw oysters: food-safety risk",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sardine": {
+      "catalogueId": "sardine",
+      "name": "Sardine",
+      "sections": {
+        "whatItOffers": "Canned sardines, eaten with their soft bones, are rich in calcium (about 35% of the reference in one small can), vitamin B12 and vitamin D, with about 0.9 g of omega-3 fats and 23 g of protein.",
+        "practicalServing": "1 small can, drained (USDA: 1 can, 3.75 oz = 92 g)",
+        "howToEatIt": "Mash on toast with lemon, toss into pasta or salads, or eat straight from the can with bread. The bones are soft and edible.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); sardines eaten with their bones are one of the few non-dairy foods that give a substantial amount."
+      },
+      "source": {
+        "usdaFdcId": 175139,
+        "usdaDescription": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned in oil, drained, with bones",
+        "portionGrams": 92,
+        "portion": "1 small can, drained (USDA: 1 can, 3.75 oz = 92 g)",
+        "per100g": {
+          "protein": 24.6,
+          "fat": 11.4,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 382,
+          "iron": 2.92,
+          "mg": 39,
+          "k": 397,
+          "zn": 1.31,
+          "vitc": 0,
+          "folate": 10,
+          "b12": 8.94,
+          "vita": 32,
+          "vite": 2.04,
+          "vitd": 4.8,
+          "vitk": 2.6,
+          "kcal": 208,
+          "omega3": 0.982
+        }
+      },
+      "perServing": {
+        "energyKcal": 191,
+        "proteinG": 22.6,
+        "fatG": 10.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 8.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 343
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 351,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 35
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 4.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 29
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 22.6,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.9,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "anchovies": {
+      "catalogueId": "anchovies",
+      "name": "Anchovies",
+      "sections": {
+        "whatItOffers": "Canned anchovies are an intensely salty, savoury fish. Five anchovies give about 5.8 g of protein and 0.4 g of omega-3 fats for only 42 calories.",
+        "practicalServing": "5 anchovies (USDA: 5 anchovies = 20 g)",
+        "howToEatIt": "Melt into sauces, dressings and pasta, or use a few to season roasted vegetables and lamb. A little goes a long way.",
+        "cycleRelevance": "No cycle-phase claim is made for anchovies. They are mostly used for flavour, in small amounts."
+      },
+      "source": {
+        "usdaFdcId": 174183,
+        "usdaDescription": "Fish, anchovy, european, canned in oil, drained solids",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned in oil, drained",
+        "portionGrams": 20,
+        "portion": "5 anchovies (USDA: 5 anchovies = 20 g)",
+        "per100g": {
+          "protein": 28.9,
+          "fat": 9.71,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 232,
+          "iron": 4.63,
+          "mg": 69,
+          "k": 544,
+          "zn": 2.44,
+          "vitc": 0,
+          "folate": 13,
+          "b12": 0.88,
+          "vita": 12,
+          "vite": 3.33,
+          "vitd": 1.7,
+          "vitk": 12.1,
+          "kcal": 210,
+          "omega3": 2.053
+        }
+      },
+      "perServing": {
+        "energyKcal": 42,
+        "proteinG": 5.8,
+        "fatG": 1.9,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.8,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.41,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "scallop": {
+      "catalogueId": "scallop",
+      "name": "Scallop",
+      "sections": {
+        "whatItOffers": "Cooked scallops are a lean, sweet shellfish: 3 ounces give about 17 g of protein, vitamin B12 (76% of the reference) and zinc for only 94 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Sear briefly in a hot pan until golden outside and just opaque inside, or steam or poach them.",
+        "cycleRelevance": "No cycle-phase claim is made for scallops."
+      },
+      "source": {
+        "usdaFdcId": 167742,
+        "usdaDescription": "Mollusks, scallop, (bay and sea), cooked, steamed",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, steamed",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 20.5,
+          "fat": 0.84,
+          "carb": 5.41,
+          "fiber": 0,
+          "ca": 10,
+          "iron": 0.58,
+          "mg": 37,
+          "k": 314,
+          "zn": 1.55,
+          "vitc": 0,
+          "folate": 20,
+          "b12": 2.15,
+          "vita": 2,
+          "vite": 0,
+          "vitd": 0,
+          "vitk": 0,
+          "kcal": 111,
+          "omega3": 0.176
+        }
+      },
+      "perServing": {
+        "energyKcal": 94,
+        "proteinG": 17.4,
+        "fatG": 0.7,
+        "carbohydrateG": 4.6,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.8,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 76
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 267,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 17.4,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Mollusc allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "trout": {
+      "catalogueId": "trout",
+      "name": "Trout",
+      "sections": {
+        "whatItOffers": "A cooked rainbow trout fillet is one of the richest foods in vitamin D (about 13.5 µg, 90% of the reference) and gives vitamin B12, vitamin E, about 17 g of protein and 0.6 g of omega-3 fats.",
+        "practicalServing": "1 fillet, cooked (USDA: 1 fillet = 71 g)",
+        "howToEatIt": "Pan-fry, bake whole or in fillets with lemon and herbs, or poach. The skin crisps well.",
+        "cycleRelevance": "Few foods contain much vitamin D. The reference for women 19 to 50 is 15 µg a day (NIH ODS), and a trout fillet supplies about 90% of it."
+      },
+      "source": {
+        "usdaFdcId": 173718,
+        "usdaDescription": "Fish, trout, rainbow, farmed, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat, rainbow trout (farmed)",
+        "portionGrams": 71,
+        "portion": "1 fillet, cooked (USDA: 1 fillet = 71 g)",
+        "per100g": {
+          "protein": 23.8,
+          "fat": 7.38,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 30,
+          "iron": 0.36,
+          "mg": 30,
+          "k": 450,
+          "zn": 0.54,
+          "vitc": 2.9,
+          "folate": 12,
+          "b12": 4.11,
+          "vita": 100,
+          "vite": 2.79,
+          "vitd": 19,
+          "vitk": 0.1,
+          "kcal": 168,
+          "omega3": 0.875
+        }
+      },
+      "perServing": {
+        "energyKcal": 119,
+        "proteinG": 16.9,
+        "fatG": 5.2,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.9,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 122
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 13.5,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 90
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 2.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 16.9,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.62,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "canned-salmon": {
+      "catalogueId": "canned-salmon",
+      "name": "Canned salmon",
+      "sections": {
+        "whatItOffers": "Canned pink salmon, eaten with its soft bones, gives vitamin B12, vitamin D (about 82% of the reference), calcium (about 24%) and 0.9 g of omega-3 fats, with about 20 g of protein in 3 ounces.",
+        "practicalServing": "3 ounces drained (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Flake into salads, sandwiches, fish cakes and pasta, or mix with yoghurt and herbs. The soft bones can be mashed in.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day, and vitamin D 15 µg a day, for women aged 19 to 50 (NIH ODS). Canned salmon with the bones supplies a good share of both."
+      },
+      "source": {
+        "usdaFdcId": 175175,
+        "usdaDescription": "Fish, salmon, pink, canned, drained solids",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned pink salmon, drained solids (with skin and bones)",
+        "portionGrams": 85,
+        "portion": "3 ounces drained (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 23.1,
+          "fat": 5.02,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 283,
+          "iron": 0.77,
+          "mg": 32,
+          "k": 333,
+          "zn": 0.96,
+          "vitc": 0,
+          "folate": 4,
+          "b12": 4.95,
+          "vita": 20,
+          "vite": 1.28,
+          "vitd": 14.5,
+          "vitk": 0.1,
+          "kcal": 138,
+          "omega3": 1.077
+        }
+      },
+      "perServing": {
+        "energyKcal": 117,
+        "proteinG": 19.6,
+        "fatG": 4.3,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 4.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 175
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 12.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 82
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 241,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 19.6,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.92,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "canned-tuna": {
+      "catalogueId": "canned-tuna",
+      "name": "Canned tuna",
+      "sections": {
+        "whatItOffers": "Canned light tuna in water is a lean, convenient protein: 3 ounces give about 16.5 g of protein and 90% of the vitamin B12 reference for 73 calories. It has far less omega-3 fat than oily fish.",
+        "practicalServing": "3 ounces drained (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Mix with yoghurt or mayonnaise for sandwiches, toss into pasta and salads, or bake into fish cakes.",
+        "cycleRelevance": "No cycle-phase claim is made for tuna. FDA and EPA list canned light tuna as a \"Best Choice\" for mercury; albacore (white) tuna is a \"Good Choice\"."
+      },
+      "source": {
+        "usdaFdcId": 173709,
+        "usdaDescription": "Fish, tuna, light, canned in water, drained solids (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned light tuna in water, drained",
+        "portionGrams": 85,
+        "portion": "3 ounces drained (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 19.4,
+          "fat": 0.96,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 17,
+          "iron": 1.63,
+          "mg": 23,
+          "k": 179,
+          "zn": 0.69,
+          "vitc": 0,
+          "folate": 4,
+          "b12": 2.55,
+          "vita": 17,
+          "vite": 0.33,
+          "vitd": 1.2,
+          "vitk": 0.2,
+          "kcal": 86,
+          "omega3": 0.224
+        }
+      },
+      "perServing": {
+        "energyKcal": 73,
+        "proteinG": 16.5,
+        "fatG": 0.8,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 90
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 16.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "haddock": {
+      "catalogueId": "haddock",
+      "name": "Haddock",
+      "sections": {
+        "whatItOffers": "Cooked haddock is a lean, mild white fish: 3 ounces give about 17 g of protein, vitamin B12 (75% of the reference) and potassium for 77 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake or poach in milk or stock, pan-fry, or use in fish pie and chowder.",
+        "cycleRelevance": "No cycle-phase claim is made for haddock."
+      },
+      "source": {
+        "usdaFdcId": 174198,
+        "usdaDescription": "Fish, haddock, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 20,
+          "fat": 0.55,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 14,
+          "iron": 0.21,
+          "mg": 26,
+          "k": 351,
+          "zn": 0.4,
+          "vitc": 0,
+          "folate": 13,
+          "b12": 2.13,
+          "vita": 21,
+          "vite": 0.55,
+          "vitd": 0.6,
+          "vitk": 0.1,
+          "kcal": 90,
+          "omega3": 0.16
+        }
+      },
+      "perServing": {
+        "energyKcal": 77,
+        "proteinG": 17.0,
+        "fatG": 0.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.8,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 75
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 298,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 17.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pollock": {
+      "catalogueId": "pollock",
+      "name": "Pollock",
+      "sections": {
+        "whatItOffers": "Cooked pollock is a lean, mild white fish with about 21 g of protein, vitamin B12 and magnesium (24% of the reference) in 3 ounces.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake, pan-fry or poach, or use in fish tacos and fish pie. It is the fish in many frozen fillets.",
+        "cycleRelevance": "No cycle-phase claim is made for pollock."
+      },
+      "source": {
+        "usdaFdcId": 174237,
+        "usdaDescription": "Fish, pollock, Atlantic, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 24.9,
+          "fat": 1.26,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 77,
+          "iron": 0.59,
+          "mg": 86,
+          "k": 456,
+          "zn": 0.6,
+          "vitc": 0,
+          "folate": 3,
+          "b12": 3.68,
+          "vita": 12,
+          "kcal": 118,
+          "omega3": 0.542
+        }
+      },
+      "perServing": {
+        "energyKcal": 100,
+        "proteinG": 21.2,
+        "fatG": 1.1,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 3.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 130
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 73,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 24
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 23
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 388,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 21.2,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.46,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "crab": {
+      "catalogueId": "crab",
+      "name": "Crab",
+      "sections": {
+        "whatItOffers": "Cooked crab (Alaska king) is a lean shellfish with zinc (about 81% of the reference), vitamin B12, magnesium and about 16.5 g of protein in 3 ounces.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Serve warm with lemon, fold into salads, cakes and pasta, or add to soups.",
+        "cycleRelevance": "No cycle-phase claim is made for crab. This record is Alaska king crab; other crab varies."
+      },
+      "source": {
+        "usdaFdcId": 174202,
+        "usdaDescription": "Crustaceans, crab, alaska king, cooked, moist heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, moist heat (Alaska king crab)",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 19.4,
+          "fat": 1.54,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 59,
+          "iron": 0.76,
+          "mg": 63,
+          "k": 262,
+          "zn": 7.62,
+          "vitc": 7.6,
+          "folate": 51,
+          "b12": 11.5,
+          "vita": 9,
+          "kcal": 97,
+          "omega3": 0.413
+        }
+      },
+      "perServing": {
+        "energyKcal": 82,
+        "proteinG": 16.5,
+        "fatG": 1.3,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 9.8,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 407
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 6.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 81
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 54,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 17
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 16.5,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.35,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Crustacean allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "shrimp": {
+      "catalogueId": "shrimp",
+      "name": "Shrimp",
+      "sections": {
+        "whatItOffers": "Cooked shrimp are a lean shellfish: 3 ounces give about 19 g of protein, vitamin B12, zinc and vitamin E for about 101 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g), about 12 large",
+        "howToEatIt": "Sauté, grill or steam briefly until just pink and firm, then add to stir-fries, pasta, salads and curries. They overcook quickly.",
+        "cycleRelevance": "No cycle-phase claim is made for shrimp."
+      },
+      "source": {
+        "usdaFdcId": 171971,
+        "usdaDescription": "Crustaceans, shrimp, mixed species, cooked, moist heat (may contain additives to retain moisture)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, moist heat (may contain additives)",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g), about 12 large",
+        "per100g": {
+          "protein": 22.8,
+          "fat": 1.7,
+          "carb": 1.52,
+          "fiber": 0,
+          "ca": 91,
+          "iron": 0.32,
+          "mg": 37,
+          "k": 170,
+          "zn": 1.63,
+          "vitc": 0,
+          "folate": 24,
+          "b12": 1.66,
+          "vita": 90,
+          "vite": 2.2,
+          "vitd": 0.1,
+          "vitk": 0.4,
+          "kcal": 119,
+          "omega3": 0.276
+        }
+      },
+      "perServing": {
+        "energyKcal": 101,
+        "proteinG": 19.4,
+        "fatG": 1.4,
+        "carbohydrateG": 1.3,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 59
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 1.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 19.4,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Crustacean allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sea-bass": {
+      "catalogueId": "sea-bass",
+      "name": "Sea bass",
+      "sections": {
+        "whatItOffers": "Cooked sea bass is a lean, mild fish with about 20 g of protein, magnesium and potassium in 3 ounces, and 0.65 g of omega-3 fats.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake, pan-sear skin-side down for crisp skin, or steam whole with ginger and spring onion.",
+        "cycleRelevance": "No cycle-phase claim is made for sea bass. Which fish this means affects its mercury level (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 173694,
+        "usdaDescription": "Fish, sea bass, mixed species, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 23.6,
+          "fat": 2.56,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 13,
+          "iron": 0.37,
+          "mg": 53,
+          "k": 328,
+          "zn": 0.52,
+          "vitc": 0,
+          "folate": 6,
+          "b12": 0.3,
+          "vita": 64,
+          "kcal": 124,
+          "omega3": 0.762
+        }
+      },
+      "perServing": {
+        "energyKcal": 105,
+        "proteinG": 20.1,
+        "fatG": 2.2,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 45,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 279,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": 0.3,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 20.1,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.65,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "salmon": {
+      "catalogueId": "salmon",
+      "name": "Salmon",
+      "sections": {
+        "whatItOffers": "Cooked farmed Atlantic salmon is a rich source of omega-3 fats (about 1.8 g in 3 ounces), vitamin D (about 74% of the reference) and vitamin B12, with about 19 g of protein.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake or roast with lemon and herbs, pan-sear skin-side down, or poach and flake into salads and pasta.",
+        "cycleRelevance": "The reference intake of vitamin D for women aged 19 to 50 is 15 µg a day (NIH ODS), and few foods supply much; 3 ounces of salmon provides about three quarters of it. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 175168,
+        "usdaDescription": "Fish, salmon, Atlantic, farmed, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat, Atlantic salmon (farmed)",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 22.1,
+          "fat": 12.4,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 15,
+          "iron": 0.34,
+          "mg": 30,
+          "k": 384,
+          "zn": 0.43,
+          "vitc": 3.7,
+          "folate": 34,
+          "b12": 2.8,
+          "vita": 69,
+          "vite": 1.14,
+          "vitd": 13.1,
+          "vitk": 0.1,
+          "kcal": 206,
+          "omega3": 2.15
+        }
+      },
+      "perServing": {
+        "energyKcal": 175,
+        "proteinG": 18.8,
+        "fatG": 10.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 2.4,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 99
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 11.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 74
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 326,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 18.8,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 1.83,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cod": {
+      "catalogueId": "cod",
+      "name": "Cod",
+      "sections": {
+        "whatItOffers": "Cooked cod is a lean, mild white fish with about 19 g of protein, vitamin B12 and magnesium in 3 ounces, and only 89 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake, poach or pan-fry, or use in fish and chips, stews and curries. It flakes easily, so handle gently.",
+        "cycleRelevance": "No cycle-phase claim is made for cod."
+      },
+      "source": {
+        "usdaFdcId": 171956,
+        "usdaDescription": "Fish, cod, Atlantic, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 22.8,
+          "fat": 0.86,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 14,
+          "iron": 0.49,
+          "mg": 42,
+          "k": 244,
+          "zn": 0.58,
+          "vitc": 1,
+          "folate": 8,
+          "b12": 1.05,
+          "vita": 14,
+          "vite": 0.81,
+          "vitd": 1.2,
+          "vitk": 0.1,
+          "kcal": 105,
+          "omega3": 0.158
+        }
+      },
+      "perServing": {
+        "energyKcal": 89,
+        "proteinG": 19.4,
+        "fatG": 0.7,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 0.9,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 37
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 36,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 19.4,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "flounder": {
+      "catalogueId": "flounder",
+      "name": "Flounder",
+      "sections": {
+        "whatItOffers": "Cooked flounder and sole are delicate flatfish with about 13 g of protein, vitamin B12 and vitamin D (20% of the reference) in 3 ounces, for only 73 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Pan-fry or bake briefly, or roll fillets around a filling. They cook in a few minutes.",
+        "cycleRelevance": "No cycle-phase claim is made for flounder."
+      },
+      "source": {
+        "usdaFdcId": 174197,
+        "usdaDescription": "Fish, flatfish (flounder and sole species), cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 15.2,
+          "fat": 2.37,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 25,
+          "iron": 0.23,
+          "mg": 22,
+          "k": 197,
+          "zn": 0.39,
+          "vitc": 0,
+          "folate": 6,
+          "b12": 1.31,
+          "vita": 12,
+          "vite": 0.77,
+          "vitd": 3.5,
+          "vitk": 0.1,
+          "kcal": 86,
+          "omega3": 0.3
+        }
+      },
+      "perServing": {
+        "energyKcal": 73,
+        "proteinG": 12.9,
+        "fatG": 2.0,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 46
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 3.0,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 12.9,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.26,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "halibut": {
+      "catalogueId": "halibut",
+      "name": "Halibut",
+      "sections": {
+        "whatItOffers": "Cooked halibut is a firm, mild white fish with about 19 g of protein, potassium (17% of the adequate intake), vitamin D (33% of the reference) and vitamin B12 in 3 ounces.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake, grill or pan-sear, or poach in a flavoured broth; its firm flesh holds together well.",
+        "cycleRelevance": "No cycle-phase claim is made for halibut. FDA and EPA list it as a \"Good Choice\" for mercury (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 174201,
+        "usdaDescription": "Fish, halibut, Atlantic and Pacific, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 22.5,
+          "fat": 1.61,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 9,
+          "iron": 0.2,
+          "mg": 28,
+          "k": 528,
+          "zn": 0.43,
+          "vitc": 0,
+          "folate": 14,
+          "b12": 1.27,
+          "vita": 24,
+          "vite": 0.74,
+          "vitd": 5.8,
+          "vitk": 0,
+          "kcal": 111,
+          "omega3": 0.235
+        }
+      },
+      "perServing": {
+        "energyKcal": 94,
+        "proteinG": 19.1,
+        "fatG": 1.4,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.1,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 45
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 4.9,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 33
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 449,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 19.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Moderate mercury: about 1 serving a week if pregnant",
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024) (supports the existing caution)"
+        },
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mackerel": {
+      "catalogueId": "mackerel",
+      "name": "Mackerel",
+      "sections": {
+        "whatItOffers": "Cooked Atlantic mackerel is a rich, oily fish: 3 ounces give vitamin B12 (many times the reference), magnesium (about 27%), potassium, about 20 g of protein and 1 g of omega-3 fats, for 223 calories.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Grill, bake or pan-fry with lemon, or serve smoked in salads and on toast. Its strong flavour suits sharp, acidic partners.",
+        "cycleRelevance": "No cycle-phase claim is made for mackerel. FDA and EPA list Atlantic mackerel as a \"Best Choice\" for mercury, but not king mackerel."
+      },
+      "source": {
+        "usdaFdcId": 175120,
+        "usdaDescription": "Fish, mackerel, Atlantic, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat, Atlantic mackerel",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 23.8,
+          "fat": 17.8,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 15,
+          "iron": 1.57,
+          "mg": 97,
+          "k": 401,
+          "zn": 0.94,
+          "vitc": 0.4,
+          "folate": 2,
+          "b12": 19,
+          "vita": 54,
+          "kcal": 262,
+          "omega3": 1.203
+        }
+      },
+      "perServing": {
+        "energyKcal": 223,
+        "proteinG": 20.2,
+        "fatG": 15.1,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 16.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 673
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 82,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 27
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 341,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 20.2,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 1.02,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "This profile is Atlantic mackerel, a \"Best Choice\" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it.",
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "red-snapper": {
+      "catalogueId": "red-snapper",
+      "name": "Snapper",
+      "sections": {
+        "whatItOffers": "Cooked snapper is a lean, mildly sweet fish with about 22 g of protein, potassium (17% of the adequate intake), vitamin B12 and some magnesium in 3 ounces.",
+        "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "howToEatIt": "Bake or grill whole or in fillets with herbs and citrus, or pan-fry the fillets skin-side down.",
+        "cycleRelevance": "No cycle-phase claim is made for snapper. FDA and EPA list snapper as a \"Good Choice\" for mercury (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 173699,
+        "usdaDescription": "Fish, snapper, mixed species, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat (snapper, mixed species)",
+        "portionGrams": 85,
+        "portion": "3 ounces cooked (USDA: 3 oz = 85 g)",
+        "per100g": {
+          "protein": 26.3,
+          "fat": 1.72,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 40,
+          "iron": 0.24,
+          "mg": 37,
+          "k": 522,
+          "zn": 0.44,
+          "vitc": 1.6,
+          "folate": 6,
+          "b12": 3.5,
+          "vita": 35,
+          "kcal": 128,
+          "omega3": 0.321
+        }
+      },
+      "perServing": {
+        "energyKcal": 109,
+        "proteinG": 22.4,
+        "fatG": 1.5,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 3.0,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 124
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 444,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 31,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 10
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 22.4,
+            "unit": "g"
+          },
+          {
+            "name": "Omega-3 (EPA + DHA)",
+            "amount": 0.27,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Mercury: the FDA and EPA list Snapper as a \"Good Choice\", with more mercury than their \"Best Choices\". For people who are or might become pregnant, or who are breastfeeding, the advice is 2 to 3 servings a week from the Best Choices or 1 serving from the Good Choices.",
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tilapia": {
+      "catalogueId": "tilapia",
+      "name": "Tilapia",
+      "sections": {
+        "whatItOffers": "Cooked tilapia is a very mild, lean white fish with about 23 g of protein, vitamin B12 and vitamin D (21% of the reference) in one fillet.",
+        "practicalServing": "1 fillet, cooked (USDA: 1 fillet = 87 g)",
+        "howToEatIt": "Bake, pan-fry or grill, or use in tacos and stews. Its mild flavour takes well to spices and sauces.",
+        "cycleRelevance": "No cycle-phase claim is made for tilapia."
+      },
+      "source": {
+        "usdaFdcId": 175177,
+        "usdaDescription": "Fish, tilapia, cooked, dry heat",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, dry heat",
+        "portionGrams": 87,
+        "portion": "1 fillet, cooked (USDA: 1 fillet = 87 g)",
+        "per100g": {
+          "protein": 26.2,
+          "fat": 2.65,
+          "carb": 0,
+          "fiber": 0,
+          "ca": 14,
+          "iron": 0.69,
+          "mg": 34,
+          "k": 380,
+          "zn": 0.41,
+          "vitc": 0,
+          "folate": 6,
+          "b12": 1.86,
+          "vita": 0,
+          "vite": 0.79,
+          "vitd": 3.7,
+          "vitk": 0.9,
+          "kcal": 128,
+          "omega3": 0.135
+        }
+      },
+      "perServing": {
+        "energyKcal": 111,
+        "proteinG": 22.8,
+        "fatG": 2.3,
+        "carbohydrateG": 0.0,
+        "fiberG": 0.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin B12",
+            "amount": 1.6,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 2.4,
+                "unit": "µg",
+                "percent": 67
+              }
+            ]
+          },
+          {
+            "name": "Vitamin D",
+            "amount": 3.2,
+            "unit": "µg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "µg",
+                "percent": 21
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 331,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 22.8,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

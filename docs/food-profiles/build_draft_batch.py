@@ -16,6 +16,7 @@ def rhu(x, dec=0):
     r = math.floor(x * m + 0.5) / m
     return int(r) if dec == 0 else r
 
+# Reference intakes for adult women (NIH ODS; read 2026-10-25 and 2026-10-27).
 REF = {
     'iron': ('mg', [('19–50 y', 18)], 'RDA', 'Iron'),
     'folate': ('µg DFE', [('19–50 y', 400)], 'RDA', 'Folate'),
@@ -25,13 +26,102 @@ REF = {
     'zn': ('mg', [('19–50 y', 8)], 'RDA', 'Zinc'),
     'k': ('mg', [('19–50 y', 2600)], 'AI', 'Potassium'),
     'vita': ('µg RAE', [('19–50 y', 700)], 'RDA', 'Vitamin A'),
+    'ca': ('mg', [('19–50 y', 1000)], 'RDA', 'Calcium'),
+    'b12': ('µg', [('19+ y', 2.4)], 'RDA', 'Vitamin B12'),
+    'vitd': ('µg', [('19–50 y', 15)], 'RDA', 'Vitamin D'),
+    'vite': ('mg', [('19+ y', 15)], 'RDA', 'Vitamin E'),
 }
+# Shown as an amount only: no population reference is quoted for these.
+AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': ('g', 'Omega-3 (EPA + DHA)')}
+DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
+FSIS = 'USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)'
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
                  source='NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)'),
+    'grapefruit-meds': dict(text='Grapefruit and grapefruit juice can change the way some medicines work, including some statins and some blood pressure medicines. If your medicine label or pharmacist warns against grapefruit, avoid it.',
+                            source="FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27)"),
+    'mercury-good': dict(text='Mercury: the FDA and EPA list {n} as a "Good Choice", with more mercury than their "Best Choices". For people who are or might become pregnant, or who are breastfeeding, the advice is 2 to 3 servings a week from the Best Choices or 1 serving from the Good Choices.',
+                         source='FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)'),
+    'mackerel-king': dict(text='This profile is Atlantic mackerel, a "Best Choice" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it.',
+                          source='FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)'),
+    'temp-fish': dict(text='Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).', source=FSIS),
+    'temp-poultry': dict(text='Cook poultry to an internal temperature of 165 °F (73.9 °C).', source=FSIS),
+    'temp-meat': dict(text='Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).', source=FSIS),
+    'temp-eggs': dict(text='Cook eggs to 160 °F (71.1 °C).', source=FSIS),
+    'oxalate-list': dict(text='{n} is high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how much to eat.',
+                         source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones)'),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
+
+def auto_keys(f):
+    """Picks the key nutrients for one serving: up to three reference nutrients at
+    10% or more (two at 5% if nothing reaches 10%), vitamin K when it is 20 µg or
+    more (amount only), then protein (5 g), fibre (3 g), omega-3 (0.25 g). A
+    nutrient the USDA record does not report is skipped, never treated as zero."""
+    g = f['grams']
+    per = f['per100']
+    pct = []
+    for k in ('ca', 'iron', 'mg', 'k', 'zn', 'vitc', 'folate', 'vita', 'b12', 'vitd', 'vite'):
+        if per.get(k):
+            pct.append((per[k] * g / 100 / REF[k][1][0][1], k))
+    pct.sort(reverse=True)
+    picks = [k for p, k in pct if p >= 0.10][:3]
+    if len(picks) < 2:
+        picks = [k for p, k in pct if p >= 0.05][:2] or picks
+    keys = [(k, DECIMALS.get(k, 0)) for k in picks]
+    if per.get('vitk') and per['vitk'] * g / 100 >= 20:
+        keys.append(('vitk', 0))
+    for k, minimum in (('protein', 5), ('fiber', 3), ('omega3', 0.25)):
+        if per.get(k) and per[k] * g / 100 >= minimum:
+            keys.append((k, DECIMALS[k]))
+    if not keys:
+        # A food with little to report: its two best reference nutrients (any
+        # amount), plus fibre if there is a gram or more.
+        keys = [(k, DECIMALS.get(k, 0)) for p, k in pct if p >= 0.01][:2]
+        if per.get('fiber') and per['fiber'] * g / 100 >= 1:
+            keys.append(('fiber', DECIMALS['fiber']))
+    return keys[:5]
+
+
+CATALOGUE = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
+EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
+# A sourced caution is skipped when the catalogue already carries one on the same topic.
+TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
+          'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
+
+def short_portion(portion):
+    return portion.split(' (USDA')[0]
+
+
+def offers_text(f, keys, kcal):
+    """Plain sentence built only from the recomputed numbers (no claims)."""
+    bits = []
+    for e in keys:
+        if e.get('reference'):
+            bits.append(f"{e['name'][0].lower() + e['name'][1:]} (about {e['reference'][0]['percent']}%)")
+        elif e['name'] == 'Vitamin K':
+            bits.append(f"{e['amount']} µg of vitamin K")
+        else:
+            bits.append(f"{e['amount']} {e['unit']} of {e['name'][0].lower() + e['name'][1:]}")
+    label = f['name'] if f['name'].lower() in f['state'].lower() else f"{f['name']}, {f['state']}"
+    base = f"{label}: {short_portion(f['portion'])} gives about {kcal} calories"
+    if not bits:
+        return base + ' and supplies little of the vitamins and minerals tracked here.'
+    pct = ' Percentages are of the NIH reference intake for adult women.' if any(e.get('reference') for e in keys) else ''
+    return base + ', with ' + ', '.join(bits[:-1]) + (' and ' if len(bits) > 1 else '') + bits[-1] + '.' + pct
+
+
+def cycle_text(f, keys):
+    low = f['name'].lower()
+    out = f"No cycle-phase claim is made for {low}; this profile covers what it provides nutritionally, as part of a varied diet."
+    for e in keys:
+        if e['name'] == 'Iron':
+            out += f" Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about {e['amount']} mg."
+        if e['name'] == 'Calcium':
+            out += f" Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about {e['amount']} mg."
+    return out
+
 
 n = sys.argv[1]
 src = json.load(open(f'docs/food-profiles/batch-{n}.src.json'))
@@ -40,18 +130,46 @@ out = {'_status': 'DRAFT BATCH for editorial review. Not production content. Not
        'profiles': {}}
 for fid, f in src['foods'].items():
     amt = lambda k: f['per100'][k] * f['grams'] / 100
+    if f['keys'] == 'auto':
+        f['keys'] = auto_keys(f)
     keys = []
     for key, dec in f['keys']:
-        unit, groups, kind, nm = REF[key]
         assert key in f['per100'], (fid, key)
         v = amt(key)
+        if key in AMOUNT_ONLY:
+            unit, nm = AMOUNT_ONLY[key]
+            keys.append({'name': nm, 'amount': rhu(v, dec), 'unit': unit})
+            continue
+        unit, groups, kind, nm = REF[key]
         e = {'name': nm, 'amount': rhu(v, dec), 'unit': unit}
         if key != 'vitk':
             e['reference'] = [{'group': g, 'kind': kind, 'value': val, 'unit': unit, 'percent': rhu(100 * v / val)} for g, val in groups]
         else:
             e['referenceNote'] = 'Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners.'
         keys.append(e)
-    cautions = [dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']) for c in f.get('cautions', [])]
+    if f['offers'] == 'TBD':
+        f['offers'] = offers_text(f, keys, rhu(amt('kcal')))
+    if f['cycle'] == 'TBD':
+        f['cycle'] = cycle_text(f, keys)
+    assert all(f.get(x, '').strip() and f[x] != 'TBD' for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
+    names = list(f.get('cautions', []))
+    # Vitamin K at 100 µg or more per 100 g carries the blood-thinner note.
+    if f['per100'].get('vitk', 0) >= 100 and 'vitk' not in names:
+        names.append('vitk')
+    f['cautions'] = names
+    # The app shows a profile's cautions INSTEAD of the catalogue's, so every
+    # existing catalogue caution is carried over first, then the sourced ones
+    # (unless the catalogue already covers that topic).
+    existing = CATALOGUE[fid].get('cautions', [])
+    cautions = [dict(text=t, source=EXISTING) for t in existing]
+    for c in names:
+        same = [x for x in cautions if TOPICS.get(c, c) in x['text'].lower()]
+        if same:
+            # Keep the existing wording; record the source that backs it.
+            same[0]['source'] = CAUTIONS[c]['source'] + ' (supports the existing caution)'
+            continue
+        cautions.append(dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']))
+    assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
     out['profiles'][fid] = {
         'catalogueId': fid, 'name': f['name'],
         'sections': {'whatItOffers': f['offers'], 'practicalServing': f['portion'], 'howToEatIt': f['how'], 'cycleRelevance': f['cycle']},

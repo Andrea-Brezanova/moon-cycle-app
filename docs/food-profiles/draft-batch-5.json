@@ -1,0 +1,2833 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "black-turtle-bean": {
+      "catalogueId": "black-turtle-bean",
+      "name": "Black beans",
+      "sections": {
+        "whatItOffers": "Black turtle beans are small, dense, earthy beans. Half a cup gives about 7.7 g of protein and 7.7 g of fibre, with folate (20% of the reference), potassium and plant iron.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 185 g)",
+        "howToEatIt": "Simmer into soups, stews and chilli, mash for burritos and tacos, or add to rice and salads. Canned beans, rinsed, are a shortcut.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Black beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+      },
+      "source": {
+        "usdaFdcId": 175187,
+        "usdaDescription": "Beans, black turtle, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 92.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 185 g)",
+        "per100g": {
+          "protein": 8.18,
+          "fat": 0.35,
+          "carb": 24.4,
+          "fiber": 8.3,
+          "ca": 55,
+          "iron": 2.85,
+          "mg": 49,
+          "k": 433,
+          "zn": 0.76,
+          "vitc": 0,
+          "folate": 86,
+          "vite": 0.87,
+          "vitk": 3.3,
+          "kcal": 130
+        }
+      },
+      "perServing": {
+        "energyKcal": 120,
+        "proteinG": 7.6,
+        "fatG": 0.3,
+        "carbohydrateG": 22.6,
+        "fiberG": 7.7,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 80,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 401,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 2.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.6,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 7.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kidney-bean": {
+      "catalogueId": "kidney-bean",
+      "name": "Kidney bean",
+      "sections": {
+        "whatItOffers": "Kidney beans are large, meaty beans with folate (about 29% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 5.7 g of fibre.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 177 g)",
+        "howToEatIt": "Use in chilli, curries, salads and stews. Dried kidney beans must be soaked and boiled hard before eating (see the caution); canned beans are already cooked.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 173740,
+        "usdaDescription": "Beans, kidney, all types, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 88.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 177 g)",
+        "per100g": {
+          "protein": 8.67,
+          "fat": 0.5,
+          "carb": 22.8,
+          "fiber": 6.4,
+          "ca": 35,
+          "iron": 2.22,
+          "mg": 42,
+          "k": 405,
+          "zn": 1,
+          "vitc": 1.2,
+          "folate": 130,
+          "vite": 0.03,
+          "vitk": 8.4,
+          "kcal": 127
+        }
+      },
+      "perServing": {
+        "energyKcal": 112,
+        "proteinG": 7.7,
+        "fatG": 0.4,
+        "carbohydrateG": 20.2,
+        "fiberG": 5.7,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 115,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 29
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 358,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 37,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.7,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Dried beans: boil hard for 10 minutes; don't slow-cook from raw",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "white-beans": {
+      "catalogueId": "white-beans",
+      "name": "White beans",
+      "sections": {
+        "whatItOffers": "White beans are creamy, mild beans that give potassium (about 19% of the adequate intake in half a cup), iron and magnesium, with 8.7 g of protein and 5.6 g of fibre.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 179 g)",
+        "howToEatIt": "Simmer into soups and stews, mash into dips, or toss with olive oil, lemon and herbs for a salad.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). White beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+      },
+      "source": {
+        "usdaFdcId": 175203,
+        "usdaDescription": "Beans, white, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 89.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 179 g)",
+        "per100g": {
+          "protein": 9.73,
+          "fat": 0.35,
+          "carb": 25.1,
+          "fiber": 6.3,
+          "ca": 90,
+          "iron": 3.7,
+          "mg": 63,
+          "k": 561,
+          "zn": 1.38,
+          "vitc": 0,
+          "folate": 81,
+          "vite": 0.94,
+          "vitk": 3.5,
+          "kcal": 139
+        }
+      },
+      "perServing": {
+        "energyKcal": 124,
+        "proteinG": 8.7,
+        "fatG": 0.3,
+        "carbohydrateG": 22.5,
+        "fiberG": 5.6,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 502,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 3.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 56,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 18
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 8.7,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "black-eyed-pea": {
+      "catalogueId": "black-eyed-pea",
+      "name": "Black-eyed pea",
+      "sections": {
+        "whatItOffers": "Black-eyed peas are small, savoury beans with a lot of folate (about 44% of the reference in half a cup), plus magnesium, zinc, 6.6 g of protein and 5.6 g of fibre.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 171 g)",
+        "howToEatIt": "Simmer with onion and spices, add to salads and grain bowls, or stew with greens.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Black-eyed peas is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 173759,
+        "usdaDescription": "Cowpeas, common (blackeyes, crowder, southern), mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 85.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 171 g)",
+        "per100g": {
+          "protein": 7.73,
+          "fat": 0.53,
+          "carb": 20.8,
+          "fiber": 6.5,
+          "ca": 24,
+          "iron": 2.51,
+          "mg": 53,
+          "k": 278,
+          "zn": 1.29,
+          "vitc": 0.4,
+          "folate": 208,
+          "vita": 1,
+          "vite": 0.28,
+          "vitk": 1.7,
+          "kcal": 116
+        }
+      },
+      "perServing": {
+        "energyKcal": 99,
+        "proteinG": 6.6,
+        "fatG": 0.5,
+        "carbohydrateG": 17.8,
+        "fiberG": 5.6,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 178,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 44
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 45,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 6.6,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "hummus": {
+      "catalogueId": "hummus",
+      "name": "Hummus",
+      "sections": {
+        "whatItOffers": "Hummus is a chickpea and sesame dip. Two tablespoons give about 71 calories, a little magnesium and zinc, and some fibre, mostly from the chickpeas. It also contains oil and usually salt.",
+        "practicalServing": "2 tablespoons (USDA: 1 tbsp = 15 g)",
+        "howToEatIt": "Spread on sandwiches and wraps, serve with vegetable sticks or pitta, or thin with lemon juice into a dressing.",
+        "cycleRelevance": "No cycle-phase claim is made for hummus. As a prepared food it varies by brand, especially in salt and oil."
+      },
+      "source": {
+        "usdaFdcId": 174289,
+        "usdaDescription": "Hummus, commercial",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "prepared, commercial (contains tahini, oil and salt)",
+        "portionGrams": 30,
+        "portion": "2 tablespoons (USDA: 1 tbsp = 15 g)",
+        "per100g": {
+          "protein": 7.78,
+          "fat": 17.8,
+          "carb": 15,
+          "fiber": 5.5,
+          "ca": 47,
+          "iron": 2.54,
+          "mg": 75,
+          "k": 312,
+          "zn": 1.44,
+          "vitc": 0,
+          "folate": 48,
+          "vita": 1,
+          "vite": 1.54,
+          "vitk": 22.8,
+          "kcal": 237
+        }
+      },
+      "perServing": {
+        "energyKcal": 71,
+        "proteinG": 2.3,
+        "fatG": 5.3,
+        "carbohydrateG": 4.5,
+        "fiberG": 1.7,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 23,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 7
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "lima-bean": {
+      "catalogueId": "lima-bean",
+      "name": "Lima bean",
+      "sections": {
+        "whatItOffers": "Lima beans are buttery, starchy beans with potassium (about 18% of the adequate intake in half a cup), folate and magnesium, plus 7.3 g of protein and 6.6 g of fibre.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 188 g)",
+        "howToEatIt": "Simmer until very tender and add to soups, succotash and stews, or mash with herbs. They must always be cooked thoroughly (see the caution).",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Lima beans is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 174253,
+        "usdaDescription": "Lima beans, large, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 94,
+        "portion": "½ cup cooked (USDA: 1 cup = 188 g)",
+        "per100g": {
+          "protein": 7.8,
+          "fat": 0.38,
+          "carb": 20.9,
+          "fiber": 7,
+          "ca": 17,
+          "iron": 2.39,
+          "mg": 43,
+          "k": 508,
+          "zn": 0.95,
+          "vitc": 0,
+          "folate": 83,
+          "vita": 0,
+          "vite": 0.18,
+          "vitk": 2,
+          "kcal": 115
+        }
+      },
+      "perServing": {
+        "energyKcal": 108,
+        "proteinG": 7.3,
+        "fatG": 0.4,
+        "carbohydrateG": 19.6,
+        "fiberG": 6.6,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 78,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 478,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 40,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 13
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.3,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 6.6,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Always cook thoroughly",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "split-pea": {
+      "catalogueId": "split-pea",
+      "name": "Split pea",
+      "sections": {
+        "whatItOffers": "Split peas break down into a thick, creamy texture when cooked. Half a cup has 8.2 g of protein and 8.1 g of fibre, with folate, potassium and zinc.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 196 g)",
+        "howToEatIt": "Simmer into soup or dal with onion and spices; they cook without soaking.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Split peas is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 172429,
+        "usdaDescription": "Peas, split, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 98,
+        "portion": "½ cup cooked (USDA: 1 cup = 196 g)",
+        "per100g": {
+          "protein": 8.34,
+          "fat": 0.39,
+          "carb": 21.1,
+          "fiber": 8.3,
+          "ca": 14,
+          "iron": 1.29,
+          "mg": 36,
+          "k": 362,
+          "zn": 1,
+          "vitc": 0.4,
+          "folate": 65,
+          "vite": 0.03,
+          "vitk": 5,
+          "kcal": 118
+        }
+      },
+      "perServing": {
+        "energyKcal": 116,
+        "proteinG": 8.2,
+        "fatG": 0.4,
+        "carbohydrateG": 20.7,
+        "fiberG": 8.1,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 64,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 355,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 8.2,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 8.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "red-lentil": {
+      "catalogueId": "red-lentil",
+      "name": "Red lentil",
+      "sections": {
+        "whatItOffers": "Red lentils are quick-cooking, split lentils. The figures here are for the dry lentils: a quarter cup before cooking gives 11.5 g of protein and 5.2 g of fibre, with folate, zinc and iron (20% of the reference).",
+        "practicalServing": "¼ cup dry, before cooking (USDA: 1 cup = 192 g)",
+        "howToEatIt": "Simmer for about 15–20 minutes into soups and dals, where they dissolve into a soft purée. They roughly triple in weight when cooked, so a cooked portion has about a third of these amounts.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Red lentils adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+      },
+      "source": {
+        "usdaFdcId": 174284,
+        "usdaDescription": "Lentils, pink or red, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dry, uncooked (no cooked red-lentil record in USDA)",
+        "portionGrams": 48,
+        "portion": "¼ cup dry, before cooking (USDA: 1 cup = 192 g)",
+        "per100g": {
+          "protein": 23.9,
+          "fat": 2.17,
+          "carb": 63.1,
+          "fiber": 10.8,
+          "ca": 48,
+          "iron": 7.39,
+          "mg": 59,
+          "k": 668,
+          "zn": 3.6,
+          "vitc": 1.7,
+          "folate": 204,
+          "vita": 3,
+          "kcal": 358
+        }
+      },
+      "perServing": {
+        "energyKcal": 172,
+        "proteinG": 11.5,
+        "fatG": 1.0,
+        "carbohydrateG": 30.3,
+        "fiberG": 5.2,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 98,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 3.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 11.5,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 5.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "edamame": {
+      "catalogueId": "edamame",
+      "name": "Edamame",
+      "sections": {
+        "whatItOffers": "Edamame are young soybeans, a plant source of complete protein: half a cup of shelled beans has 9.2 g, along with a lot of folate (about 60% of the reference), magnesium and zinc.",
+        "practicalServing": "½ cup shelled (USDA: 1 cup = 155 g)",
+        "howToEatIt": "Boil or steam in the pod and squeeze the beans out, or add shelled edamame to salads, rice bowls and stir-fries.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Edamame is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 168411,
+        "usdaDescription": "Edamame, frozen, prepared",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "frozen, prepared (boiled), shelled beans",
+        "portionGrams": 77.5,
+        "portion": "½ cup shelled (USDA: 1 cup = 155 g)",
+        "per100g": {
+          "protein": 11.9,
+          "fat": 5.2,
+          "carb": 8.91,
+          "fiber": 5.2,
+          "ca": 63,
+          "iron": 2.27,
+          "mg": 64,
+          "k": 436,
+          "zn": 1.37,
+          "vitc": 6.1,
+          "folate": 311,
+          "vita": 15,
+          "vite": 0.68,
+          "vitk": 26.7,
+          "kcal": 121
+        }
+      },
+      "perServing": {
+        "energyKcal": 94,
+        "proteinG": 9.2,
+        "fatG": 4.0,
+        "carbohydrateG": 6.9,
+        "fiberG": 4.0,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 241,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 60
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 50,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 16
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 21,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          },
+          {
+            "name": "Protein",
+            "amount": 9.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Soy allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pinto-beans": {
+      "catalogueId": "pinto-beans",
+      "name": "Pinto beans",
+      "sections": {
+        "whatItOffers": "Pinto beans are mild, creamy beans with folate (about 37% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 7.7 g of fibre.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 171 g)",
+        "howToEatIt": "Simmer for refried beans, chilli and burritos, or serve whole with rice.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Pinto beans is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 175200,
+        "usdaDescription": "Beans, pinto, mature seeds, cooked, boiled, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, no salt",
+        "portionGrams": 85.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 171 g)",
+        "per100g": {
+          "protein": 9.01,
+          "fat": 0.65,
+          "carb": 26.2,
+          "fiber": 9,
+          "ca": 46,
+          "iron": 2.09,
+          "mg": 50,
+          "k": 436,
+          "zn": 0.98,
+          "vitc": 0.8,
+          "folate": 172,
+          "vite": 0.94,
+          "vitk": 3.5,
+          "kcal": 143
+        }
+      },
+      "perServing": {
+        "energyKcal": 122,
+        "proteinG": 7.7,
+        "fatG": 0.6,
+        "carbohydrateG": 22.4,
+        "fiberG": 7.7,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 147,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 37
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 373,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 43,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.7,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 7.7,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "wild-rice": {
+      "catalogueId": "wild-rice",
+      "name": "Wild rice",
+      "sections": {
+        "whatItOffers": "Wild rice is the seed of an aquatic grass, nutty and chewy. Half a cup cooked gives zinc and magnesium for about 83 calories, with about 3.3 g of protein.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 164 g)",
+        "howToEatIt": "Simmer until the grains split, then use in pilafs, soups and salads, or mix with brown rice.",
+        "cycleRelevance": "No cycle-phase claim is made for wild rice; it is a whole grain that adds zinc and magnesium to a meal."
+      },
+      "source": {
+        "usdaFdcId": 168897,
+        "usdaDescription": "Wild rice, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 82,
+        "portion": "½ cup cooked (USDA: 1 cup = 164 g)",
+        "per100g": {
+          "protein": 3.99,
+          "fat": 0.34,
+          "carb": 21.3,
+          "fiber": 1.8,
+          "ca": 3,
+          "iron": 0.6,
+          "mg": 32,
+          "k": 101,
+          "zn": 1.34,
+          "vitc": 0,
+          "folate": 26,
+          "vite": 0.24,
+          "vitk": 0.5,
+          "kcal": 101
+        }
+      },
+      "perServing": {
+        "energyKcal": 83,
+        "proteinG": 3.3,
+        "fatG": 0.3,
+        "carbohydrateG": 17.5,
+        "fiberG": 1.5,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 1.1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 26,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 8
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "farro": {
+      "catalogueId": "farro",
+      "name": "Farro",
+      "sections": {
+        "whatItOffers": "Farro is a chewy ancient wheat grain. The figures here are for the dry, pearled grain: 45 g before cooking gives zinc (22% of the reference), magnesium, 5.7 g of protein and 3.3 g of fibre.",
+        "practicalServing": "45 g dry, before cooking (USDA reference amount)",
+        "howToEatIt": "Simmer for 15–30 minutes until tender but chewy, then use in grain salads, soups and risottos. Whole farro takes longer than pearled and has more fibre.",
+        "cycleRelevance": "No cycle-phase claim is made for farro. It contains gluten, as it is a form of wheat."
+      },
+      "source": {
+        "usdaFdcId": 2710828,
+        "usdaDescription": "Farro, pearled, dry, raw",
+        "dataType": "SR Legacy",
+        "published": "10/31/2024",
+        "preparationState": "dry, uncooked, pearled (no cooked farro record in USDA)",
+        "portionGrams": 45,
+        "portion": "45 g dry, before cooking (USDA reference amount)",
+        "per100g": {
+          "protein": 12.6,
+          "fat": 3.1,
+          "carb": 72.1,
+          "fiber": 7.3,
+          "ca": 26,
+          "iron": 3.2,
+          "mg": 119,
+          "k": 385,
+          "zn": 3.97,
+          "kcal": 367
+        }
+      },
+      "perServing": {
+        "energyKcal": 165,
+        "proteinG": 5.7,
+        "fatG": 1.4,
+        "carbohydrateG": 32.4,
+        "fiberG": 3.3,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 1.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 54,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 17
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.7,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "oat-bran": {
+      "catalogueId": "oat-bran",
+      "name": "Oat bran",
+      "sections": {
+        "whatItOffers": "Oat bran is the fibre-rich outer layer of the oat. Half a cup of cooked oat bran gives magnesium and some zinc and fibre for only about 44 calories.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 219 g)",
+        "howToEatIt": "Cook into a hot cereal with milk or water, or stir a spoonful into yoghurt, smoothies and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for oat bran. Oats can be cross-contaminated with gluten; see the caution."
+      },
+      "source": {
+        "usdaFdcId": 168873,
+        "usdaDescription": "Oat bran, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked with water",
+        "portionGrams": 109.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 219 g)",
+        "per100g": {
+          "protein": 3.21,
+          "fat": 0.86,
+          "carb": 11.4,
+          "fiber": 2.6,
+          "ca": 10,
+          "iron": 0.88,
+          "mg": 40,
+          "k": 92,
+          "zn": 0.53,
+          "vitc": 0,
+          "folate": 6,
+          "kcal": 40
+        }
+      },
+      "perServing": {
+        "energyKcal": 44,
+        "proteinG": 3.5,
+        "fatG": 0.9,
+        "carbohydrateG": 12.5,
+        "fiberG": 2.8,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 44,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Choose certified gluten-free oats if avoiding gluten.",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "buckwheat": {
+      "catalogueId": "buckwheat",
+      "name": "Buckwheat (kasha)",
+      "sections": {
+        "whatItOffers": "Buckwheat is a gluten-free seed eaten like a grain, with a toasty flavour. Half a cup of cooked roasted groats (kasha) gives magnesium and some zinc and protein.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 168 g)",
+        "howToEatIt": "Simmer roasted groats until tender for porridge or a side dish, or use cooled groats in salads.",
+        "cycleRelevance": "No cycle-phase claim is made for buckwheat; it is a gluten-free whole-grain alternative."
+      },
+      "source": {
+        "usdaFdcId": 170686,
+        "usdaDescription": "Buckwheat groats, roasted, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "roasted groats (kasha), cooked",
+        "portionGrams": 84,
+        "portion": "½ cup cooked (USDA: 1 cup = 168 g)",
+        "per100g": {
+          "protein": 3.38,
+          "fat": 0.62,
+          "carb": 19.9,
+          "fiber": 2.7,
+          "ca": 7,
+          "iron": 0.8,
+          "mg": 51,
+          "k": 88,
+          "zn": 0.61,
+          "vitc": 0,
+          "folate": 14,
+          "vite": 0.09,
+          "vitk": 1.9,
+          "kcal": 92
+        }
+      },
+      "perServing": {
+        "energyKcal": 77,
+        "proteinG": 2.8,
+        "fatG": 0.5,
+        "carbohydrateG": 16.7,
+        "fiberG": 2.3,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 43,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 14
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "barley": {
+      "catalogueId": "barley",
+      "name": "Barley",
+      "sections": {
+        "whatItOffers": "Pearled barley is a chewy grain with fibre (about 3 g in half a cup), plus some zinc and iron.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 157 g)",
+        "howToEatIt": "Simmer into soups and stews, cook as a risotto-style dish, or serve cooled in salads.",
+        "cycleRelevance": "No cycle-phase claim is made for barley. It contains gluten (see the caution)."
+      },
+      "source": {
+        "usdaFdcId": 170285,
+        "usdaDescription": "Barley, pearled, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "pearled, cooked",
+        "portionGrams": 78.5,
+        "portion": "½ cup cooked (USDA: 1 cup = 157 g)",
+        "per100g": {
+          "protein": 2.26,
+          "fat": 0.44,
+          "carb": 28.2,
+          "fiber": 3.8,
+          "ca": 11,
+          "iron": 1.33,
+          "mg": 22,
+          "k": 93,
+          "zn": 0.82,
+          "vitc": 0,
+          "folate": 16,
+          "vite": 0.01,
+          "vitk": 0.8,
+          "kcal": 123
+        }
+      },
+      "perServing": {
+        "energyKcal": 97,
+        "proteinG": 1.8,
+        "fatG": 0.3,
+        "carbohydrateG": 22.1,
+        "fiberG": 3.0,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 0.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.0,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "bulgur": {
+      "catalogueId": "bulgur",
+      "name": "Bulgur",
+      "sections": {
+        "whatItOffers": "Bulgur is cracked, pre-cooked wheat. Half a cup cooked gives about 4.1 g of fibre and some magnesium and zinc for about 76 calories.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 182 g)",
+        "howToEatIt": "Soak in hot water or simmer briefly for tabbouleh, pilafs and grain bowls.",
+        "cycleRelevance": "No cycle-phase claim is made for bulgur. It is wheat and contains gluten."
+      },
+      "source": {
+        "usdaFdcId": 170287,
+        "usdaDescription": "Bulgur, cooked",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked",
+        "portionGrams": 91,
+        "portion": "½ cup cooked (USDA: 1 cup = 182 g)",
+        "per100g": {
+          "protein": 3.08,
+          "fat": 0.24,
+          "carb": 18.6,
+          "fiber": 4.5,
+          "ca": 10,
+          "iron": 0.96,
+          "mg": 32,
+          "k": 68,
+          "zn": 0.57,
+          "vitc": 0,
+          "folate": 18,
+          "vite": 0.01,
+          "vitk": 0.5,
+          "kcal": 83
+        }
+      },
+      "perServing": {
+        "energyKcal": 76,
+        "proteinG": 2.8,
+        "fatG": 0.2,
+        "carbohydrateG": 16.9,
+        "fiberG": 4.1,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 29,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 9
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Fiber",
+            "amount": 4.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "whole-grain-bread": {
+      "catalogueId": "whole-grain-bread",
+      "name": "Whole-grain bread",
+      "sections": {
+        "whatItOffers": "A slice of whole-wheat bread gives about 2 g of fibre with some magnesium and zinc and about 81 calories. Brands vary a lot in fibre, salt and added nutrients.",
+        "practicalServing": "1 slice (USDA: 1 slice = 32 g)",
+        "howToEatIt": "Use for sandwiches and toast, or toast and top with beans, avocado or eggs.",
+        "cycleRelevance": "No cycle-phase claim is made for bread. Check the label: 'whole-wheat' is not always 'whole grain', and many breads contain added salt."
+      },
+      "source": {
+        "usdaFdcId": 172688,
+        "usdaDescription": "Bread, whole-wheat, commercially prepared",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "commercially prepared whole-wheat bread",
+        "portionGrams": 32,
+        "portion": "1 slice (USDA: 1 slice = 32 g)",
+        "per100g": {
+          "protein": 12.4,
+          "fat": 3.5,
+          "carb": 42.7,
+          "fiber": 6,
+          "ca": 161,
+          "iron": 2.47,
+          "mg": 75,
+          "k": 254,
+          "zn": 1.77,
+          "vitc": 0,
+          "folate": 42,
+          "vite": 2.66,
+          "vitk": 7.8,
+          "kcal": 252
+        }
+      },
+      "perServing": {
+        "energyKcal": 81,
+        "proteinG": 4.0,
+        "fatG": 1.1,
+        "carbohydrateG": 13.7,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 24,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 8
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Contains wheat (gluten)",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Check the label for soy, dairy or sesame",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sesame-seeds": {
+      "catalogueId": "sesame-seeds",
+      "name": "Sesame seeds",
+      "sections": {
+        "whatItOffers": "Sesame seeds are very small, so a tablespoon is a typical serving: it gives about 88 mg of calcium and 32 mg of magnesium, with some iron and fibre.",
+        "practicalServing": "1 tablespoon (USDA: 1 tbsp = 9 g)",
+        "howToEatIt": "Sprinkle over stir-fries, salads and rice, bake into bread, or grind into tahini. Lightly toasting brings out their flavour.",
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); a tablespoon of sesame seeds supplies about 9% of that. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 170150,
+        "usdaDescription": "Seeds, sesame seeds, whole, dried",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried, whole (with hulls), unsalted",
+        "portionGrams": 9,
+        "portion": "1 tablespoon (USDA: 1 tbsp = 9 g)",
+        "per100g": {
+          "protein": 17.7,
+          "fat": 49.7,
+          "carb": 23.4,
+          "fiber": 11.8,
+          "ca": 975,
+          "iron": 14.6,
+          "mg": 351,
+          "k": 468,
+          "zn": 7.75,
+          "vitc": 0,
+          "folate": 97,
+          "vite": 0.25,
+          "vitk": 0,
+          "kcal": 573
+        }
+      },
+      "perServing": {
+        "energyKcal": 52,
+        "proteinG": 1.6,
+        "fatG": 4.5,
+        "carbohydrateG": 2.1,
+        "fiberG": 1.1,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 32,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 10
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 88,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Sesame allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cashew": {
+      "catalogueId": "cashew",
+      "name": "Cashew",
+      "sections": {
+        "whatItOffers": "Cashews are buttery tree nuts with magnesium (about 27% of the reference in an ounce), zinc, iron and 5.2 g of protein. They are energy dense.",
+        "practicalServing": "1 ounce (28 g), about 18 nuts (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat as a snack, blend soaked cashews into creamy sauces and dressings, or add to stir-fries and curries.",
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Cashews adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+      },
+      "source": {
+        "usdaFdcId": 170162,
+        "usdaDescription": "Nuts, cashew nuts, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g), about 18 nuts (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 18.2,
+          "fat": 43.8,
+          "carb": 30.2,
+          "fiber": 3.3,
+          "ca": 37,
+          "iron": 6.68,
+          "mg": 292,
+          "k": 660,
+          "zn": 5.78,
+          "vitc": 0.5,
+          "folate": 25,
+          "vite": 0.9,
+          "vitk": 34.1,
+          "kcal": 553
+        }
+      },
+      "perServing": {
+        "energyKcal": 157,
+        "proteinG": 5.2,
+        "fatG": 12.4,
+        "carbohydrateG": 8.6,
+        "fiberG": 0.9,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 83,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 27
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Iron",
+            "amount": 1.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.2,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "brazil-nut": {
+      "catalogueId": "brazil-nut",
+      "name": "Brazil nut",
+      "sections": {
+        "whatItOffers": "Brazil nuts are large, rich tree nuts. Two kernels give magnesium and some zinc and fibre for about 66 calories. They are also extremely rich in selenium, which is why only 1–2 a day is suggested.",
+        "practicalServing": "2 kernels (USDA: 1 kernel = 5 g)",
+        "howToEatIt": "Eat one or two as a snack, or chop into granola or baking.",
+        "cycleRelevance": "No cycle-phase claim is made for Brazil nuts. The serving here is two kernels because of their selenium content."
+      },
+      "source": {
+        "usdaFdcId": 170569,
+        "usdaDescription": "Nuts, brazilnuts, dried, unblanched",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried, unblanched",
+        "portionGrams": 10,
+        "portion": "2 kernels (USDA: 1 kernel = 5 g)",
+        "per100g": {
+          "protein": 14.3,
+          "fat": 67.1,
+          "carb": 11.7,
+          "fiber": 7.5,
+          "ca": 160,
+          "iron": 2.43,
+          "mg": 376,
+          "k": 659,
+          "zn": 4.06,
+          "vitc": 0.7,
+          "folate": 22,
+          "vite": 5.65,
+          "vitk": 0,
+          "kcal": 659
+        }
+      },
+      "perServing": {
+        "energyKcal": 66,
+        "proteinG": 1.4,
+        "fatG": 6.7,
+        "carbohydrateG": 1.2,
+        "fiberG": 0.8,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 38,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 12
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Limit to 1–2 nuts a day",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pecan": {
+      "catalogueId": "pecan",
+      "name": "Pecan",
+      "sections": {
+        "whatItOffers": "Pecans are rich, sweet tree nuts with zinc (about 16% of the reference in an ounce), magnesium and 2.7 g of fibre. They are very energy dense, at about 196 calories an ounce.",
+        "practicalServing": "1 ounce (28 g), about 19 halves (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat as a snack, toast and chop over porridge or salads, or bake into cakes and pies.",
+        "cycleRelevance": "No cycle-phase claim is made for pecans."
+      },
+      "source": {
+        "usdaFdcId": 170182,
+        "usdaDescription": "Nuts, pecans",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g), about 19 halves (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 9.17,
+          "fat": 72,
+          "carb": 13.9,
+          "fiber": 9.6,
+          "ca": 70,
+          "iron": 2.53,
+          "mg": 121,
+          "k": 410,
+          "zn": 4.53,
+          "vitc": 1.1,
+          "folate": 22,
+          "vita": 3,
+          "vite": 1.4,
+          "vitk": 3.5,
+          "kcal": 691
+        }
+      },
+      "perServing": {
+        "energyKcal": 196,
+        "proteinG": 2.6,
+        "fatG": 20.4,
+        "carbohydrateG": 3.9,
+        "fiberG": 2.7,
+        "keyNutrients": [
+          {
+            "name": "Zinc",
+            "amount": 1.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 34,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 11
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "pistachio": {
+      "catalogueId": "pistachio",
+      "name": "Pistachio",
+      "sections": {
+        "whatItOffers": "Pistachios are green tree nuts with potassium (about 11% of the adequate intake in an ounce), magnesium, 5.7 g of protein and 3 g of fibre.",
+        "practicalServing": "1 ounce (28 g), about 49 kernels (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat shelled as a snack, chop over yoghurt and salads, or grind into pesto or baking.",
+        "cycleRelevance": "No cycle-phase claim is made for pistachios."
+      },
+      "source": {
+        "usdaFdcId": 170184,
+        "usdaDescription": "Nuts, pistachio nuts, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, shelled, unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g), about 49 kernels (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 20.2,
+          "fat": 45.3,
+          "carb": 27.2,
+          "fiber": 10.6,
+          "ca": 105,
+          "iron": 3.92,
+          "mg": 121,
+          "k": 1020,
+          "zn": 2.2,
+          "vitc": 5.6,
+          "folate": 51,
+          "vita": 26,
+          "vite": 2.86,
+          "kcal": 560
+        }
+      },
+      "perServing": {
+        "energyKcal": 159,
+        "proteinG": 5.7,
+        "fatG": 12.8,
+        "carbohydrateG": 7.7,
+        "fiberG": 3.0,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 289,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 34,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 11
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 11
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.7,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "hazelnuts": {
+      "catalogueId": "hazelnuts",
+      "name": "Hazelnuts",
+      "sections": {
+        "whatItOffers": "Hazelnuts are sweet tree nuts that are an especially good source of vitamin E (about 28% of the reference in an ounce), with magnesium and folate.",
+        "practicalServing": "1 ounce (28 g), about 21 kernels (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat as a snack, toast and chop over salads and desserts, or grind into nut butters and baking.",
+        "cycleRelevance": "No cycle-phase claim is made for hazelnuts."
+      },
+      "source": {
+        "usdaFdcId": 170581,
+        "usdaDescription": "Nuts, hazelnuts or filberts",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g), about 21 kernels (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 15,
+          "fat": 60.8,
+          "carb": 16.7,
+          "fiber": 9.7,
+          "ca": 114,
+          "iron": 4.7,
+          "mg": 163,
+          "k": 680,
+          "zn": 2.45,
+          "vitc": 6.3,
+          "folate": 113,
+          "vita": 1,
+          "vite": 15,
+          "vitk": 14.2,
+          "kcal": 628
+        }
+      },
+      "perServing": {
+        "energyKcal": 178,
+        "proteinG": 4.3,
+        "fatG": 17.2,
+        "carbohydrateG": 4.7,
+        "fiberG": 2.7,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 4.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 28
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 46,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "sunflower-seeds": {
+      "catalogueId": "sunflower-seeds",
+      "name": "Sunflower seeds",
+      "sections": {
+        "whatItOffers": "Sunflower seed kernels are mild, nutty seeds that are exceptionally rich in vitamin E (about 82% of the reference in a quarter cup), with magnesium (about 37%), zinc, 7.3 g of protein and 3 g of fibre.",
+        "practicalServing": "¼ cup kernels (USDA: 1 cup = 140 g)",
+        "howToEatIt": "Sprinkle over porridge, salads and soups, bake into bread, or blend into spreads. Toast lightly for flavour.",
+        "cycleRelevance": "No cycle-phase claim is made for sunflower seeds. A quarter cup is about 204 calories, so a spoonful or two is a more everyday amount."
+      },
+      "source": {
+        "usdaFdcId": 170562,
+        "usdaDescription": "Seeds, sunflower seed kernels, dried",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dried kernels, unsalted",
+        "portionGrams": 35,
+        "portion": "¼ cup kernels (USDA: 1 cup = 140 g)",
+        "per100g": {
+          "protein": 20.8,
+          "fat": 51.5,
+          "carb": 20,
+          "fiber": 8.6,
+          "ca": 78,
+          "iron": 5.25,
+          "mg": 325,
+          "k": 645,
+          "zn": 5,
+          "vitc": 1.4,
+          "folate": 227,
+          "vita": 3,
+          "vite": 35.2,
+          "vitk": 0,
+          "kcal": 584
+        }
+      },
+      "perServing": {
+        "energyKcal": 204,
+        "proteinG": 7.3,
+        "fatG": 18.0,
+        "carbohydrateG": 7.0,
+        "fiberG": 3.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 12.3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 82
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 114,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 37
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 36
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 22
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.3,
+            "unit": "g"
+          },
+          {
+            "name": "Fiber",
+            "amount": 3.0,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "nut-butter": {
+      "catalogueId": "nut-butter",
+      "name": "Nut butter",
+      "sections": {
+        "whatItOffers": "Two tablespoons of peanut butter give 7.1 g of protein, vitamin E (about 19% of the reference) and magnesium (about 17%). It is energy dense, at about 191 calories.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 32 g)",
+        "howToEatIt": "Spread on toast, stir into porridge or sauces, or blend into smoothies. Choose a type without added sugar or palm oil if you prefer.",
+        "cycleRelevance": "No cycle-phase claim is made. This record is peanut butter; other nut butters differ."
+      },
+      "source": {
+        "usdaFdcId": 172470,
+        "usdaDescription": "Peanut butter, smooth style, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "smooth peanut butter, no added salt",
+        "portionGrams": 32,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 32 g)",
+        "per100g": {
+          "protein": 22.2,
+          "fat": 51.4,
+          "carb": 22.3,
+          "fiber": 5,
+          "ca": 49,
+          "iron": 1.74,
+          "mg": 168,
+          "k": 558,
+          "zn": 2.51,
+          "vitc": 0,
+          "folate": 87,
+          "vita": 0,
+          "vite": 9.1,
+          "vitk": 0.3,
+          "kcal": 598
+        }
+      },
+      "perServing": {
+        "energyKcal": 191,
+        "proteinG": 7.1,
+        "fatG": 16.4,
+        "carbohydrateG": 7.1,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 2.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 54,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 17
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 0.8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.1,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Tree-nut or peanut allergen, depending on type",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mixed-nuts": {
+      "catalogueId": "mixed-nuts",
+      "name": "Mixed nuts",
+      "sections": {
+        "whatItOffers": "Mixed nuts give magnesium (about 21% of the reference in an ounce), zinc, vitamin E and 5.5 g of protein, depending on the blend. They are energy dense, at about 172 calories an ounce.",
+        "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat a small handful as a snack, or chop into salads, granola and baking. Unsalted blends keep the sodium down.",
+        "cycleRelevance": "No cycle-phase claim is made for mixed nuts. This record is a dry-roasted mix with peanuts and no added salt."
+      },
+      "source": {
+        "usdaFdcId": 170585,
+        "usdaDescription": "Nuts, mixed nuts, dry roasted, with peanuts, without salt added",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "dry roasted, with peanuts, no salt added",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 19.5,
+          "fat": 53.5,
+          "carb": 22.4,
+          "fiber": 6.4,
+          "ca": 87,
+          "iron": 3.73,
+          "mg": 227,
+          "k": 643,
+          "zn": 4.06,
+          "vitc": 0.8,
+          "folate": 60,
+          "vita": 0,
+          "vite": 6.13,
+          "vitk": 12,
+          "kcal": 607
+        }
+      },
+      "perServing": {
+        "energyKcal": 172,
+        "proteinG": 5.5,
+        "fatG": 15.2,
+        "carbohydrateG": 6.4,
+        "fiberG": 1.8,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 64,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 21
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Zinc",
+            "amount": 1.2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 8,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 1.7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 5.5,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "peanuts": {
+      "catalogueId": "peanuts",
+      "name": "Peanuts",
+      "sections": {
+        "whatItOffers": "Peanuts are legumes eaten like nuts. An ounce of raw peanuts gives 7.3 g of protein, folate (about 17% of the reference), vitamin E and magnesium.",
+        "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "howToEatIt": "Eat as a snack, add to stir-fries and salads, or blend into sauces and butters.",
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Peanuts is a good source. No phase-specific claim is made."
+      },
+      "source": {
+        "usdaFdcId": 172430,
+        "usdaDescription": "Peanuts, all types, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, unsalted",
+        "portionGrams": 28.35,
+        "portion": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
+        "per100g": {
+          "protein": 25.8,
+          "fat": 49.2,
+          "carb": 16.1,
+          "fiber": 8.5,
+          "ca": 92,
+          "iron": 4.58,
+          "mg": 168,
+          "k": 705,
+          "zn": 3.27,
+          "vitc": 0,
+          "folate": 240,
+          "vite": 8.33,
+          "vitk": 0,
+          "kcal": 567
+        }
+      },
+      "perServing": {
+        "energyKcal": 161,
+        "proteinG": 7.3,
+        "fatG": 13.9,
+        "carbohydrateG": 4.6,
+        "fiberG": 2.4,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 68,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 2.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 16
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 48,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 15
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Protein",
+            "amount": 7.3,
+            "unit": "g"
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}

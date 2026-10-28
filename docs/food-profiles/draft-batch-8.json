@@ -1,0 +1,3134 @@
+{
+  "_status": "DRAFT BATCH for editorial review. Not production content. Nothing here is bundled in the app.",
+  "_sources": {
+    "usda": "USDA FoodData Central, https://fdc.nal.usda.gov/ (record named in each entry), read 2026-10-27",
+    "nihOds": "NIH Office of Dietary Supplements fact sheets (Iron, Folate, Vitamin C, Vitamin K, Magnesium, Zinc, Potassium, Vitamin A, Calcium, Vitamin B12, Vitamin D, Vitamin E), https://ods.od.nih.gov/factsheets/list-all/; reference intakes as listed in build_draft_batch.py (RDA for adult women)",
+    "niddk": "NIDDK, Eating, Diet & Nutrition for Kidney Stones, read 2026-10-26: nuts and nut products, peanuts, rhubarb, spinach and wheat bran listed among foods to reduce for calcium oxalate stones"
+  },
+  "_reviewLabel": "Nutrition values checked against USDA and NIH sources; not clinically reviewed.",
+  "profiles": {
+    "burdock": {
+      "catalogueId": "burdock",
+      "name": "Burdock",
+      "sections": {
+        "whatItOffers": "Burdock, cooked, boiled, drained, no salt: ½ cup pieces, cooked gives about 55 calories, with potassium (about 9%) and magnesium (about 8%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup pieces, cooked (USDA: 1 cup of 1 in pieces = 125 g)",
+        "howToEatIt": "Peel or scrub, then slice thin and simmer or stir-fry (kinpira style); it keeps a firm, earthy bite.",
+        "cycleRelevance": "No cycle-phase claim is made for burdock; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170384,
+        "usdaDescription": "Burdock root, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 62.5,
+        "portion": "½ cup pieces, cooked (USDA: 1 cup of 1 in pieces = 125 g)",
+        "per100g": {
+          "protein": 2.09,
+          "fat": 0.14,
+          "carb": 21.2,
+          "fiber": 1.8,
+          "ca": 49,
+          "iron": 0.77,
+          "mg": 39,
+          "k": 360,
+          "zn": 0.38,
+          "vitc": 2.6,
+          "folate": 20,
+          "vite": 0.46,
+          "vitk": 2,
+          "kcal": 88
+        }
+      },
+      "perServing": {
+        "energyKcal": 55,
+        "proteinG": 1.3,
+        "fatG": 0.1,
+        "carbohydrateG": 13.3,
+        "fiberG": 1.1,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 225,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 24,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 8
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "wakame": {
+      "catalogueId": "wakame",
+      "name": "Wakame",
+      "sections": {
+        "whatItOffers": "Wakame, raw: 2 tablespoons gives about 5 calories, with folate (about 5%) and magnesium (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 10 g)",
+        "howToEatIt": "Soak dried wakame briefly, then add to miso soup or a cucumber salad. This record is raw wakame, so a rehydrated serving is the closer match.",
+        "cycleRelevance": "No cycle-phase claim is made for wakame; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170496,
+        "usdaDescription": "Seaweed, wakame, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 10,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 10 g)",
+        "per100g": {
+          "protein": 3.03,
+          "fat": 0.64,
+          "carb": 9.14,
+          "fiber": 0.5,
+          "ca": 150,
+          "iron": 2.18,
+          "mg": 107,
+          "k": 50,
+          "zn": 0.38,
+          "vitc": 3,
+          "folate": 196,
+          "vita": 18,
+          "vite": 1,
+          "vitk": 5.3,
+          "kcal": 45
+        }
+      },
+      "perServing": {
+        "energyKcal": 5,
+        "proteinG": 0.3,
+        "fatG": 0.1,
+        "carbohydrateG": 0.9,
+        "fiberG": 0.1,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 20,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 5
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 11,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 3
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Iodine: normal portions",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kelp": {
+      "catalogueId": "kelp",
+      "name": "Kelp",
+      "sections": {
+        "whatItOffers": "Kelp, raw: 2 tablespoons gives about 4 calories, with folate (about 5%) and magnesium (about 4%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 10 g)",
+        "howToEatIt": "Add small pieces to soups and grain pots or rehydrate for salads; a little goes a long way.",
+        "cycleRelevance": "No cycle-phase claim is made for kelp; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168457,
+        "usdaDescription": "Seaweed, kelp, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 10,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 10 g)",
+        "per100g": {
+          "protein": 1.68,
+          "fat": 0.56,
+          "carb": 9.57,
+          "fiber": 1.3,
+          "ca": 168,
+          "iron": 2.85,
+          "mg": 121,
+          "k": 89,
+          "zn": 1.23,
+          "vitc": 3,
+          "folate": 180,
+          "vita": 6,
+          "vite": 0.87,
+          "vitk": 66,
+          "kcal": 43
+        }
+      },
+      "perServing": {
+        "energyKcal": 4,
+        "proteinG": 0.2,
+        "fatG": 0.1,
+        "carbohydrateG": 1.0,
+        "fiberG": 0.1,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 18,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 5
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 12,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 4
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 4
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Can exceed the safe iodine limit",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Thyroid conditions: check with a doctor",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "water-chestnut": {
+      "catalogueId": "water-chestnut",
+      "name": "Water chestnut",
+      "sections": {
+        "whatItOffers": "Water chestnut, raw: ½ cup slices gives about 60 calories, with potassium (about 14%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup slices (USDA: 0.5 cup = 62 g)",
+        "howToEatIt": "Slice raw or tinned for stir-fries, salads and dumpling fillings, where it stays crisp when cooked.",
+        "cycleRelevance": "No cycle-phase claim is made for water chestnut; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170066,
+        "usdaDescription": "Waterchestnuts, chinese, (matai), raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 62,
+        "portion": "½ cup slices (USDA: 0.5 cup = 62 g)",
+        "per100g": {
+          "protein": 1.4,
+          "fat": 0.1,
+          "carb": 23.9,
+          "fiber": 3,
+          "ca": 11,
+          "iron": 0.06,
+          "mg": 22,
+          "k": 584,
+          "zn": 0.5,
+          "vitc": 4,
+          "folate": 16,
+          "vite": 1.2,
+          "vitk": 0.3,
+          "kcal": 97
+        }
+      },
+      "perServing": {
+        "energyKcal": 60,
+        "proteinG": 0.9,
+        "fatG": 0.1,
+        "carbohydrateG": 14.8,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 362,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "parsley": {
+      "catalogueId": "parsley",
+      "name": "Parsley",
+      "sections": {
+        "whatItOffers": "Parsley, raw: 2 tablespoons chopped gives about 3 calories, with vitamin C (about 13%) and 125 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 3.8 g)",
+        "howToEatIt": "Chop into salads, grain dishes, sauces and soups, or stir through at the end of cooking so the flavour stays fresh.",
+        "cycleRelevance": "No cycle-phase claim is made for parsley; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170416,
+        "usdaDescription": "Parsley, fresh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 7.6,
+        "portion": "2 tablespoons chopped (USDA: 1 tbsp = 3.8 g)",
+        "per100g": {
+          "protein": 2.97,
+          "fat": 0.79,
+          "carb": 6.33,
+          "fiber": 3.3,
+          "ca": 138,
+          "iron": 6.2,
+          "mg": 50,
+          "k": 554,
+          "zn": 1.07,
+          "vitc": 133,
+          "folate": 152,
+          "vita": 421,
+          "vite": 0.75,
+          "vitk": 1640,
+          "kcal": 36
+        }
+      },
+      "perServing": {
+        "energyKcal": 3,
+        "proteinG": 0.2,
+        "fatG": 0.1,
+        "carbohydrateG": 0.5,
+        "fiberG": 0.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 10,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 125,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "rhubarb": {
+      "catalogueId": "rhubarb",
+      "name": "Rhubarb",
+      "sections": {
+        "whatItOffers": "Rhubarb, raw stalks: ½ cup diced gives about 13 calories, with potassium (about 7%) and vitamin C (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup diced (USDA: 1 cup diced = 122 g)",
+        "howToEatIt": "Cook the stalks with a little sweetener into compotes, crumbles or sauces. Only the stalks are eaten.",
+        "cycleRelevance": "No cycle-phase claim is made for rhubarb; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 167758,
+        "usdaDescription": "Rhubarb, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw stalks",
+        "portionGrams": 61,
+        "portion": "½ cup diced (USDA: 1 cup diced = 122 g)",
+        "per100g": {
+          "protein": 0.9,
+          "fat": 0.2,
+          "carb": 4.54,
+          "fiber": 1.8,
+          "ca": 86,
+          "iron": 0.22,
+          "mg": 12,
+          "k": 288,
+          "zn": 0.1,
+          "vitc": 8,
+          "folate": 7,
+          "vita": 5,
+          "vite": 0.27,
+          "vitk": 29.3,
+          "kcal": 21
+        }
+      },
+      "perServing": {
+        "energyKcal": 13,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 2.8,
+        "fiberG": 1.1,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 176,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 7
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in oxalate",
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones) (supports the existing caution)"
+        },
+        {
+          "text": "Leaves are poisonous: stalks only",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "olives": {
+      "catalogueId": "olives",
+      "name": "Olives",
+      "sections": {
+        "whatItOffers": "Olives, ripe, canned (brined): 5 large olives gives about 26 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "5 large olives (USDA: 1 large = 4.4 g)",
+        "howToEatIt": "Eat as a snack, chop into salads and pasta, or blend into a tapenade; rinse if you want less brine.",
+        "cycleRelevance": "No cycle-phase claim is made for olives; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.4 mg."
+      },
+      "source": {
+        "usdaFdcId": 169094,
+        "usdaDescription": "Olives, ripe, canned (small-extra large)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "ripe, canned (brined)",
+        "portionGrams": 22,
+        "portion": "5 large olives (USDA: 1 large = 4.4 g)",
+        "per100g": {
+          "protein": 0.84,
+          "fat": 10.9,
+          "carb": 6.04,
+          "fiber": 1.6,
+          "ca": 88,
+          "iron": 6.28,
+          "mg": 4,
+          "k": 8,
+          "zn": 0.22,
+          "vitc": 0.9,
+          "folate": 0,
+          "vita": 17,
+          "vite": 1.65,
+          "vitk": 1.4,
+          "kcal": 116
+        }
+      },
+      "perServing": {
+        "energyKcal": 26,
+        "proteinG": 0.2,
+        "fatG": 2.4,
+        "carbohydrateG": 1.3,
+        "fiberG": 0.4,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 1.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "High in salt",
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "corn": {
+      "catalogueId": "corn",
+      "name": "Corn",
+      "sections": {
+        "whatItOffers": "Corn, cooked, boiled, drained, no salt: 1 medium ear gives about 99 calories, with magnesium (about 9%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 medium ear (USDA: 6¾–7½ in long = 103 g of kernels)",
+        "howToEatIt": "Boil or steam an ear, cut the kernels into salads and soups, or grill the whole ear.",
+        "cycleRelevance": "No cycle-phase claim is made for corn; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169999,
+        "usdaDescription": "Corn, sweet, yellow, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 103,
+        "portion": "1 medium ear (USDA: 6¾–7½ in long = 103 g of kernels)",
+        "per100g": {
+          "protein": 3.41,
+          "fat": 1.5,
+          "carb": 21,
+          "fiber": 2.4,
+          "ca": 3,
+          "iron": 0.45,
+          "mg": 26,
+          "k": 218,
+          "zn": 0.62,
+          "vitc": 5.5,
+          "folate": 23,
+          "vita": 13,
+          "vite": 0.09,
+          "vitk": 0.4,
+          "kcal": 96
+        }
+      },
+      "perServing": {
+        "energyKcal": 99,
+        "proteinG": 3.5,
+        "fatG": 1.5,
+        "carbohydrateG": 21.6,
+        "fiberG": 2.5,
+        "keyNutrients": [
+          {
+            "name": "Magnesium",
+            "amount": 27,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 9
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 225,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "chicory": {
+      "catalogueId": "chicory",
+      "name": "Chicory",
+      "sections": {
+        "whatItOffers": "Chicory, raw leaves: 1 cup chopped gives about 7 calories, with vitamin A (about 12%), vitamin C (about 9%) and 86 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup chopped (USDA: 29 g)",
+        "howToEatIt": "Use the bitter leaves raw in mixed salads, or wilt them in a pan with garlic.",
+        "cycleRelevance": "No cycle-phase claim is made for chicory; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169992,
+        "usdaDescription": "Chicory greens, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw leaves",
+        "portionGrams": 29,
+        "portion": "1 cup chopped (USDA: 29 g)",
+        "per100g": {
+          "protein": 1.7,
+          "fat": 0.3,
+          "carb": 4.7,
+          "fiber": 4,
+          "ca": 100,
+          "iron": 0.9,
+          "mg": 30,
+          "k": 420,
+          "zn": 0.42,
+          "vitc": 24,
+          "folate": 110,
+          "vita": 286,
+          "vite": 2.26,
+          "vitk": 298,
+          "kcal": 23
+        }
+      },
+      "perServing": {
+        "energyKcal": 7,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 1.4,
+        "fiberG": 1.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 83,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 12
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 7,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 86,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Chicory contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "chive": {
+      "catalogueId": "chive",
+      "name": "Chive",
+      "sections": {
+        "whatItOffers": "Chive, raw: 2 tablespoons chopped gives about 2 calories, with vitamin C (about 5%) and vitamin A (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 3 g)",
+        "howToEatIt": "Snip over eggs, potatoes, soups and dips just before serving.",
+        "cycleRelevance": "No cycle-phase claim is made for chive; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169994,
+        "usdaDescription": "Chives, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 6,
+        "portion": "2 tablespoons chopped (USDA: 1 tbsp = 3 g)",
+        "per100g": {
+          "protein": 3.27,
+          "fat": 0.73,
+          "carb": 4.35,
+          "fiber": 2.5,
+          "ca": 92,
+          "iron": 1.6,
+          "mg": 42,
+          "k": 296,
+          "zn": 0.56,
+          "vitc": 58.1,
+          "folate": 105,
+          "vita": 218,
+          "vite": 0.21,
+          "vitk": 213,
+          "kcal": 30
+        }
+      },
+      "perServing": {
+        "energyKcal": 2,
+        "proteinG": 0.2,
+        "fatG": 0.0,
+        "carbohydrateG": 0.3,
+        "fiberG": 0.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 5
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 13,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Chive contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "dandelion": {
+      "catalogueId": "dandelion",
+      "name": "Dandelion",
+      "sections": {
+        "whatItOffers": "Dandelion, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 17 calories, with vitamin A (about 26%), vitamin C (about 13%) and 289 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup chopped, cooked (USDA: 1 cup = 105 g)",
+        "howToEatIt": "Sauté or simmer the greens; blanching first softens their bitterness.",
+        "cycleRelevance": "No cycle-phase claim is made for dandelion; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169227,
+        "usdaDescription": "Dandelion greens, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 52.5,
+        "portion": "½ cup chopped, cooked (USDA: 1 cup = 105 g)",
+        "per100g": {
+          "protein": 2,
+          "fat": 0.6,
+          "carb": 6.4,
+          "fiber": 2.9,
+          "ca": 140,
+          "iron": 1.8,
+          "mg": 24,
+          "k": 232,
+          "zn": 0.28,
+          "vitc": 18,
+          "folate": 13,
+          "vita": 342,
+          "vite": 2.44,
+          "vitk": 551,
+          "kcal": 33
+        }
+      },
+      "perServing": {
+        "energyKcal": 17,
+        "proteinG": 1.1,
+        "fatG": 0.3,
+        "carbohydrateG": 3.4,
+        "fiberG": 1.5,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 180,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 26
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 13
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 289,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "endive": {
+      "catalogueId": "endive",
+      "name": "Endive",
+      "sections": {
+        "whatItOffers": "Endive, raw: 1 cup chopped gives about 9 calories, with folate (about 18%), vitamin A (about 8%) and 116 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup chopped (USDA: 0.5 cup = 25 g)",
+        "howToEatIt": "Use the crisp, slightly bitter leaves raw in salads, or braise or grill them.",
+        "cycleRelevance": "No cycle-phase claim is made for endive; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168412,
+        "usdaDescription": "Endive, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 50,
+        "portion": "1 cup chopped (USDA: 0.5 cup = 25 g)",
+        "per100g": {
+          "protein": 1.25,
+          "fat": 0.2,
+          "carb": 3.35,
+          "fiber": 3.1,
+          "ca": 52,
+          "iron": 0.83,
+          "mg": 15,
+          "k": 314,
+          "zn": 0.79,
+          "vitc": 6.5,
+          "folate": 142,
+          "vita": 108,
+          "vite": 0.44,
+          "vitk": 231,
+          "kcal": 17
+        }
+      },
+      "perServing": {
+        "energyKcal": 9,
+        "proteinG": 0.6,
+        "fatG": 0.1,
+        "carbohydrateG": 1.7,
+        "fiberG": 1.6,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 71,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 54,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 116,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Endive contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "escarole": {
+      "catalogueId": "escarole",
+      "name": "Escarole",
+      "sections": {
+        "whatItOffers": "Escarole, cooked, boiled, drained, no salt: ½ cup cooked gives about 11 calories, with folate (about 15%), vitamin A (about 10%) and 159 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup cooked (USDA: 1 cup = 150 g)",
+        "howToEatIt": "Wilt into soups and bean stews, sauté with garlic, or use the inner leaves raw.",
+        "cycleRelevance": "No cycle-phase claim is made for escarole; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168413,
+        "usdaDescription": "Escarole, cooked, boiled, drained, no salt added",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 75,
+        "portion": "½ cup cooked (USDA: 1 cup = 150 g)",
+        "per100g": {
+          "protein": 1.15,
+          "fat": 0.18,
+          "carb": 3.07,
+          "fiber": 2.8,
+          "ca": 46,
+          "iron": 0.72,
+          "mg": 13,
+          "k": 245,
+          "zn": 0.69,
+          "vitc": 3.3,
+          "folate": 78,
+          "vita": 94,
+          "vite": 0.4,
+          "vitk": 212,
+          "kcal": 15
+        }
+      },
+      "perServing": {
+        "energyKcal": 11,
+        "proteinG": 0.9,
+        "fatG": 0.1,
+        "carbohydrateG": 2.3,
+        "fiberG": 2.1,
+        "keyNutrients": [
+          {
+            "name": "Folate",
+            "amount": 59,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 15
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 71,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 10
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 159,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "okra": {
+      "catalogueId": "okra",
+      "name": "Okra",
+      "sections": {
+        "whatItOffers": "Okra, cooked, boiled, drained, no salt: ½ cup slices gives about 18 calories, with vitamin C (about 17%), magnesium (about 9%) and 32 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup slices (USDA: 0.5 cup = 80 g)",
+        "howToEatIt": "Sauté, roast, grill or add to stews; cooking whole or quickly keeps it less slippery.",
+        "cycleRelevance": "No cycle-phase claim is made for okra; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169261,
+        "usdaDescription": "Okra, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 80,
+        "portion": "½ cup slices (USDA: 0.5 cup = 80 g)",
+        "per100g": {
+          "protein": 1.87,
+          "fat": 0.21,
+          "carb": 4.51,
+          "fiber": 2.5,
+          "ca": 77,
+          "iron": 0.28,
+          "mg": 36,
+          "k": 135,
+          "zn": 0.43,
+          "vitc": 16.3,
+          "folate": 46,
+          "vita": 14,
+          "vite": 0.27,
+          "vitk": 40,
+          "kcal": 22
+        }
+      },
+      "perServing": {
+        "energyKcal": 18,
+        "proteinG": 1.5,
+        "fatG": 0.2,
+        "carbohydrateG": 3.6,
+        "fiberG": 2.0,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 13,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 17
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 29,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 9
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 32,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "scallion": {
+      "catalogueId": "scallion",
+      "name": "Scallion",
+      "sections": {
+        "whatItOffers": "Scallion, raw, tops and bulb: 2 medium scallions gives about 10 calories, with vitamin C (about 8%) and 62 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 medium scallions (USDA: 1 medium = 15 g)",
+        "howToEatIt": "Slice the white and green parts into stir-fries, noodles, eggs and dips, raw or cooked.",
+        "cycleRelevance": "No cycle-phase claim is made for scallion; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170005,
+        "usdaDescription": "Onions, spring or scallions (includes tops and bulb), raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, tops and bulb",
+        "portionGrams": 30,
+        "portion": "2 medium scallions (USDA: 1 medium = 15 g)",
+        "per100g": {
+          "protein": 1.83,
+          "fat": 0.19,
+          "carb": 7.34,
+          "fiber": 2.6,
+          "ca": 72,
+          "iron": 1.48,
+          "mg": 20,
+          "k": 276,
+          "zn": 0.39,
+          "vitc": 18.8,
+          "folate": 64,
+          "vita": 50,
+          "vite": 0.55,
+          "vitk": 207,
+          "kcal": 32
+        }
+      },
+      "perServing": {
+        "energyKcal": 10,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 2.2,
+        "fiberG": 0.8,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 62,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Scallion contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "daikon": {
+      "catalogueId": "daikon",
+      "name": "Daikon",
+      "sections": {
+        "whatItOffers": "Daikon, raw: 1 cup slices gives about 21 calories, with vitamin C (about 34%) and potassium (about 10%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup slices (USDA: 116 g)",
+        "howToEatIt": "Slice or grate raw into salads and pickles, or simmer in soups and braises.",
+        "cycleRelevance": "No cycle-phase claim is made for daikon; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168451,
+        "usdaDescription": "Radishes, oriental, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 116,
+        "portion": "1 cup slices (USDA: 116 g)",
+        "per100g": {
+          "protein": 0.6,
+          "fat": 0.1,
+          "carb": 4.1,
+          "fiber": 1.6,
+          "ca": 27,
+          "iron": 0.4,
+          "mg": 16,
+          "k": 227,
+          "zn": 0.15,
+          "vitc": 22,
+          "folate": 28,
+          "vita": 0,
+          "vite": 0,
+          "vitk": 0.3,
+          "kcal": 18
+        }
+      },
+      "perServing": {
+        "energyKcal": 21,
+        "proteinG": 0.7,
+        "fatG": 0.1,
+        "carbohydrateG": 4.8,
+        "fiberG": 1.9,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 26,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 34
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 263,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "garlic": {
+      "catalogueId": "garlic",
+      "name": "Garlic",
+      "sections": {
+        "whatItOffers": "Garlic, raw: 3 cloves gives about 13 calories, with vitamin C (about 4%) and calcium (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "3 cloves (USDA: 3 cloves = 9 g)",
+        "howToEatIt": "Crush or chop into sautés, dressings and soups; resting crushed garlic for a few minutes before cooking is a common kitchen habit.",
+        "cycleRelevance": "No cycle-phase claim is made for garlic; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 16 mg."
+      },
+      "source": {
+        "usdaFdcId": 169230,
+        "usdaDescription": "Garlic, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 9,
+        "portion": "3 cloves (USDA: 3 cloves = 9 g)",
+        "per100g": {
+          "protein": 6.36,
+          "fat": 0.5,
+          "carb": 33.1,
+          "fiber": 2.1,
+          "ca": 181,
+          "iron": 1.7,
+          "mg": 25,
+          "k": 401,
+          "zn": 1.16,
+          "vitc": 31.2,
+          "folate": 3,
+          "vita": 0,
+          "vite": 0.08,
+          "vitk": 1.7,
+          "kcal": 149
+        }
+      },
+      "perServing": {
+        "energyKcal": 13,
+        "proteinG": 0.6,
+        "fatG": 0.0,
+        "carbohydrateG": 3.0,
+        "fiberG": 0.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 3,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 4
+              }
+            ]
+          },
+          {
+            "name": "Calcium",
+            "amount": 16,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 1000,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "ginger": {
+      "catalogueId": "ginger",
+      "name": "Ginger",
+      "sections": {
+        "whatItOffers": "Ginger, raw: 5 slices gives about 9 calories, with potassium (about 2%) and magnesium (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "5 slices (USDA: 5 slices, 1 in across = 11 g)",
+        "howToEatIt": "Grate or slice into stir-fries, soups, teas and marinades.",
+        "cycleRelevance": "No cycle-phase claim is made for ginger; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169231,
+        "usdaDescription": "Ginger root, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 11,
+        "portion": "5 slices (USDA: 5 slices, 1 in across = 11 g)",
+        "per100g": {
+          "protein": 1.82,
+          "fat": 0.75,
+          "carb": 17.8,
+          "fiber": 2,
+          "ca": 16,
+          "iron": 0.6,
+          "mg": 43,
+          "k": 415,
+          "zn": 0.34,
+          "vitc": 5,
+          "folate": 11,
+          "vita": 0,
+          "vite": 0.26,
+          "vitk": 0.1,
+          "kcal": 80
+        }
+      },
+      "perServing": {
+        "energyKcal": 9,
+        "proteinG": 0.2,
+        "fatG": 0.1,
+        "carbohydrateG": 2.0,
+        "fiberG": 0.2,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 46,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          },
+          {
+            "name": "Magnesium",
+            "amount": 5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–30 y",
+                "kind": "RDA",
+                "value": 310,
+                "unit": "mg",
+                "percent": 2
+              },
+              {
+                "group": "31–50 y",
+                "kind": "RDA",
+                "value": 320,
+                "unit": "mg",
+                "percent": 1
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "leek": {
+      "catalogueId": "leek",
+      "name": "Leek",
+      "sections": {
+        "whatItOffers": "Leek, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 16 calories, with iron (about 3%) and folate (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup chopped, cooked (USDA: ¼ cup = 26 g)",
+        "howToEatIt": "Wash well between the layers, slice, then sauté or simmer into soups, tarts and braises.",
+        "cycleRelevance": "No cycle-phase claim is made for leek; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.6 mg."
+      },
+      "source": {
+        "usdaFdcId": 168426,
+        "usdaDescription": "Leeks, (bulb and lower leaf-portion), cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 52,
+        "portion": "½ cup chopped, cooked (USDA: ¼ cup = 26 g)",
+        "per100g": {
+          "protein": 0.81,
+          "fat": 0.2,
+          "carb": 7.62,
+          "fiber": 1,
+          "ca": 30,
+          "iron": 1.1,
+          "mg": 14,
+          "k": 87,
+          "zn": 0.06,
+          "vitc": 4.2,
+          "folate": 24,
+          "vita": 41,
+          "vite": 0.5,
+          "vitk": 25.4,
+          "kcal": 31
+        }
+      },
+      "perServing": {
+        "energyKcal": 16,
+        "proteinG": 0.4,
+        "fatG": 0.1,
+        "carbohydrateG": 4.0,
+        "fiberG": 0.5,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 0.6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 12,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 3
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mustard-greens": {
+      "catalogueId": "mustard-greens",
+      "name": "Mustard greens",
+      "sections": {
+        "whatItOffers": "Mustard greens, cooked, boiled, drained, no salt: ½ cup chopped, cooked gives about 18 calories, with vitamin A (about 62%), vitamin C (about 24%) and 415 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup chopped, cooked (USDA: 1 cup = 140 g)",
+        "howToEatIt": "Sauté or simmer with garlic and a splash of acid; cooking softens their peppery bite.",
+        "cycleRelevance": "No cycle-phase claim is made for mustard greens; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169257,
+        "usdaDescription": "Mustard greens, cooked, boiled, drained, without salt",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "cooked, boiled, drained, no salt",
+        "portionGrams": 70,
+        "portion": "½ cup chopped, cooked (USDA: 1 cup = 140 g)",
+        "per100g": {
+          "protein": 2.56,
+          "fat": 0.47,
+          "carb": 4.51,
+          "fiber": 2,
+          "ca": 118,
+          "iron": 0.87,
+          "mg": 13,
+          "k": 162,
+          "zn": 0.22,
+          "vitc": 25.3,
+          "folate": 9,
+          "vita": 618,
+          "vite": 1.78,
+          "vitk": 593,
+          "kcal": 26
+        }
+      },
+      "perServing": {
+        "energyKcal": 18,
+        "proteinG": 1.8,
+        "fatG": 0.3,
+        "carbohydrateG": 3.2,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 433,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 62
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 18,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 24
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 415,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "onion": {
+      "catalogueId": "onion",
+      "name": "Onion",
+      "sections": {
+        "whatItOffers": "Onion, raw: ½ cup chopped gives about 32 calories, with vitamin C (about 8%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup chopped (USDA: 1 cup = 160 g)",
+        "howToEatIt": "Slice or chop raw into salads, or cook slowly until soft and sweet as a base for soups, stews and sauces.",
+        "cycleRelevance": "No cycle-phase claim is made for onion; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170000,
+        "usdaDescription": "Onions, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 80,
+        "portion": "½ cup chopped (USDA: 1 cup = 160 g)",
+        "per100g": {
+          "protein": 1.1,
+          "fat": 0.1,
+          "carb": 9.34,
+          "fiber": 1.7,
+          "ca": 23,
+          "iron": 0.21,
+          "mg": 10,
+          "k": 146,
+          "zn": 0.17,
+          "vitc": 7.4,
+          "folate": 19,
+          "vita": 0,
+          "vite": 0.02,
+          "vitk": 0.4,
+          "kcal": 40
+        }
+      },
+      "perServing": {
+        "energyKcal": 32,
+        "proteinG": 0.9,
+        "fatG": 0.1,
+        "carbohydrateG": 7.5,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "watercress": {
+      "catalogueId": "watercress",
+      "name": "Watercress",
+      "sections": {
+        "whatItOffers": "Watercress, raw: 1 cup chopped gives about 4 calories, with vitamin C (about 19%), vitamin A (about 8%) and 85 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup chopped (USDA: 34 g)",
+        "howToEatIt": "Eat raw in salads and sandwiches, or stir into hot soup at the last minute.",
+        "cycleRelevance": "No cycle-phase claim is made for watercress; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170068,
+        "usdaDescription": "Watercress, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 34,
+        "portion": "1 cup chopped (USDA: 34 g)",
+        "per100g": {
+          "protein": 2.3,
+          "fat": 0.1,
+          "carb": 1.29,
+          "fiber": 0.5,
+          "ca": 120,
+          "iron": 0.2,
+          "mg": 21,
+          "k": 330,
+          "zn": 0.11,
+          "vitc": 43,
+          "folate": 9,
+          "vita": 160,
+          "vite": 1,
+          "vitk": 250,
+          "kcal": 11
+        }
+      },
+      "perServing": {
+        "energyKcal": 4,
+        "proteinG": 0.8,
+        "fatG": 0.0,
+        "carbohydrateG": 0.4,
+        "fiberG": 0.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 15,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 19
+              }
+            ]
+          },
+          {
+            "name": "Vitamin A",
+            "amount": 54,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 85,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Very high vitamin K: keep intake consistent if taking warfarin",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "mint": {
+      "catalogueId": "mint",
+      "name": "Mint",
+      "sections": {
+        "whatItOffers": "Mint: 2 tablespoons gives about 5 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 11.4 g)",
+        "howToEatIt": "Tear fresh leaves into salads, yoghurt sauces, fruit and drinks.",
+        "cycleRelevance": "No cycle-phase claim is made for mint; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.4 mg."
+      },
+      "source": {
+        "usdaFdcId": 173475,
+        "usdaDescription": "Spearmint, fresh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw leaves (spearmint)",
+        "portionGrams": 11.4,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 11.4 g)",
+        "per100g": {
+          "protein": 3.29,
+          "fat": 0.73,
+          "carb": 8.41,
+          "fiber": 6.8,
+          "ca": 199,
+          "iron": 11.9,
+          "mg": 63,
+          "k": 458,
+          "zn": 1.09,
+          "vitc": 13.3,
+          "folate": 105,
+          "vita": 203,
+          "kcal": 44
+        }
+      },
+      "perServing": {
+        "energyKcal": 5,
+        "proteinG": 0.4,
+        "fatG": 0.1,
+        "carbohydrateG": 1.0,
+        "fiberG": 0.8,
+        "keyNutrients": [
+          {
+            "name": "Iron",
+            "amount": 1.4,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 18,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "peppermint": {
+      "catalogueId": "peppermint",
+      "name": "Peppermint",
+      "sections": {
+        "whatItOffers": "Peppermint: 2 tablespoons gives about 2 calories, with vitamin C (about 1%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 3.2 g)",
+        "howToEatIt": "Use fresh leaves for tea or a garnish; the flavour is stronger than spearmint.",
+        "cycleRelevance": "No cycle-phase claim is made for peppermint; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 173474,
+        "usdaDescription": "Peppermint, fresh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw leaves (peppermint)",
+        "portionGrams": 3.2,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 3.2 g)",
+        "per100g": {
+          "protein": 3.75,
+          "fat": 0.94,
+          "carb": 14.9,
+          "fiber": 8,
+          "ca": 243,
+          "iron": 5.08,
+          "mg": 80,
+          "k": 569,
+          "zn": 1.11,
+          "vitc": 31.8,
+          "folate": 114,
+          "vita": 212,
+          "kcal": 70
+        }
+      },
+      "perServing": {
+        "energyKcal": 2,
+        "proteinG": 0.1,
+        "fatG": 0.0,
+        "carbohydrateG": 0.5,
+        "fiberG": 0.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 1
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "canned-tomatoes": {
+      "catalogueId": "canned-tomatoes",
+      "name": "Canned tomatoes",
+      "sections": {
+        "whatItOffers": "Canned tomatoes, canned in tomato juice (with salt): ½ cup gives about 19 calories, with vitamin C (about 20%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup (USDA: 1 cup = 240 g)",
+        "howToEatIt": "Use as the base for soups, stews, sauces and braises; choose no-salt-added if you prefer to control salt.",
+        "cycleRelevance": "No cycle-phase claim is made for canned tomatoes; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170051,
+        "usdaDescription": "Tomatoes, red, ripe, canned, packed in tomato juice",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned in tomato juice (with salt)",
+        "portionGrams": 120,
+        "portion": "½ cup (USDA: 1 cup = 240 g)",
+        "per100g": {
+          "protein": 0.79,
+          "fat": 0.25,
+          "carb": 3.47,
+          "fiber": 1.9,
+          "ca": 33,
+          "iron": 0.57,
+          "mg": 10,
+          "k": 191,
+          "zn": 0.12,
+          "vitc": 12.6,
+          "folate": 8,
+          "vita": 20,
+          "vite": 0.59,
+          "vitk": 2.6,
+          "kcal": 16
+        }
+      },
+      "perServing": {
+        "energyKcal": 19,
+        "proteinG": 0.9,
+        "fatG": 0.3,
+        "carbohydrateG": 4.2,
+        "fiberG": 2.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 15,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 20
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 229,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "celeriac": {
+      "catalogueId": "celeriac",
+      "name": "Celeriac",
+      "sections": {
+        "whatItOffers": "Celeriac, raw: ½ cup gives about 33 calories, with potassium (about 9%), vitamin C (about 8%) and 32 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup (USDA: 1 cup = 156 g)",
+        "howToEatIt": "Peel, then roast, mash or simmer; or grate raw into slaws.",
+        "cycleRelevance": "No cycle-phase claim is made for celeriac; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170400,
+        "usdaDescription": "Celeriac, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 78,
+        "portion": "½ cup (USDA: 1 cup = 156 g)",
+        "per100g": {
+          "protein": 1.5,
+          "fat": 0.3,
+          "carb": 9.2,
+          "fiber": 1.8,
+          "ca": 43,
+          "iron": 0.7,
+          "mg": 20,
+          "k": 300,
+          "zn": 0.33,
+          "vitc": 8,
+          "folate": 8,
+          "vita": 0,
+          "vite": 0.36,
+          "vitk": 41,
+          "kcal": 42
+        }
+      },
+      "perServing": {
+        "energyKcal": 33,
+        "proteinG": 1.2,
+        "fatG": 0.2,
+        "carbohydrateG": 7.2,
+        "fiberG": 1.4,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 234,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 6,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 8
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 32,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "chili-pepper": {
+      "catalogueId": "chili-pepper",
+      "name": "Chili pepper",
+      "sections": {
+        "whatItOffers": "Chili pepper, raw, red hot chili: 1 chili pepper gives about 18 calories, with vitamin C (about 86%) and potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 chili pepper (USDA: 1 pepper = 45 g)",
+        "howToEatIt": "Remove the seeds for less heat, and use sparingly in sauces, stir-fries, soups and salsas.",
+        "cycleRelevance": "No cycle-phase claim is made for chili pepper; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170106,
+        "usdaDescription": "Peppers, hot chili, red, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, red hot chili",
+        "portionGrams": 45,
+        "portion": "1 chili pepper (USDA: 1 pepper = 45 g)",
+        "per100g": {
+          "protein": 1.87,
+          "fat": 0.44,
+          "carb": 8.81,
+          "fiber": 1.5,
+          "ca": 14,
+          "iron": 1.03,
+          "mg": 23,
+          "k": 322,
+          "zn": 0.26,
+          "vitc": 144,
+          "folate": 23,
+          "vita": 48,
+          "vite": 0.69,
+          "vitk": 14,
+          "kcal": 40
+        }
+      },
+      "perServing": {
+        "energyKcal": 18,
+        "proteinG": 0.8,
+        "fatG": 0.2,
+        "carbohydrateG": 4.0,
+        "fiberG": 0.7,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 65,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 86
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 145,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "fennel": {
+      "catalogueId": "fennel",
+      "name": "Fennel",
+      "sections": {
+        "whatItOffers": "Fennel, raw bulb: 1 cup sliced gives about 27 calories, with vitamin C (about 14%), potassium (about 14%) and 55 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup sliced (USDA: 87 g)",
+        "howToEatIt": "Slice the bulb thin for salads, or roast or braise it until soft and sweet.",
+        "cycleRelevance": "No cycle-phase claim is made for fennel; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169385,
+        "usdaDescription": "Fennel, bulb, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw bulb",
+        "portionGrams": 87,
+        "portion": "1 cup sliced (USDA: 87 g)",
+        "per100g": {
+          "protein": 1.24,
+          "fat": 0.2,
+          "carb": 7.3,
+          "fiber": 3.1,
+          "ca": 49,
+          "iron": 0.73,
+          "mg": 17,
+          "k": 414,
+          "zn": 0.2,
+          "vitc": 12,
+          "folate": 27,
+          "vita": 48,
+          "vite": 0.58,
+          "vitk": 62.8,
+          "kcal": 31
+        }
+      },
+      "perServing": {
+        "energyKcal": 27,
+        "proteinG": 1.1,
+        "fatG": 0.2,
+        "carbohydrateG": 6.4,
+        "fiberG": 2.7,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 10,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 360,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 55,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "kohlrabi": {
+      "catalogueId": "kohlrabi",
+      "name": "Kohlrabi",
+      "sections": {
+        "whatItOffers": "Kohlrabi, raw: ½ cup gives about 18 calories, with vitamin C (about 56%) and potassium (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup (USDA: 1 cup = 135 g)",
+        "howToEatIt": "Peel and eat raw in slaws, or roast, steam or add to soups.",
+        "cycleRelevance": "No cycle-phase claim is made for kohlrabi; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168424,
+        "usdaDescription": "Kohlrabi, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 67.5,
+        "portion": "½ cup (USDA: 1 cup = 135 g)",
+        "per100g": {
+          "protein": 1.7,
+          "fat": 0.1,
+          "carb": 6.2,
+          "fiber": 3.6,
+          "ca": 24,
+          "iron": 0.4,
+          "mg": 19,
+          "k": 350,
+          "zn": 0.03,
+          "vitc": 62,
+          "folate": 16,
+          "vita": 2,
+          "vite": 0.48,
+          "vitk": 0.1,
+          "kcal": 27
+        }
+      },
+      "perServing": {
+        "energyKcal": 18,
+        "proteinG": 1.1,
+        "fatG": 0.1,
+        "carbohydrateG": 4.2,
+        "fiberG": 2.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 42,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 56
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 236,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 9
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "plantain": {
+      "catalogueId": "plantain",
+      "name": "Plantain",
+      "sections": {
+        "whatItOffers": "Plantain, raw, yellow (usually eaten cooked): ½ cup sliced gives about 90 calories, with vitamin C (about 18%), potassium (about 14%) and 21 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "½ cup sliced (USDA: 1 cup = 148 g)",
+        "howToEatIt": "Cook before eating: boil, bake or pan-fry slices; riper plantain is sweeter.",
+        "cycleRelevance": "No cycle-phase claim is made for plantain; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169130,
+        "usdaDescription": "Plantains, yellow, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw, yellow (usually eaten cooked)",
+        "portionGrams": 74,
+        "portion": "½ cup sliced (USDA: 1 cup = 148 g)",
+        "per100g": {
+          "protein": 1.3,
+          "fat": 0.35,
+          "carb": 31.9,
+          "fiber": 1.7,
+          "ca": 3,
+          "iron": 0.55,
+          "mg": 36,
+          "k": 487,
+          "zn": 0.19,
+          "vitc": 18.4,
+          "folate": 22,
+          "vita": 56,
+          "vite": 0,
+          "vitk": 28.8,
+          "kcal": 122
+        }
+      },
+      "perServing": {
+        "energyKcal": 90,
+        "proteinG": 1.0,
+        "fatG": 0.3,
+        "carbohydrateG": 23.6,
+        "fiberG": 1.3,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 14,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 18
+              }
+            ]
+          },
+          {
+            "name": "Potassium",
+            "amount": 360,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 14
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 21,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "radicchio": {
+      "catalogueId": "radicchio",
+      "name": "Radicchio",
+      "sections": {
+        "whatItOffers": "Radicchio, raw: 1 cup shredded gives about 9 calories, with vitamin E (about 6%), folate (about 6%) and 102 µg of vitamin K. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup shredded (USDA: 40 g)",
+        "howToEatIt": "Use raw in salads for a bitter note, or grill or roast wedges to soften it.",
+        "cycleRelevance": "No cycle-phase claim is made for radicchio; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 168564,
+        "usdaDescription": "Radicchio, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 40,
+        "portion": "1 cup shredded (USDA: 40 g)",
+        "per100g": {
+          "protein": 1.43,
+          "fat": 0.25,
+          "carb": 4.48,
+          "fiber": 0.9,
+          "ca": 19,
+          "iron": 0.57,
+          "mg": 13,
+          "k": 302,
+          "zn": 0.62,
+          "vitc": 8,
+          "folate": 60,
+          "vita": 1,
+          "vite": 2.26,
+          "vitk": 255,
+          "kcal": 23
+        }
+      },
+      "perServing": {
+        "energyKcal": 9,
+        "proteinG": 0.6,
+        "fatG": 0.1,
+        "carbohydrateG": 1.8,
+        "fiberG": 0.4,
+        "keyNutrients": [
+          {
+            "name": "Vitamin E",
+            "amount": 0.9,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Folate",
+            "amount": 24,
+            "unit": "µg DFE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 400,
+                "unit": "µg DFE",
+                "percent": 6
+              }
+            ]
+          },
+          {
+            "name": "Vitamin K",
+            "amount": 102,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Radicchio contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "salsa": {
+      "catalogueId": "salsa",
+      "name": "Salsa",
+      "sections": {
+        "whatItOffers": "Salsa, ready-to-serve (with salt): 2 tablespoons gives about 10 calories, with potassium (about 4%) and vitamin E (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons (USDA: 2 tbsp = 36 g)",
+        "howToEatIt": "Serve with eggs, beans, tacos or grilled vegetables; check the label if you watch sodium.",
+        "cycleRelevance": "No cycle-phase claim is made for salsa; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 174524,
+        "usdaDescription": "Sauce, salsa, ready-to-serve",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "ready-to-serve (with salt)",
+        "portionGrams": 36,
+        "portion": "2 tablespoons (USDA: 2 tbsp = 36 g)",
+        "per100g": {
+          "protein": 1.52,
+          "fat": 0.17,
+          "carb": 6.64,
+          "fiber": 1.9,
+          "ca": 30,
+          "iron": 0.42,
+          "mg": 15,
+          "k": 275,
+          "zn": 0.18,
+          "vitc": 1.9,
+          "folate": 4,
+          "vita": 23,
+          "vite": 1.28,
+          "vitk": 4.3,
+          "kcal": 29
+        }
+      },
+      "perServing": {
+        "energyKcal": 10,
+        "proteinG": 0.5,
+        "fatG": 0.1,
+        "carbohydrateG": 2.4,
+        "fiberG": 0.7,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 99,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 4
+              }
+            ]
+          },
+          {
+            "name": "Vitamin E",
+            "amount": 0.5,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19+ y",
+                "kind": "RDA",
+                "value": 15,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "shallot": {
+      "catalogueId": "shallot",
+      "name": "Shallot",
+      "sections": {
+        "whatItOffers": "Shallot, raw: 2 tablespoons chopped gives about 14 calories, with potassium (about 3%) and vitamin C (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 tablespoons chopped (USDA: 1 tbsp = 10 g)",
+        "howToEatIt": "Mince raw for dressings, or sauté gently as a milder alternative to onion.",
+        "cycleRelevance": "No cycle-phase claim is made for shallot; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170499,
+        "usdaDescription": "Shallots, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw",
+        "portionGrams": 20,
+        "portion": "2 tablespoons chopped (USDA: 1 tbsp = 10 g)",
+        "per100g": {
+          "protein": 2.5,
+          "fat": 0.1,
+          "carb": 16.8,
+          "fiber": 3.2,
+          "ca": 37,
+          "iron": 1.2,
+          "mg": 21,
+          "k": 334,
+          "zn": 0.4,
+          "vitc": 8,
+          "folate": 34,
+          "vita": 0,
+          "vite": 0.04,
+          "vitk": 0.8,
+          "kcal": 72
+        }
+      },
+      "perServing": {
+        "energyKcal": 14,
+        "proteinG": 0.5,
+        "fatG": 0.0,
+        "carbohydrateG": 3.4,
+        "fiberG": 0.6,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 67,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 3
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 2,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 2
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "basil": {
+      "catalogueId": "basil",
+      "name": "Basil",
+      "sections": {
+        "whatItOffers": "Basil, raw leaves: 2 tablespoons chopped gives about 1 calories, with 22 µg of vitamin K.",
+        "practicalServing": "2 tablespoons chopped (USDA: 5.3 g)",
+        "howToEatIt": "Tear fresh leaves into salads, tomatoes and pasta, or blend into pesto; add to hot dishes at the end.",
+        "cycleRelevance": "No cycle-phase claim is made for basil; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 172232,
+        "usdaDescription": "Basil, fresh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw leaves",
+        "portionGrams": 5.3,
+        "portion": "2 tablespoons chopped (USDA: 5.3 g)",
+        "per100g": {
+          "protein": 3.15,
+          "fat": 0.64,
+          "carb": 2.65,
+          "fiber": 1.6,
+          "ca": 177,
+          "iron": 3.17,
+          "mg": 64,
+          "k": 295,
+          "zn": 0.81,
+          "vitc": 18,
+          "folate": 68,
+          "vita": 264,
+          "vite": 0.8,
+          "vitk": 415,
+          "kcal": 23
+        }
+      },
+      "perServing": {
+        "energyKcal": 1,
+        "proteinG": 0.2,
+        "fatG": 0.0,
+        "carbohydrateG": 0.1,
+        "fiberG": 0.1,
+        "keyNutrients": [
+          {
+            "name": "Vitamin K",
+            "amount": 22,
+            "unit": "µg",
+            "referenceNote": "Adequate intake for women 19 and over is 90 µg; shown as an amount only. See the note on blood thinners."
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Basil contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "cilantro": {
+      "catalogueId": "cilantro",
+      "name": "Cilantro (coriander)",
+      "sections": {
+        "whatItOffers": "Cilantro (coriander), raw leaves: ¼ cup leaves gives about 1 calories, with vitamin A (about 2%) and vitamin C (about 1%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "¼ cup leaves (USDA: 0.25 cup = 4 g)",
+        "howToEatIt": "Chop the leaves and tender stems into salsas, curries, rice and salads.",
+        "cycleRelevance": "No cycle-phase claim is made for cilantro (coriander); this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 169997,
+        "usdaDescription": "Coriander (cilantro) leaves, raw",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw leaves",
+        "portionGrams": 4,
+        "portion": "¼ cup leaves (USDA: 0.25 cup = 4 g)",
+        "per100g": {
+          "protein": 2.13,
+          "fat": 0.52,
+          "carb": 3.67,
+          "fiber": 2.8,
+          "ca": 67,
+          "iron": 1.77,
+          "mg": 26,
+          "k": 521,
+          "zn": 0.5,
+          "vitc": 27,
+          "folate": 62,
+          "vita": 337,
+          "vite": 2.5,
+          "vitk": 310,
+          "kcal": 23
+        }
+      },
+      "perServing": {
+        "energyKcal": 1,
+        "proteinG": 0.1,
+        "fatG": 0.0,
+        "carbohydrateG": 0.1,
+        "fiberG": 0.1,
+        "keyNutrients": [
+          {
+            "name": "Vitamin A",
+            "amount": 13,
+            "unit": "µg RAE",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 700,
+                "unit": "µg RAE",
+                "percent": 2
+              }
+            ]
+          },
+          {
+            "name": "Vitamin C",
+            "amount": 1,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 1
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [
+        {
+          "text": "Cilantro (coriander) contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+        }
+      ],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "verified against the cited page",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "dill": {
+      "catalogueId": "dill",
+      "name": "Dill",
+      "sections": {
+        "whatItOffers": "Dill, raw sprigs: 1 cup sprigs gives about 4 calories, with vitamin C (about 10%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 cup sprigs (USDA: 8.9 g)",
+        "howToEatIt": "Use fresh sprigs with fish, potatoes, yoghurt sauces and pickles.",
+        "cycleRelevance": "No cycle-phase claim is made for dill; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 172233,
+        "usdaDescription": "Dill weed, fresh",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "raw sprigs",
+        "portionGrams": 8.9,
+        "portion": "1 cup sprigs (USDA: 8.9 g)",
+        "per100g": {
+          "protein": 3.46,
+          "fat": 1.12,
+          "carb": 7.02,
+          "fiber": 2.1,
+          "ca": 208,
+          "iron": 6.59,
+          "mg": 55,
+          "k": 738,
+          "zn": 0.91,
+          "vitc": 85,
+          "folate": 150,
+          "vita": 386,
+          "kcal": 43
+        }
+      },
+      "perServing": {
+        "energyKcal": 4,
+        "proteinG": 0.3,
+        "fatG": 0.1,
+        "carbohydrateG": 0.6,
+        "fiberG": 0.2,
+        "keyNutrients": [
+          {
+            "name": "Vitamin C",
+            "amount": 8,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "RDA",
+                "value": 75,
+                "unit": "mg",
+                "percent": 10
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    },
+    "tomato-paste": {
+      "catalogueId": "tomato-paste",
+      "name": "Tomato paste",
+      "sections": {
+        "whatItOffers": "Tomato paste, canned paste, no salt added: 1 tablespoon gives about 13 calories, with potassium (about 6%). Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "1 tablespoon (USDA: 1 tbsp = 16 g)",
+        "howToEatIt": "Fry a spoonful in oil at the start of a sauce or stew to deepen the flavour.",
+        "cycleRelevance": "No cycle-phase claim is made for tomato paste; this profile covers what it provides nutritionally, as part of a varied diet."
+      },
+      "source": {
+        "usdaFdcId": 170459,
+        "usdaDescription": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+        "dataType": "SR Legacy",
+        "published": "4/1/2019",
+        "preparationState": "canned paste, no salt added",
+        "portionGrams": 16,
+        "portion": "1 tablespoon (USDA: 1 tbsp = 16 g)",
+        "per100g": {
+          "protein": 4.32,
+          "fat": 0.47,
+          "carb": 18.9,
+          "fiber": 4.1,
+          "ca": 36,
+          "iron": 2.98,
+          "mg": 42,
+          "k": 1010,
+          "zn": 0.63,
+          "vitc": 21.9,
+          "folate": 12,
+          "vita": 76,
+          "vite": 4.3,
+          "vitk": 11.4,
+          "kcal": 82
+        }
+      },
+      "perServing": {
+        "energyKcal": 13,
+        "proteinG": 0.7,
+        "fatG": 0.1,
+        "carbohydrateG": 3.0,
+        "fiberG": 0.7,
+        "keyNutrients": [
+          {
+            "name": "Potassium",
+            "amount": 162,
+            "unit": "mg",
+            "reference": [
+              {
+                "group": "19–50 y",
+                "kind": "AI",
+                "value": 2600,
+                "unit": "mg",
+                "percent": 6
+              }
+            ]
+          }
+        ]
+      },
+      "cautions": [],
+      "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+      "review": {
+        "composition": "copied from USDA FoodData Central; recomputed by script",
+        "referenceIntakes": "NIH ODS values",
+        "cautions": "none recorded",
+        "editorial": "draft; awaiting editorial review",
+        "clinical": "not clinically reviewed",
+        "publishable": false
+      }
+    }
+  }
+}
