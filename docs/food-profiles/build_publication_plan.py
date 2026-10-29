@@ -4,7 +4,10 @@ Run after build_audit_report.py:  python3 docs/food-profiles/build_publication_p
 Nothing here publishes anything. wave-1-candidate.json is a docs file in the approved-profile format with
 `publishable: false`; moving profiles into assets/content/food_profiles.json is a separate, approved change.
 """
-import collections, json
+import collections, json, sys
+
+sys.path.insert(0, 'docs/food-profiles')
+from wave1_wording import HEADING, proposed_cycle_note  # noqa: E402
 
 ROOT = 'docs/food-profiles/'
 data = json.load(open(ROOT + 'complete-draft-dataset.json'))
@@ -42,7 +45,8 @@ def why_not_wave1(k):
 cand = {}
 for k in wave1:
     p = profiles[k]
-    cand[k] = {'catalogueId': k, 'name': p['name'], 'sections': p['sections'],
+    sections = dict(p['sections'], cycleRelevance=proposed_cycle_note(p['name'], p['sections']['cycleRelevance']))
+    cand[k] = {'catalogueId': k, 'name': p['name'], 'sections': sections,
                'source': {x: p['source'][x] for x in ('usdaFdcId', 'usdaDescription', 'dataType', 'published', 'preparationState', 'portionGrams', 'portion', 'per100g')},
                'perServing': {x: v for x, v in p['perServing'].items() if x != 'sodiumMg'},
                'cautions': [{'text': c['text'], 'source': c['source']} for c in p['cautions']],
@@ -50,7 +54,7 @@ for k in wave1:
                'review': {'composition': 'verified against USDA FoodData Central (re-checked in the audit)', 'referenceIntakes': 'verified against NIH ODS',
                           'cautions': 'sourced or catalogue allergen tags', 'editorial': 'awaiting owner approval',
                           'clinical': 'not clinically reviewed', 'publishable': False}}
-json.dump({'_status': 'CANDIDATE for owner approval. Not bundled, not published. publishable is false for every profile.', 'profiles': cand},
+json.dump({'_status': 'CANDIDATE for owner approval. Not bundled, not published. publishable is false for every profile. The cycleRelevance text is the PROPOSED final wording.', 'cycleHeading': HEADING, 'profiles': cand},
           open(ROOT + 'wave-1-candidate.json', 'w'), indent=1, ensure_ascii=False)
 
 # A sampling sheet spread over phases and categories (first food alphabetically in each cell, up to 12).

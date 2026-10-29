@@ -1,6 +1,12 @@
 # An independent, evidence-informed method for food suggestions across the cycle
 
-**Status: proposal for your approval.** Nothing here changes the app, the catalogue or any phase assignment. It does not use, reproduce or reconstruct any other author's food chart or framework; it starts from nutrition science and from MoonCycle's own data (USDA FoodData Central profiles, NIH reference intakes).
+**Status: adopted by the owner on 29 Oct 2026 for internal editorial use (the four-class evidence system and its uncertainty labels). The algorithm outline is not implemented and the phase mappings are unchanged.** Nothing here changes the app, the catalogue or any phase assignment. It does not use, reproduce or reconstruct any other author's food chart or framework; it starts from nutrition science and from MoonCycle's own data (USDA FoodData Central profiles, NIH reference intakes).
+
+## 0. What this document does not say
+
+- **No assignment is clinically established or independently validated.** Not one of the 142 phase assignments is represented as clinically established, independently validated, or scientifically proven to matter in a particular phase. They are editorial suggestions for variety.
+- **Uncertainty labels** used in every internal record: *Established* (class 1), *Plausible, unproven* (class 2), *Traditional, no clinical evidence* (class 3), *Not supported* (class 4), and *Not assessed* for anything not yet read. A statement without a label is not ready to use.
+- No professional review has taken place and none is claimed.
 
 ## 1. Principles
 

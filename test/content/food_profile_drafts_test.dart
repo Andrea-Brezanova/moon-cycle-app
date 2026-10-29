@@ -602,5 +602,40 @@ void main() {
         }
       },
     );
+
+    test('the proposed Wave 1 wording is the approved shape', () {
+      final doc = jsonDecode(
+        File('docs/food-profiles/wave-1-candidate.json').readAsStringSync(),
+      ) as Map<String, Object?>;
+      expect(doc['cycleHeading'], 'Nutrition & your cycle');
+      final cand = (doc['profiles']! as Map).cast<String, Object?>();
+      // The three seed foods are on hold.
+      for (final id in ['flaxseeds', 'sesame-seeds', 'sunflower-seeds']) {
+        expect(cand.containsKey(id), isFalse, reason: '$id is on hold');
+      }
+      for (final MapEntry(key: id, value: p) in cand.entries) {
+        final text =
+            (((p! as Map)['sections']! as Map)['cycleRelevance']!) as String;
+        expect(
+          text,
+          contains('We found no reliable research linking'),
+          reason: id,
+        );
+        expect(text, isNot(contains('No cycle-phase claim')), reason: id);
+        expect(text, isNot(contains('No phase-specific claim')), reason: id);
+        if (text.contains('menstrual blood loss')) {
+          expect(
+            text,
+            contains('that need applies every day of the month'),
+            reason: '$id: the iron need is not tied to the period',
+          );
+        }
+        expect(
+          text.toLowerCase(),
+          isNot(contains('clinically reviewed')),
+          reason: id,
+        );
+      }
+    });
   });
 }

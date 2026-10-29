@@ -200,7 +200,11 @@ class FoodDetailPage extends ConsumerWidget {
                       style: MoonType.body.copyWith(color: c.text),
                     ),
                   ],
-                  if (profile != null) FoodProfileSections(profile: profile),
+                  if (profile != null)
+                    FoodProfileSections(
+                      profile: profile,
+                      cycleHeading: ref.watch(profileCycleHeadingProvider),
+                    ),
                   if ((profile?.cautions ?? food.cautions).isNotEmpty) ...[
                     const SizedBox(height: 16),
                     _GoodToKnow(cautions: profile?.cautions ?? food.cautions),
