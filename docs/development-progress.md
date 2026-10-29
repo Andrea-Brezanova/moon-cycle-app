@@ -6,11 +6,7 @@ second, separate status: **Implemented, awaiting device verification** (passes a
 tests, not yet checked by a person on the phone) or **Verified on device**. Nothing below is
 "Verified on device" yet.
 
-Last updated: 28 Oct 2026. App code on `main` last changed in `4763e53` (PR #60); later merges
-(#61, and the audit PR) change only CI, tools and docs. **Installed on the iPhone: `4763e53`**, built with `tool/build_ios.sh` and installed in place with
-`devicectl` (data kept); Me › My App › About shows the commit. The phone screen was not
-inspected by me. Development builds are signed for 7 days; the current one stops opening on
-4 Nov 2026 until it is reinstalled.
+Last updated: 29 Oct 2026. App code on `main` last changed in `20e0dee` (PR #65, the kidney bean safety correction). **Installed on the iPhone: `20e0dee`**, built with `tool/build_ios.sh` and installed in place with `devicectl` (data kept). The phone screen was not inspected by me. Development builds are signed for 7 days from when the signing profile is created; the profile in this build still expires on **4 Nov 2026 (01:24 UTC)**, so the app must be reinstalled on or after about 3 Nov to get a fresh profile.
 
 ## Bugs and corrections
 
@@ -19,6 +15,7 @@ inspected by me. Development builds are signed for 7 days; the current one stops
 | **Cook with disappears when the ingredient is cleared (All phases)** | Yes, run on unfixed code | Field always shown; in All phases the sheet lists every food that has a recipe | choose / clear / choose repeatedly, Change, meal type kept, empty result recovers | #46 `e3d9d3d` | Yes | **Awaiting** |
 | **3 Plants a Day ignores the day the cycle wheel is on** | Yes, run on unfixed code | Plants follow the wheel's day (preview only, writes nothing) | same day = same plants, phase boundary, restart, irregular cycles, no stored-data change | #48 `4afe667` | Yes | **Awaiting** |
 | **Collection tiles uneven; counts and status text** | Layout change; new tests assert what the old layout could not satisfy | One shared tile: titles only | equal size and title offset, no counts, 320 pt and large text | #45 `90655f0` | Yes | **Awaiting** |
+| **Kidney bean warning said 'boil 10 minutes'** | Yes: new `kidney_bean_safety_test.dart` fails on the old wording | Catalogue now gives the FDA instructions: soak at least 5 hours, boil in fresh water at least 30 minutes; no slow cookers; canned beans are already cooked | 4 data checks and a Food Detail widget check; old wording absent from every content file and draft | #65 `20e0dee` | Yes | **Awaiting** |
 | **Home shortcuts show counts; "Why these foods" in phase info** | Old tests asserted the text; they now assert it is absent | Headlines only | titles only, no WHY THESE FOODS | #47 `f1a88ac` | Yes | **Awaiting** |
 | **Collection tile title and arrow not on one line** | New test asserts the same centre line in all four tiles | Title and arrow share one row | title/arrow centre line, same picture height | #58 `90952c4` | Yes | **Awaiting** |
 | **Diary and Shopping List shortcut title and arrow misaligned on Home** | Alignment assertions added | Shared alignment, no counts | title/arrow alignment, large text | #57 `ede267b` | Yes | **Awaiting** |
@@ -38,6 +35,8 @@ inspected by me. Development builds are signed for 7 days; the current one stops
 | Move and Relax hubs, libraries, item pages | #41 | No approved content yet: libraries are empty by design. |
 
 ## Content and research (nothing new is published)
+
+PRs: #63 (food-to-phase provenance audit) is **open and not merged**: it holds findings that need your editorial and legal review, and the repository is public. Wave 1 editorial approval package: `docs/food-profiles/wave-1-review-package.md`. Wave 1 stays unpublished.
 
 | Item | Status |
 |---|---|
