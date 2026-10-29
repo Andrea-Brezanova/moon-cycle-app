@@ -57,6 +57,9 @@ def cycle_text(fid):
     return approved.get(fid, {}).get('sections', {}).get('cycleRelevance', '')
 
 
+LABELS = {'B': 'Retained from the original list; underlying sources not identified (not independently established)',
+          'D': 'Source unknown: not in the original list, no rationale in this repository',
+          'E': 'Changed after the original list; reason not documented in this repository'}
 matrix, counts = [], collections.Counter()
 for fid, ph in sorted(by_stage['HEAD'].items(), key=lambda x: (x[1][0], x[0])):
     cur = ph[0]
@@ -110,6 +113,8 @@ for fid, ph in sorted(by_stage['HEAD'].items(), key=lambda x: (x[1][0], x[0])):
         independentlyJustified='no',
         provenanceConfidence=conf,
         conventionLinked=fid in SEEDS,
+        classificationLabel=LABELS[cls],
+        provenanceEstablished=False,  # no class here means the underlying source of a placement is identified
         furtherReviewRequired=True, reviewPriority=review))
 
 dropped = sorted(k for k in by_stage['56e981d'] if k not in by_stage['HEAD'])

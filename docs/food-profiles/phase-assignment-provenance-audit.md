@@ -20,6 +20,8 @@ Evidence labels used throughout: **PROVEN** (shown by a commit or file), **INFER
 - Foods v2 was a substantial rewrite by the owner: for the same food and phase, none of the 53 comparable per-food "why" texts is identical to the baseline, and the phase focus copy is almost entirely new. The phase placements were changed for about two fifths of the foods that existed in the baseline.
 - Three of the four "seed-cycling" seeds still sit in a phase the convention uses (sesame in menstrual, sunflower in luteal, flax in follicular); pumpkin seeds do not (moved from follicular/ovulatory to menstrual).
 
+**Limits of this report.** It uses only this repository's Git history and documents. The Emergent repository, the 2024 `mooncycle` repository and the Foods v2 research project were not part of that evidence base, and material found in them after this report was first written changes what can be said about the origin of the original list. That material is **withheld from this public repository pending the owner's decision** and is held in a private addendum. Read every "none found" below as "none found in this repository", not as evidence of independent origin.
+
 **UNKNOWN**
 - Where the Emergent list, or the 2024 `mooncycle` repository's ingredient sheet (which the recovery notes say "matches the Emergent food lists"), came from.
 - The research behind Foods v2: its rationale labels (`evidence_informed`, `framework_informed`, `supporting`, `editorial`) and USDA provenance live in a "research project" (`foods.provenance.json`) that is **not in this repository**.
@@ -33,7 +35,7 @@ Evidence labels used throughout: **PROVEN** (shown by a commit or file), **INFER
 | 2026-10-11 | `8828f98` | First bundled catalogue, "verbatim from the handoff" (`assets/content/foods.json`) | 154 | 38 / 41 / 39 / 40 |
 | 2026-10-13 | `b2c071f` | Foods v2 integration (25 foods per phase) (`assets/content/foods.json`) | 65 | 25 / 25 / 25 / 25 |
 | 2026-10-14 | `f9c0241` | Foods v2 frozen: 142 featured foods (`assets/content/foods.json`) | 142 | 35 / 32 / 31 / 44 |
-| 2026-10-28 | `df7d9b3` | Current main (`assets/content/foods.json`) | 142 | 35 / 32 / 31 / 44 |
+| 2026-10-28 | `4f77426` | Current main (`assets/content/foods.json`) | 142 | 35 / 32 / 31 / 44 |
 
 Notes:
 - `56e981d` has 157 foods in the design package; `8828f98` bundles the same 157 foods but shows 154 with phases, because Salt, Hijiki and Alcohol (moderate) were flagged "not ship-ready" in the design package and carried no phase copy when bundled.
@@ -61,7 +63,7 @@ Notes:
 Definitions used (operational, so every food can be classified from Git alone):
 
 - **A. Independently documented assignment**: a rationale for *placing this food in this phase* from an independent authoritative source. **None found.** The strongest documented rationale (iron losses in menstruation, NIH ODS) supports eating iron-rich food, not a phase placement, and the design review says so.
-- **B. Multiple-source editorial assignment**: the same phase in the Emergent baseline *and* in the owner-curated Foods v2, with the baseline's documented review notes. Ultimate origin of the baseline list is UNKNOWN.
+- **B. Retained from the original list** (the "multiple-source editorial" category of the brief): the same phase in the Emergent baseline *and* in the owner-curated Foods v2. **The underlying sources of these placements are not identified, so their provenance is NOT independently established.** Two curation steps are not two independent sources: Foods v2 started from the baseline.
 - **C. Potentially derived from a specific external chart**: evidence tying a placement to a named chart. **None found.** (Seed foods are tracked separately as convention-linked; a "convention" is not a chart.)
 - **D. Source unknown**: not in the baseline and no rationale in the repository; added in Foods v2, whose research is outside the repository.
 - **E. Assignment changed**: in the baseline at a different phase, then moved in Foods v2. The commit messages describe owner curation from "independently researched nutrition", but that research is not in the repository, so "changed following independent review" is **INFERRED, not proven**.
@@ -69,7 +71,7 @@ Definitions used (operational, so every food can be classified from Git alone):
 | Category | Foods |
 |---|---|
 | A. Independently documented | 0 |
-| B. Multiple-source editorial (retained) | 53 |
+| B. Retained from the original list (sources not identified) | 53 |
 | C. Potentially derived from a specific chart | 0 |
 | D. Source unknown (new in Foods v2) | 53 |
 | E. Changed after baseline | 36 |
@@ -138,7 +140,7 @@ No legal conclusion is drawn. In particular: **no infringement is alleged and no
 
 | Area | Finding |
 |---|---|
-| Documented copying of an externally curated list | None documented. |
+| Documented copying of an externally curated list | None documented in this repository. |
 | Dependence on one author's chart | Not shown, not excluded. The immediate source (Emergent export) has an unknown origin; the repository never records the earlier discussion of Alisa Vitti's approach. |
 | Unattributed or unclear source material | The baseline list (all 89 current foods that were in it, and 68 that no longer carry a phase) has no recorded author; the Foods v2 research is outside the repository, so 53 current placements have no recorded origin. |
 | Reproduced wording | Per-food and phase copy has been rewritten; surviving identical strings are the four "Inner <season>" labels and one cooking line (see section 4). Origin of those strings is UNKNOWN. |

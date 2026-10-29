@@ -57,9 +57,9 @@
    }
   },
   "HEAD": {
-   "commit": "df7d9b3",
+   "commit": "4f77426",
    "date": "2026-10-28",
-   "subject": "Merge pull request #62 from Andrea-Brezanova/docs/food-profile-audit",
+   "subject": "docs(foods): food-to-phase assignment provenance audit (documentation only; no mapping or app change)",
    "file": "assets/content/foods.json",
    "label": "Current main",
    "assignedFoods": 142,
