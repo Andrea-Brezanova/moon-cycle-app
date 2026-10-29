@@ -3,7 +3,10 @@
 
     python3 docs/food-profiles/build_wave1_approval_summary.py
 It renders the PROPOSED cycle-relevance wording on representative profiles without changing any draft."""
-import json, re
+import json, re, sys
+
+sys.path.insert(0, 'docs/food-profiles')
+from wave1_wording import HEADING, proposed_cycle_note  # noqa: E402
 
 R = 'docs/food-profiles/'
 profiles = json.load(open(R + 'complete-draft-dataset.json'))['profiles']
@@ -17,15 +20,7 @@ CHOSEN = [k for k in CHOSEN if k in wave1][:6]
 
 
 def proposed(fid):
-    """The proposed cycle note: sourced facts first, then one plain sentence about the cycle."""
-    p = profiles[fid]
-    name = p['name'].lower()
-    t = p['sections']['cycleRelevance']
-    t = t.replace('partly because of menstrual blood loss (NIH ODS)', 'partly because of menstrual blood loss (NIH ODS), and that need applies every day of the month')
-    t = re.sub(r'\s*No (cycle-phase|phase-specific) claim is made( for [^.;]+)?[.;]?\s*', ' ', t).strip()
-    t = re.sub(r'\s+', ' ', t)
-    tail = f'We found no reliable research linking {name} to a particular phase of the cycle.'
-    return (t + ' ' + tail).strip() if t else tail
+    return proposed_cycle_note(profiles[fid]['name'], profiles[fid]['sections']['cycleRelevance'])
 
 
 L = ['# Wave 1: final approval package (short)\n',
@@ -43,7 +38,7 @@ L = ['# Wave 1: final approval package (short)\n',
      '   - Folate or vitamin C with plant iron: the existing NIH ODS sentences, unchanged.',
      '2. **A plain statement that the cycle is not claimed (always):** "We found no reliable research linking {food} to a particular phase of the cycle."',
      '3. Nothing about hormones, fertility, PMS, mood, energy, "balance" or "support".\n',
-     'Replaces the current closing line "No cycle-phase claim is made for {food}." (clearer: it says what was looked for and not found). **Heading options:** keep "Cycle relevance", or rename it **"Cycle note"** (recommended: it does not suggest every food has a cycle link).\n',
+     'Replaces the current closing line "No cycle-phase claim is made for {food}." (clearer: it says what was looked for and not found). **Heading (your preference): "Nutrition & your cycle".** It is used in the previews below only; the app still shows "Cycle relevance" until you approve publication, and the five already-published profiles are not changed.\n',
      '## Representative complete profiles with the proposed wording\n']
 for k in CHOSEN:
     p = profiles[k]
@@ -55,7 +50,7 @@ for k in CHOSEN:
     L.append(f'1. **What this food offers.** {s["whatItOffers"]}')
     L.append(f'2. **A practical serving.** {s["practicalServing"]}')
     L.append(f'3. **How to eat it.** {s["howToEatIt"]}')
-    L.append(f'4. **Cycle note (proposed).** {proposed(k)}')
+    L.append(f'4. **Nutrition & your cycle (proposed).** {proposed(k)}')
     L.append(f'   *Currently:* {s["cycleRelevance"]}')
     L.append('5. **Good to know.** ' + (' / '.join(f'{c["text"]}' for c in p['cautions']) or '(none)'))
     L.append('   *Sources:* ' + '; '.join(sorted({c['source'] for c in p['cautions']})) if p['cautions'] else '')
@@ -65,10 +60,10 @@ L += ['## Labels\n',
       '- No profile is described as clinically reviewed; none has been. No reviewer credentials are stated or implied.',
       '- Data attribution: nutrient amounts from USDA FoodData Central (record and date shown), reference intakes from NIH ODS.\n',
       '## What I need from you\n',
-      '1. Approve the wording above (or amend it), and choose the heading ("Cycle relevance" or "Cycle note").',
+      '1. Approve the wording above (or amend it). The heading "Nutrition & your cycle" is already your choice.',
       '2. Approve Wave 1 for publication, or name the profiles to hold back.',
-      '3. Name the editorial reviewer and date to record.',
-      '4. Confirm that the app\'s Food Detail needs no layout change (the five sections already exist).',
-      '5. Say "publish" when ready: a separate change moves the approved profiles into `assets/content/food_profiles.json` with the new wording, CI runs, then I rebuild the iPhone app. If you do not approve, nothing changes.\n']
+      '3. Give the name and date to record for the editorial approval. No professional credential is assigned or implied; the label stays "not clinically reviewed".',
+      '4. Check the Food Detail previews in `wave-1-screens/` (real app rendering of the proposed text; unpublished).',
+      '5. Say "publish" when ready: a separate change moves the approved profiles into `assets/content/food_profiles.json` with the new wording and heading, CI runs, then I rebuild the iPhone app. The three seed foods stay on hold. If you do not approve, nothing changes.\n']
 open(R + 'wave-1-approval-summary.md', 'w').write('\n'.join(L) + '\n')
 print('ok', CHOSEN)

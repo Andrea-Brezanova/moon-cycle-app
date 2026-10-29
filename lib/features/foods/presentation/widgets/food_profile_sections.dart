@@ -11,9 +11,16 @@ import '../../domain/food_profile.dart';
 /// serving's share of the daily reference for the nutrient, not a portion
 /// advice.
 class FoodProfileSections extends StatelessWidget {
-  const FoodProfileSections({super.key, required this.profile});
+  const FoodProfileSections({
+    super.key,
+    required this.profile,
+    this.cycleHeading = 'Cycle relevance',
+  });
 
   final FoodProfile profile;
+
+  /// The heading above the cycle note.
+  final String cycleHeading;
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +116,7 @@ class FoodProfileSections extends StatelessWidget {
         ),
         block('A practical serving', text(profile.practicalServing)),
         block('How to eat it', text(profile.howToEatIt)),
-        block('Cycle relevance', text(profile.cycleRelevance)),
+        block(cycleHeading, text(profile.cycleRelevance)),
         const SizedBox(height: 14),
         Text(
           profile.reviewLabel,
