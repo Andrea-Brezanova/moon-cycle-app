@@ -1,0 +1,3242 @@
+{
+ "_about": "Independent review of the 142 phase-assigned foods. No phase is changed. See independent-phase-methodology.md.",
+ "summary": {
+  "foods": 142,
+  "perPhase": {
+   "follicular": 32,
+   "luteal": 44,
+   "menstrual": 35,
+   "ovulatory": 31
+  },
+  "byClass": {
+   "R2": 40,
+   "R1": 98,
+   "R3": 4
+  },
+  "byBasis": {
+   "general-editorial-suggestion": 138,
+   "traditional-association": 4
+  },
+  "supportedAsPhaseSpecific": 0,
+  "phaseChangesProposed": 0
+ },
+ "foods": [
+  {
+   "id": "arugula",
+   "name": "Arugula (rocket)",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Folate 39 µg DFE (10% of the reference)",
+    "Vitamin C 6 mg (8% of the reference)",
+    "Vitamin K 44 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Folate 41 µg DFE (10% of the reference)",
+    "Potassium 243 mg (9% of the reference)",
+    "Magnesium 15 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "black-eyed-pea",
+   "name": "Black-eyed pea",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Folate 178 µg DFE (44% of the reference)",
+    "Magnesium 45 mg (15% of the reference)",
+    "Zinc 1.1 mg (14% of the reference)",
+    "Protein 6.6 g",
+    "Fiber 5.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "bok-choy",
+   "name": "Bok choy",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 22 mg (29% of the reference)",
+    "Vitamin A 180 µg RAE (26% of the reference)",
+    "Potassium 315 mg (12% of the reference)",
+    "Vitamin K 29 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "brazil-nut",
+   "name": "Brazil nut",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Magnesium 38 mg (12% of the reference)",
+    "Zinc 0.4 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cabbage",
+   "name": "Cabbage",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 28 mg (38% of the reference)",
+    "Vitamin K 82 µg",
+    "Folate 23 µg DFE (6% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "canned-salmon",
+   "name": "Canned salmon",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 4.2 µg (175% of the reference)",
+    "Vitamin D 12.3 µg (82% of the reference)",
+    "Calcium 241 mg (24% of the reference)",
+    "Protein 19.6 g",
+    "Omega-3 (EPA + DHA) 0.92 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d, calcium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "canned-tuna",
+   "name": "Canned tuna",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 2.2 µg (90% of the reference)",
+    "Iron 1.4 mg (8% of the reference)",
+    "Protein 16.5 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "carrot",
+   "name": "Carrot",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin A 509 µg RAE (73% of the reference)",
+    "Potassium 195 mg (8% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.3 µg (12% of the reference)",
+    "Zinc 0.9 mg (11% of the reference)",
+    "Protein 26.7 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "eggs",
+   "name": "Eggs",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.6 µg (23% of the reference)",
+    "Vitamin A 75 µg RAE (11% of the reference)",
+    "Protein 6.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "farro",
+   "name": "Farro",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Zinc 1.8 mg (22% of the reference)",
+    "Magnesium 54 mg (17% of the reference)",
+    "Protein 5.7 g",
+    "Fiber 3.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of zinc, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "feta",
+   "name": "Feta",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.5 µg (20% of the reference)",
+    "Calcium 140 mg (14% of the reference)",
+    "Zinc 0.8 mg (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "flaxseeds",
+   "name": "Flaxseeds",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Magnesium 27 mg (9% of the reference)",
+    "Iron 0.4 mg (2% of the reference)",
+    "Zinc 0.3 mg (4% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Seed cycling: small, mixed studies of seeds or their components in PMS/PCOS populations; the phase rotation itself is not separately tested."
+   ],
+   "existingBasis": "traditional-association",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R3 traditional association; keep only as a variety suggestion, no claim",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "owner decision: whether to keep the seed pairing at all",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "green-pea",
+   "name": "Green pea",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Folate 50 µg DFE (13% of the reference)",
+    "Iron 1.2 mg (7% of the reference)",
+    "Vitamin C 11 mg (15% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "haddock",
+   "name": "Haddock",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.8 µg (75% of the reference)",
+    "Potassium 298 mg (11% of the reference)",
+    "Protein 17.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "hummus",
+   "name": "Hummus",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Magnesium 23 mg (7% of the reference)",
+    "Zinc 0.4 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "lettuce",
+   "name": "Lettuce (Bibb, Boston, romaine)",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin A 410 µg RAE (59% of the reference)",
+    "Folate 128 µg DFE (32% of the reference)",
+    "Vitamin K 96 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a, folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "napa-cabbage",
+   "name": "Napa cabbage",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 21 mg (27% of the reference)",
+    "Folate 60 µg DFE (15% of the reference)",
+    "Vitamin K 33 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "nectarine",
+   "name": "Nectarine",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Potassium 285 mg (11% of the reference)",
+    "Vitamin C 8 mg (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "oat-bran",
+   "name": "Oat bran",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Magnesium 44 mg (14% of the reference)",
+    "Zinc 0.6 mg (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pecan",
+   "name": "Pecan",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Zinc 1.3 mg (16% of the reference)",
+    "Magnesium 34 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "plain-yogurt",
+   "name": "Plain yogurt",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.6 µg (26% of the reference)",
+    "Calcium 206 mg (21% of the reference)",
+    "Zinc 1.0 mg (13% of the reference)",
+    "Protein 5.9 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, calcium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "plum",
+   "name": "Plum",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 6 mg (8% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pollock",
+   "name": "Pollock",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 3.1 µg (130% of the reference)",
+    "Magnesium 73 mg (24% of the reference)",
+    "Potassium 388 mg (15% of the reference)",
+    "Protein 21.2 g",
+    "Omega-3 (EPA + DHA) 0.46 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, magnesium, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pomegranate",
+   "name": "Pomegranate",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 9 mg (12% of the reference)",
+    "Folate 33 µg DFE (8% of the reference)",
+    "Fiber 3.5 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sauerkraut",
+   "name": "Sauerkraut",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 10 mg (14% of the reference)",
+    "Iron 1.0 mg (6% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "scallop",
+   "name": "Scallop",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.8 µg (76% of the reference)",
+    "Zinc 1.3 mg (16% of the reference)",
+    "Potassium 267 mg (10% of the reference)",
+    "Protein 17.4 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "string-bean",
+   "name": "String bean",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 6 mg (8% of the reference)",
+    "Folate 21 µg DFE (5% of the reference)",
+    "Vitamin K 30 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "trout",
+   "name": "Trout",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 2.9 µg (122% of the reference)",
+    "Vitamin D 13.5 µg (90% of the reference)",
+    "Vitamin E 2.0 mg (13% of the reference)",
+    "Protein 16.9 g",
+    "Omega-3 (EPA + DHA) 0.62 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "turnip",
+   "name": "Turnip",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 9 mg (12% of the reference)",
+    "Potassium 138 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "zucchini",
+   "name": "Zucchini",
+   "existingPhase": "follicular",
+   "generalNutritionalBenefits": [
+    "Vitamin C 20 mg (27% of the reference)",
+    "Potassium 295 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "apple",
+   "name": "Apple",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin C 8 mg (11% of the reference)",
+    "Potassium 195 mg (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "artichoke",
+   "name": "Artichoke",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 107 µg DFE (27% of the reference)",
+    "Magnesium 50 mg (16% of the reference)",
+    "Potassium 343 mg (13% of the reference)",
+    "Fiber 6.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Potassium 422 mg (16% of the reference)",
+    "Magnesium 32 mg (10% of the reference)",
+    "Vitamin C 10 mg (14% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "barley",
+   "name": "Barley",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Zinc 0.6 mg (8% of the reference)",
+    "Iron 1.0 mg (6% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "blackberry",
+   "name": "Blackberry",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin C 30 mg (40% of the reference)",
+    "Vitamin E 1.7 mg (11% of the reference)",
+    "Vitamin K 29 µg",
+    "Fiber 7.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "brown-rice",
+   "name": "Brown rice",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 39 mg (13% of the reference)",
+    "Zinc 0.7 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "buckwheat",
+   "name": "Buckwheat (kasha)",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 43 mg (14% of the reference)",
+    "Zinc 0.5 mg (6% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "bulgur",
+   "name": "Bulgur",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 29 mg (9% of the reference)",
+    "Zinc 0.5 mg (6% of the reference)",
+    "Fiber 4.1 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cauliflower",
+   "name": "Cauliflower",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin C 27 mg (37% of the reference)",
+    "Folate 27 µg DFE (7% of the reference)",
+    "Potassium 88 mg (3% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "chia-seeds",
+   "name": "Chia seeds",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 95 mg (31% of the reference)",
+    "Iron 2.2 mg (12% of the reference)",
+    "Zinc 1.3 mg (16% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "chickpea",
+   "name": "Chickpea",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 141 µg DFE (35% of the reference)",
+    "Iron 2.4 mg (13% of the reference)",
+    "Zinc 1.3 mg (16% of the reference)",
+    "Magnesium 39 mg (13% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cod",
+   "name": "Cod",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.9 µg (37% of the reference)",
+    "Magnesium 36 mg (12% of the reference)",
+    "Protein 19.4 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 241 µg DFE (60% of the reference)",
+    "Magnesium 50 mg (16% of the reference)",
+    "Zinc 1.1 mg (13% of the reference)",
+    "Vitamin K 21 µg",
+    "Protein 9.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "fig",
+   "name": "Fig",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Potassium 232 mg (9% of the reference)",
+    "Magnesium 17 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "flounder",
+   "name": "Flounder",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.1 µg (46% of the reference)",
+    "Vitamin D 3.0 µg (20% of the reference)",
+    "Protein 12.9 g",
+    "Omega-3 (EPA + DHA) 0.26 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "goat-cheese",
+   "name": "Goat cheese",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin A 82 µg RAE (12% of the reference)",
+    "Protein 5.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "greek-yogurt",
+   "name": "Greek yogurt",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.3 µg (53% of the reference)",
+    "Calcium 170 mg (17% of the reference)",
+    "Zinc 0.9 mg (11% of the reference)",
+    "Protein 15.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Calcium and premenstrual symptoms: one large trial used a 1,200 mg supplement; no food-based or timing evidence."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, calcium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.1 µg (45% of the reference)",
+    "Vitamin D 4.9 µg (33% of the reference)",
+    "Potassium 449 mg (17% of the reference)",
+    "Protein 19.1 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "kimchi",
+   "name": "Kimchi",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Iron 1.9 mg (10% of the reference)",
+    "Folate 39 µg DFE (10% of the reference)",
+    "Vitamin K 33 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "lamb",
+   "name": "Lamb",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 2.3 µg (96% of the reference)",
+    "Zinc 4.3 mg (53% of the reference)",
+    "Potassium 291 mg (11% of the reference)",
+    "Protein 24.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "lima-bean",
+   "name": "Lima bean",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 78 µg DFE (20% of the reference)",
+    "Potassium 478 mg (18% of the reference)",
+    "Magnesium 40 mg (13% of the reference)",
+    "Protein 7.3 g",
+    "Fiber 6.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mackerel",
+   "name": "Mackerel",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 16.2 µg (673% of the reference)",
+    "Magnesium 82 mg (27% of the reference)",
+    "Potassium 341 mg (13% of the reference)",
+    "Protein 20.2 g",
+    "Omega-3 (EPA + DHA) 1.02 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mixed-nuts",
+   "name": "Mixed nuts",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 64 mg (21% of the reference)",
+    "Zinc 1.2 mg (14% of the reference)",
+    "Vitamin E 1.7 mg (12% of the reference)",
+    "Protein 5.5 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mozzarella",
+   "name": "Mozzarella",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.6 µg (27% of the reference)",
+    "Calcium 143 mg (14% of the reference)",
+    "Zinc 0.8 mg (10% of the reference)",
+    "Protein 6.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Calcium and premenstrual symptoms: one large trial used a 1,200 mg supplement; no food-based or timing evidence."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "nut-butter",
+   "name": "Nut butter",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin E 2.9 mg (19% of the reference)",
+    "Magnesium 54 mg (17% of the reference)",
+    "Zinc 0.8 mg (10% of the reference)",
+    "Protein 7.1 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin e, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "oat",
+   "name": "Oat",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 50 mg (16% of the reference)",
+    "Iron 1.7 mg (10% of the reference)",
+    "Zinc 1.1 mg (14% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "parsnip",
+   "name": "Parsnip",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin C 10 mg (14% of the reference)",
+    "Folate 45 µg DFE (11% of the reference)",
+    "Potassium 286 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "peanuts",
+   "name": "Peanuts",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 68 µg DFE (17% of the reference)",
+    "Vitamin E 2.4 mg (16% of the reference)",
+    "Magnesium 48 mg (15% of the reference)",
+    "Protein 7.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, vitamin e, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pear",
+   "name": "Pear",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin C 8 mg (10% of the reference)",
+    "Potassium 206 mg (8% of the reference)",
+    "Fiber 5.5 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pinto-beans",
+   "name": "Pinto beans",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 147 µg DFE (37% of the reference)",
+    "Potassium 373 mg (14% of the reference)",
+    "Magnesium 43 mg (14% of the reference)",
+    "Protein 7.7 g",
+    "Fiber 7.7 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pork",
+   "name": "Pork",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Zinc 2.2 mg (27% of the reference)",
+    "Vitamin B12 0.6 µg (26% of the reference)",
+    "Potassium 361 mg (14% of the reference)",
+    "Protein 24.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of zinc, vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pumpkin",
+   "name": "Pumpkin",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin A 353 µg RAE (50% of the reference)",
+    "Potassium 282 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "red-lentil",
+   "name": "Red lentil",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 98 µg DFE (24% of the reference)",
+    "Zinc 1.7 mg (22% of the reference)",
+    "Iron 3.5 mg (20% of the reference)",
+    "Protein 11.5 g",
+    "Fiber 5.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, zinc, iron)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "red-snapper",
+   "name": "Snapper",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 3.0 µg (124% of the reference)",
+    "Potassium 444 mg (17% of the reference)",
+    "Magnesium 31 mg (10% of the reference)",
+    "Protein 22.4 g",
+    "Omega-3 (EPA + DHA) 0.27 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "salmon",
+   "name": "Salmon",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 2.4 µg (99% of the reference)",
+    "Vitamin D 11.1 µg (74% of the reference)",
+    "Potassium 326 mg (13% of the reference)",
+    "Protein 18.8 g",
+    "Omega-3 (EPA + DHA) 1.83 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "split-pea",
+   "name": "Split pea",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Folate 64 µg DFE (16% of the reference)",
+    "Potassium 355 mg (14% of the reference)",
+    "Zinc 1.0 mg (12% of the reference)",
+    "Protein 8.2 g",
+    "Fiber 8.1 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "squash",
+   "name": "Squash",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin A 268 µg RAE (38% of the reference)",
+    "Vitamin C 10 mg (13% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sunflower-seeds",
+   "name": "Sunflower seeds",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin E 12.3 mg (82% of the reference)",
+    "Magnesium 114 mg (37% of the reference)",
+    "Zinc 1.8 mg (22% of the reference)",
+    "Protein 7.3 g",
+    "Fiber 3.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Seed cycling: small, mixed studies of seeds or their components in PMS/PCOS populations; the phase rotation itself is not separately tested."
+   ],
+   "existingBasis": "traditional-association",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R3 traditional association; keep only as a variety suggestion, no claim",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "owner decision: whether to keep the seed pairing at all",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sweet-potato",
+   "name": "Sweet potato",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin A 961 µg RAE (137% of the reference)",
+    "Potassium 475 mg (18% of the reference)",
+    "Vitamin C 20 mg (26% of the reference)",
+    "Magnesium 27 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a, potassium, vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "swiss-cheese",
+   "name": "Swiss cheese",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.9 µg (36% of the reference)",
+    "Calcium 249 mg (25% of the reference)",
+    "Zinc 1.2 mg (15% of the reference)",
+    "Protein 7.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Calcium and premenstrual symptoms: one large trial used a 1,200 mg supplement; no food-based or timing evidence."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, calcium, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "tilapia",
+   "name": "Tilapia",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.6 µg (67% of the reference)",
+    "Vitamin D 3.2 µg (21% of the reference)",
+    "Potassium 331 mg (13% of the reference)",
+    "Protein 22.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, vitamin d)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Zinc 1.5 mg (18% of the reference)",
+    "Vitamin B12 0.3 µg (14% of the reference)",
+    "Protein 25.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "walnut",
+   "name": "Walnut",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 43 mg (14% of the reference)",
+    "Iron 0.7 mg (4% of the reference)",
+    "Zinc 0.8 mg (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "whole-grain-bread",
+   "name": "Whole-grain bread",
+   "existingPhase": "luteal",
+   "generalNutritionalBenefits": [
+    "Magnesium 24 mg (8% of the reference)",
+    "Zinc 0.6 mg (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "anchovies",
+   "name": "Anchovies",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.2 µg (7% of the reference)",
+    "Zinc 0.5 mg (6% of the reference)",
+    "Protein 5.8 g",
+    "Omega-3 (EPA + DHA) 0.41 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "beef",
+   "name": "Beef",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 2.4 µg (99% of the reference)",
+    "Zinc 5.4 mg (67% of the reference)",
+    "Iron 2.4 mg (13% of the reference)",
+    "Protein 21.4 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "beets",
+   "name": "Beets",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Folate 68 µg DFE (17% of the reference)",
+    "Potassium 259 mg (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "black-turtle-bean",
+   "name": "Black beans",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Folate 80 µg DFE (20% of the reference)",
+    "Potassium 401 mg (15% of the reference)",
+    "Iron 2.6 mg (15% of the reference)",
+    "Protein 7.6 g",
+    "Fiber 7.7 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate, potassium, iron)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "blueberry",
+   "name": "Blueberry",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 11 mg (15% of the reference)",
+    "Potassium 120 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 51 mg (67% of the reference)",
+    "Vitamin K 110 µg",
+    "Folate 84 µg DFE (21% of the reference)",
+    "Potassium 229 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "brussels-sprouts",
+   "name": "Brussels sprouts",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 48 mg (64% of the reference)",
+    "Folate 47 µg DFE (12% of the reference)",
+    "Vitamin K 109 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cashew",
+   "name": "Cashew",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Magnesium 83 mg (27% of the reference)",
+    "Zinc 1.6 mg (20% of the reference)",
+    "Iron 1.9 mg (11% of the reference)",
+    "Protein 5.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "chard",
+   "name": "Chard",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin A 268 µg RAE (38% of the reference)",
+    "Magnesium 75 mg (24% of the reference)",
+    "Vitamin C 16 mg (21% of the reference)",
+    "Vitamin K 286 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a, magnesium, vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "clam",
+   "name": "Clam",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 84.1 µg (3503% of the reference)",
+    "Zinc 2.3 mg (29% of the reference)",
+    "Vitamin C 19 mg (25% of the reference)",
+    "Protein 21.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc, vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "collard",
+   "name": "Collard",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin A 361 µg RAE (52% of the reference)",
+    "Vitamin C 17 mg (23% of the reference)",
+    "Calcium 134 mg (13% of the reference)",
+    "Vitamin K 387 µg",
+    "Fiber 3.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a, vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "eggplant",
+   "name": "Eggplant",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Potassium 61 mg (2% of the reference)",
+    "Magnesium 5 mg (2% of the reference)",
+    "Fiber 1.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "grapefruit",
+   "name": "Grapefruit",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 38 mg (51% of the reference)",
+    "Vitamin A 71 µg RAE (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "grapes",
+   "name": "Grapes",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Potassium 288 mg (11% of the reference)",
+    "Vitamin C 5 mg (6% of the reference)",
+    "Vitamin K 22 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "green-bell-pepper",
+   "name": "Green bell pepper",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 96 mg (128% of the reference)",
+    "Potassium 208 mg (8% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "green-lentil",
+   "name": "Lentils",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Iron 3.3 mg (18% of the reference)",
+    "Folate 179 µg DFE (45% of the reference)",
+    "Zinc 1.3 mg (16% of the reference)",
+    "Potassium 365 mg (14% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of iron, folate, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "kale",
+   "name": "Kale",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 11 mg (14% of the reference)",
+    "Vitamin A 86 µg RAE (12% of the reference)",
+    "Vitamin K 247 µg",
+    "Potassium 85 mg (3% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "kidney-bean",
+   "name": "Kidney bean",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Folate 115 µg DFE (29% of the reference)",
+    "Potassium 358 mg (14% of the reference)",
+    "Magnesium 37 mg (12% of the reference)",
+    "Protein 7.7 g",
+    "Fiber 5.7 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "kiwi",
+   "name": "Kiwi",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 64 mg (85% of the reference)",
+    "Potassium 215 mg (8% of the reference)",
+    "Vitamin K 28 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "miso",
+   "name": "Miso",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Zinc 0.4 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms (button, shiitake)",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Potassium 223 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mussel",
+   "name": "Mussel",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 20.4 µg (850% of the reference)",
+    "Iron 5.7 mg (32% of the reference)",
+    "Zinc 2.3 mg (28% of the reference)",
+    "Protein 20.2 g",
+    "Omega-3 (EPA + DHA) 0.66 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, iron, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "orange",
+   "name": "Orange",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 83 mg (110% of the reference)",
+    "Folate 35 µg DFE (9% of the reference)",
+    "Potassium 232 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "oyster",
+   "name": "Oyster",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Zinc 33.0 mg (413% of the reference)",
+    "Vitamin B12 7.4 µg (306% of the reference)",
+    "Iron 3.9 mg (21% of the reference)",
+    "Omega-3 (EPA + DHA) 0.26 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of zinc, vitamin b12, iron)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "papaya",
+   "name": "Papaya",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 88 mg (118% of the reference)",
+    "Folate 54 µg DFE (13% of the reference)",
+    "Potassium 264 mg (10% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pumpkin-seeds",
+   "name": "Pumpkin seeds",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Magnesium 168 mg (54% of the reference)",
+    "Zinc 2.2 mg (28% of the reference)",
+    "Iron 2.5 mg (14% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters.",
+    "Seed cycling: small, mixed studies of seeds or their components in PMS/PCOS populations; the phase rotation itself is not separately tested."
+   ],
+   "existingBasis": "traditional-association",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R3 traditional association; keep only as a variety suggestion, no claim",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "owner decision: whether to keep the seed pairing at all",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "quinoa",
+   "name": "Quinoa",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Magnesium 59 mg (19% of the reference)",
+    "Folate 39 µg DFE (10% of the reference)",
+    "Iron 1.4 mg (8% of the reference)",
+    "Zinc 1.0 mg (13% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sardine",
+   "name": "Sardine",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 8.2 µg (343% of the reference)",
+    "Calcium 351 mg (35% of the reference)",
+    "Vitamin D 4.4 µg (29% of the reference)",
+    "Protein 22.6 g",
+    "Omega-3 (EPA + DHA) 0.9 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, calcium, vitamin d)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sesame-seeds",
+   "name": "Sesame seeds",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Magnesium 32 mg (10% of the reference)",
+    "Calcium 88 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Seed cycling: small, mixed studies of seeds or their components in PMS/PCOS populations; the phase rotation itself is not separately tested."
+   ],
+   "existingBasis": "traditional-association",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R3 traditional association; keep only as a variety suggestion, no claim",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "owner decision: whether to keep the seed pairing at all",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Iron 3.2 mg (18% of the reference)",
+    "Folate 131 µg DFE (33% of the reference)",
+    "Magnesium 78 mg (25% of the reference)",
+    "Vitamin A 472 µg RAE (67% of the reference)",
+    "Vitamin K 445 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of iron, folate, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "tempeh",
+   "name": "Tempeh",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Magnesium 67 mg (22% of the reference)",
+    "Potassium 342 mg (13% of the reference)",
+    "Iron 2.2 mg (12% of the reference)",
+    "Protein 16.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "white-beans",
+   "name": "White beans",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Potassium 502 mg (19% of the reference)",
+    "Iron 3.3 mg (18% of the reference)",
+    "Magnesium 56 mg (18% of the reference)",
+    "Protein 8.7 g",
+    "Fiber 5.6 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [
+    "Iron: needs are higher for people who menstruate (NIH ODS) and apply every day of the month; no research found that timing within the cycle matters."
+   ],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of potassium, iron, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes",
+    "NIH ODS Iron"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "white-potato",
+   "name": "White potato",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Potassium 926 mg (36% of the reference)",
+    "Vitamin C 17 mg (22% of the reference)",
+    "Magnesium 48 mg (16% of the reference)",
+    "Fiber 3.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of potassium, vitamin c, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "wild-rice",
+   "name": "Wild rice",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Zinc 1.1 mg (14% of the reference)",
+    "Magnesium 26 mg (8% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "yellow-bell-pepper",
+   "name": "Yellow bell pepper",
+   "existingPhase": "menstrual",
+   "generalNutritionalBenefits": [
+    "Vitamin C 96 mg (128% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "almond",
+   "name": "Almond",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Magnesium 77 mg (25% of the reference)",
+    "Iron 1.1 mg (6% of the reference)",
+    "Zinc 0.9 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "apricot",
+   "name": "Apricot",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin A 67 µg RAE (10% of the reference)",
+    "Vitamin C 7 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "asparagus",
+   "name": "Asparagus",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Folate 134 µg DFE (34% of the reference)",
+    "Vitamin C 7 mg (9% of the reference)",
+    "Vitamin K 46 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "bean-sprouts",
+   "name": "Bean sprouts",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 7 mg (9% of the reference)",
+    "Folate 32 µg DFE (8% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cantaloupe",
+   "name": "Cantaloupe",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 59 mg (78% of the reference)",
+    "Vitamin A 270 µg RAE (39% of the reference)",
+    "Potassium 427 mg (16% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, vitamin a, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "celery",
+   "name": "Celery",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Potassium 104 mg (4% of the reference)",
+    "Folate 14 µg DFE (4% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cottage-cheese",
+   "name": "Cottage cheese",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 0.5 µg (22% of the reference)",
+    "Calcium 125 mg (13% of the reference)",
+    "Vitamin A 77 µg RAE (11% of the reference)",
+    "Protein 11.8 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "crab",
+   "name": "Crab",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 9.8 µg (407% of the reference)",
+    "Zinc 6.5 mg (81% of the reference)",
+    "Magnesium 54 mg (17% of the reference)",
+    "Protein 16.5 g",
+    "Omega-3 (EPA + DHA) 0.35 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "cucumber",
+   "name": "Cucumber",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Potassium 145 mg (6% of the reference)",
+    "Vitamin K 20 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "hazelnuts",
+   "name": "Hazelnuts",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin E 4.3 mg (28% of the reference)",
+    "Magnesium 46 mg (15% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin e, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "honeydew",
+   "name": "Honeydew melon",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 31 mg (41% of the reference)",
+    "Potassium 388 mg (15% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, potassium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "kefir",
+   "name": "Kefir",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin A 416 µg RAE (59% of the reference)",
+    "Calcium 316 mg (32% of the reference)",
+    "Vitamin B12 0.7 µg (29% of the reference)",
+    "Protein 9.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin a, calcium, vitamin b12)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mandarin",
+   "name": "Mandarin / tangerine",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 23 mg (31% of the reference)",
+    "Potassium 146 mg (6% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "mango",
+   "name": "Mango",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 60 mg (80% of the reference)",
+    "Folate 71 µg DFE (18% of the reference)",
+    "Vitamin A 89 µg RAE (13% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, folate)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "peach",
+   "name": "Peach",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 10 mg (13% of the reference)",
+    "Potassium 285 mg (11% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pickles",
+   "name": "Pickles",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Calcium 20 mg (2% of the reference)",
+    "Potassium 41 mg (2% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pineapple",
+   "name": "Pineapple",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 79 mg (105% of the reference)",
+    "Folate 30 µg DFE (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "pistachio",
+   "name": "Pistachio",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Potassium 289 mg (11% of the reference)",
+    "Magnesium 34 mg (11% of the reference)",
+    "Protein 5.7 g",
+    "Fiber 3.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "radish",
+   "name": "Radish",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 9 mg (11% of the reference)",
+    "Potassium 135 mg (5% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "raspberry",
+   "name": "Raspberry",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 32 mg (43% of the reference)",
+    "Magnesium 27 mg (9% of the reference)",
+    "Fiber 8.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "red-bell-pepper",
+   "name": "Red bell pepper",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 152 mg (203% of the reference)",
+    "Vitamin A 187 µg RAE (27% of the reference)",
+    "Folate 55 µg DFE (14% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c, vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "red-cabbage",
+   "name": "Red cabbage",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 40 mg (53% of the reference)",
+    "Potassium 170 mg (7% of the reference)",
+    "Vitamin K 27 µg"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "ricotta",
+   "name": "Ricotta",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.1 µg (44% of the reference)",
+    "Calcium 255 mg (26% of the reference)",
+    "Vitamin A 149 µg RAE (21% of the reference)",
+    "Protein 9.3 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, calcium, vitamin a)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sea-bass",
+   "name": "Sea bass",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Magnesium 45 mg (15% of the reference)",
+    "Potassium 279 mg (11% of the reference)",
+    "Vitamin B12 0.3 µg (11% of the reference)",
+    "Protein 20.1 g",
+    "Omega-3 (EPA + DHA) 0.65 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "shrimp",
+   "name": "Shrimp",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin B12 1.4 µg (59% of the reference)",
+    "Zinc 1.4 mg (17% of the reference)",
+    "Vitamin E 1.9 mg (12% of the reference)",
+    "Protein 19.4 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin b12, zinc)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "strawberry",
+   "name": "Strawberry",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 83 mg (111% of the reference)",
+    "Potassium 225 mg (9% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sugar-snap-peas",
+   "name": "Sugar snap peas",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 38 mg (50% of the reference)",
+    "Iron 1.3 mg (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "sweet-cherry",
+   "name": "Sweet cherry",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 11 mg (14% of the reference)",
+    "Potassium 342 mg (13% of the reference)",
+    "Fiber 3.2 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R2 variety and meal-fit suggestion (no standout nutrient)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "tofu",
+   "name": "Tofu",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Calcium 553 mg (55% of the reference)",
+    "Zinc 1.3 mg (16% of the reference)",
+    "Magnesium 47 mg (15% of the reference)",
+    "Protein 14.0 g"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of calcium, zinc, magnesium)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 17 mg (22% of the reference)",
+    "Potassium 292 mg (11% of the reference)",
+    "Vitamin A 52 µg RAE (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  },
+  {
+   "id": "watermelon",
+   "name": "Watermelon",
+   "existingPhase": "ovulatory",
+   "generalNutritionalBenefits": [
+    "Vitamin C 12 mg (16% of the reference)",
+    "Potassium 170 mg (7% of the reference)"
+   ],
+   "phaseDependentResearch": "none identified",
+   "relatedResearchTopics": [],
+   "existingBasis": "general-editorial-suggestion",
+   "scientificallySupportedAsPhaseSpecific": false,
+   "proposedIndependentClassification": "R1 nutrient-informed variety suggestion (a good source of vitamin c)",
+   "proposedPhaseChange": null,
+   "suggestedReviewAction": "retain for now; record this rationale",
+   "sources": [
+    "USDA FoodData Central (profile record)",
+    "NIH ODS reference intakes"
+   ],
+   "limitations": "Per-serving figures describe one serving of the recorded preparation. A featured phase is an editorial suggestion for variety, not a requirement."
+  }
+ ]
+}
