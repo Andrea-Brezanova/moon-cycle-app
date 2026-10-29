@@ -106,6 +106,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -226,14 +228,17 @@
       "cautions": [
         {
           "text": "Raw sprouts: food-safety risk",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -345,6 +350,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -463,6 +470,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -580,17 +589,14 @@
       },
       "allergens": [],
       "mayContainAllergens": [],
-      "cautions": [
-        {
-          "text": "About 436 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
-        }
-      ],
+      "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "none recorded",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -706,14 +712,17 @@
       "cautions": [
         {
           "text": "People with glucose-6-phosphate dehydrogenase (G6PD) deficiency can develop hemolytic anemia (favism) after eating fava beans. If you have G6PD deficiency, ask a health professional before eating them.",
-          "source": "NIH MedlinePlus Genetics, Glucose-6-phosphate dehydrogenase deficiency (last updated 12 April 2023; read 2026-10-28)"
+          "source": "NIH MedlinePlus Genetics, Glucose-6-phosphate dehydrogenase deficiency (last updated 12 April 2023; read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -800,14 +809,17 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -899,14 +911,17 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1014,14 +1029,17 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1129,6 +1147,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1226,14 +1246,17 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1304,14 +1327,17 @@
       "cautions": [
         {
           "text": "Sesame allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1417,14 +1443,17 @@
       "cautions": [
         {
           "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1512,17 +1541,19 @@
       },
       "allergens": [],
       "mayContainAllergens": [],
-      "cautions": [
+      "cautions": [],
+      "nutritionNotes": [
         {
-          "text": "About 532 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "text": "This serving has about 532 mg of sodium, 23% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "none recorded",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1628,18 +1659,22 @@
       "cautions": [
         {
           "text": "Sliced deli-style meats such as ham are on the FDA's list of foods to avoid if you are at greater risk of foodborne illness (for example during pregnancy), unless they are reheated until steaming hot.",
-          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
-        },
-        {
-          "text": "About 1,173 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [
+        {
+          "text": "This serving has about 1,173 mg of sodium, 51% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

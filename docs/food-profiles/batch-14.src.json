@@ -70,7 +70,8 @@
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "The catalogue entry \"Wheat\" does not say which wheat; USDA's durum wheat grain was used, and hard red or soft wheat berries differ somewhat. Dry, uncooked grain. USDA lists no fibre value for this record, so fibre is not shown. Contains gluten.",
-   "name": "Wheat"
+   "name": "Wheat",
+   "lead": "Durum wheat (dry)"
   },
   "amaranth": {
    "fdc": 170683,
@@ -170,7 +171,10 @@
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Plain enriched bagel; whole-grain and flavoured bagels differ. Iron and folate come largely from enrichment. A medium bagel is about 275 kcal and is a large serving of refined grain.",
-   "name": "Bagel"
+   "name": "Bagel",
+   "dropKeys": [
+    "vite"
+   ]
   },
   "couscous": {
    "fdc": 169700,
@@ -277,7 +281,11 @@
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "USDA's homemade granola. Shop-bought granola varies a lot (many contain much more sugar), so the numbers are a rough guide only. A typical bowlful is much more than 1 oz.",
-   "name": "Granola"
+   "name": "Granola",
+   "lead": "Homemade granola",
+   "dropKeys": [
+    "vite"
+   ]
   },
   "naan": {
    "fdc": 171845,
@@ -479,7 +487,9 @@
    "offers": "TBD",
    "how": "Top with nut butter, avocado, cottage cheese or hummus.",
    "cycle": "TBD",
-   "cautions": [],
+   "cautions": [
+    "rice-arsenic"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Plain brown-rice cakes; flavoured and white-rice versions differ.",
    "name": "Rice cakes"
@@ -515,7 +525,9 @@
    "offers": "TBD",
    "how": "Soak or boil as the packet says, then add to soups, stir-fries and salads.",
    "cycle": "TBD",
-   "cautions": [],
+   "cautions": [
+    "rice-arsenic"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Plain cooked rice noodles; they are naturally wheat-free but labels vary.",
    "name": "Rice noodles"
@@ -723,7 +735,9 @@
    "offers": "TBD",
    "how": "Rinse, then simmer until tender, and serve with vegetables, beans, fish or meat.",
    "cycle": "TBD",
-   "cautions": [],
+   "cautions": [
+    "rice-arsenic"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Enriched white rice; folate and iron come largely from enrichment. Brown, basmati and sushi rice are separate foods.",
    "name": "White rice"

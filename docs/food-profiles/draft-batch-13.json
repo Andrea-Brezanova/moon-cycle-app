@@ -103,14 +103,22 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "resolved",
+          "text": "All of the vitamin E (6.33 mg per 100 g) is listed by USDA as \"Vitamin E, added\", so it comes from fortification and varies by brand."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -184,14 +192,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -299,14 +310,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -381,14 +395,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -496,14 +513,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -592,14 +612,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -688,14 +711,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -810,14 +836,17 @@
       "cautions": [
         {
           "text": "Soy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -892,14 +921,17 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

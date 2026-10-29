@@ -72,6 +72,13 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Catalogue name says 'button, shiitake'; the USDA record is white (button) mushrooms only."
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -167,14 +174,17 @@
       "cautions": [
         {
           "text": "Brussels sprouts contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -286,18 +296,22 @@
       "cautions": [
         {
           "text": "High in oxalate",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         },
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -392,6 +406,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -506,14 +522,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -596,6 +615,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -709,6 +730,13 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Baked flesh and skin; boiled or fried potato differs."
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -781,6 +809,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -876,14 +906,22 @@
       "cautions": [
         {
           "text": "Lettuce (Bibb, Boston, romaine) contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Catalogue name covers Bibb, Boston and romaine; the USDA record is cos/romaine only."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -972,6 +1010,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1059,6 +1099,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1154,14 +1196,17 @@
       "cautions": [
         {
           "text": "Arugula (rocket) contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1264,6 +1309,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1357,6 +1404,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1444,6 +1493,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1537,6 +1588,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1626,14 +1679,17 @@
       "cautions": [
         {
           "text": "Celery allergen (EU)",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1716,6 +1772,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1805,14 +1863,17 @@
       "cautions": [
         {
           "text": "Raw sprouts (alfalfa, bean or any other sprout) are on the FDA's list of foods to avoid if you are at greater risk of foodborne illness, for example during pregnancy, in older age or with a weakened immune system.",
-          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1901,6 +1962,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1988,6 +2051,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2101,6 +2166,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2202,6 +2269,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2289,6 +2358,13 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "'Winter squash, all varieties' average; varieties differ."
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",

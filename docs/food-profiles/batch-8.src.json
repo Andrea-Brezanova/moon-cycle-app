@@ -795,7 +795,8 @@
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "The catalogue has mint and peppermint separately; this is spearmint. The USDA record shows very high iron per 100 g (11.9 mg), but a normal use of mint is a few leaves, so the serving figures are small.",
-   "name": "Mint"
+   "name": "Mint",
+   "lead": "Spearmint (raw)"
   },
   "peppermint": {
    "fdc": 173474,
@@ -1104,7 +1105,8 @@
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "A prepared food that varies by brand; high in sodium (no sourced caution added).",
-   "name": "Salsa"
+   "name": "Salsa",
+   "lead": "Ready-to-serve salsa (with salt)"
   },
   "shallot": {
    "fdc": 170499,

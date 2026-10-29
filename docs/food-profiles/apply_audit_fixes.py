@@ -32,10 +32,16 @@ REWORD = {
     'watermelon': {'cycle': 'No cycle-phase claim is made for watermelon.',
                    'offers': lambda s: s.replace('is a hydrating fruit that is mostly water', 'is a fruit that is mostly water')},
     'flaxseeds': {'offers': lambda s: s.replace('fibre and healthy fats', 'fibre and fats')},
+    'red-snapper': {'offers': lambda s: s.replace('Cooked snapper is', 'Cooked snapper (the USDA record covers mixed species) is', 1)},
+    'shrimp': {'offers': lambda s: s if 'additives' in s else s.rstrip() + ' The USDA record notes that shrimp may contain additives that retain moisture.'},
     'eggplant': {'cycle': lambda s: s.replace(' to a meal at any time', ' to a meal')},
     'mushrooms': {'cycle': lambda s: s.replace(' to a meal at any point in the cycle', ' to a meal')},
     'string-bean': {'cycle': lambda s: s.replace(' to a meal at any point', ' to a meal')},
 }
+# Opening label for generated "what it offers" text where the catalogue name is broader than the USDA record.
+LEADS = {'wheat': 'Durum wheat (dry)', 'mint': 'Spearmint (raw)', 'granola': 'Homemade granola',
+         'salsa': 'Ready-to-serve salsa (with salt)'}
+DROP_KEYS = {'bagel': ['vite'], 'granola': ['vite']}  # decision D5 in audit-notes.json
 PORTIONS = {
     'cucumber': '85 g, about a third of a cucumber',
     'duck': 'about 3½ oz (100 g)',
@@ -46,7 +52,7 @@ ADD_CAUTIONS = {
     'bean-sprouts': ['sprouts'], 'smoked-salmon': ['smoked-fish'], 'ham': ['deli-meat'],
     'feta': ['pasteurised-cheese'], 'goat-cheese': ['pasteurised-cheese'],
     'ricotta': ['pasteurised-cheese'], 'mozzarella': ['pasteurised-cheese'],
-    'honey': ['honey-infant'], 'fava-beans': ['fava-g6pd'], 'kelp': ['iodine-ods'], 'wakame': ['iodine-ods'],
+    'honey': ['honey-infant'], 'white-rice': ['rice-arsenic'], 'rice-cakes': ['rice-arsenic'], 'rice-noodles': ['rice-arsenic'], 'fava-beans': ['fava-g6pd'], 'kelp': ['iodine-ods'], 'wakame': ['iodine-ods'],
 }
 
 
@@ -78,6 +84,10 @@ for n in range(1, 15):
             f['cycle'] = f['cycle'].rstrip() + ' No phase-specific claim is made.'
         for field, fix in REWORD.get(fid, {}).items():
             f[field] = fix(f[field]) if callable(fix) else fix
+        if fid in DROP_KEYS:
+            f['dropKeys'] = DROP_KEYS[fid]
+        if fid in LEADS:
+            f['lead'] = LEADS[fid]
         if fid in PORTIONS:
             f['portion'] = PORTIONS[fid]
         for c in ADD_CAUTIONS.get(fid, []):

@@ -52,6 +52,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -169,18 +171,22 @@
       "cautions": [
         {
           "text": "Dairy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         },
         {
           "text": "Soy allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -265,14 +271,17 @@
       "cautions": [
         {
           "text": "High in sugar and salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -341,6 +350,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -416,18 +427,22 @@
       "cautions": [
         {
           "text": "Contamination risk: tested brands only",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         },
         {
           "text": "Pregnancy or autoimmune conditions: check with doctor",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "2 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -478,6 +493,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -535,6 +552,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -607,6 +626,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -664,14 +685,17 @@
       "cautions": [
         {
           "text": "Do not give honey to a child younger than 1 year old: it can contain the bacteria that cause infant botulism.",
-          "source": "CDC, Botulism Prevention (read 2026-10-28)"
+          "source": "CDC, Botulism Prevention (read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -751,6 +775,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -847,22 +873,32 @@
       "cautions": [
         {
           "text": "Check gluten-free label",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         },
         {
-          "text": "High in salt. About 1,006 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)"
+          "text": "High in salt",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)",
+          "status": "partly-sourced"
         },
         {
           "text": "Soy allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [
+        {
+          "text": "This serving has about 1,006 mg of sodium, 44% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

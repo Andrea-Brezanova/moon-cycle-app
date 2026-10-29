@@ -24,14 +24,14 @@ Order: (1) blocked foods needing an owner decision, (2) categories with the high
 
 | Category | Drafts | Avg risk | Sample size |
 |---|---|---|---|
-| fermented | 5 | 7.2 | 4 |
-| protein | 11 | 4.8 | 5 |
-| seafood | 28 | 4.5 | 6 |
+| fermented | 5 | 7.0 | 4 |
+| protein | 11 | 4.7 | 5 |
+| seafood | 28 | 4.1 | 6 |
 | dairy-alternatives | 18 | 4.1 | 5 |
 | other | 10 | 3.7 | 5 |
-| grains | 32 | 3.3 | 7 |
-| nuts-seeds | 20 | 3.2 | 6 |
-| legumes | 17 | 1.9 | 5 |
+| grains | 32 | 3.6 | 7 |
+| nuts-seeds | 20 | 3.0 | 6 |
+| legumes | 17 | 2.1 | 5 |
 | vegetables | 72 | 1.5 | 11 |
 | fruit | 38 | 1.1 | 7 |
 
@@ -43,31 +43,31 @@ For each food, tick: [ ] food identity matches the catalogue; [ ] USDA record an
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Tamari (`tamari`) | 12 | 174278 | tamari soy sauce | 1 tablespoon | 9 | Tamari is very high in sodium (not shown in this nutrient set); the USDA record is a generic tamari. Tamari is |
-| Miso (`miso`) | 7 | 172442 | as sold (fermented soybean paste) | 1 tablespoon | 8 | Miso is very high in sodium (existing catalogue caution: high in salt). Sodium is not in the key list and no s |
-| Pickles (`pickles`) | 7 | 168558 | dill or kosher dill pickle | 1 small spear | 7 | Vinegar pickles are not live-fermented; fermented pickles differ. Very high in sodium (existing caution), not  |
+| Pickles (`pickles`) | 7 | 168558 | dill or kosher dill pickle | 1 small spear | 8 | Vinegar pickles are not live-fermented; fermented pickles differ. Very high in sodium (existing caution), not  |
+| Tamari (`tamari`) | 12 | 174278 | tamari soy sauce | 1 tablespoon | 8 | Tamari is very high in sodium (not shown in this nutrient set); the USDA record is a generic tamari. Tamari is |
+| Miso (`miso`) | 7 | 172442 | as sold (fermented soybean paste) | 1 tablespoon | 7 | Miso is very high in sodium (existing catalogue caution: high in salt). Sodium is not in the key list and no s |
 | Kimchi (`kimchi`) | 7 | 170392 | as sold (fermented cabbage) | ½ cup | 6 | Kimchi recipes vary (fish sauce, salt, chilli); the record is a USDA average. It is high in sodium; no caution |
 
 ### protein
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Bacon (`bacon`) | 10 | 167914 | cured pork bacon, cooked | 3 slices cooked | 7 | A cured, processed meat that is high in salt and fat (sodium is not shown here). No sourced caution was added  |
 | Beef (`beef`) | 7 | 171793 | cooked, pan-broiled patty (90% lean) | 3 ounces cooked | 6 | The catalogue entry "beef" is generic. The record is 90% lean ground beef, cooked; steaks, roasts and fattier  |
 | Ham (`ham`) | 10 | 168296 | cured boneless ham, roasted | 3 oz | 6 | A cured, processed meat that is high in salt (sodium not shown here). Deli ham varies by brand. |
 | Lamb (`lamb`) | 7 | 172487 | roasted leg (shank half), lean only | 3 ounces cooked | 6 | The catalogue entry "lamb" is generic; the record is roasted lean leg (shank half). Other cuts differ. |
-| Tofu (`tofu`) | 7 | 172475 | raw (as sold), firm, set with calcium sulfate | ¼ block | 3 | Calcium depends on the coagulant: tofu set with calcium sulfate is high in calcium, tofu set with nigari (magn |
+| Pork (`pork`) | 7 | 168233 | roasted loin, lean only | 3 ounces cooked | 6 | The catalogue entry "pork" is generic; the record is roasted lean loin. Other cuts, and processed pork, differ |
+| Tempeh (`tempeh`) | 7 | 174272 | as sold (fermented soybean cake), not cooked | ½ cup | 3 | no note |
 
 ### seafood
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Anchovies (`anchovies`) | 6 | 174183 | canned in oil, drained | 5 anchovies | 8 | Canned anchovies are very salty; sodium is not shown and no salt caution has a source yet. |
 | Smoked salmon (`smoked-salmon`) | 11 | 171985 | smoked chinook salmon (lox) | 2 oz | 8 | Cold-smoked chinook (lox). Vitamin D, E and K are not given in the lox record (the other smoked chinook record |
 | Herring (`herring`) | 11 | 175117 | Atlantic herring, cooked (dry heat) | 3 oz cooked | 7 | Cooked fresh herring; pickled and smoked herring (common in shops) are different and much saltier. |
 | Octopus (`octopus`) | 11 | 174249 | common octopus, cooked (moist heat) | 3 oz cooked | 7 | The USDA record shows 36 µg of vitamin B12 per 100 g, about fifteen times the adult reference intake in one se |
-| Salmon (`salmon`) | 6 | 175168 | cooked, dry heat, Atlantic salmon (farmed) | 3 ounces cooked | 6 | Farmed Atlantic salmon; wild salmon differs (less fat, less omega-3). |
-| Lobster (`lobster`) | 11 | 174209 | northern lobster, cooked (moist heat) | 3 oz cooked | 3 | no note |
+| Squid (`squid`) | 11 | 174223 | raw (cook before eating) | 3 oz raw | 7 | USDA also has a fried (battered) squid record with more fat and carbohydrate (175 kcal per 85 g); the raw reco |
+| Snapper (`red-snapper`) | 6 | 173699 | cooked, dry heat (snapper, mixed species) | 3 ounces cooked | 5 | The record is snapper, mixed species, not specifically red snapper. |
+| Tilapia (`tilapia`) | 6 | 175177 | cooked, dry heat | 1 fillet, cooked | 3 | no note |
 
 ### dairy-alternatives
 
@@ -93,46 +93,46 @@ For each food, tick: [ ] food identity matches the catalogue; [ ] USDA record an
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Bagel (`bagel`) | 14 | 174899 | plain, enriched | 1 medium bagel, 3½–4 in | 8 | Plain enriched bagel; whole-grain and flavoured bagels differ. Iron and folate come largely from enrichment. A |
-| Naan (`naan`) | 14 | 171845 | plain, commercially prepared | 1 piece | 8 | Commercial plain naan; restaurant naan often contains butter or ghee and differs. USDA lists no folate, vitami |
+| Wheat (`wheat`) | 14 | 169721 | durum wheat grain, dry (uncooked) | ¼ cup dry | 7 | The catalogue entry "Wheat" does not say which wheat; USDA's durum wheat grain was used, and hard red or soft  |
+| Bagel (`bagel`) | 14 | 174899 | plain, enriched | 1 medium bagel, 3½–4 in | 6 | Plain enriched bagel; whole-grain and flavoured bagels differ. Iron and folate come largely from enrichment. A |
 | Egg noodles (`egg-noodles`) | 14 | 169732 | egg noodles, enriched, cooked | ½ cup cooked | 6 | Enriched egg noodles, cooked; folate and iron come mainly from enrichment. Contain egg and wheat. |
-| Tortillas (wheat) (`tortillas`) | 14 | 167535 | flour, shelf stable | 1 tortilla | 6 | Flour (wheat) tortilla; corn tortillas are a different food. Sizes vary a lot. |
-| Soba noodles (`soba-noodles`) | 14 | 168907 | cooked | ½ cup cooked | 5 | USDA lists no fibre value. Many soba noodles are part wheat; 100% buckwheat soba is different, and wheat conte |
-| Rice cakes (`rice-cakes`) | 14 | 170250 | brown rice, plain, unsalted | 2 cakes | 3 | Plain brown-rice cakes; flavoured and white-rice versions differ. |
+| Naan (`naan`) | 14 | 171845 | plain, commercially prepared | 1 piece | 6 | Commercial plain naan; restaurant naan often contains butter or ghee and differs. USDA lists no folate, vitami |
+| Rice cakes (`rice-cakes`) | 14 | 170250 | brown rice, plain, unsalted | 2 cakes | 5 | Plain brown-rice cakes; flavoured and white-rice versions differ. |
+| Wheat flour (whole-grain) (`wheat-flour`) | 14 | 168893 | whole-grain wheat flour | ¼ cup | 4 | Dry flour, as an ingredient; values apply to the flour, not to the finished baked goods. |
 | Millet (`millet`) | 14 | 168871 | cooked | ½ cup cooked | 0 | no note |
 
 ### nuts-seeds
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Brazil nut (`brazil-nut`) | 5 | 170569 | dried, unblanched | 2 kernels | 7 | The catalogue limit is 1–2 nuts a day, so the serving is 2 kernels. Brazil nuts are extremely high in selenium |
 | Mixed nuts (`mixed-nuts`) | 5 | 170585 | dry roasted, with peanuts, no salt added | 1 ounce (28 g) | 7 | A blend that varies by product; the record is a USDA dry-roasted mix with peanuts and no added salt. |
-| Nut butter (`nut-butter`) | 5 | 172470 | smooth peanut butter, no added salt | 2 tablespoons | 6 | The catalogue entry "nut butter" is generic (the existing caution says tree-nut or peanut allergen, depending  |
-| Chestnut (`chestnut`) | 10 | 170190 | European, roasted | 1 oz, about 3 kernels | 5 | Unlike most nuts, chestnuts are low in fat and high in starch. Raw, boiled and dried chestnuts differ; the rec |
-| Hazelnuts (`hazelnuts`) | 5 | 170581 | raw, unsalted | 1 ounce (28 g), about 21 kernels | 3 | no note |
+| Chestnut (`chestnut`) | 10 | 170190 | European, roasted | 1 oz, about 3 kernels | 6 | Unlike most nuts, chestnuts are low in fat and high in starch. Raw, boiled and dried chestnuts differ; the rec |
+| Brazil nut (`brazil-nut`) | 5 | 170569 | dried, unblanched | 2 kernels | 5 | The catalogue limit is 1–2 nuts a day, so the serving is 2 kernels. Brazil nuts are extremely high in selenium |
+| Hickory (`hickory`) | 10 | 170177 | dried | 1 oz | 5 | USDA lists no vitamin E or K values for this record. |
+| Peanuts (`peanuts`) | 5 | 172430 | raw, unsalted | 1 ounce (28 g) | 3 | no note |
 | Sunflower seeds (`sunflower-seeds`) | 5 | 170562 | dried kernels, unsalted | ¼ cup kernels | 0 | no note |
 
 ### legumes
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Baked beans (`baked-beans`) | 10 | 175182 | canned, plain or vegetarian | ½ cup | 7 | Canned baked beans in sauce, which usually contains added sugar and salt (not shown in this nutrient set); var |
 | Fava (broad) beans (`fava-beans`) | 10 | 173753 | cooked, boiled, no salt | ½ cup cooked | 6 | Dried fava beans, cooked. Fresh young fava pods are a different food. |
-| Kidney bean (`kidney-bean`) | 5 | 173740 | cooked, boiled, no salt | ½ cup cooked | 4 | Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externall |
-| Adzuki bean (`adzuki-bean`) | 10 | 173728 | cooked, boiled, no salt | ½ cup cooked | 3 | USDA lists no vitamin E or K values for this record. |
+| Kidney bean (`kidney-bean`) | 5 | 173740 | cooked, boiled, no salt | ½ cup cooked | 6 | Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externall |
+| Baked beans (`baked-beans`) | 10 | 175182 | canned, plain or vegetarian | ½ cup | 5 | Canned baked beans in sauce, which usually contains added sugar and salt (not shown in this nutrient set); var |
+| Mung bean (`mung-bean`) | 10 | 174257 | cooked, boiled, no salt | ½ cup cooked | 4 | Whole mung beans; sprouted mung beans have their own record. |
 | Lima bean (`lima-bean`) | 5 | 174253 | cooked, boiled, no salt | ½ cup cooked | 1 | no note |
 
 ### vegetables
 
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
-| Kelp (`kelp`) | 8 | 168457 | raw | 2 tablespoons | 7 | Raw kelp. Iodine can exceed the safe limit (existing catalogue cautions: carried over, not externally sourced  |
-| Olives (`olives`) | 8 | 169094 | ripe, canned (brined) | 5 large olives | 7 | Canned ripe olives show a lot of iron in the USDA record (6.3 mg per 100 g); that is partly iron added in proc |
-| Wakame (`wakame`) | 8 | 170496 | raw | 2 tablespoons | 7 | Raw (as USDA lists it); dried wakame is far more concentrated by weight. Seaweed iodine content is not in a nu |
+| Olives (`olives`) | 8 | 169094 | ripe, canned (brined) | 5 large olives | 8 | Canned ripe olives show a lot of iron in the USDA record (6.3 mg per 100 g); that is partly iron added in proc |
+| Wakame (`wakame`) | 8 | 170496 | raw | 2 tablespoons | 6 | Raw (as USDA lists it); dried wakame is far more concentrated by weight. Seaweed iodine content is not in a nu |
 | Bean sprouts (`bean-sprouts`) | 3 | 169957 | raw mung bean sprouts | ½ cup | 5 | Catalogue "bean sprouts" is read as mung bean sprouts, the common kind. Raw sprouts carry a food-safety cautio |
+| Chicory (`chicory`) | 8 | 169992 | raw leaves | 1 cup chopped | 5 | The record is chicory greens; chicory root (as in coffee substitutes) is different. |
 | Salsa (`salsa`) | 8 | 174524 | ready-to-serve (with salt) | 2 tablespoons | 4 | A prepared food that varies by brand; high in sodium (no sourced caution added). |
-| Basil (`basil`) | 8 | 172232 | raw leaves | 2 tablespoons chopped | 2 | no note |
-| Radicchio (`radicchio`) | 8 | 168564 | raw | 1 cup shredded | 2 | no note |
+| Brussels sprouts (`brussels-sprouts`) | 3 | 169971 | cooked, boiled, drained, no salt | ½ cup cooked | 2 | no note |
+| Rhubarb (`rhubarb`) | 8 | 167758 | raw stalks | ½ cup diced | 2 | no note |
 | Carrot (`carrot`) | 1 | 170393 | raw | 1 medium carrot | 0 | no note |
 | Green bell pepper (`green-bell-pepper`) | 3 | 170427 | raw | 1 medium pepper | 0 | no note |
 | Red bell pepper (`red-bell-pepper`) | 2 | 170108 | raw | 1 medium pepper | 0 | no note |

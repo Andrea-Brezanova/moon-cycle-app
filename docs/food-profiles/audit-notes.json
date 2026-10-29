@@ -30,29 +30,199 @@
   "squid": "USDA record is raw squid; it is eaten cooked, and cooking changes the values."
  },
  "unusualValues": {
-  "octopus": "Vitamin B12 of 36 µg per 100 g (about 1,275% of the reference per serving) is the USDA figure; it is an estimated value (no data points). Check against a second source before publishing.",
   "bagel": "Vitamin E of 7.5 mg per 100 g (about 52% of the reference per serving) is the USDA figure from two data points; unusually high for a plain bagel.",
   "granola": "Vitamin E of 11.1 mg per 100 g is a USDA estimate (no data points).",
-  "almond-milk": "Vitamin E (111%) comes from fortification (USDA 'Vitamin E, added'); fortification varies by brand.",
   "olives": "Iron of 6.3 mg per 100 g (one data point) is high for canned olives.",
-  "mint": "Iron of 11.9 mg per 100 g (two data points) is high; fresh herbs are eaten in tiny amounts.",
-  "clam": "USDA sodium for cooked clams is 1,200 mg per 100 g, probably reflecting the cooking medium. A serving shows about 1,020 mg.",
-  "crab": "USDA sodium for cooked Alaska king crab is 1,070 mg per 100 g.",
-  "shrimp": "USDA sodium is 947 mg per 100 g (moisture-retaining additives).",
-  "scallop": "USDA sodium is 667 mg per 100 g for steamed scallops."
+  "mint": "Iron of 11.9 mg per 100 g (two data points) is high; fresh herbs are eaten in tiny amounts."
  },
  "safetyNotResearched": {
-  "white-rice": "Arsenic in rice: only brown rice carries a (unsourced) catalogue caution. FDA guidance on rice and arsenic was not read for this project.",
-  "rice-cakes": "Arsenic in rice products: see white rice.",
-  "rice-noodles": "Arsenic in rice products: see white rice.",
   "chocolate": "Caffeine and theobromine content is not stated, and no source was read.",
   "spirulina": "The catalogue cautions (contamination, pregnancy and autoimmune conditions) have no recorded source.",
-  "tuna": "The catalogue mercury caution ('prefer light/skipjack') has no recorded source.",
   "asparagus": "Vitamin K about 46 µg per serving, below the rule that adds the blood-thinner note (100 µg per 100 g); an editor may want it.",
   "fennel": "Vitamin K about 55 µg per serving, below the rule that adds the blood-thinner note (100 µg per 100 g); an editor may want it.",
   "coconut-oil": "No saturated-fat statement is made; an editor may decide whether one is needed.",
   "butter": "No saturated-fat statement is made; an editor may decide whether one is needed.",
   "milk": "Raw (unpasteurised) milk is not covered; the profile describes pasteurised milk.",
   "eggs": "Raw or undercooked eggs are covered only by the cooking-temperature caution."
- }
+ },
+ "resolved": {
+  "octopus": "Vitamin B12 of 36 µg per 100 g is consistent with USDA's raw octopus record (20 µg per 100 g): the cooked value is 1.8 times the raw one, in line with water loss (USDA 174218 raw, 174249 cooked).",
+  "clam": "Sodium of 1,200 mg per 100 g (cooked, moist heat) compares with 601 mg in USDA's raw mixed-species clam record (174214), a 2 times rise; the figures are USDA's own.",
+  "crab": "Sodium of 1,070 mg per 100 g (cooked) compares with 836 mg in USDA's raw Alaska king crab record (175164).",
+  "shrimp": "Sodium of 947 mg per 100 g (cooked) compares with 566 mg in the raw record (174210); both records carry the moisture-retention additives note.",
+  "scallop": "Sodium of 667 mg per 100 g (steamed) compares with 392 mg in the raw record (174220).",
+  "almond-milk": "All of the vitamin E (6.33 mg per 100 g) is listed by USDA as \"Vitamin E, added\", so it comes from fortification and varies by brand.",
+  "white-rice": "Rice arsenic: added the FDA statement that rice tends to absorb more arsenic than other crops and can still be part of a well-balanced diet.",
+  "rice-cakes": "Rice arsenic: see white rice (FDA).",
+  "rice-noodles": "Rice arsenic: see white rice (FDA).",
+  "tuna": "The mercury caution is now sourced: the FDA and EPA list \"Tuna, canned light (includes skipjack)\" as a Best Choice.",
+  "wheat": "Opening line now says durum wheat (dry).",
+  "mint": "Opening line now says spearmint.",
+  "granola": "Opening line now says homemade granola.",
+  "salsa": "Opening line now says ready-to-serve salsa with salt.",
+  "red-snapper": "Opening line now says the USDA record covers mixed species."
+ },
+ "decisions": [
+  {
+   "id": "D1",
+   "title": "Dry-weight servings",
+   "foods": [
+    "oat",
+    "farro",
+    "rye",
+    "wheat",
+    "polenta",
+    "wheat-flour",
+    "red-lentil"
+   ],
+   "question": "These servings are for the dry food (USDA has no cooked record for most). Accept dry servings, clearly labelled, or switch to cooked records where they exist?",
+   "recommendation": "Accept, labelled \"dry\" (done in the text)."
+  },
+  {
+   "id": "D2",
+   "title": "Raw squid record",
+   "foods": [
+    "squid"
+   ],
+   "question": "USDA has raw and fried squid but no plainly cooked record. The raw values are shown with \"cook before eating\". Accept, use the fried record, or hold?",
+   "recommendation": "Hold squid until you choose."
+  },
+  {
+   "id": "D3",
+   "title": "Record narrower than the catalogue name",
+   "foods": [
+    "sourdough-bread",
+    "red-snapper",
+    "sea-bass"
+   ],
+   "question": "sourdough-bread uses a French/Vienna bread record that includes sourdough; snapper and sea bass use mixed-species records. Accept with the record named, or rename the catalogue entries?",
+   "recommendation": "Accept with the record named."
+  },
+  {
+   "id": "D4",
+   "title": "Tuna listed twice",
+   "foods": [
+    "tuna",
+    "canned-tuna"
+   ],
+   "question": "Both entries use the same USDA record (canned light tuna in water). Keep both, merge, or distinguish them?",
+   "recommendation": "Merge or distinguish at the catalogue level; profiles are identical in substance."
+  },
+  {
+   "id": "D5",
+   "title": "Vitamin E left out",
+   "foods": [
+    "bagel",
+    "granola"
+   ],
+   "question": "USDA vitamin E for these is unusually high (7.5 and 11.1 mg per 100 g; granola is an estimate). Vitamin E is omitted from their key nutrients. Accept the omission?",
+   "recommendation": "Accept."
+  },
+  {
+   "id": "D6",
+   "title": "High iron values from few data points",
+   "foods": [
+    "olives",
+    "mint"
+   ],
+   "question": "Iron of 6.3 and 11.9 mg per 100 g from one or two data points. Accept, or omit the iron highlight?",
+   "recommendation": "Accept (8% of the reference per serving)."
+  },
+  {
+   "id": "D7",
+   "title": "Chocolate",
+   "foods": [
+    "chocolate"
+   ],
+   "question": "No caffeine or theobromine statement (no source read), and the dairy and soy tags depend on the product. Add a sourced note, and keep the tags?",
+   "recommendation": "Keep the tags; decide on a caffeine note after a source is read."
+  },
+  {
+   "id": "D8",
+   "title": "Moderate vitamin K",
+   "foods": [
+    "asparagus",
+    "fennel"
+   ],
+   "question": "About 46 and 55 µg of vitamin K per serving, below the 100 µg per 100 g rule that adds the blood-thinner note. Add the note?",
+   "recommendation": "Leave as data; the existing rule is conservative enough."
+  },
+  {
+   "id": "D9",
+   "title": "Fat statements",
+   "foods": [
+    "butter",
+    "coconut-oil",
+    "heavy-cream"
+   ],
+   "question": "No saturated-fat statement is made. Add a sourced one, or leave the data to speak?",
+   "recommendation": "Leave."
+  },
+  {
+   "id": "D10",
+   "title": "Raw handling of milk and eggs",
+   "foods": [
+    "milk",
+    "eggs"
+   ],
+   "question": "Profiles describe pasteurised milk and hard-boiled eggs. Add a sourced raw-milk or raw-egg line for people at greater risk (FDA)?",
+   "recommendation": "Optional; a one-line FDA statement is available."
+  },
+  {
+   "id": "D11",
+   "title": "How sodium appears",
+   "foods": [
+    "anchovies",
+    "bacon",
+    "bagel",
+    "baked-beans",
+    "clam",
+    "crab",
+    "ham",
+    "miso",
+    "sauerkraut",
+    "scallop",
+    "shrimp",
+    "smoked-salmon",
+    "tamari",
+    "octopus",
+    "naan",
+    "lobster",
+    "kimchi",
+    "tortillas"
+   ],
+   "question": "Sodium is stored as data for every profile. A calm \"nutrition note\" appears only at 460 mg or more (the FDA's 20% of Daily Value \"high\" line). Food Detail has no notes field today. Show the note as a \"Good to know\" line, or keep it as data only?",
+   "recommendation": "Keep as data; add the note only if Food Detail gains a place for it."
+  },
+  {
+   "id": "D12",
+   "title": "Allergen tags broader or narrower than the food",
+   "foods": [
+    "coconut",
+    "tamari",
+    "miso",
+    "chocolate",
+    "granola",
+    "bagel",
+    "celery",
+    "clam",
+    "mussel",
+    "oyster",
+    "octopus",
+    "scallop",
+    "squid"
+   ],
+   "question": "Coconut counted as a tree nut; tamari and miso gluten (many tamari are wheat-free); chocolate dairy and soy (product-dependent); sesame in bagels; celery and molluscs (EU lists, not on the US list of nine). Keep every tag (protective) or refine?",
+   "recommendation": "Keep all tags; refine wording only with an allergist or label source."
+  },
+  {
+   "id": "D13",
+   "title": "Kidney bean boiling time",
+   "foods": [
+    "kidney-bean"
+   ],
+   "question": "The inherited caution says \"boil hard for 10 minutes\". The FDA says soak at least 5 hours and boil in fresh water at least 30 minutes. The draft now uses the FDA wording. The app's own catalogue caution still has the 10-minute wording. Update the catalogue?",
+   "recommendation": "Yes, as a safety correction (outside this audit; not changed)."
+  }
+ ]
 }

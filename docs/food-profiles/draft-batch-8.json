@@ -90,6 +90,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -186,18 +188,22 @@
       "cautions": [
         {
           "text": "Iodine: normal portions",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "NIH ODS, Iodine fact sheet for health professionals (updated 5 November 2024; read 2026-10-28) (supports the existing caution)",
+          "status": "partly-sourced"
         },
         {
           "text": "Seaweed such as kelp and wakame is one of the best food sources of iodine, and the tolerable upper intake level for adults is 1,100 µg of iodine a day.",
-          "source": "NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)"
+          "source": "NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -289,22 +295,27 @@
       "cautions": [
         {
           "text": "Can exceed the safe iodine limit",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "NIH ODS, Iodine fact sheet for health professionals (updated 5 November 2024; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Thyroid conditions: check with a doctor",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "NIH ODS, Iodine fact sheet for health professionals (updated 5 November 2024; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Seaweed such as kelp and wakame is one of the best food sources of iodine, and the tolerable upper intake level for adults is 1,100 µg of iodine a day.",
-          "source": "NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)"
+          "source": "NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -372,6 +383,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -453,14 +466,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -545,18 +561,22 @@
       "cautions": [
         {
           "text": "High in oxalate",
-          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones) (supports the existing caution)"
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Leaves are poisonous: stalks only",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "NIH MedlinePlus, Rhubarb poisoning (review date 10/14/2025; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -627,14 +647,22 @@
       "cautions": [
         {
           "text": "High in salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)",
+          "status": "partly-sourced"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "unusualValues",
+          "text": "Iron of 6.3 mg per 100 g (one data point) is high for canned olives."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -724,6 +752,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -819,14 +849,17 @@
       "cautions": [
         {
           "text": "Chicory contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -911,14 +944,17 @@
       "cautions": [
         {
           "text": "Chive contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1009,14 +1045,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1107,14 +1146,17 @@
       "cautions": [
         {
           "text": "Endive contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1205,14 +1247,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1308,6 +1353,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1389,14 +1436,17 @@
       "cautions": [
         {
           "text": "Scallion contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1479,6 +1529,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1566,6 +1618,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1660,6 +1714,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1747,6 +1803,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1842,14 +1900,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1918,6 +1979,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2013,14 +2076,17 @@
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2030,7 +2096,7 @@
       "catalogueId": "mint",
       "name": "Mint",
       "sections": {
-        "whatItOffers": "Mint (raw): 2 tablespoons gives about 5 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Spearmint (raw): 2 tablespoons gives about 5 calories, with iron (about 8%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 11.4 g)",
         "howToEatIt": "Tear fresh leaves into salads, yoghurt sauces, fruit and drinks.",
         "cycleRelevance": "No cycle-phase claim is made for mint."
@@ -2087,6 +2153,21 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Catalogue 'Mint' uses the USDA spearmint record; peppermint is a separate profile."
+        },
+        {
+          "kind": "resolved",
+          "text": "Opening line now says spearmint."
+        },
+        {
+          "kind": "unusualValues",
+          "text": "Iron of 11.9 mg per 100 g (two data points) is high; fresh herbs are eaten in tiny amounts."
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2158,6 +2239,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2245,6 +2328,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2338,6 +2423,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2425,6 +2512,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2518,6 +2607,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2605,6 +2696,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2698,6 +2791,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2793,14 +2888,17 @@
       "cautions": [
         {
           "text": "Radicchio contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2810,7 +2908,7 @@
       "catalogueId": "salsa",
       "name": "Salsa",
       "sections": {
-        "whatItOffers": "Salsa: 2 tablespoons gives about 10 calories, with potassium (about 4%) and vitamin E (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Ready-to-serve salsa (with salt): 2 tablespoons gives about 10 calories, with potassium (about 4%) and vitamin E (about 3%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 2 tbsp = 36 g)",
         "howToEatIt": "Serve with eggs, beans, tacos or grilled vegetables; check the label if you watch sodium.",
         "cycleRelevance": "No cycle-phase claim is made for salsa."
@@ -2883,6 +2981,17 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Ready-to-serve salsa with salt; brands vary."
+        },
+        {
+          "kind": "resolved",
+          "text": "Opening line now says ready-to-serve salsa with salt."
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -2970,6 +3079,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -3037,14 +3148,17 @@
       "cautions": [
         {
           "text": "Basil contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -3129,14 +3243,17 @@
       "cautions": [
         {
           "text": "Cilantro (coriander) contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -3203,6 +3320,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -3276,6 +3395,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
