@@ -327,6 +327,8 @@ void main() {
         }
         // Every catalogue caution is kept.
         for (final c in (cat['cautions'] as List).cast<String>()) {
+          // The one deliberate replacement: the FDA wording for dried kidney beans.
+          if (c.startsWith('Dried beans: boil hard')) continue;
           expect(
             text,
             contains(c.toLowerCase()),
@@ -336,29 +338,93 @@ void main() {
       }
     });
 
-    test('cautions are real: sourced, never placeholders, salty foods say sodium', () {
-      for (final id in all.keys) {
-        final cautions = (all[id]!['cautions']! as List)
-            .cast<Map<String, Object?>>();
-        for (final c in cautions) {
-          expect((c['text'] as String).trim(), isNotEmpty, reason: id);
-          expect((c['source'] as String).trim(), isNotEmpty, reason: id);
+    test(
+      'cautions are honest: every one has a status that matches its source',
+      () {
+        const statuses = {
+          'sourced',
+          'partly-sourced',
+          'catalogue-tag',
+          'unverified-inherited',
+        };
+        for (final id in all.keys) {
+          final cautions = (all[id]!['cautions']! as List)
+              .cast<Map<String, Object?>>();
+          for (final c in cautions) {
+            final text = c['text'] as String;
+            final source = c['source'] as String;
+            final status = c['status'] as String?;
+            expect(text.trim(), isNotEmpty, reason: id);
+            expect(source.trim(), isNotEmpty, reason: id);
+            expect('$text$source', isNot(contains('TBD')), reason: id);
+            expect(statuses, contains(status), reason: '$id: $text');
+            // Nothing unverified is described as verified, and a verified one
+            // never points at the unsourced catalogue marker.
+            if (status == 'unverified-inherited') {
+              expect(
+                source,
+                startsWith('Existing MoonCycle catalogue caution'),
+                reason: '$id: $text',
+              );
+            } else if (status == 'catalogue-tag') {
+              expect(
+                source,
+                startsWith('MoonCycle catalogue allergen tag'),
+                reason: '$id: $text',
+              );
+            } else {
+              expect(
+                source,
+                isNot(startsWith('Existing MoonCycle')),
+                reason: '$id: $text',
+              );
+            }
+            // Sodium is data or a plain nutrition note, never a warning.
+            expect(
+              text,
+              isNot(contains('mg of sodium')),
+              reason: '$id: sodium is not a caution',
+            );
+          }
           expect(
-            '${c['text']}${c['source']}',
-            isNot(contains('TBD')),
+            (all[id]!['review']! as Map)['cautions'],
+            isNot('verified against the cited page'),
             reason: id,
           );
         }
-        final serving = all[id]!['perServing']! as Map<String, Object?>;
-        if ((serving['sodiumMg']! as num) >= 345) {
+      },
+    );
+
+    test('sodium is a calm nutrition note only at the FDA "high" line', () {
+      for (final id in all.keys) {
+        final sodium = ((all[id]!['perServing']! as Map)['sodiumMg']! as num);
+        final notes = (all[id]!['nutritionNotes']! as List)
+            .cast<Map<String, Object?>>();
+        expect(notes.isNotEmpty, sodium >= 460, reason: '$id: $sodium mg');
+        for (final n in notes) {
+          expect(n['source'], contains('Nutrition Facts'), reason: id);
           expect(
-            cautions.any((c) => (c['text'] as String).contains('mg of sodium')),
-            isTrue,
-            reason:
-                '$id has ${serving['sodiumMg']} mg of sodium and no sodium note',
+            (n['text'] as String).toLowerCase(),
+            isNot(
+              anyOf(
+                contains('warning'),
+                contains('avoid'),
+                contains('dangerous'),
+              ),
+            ),
+            reason: id,
           );
         }
       }
+    });
+
+    test('kidney beans carry the FDA boiling wording, not the shorter inherited one', () {
+      final texts = (all['kidney-bean']!['cautions']! as List)
+          .map((c) => (c as Map)['text'] as String)
+          .join(' ');
+      expect(texts, contains('at least 5 hours'));
+      expect(texts, contains('at least 30 minutes'));
+      expect(texts, isNot(contains('10 minutes')));
     });
 
     test(
@@ -457,6 +523,14 @@ void main() {
       ) as Map;
       expect(decisions.keys.toSet(), blocked);
       for (final MapEntry(key: id, value: d) in decisions.entries) {
+        final survey = ((d! as Map)['surveyRecord']! as Map)
+            .cast<String, String>();
+        expect(
+          ['yes', 'conditional', 'no', 'none exists', 'not applicable'],
+          contains(survey['appropriate']),
+          reason: '$id',
+        );
+        expect(survey['limitation']!.trim(), isNotEmpty, reason: '$id');
         for (final k in [
           'why',
           'standardNutrientInfo',
@@ -465,12 +539,70 @@ void main() {
           'recommendation',
         ]) {
           expect(
-            ((d as Map)[k] as String?)?.trim(),
+            ((d as Map<String, Object?>)[k] as String?)?.trim(),
             isNotEmpty,
             reason: '$id $k',
           );
         }
       }
     });
+  });
+
+  group('publication plan', () {
+    final plan = jsonDecode(
+      File('docs/food-profiles/publication-plan.json').readAsStringSync(),
+    ) as Map;
+    List<String> ids(String k) => (plan[k] as List).cast<String>();
+
+    test('the groups partition every food exactly once', () {
+      final draftIds = {
+        for (final f in files)
+          ...((jsonDecode(f.readAsStringSync()) as Map)['profiles'] as Map).keys
+              .cast<String>(),
+      };
+      final grouped = [
+        ...ids('ready'),
+        ...ids('sourceWork'),
+        ...ids('needsDecision'),
+      ];
+      expect(grouped.toSet(), draftIds);
+      expect(
+        grouped.length,
+        draftIds.length,
+        reason: 'a food is in two groups',
+      );
+      expect(ids('wave1').toSet().difference(ids('ready').toSet()), isEmpty);
+      expect(ids('blocked').length, 15);
+      expect(ids('alreadyApproved').toSet(), approved.keys.toSet());
+    });
+
+    test(
+      'Wave 1 is a candidate only: nothing is publishable or in the app',
+      () {
+        final cand =
+            (jsonDecode(
+                  File('docs/food-profiles/wave-1-candidate.json')
+                      .readAsStringSync(),
+                ) as Map)['profiles']
+                as Map;
+        expect(cand.keys.toSet(), ids('wave1').toSet());
+        for (final MapEntry(key: id, value: p) in cand.entries) {
+          expect(
+            ((p as Map)['review'] as Map)['publishable'],
+            isFalse,
+            reason: '$id',
+          );
+          expect(approved.containsKey(id), isFalse, reason: '$id');
+          for (final c
+              in (p['cautions'] as List).cast<Map<String, Object?>>()) {
+            expect(
+              c['source'],
+              isNot(startsWith('Existing MoonCycle')),
+              reason: '$id has an unverified caution in Wave 1',
+            );
+          }
+        }
+      },
+    );
   });
 }

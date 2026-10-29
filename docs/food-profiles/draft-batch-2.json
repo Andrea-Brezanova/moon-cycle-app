@@ -82,6 +82,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -188,6 +190,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -294,6 +298,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -375,6 +381,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -474,6 +482,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -567,14 +577,17 @@
       "cautions": [
         {
           "text": "Cabbage contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
-          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)"
+          "source": "NIH ODS Vitamin K (interaction with warfarin and other anticoagulants)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -655,6 +668,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -762,18 +777,22 @@
       "cautions": [
         {
           "text": "Tree-nut allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
-          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+          "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -863,14 +882,17 @@
       "cautions": [
         {
           "text": "Vary grains (arsenic in rice)",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, What You Can Do to Limit Exposure to Arsenic (content current as of 04/27/2022; read 2026-10-28) (supports the existing caution)",
+          "status": "partly-sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -938,6 +960,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1037,6 +1061,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1136,6 +1162,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",

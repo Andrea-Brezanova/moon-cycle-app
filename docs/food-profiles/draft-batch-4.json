@@ -86,14 +86,17 @@
       "cautions": [
         {
           "text": "Can interact with some medicines",
-          "source": "FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27) (supports the existing caution)"
+          "source": "FDA, Grapefruit Juice and Some Drugs Don't Mix (consumer update, read 2026-10-27) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -182,6 +185,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -277,14 +282,17 @@
       "cautions": [
         {
           "text": "Kiwi can cause allergic reactions; people with latex allergy may also react.",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -381,6 +389,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -454,6 +464,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -546,6 +558,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -633,6 +647,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -720,6 +736,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -807,6 +825,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -910,14 +930,17 @@
       "cautions": [
         {
           "text": "Wash the rind before cutting",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Selecting and Serving Produce Safely (content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1012,6 +1035,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1099,6 +1124,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1186,6 +1213,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1273,6 +1302,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1374,6 +1405,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1461,6 +1494,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1553,6 +1588,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1651,6 +1688,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1745,6 +1784,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
@@ -1837,6 +1878,8 @@
       "allergens": [],
       "mayContainAllergens": [],
       "cautions": [],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",

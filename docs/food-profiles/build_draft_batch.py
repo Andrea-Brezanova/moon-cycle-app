@@ -35,6 +35,16 @@ REF = {
 AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': ('g', 'Omega-3 (EPA + DHA)')}
 DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
 FDA_RISK = 'FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)'
+ARSENIC = 'FDA, What You Can Do to Limit Exposure to Arsenic (content current as of 04/27/2022; read 2026-10-28)'
+NATURAL_TOXINS = 'FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28)'
+FDA_ALLERGENS = 'FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28)'
+NIDDK_CELIAC = 'NIDDK, Celiac Disease: Eating, Diet & Nutrition (last reviewed October 2020; read 2026-10-28)'
+ODS_IODINE = 'NIH ODS, Iodine fact sheet for health professionals (updated 5 November 2024; read 2026-10-28)'
+ODS_SELENIUM = 'NIH ODS, Selenium fact sheet for health professionals (updated 4 September 2025; read 2026-10-28)'
+FDA_FISH = 'FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)'
+FDA_PRODUCE = 'FDA, Selecting and Serving Produce Safely (content current as of 03/05/2024; read 2026-10-28)'
+MEDLINE_RHUBARB = 'NIH MedlinePlus, Rhubarb poisoning (review date 10/14/2025; read 2026-10-28)'
+FDA_LABEL = 'FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)'
 FSIS = 'USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)'
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
@@ -65,6 +75,10 @@ CAUTIONS = {
                       source='NIH MedlinePlus Genetics, Glucose-6-phosphate dehydrogenase deficiency (last updated 12 April 2023; read 2026-10-28)'),
     'iodine-ods': dict(text='Seaweed such as kelp and wakame is one of the best food sources of iodine, and the tolerable upper intake level for adults is 1,100 µg of iodine a day.',
                        source='NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)'),
+    'rice-arsenic': dict(text='Rice tends to absorb more arsenic than other crops. The FDA says people can still eat rice as part of a well-balanced diet.',
+                         source=ARSENIC),
+    'kidney-bean-fda': dict(text='Dried kidney beans contain a natural toxin (phytohaemagglutinin). Soak them for at least 5 hours, then boil in fresh water for at least 30 minutes. Canned beans are already cooked.',
+                            source=NATURAL_TOXINS),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
@@ -114,6 +128,32 @@ ALLERGENS = {
     'gluten': ('Contains gluten', ['gluten', 'wheat']), 'dairy': ('Dairy allergen', ['dairy']),
     'soy': ('Soy allergen', ['soy']), 'egg': ('Egg allergen', ['egg allergen']), 'sesame': ('Sesame allergen', ['sesame']),
 }
+# Inherited catalogue cautions whose wording an authoritative page read this session supports.
+# 'sourced' = the page supports the caution; 'partly-sourced' = it supports the topic but not every detail.
+VERIFIED = {
+    'Tree-nut allergen': (FDA_ALLERGENS, 'sourced'), 'Fish allergen': (FDA_ALLERGENS, 'sourced'),
+    'Soy allergen': (FDA_ALLERGENS, 'sourced'), 'Dairy allergen': (FDA_ALLERGENS, 'sourced'),
+    'Egg allergen': (FDA_ALLERGENS, 'sourced'), 'Sesame allergen': (FDA_ALLERGENS, 'sourced'),
+    'Crustacean allergen': (FDA_ALLERGENS, 'sourced'),
+    'Tree-nut or peanut allergen, depending on type': (FDA_ALLERGENS, 'sourced'),
+    'Contains gluten': (NIDDK_CELIAC, 'sourced'), 'Contains wheat (gluten)': (NIDDK_CELIAC, 'sourced'),
+    'Choose certified gluten-free oats if avoiding gluten.': (NIDDK_CELIAC, 'sourced'),
+    'High in salt': (FDA_LABEL, 'partly-sourced'),
+    'Mercury: prefer light/skipjack': (FDA_FISH, 'sourced'),
+    'Vary grains (arsenic in rice)': (ARSENIC, 'partly-sourced'),
+    'Wash the rind before cutting': (FDA_PRODUCE, 'sourced'),
+    'Leaves are poisonous: stalks only': (MEDLINE_RHUBARB, 'sourced'),
+    'Limit to 1–2 nuts a day': (ODS_SELENIUM, 'partly-sourced'),
+    'Can exceed the safe iodine limit': (ODS_IODINE, 'sourced'),
+    'Thyroid conditions: check with a doctor': (ODS_IODINE, 'sourced'),
+    'Iodine: normal portions': (ODS_IODINE, 'partly-sourced'),
+    'Raw sprouts: food-safety risk': (FDA_RISK, 'sourced'),
+    'Raw oysters: food-safety risk': (FDA_RISK, 'partly-sourced'),
+}
+# Replaced because the page read this session contradicts the inherited wording.
+REPLACED = {'Dried beans: boil hard for 10 minutes; don\'t slow-cook from raw': ['kidney-bean-fda']}
+AUDIT_NOTES = json.load(open('docs/food-profiles/audit-notes.json'))
+SODIUM_HIGH_MG = 460   # 20% of the 2,300 mg Daily Value: the FDA's "high" line
 TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
           'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
 
@@ -127,6 +167,8 @@ STATE_WORDS = ('raw', 'cooked', 'dried', 'dry', 'canned', 'roasted', 'baked', 'b
 
 def lead(f):
     """The food's name, with its preparation (cooked, raw, dried...) in brackets when the name doesn't say it."""
+    if f.get('lead'):
+        return f['lead']
     low = f['name'].lower()
     for part in f['state'].split(','):
         for w in part.split():
@@ -176,6 +218,8 @@ for fid, f in src['foods'].items():
     amt = lambda k: f['per100'][k] * f['grams'] / 100
     if f['keys'] == 'auto':
         f['keys'] = auto_keys(f)
+        # Key nutrients the audit left out because the USDA value looks unreliable for this food.
+        f['keys'] = [k for k in f['keys'] if k[0] not in f.get('dropKeys', [])]
     keys = []
     for key, dec in f['keys']:
         assert key in f['per100'], (fid, key)
@@ -205,31 +249,42 @@ for fid, f in src['foods'].items():
     # existing catalogue caution is carried over first, then the sourced ones
     # (unless the catalogue already covers that topic).
     existing = CATALOGUE[fid].get('cautions', [])
-    cautions = [dict(text=t, source=EXISTING) for t in existing]
+    cautions = []
+    for t in existing:
+        if t in REPLACED:
+            for c in REPLACED[t]:
+                cautions.append(dict(text=CAUTIONS[c]['text'], source=CAUTIONS[c]['source'], status='sourced',
+                                     replaces=f'Inherited catalogue wording "{t}" (the FDA page gives a longer boil)'))
+            if 'slow-cook' in t:
+                cautions.append(dict(text="Do not cook dried kidney beans from raw in a slow cooker.", source=EXISTING, status='unverified-inherited'))
+        elif t in VERIFIED:
+            cautions.append(dict(text=t, source=VERIFIED[t][0] + ' (supports the existing caution)', status=VERIFIED[t][1]))
+        else:
+            cautions.append(dict(text=t, source=EXISTING, status='unverified-inherited'))
     for c in names:
         same = [x for x in cautions if TOPICS.get(c, c) in x['text'].lower()]
         if same:
             # Keep the existing wording; record the source that backs it.
             same[0]['source'] = CAUTIONS[c]['source'] + ' (supports the existing caution)'
+            same[0]['status'] = 'sourced'
             continue
-        cautions.append(dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']))
+        cautions.append(dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source'], status='sourced'))
     assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
-    # Sodium: called out at 15% of the 2,300 mg daily limit or more (a catalogue "salt" caution is kept and sourced instead).
+    # Sodium is always recorded as data. It becomes a plain nutrition note (not a caution) only at the
+    # FDA's "high" line of 20% of the Daily Value, and is worded calmly.
     sodium = rhu(amt('na')) if 'na' in f['per100'] else None
-    if sodium is not None and sodium >= SODIUM_NOTE_MG:
-        text = f"About {sodium:,} mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than {SODIUM_LIMIT_MG:,} mg a day."
-        same = [x for x in cautions if 'salt' in x['text'].lower() or 'sodium' in x['text'].lower()]
-        if same:
-            same[0]['source'] = SODIUM_SOURCE + ' (supports the existing caution)'
-            same[0]['text'] = same[0]['text'].rstrip('.') + '. ' + text
-        else:
-            cautions.append(dict(text=text, source=SODIUM_SOURCE))
+    notes = []
+    if sodium is not None and sodium >= SODIUM_HIGH_MG:
+        notes.append(dict(text=f"This serving has about {sodium:,} mg of sodium, {rhu(100 * sodium / SODIUM_LIMIT_MG)}% of the {SODIUM_LIMIT_MG:,} mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+                          source=FDA_LABEL))
     # Allergen tags from the catalogue must be visible in the caution list too.
     allergens = list(CATALOGUE[fid].get('allergens', []))
     for a in allergens:
         label, words = ALLERGENS[a]
         if not any(w in ' '.join(x['text'].lower() for x in cautions) for w in words):
-            cautions.append(dict(text=label, source=ALLERGEN_SOURCE))
+            cautions.append(dict(text=label, source=ALLERGEN_SOURCE, status='catalogue-tag'))
+    unverified = sum(1 for c in cautions if c['status'] == 'unverified-inherited')
+    record_notes = [dict(kind=k, text=AUDIT_NOTES[k][fid]) for k in ('identity', 'servingState', 'resolved', 'unusualValues') if fid in AUDIT_NOTES.get(k, {})]
     out['profiles'][fid] = {
         'catalogueId': fid, 'name': f['name'],
         'sections': {'whatItOffers': f['offers'], 'practicalServing': f['portion'], 'howToEatIt': f['how'], 'cycleRelevance': f['cycle']},
@@ -240,9 +295,9 @@ for fid, f in src['foods'].items():
                        'sodiumMg': sodium,
                        'keyNutrients': keys},
         'allergens': allergens, 'mayContainAllergens': list(CATALOGUE[fid].get('mayContainAllergens', [])),
-        'cautions': cautions, 'evidence': f['evidence'],
+        'cautions': cautions, 'nutritionNotes': notes, 'recordNotes': record_notes, 'evidence': f['evidence'],
         'review': {'composition': 'copied from USDA FoodData Central; recomputed by script', 'referenceIntakes': 'NIH ODS values',
-                   'cautions': 'verified against the cited page' if cautions else 'none recorded',
+                   'cautions': ('none recorded' if not cautions else 'all cautions sourced or catalogue tags' if not unverified else f'{unverified} inherited caution(s) without a verified source'),
                    'editorial': 'draft; awaiting editorial review', 'clinical': 'not clinically reviewed', 'publishable': False},
     }
 json.dump(out, open(f'docs/food-profiles/draft-batch-{n}.json', 'w'), indent=2, ensure_ascii=False)

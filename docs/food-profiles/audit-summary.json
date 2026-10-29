@@ -6,9 +6,18 @@
  "missing": 0,
  "auditedAgainstLiveUsda": 251,
  "openDataFindings": 0,
- "correctedDuringAudit": 193,
- "needEditorialJudgment": 43,
- "carryOverCautionsWithoutSource": 59,
- "validatedWithoutSubstantiveConcerns": 164,
+ "correctedInFirstAudit": 193,
+ "resolvedInReadinessPass": 15,
+ "decisionsForOwner": 13,
+ "profilesAffectedByADecision": 47,
+ "cautionStatus": {
+  "sourced": 120,
+  "catalogue-tag": 56,
+  "partly-sourced": 10,
+  "unverified-inherited": 19
+ },
+ "profilesWithUnverifiedInheritedCaution": 18,
+ "profilesWithSodiumNote": 11,
+ "validatedWithoutSubstantiveConcerns": 196,
  "publishable": 0
 }
