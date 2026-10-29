@@ -38,6 +38,8 @@ class LocalReminderScheduler implements ReminderScheduler {
       'reminders',
       'Reminders',
       channelDescription: 'Phase and period reminders',
+      // Hide the content on a locked screen if the phone is set to.
+      visibility: NotificationVisibility.private,
     ),
     iOS: DarwinNotificationDetails(),
   );

@@ -30,6 +30,7 @@ final class PlannedReminder {
     required this.kind,
     required this.phase,
     required this.periodDue,
+    this.detailed = false,
   });
 
   final LocalDate date;
@@ -40,6 +41,10 @@ final class PlannedReminder {
 
   /// The estimated start of the period this reminder belongs to.
   final LocalDate periodDue;
+
+  /// Whether the text may name the phase or the period (the user opted in).
+  /// Otherwise it is neutral.
+  final bool detailed;
 
   /// Stable and unique per day and kind, so rescheduling replaces rather
   /// than duplicates (days since 2000 × 2 + kind; fits in 32 bits).
@@ -53,10 +58,11 @@ final class PlannedReminder {
       other.date == date &&
       other.kind == kind &&
       other.phase == phase &&
-      other.periodDue == periodDue;
+      other.periodDue == periodDue &&
+      other.detailed == detailed;
 
   @override
-  int get hashCode => Object.hash(date, kind, phase, periodDue);
+  int get hashCode => Object.hash(date, kind, phase, periodDue, detailed);
 
   @override
   String toString() => 'PlannedReminder($date ${kind.name} ${phase.name})';
@@ -76,6 +82,7 @@ List<PlannedReminder> planReminders({
   required CycleLengths lengths,
   required LocalDate today,
   required ReminderSettings settings,
+  bool detailed = false,
 }) {
   if (!settings.enabled) return const [];
   final cycleLength = lengths.cycleLength;
@@ -95,6 +102,7 @@ List<PlannedReminder> planReminders({
             kind: ReminderKind.phaseStart,
             phase: phase,
             periodDue: phase == Phase.menstrual ? cycleStart : nextPeriod,
+            detailed: detailed,
           ),
         );
       }
@@ -106,6 +114,7 @@ List<PlannedReminder> planReminders({
           kind: ReminderKind.periodSoon,
           phase: Phase.menstrual,
           periodDue: nextPeriod,
+          detailed: detailed,
         ),
       );
     }
