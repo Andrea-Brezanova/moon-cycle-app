@@ -14,7 +14,7 @@
         "whatItOffers": "Cooked 90% lean ground beef is a dense source of vitamin B12 (about 99% of the reference in 3 ounces), zinc (about 67%) and iron (about 13%), with about 21 g of protein.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Brown for sauces, chilli and tacos, shape into burgers, or mix with grated vegetables or lentils to stretch it. Pair with vitamin C foods such as tomatoes or peppers.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Iron from meat is absorbed more readily than iron from plant foods, so beef is an efficient source; 3 ounces provide about 2.4 mg."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Iron from meat is absorbed more readily than iron from plant foods, so beef is an efficient source; 3 ounces provide about 2.4 mg. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 171793,
@@ -40,7 +40,8 @@
           "vita": 3,
           "vite": 0.13,
           "vitk": 1.1,
-          "kcal": 204
+          "kcal": 204,
+          "na": 75
         }
       },
       "perServing": {
@@ -49,6 +50,7 @@
         "fatG": 9.1,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 64,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -99,6 +101,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
@@ -122,7 +126,7 @@
         "whatItOffers": "Tempeh is a firm, nutty cake of fermented whole soybeans. Half a cup gives about 17 g of protein, magnesium (about 22% of the reference), potassium and iron.",
         "practicalServing": "½ cup (USDA: 1 cup = 166 g)",
         "howToEatIt": "Slice or crumble and pan-fry, bake or grill with a marinade, or simmer into curries and chilli. Steaming it for a few minutes first mellows its flavour.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Tempeh adds plant iron (about 2.2 mg in this serving), which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Tempeh adds plant iron (about 2.2 mg in this serving), which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 174272,
@@ -146,7 +150,8 @@
           "b12": 0.08,
           "vita": 0,
           "vitd": 0,
-          "kcal": 192
+          "kcal": 192,
+          "na": 9
         }
       },
       "perServing": {
@@ -155,6 +160,7 @@
         "fatG": 9.0,
         "carbohydrateG": 6.3,
         "fiberG": null,
+        "sodiumMg": 7,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -212,6 +218,10 @@
           }
         ]
       },
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Soy allergen",
@@ -266,7 +276,8 @@
           "vite": 0.27,
           "vitd": 0.1,
           "vitk": 0.3,
-          "kcal": 165
+          "kcal": 165,
+          "na": 74
         }
       },
       "perServing": {
@@ -275,6 +286,7 @@
         "fatG": 3.1,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 64,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -311,6 +323,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
@@ -361,7 +375,8 @@
           "vite": 1.03,
           "vitd": 2.2,
           "vitk": 0.3,
-          "kcal": 155
+          "kcal": 155,
+          "na": 124
         }
       },
       "perServing": {
@@ -370,6 +385,7 @@
         "fatG": 5.3,
         "carbohydrateG": 0.6,
         "fiberG": 0.0,
+        "sodiumMg": 62,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -406,6 +422,10 @@
           }
         ]
       },
+      "allergens": [
+        "egg"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Egg allergen",
@@ -433,7 +453,7 @@
         "whatItOffers": "Firm tofu set with calcium sulfate is a plant protein with a lot of calcium: a quarter block gives about 14 g of protein and about 55% of the calcium reference, plus zinc and magnesium.",
         "practicalServing": "¼ block (USDA: 0.25 block = 81 g)",
         "howToEatIt": "Press and cube for stir-fries and curries, crumble into scrambles, bake or pan-fry until golden, or blend silken types into sauces. It takes on the flavour of what it is cooked with.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Tofu made with calcium sulfate is one of the richer non-dairy sources; check the label, as tofu set with other coagulants has much less."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Tofu made with calcium sulfate is one of the richer non-dairy sources; check the label, as tofu set with other coagulants has much less. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 172475,
@@ -455,7 +475,8 @@
           "zn": 1.57,
           "vitc": 0.2,
           "folate": 29,
-          "kcal": 144
+          "kcal": 144,
+          "na": 14
         }
       },
       "perServing": {
@@ -464,6 +485,7 @@
         "fatG": 7.1,
         "carbohydrateG": 2.3,
         "fiberG": 1.9,
+        "sodiumMg": 11,
         "keyNutrients": [
           {
             "name": "Calcium",
@@ -521,6 +543,10 @@
           }
         ]
       },
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Soy allergen",
@@ -544,7 +570,7 @@
         "whatItOffers": "Roasted lean pork loin gives about 24 g of protein, zinc (about 27% of the reference), vitamin B12 and potassium in 3 ounces, for about 178 calories.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Roast, grill or pan-sear, then slice thinly; it works with fruit, mustard and herbs, in stir-fries, or shredded into tacos.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lean loin is a modest source of iron (about 0.9 mg in this serving); other cuts and organ meats differ."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lean loin is a modest source of iron (about 0.9 mg in this serving); other cuts and organ meats differ. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 168233,
@@ -571,7 +597,8 @@
           "vite": 0.2,
           "vitd": 0.7,
           "vitk": 0,
-          "kcal": 209
+          "kcal": 209,
+          "na": 58
         }
       },
       "perServing": {
@@ -580,6 +607,7 @@
         "fatG": 8.2,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 49,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -630,6 +658,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
@@ -653,7 +683,7 @@
         "whatItOffers": "Roasted lean leg of lamb is a dense source of vitamin B12 (about 96% of the reference in 3 ounces), zinc (about 53%) and protein (about 24 g).",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Roast with garlic, rosemary and lemon, grill slices, or braise in stews and curries; rest the meat before carving.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lamb provides iron from meat (about 1.8 mg in this serving), absorbed more readily than iron from plants."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lamb provides iron from meat (about 1.8 mg in this serving), absorbed more readily than iron from plants. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 172487,
@@ -678,7 +708,8 @@
           "b12": 2.71,
           "vita": 0,
           "vite": 0.18,
-          "kcal": 180
+          "kcal": 180,
+          "na": 66
         }
       },
       "perServing": {
@@ -687,6 +718,7 @@
         "fatG": 5.7,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 56,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -737,6 +769,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook steaks, chops and roasts to 145 °F (62.8 °C) and let them rest for at least 3 minutes; cook ground meat to 160 °F (71.1 °C).",
@@ -788,7 +822,8 @@
           "vitd": 0.3,
           "vitk": 0,
           "kcal": 147,
-          "omega3": 0.008
+          "omega3": 0.008,
+          "na": 99
         }
       },
       "perServing": {
@@ -797,6 +832,7 @@
         "fatG": 1.8,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 84,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -833,6 +869,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook poultry to an internal temperature of 165 °F (73.9 °C).",
@@ -856,7 +894,7 @@
         "whatItOffers": "Feta is a brined, tangy white cheese. An ounce gives calcium (about 14% of the reference), vitamin B12 and zinc for about 75 calories. It is salty.",
         "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Crumble over salads, roasted vegetables and eggs, bake with tomatoes, or serve with olives and bread.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce of feta supplies about 140 mg, about 14% of that."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce of feta supplies about 140 mg, about 14% of that. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 173420,
@@ -883,7 +921,8 @@
           "vite": 0.18,
           "vitd": 0.4,
           "vitk": 1.8,
-          "kcal": 265
+          "kcal": 265,
+          "na": 1140.0
         }
       },
       "perServing": {
@@ -892,6 +931,7 @@
         "fatG": 6.1,
         "carbohydrateG": 1.1,
         "fiberG": 0.0,
+        "sodiumMg": 323,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -937,12 +977,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "The FDA advises people at greater risk of foodborne illness (for example during pregnancy) to avoid cheese made from unpasteurised milk, and queso fresco-type cheeses even when pasteurised. Check the label for pasteurised milk.",
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+        },
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -982,7 +1035,8 @@
           "vite": 0.06,
           "vitd": 0.1,
           "vitk": 0.2,
-          "kcal": 61
+          "kcal": 61,
+          "na": 46
         }
       },
       "perServing": {
@@ -991,6 +1045,7 @@
         "fatG": 5.5,
         "carbohydrateG": 7.9,
         "fiberG": 0.0,
+        "sodiumMg": 78,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1041,12 +1096,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1087,7 +1151,8 @@
           "vitd": 0,
           "vitk": 0,
           "kcal": 81,
-          "omega3": 0.001
+          "omega3": 0.001,
+          "na": 308
         }
       },
       "perServing": {
@@ -1096,6 +1161,7 @@
         "fatG": 2.6,
         "carbohydrateG": 5.4,
         "fiberG": 0.0,
+        "sodiumMg": 348,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1146,10 +1212,18 @@
           }
         ]
       },
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Dairy allergen",
           "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "About 348 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1196,7 +1270,8 @@
           "vite": 0.02,
           "vitd": 1,
           "vitk": 0.1,
-          "kcal": 43
+          "kcal": 43,
+          "na": 40
         }
       },
       "perServing": {
@@ -1205,6 +1280,7 @@
         "fatG": 2.5,
         "carbohydrateG": 11.6,
         "fiberG": 0.0,
+        "sodiumMg": 97,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -1255,12 +1331,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1273,7 +1358,7 @@
         "whatItOffers": "Half a cup of whole-milk ricotta, a soft, mild fresh cheese, gives calcium (about 26% of the reference), vitamin A and vitamin B12 with about 9 g of protein.",
         "practicalServing": "½ cup (USDA: 0.5 cup = 124 g)",
         "howToEatIt": "Spread on toast with honey or fruit, fold into pasta and lasagne, or mix into pancakes and baking.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Half a cup supplies about 255 mg, about 26% of that."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Half a cup supplies about 255 mg, about 26% of that. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 170851,
@@ -1300,7 +1385,8 @@
           "vite": 0.11,
           "vitd": 0.2,
           "vitk": 1.1,
-          "kcal": 150
+          "kcal": 150,
+          "na": 110
         }
       },
       "perServing": {
@@ -1309,6 +1395,7 @@
         "fatG": 12.6,
         "carbohydrateG": 9.0,
         "fiberG": 0.0,
+        "sodiumMg": 136,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1359,12 +1446,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "The FDA advises people at greater risk of foodborne illness (for example during pregnancy) to avoid cheese made from unpasteurised milk, and queso fresco-type cheeses even when pasteurised. Check the label for pasteurised milk.",
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+        },
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1404,7 +1504,8 @@
           "vite": 0.18,
           "vitd": 0.4,
           "vitk": 1.8,
-          "kcal": 264
+          "kcal": 264,
+          "na": 459
         }
       },
       "perServing": {
@@ -1413,6 +1514,7 @@
         "fatG": 6.0,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 130,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -1435,12 +1537,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "The FDA advises people at greater risk of foodborne illness (for example during pregnancy) to avoid cheese made from unpasteurised milk, and queso fresco-type cheeses even when pasteurised. Check the label for pasteurised milk.",
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+        },
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1480,7 +1595,8 @@
           "vite": 0.01,
           "vitd": 0,
           "vitk": 0,
-          "kcal": 97
+          "kcal": 97,
+          "na": 35
         }
       },
       "perServing": {
@@ -1489,6 +1605,7 @@
         "fatG": 8.5,
         "carbohydrateG": 6.8,
         "fiberG": 0.0,
+        "sodiumMg": 60,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1539,6 +1656,10 @@
           }
         ]
       },
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Dairy allergen",
@@ -1562,7 +1683,7 @@
         "whatItOffers": "An ounce of whole-milk mozzarella gives about 6 g of protein, calcium (about 14% of the reference) and vitamin B12 for about 85 calories.",
         "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Melt on pizza and baked pasta, tear fresh mozzarella over tomatoes and basil, or add to sandwiches and salads.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce supplies about 143 mg, about 14% of that."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce supplies about 143 mg, about 14% of that. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 170845,
@@ -1589,7 +1710,8 @@
           "vite": 0.19,
           "vitd": 0.4,
           "vitk": 2.3,
-          "kcal": 299
+          "kcal": 299,
+          "na": 486
         }
       },
       "perServing": {
@@ -1598,6 +1720,7 @@
         "fatG": 6.3,
         "carbohydrateG": 0.7,
         "fiberG": 0.0,
+        "sodiumMg": 138,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1648,12 +1771,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "The FDA advises people at greater risk of foodborne illness (for example during pregnancy) to avoid cheese made from unpasteurised milk, and queso fresco-type cheeses even when pasteurised. Check the label for pasteurised milk.",
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+        },
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1666,7 +1802,7 @@
         "whatItOffers": "A slice of Swiss cheese gives calcium (about 25% of the reference), vitamin B12 and zinc, with about 7.6 g of protein for about 110 calories.",
         "practicalServing": "1 slice, 1 ounce (USDA: 1 slice = 28 g)",
         "howToEatIt": "Melt into sandwiches, quiche and gratins, or slice with fruit and bread.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A slice supplies about 249 mg, about 25% of that."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A slice supplies about 249 mg, about 25% of that. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 171251,
@@ -1693,7 +1829,8 @@
           "vite": 0.6,
           "vitd": 0,
           "vitk": 1.4,
-          "kcal": 393
+          "kcal": 393,
+          "na": 187
         }
       },
       "perServing": {
@@ -1702,6 +1839,7 @@
         "fatG": 8.7,
         "carbohydrateG": 0.4,
         "fiberG": 0.0,
+        "sodiumMg": 52,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1752,12 +1890,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1797,7 +1944,8 @@
           "vite": 0.01,
           "vitd": 0,
           "vitk": 29.3,
-          "kcal": 198
+          "kcal": 198,
+          "na": 3730.0
         }
       },
       "perServing": {
@@ -1806,6 +1954,7 @@
         "fatG": 1.0,
         "carbohydrateG": 4.3,
         "fiberG": 0.9,
+        "sodiumMg": 634,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1823,14 +1972,23 @@
           }
         ]
       },
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
-          "text": "High in salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "text": "High in salt. About 634 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)"
         },
         {
           "text": "Soy allergen",
           "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1877,7 +2035,8 @@
           "vite": 0.14,
           "vitd": 0,
           "vitk": 13,
-          "kcal": 19
+          "kcal": 19,
+          "na": 661
         }
       },
       "perServing": {
@@ -1886,6 +2045,7 @@
         "fatG": 0.1,
         "carbohydrateG": 3.0,
         "fiberG": 2.1,
+        "sodiumMg": 469,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -1917,10 +2077,12 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
-          "text": "High in salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "text": "High in salt. About 469 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1967,7 +2129,8 @@
           "vite": 0.03,
           "vitd": 0,
           "vitk": 17.3,
-          "kcal": 12
+          "kcal": 12,
+          "na": 809
         }
       },
       "perServing": {
@@ -1976,6 +2139,7 @@
         "fatG": 0.1,
         "carbohydrateG": 0.8,
         "fiberG": 0.4,
+        "sodiumMg": 283,
         "keyNutrients": [
           {
             "name": "Calcium",
@@ -2007,6 +2171,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "High in salt",
@@ -2057,7 +2223,8 @@
           "vite": 0.11,
           "vitd": 0,
           "vitk": 43.6,
-          "kcal": 15
+          "kcal": 15,
+          "na": 498
         }
       },
       "perServing": {
@@ -2066,6 +2233,7 @@
         "fatG": 0.4,
         "carbohydrateG": 1.8,
         "fiberG": 1.2,
+        "sodiumMg": 374,
         "keyNutrients": [
           {
             "name": "Iron",
@@ -2103,14 +2271,19 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [
+        "fish",
+        "shellfish"
+      ],
       "cautions": [
         {
           "text": "Check the label for fish sauce or shrimp, and for vegetarian or vegan status",
           "source": "Existing MoonCycle catalogue caution (no external source recorded)"
         },
         {
-          "text": "High in salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "text": "High in salt. About 374 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",

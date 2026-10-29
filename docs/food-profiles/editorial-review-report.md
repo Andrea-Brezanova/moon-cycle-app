@@ -205,68 +205,117 @@ Generated from the researcher notes attached to each draft. A food can appear un
 
 ## Cautions carried over from the catalogue without an external source
 
-60 drafts contain at least one catalogue caution whose source is "Existing MoonCycle catalogue caution (no external source recorded)". They are kept (the app shows a profile's cautions instead of the catalogue's) but need a source or an editorial decision.
+109 drafts contain at least one catalogue caution whose source is "Existing MoonCycle catalogue caution (no external source recorded)". They are kept (the app shows a profile's cautions instead of the catalogue's) but need a source or an editorial decision.
 
 - Almond (`almond`): Tree-nut allergen
+- Almond milk (`almond-milk`): Tree-nut allergen
+- Anchovies (`anchovies`): Fish allergen
+- Bagel (`bagel`): Contains gluten
 - Barley (`barley`): Contains gluten
 - Brazil nut (`brazil-nut`): Limit to 1–2 nuts a day; Tree-nut allergen
 - Brown rice (`brown-rice`): Vary grains (arsenic in rice)
+- Bulgur (`bulgur`): Contains gluten
+- Butter (`butter`): Dairy allergen
+- Canned salmon (`canned-salmon`): Fish allergen
+- Canned tuna (`canned-tuna`): Fish allergen
 - Cantaloupe (`cantaloupe`): Wash the rind before cutting
 - Cashew (`cashew`): Tree-nut allergen
 - Catfish (`catfish`): Fish allergen
 - Celery (`celery`): Celery allergen (EU)
 - Chard (`chard`): High in oxalate
+- Cheddar cheese (`cheddar`): Dairy allergen
 - Chestnut (`chestnut`): Tree-nut allergen
 - Chia seeds (`chia-seeds`): Soak before eating: dry seeds swell when wet
+- Chocolate (`chocolate`): Dairy allergen; Soy allergen
 - Clam (`clam`): Mollusc allergen
+- Coconut (`coconut`): Tree-nut allergen
 - Cod (`cod`): Fish allergen
 - Cottage cheese (`cottage-cheese`): Dairy allergen
+- Couscous (`couscous`): Contains gluten
 - Crab (`crab`): Crustacean allergen
+- Cream cheese (`cream-cheese`): Dairy allergen
 - Edamame (`edamame`): Soy allergen
+- Egg noodles (`egg-noodles`): Egg allergen; Contains gluten
 - Eggs (`eggs`): Egg allergen
+- Farro (`farro`): Contains gluten
+- Feta (`feta`): Dairy allergen
 - Flounder (`flounder`): Fish allergen
+- Goat cheese (`goat-cheese`): Dairy allergen
+- Granola (`granola`): Contains gluten; Tree-nut allergen
 - Greek yogurt (`greek-yogurt`): Dairy allergen
+- Haddock (`haddock`): Fish allergen
 - Halibut (`halibut`): Fish allergen
+- Hazelnuts (`hazelnuts`): Tree-nut allergen
+- Heavy cream (`heavy-cream`): Dairy allergen
+- Herring (`herring`): Fish allergen
 - Hickory (`hickory`): Tree-nut allergen
+- Hummus (`hummus`): Sesame allergen
+- Kefir (`kefir`): Dairy allergen
 - Kelp (`kelp`): Can exceed the safe iodine limit; Thyroid conditions: check with a doctor
 - Ketchup (`ketchup`): High in sugar and salt
 - Kidney bean (`kidney-bean`): Dried beans: boil hard for 10 minutes; don't slow-cook from raw
-- Kimchi (`kimchi`): Check the label for fish sauce or shrimp, and for vegetarian or vegan status; High in salt
+- Kimchi (`kimchi`): Check the label for fish sauce or shrimp, and for vegetarian or vegan status
 - Kiwi (`kiwi`): Kiwi can cause allergic reactions; people with latex allergy may also react.
 - Lima bean (`lima-bean`): Always cook thoroughly
 - Lobster (`lobster`): Crustacean allergen
-- Miso (`miso`): High in salt; Soy allergen
+- Macadamia nuts (`macadamia-nuts`): Tree-nut allergen
+- Mackerel (`mackerel`): Fish allergen
+- Milk (`milk`): Dairy allergen
+- Miso (`miso`): Soy allergen; Contains gluten
+- Mixed nuts (`mixed-nuts`): Peanut allergen; Tree-nut allergen
+- Mozzarella (`mozzarella`): Dairy allergen
 - Mung bean (`mung-bean`): Raw sprouts: food-safety risk
 - Mussel (`mussel`): Mollusc allergen
+- Naan (`naan`): Dairy allergen; Contains gluten
 - Nut butter (`nut-butter`): Tree-nut or peanut allergen, depending on type
 - Oat (`oat`): Choose certified gluten-free oats if avoiding gluten.
 - Oat bran (`oat-bran`): Choose certified gluten-free oats if avoiding gluten.
 - Octopus (`octopus`): Mollusc allergen
 - Olives (`olives`): High in salt
 - Oyster (`oyster`): Mollusc allergen; Raw oysters: food-safety risk
+- Parmesan (`parmesan`): Dairy allergen
+- Pasta (`pasta`): Contains gluten
+- Peanuts (`peanuts`): Peanut allergen
 - Pecan (`pecan`): Tree-nut allergen
 - Pickles (`pickles`): High in salt
 - Pine nut (`pine-nut`): Tree-nut allergen
 - Pistachio (`pistachio`): Tree-nut allergen
+- Pita bread (whole-wheat) (`pita-bread`): Contains gluten
+- Plain yogurt (`plain-yogurt`): Dairy allergen
+- Pollock (`pollock`): Fish allergen
+- Snapper (`red-snapper`): Fish allergen
 - Rhubarb (`rhubarb`): Leaves are poisonous: stalks only
+- Ricotta (`ricotta`): Dairy allergen
 - Rye (`rye`): Contains gluten
+- Rye bread (`rye-bread`): Contains gluten
 - Salmon (`salmon`): Fish allergen
 - Sardine (`sardine`): Fish allergen
-- Sauerkraut (`sauerkraut`): High in salt
 - Scallop (`scallop`): Mollusc allergen
+- Sea bass (`sea-bass`): Fish allergen
 - Sesame seeds (`sesame-seeds`): Sesame allergen
 - Shrimp (`shrimp`): Crustacean allergen
+- Smoked salmon (`smoked-salmon`): Fish allergen
+- Soba noodles (`soba-noodles`): Contains gluten
+- Sour cream (`sour-cream`): Dairy allergen
+- Sourdough bread (`sourdough-bread`): Contains gluten
+- Soy milk (`soy-milk`): Soy allergen
 - Spirulina (`spirulina`): Contamination risk: tested brands only; Pregnancy or autoimmune conditions: check with doctor
 - Squid (`squid`): Mollusc allergen
-- Tamari (`tamari`): Check gluten-free label; High in salt; Soy allergen
+- Swiss cheese (`swiss-cheese`): Dairy allergen
+- Tahini (`tahini`): Sesame allergen
+- Tamari (`tamari`): Check gluten-free label; Soy allergen
 - Tempeh (`tempeh`): Soy allergen; Check the label for gluten-containing grains
+- Tilapia (`tilapia`): Fish allergen
 - Tofu (`tofu`): Soy allergen
+- Tortillas (wheat) (`tortillas`): Contains gluten
 - Trout (`trout`): Fish allergen
 - Tuna (`tuna`): Fish allergen; Mercury: prefer light/skipjack
 - Wakame (`wakame`): Iodine: normal portions
 - Walnut (`walnut`): Tree-nut allergen
 - Wheat (`wheat`): Contains gluten
+- Wheat flour (whole-grain) (`wheat-flour`): Contains gluten
 - Whole-grain bread (`whole-grain-bread`): Contains wheat (gluten); Check the label for soy, dairy or sesame
+- Whole-wheat pasta (`whole-wheat-pasta`): Contains gluten
 
 ## Blocked
 

@@ -1,0 +1,743 @@
+{
+ "adzuki-bean": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "almond": [
+  "cycle-relevance wording"
+ ],
+ "almond-milk": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "amaranth": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "anchovies": [
+  "sodium note added",
+  "allergen line added"
+ ],
+ "apple": [
+  "cycle-relevance wording"
+ ],
+ "avocado": [
+  "cycle-relevance wording"
+ ],
+ "avocado-oil": [
+  "cycle-relevance wording"
+ ],
+ "bacon": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "bagel": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added",
+  "allergen line added"
+ ],
+ "baked-beans": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "banana": [
+  "cycle-relevance wording"
+ ],
+ "basil": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "bean-sprouts": [
+  "sourced safety caution added"
+ ],
+ "beef": [
+  "cycle-relevance wording"
+ ],
+ "beets": [
+  "cycle-relevance wording"
+ ],
+ "black-eyed-pea": [
+  "cycle-relevance wording"
+ ],
+ "black-turtle-bean": [
+  "cycle-relevance wording"
+ ],
+ "blueberry": [
+  "cycle-relevance wording"
+ ],
+ "bok-choy": [
+  "cycle-relevance wording"
+ ],
+ "brown-rice": [
+  "cycle-relevance wording"
+ ],
+ "bulgur": [
+  "allergen line added"
+ ],
+ "burdock": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "butter": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "cabbage": [
+  "cycle-relevance wording"
+ ],
+ "canned-salmon": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "canned-tomatoes": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "canned-tuna": [
+  "allergen line added"
+ ],
+ "carrot": [
+  "cycle-relevance wording"
+ ],
+ "cashew": [
+  "cycle-relevance wording"
+ ],
+ "catfish": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "cauliflower": [
+  "cycle-relevance wording"
+ ],
+ "celeriac": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "chard": [
+  "cycle-relevance wording"
+ ],
+ "cheddar": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "chestnut": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "chia-seeds": [
+  "cycle-relevance wording"
+ ],
+ "chickpea": [
+  "cycle-relevance wording"
+ ],
+ "chicory": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "chili-pepper": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "chive": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "chocolate": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "cilantro": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "clam": [
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "coconut": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "coconut-oil": [
+  "cycle-relevance wording"
+ ],
+ "concord-grape": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "corn": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "cottage-cheese": [
+  "sodium note added"
+ ],
+ "couscous": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "crab": [
+  "sodium note added"
+ ],
+ "cranberry": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "cream-cheese": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "cucumber": [
+  "cycle-relevance wording",
+  "serving wording"
+ ],
+ "daikon": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "dandelion": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "date": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "dill": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "dried-apricots": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "duck": [
+  "offers wording",
+  "cycle-relevance wording",
+  "serving wording"
+ ],
+ "egg-noodles": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "eggplant": [
+  "cycle-relevance wording"
+ ],
+ "endive": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "escarole": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "farro": [
+  "allergen line added"
+ ],
+ "fava-beans": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sourced safety caution added"
+ ],
+ "fennel": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "feta": [
+  "cycle-relevance wording",
+  "sourced safety caution added",
+  "allergen line added"
+ ],
+ "flaxseeds": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "garlic": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "ginger": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "goat-cheese": [
+  "sourced safety caution added",
+  "allergen line added"
+ ],
+ "granola": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "grapes": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "great-northern-bean": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "green-pea": [
+  "cycle-relevance wording"
+ ],
+ "guava": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "haddock": [
+  "allergen line added"
+ ],
+ "ham": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sourced safety caution added",
+  "sodium note added"
+ ],
+ "hazelnuts": [
+  "allergen line added"
+ ],
+ "heavy-cream": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "hemp-seeds": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "herring": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "hickory": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "honey": [
+  "cycle-relevance wording",
+  "sourced safety caution added"
+ ],
+ "hummus": [
+  "allergen line added"
+ ],
+ "kale": [
+  "cycle-relevance wording"
+ ],
+ "kefir": [
+  "allergen line added"
+ ],
+ "kelp": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sourced safety caution added"
+ ],
+ "ketchup": [
+  "cycle-relevance wording"
+ ],
+ "kidney-bean": [
+  "cycle-relevance wording"
+ ],
+ "kimchi": [
+  "sodium note added"
+ ],
+ "kohlrabi": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "lamb": [
+  "cycle-relevance wording"
+ ],
+ "leek": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "lemon": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "lima-bean": [
+  "cycle-relevance wording"
+ ],
+ "lime": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "lobster": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "lychee": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "macadamia-nuts": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "mackerel": [
+  "allergen line added"
+ ],
+ "maple-syrup": [
+  "cycle-relevance wording"
+ ],
+ "milk": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "millet": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "mint": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "miso": [
+  "sodium note added",
+  "allergen line added"
+ ],
+ "mixed-nuts": [
+  "allergen line added"
+ ],
+ "mozzarella": [
+  "cycle-relevance wording",
+  "sourced safety caution added",
+  "allergen line added"
+ ],
+ "mung-bean": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "mushrooms": [
+  "cycle-relevance wording"
+ ],
+ "mussel": [
+  "cycle-relevance wording"
+ ],
+ "mustard-greens": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "naan": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added",
+  "allergen line added"
+ ],
+ "navy-bean": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "oat": [
+  "cycle-relevance wording"
+ ],
+ "octopus": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "okra": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "olive-oil": [
+  "cycle-relevance wording"
+ ],
+ "olives": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "onion": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "parmesan": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "parsley": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pasta": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "peanuts": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "peppermint": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "persimmon": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pine-nut": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pinto-beans": [
+  "cycle-relevance wording"
+ ],
+ "pita-bread": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "plain-yogurt": [
+  "allergen line added"
+ ],
+ "plantain": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "polenta": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pollock": [
+  "allergen line added"
+ ],
+ "popcorn": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pork": [
+  "cycle-relevance wording"
+ ],
+ "prunes": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "pumpkin": [
+  "cycle-relevance wording"
+ ],
+ "quinoa": [
+  "cycle-relevance wording"
+ ],
+ "radicchio": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "raisin": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "red-bell-pepper": [
+  "cycle-relevance wording"
+ ],
+ "red-lentil": [
+  "cycle-relevance wording"
+ ],
+ "red-snapper": [
+  "allergen line added"
+ ],
+ "rhubarb": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "rice-cakes": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "rice-noodles": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "ricotta": [
+  "cycle-relevance wording",
+  "sourced safety caution added",
+  "allergen line added"
+ ],
+ "rye": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "rye-bread": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "salsa": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "sardine": [
+  "cycle-relevance wording"
+ ],
+ "sauerkraut": [
+  "sodium note added"
+ ],
+ "scallion": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "scallop": [
+  "sodium note added"
+ ],
+ "sea-bass": [
+  "allergen line added"
+ ],
+ "shallot": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "shrimp": [
+  "sodium note added"
+ ],
+ "smoked-salmon": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sourced safety caution added",
+  "sodium note added",
+  "allergen line added"
+ ],
+ "soba-noodles": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "sour-cherry": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "sour-cream": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "sourdough-bread": [
+  "offers wording",
+  "cycle-relevance wording",
+  "serving wording",
+  "allergen line added"
+ ],
+ "soy-milk": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "spirulina": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "split-pea": [
+  "cycle-relevance wording"
+ ],
+ "squid": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "strawberry": [
+  "cycle-relevance wording"
+ ],
+ "string-bean": [
+  "cycle-relevance wording"
+ ],
+ "sweet-potato": [
+  "cycle-relevance wording"
+ ],
+ "swiss-cheese": [
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "tahini": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "tamari": [
+  "cycle-relevance wording",
+  "sodium note added"
+ ],
+ "tempeh": [
+  "cycle-relevance wording"
+ ],
+ "tilapia": [
+  "allergen line added"
+ ],
+ "tofu": [
+  "cycle-relevance wording"
+ ],
+ "tomato": [
+  "cycle-relevance wording"
+ ],
+ "tomato-paste": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "tortillas": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sodium note added",
+  "allergen line added"
+ ],
+ "trout": [
+  "cycle-relevance wording"
+ ],
+ "tuna": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "turmeric": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "vinegar": [
+  "cycle-relevance wording"
+ ],
+ "wakame": [
+  "offers wording",
+  "cycle-relevance wording",
+  "sourced safety caution added"
+ ],
+ "walnut": [
+  "cycle-relevance wording"
+ ],
+ "water-chestnut": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "watercress": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "watermelon": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "wheat": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "wheat-flour": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ],
+ "white-beans": [
+  "cycle-relevance wording"
+ ],
+ "white-rice": [
+  "offers wording",
+  "cycle-relevance wording"
+ ],
+ "whole-wheat-pasta": [
+  "offers wording",
+  "cycle-relevance wording",
+  "allergen line added"
+ ]
+}

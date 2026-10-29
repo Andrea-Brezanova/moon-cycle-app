@@ -14,7 +14,7 @@
         "whatItOffers": "Kale is a sturdy leafy green that is a good source of vitamin C and vitamin A, with plenty of vitamin K and fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 118 g)",
         "howToEatIt": "Simmer it in soups and stews, sauté with garlic, or massage raw leaves with a little oil and lemon for a salad. Stems are tougher: slice them thinly or cook them longer.",
-        "cycleRelevance": "This profile makes no claim linking kale to a cycle phase or to period symptoms; it is here as one source of vitamin C, vitamin A and vitamin K, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for kale."
       },
       "source": {
         "usdaFdcId": 169238,
@@ -37,7 +37,8 @@
           "vitc": 17.8,
           "folate": 65,
           "vita": 146,
-          "vitk": 418
+          "vitk": 418,
+          "na": 16
         }
       },
       "perServing": {
@@ -46,6 +47,7 @@
         "fatG": 0.7,
         "carbohydrateG": 3.1,
         "fiberG": 2.4,
+        "sodiumMg": 9,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -97,6 +99,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Very high vitamin K: keep intake consistent if taking warfarin",
@@ -120,7 +124,7 @@
         "whatItOffers": "Sweet potato is a soft, naturally sweet root that is an excellent source of vitamin A (as beta-carotene) and gives potassium, vitamin C and fibre.",
         "practicalServing": "½ cup mashed or cubed, baked flesh (USDA: 1 cup = 200 g)",
         "howToEatIt": "Bake whole until soft, then eat with the skin or mash the flesh; roast in wedges; or add cubes to curries and soups.",
-        "cycleRelevance": "This profile makes no claim linking sweet potato to a cycle phase or to period symptoms; it is here as one source of vitamin A, potassium and vitamin C, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for sweet potato."
       },
       "source": {
         "usdaFdcId": 168483,
@@ -143,7 +147,8 @@
           "vitc": 19.6,
           "folate": 6,
           "vita": 961,
-          "vitk": 2.3
+          "vitk": 2.3,
+          "na": 36
         }
       },
       "perServing": {
@@ -152,6 +157,7 @@
         "fatG": 0.2,
         "carbohydrateG": 20.7,
         "fiberG": 3.3,
+        "sodiumMg": 36,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -218,6 +224,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -236,7 +244,7 @@
         "whatItOffers": "Beets are a sweet, earthy root vegetable with folate and potassium.",
         "practicalServing": "½ cup sliced, cooked (USDA: 0.5 cup = 85 g)",
         "howToEatIt": "Roast or boil until tender, then slice into salads, blend into soups or dips, or grate raw into slaws.",
-        "cycleRelevance": "This profile makes no claim linking beets to a cycle phase or to period symptoms; it is here as one source of folate and potassium, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for beets."
       },
       "source": {
         "usdaFdcId": 169146,
@@ -259,7 +267,8 @@
           "vitc": 3.6,
           "folate": 80,
           "vita": 2,
-          "vitk": 0.2
+          "vitk": 0.2,
+          "na": 77
         }
       },
       "perServing": {
@@ -268,6 +277,7 @@
         "fatG": 0.2,
         "carbohydrateG": 8.5,
         "fiberG": 1.7,
+        "sodiumMg": 65,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -299,6 +309,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -317,7 +329,7 @@
         "whatItOffers": "Carrots are a crunchy, sweet root vegetable and a rich source of vitamin A (from beta-carotene), with some potassium and fibre.",
         "practicalServing": "1 medium carrot (USDA: 1 medium = 61 g)",
         "howToEatIt": "Eat raw as sticks or grated, roast with olive oil, or simmer into soups and stews. Cooking with a little fat helps your body absorb the beta-carotene.",
-        "cycleRelevance": "This profile makes no claim linking carrot to a cycle phase or to period symptoms; it is here as one source of vitamin A and potassium, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for carrot."
       },
       "source": {
         "usdaFdcId": 170393,
@@ -340,7 +352,8 @@
           "vitc": 5.9,
           "folate": 19,
           "vita": 835,
-          "vitk": 13.2
+          "vitk": 13.2,
+          "na": 69
         }
       },
       "perServing": {
@@ -349,6 +362,7 @@
         "fatG": 0.1,
         "carbohydrateG": 5.8,
         "fiberG": 1.7,
+        "sodiumMg": 42,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -380,6 +394,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -398,7 +414,7 @@
         "whatItOffers": "Chickpeas are a filling pulse with plant protein, fibre, folate, iron and zinc.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 164 g)",
         "howToEatIt": "Add to soups, curries and salads, roast until crisp, or blend into hummus. Serve with a vitamin C food such as peppers or lemon: it helps your body absorb plant iron.",
-        "cycleRelevance": "This profile makes no claim linking chickpea to a cycle phase or to period symptoms; it is here as one source of folate, iron and zinc, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for chickpea."
       },
       "source": {
         "usdaFdcId": 173757,
@@ -421,7 +437,8 @@
           "vitc": 1.3,
           "folate": 172,
           "vita": 1,
-          "vitk": 4
+          "vitk": 4,
+          "na": 7
         }
       },
       "perServing": {
@@ -430,6 +447,7 @@
         "fatG": 2.1,
         "carbohydrateG": 22.5,
         "fiberG": 6.2,
+        "sodiumMg": 6,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -496,6 +514,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -514,7 +534,7 @@
         "whatItOffers": "Quinoa is a seed cooked like a grain. It gives plant protein, magnesium, folate, iron and zinc, and it is naturally gluten free.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 185 g)",
         "howToEatIt": "Rinse, then simmer in about twice its volume of water until the little rings appear. Use as a base for bowls, stir into soups, or serve warm with vegetables.",
-        "cycleRelevance": "This profile makes no claim linking quinoa to a cycle phase or to period symptoms; it is here as one source of magnesium, folate and iron, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for quinoa."
       },
       "source": {
         "usdaFdcId": 168917,
@@ -537,7 +557,8 @@
           "vitc": 0,
           "folate": 42,
           "vita": 0,
-          "vitk": 0
+          "vitk": 0,
+          "na": 7
         }
       },
       "perServing": {
@@ -546,6 +567,7 @@
         "fatG": 1.8,
         "carbohydrateG": 19.7,
         "fiberG": 2.6,
+        "sodiumMg": 6,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -612,6 +634,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -630,7 +654,7 @@
         "whatItOffers": "Almonds are a crunchy tree nut with plant protein, fibre, magnesium, iron and zinc. They are energy dense, so a small handful goes a long way.",
         "practicalServing": "30 g (USDA reference amount), a small handful",
         "howToEatIt": "Eat as a snack, chop over porridge or salads, or blend into nut butter. Soak and peel for a milder taste in sauces.",
-        "cycleRelevance": "This profile makes no claim linking almond to a cycle phase or to period symptoms; it is here as one source of magnesium, iron and zinc, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for almond."
       },
       "source": {
         "usdaFdcId": 2346393,
@@ -650,7 +674,8 @@
           "mg": 258,
           "k": 733,
           "zn": 2.86,
-          "vitk": 0
+          "vitk": 0,
+          "na": 0
         }
       },
       "perServing": {
@@ -659,6 +684,7 @@
         "fatG": 15.3,
         "carbohydrateG": 6.0,
         "fiberG": 3.2,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -711,6 +737,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut allergen",
@@ -735,10 +765,10 @@
       "catalogueId": "flaxseeds",
       "name": "Flaxseeds",
       "sections": {
-        "whatItOffers": "Flaxseeds are tiny seeds rich in fibre and healthy fats, with magnesium, iron and zinc. They are eaten in small amounts, which is why the serving is a spoonful.",
+        "whatItOffers": "Flaxseeds are tiny seeds rich in fibre and fats, with magnesium, iron and zinc. They are eaten in small amounts, which is why the serving is a spoonful.",
         "practicalServing": "1 tablespoon ground (USDA: 1 tbsp, ground = 7 g)",
         "howToEatIt": "Grind just before use (whole seeds often pass through undigested), then stir into porridge, yoghurt or smoothies, or mix into batters and bread. Keep ground seed in the fridge.",
-        "cycleRelevance": "This profile makes no claim linking flaxseeds to a cycle phase or to period symptoms; it is here as one source of fibre, magnesium and iron, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for flaxseeds."
       },
       "source": {
         "usdaFdcId": 169414,
@@ -761,7 +791,8 @@
           "vitc": 0.6,
           "folate": 87,
           "vita": 0,
-          "vitk": 4.3
+          "vitk": 4.3,
+          "na": 30
         }
       },
       "perServing": {
@@ -770,6 +801,7 @@
         "fatG": 3.0,
         "carbohydrateG": 2.0,
         "fiberG": 1.9,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -822,6 +854,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -840,7 +874,7 @@
         "whatItOffers": "Blueberries are small, sweet berries with vitamin C and a little potassium. They are low in fat and easy to eat as they are.",
         "practicalServing": "140 g (USDA reference amount), about a generous handful",
         "howToEatIt": "Eat fresh, stir into yoghurt or porridge, blend into smoothies, or bake into muffins and pancakes. Frozen berries work well in cooking and smoothies.",
-        "cycleRelevance": "This profile makes no claim linking blueberry to a cycle phase or to period symptoms; it is here as one source of vitamin C, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for blueberry."
       },
       "source": {
         "usdaFdcId": 2346411,
@@ -859,7 +893,8 @@
           "mg": 6.2,
           "k": 86,
           "zn": 0.09,
-          "vitc": 8.1
+          "vitc": 8.1,
+          "na": 0
         }
       },
       "perServing": {
@@ -868,6 +903,7 @@
         "fatG": 0.4,
         "carbohydrateG": 20.4,
         "fiberG": null,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -899,6 +935,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -917,7 +955,7 @@
         "whatItOffers": "Tomatoes are juicy, low-energy fruits eaten as vegetables, with vitamin C and potassium.",
         "practicalServing": "1 medium whole tomato (USDA: 1 medium = 123 g)",
         "howToEatIt": "Slice into salads and sandwiches, roast until sweet, simmer into sauces and soups, or eat cherry tomatoes whole. A drizzle of olive oil suits them.",
-        "cycleRelevance": "This profile makes no claim linking tomato to a cycle phase or to period symptoms; it is here as one source of vitamin C and potassium, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for tomato."
       },
       "source": {
         "usdaFdcId": 170457,
@@ -940,7 +978,8 @@
           "vitc": 13.7,
           "folate": 15,
           "vita": 42,
-          "vitk": 7.9
+          "vitk": 7.9,
+          "na": 5
         }
       },
       "perServing": {
@@ -949,6 +988,7 @@
         "fatG": 0.2,
         "carbohydrateG": 4.8,
         "fiberG": 1.5,
+        "sodiumMg": 6,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -994,6 +1034,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -1012,7 +1054,7 @@
         "whatItOffers": "Rolled oats are a whole grain with fibre (including beta-glucan), plant protein, magnesium, iron and zinc. Amounts here are for the dry oats, before cooking.",
         "practicalServing": "40 g dry rolled oats (USDA reference amount) before cooking",
         "howToEatIt": "Simmer into porridge with milk or water, soak overnight, or add to baking, pancakes and granola. Top with fruit and nuts or seeds.",
-        "cycleRelevance": "This profile makes no claim linking oat to a cycle phase or to period symptoms; it is here as one source of magnesium, iron and zinc, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for oat."
       },
       "source": {
         "usdaFdcId": 2346396,
@@ -1030,7 +1072,8 @@
           "iron": 4.34,
           "mg": 126,
           "k": 350,
-          "zn": 2.74
+          "zn": 2.74,
+          "na": 1
         }
       },
       "perServing": {
@@ -1039,6 +1082,7 @@
         "fatG": 2.4,
         "carbohydrateG": 27.5,
         "fiberG": null,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1091,6 +1135,10 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [
+        "gluten"
+      ],
       "cautions": [
         {
           "text": "Choose certified gluten-free oats if avoiding gluten.",
@@ -1114,7 +1162,7 @@
         "whatItOffers": "Chia seeds are tiny seeds that swell and turn gel-like in liquid. They are very high in fibre and give magnesium, iron and zinc.",
         "practicalServing": "1 ounce (28 g) of seeds (USDA: 1 oz = 28.35 g), about two tablespoons",
         "howToEatIt": "Stir into yoghurt, porridge or smoothies, or soak in milk for a pudding. Because they absorb liquid, soak them first rather than eating a spoonful dry, and drink water with them.",
-        "cycleRelevance": "This profile makes no claim linking chia seeds to a cycle phase or to period symptoms; it is here as one source of fibre, magnesium and iron, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for chia seeds."
       },
       "source": {
         "usdaFdcId": 170554,
@@ -1134,7 +1182,8 @@
           "mg": 335,
           "k": 407,
           "zn": 4.58,
-          "vitc": 1.6
+          "vitc": 1.6,
+          "na": 16
         }
       },
       "perServing": {
@@ -1143,6 +1192,7 @@
         "fatG": 8.7,
         "carbohydrateG": 11.9,
         "fiberG": 9.8,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1195,6 +1245,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Soak before eating: dry seeds swell when wet",

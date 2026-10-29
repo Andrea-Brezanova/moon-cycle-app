@@ -176,4 +176,301 @@ void main() {
       });
     });
   }
+
+  group('audit regression checks (all drafts together)', () {
+    final all = <String, Map<String, Object?>>{
+      for (final f in files)
+        ...((jsonDecode(f.readAsStringSync()) as Map)['profiles'] as Map)
+            .cast<String, Map<String, Object?>>(),
+    };
+    final catalogue = {
+      for (final f
+          in (jsonDecode(File('assets/content/foods.json').readAsStringSync())
+                  as Map)['foods']
+              as List)
+        (f as Map)['id'] as String: f,
+    };
+    Map<String, Object?> src(String id) =>
+        all[id]!['source']! as Map<String, Object?>;
+
+    test('every draft cites its USDA record, preparation and serving', () {
+      final ids = <int>{};
+      for (final id in all.keys) {
+        final s = src(id);
+        expect(s['usdaFdcId'], isA<int>(), reason: id);
+        expect(
+          ids.add(s['usdaFdcId']! as int),
+          isTrue,
+          reason: '$id reuses an FDC id',
+        );
+        for (final k in [
+          'usdaDescription',
+          'dataType',
+          'published',
+          'preparationState',
+          'portion',
+        ]) {
+          expect((s[k] as String?)?.trim(), isNotEmpty, reason: '$id $k');
+        }
+        expect(
+          ['SR Legacy', 'Foundation'],
+          contains(s['dataType']),
+          reason: id,
+        );
+        expect(s['portionGrams'] as num, greaterThan(0), reason: id);
+        expect(
+          (all[id]!['sections']! as Map)['practicalServing'],
+          s['portion'],
+          reason: '$id serving text must match the source portion',
+        );
+      }
+    });
+
+    test('the preparation named matches the USDA description', () {
+      // Raw foods must say raw and cooked foods cooked: a profile must never
+      // describe a raw record as cooked, or the other way round.
+      for (final id in all.keys) {
+        final desc = (src(id)['usdaDescription']! as String).toLowerCase();
+        final state = (src(id)['preparationState']! as String).toLowerCase();
+        for (final w in [
+          'raw',
+          'cooked',
+          'canned',
+          'roasted',
+          'baked',
+          'boiled',
+          'steamed',
+          'smoked',
+        ]) {
+          // "baked" in a record name can be a dish (baked beans, canned).
+          if (w == 'baked' && state.contains('canned')) continue;
+          if (RegExp('\\b$w\\b').hasMatch(desc)) {
+            final cooked = RegExp(r'cooked|baked|boiled|roasted|steamed|fried');
+            expect(
+              const {
+                    'cooked',
+                    'baked',
+                    'boiled',
+                    'roasted',
+                    'steamed',
+                  }.contains(w)
+                  ? cooked.hasMatch(state)
+                  : w == 'raw'
+                  ? RegExp(r'raw|dry|uncooked').hasMatch(state)
+                  : state.contains(w),
+              isTrue,
+              reason: '$id: record says "$w", state says "$state"',
+            );
+          }
+        }
+        if (RegExp(r'\braw\b').hasMatch(state)) {
+          // A record that names a cooked or processed state is never raw.
+          expect(
+            RegExp(r'cooked|boiled|roasted|canned|baked|steamed|dried')
+                .hasMatch(desc),
+            isFalse,
+            reason: '$id: state says raw, record "$desc"',
+          );
+        }
+      }
+    });
+
+    test('sodium is recorded and recomputes from the USDA value', () {
+      for (final id in all.keys) {
+        final per100 = (src(id)['per100g']! as Map).cast<String, num>();
+        final serving = all[id]!['perServing']! as Map<String, Object?>;
+        expect(per100, contains('na'), reason: '$id has no sodium value');
+        final grams = (src(id)['portionGrams']! as num).toDouble();
+        expect(serving['sodiumMg'], isNotNull, reason: id);
+        expect(
+          (serving['sodiumMg']! as num).toDouble(),
+          closeTo(per100['na']! * grams / 100, 0.51),
+          reason: '$id sodium',
+        );
+      }
+    });
+
+    test('allergen tags match the catalogue and appear in the cautions', () {
+      const words = {
+        'tree-nut': ['tree-nut', 'tree nut'],
+        'peanut': ['peanut'],
+        'fish': ['fish allergen'],
+        'shellfish': ['crustacean', 'mollusc', 'shellfish'],
+        'gluten': ['gluten', 'wheat'],
+        'dairy': ['dairy'],
+        'soy': ['soy'],
+        'egg': ['egg allergen'],
+        'sesame': ['sesame'],
+      };
+      for (final id in all.keys) {
+        final cat = catalogue[id]!;
+        final p = all[id]!;
+        expect(
+          (p['allergens']! as List).toSet(),
+          (cat['allergens'] as List).toSet(),
+          reason: '$id allergens must equal the catalogue',
+        );
+        expect(
+          (p['mayContainAllergens']! as List).toSet(),
+          ((cat['mayContainAllergens'] as List?) ?? const []).toSet(),
+          reason: '$id may-contain',
+        );
+        final text = (p['cautions']! as List)
+            .map((c) => (c as Map)['text'].toString().toLowerCase())
+            .join(' ');
+        for (final a in (p['allergens']! as List).cast<String>()) {
+          expect(
+            words[a]!.any(text.contains),
+            isTrue,
+            reason: '$id: allergen "$a" is not stated in its cautions',
+          );
+        }
+        // Every catalogue caution is kept.
+        for (final c in (cat['cautions'] as List).cast<String>()) {
+          expect(
+            text,
+            contains(c.toLowerCase()),
+            reason: '$id lost caution "$c"',
+          );
+        }
+      }
+    });
+
+    test('cautions are real: sourced, never placeholders, salty foods say sodium', () {
+      for (final id in all.keys) {
+        final cautions = (all[id]!['cautions']! as List)
+            .cast<Map<String, Object?>>();
+        for (final c in cautions) {
+          expect((c['text'] as String).trim(), isNotEmpty, reason: id);
+          expect((c['source'] as String).trim(), isNotEmpty, reason: id);
+          expect(
+            '${c['text']}${c['source']}',
+            isNot(contains('TBD')),
+            reason: id,
+          );
+        }
+        final serving = all[id]!['perServing']! as Map<String, Object?>;
+        if ((serving['sodiumMg']! as num) >= 345) {
+          expect(
+            cautions.any((c) => (c['text'] as String).contains('mg of sodium')),
+            isTrue,
+            reason:
+                '$id has ${serving['sodiumMg']} mg of sodium and no sodium note',
+          );
+        }
+      }
+    });
+
+    test(
+      'prose has no placeholders, boilerplate, doubled words or unit slips',
+      () {
+        final doubled = RegExp(r'\b(\w{3,})\s+\1\b', caseSensitive: false);
+        for (final id in all.keys) {
+          final sections = (all[id]!['sections']! as Map)
+              .cast<String, String>();
+          for (final MapEntry(key: k, value: t) in sections.entries) {
+            expect(
+              t,
+              isNot(contains('{')),
+              reason: '$id $k has a template slot',
+            );
+            expect(
+              RegExp(r'\b1 calories').hasMatch(t),
+              isFalse,
+              reason: '$id $k',
+            );
+            expect(
+              doubled.hasMatch(t),
+              isFalse,
+              reason: '$id $k repeats a word: $t',
+            );
+            expect(
+              t,
+              isNot(matches(RegExp(r'\s{2,}'))),
+              reason: '$id $k has double spaces',
+            );
+            expect(t.trim(), t, reason: '$id $k has stray whitespace');
+          }
+          final cycle = sections['cycleRelevance']!;
+          expect(
+            cycle.toLowerCase(),
+            isNot(contains('this profile')),
+            reason: id,
+          );
+          expect(
+            cycle.toLowerCase(),
+            isNot(contains('varied diet')),
+            reason: id,
+          );
+          expect(
+            RegExp(r'(cycle-phase|phase-specific) claim').hasMatch(cycle),
+            isTrue,
+            reason: '$id must say no phase claim is made',
+          );
+          // Opening line leads with the food, not the raw USDA record name.
+          final record = src(id)['usdaDescription']! as String;
+          if (record.contains(',')) {
+            expect(
+              sections['whatItOffers'],
+              isNot(contains(record)),
+              reason: id,
+            );
+          }
+        }
+      },
+    );
+
+    test(
+      'no hormone, fertility, PMS, mood or phase-benefit claims anywhere',
+      () {
+        final claim = RegExp(
+          r'hormon|fertil|ovulat|follicular|luteal|premenstrual|\bPMS\b|cramp|'
+          r'\bmood|estrogen|oestrogen|progesterone|testosterone|detox|\bboosts?\b|'
+          r'inflammat|immune|immunity|period (pain|symptoms)|menstrual (phase|pain|symptoms)',
+          caseSensitive: false,
+        );
+        for (final id in all.keys) {
+          final sections = (all[id]!['sections']! as Map)
+              .cast<String, String>();
+          for (final MapEntry(key: k, value: t) in sections.entries) {
+            expect(claim.hasMatch(t), isFalse, reason: '$id $k: $t');
+          }
+          // The only menstrual wording allowed is the sourced iron sentence.
+          final cycle = sections['cycleRelevance']!;
+          if (cycle.toLowerCase().contains('menstrual')) {
+            expect(
+              cycle,
+              contains('menstrual blood loss (NIH ODS)'),
+              reason: id,
+            );
+          }
+        }
+      },
+    );
+
+    test('every blocked food has a complete decision-table entry', () {
+      final blocked = (jsonDecode(
+        File('docs/food-profiles/blocked.json').readAsStringSync(),
+      ) as Map).keys.toSet();
+      final decisions = jsonDecode(
+        File('docs/food-profiles/blocked-decisions.json').readAsStringSync(),
+      ) as Map;
+      expect(decisions.keys.toSet(), blocked);
+      for (final MapEntry(key: id, value: d) in decisions.entries) {
+        for (final k in [
+          'why',
+          'standardNutrientInfo',
+          'alternativeFormat',
+          'keepInCatalogue',
+          'recommendation',
+        ]) {
+          expect(
+            ((d as Map)[k] as String?)?.trim(),
+            isNotEmpty,
+            reason: '$id $k',
+          );
+        }
+      }
+    });
+  });
 }

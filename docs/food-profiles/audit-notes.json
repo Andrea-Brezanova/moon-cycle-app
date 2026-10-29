@@ -1,0 +1,58 @@
+{
+ "identity": {
+  "wheat": "The catalogue says 'Wheat'; the profile uses durum wheat (USDA 'Wheat, durum'). Other wheat differs.",
+  "lettuce": "Catalogue name covers Bibb, Boston and romaine; the USDA record is cos/romaine only.",
+  "mushrooms": "Catalogue name says 'button, shiitake'; the USDA record is white (button) mushrooms only.",
+  "nut-butter": "Catalogue says 'Nut butter'; the USDA record is smooth peanut butter without salt. Almond and other nut butters differ.",
+  "sourdough-bread": "USDA has no sourdough-only record; the record is 'Bread, french or vienna (includes sourdough)'.",
+  "mint": "Catalogue 'Mint' uses the USDA spearmint record; peppermint is a separate profile.",
+  "kefir": "The USDA record is a branded product (Lifeway, lowfat, plain). Other kefir varies.",
+  "tofu": "Calcium depends on the setting agent; the record is firm tofu set with calcium sulfate.",
+  "hummus": "Commercial hummus; salt, oil and tahini vary by brand.",
+  "salsa": "Ready-to-serve salsa with salt; brands vary.",
+  "granola": "The USDA record is homemade granola; commercial products differ.",
+  "shrimp": "The USDA record 'may contain additives to retain moisture', which raises its sodium.",
+  "red-snapper": "Mixed-species USDA record; species differ in mercury.",
+  "sea-bass": "Mixed-species USDA record; species differ in mercury (the caution says so).",
+  "canned-tuna": "Light tuna in water; albacore (white) tuna differs in mercury.",
+  "tuna": "Same USDA record as canned light tuna; consider merging or distinguishing the two entries.",
+  "squash": "'Winter squash, all varieties' average; varieties differ.",
+  "white-potato": "Baked flesh and skin; boiled or fried potato differs."
+ },
+ "servingState": {
+  "oat": "Serving is dry rolled oats; a bowl of porridge has far fewer nutrients per gram.",
+  "farro": "Serving is dry pearled farro.",
+  "rye": "Serving is dry rye grain.",
+  "wheat": "Serving is dry durum wheat.",
+  "polenta": "Serving is dry cornmeal.",
+  "wheat-flour": "Serving is flour, not a baked food.",
+  "red-lentil": "Serving is dry lentils (the text says a cooked portion has about a third of these amounts).",
+  "squid": "USDA record is raw squid; it is eaten cooked, and cooking changes the values."
+ },
+ "unusualValues": {
+  "octopus": "Vitamin B12 of 36 µg per 100 g (about 1,275% of the reference per serving) is the USDA figure; it is an estimated value (no data points). Check against a second source before publishing.",
+  "bagel": "Vitamin E of 7.5 mg per 100 g (about 52% of the reference per serving) is the USDA figure from two data points; unusually high for a plain bagel.",
+  "granola": "Vitamin E of 11.1 mg per 100 g is a USDA estimate (no data points).",
+  "almond-milk": "Vitamin E (111%) comes from fortification (USDA 'Vitamin E, added'); fortification varies by brand.",
+  "olives": "Iron of 6.3 mg per 100 g (one data point) is high for canned olives.",
+  "mint": "Iron of 11.9 mg per 100 g (two data points) is high; fresh herbs are eaten in tiny amounts.",
+  "clam": "USDA sodium for cooked clams is 1,200 mg per 100 g, probably reflecting the cooking medium. A serving shows about 1,020 mg.",
+  "crab": "USDA sodium for cooked Alaska king crab is 1,070 mg per 100 g.",
+  "shrimp": "USDA sodium is 947 mg per 100 g (moisture-retaining additives).",
+  "scallop": "USDA sodium is 667 mg per 100 g for steamed scallops."
+ },
+ "safetyNotResearched": {
+  "white-rice": "Arsenic in rice: only brown rice carries a (unsourced) catalogue caution. FDA guidance on rice and arsenic was not read for this project.",
+  "rice-cakes": "Arsenic in rice products: see white rice.",
+  "rice-noodles": "Arsenic in rice products: see white rice.",
+  "chocolate": "Caffeine and theobromine content is not stated, and no source was read.",
+  "spirulina": "The catalogue cautions (contamination, pregnancy and autoimmune conditions) have no recorded source.",
+  "tuna": "The catalogue mercury caution ('prefer light/skipjack') has no recorded source.",
+  "asparagus": "Vitamin K about 46 µg per serving, below the rule that adds the blood-thinner note (100 µg per 100 g); an editor may want it.",
+  "fennel": "Vitamin K about 55 µg per serving, below the rule that adds the blood-thinner note (100 µg per 100 g); an editor may want it.",
+  "coconut-oil": "No saturated-fat statement is made; an editor may decide whether one is needed.",
+  "butter": "No saturated-fat statement is made; an editor may decide whether one is needed.",
+  "milk": "Raw (unpasteurised) milk is not covered; the profile describes pasteurised milk.",
+  "eggs": "Raw or undercooked eggs are covered only by the cooking-temperature caution."
+ }
+}

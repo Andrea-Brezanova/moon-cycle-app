@@ -6,8 +6,8 @@ second, separate status: **Implemented, awaiting device verification** (passes a
 tests, not yet checked by a person on the phone) or **Verified on device**. Nothing below is
 "Verified on device" yet.
 
-Last updated: 28 Oct 2026. `main` at the time of writing: `4763e53` (PR #60). **Installed on
-the iPhone: `4763e53`**, built with `tool/build_ios.sh` and installed in place with
+Last updated: 28 Oct 2026. App code on `main` last changed in `4763e53` (PR #60); later merges
+(#61, and the audit PR) change only CI, tools and docs. **Installed on the iPhone: `4763e53`**, built with `tool/build_ios.sh` and installed in place with
 `devicectl` (data kept); Me › My App › About shows the commit. The phone screen was not
 inspected by me. Development builds are signed for 7 days; the current one stops opening on
 4 Nov 2026 until it is reinstalled.
@@ -41,14 +41,15 @@ inspected by me. Development builds are signed for 7 days; the current one stops
 
 | Item | Status |
 |---|---|
-| Food Detail profiles | **5 approved and published (unchanged).** **251 drafted** from USDA FoodData Central and NIH ODS, recomputed by script and Dart test, **unreviewed and not in the app**. **15 blocked** (no sound source or an owner decision needed: e.g. salt, alcohol, coffee), reasons in `docs/food-profiles/blocked.json`. Missing: 0. Files: `docs/food-profiles/coverage-report.md`, `complete-draft-dataset.json`, `editorial-review-report.md`, `review-list.md`. PRs #50, #52, #53, #60. No profile is "clinically reviewed"; **drafted is not implemented**. |
+| Food Detail profiles | **5 approved and published (unchanged).** **251 drafted**, all audited (below), **unreviewed and not in the app**. **15 blocked**, each with a decision-table entry (`docs/food-profiles/blocked-decisions.json`). Missing: 0. Files: `coverage-report.md`, `complete-draft-dataset.json`, `editorial-review-report.md`, `review-list.md` and the audit package `audit-report.md` (`audit-summary.json`). No profile is "clinically reviewed"; **drafted is not implemented**. |
+| Food profile quality audit | Every one of the 251 drafts was re-compared with its live USDA FoodData Central record (`audit_profiles.py`): FDC id, description, date, every per-100 g value, serving weight, every per-serving amount and percentage. **0 open data findings; no number needed correcting.** Prose of all 251 was read: 193 profiles had wording, safety or allergen lines corrected; 43 need an editor's judgment (identity, serving state, surprising USDA values, safety not researched); 164 have no substantive concerns (still unapproved). Added: sodium per serving, allergen lines from the catalogue tags, and sourced cautions (raw sprouts, smoked fish, deli ham, unpasteurised cheeses, honey and infants, fava beans and G6PD, seaweed iodine) after reading each source page. New regression tests cover provenance, preparation state, sodium, allergen parity, placeholder prose and claims. 59 profiles still carry a catalogue caution with no recorded source. |
 | Move and Relax content | 13 original draft items in `docs/content-drafts/` (not bundled); need professional or editorial review. |
 | Sounds | Concepts only. **Blocked**: no audio with confirmed rights and no audio plugin. |
 | Food photography | **Blocked, not started**: no authorised image source in this environment. Manifest in `docs/food-photo-manifest.json`. |
 
 ## Needs your approval or input
 
-1. Editorial review of the 251 food-profile drafts (start with `docs/food-profiles/review-list.md`) and of the Move and Relax drafts.
+1. Editorial approval of the 251 food-profile drafts: start with `docs/food-profiles/audit-report.md` (what to approve is at its end), then `review-list.md` for sampling sheets. Also the Move and Relax drafts.
 2. Decisions on the 15 blocked foods.
 3. Hero photographs for Move, Relax and Eat; food photographs.
 4. Audio with confirmed rights if you want Sounds.

@@ -11,10 +11,10 @@
       "catalogueId": "rye",
       "name": "Rye",
       "sections": {
-        "whatItOffers": "Rye: ¼ cup dry gives about 142 calories, with magnesium (about 15%), zinc (about 14%) and 6.3 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Rye (dry): ¼ cup dry gives about 142 calories, with magnesium (about 15%), zinc (about 14%) and 6.3 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "¼ cup dry (USDA: 1 cup = 169 g)",
         "howToEatIt": "Soak, then simmer rye berries until chewy for grain salads and side dishes.",
-        "cycleRelevance": "No cycle-phase claim is made for rye; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for rye."
       },
       "source": {
         "usdaFdcId": 168884,
@@ -39,7 +39,8 @@
           "vita": 1,
           "vite": 0.85,
           "vitk": 5.9,
-          "kcal": 338
+          "kcal": 338,
+          "na": 2
         }
       },
       "perServing": {
@@ -48,6 +49,7 @@
         "fatG": 0.7,
         "carbohydrateG": 31.9,
         "fiberG": 6.3,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -91,6 +93,10 @@
           }
         ]
       },
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Contains gluten",
@@ -111,10 +117,10 @@
       "catalogueId": "wheat",
       "name": "Wheat",
       "sections": {
-        "whatItOffers": "Wheat: ¼ cup dry gives about 163 calories, with zinc (about 25%), magnesium (about 22%) and 6.6 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Wheat (dry): ¼ cup dry gives about 163 calories, with zinc (about 25%), magnesium (about 22%) and 6.6 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "¼ cup dry (USDA: 1 cup = 192 g)",
         "howToEatIt": "Simmer whole wheat berries until tender for salads and pilafs; soaking first shortens the cooking time.",
-        "cycleRelevance": "No cycle-phase claim is made for wheat; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for wheat."
       },
       "source": {
         "usdaFdcId": 169721,
@@ -136,7 +142,8 @@
           "vitc": 0,
           "folate": 43,
           "vita": 0,
-          "kcal": 339
+          "kcal": 339,
+          "na": 2
         }
       },
       "perServing": {
@@ -145,6 +152,7 @@
         "fatG": 1.2,
         "carbohydrateG": 34.1,
         "fiberG": null,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -188,6 +196,10 @@
           }
         ]
       },
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Contains gluten",
@@ -208,10 +220,10 @@
       "catalogueId": "amaranth",
       "name": "Amaranth",
       "sections": {
-        "whatItOffers": "Amaranth, cooked grain: ½ cup cooked gives about 125 calories, with magnesium (about 26%), iron (about 14%) and zinc (about 13%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Amaranth (cooked): ½ cup cooked gives about 125 calories, with magnesium (about 26%), iron (about 14%) and zinc (about 13%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 246 g)",
         "howToEatIt": "Simmer in water until soft and porridge-like, or pop it like popcorn.",
-        "cycleRelevance": "No cycle-phase claim is made for amaranth; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.6 mg."
+        "cycleRelevance": "No cycle-phase claim is made for amaranth. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.6 mg."
       },
       "source": {
         "usdaFdcId": 170683,
@@ -232,7 +244,8 @@
           "k": 135,
           "zn": 0.86,
           "vite": 0.19,
-          "kcal": 102
+          "kcal": 102,
+          "na": 6
         }
       },
       "perServing": {
@@ -241,6 +254,7 @@
         "fatG": 1.9,
         "carbohydrateG": 23.0,
         "fiberG": 2.6,
+        "sodiumMg": 7,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -293,6 +307,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -308,10 +324,10 @@
       "catalogueId": "millet",
       "name": "Millet",
       "sections": {
-        "whatItOffers": "Millet, cooked: ½ cup cooked gives about 104 calories, with magnesium (about 12%) and zinc (about 10%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Millet (cooked): ½ cup cooked gives about 104 calories, with magnesium (about 12%) and zinc (about 10%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 174 g)",
         "howToEatIt": "Simmer until fluffy for side dishes, porridge, or in place of rice.",
-        "cycleRelevance": "No cycle-phase claim is made for millet; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for millet."
       },
       "source": {
         "usdaFdcId": 168871,
@@ -336,7 +352,8 @@
           "vita": 0,
           "vite": 0.02,
           "vitk": 0.3,
-          "kcal": 119
+          "kcal": 119,
+          "na": 2
         }
       },
       "perServing": {
@@ -345,6 +362,7 @@
         "fatG": 0.9,
         "carbohydrateG": 20.6,
         "fiberG": 1.1,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -383,6 +401,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -398,10 +418,10 @@
       "catalogueId": "bagel",
       "name": "Bagel",
       "sections": {
-        "whatItOffers": "Bagel, plain, enriched: 1 medium bagel, 3½–4 in gives about 277 calories, with vitamin E (about 52%), folate (about 43%), calcium (about 23%) and 11.1 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Bagel: 1 medium bagel, 3½–4 in gives about 277 calories, with vitamin E (about 52%), folate (about 43%), calcium (about 23%) and 11.1 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 medium bagel, 3½–4 in (USDA: 105 g)",
         "howToEatIt": "Toast and top with eggs, avocado, cheese or nut butter.",
-        "cycleRelevance": "No cycle-phase claim is made for bagel; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 230 mg."
+        "cycleRelevance": "No cycle-phase claim is made for bagel. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 230 mg."
       },
       "source": {
         "usdaFdcId": 174899,
@@ -426,7 +446,8 @@
           "vita": 0,
           "vite": 7.46,
           "vitk": 0.2,
-          "kcal": 264
+          "kcal": 264,
+          "na": 422
         }
       },
       "perServing": {
@@ -435,6 +456,7 @@
         "fatG": 1.4,
         "carbohydrateG": 55.0,
         "fiberG": 1.7,
+        "sodiumMg": 443,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -485,12 +507,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "About 443 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+        },
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -500,10 +535,10 @@
       "catalogueId": "couscous",
       "name": "Couscous",
       "sections": {
-        "whatItOffers": "Couscous, cooked (made from semolina wheat): ½ cup cooked gives about 88 calories, with folate (about 3%), zinc (about 3%) and 1.1 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Couscous (cooked): ½ cup cooked gives about 88 calories, with folate (about 3%), zinc (about 3%) and 1.1 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 157 g)",
         "howToEatIt": "Steep in hot water or stock, fluff with a fork, and add vegetables, beans or herbs.",
-        "cycleRelevance": "No cycle-phase claim is made for couscous; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for couscous."
       },
       "source": {
         "usdaFdcId": 169700,
@@ -528,7 +563,8 @@
           "vita": 0,
           "vite": 0.13,
           "vitk": 0.1,
-          "kcal": 112
+          "kcal": 112,
+          "na": 5
         }
       },
       "perServing": {
@@ -537,6 +573,7 @@
         "fatG": 0.1,
         "carbohydrateG": 18.2,
         "fiberG": 1.1,
+        "sodiumMg": 4,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -573,12 +610,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -588,10 +634,10 @@
       "catalogueId": "egg-noodles",
       "name": "Egg noodles",
       "sections": {
-        "whatItOffers": "Egg noodles: ½ cup cooked gives about 110 calories, with folate (about 28%) and iron (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Egg noodles (cooked): ½ cup cooked gives about 110 calories, with folate (about 28%) and iron (about 7%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 160 g)",
         "howToEatIt": "Boil briefly, then add to soups, stir-fries or serve with sauce and vegetables.",
-        "cycleRelevance": "No cycle-phase claim is made for egg noodles; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.2 mg."
+        "cycleRelevance": "No cycle-phase claim is made for egg noodles."
       },
       "source": {
         "usdaFdcId": 169732,
@@ -618,7 +664,8 @@
           "vite": 0.17,
           "vitd": 0.1,
           "vitk": 0,
-          "kcal": 138
+          "kcal": 138,
+          "na": 5
         }
       },
       "perServing": {
@@ -627,6 +674,7 @@
         "fatG": 1.7,
         "carbohydrateG": 20.2,
         "fiberG": 1.0,
+        "sodiumMg": 4,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -658,12 +706,26 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "egg",
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Egg allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        },
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -676,7 +738,7 @@
         "whatItOffers": "Granola: 1 oz gives about 139 calories, with vitamin E (about 21%), magnesium (about 15%) and zinc (about 15%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz (USDA: 28.35 g; 1 cup = 122 g)",
         "howToEatIt": "Spoon over yoghurt or fruit, or eat with milk; a small portion goes a long way because it is calorie-dense.",
-        "cycleRelevance": "No cycle-phase claim is made for granola; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for granola."
       },
       "source": {
         "usdaFdcId": 171646,
@@ -701,7 +763,8 @@
           "vita": 1,
           "vite": 11.1,
           "vitk": 5.3,
-          "kcal": 489
+          "kcal": 489,
+          "na": 26
         }
       },
       "perServing": {
@@ -710,6 +773,7 @@
         "fatG": 6.9,
         "carbohydrateG": 15.3,
         "fiberG": 2.5,
+        "sodiumMg": 7,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -762,12 +826,26 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten",
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        },
+        {
+          "text": "Tree-nut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -777,10 +855,10 @@
       "catalogueId": "naan",
       "name": "Naan",
       "sections": {
-        "whatItOffers": "Naan, plain, commercially prepared: 1 piece gives about 262 calories, with iron (about 16%), zinc (about 9%) and 8.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Naan: 1 piece gives about 262 calories, with iron (about 16%), zinc (about 9%) and 8.7 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 piece (USDA: 90 g)",
         "howToEatIt": "Warm and serve with curries, dals and dips, or use as a base for flatbread toppings.",
-        "cycleRelevance": "No cycle-phase claim is made for naan; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.9 mg."
+        "cycleRelevance": "No cycle-phase claim is made for naan. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.9 mg."
       },
       "source": {
         "usdaFdcId": 171845,
@@ -801,7 +879,8 @@
           "k": 125,
           "zn": 0.81,
           "vite": 0.79,
-          "kcal": 291
+          "kcal": 291,
+          "na": 465
         }
       },
       "perServing": {
@@ -810,6 +889,7 @@
         "fatG": 5.1,
         "carbohydrateG": 45.4,
         "fiberG": 2.0,
+        "sodiumMg": 419,
         "keyNutrients": [
           {
             "name": "Iron",
@@ -846,12 +926,30 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "About 419 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+        },
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        },
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -861,10 +959,10 @@
       "catalogueId": "pasta",
       "name": "Pasta",
       "sections": {
-        "whatItOffers": "Pasta, cooked, enriched, no salt: 1 cup cooked spaghetti gives about 196 calories, with folate (about 37%), iron (about 9%) and 7.2 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Pasta (cooked): 1 cup cooked spaghetti gives about 196 calories, with folate (about 37%), iron (about 9%) and 7.2 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup cooked spaghetti (USDA: 124 g)",
         "howToEatIt": "Boil until al dente and toss with vegetables, beans, olive oil or sauce.",
-        "cycleRelevance": "No cycle-phase claim is made for pasta; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.6 mg."
+        "cycleRelevance": "No cycle-phase claim is made for pasta."
       },
       "source": {
         "usdaFdcId": 169737,
@@ -891,7 +989,8 @@
           "vite": 0.06,
           "vitd": 0,
           "vitk": 0,
-          "kcal": 158
+          "kcal": 158,
+          "na": 1
         }
       },
       "perServing": {
@@ -900,6 +999,7 @@
         "fatG": 1.2,
         "carbohydrateG": 38.3,
         "fiberG": 2.2,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -936,12 +1036,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -951,10 +1060,10 @@
       "catalogueId": "pita-bread",
       "name": "Pita bread (whole-wheat)",
       "sections": {
-        "whatItOffers": "Pita bread (whole-wheat), whole-wheat pita: 1 large pita, 6½ in gives about 168 calories, with magnesium (about 14%), zinc (about 12%), iron (about 11%), 6.3 g of protein and 3.9 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Pita bread (whole-wheat): 1 large pita, 6½ in gives about 168 calories, with magnesium (about 14%), zinc (about 12%), iron (about 11%), 6.3 g of protein and 3.9 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 large pita, 6½ in (USDA: 64 g)",
         "howToEatIt": "Warm and fill with salad and protein, or cut into wedges for dips.",
-        "cycleRelevance": "No cycle-phase claim is made for pita bread (whole-wheat); this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
+        "cycleRelevance": "No cycle-phase claim is made for pita bread (whole-wheat). Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
       },
       "source": {
         "usdaFdcId": 174916,
@@ -979,7 +1088,8 @@
           "vita": 0,
           "vite": 0.61,
           "vitk": 1.4,
-          "kcal": 262
+          "kcal": 262,
+          "na": 421
         }
       },
       "perServing": {
@@ -988,6 +1098,7 @@
         "fatG": 1.1,
         "carbohydrateG": 35.8,
         "fiberG": 3.9,
+        "sodiumMg": 269,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1050,12 +1161,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1065,10 +1185,10 @@
       "catalogueId": "polenta",
       "name": "Polenta / cornmeal",
       "sections": {
-        "whatItOffers": "Polenta / cornmeal, whole-grain yellow cornmeal, dry (uncooked): ¼ cup dry gives about 110 calories, with magnesium (about 12%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Polenta / cornmeal (dry): ¼ cup dry gives about 110 calories, with magnesium (about 12%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "¼ cup dry (USDA: 1 cup = 122 g)",
         "howToEatIt": "Whisk into simmering water or stock until thick and creamy, then top with vegetables, cheese or beans.",
-        "cycleRelevance": "No cycle-phase claim is made for polenta / cornmeal; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for polenta / cornmeal."
       },
       "source": {
         "usdaFdcId": 169697,
@@ -1093,7 +1213,8 @@
           "vita": 11,
           "vite": 0.42,
           "vitk": 0.3,
-          "kcal": 362
+          "kcal": 362,
+          "na": 35
         }
       },
       "perServing": {
@@ -1102,6 +1223,7 @@
         "fatG": 1.1,
         "carbohydrateG": 23.5,
         "fiberG": 2.2,
+        "sodiumMg": 11,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1140,6 +1262,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1155,10 +1279,10 @@
       "catalogueId": "popcorn",
       "name": "Popcorn (plain)",
       "sections": {
-        "whatItOffers": "Popcorn (plain), air-popped, unsalted: 3 cups popped gives about 92 calories, with zinc (about 10%), magnesium (about 10%) and 3.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Popcorn (plain): 3 cups popped gives about 92 calories, with zinc (about 10%), magnesium (about 10%) and 3.6 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 cups popped (USDA: 1 cup = 8 g)",
         "howToEatIt": "Air-pop and season lightly with herbs or a little oil and salt.",
-        "cycleRelevance": "No cycle-phase claim is made for popcorn (plain); this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for popcorn (plain)."
       },
       "source": {
         "usdaFdcId": 170246,
@@ -1181,7 +1305,8 @@
           "vitc": 0,
           "folate": 23,
           "vita": 1,
-          "kcal": 382
+          "kcal": 382,
+          "na": 4
         }
       },
       "perServing": {
@@ -1190,6 +1315,7 @@
         "fatG": 1.0,
         "carbohydrateG": 18.7,
         "fiberG": 3.6,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1233,6 +1359,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1248,10 +1376,10 @@
       "catalogueId": "rice-cakes",
       "name": "Rice cakes",
       "sections": {
-        "whatItOffers": "Rice cakes, brown rice, plain, unsalted: 2 cakes gives about 70 calories, with magnesium (about 8%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Rice cakes: 2 cakes gives about 70 calories, with magnesium (about 8%) and zinc (about 7%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 cakes (USDA: 18 g)",
         "howToEatIt": "Top with nut butter, avocado, cottage cheese or hummus.",
-        "cycleRelevance": "No cycle-phase claim is made for rice cakes; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for rice cakes."
       },
       "source": {
         "usdaFdcId": 170250,
@@ -1276,7 +1404,8 @@
           "vita": 0,
           "vite": 1.24,
           "vitk": 1.9,
-          "kcal": 387
+          "kcal": 387,
+          "na": 26
         }
       },
       "perServing": {
@@ -1285,6 +1414,7 @@
         "fatG": 0.5,
         "carbohydrateG": 14.7,
         "fiberG": 0.8,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1323,6 +1453,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1338,10 +1470,10 @@
       "catalogueId": "rice-noodles",
       "name": "Rice noodles",
       "sections": {
-        "whatItOffers": "Rice noodles, cooked: ½ cup cooked gives about 95 calories, with zinc (about 3%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Rice noodles (cooked): ½ cup cooked gives about 95 calories, with zinc (about 3%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 176 g)",
         "howToEatIt": "Soak or boil as the packet says, then add to soups, stir-fries and salads.",
-        "cycleRelevance": "No cycle-phase claim is made for rice noodles; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for rice noodles."
       },
       "source": {
         "usdaFdcId": 168914,
@@ -1367,7 +1499,8 @@
           "vite": 0.03,
           "vitd": 0,
           "vitk": 0,
-          "kcal": 108
+          "kcal": 108,
+          "na": 19
         }
       },
       "perServing": {
@@ -1376,6 +1509,7 @@
         "fatG": 0.2,
         "carbohydrateG": 21.1,
         "fiberG": 0.9,
+        "sodiumMg": 17,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1393,6 +1527,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1411,7 +1547,7 @@
         "whatItOffers": "Rye bread: 1 regular slice gives about 83 calories, with folate (about 12%) and iron (about 5%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 regular slice (USDA: 32 g)",
         "howToEatIt": "Toast and top with eggs, fish, cheese or vegetables, or use for sandwiches.",
-        "cycleRelevance": "No cycle-phase claim is made for rye bread; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.9 mg."
+        "cycleRelevance": "No cycle-phase claim is made for rye bread."
       },
       "source": {
         "usdaFdcId": 172684,
@@ -1436,7 +1572,8 @@
           "vita": 0,
           "vite": 0.33,
           "vitk": 1.2,
-          "kcal": 259
+          "kcal": 259,
+          "na": 603
         }
       },
       "perServing": {
@@ -1445,6 +1582,7 @@
         "fatG": 1.1,
         "carbohydrateG": 15.5,
         "fiberG": 1.9,
+        "sodiumMg": 193,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1476,12 +1614,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1491,10 +1638,10 @@
       "catalogueId": "soba-noodles",
       "name": "Soba noodles",
       "sections": {
-        "whatItOffers": "Soba noodles, cooked: ½ cup cooked gives about 56 calories, with magnesium (about 2%) and iron (about 2%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Soba noodles (cooked): ½ cup cooked gives about 56 calories, with magnesium (about 2%) and iron (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 114 g)",
         "howToEatIt": "Boil briefly, rinse, and serve cold with a dipping sauce or hot in broth.",
-        "cycleRelevance": "No cycle-phase claim is made for soba noodles; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.3 mg."
+        "cycleRelevance": "No cycle-phase claim is made for soba noodles."
       },
       "source": {
         "usdaFdcId": 168907,
@@ -1516,7 +1663,8 @@
           "vitc": 0,
           "folate": 7,
           "vita": 0,
-          "kcal": 99
+          "kcal": 99,
+          "na": 60
         }
       },
       "perServing": {
@@ -1525,6 +1673,7 @@
         "fatG": 0.1,
         "carbohydrateG": 12.2,
         "fiberG": null,
+        "sodiumMg": 34,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1563,12 +1712,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1578,10 +1736,10 @@
       "catalogueId": "sourdough-bread",
       "name": "Sourdough bread",
       "sections": {
-        "whatItOffers": "Sourdough bread: 2 oz slices worth gives about 154 calories, with folate (about 24%), iron (about 12%) and 6.1 g of protein. Percentages are of the NIH reference intake for adult women.",
-        "practicalServing": "2 oz slices worth (USDA: 1 oz = 28.35 g)",
+        "whatItOffers": "Sourdough bread: 2 oz of sliced bread gives about 154 calories, with folate (about 24%), iron (about 12%) and 6.1 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "practicalServing": "2 oz of sliced bread (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Toast and top with eggs, avocado or beans, or serve with soups and salads.",
-        "cycleRelevance": "No cycle-phase claim is made for sourdough bread; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.2 mg."
+        "cycleRelevance": "No cycle-phase claim is made for sourdough bread. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.2 mg."
       },
       "source": {
         "usdaFdcId": 172675,
@@ -1590,7 +1748,7 @@
         "published": "4/1/2019",
         "preparationState": "French/Vienna/sourdough bread",
         "portionGrams": 56.7,
-        "portion": "2 oz slices worth (USDA: 1 oz = 28.35 g)",
+        "portion": "2 oz of sliced bread (USDA: 1 oz = 28.35 g)",
         "per100g": {
           "protein": 10.8,
           "fat": 2.42,
@@ -1606,7 +1764,8 @@
           "vita": 0,
           "vite": 0.21,
           "vitk": 0.7,
-          "kcal": 272
+          "kcal": 272,
+          "na": 602
         }
       },
       "perServing": {
@@ -1615,6 +1774,7 @@
         "fatG": 1.4,
         "carbohydrateG": 29.4,
         "fiberG": 1.2,
+        "sodiumMg": 341,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1651,12 +1811,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1666,10 +1835,10 @@
       "catalogueId": "tortillas",
       "name": "Tortillas (wheat)",
       "sections": {
-        "whatItOffers": "Tortillas (wheat), flour, shelf stable: 1 tortilla gives about 146 calories, with folate (about 23%) and iron (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Tortillas (wheat): 1 tortilla gives about 146 calories, with folate (about 23%) and iron (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tortilla (USDA: 49 g)",
         "howToEatIt": "Warm and fill with beans, vegetables, eggs or meat, or bake into wraps and quesadillas.",
-        "cycleRelevance": "No cycle-phase claim is made for tortillas (wheat); this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.6 mg."
+        "cycleRelevance": "No cycle-phase claim is made for tortillas (wheat)."
       },
       "source": {
         "usdaFdcId": 167535,
@@ -1694,7 +1863,8 @@
           "vita": 0,
           "vite": 0.86,
           "vitk": 4.2,
-          "kcal": 297
+          "kcal": 297,
+          "na": 742
         }
       },
       "perServing": {
@@ -1703,6 +1873,7 @@
         "fatG": 3.7,
         "carbohydrateG": 24.2,
         "fiberG": 1.2,
+        "sodiumMg": 364,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1734,12 +1905,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "About 364 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+        },
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1749,10 +1933,10 @@
       "catalogueId": "wheat-flour",
       "name": "Wheat flour (whole-grain)",
       "sections": {
-        "whatItOffers": "Wheat flour (whole-grain), whole-grain wheat flour: ¼ cup gives about 102 calories, with magnesium (about 13%), zinc (about 10%) and 3.2 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Wheat flour (whole-grain): ¼ cup gives about 102 calories, with magnesium (about 13%), zinc (about 10%) and 3.2 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "¼ cup (USDA: 1 cup = 120 g)",
         "howToEatIt": "Use in baking, pancakes and flatbreads, often combined with white flour for a lighter texture.",
-        "cycleRelevance": "No cycle-phase claim is made for wheat flour (whole-grain); this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for wheat flour (whole-grain)."
       },
       "source": {
         "usdaFdcId": 168893,
@@ -1777,7 +1961,8 @@
           "vita": 0,
           "vite": 0.71,
           "vitk": 1.9,
-          "kcal": 340
+          "kcal": 340,
+          "na": 2
         }
       },
       "perServing": {
@@ -1786,6 +1971,7 @@
         "fatG": 0.8,
         "carbohydrateG": 21.6,
         "fiberG": 3.2,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1829,12 +2015,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1844,10 +2039,10 @@
       "catalogueId": "white-rice",
       "name": "White rice",
       "sections": {
-        "whatItOffers": "White rice, long-grain, enriched, cooked: ½ cup cooked gives about 103 calories, with folate (about 19%) and iron (about 5%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "White rice (cooked): ½ cup cooked gives about 103 calories, with folate (about 19%) and iron (about 5%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 158 g)",
         "howToEatIt": "Rinse, then simmer until tender, and serve with vegetables, beans, fish or meat.",
-        "cycleRelevance": "No cycle-phase claim is made for white rice; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.9 mg."
+        "cycleRelevance": "No cycle-phase claim is made for white rice."
       },
       "source": {
         "usdaFdcId": 168878,
@@ -1873,7 +2068,8 @@
           "vite": 0.04,
           "vitd": 0,
           "vitk": 0,
-          "kcal": 130
+          "kcal": 130,
+          "na": 1
         }
       },
       "perServing": {
@@ -1882,6 +2078,7 @@
         "fatG": 0.2,
         "carbohydrateG": 22.3,
         "fiberG": 0.3,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1913,6 +2110,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1928,10 +2127,10 @@
       "catalogueId": "whole-wheat-pasta",
       "name": "Whole-wheat pasta",
       "sections": {
-        "whatItOffers": "Whole-wheat pasta, cooked: 1 cup cooked spaghetti gives about 174 calories, with magnesium (about 20%), zinc (about 20%), iron (about 11%), 7.0 g of protein and 4.6 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Whole-wheat pasta (cooked): 1 cup cooked spaghetti gives about 174 calories, with magnesium (about 20%), zinc (about 20%), iron (about 11%), 7.0 g of protein and 4.6 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup cooked spaghetti (USDA: 117 g)",
         "howToEatIt": "Boil until just tender and toss with vegetables, beans or a simple sauce.",
-        "cycleRelevance": "No cycle-phase claim is made for whole-wheat pasta; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
+        "cycleRelevance": "No cycle-phase claim is made for whole-wheat pasta. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
       },
       "source": {
         "usdaFdcId": 168910,
@@ -1957,7 +2156,8 @@
           "vite": 0.23,
           "vitd": 0,
           "vitk": 0.6,
-          "kcal": 149
+          "kcal": 149,
+          "na": 4
         }
       },
       "perServing": {
@@ -1966,6 +2166,7 @@
         "fatG": 2.0,
         "carbohydrateG": 35.2,
         "fiberG": 4.6,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -2028,12 +2229,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

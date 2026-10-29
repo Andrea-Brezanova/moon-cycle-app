@@ -29,7 +29,8 @@
     "vite": 6.33,
     "vitd": 1,
     "vitk": 0,
-    "kcal": 15
+    "kcal": 15,
+    "na": 72
    },
    "keys": "auto",
    "offers": "TBD",
@@ -64,7 +65,8 @@
     "vita": 684,
     "vite": 2.32,
     "vitk": 7,
-    "kcal": 717
+    "kcal": 717,
+    "na": 643
    },
    "keys": "auto",
    "offers": "TBD",
@@ -100,7 +102,8 @@
     "vite": 0.78,
     "vitd": 1,
     "vitk": 2.4,
-    "kcal": 410
+    "kcal": 410,
+    "na": 644
    },
    "keys": "auto",
    "offers": "TBD",
@@ -136,7 +139,8 @@
     "vite": 0.86,
     "vitd": 0,
     "vitk": 2.1,
-    "kcal": 350
+    "kcal": 350,
+    "na": 314
    },
    "keys": "auto",
    "offers": "TBD",
@@ -172,7 +176,8 @@
     "vite": 0.07,
     "vitd": 1.3,
     "vitk": 0.3,
-    "kcal": 61
+    "kcal": 61,
+    "na": 43
    },
    "keys": "auto",
    "offers": "TBD",
@@ -208,7 +213,8 @@
     "vite": 0.53,
     "vitd": 0.5,
     "vitk": 1.7,
-    "kcal": 420
+    "kcal": 420,
+    "na": 1800.0
    },
    "keys": "auto",
    "offers": "TBD",
@@ -244,7 +250,8 @@
     "vite": 0.38,
     "vitd": 0,
     "vitk": 1.5,
-    "kcal": 198
+    "kcal": 198,
+    "na": 31
    },
    "keys": "auto",
    "offers": "TBD",
@@ -280,7 +287,8 @@
     "vite": 0.11,
     "vitd": 0,
     "vitk": 3,
-    "kcal": 54
+    "kcal": 54,
+    "na": 51
    },
    "keys": "auto",
    "offers": "TBD",
@@ -316,7 +324,8 @@
     "vite": 0.92,
     "vitd": 1.6,
     "vitk": 3.2,
-    "kcal": 340
+    "kcal": 340,
+    "na": 27
    },
    "keys": "auto",
    "offers": "TBD",

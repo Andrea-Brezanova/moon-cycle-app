@@ -11,10 +11,10 @@
       "catalogueId": "catfish",
       "name": "Catfish",
       "sections": {
-        "whatItOffers": "Catfish: 3 oz cooked gives about 122 calories, with vitamin B12 (about 98%), potassium (about 12%) and 15.6 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Catfish (cooked): 3 oz cooked gives about 122 calories, with vitamin B12 (about 98%), potassium (about 12%) and 15.6 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz cooked (USDA: 85 g)",
         "howToEatIt": "Bake, grill or pan-fry fillets; a light coating of cornmeal or spices works well.",
-        "cycleRelevance": "No cycle-phase claim is made for catfish; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for catfish."
       },
       "source": {
         "usdaFdcId": 175166,
@@ -42,7 +42,8 @@
           "vitd": 0.3,
           "vitk": 2.5,
           "kcal": 144,
-          "omega3": 0.089
+          "omega3": 0.089,
+          "na": 119
         }
       },
       "perServing": {
@@ -51,6 +52,7 @@
         "fatG": 6.1,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 101,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -87,6 +89,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -111,10 +117,10 @@
       "catalogueId": "lobster",
       "name": "Lobster",
       "sections": {
-        "whatItOffers": "Lobster: 3 oz cooked gives about 76 calories, with vitamin B12 (about 51%), zinc (about 43%), magnesium (about 12%) and 16.2 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Lobster (cooked): 3 oz cooked gives about 76 calories, with vitamin B12 (about 51%), zinc (about 43%), magnesium (about 12%) and 16.2 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz cooked (USDA: 85 g)",
         "howToEatIt": "Steam or boil, then eat the meat with lemon, or add it to salads and pasta.",
-        "cycleRelevance": "No cycle-phase claim is made for lobster; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for lobster."
       },
       "source": {
         "usdaFdcId": 174209,
@@ -142,7 +148,8 @@
           "vitd": 0,
           "vitk": 0,
           "kcal": 89,
-          "omega3": 0.195
+          "omega3": 0.195,
+          "na": 486
         }
       },
       "perServing": {
@@ -151,6 +158,7 @@
         "fatG": 0.7,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 413,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -208,6 +216,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Crustacean allergen",
@@ -216,6 +228,10 @@
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "About 413 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -232,10 +248,10 @@
       "catalogueId": "octopus",
       "name": "Octopus",
       "sections": {
-        "whatItOffers": "Octopus: 3 oz cooked gives about 139 calories, with vitamin B12 (about 1275%), iron (about 45%), zinc (about 36%), 25.3 g of protein and 0.27 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Octopus (cooked): 3 oz cooked gives about 139 calories, with vitamin B12 (about 1275%), iron (about 45%), zinc (about 36%), 25.3 g of protein and 0.27 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz cooked (USDA: 85 g)",
         "howToEatIt": "Simmer slowly until tender, then slice for salads or grill briefly.",
-        "cycleRelevance": "No cycle-phase claim is made for octopus; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 8.1 mg."
+        "cycleRelevance": "No cycle-phase claim is made for octopus. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 8.1 mg."
       },
       "source": {
         "usdaFdcId": 174249,
@@ -263,7 +279,8 @@
           "vitd": 0,
           "vitk": 0.1,
           "kcal": 164,
-          "omega3": 0.314
+          "omega3": 0.314,
+          "na": 460
         }
       },
       "perServing": {
@@ -272,6 +289,7 @@
         "fatG": 1.8,
         "carbohydrateG": 3.7,
         "fiberG": 0.0,
+        "sodiumMg": 391,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -327,6 +345,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Mollusc allergen",
@@ -335,6 +357,10 @@
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "About 391 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -351,10 +377,10 @@
       "catalogueId": "squid",
       "name": "Squid",
       "sections": {
-        "whatItOffers": "Squid, raw (cook before eating): 3 oz raw gives about 78 calories, with vitamin B12 (about 46%), zinc (about 16%), 13.3 g of protein and 0.41 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Squid (raw): 3 oz raw gives about 78 calories, with vitamin B12 (about 46%), zinc (about 16%), 13.3 g of protein and 0.41 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz raw (USDA: 85 g)",
         "howToEatIt": "Cook quickly over high heat or simmer slowly; in between it turns tough.",
-        "cycleRelevance": "No cycle-phase claim is made for squid; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for squid."
       },
       "source": {
         "usdaFdcId": 174223,
@@ -382,7 +408,8 @@
           "vitd": 0,
           "vitk": 0,
           "kcal": 92,
-          "omega3": 0.488
+          "omega3": 0.488,
+          "na": 44
         }
       },
       "perServing": {
@@ -391,6 +418,7 @@
         "fatG": 1.2,
         "carbohydrateG": 2.6,
         "fiberG": 0.0,
+        "sodiumMg": 37,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -432,6 +460,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Mollusc allergen",
@@ -456,10 +488,10 @@
       "catalogueId": "tuna",
       "name": "Tuna",
       "sections": {
-        "whatItOffers": "Tuna: 3 oz drained gives about 99 calories, with vitamin B12 (about 106%), zinc (about 8%) and 21.7 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Tuna (canned): 3 oz drained gives about 99 calories, with vitamin B12 (about 106%), zinc (about 8%) and 21.7 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz drained (USDA: 85 g)",
         "howToEatIt": "Drain and mix into salads, sandwiches, pasta and grain bowls.",
-        "cycleRelevance": "No cycle-phase claim is made for tuna; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for tuna."
       },
       "source": {
         "usdaFdcId": 171986,
@@ -483,7 +515,8 @@
           "folate": 4,
           "b12": 2.99,
           "kcal": 116,
-          "omega3": 0.27
+          "omega3": 0.27,
+          "na": 50
         }
       },
       "perServing": {
@@ -492,6 +525,7 @@
         "fatG": 0.7,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 43,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -528,6 +562,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -552,10 +590,10 @@
       "catalogueId": "herring",
       "name": "Herring",
       "sections": {
-        "whatItOffers": "Herring: 3 oz cooked gives about 173 calories, with vitamin B12 (about 464%), vitamin D (about 31%), potassium (about 14%), 19.6 g of protein and 1.71 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Herring (cooked): 3 oz cooked gives about 173 calories, with vitamin B12 (about 464%), vitamin D (about 31%), potassium (about 14%), 19.6 g of protein and 1.71 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "3 oz cooked (USDA: 85 g)",
         "howToEatIt": "Pan-fry or grill fillets, or serve with potatoes and onions.",
-        "cycleRelevance": "No cycle-phase claim is made for herring; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for herring."
       },
       "source": {
         "usdaFdcId": 175117,
@@ -583,7 +621,8 @@
           "vitd": 5.4,
           "vitk": 0.1,
           "kcal": 203,
-          "omega3": 2.009
+          "omega3": 2.009,
+          "na": 115
         }
       },
       "perServing": {
@@ -592,6 +631,7 @@
         "fatG": 9.9,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 98,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -647,10 +687,18 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -667,10 +715,10 @@
       "catalogueId": "smoked-salmon",
       "name": "Smoked salmon",
       "sections": {
-        "whatItOffers": "Smoked salmon, smoked chinook salmon (lox): 2 oz gives about 67 calories, with vitamin B12 (about 77%), 10.4 g of protein and 0.26 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Smoked salmon: 2 oz gives about 67 calories, with vitamin B12 (about 77%), 10.4 g of protein and 0.26 g of omega-3 (EPA + DHA). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 oz (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Serve on toast or bagels, with eggs, or in salads and pasta.",
-        "cycleRelevance": "No cycle-phase claim is made for smoked salmon; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for smoked salmon."
       },
       "source": {
         "usdaFdcId": 171985,
@@ -695,7 +743,8 @@
           "b12": 3.26,
           "vita": 26,
           "kcal": 117,
-          "omega3": 0.45
+          "omega3": 0.45,
+          "na": 2000.0
         }
       },
       "perServing": {
@@ -704,6 +753,7 @@
         "fatG": 2.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 1140,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -731,12 +781,29 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Smoked fish is on the FDA's list of foods to avoid if you are at greater risk of foodborne illness (for example during pregnancy), unless it is reheated until steaming hot.",
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)"
+        },
+        {
+          "text": "About 1,140 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

@@ -28,7 +28,8 @@
     "vita": 1,
     "vite": 0.85,
     "vitk": 5.9,
-    "kcal": 338
+    "kcal": 338,
+    "na": 2
    },
    "keys": "auto",
    "offers": "TBD",
@@ -59,7 +60,8 @@
     "vitc": 0,
     "folate": 43,
     "vita": 0,
-    "kcal": 339
+    "kcal": 339,
+    "na": 2
    },
    "keys": "auto",
    "offers": "TBD",
@@ -89,7 +91,8 @@
     "k": 135,
     "zn": 0.86,
     "vite": 0.19,
-    "kcal": 102
+    "kcal": 102,
+    "na": 6
    },
    "keys": "auto",
    "offers": "TBD",
@@ -123,7 +126,8 @@
     "vita": 0,
     "vite": 0.02,
     "vitk": 0.3,
-    "kcal": 119
+    "kcal": 119,
+    "na": 2
    },
    "keys": "auto",
    "offers": "TBD",
@@ -156,7 +160,8 @@
     "vita": 0,
     "vite": 7.46,
     "vitk": 0.2,
-    "kcal": 264
+    "kcal": 264,
+    "na": 422
    },
    "keys": "auto",
    "offers": "TBD",
@@ -190,7 +195,8 @@
     "vita": 0,
     "vite": 0.13,
     "vitk": 0.1,
-    "kcal": 112
+    "kcal": 112,
+    "na": 5
    },
    "keys": "auto",
    "offers": "TBD",
@@ -226,7 +232,8 @@
     "vite": 0.17,
     "vitd": 0.1,
     "vitk": 0,
-    "kcal": 138
+    "kcal": 138,
+    "na": 5
    },
    "keys": "auto",
    "offers": "TBD",
@@ -260,7 +267,8 @@
     "vita": 1,
     "vite": 11.1,
     "vitk": 5.3,
-    "kcal": 489
+    "kcal": 489,
+    "na": 26
    },
    "keys": "auto",
    "offers": "TBD",
@@ -290,7 +298,8 @@
     "k": 125,
     "zn": 0.81,
     "vite": 0.79,
-    "kcal": 291
+    "kcal": 291,
+    "na": 465
    },
    "keys": "auto",
    "offers": "TBD",
@@ -326,7 +335,8 @@
     "vite": 0.06,
     "vitd": 0,
     "vitk": 0,
-    "kcal": 158
+    "kcal": 158,
+    "na": 1
    },
    "keys": "auto",
    "offers": "TBD",
@@ -360,7 +370,8 @@
     "vita": 0,
     "vite": 0.61,
     "vitk": 1.4,
-    "kcal": 262
+    "kcal": 262,
+    "na": 421
    },
    "keys": "auto",
    "offers": "TBD",
@@ -393,7 +404,8 @@
     "vita": 11,
     "vite": 0.42,
     "vitk": 0.3,
-    "kcal": 362
+    "kcal": 362,
+    "na": 35
    },
    "keys": "auto",
    "offers": "TBD",
@@ -425,7 +437,8 @@
     "vitc": 0,
     "folate": 23,
     "vita": 1,
-    "kcal": 382
+    "kcal": 382,
+    "na": 4
    },
    "keys": "auto",
    "offers": "TBD",
@@ -459,7 +472,8 @@
     "vita": 0,
     "vite": 1.24,
     "vitk": 1.9,
-    "kcal": 387
+    "kcal": 387,
+    "na": 26
    },
    "keys": "auto",
    "offers": "TBD",
@@ -494,7 +508,8 @@
     "vite": 0.03,
     "vitd": 0,
     "vitk": 0,
-    "kcal": 108
+    "kcal": 108,
+    "na": 19
    },
    "keys": "auto",
    "offers": "TBD",
@@ -528,7 +543,8 @@
     "vita": 0,
     "vite": 0.33,
     "vitk": 1.2,
-    "kcal": 259
+    "kcal": 259,
+    "na": 603
    },
    "keys": "auto",
    "offers": "TBD",
@@ -559,7 +575,8 @@
     "vitc": 0,
     "folate": 7,
     "vita": 0,
-    "kcal": 99
+    "kcal": 99,
+    "na": 60
    },
    "keys": "auto",
    "offers": "TBD",
@@ -577,7 +594,7 @@
    "desc": "Bread, french or vienna (includes sourdough)",
    "state": "French/Vienna/sourdough bread",
    "grams": 56.7,
-   "portion": "2 oz slices worth (USDA: 1 oz = 28.35 g)",
+   "portion": "2 oz of sliced bread (USDA: 1 oz = 28.35 g)",
    "per100": {
     "protein": 10.8,
     "fat": 2.42,
@@ -593,7 +610,8 @@
     "vita": 0,
     "vite": 0.21,
     "vitk": 0.7,
-    "kcal": 272
+    "kcal": 272,
+    "na": 602
    },
    "keys": "auto",
    "offers": "TBD",
@@ -627,7 +645,8 @@
     "vita": 0,
     "vite": 0.86,
     "vitk": 4.2,
-    "kcal": 297
+    "kcal": 297,
+    "na": 742
    },
    "keys": "auto",
    "offers": "TBD",
@@ -661,7 +680,8 @@
     "vita": 0,
     "vite": 0.71,
     "vitk": 1.9,
-    "kcal": 340
+    "kcal": 340,
+    "na": 2
    },
    "keys": "auto",
    "offers": "TBD",
@@ -696,7 +716,8 @@
     "vite": 0.04,
     "vitd": 0,
     "vitk": 0,
-    "kcal": 130
+    "kcal": 130,
+    "na": 1
    },
    "keys": "auto",
    "offers": "TBD",
@@ -731,7 +752,8 @@
     "vite": 0.23,
     "vitd": 0,
     "vitk": 0.6,
-    "kcal": 149
+    "kcal": 149,
+    "na": 4
    },
    "keys": "auto",
    "offers": "TBD",

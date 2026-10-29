@@ -29,12 +29,13 @@
     "vita": 3,
     "vite": 0.13,
     "vitk": 1.1,
-    "kcal": 204
+    "kcal": 204,
+    "na": 75
    },
    "keys": "auto",
    "offers": "Cooked 90% lean ground beef is a dense source of vitamin B12 (about 99% of the reference in 3 ounces), zinc (about 67%) and iron (about 13%), with about 21 g of protein.",
    "how": "Brown for sauces, chilli and tacos, shape into burgers, or mix with grated vegetables or lentils to stretch it. Pair with vitamin C foods such as tomatoes or peppers.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Iron from meat is absorbed more readily than iron from plant foods, so beef is an efficient source; 3 ounces provide about 2.4 mg.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Iron from meat is absorbed more readily than iron from plant foods, so beef is an efficient source; 3 ounces provide about 2.4 mg. No phase-specific claim is made.",
    "cautions": [
     "temp-meat"
    ],
@@ -64,12 +65,13 @@
     "b12": 0.08,
     "vita": 0,
     "vitd": 0,
-    "kcal": 192
+    "kcal": 192,
+    "na": 9
    },
    "keys": "auto",
    "offers": "Tempeh is a firm, nutty cake of fermented whole soybeans. Half a cup gives about 17 g of protein, magnesium (about 22% of the reference), potassium and iron.",
    "how": "Slice or crumble and pan-fry, bake or grill with a marinade, or simmer into curries and chilli. Steaming it for a few minutes first mellows its flavour.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Tempeh adds plant iron (about 2.2 mg in this serving), which is absorbed less readily than iron from meat; vitamin C in the same meal helps.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Tempeh adds plant iron (about 2.2 mg in this serving), which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Tempeh"
@@ -99,7 +101,8 @@
     "vite": 0.27,
     "vitd": 0.1,
     "vitk": 0.3,
-    "kcal": 165
+    "kcal": 165,
+    "na": 74
    },
    "keys": "auto",
    "offers": "Roasted skinless chicken breast is a lean, high-protein food: half a breast gives about 27 g of protein for about 142 calories, plus vitamin B12 and zinc.",
@@ -137,7 +140,8 @@
     "vite": 1.03,
     "vitd": 2.2,
     "vitk": 0.3,
-    "kcal": 155
+    "kcal": 155,
+    "na": 124
    },
    "keys": "auto",
    "offers": "A hard-boiled egg gives about 6 g of protein, vitamin B12, vitamin A and some vitamin D for about 78 calories.",
@@ -169,12 +173,13 @@
     "zn": 1.57,
     "vitc": 0.2,
     "folate": 29,
-    "kcal": 144
+    "kcal": 144,
+    "na": 14
    },
    "keys": "auto",
    "offers": "Firm tofu set with calcium sulfate is a plant protein with a lot of calcium: a quarter block gives about 14 g of protein and about 55% of the calcium reference, plus zinc and magnesium.",
    "how": "Press and cube for stir-fries and curries, crumble into scrambles, bake or pan-fry until golden, or blend silken types into sauces. It takes on the flavour of what it is cooked with.",
-   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Tofu made with calcium sulfate is one of the richer non-dairy sources; check the label, as tofu set with other coagulants has much less.",
+   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Tofu made with calcium sulfate is one of the richer non-dairy sources; check the label, as tofu set with other coagulants has much less. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Calcium depends on the coagulant: tofu set with calcium sulfate is high in calcium, tofu set with nigari (magnesium chloride) is not. The record is the calcium-sulfate type.",
@@ -205,12 +210,13 @@
     "vite": 0.2,
     "vitd": 0.7,
     "vitk": 0,
-    "kcal": 209
+    "kcal": 209,
+    "na": 58
    },
    "keys": "auto",
    "offers": "Roasted lean pork loin gives about 24 g of protein, zinc (about 27% of the reference), vitamin B12 and potassium in 3 ounces, for about 178 calories.",
    "how": "Roast, grill or pan-sear, then slice thinly; it works with fruit, mustard and herbs, in stir-fries, or shredded into tacos.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lean loin is a modest source of iron (about 0.9 mg in this serving); other cuts and organ meats differ.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lean loin is a modest source of iron (about 0.9 mg in this serving); other cuts and organ meats differ. No phase-specific claim is made.",
    "cautions": [
     "temp-meat"
    ],
@@ -241,12 +247,13 @@
     "b12": 2.71,
     "vita": 0,
     "vite": 0.18,
-    "kcal": 180
+    "kcal": 180,
+    "na": 66
    },
    "keys": "auto",
    "offers": "Roasted lean leg of lamb is a dense source of vitamin B12 (about 96% of the reference in 3 ounces), zinc (about 53%) and protein (about 24 g).",
    "how": "Roast with garlic, rosemary and lemon, grill slices, or braise in stews and curries; rest the meat before carving.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lamb provides iron from meat (about 1.8 mg in this serving), absorbed more readily than iron from plants.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Lamb provides iron from meat (about 1.8 mg in this serving), absorbed more readily than iron from plants. No phase-specific claim is made.",
    "cautions": [
     "temp-meat"
    ],
@@ -280,7 +287,8 @@
     "vitd": 0.3,
     "vitk": 0,
     "kcal": 147,
-    "omega3": 0.008
+    "omega3": 0.008,
+    "na": 99
    },
    "keys": "auto",
    "offers": "Roasted turkey breast is a very lean, high-protein meat: 3 ounces give about 26 g of protein for 125 calories, plus zinc and a little vitamin B12.",
@@ -318,13 +326,16 @@
     "vite": 0.18,
     "vitd": 0.4,
     "vitk": 1.8,
-    "kcal": 265
+    "kcal": 265,
+    "na": 1140.0
    },
    "keys": "auto",
    "offers": "Feta is a brined, tangy white cheese. An ounce gives calcium (about 14% of the reference), vitamin B12 and zinc for about 75 calories. It is salty.",
    "how": "Crumble over salads, roasted vegetables and eggs, bake with tomatoes, or serve with olives and bread.",
-   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce of feta supplies about 140 mg, about 14% of that.",
-   "cautions": [],
+   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce of feta supplies about 140 mg, about 14% of that. No phase-specific claim is made.",
+   "cautions": [
+    "pasteurised-cheese"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Feta"
   },
@@ -353,7 +364,8 @@
     "vite": 0.06,
     "vitd": 0.1,
     "vitk": 0.2,
-    "kcal": 61
+    "kcal": 61,
+    "na": 46
    },
    "keys": "auto",
    "offers": "A 6-ounce container of plain whole-milk yogurt gives calcium (about 21% of the reference), vitamin B12, zinc and about 6 g of protein.",
@@ -390,7 +402,8 @@
     "vitd": 0,
     "vitk": 0,
     "kcal": 81,
-    "omega3": 0.001
+    "omega3": 0.001,
+    "na": 308
    },
    "keys": "auto",
    "offers": "Half a cup of low-fat cottage cheese gives about 12 g of protein, vitamin B12 and calcium (about 13% of the reference) for only 92 calories.",
@@ -425,7 +438,8 @@
     "vite": 0.02,
     "vitd": 1,
     "vitk": 0.1,
-    "kcal": 43
+    "kcal": 43,
+    "na": 40
    },
    "keys": "auto",
    "offers": "A cup of low-fat plain kefir, a tangy drinkable fermented milk, gives calcium (about 32% of the reference), vitamin A, vitamin B12 and about 9 g of protein for 104 calories.",
@@ -461,13 +475,16 @@
     "vite": 0.11,
     "vitd": 0.2,
     "vitk": 1.1,
-    "kcal": 150
+    "kcal": 150,
+    "na": 110
    },
    "keys": "auto",
    "offers": "Half a cup of whole-milk ricotta, a soft, mild fresh cheese, gives calcium (about 26% of the reference), vitamin A and vitamin B12 with about 9 g of protein.",
    "how": "Spread on toast with honey or fruit, fold into pasta and lasagne, or mix into pancakes and baking.",
-   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Half a cup supplies about 255 mg, about 26% of that.",
-   "cautions": [],
+   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). Half a cup supplies about 255 mg, about 26% of that. No phase-specific claim is made.",
+   "cautions": [
+    "pasteurised-cheese"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Ricotta"
   },
@@ -496,13 +513,16 @@
     "vite": 0.18,
     "vitd": 0.4,
     "vitk": 1.8,
-    "kcal": 264
+    "kcal": 264,
+    "na": 459
    },
    "keys": "auto",
    "offers": "An ounce of soft goat cheese gives about 5 g of protein and vitamin A (about 12% of the reference), with some calcium and iron, for about 75 calories.",
    "how": "Crumble over salads and roasted vegetables, spread on toast, or bake until warm and soft.",
    "cycle": "No cycle-phase claim is made for goat cheese.",
-   "cautions": [],
+   "cautions": [
+    "pasteurised-cheese"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Goat cheese"
   },
@@ -531,7 +551,8 @@
     "vite": 0.01,
     "vitd": 0,
     "vitk": 0,
-    "kcal": 97
+    "kcal": 97,
+    "na": 35
    },
    "keys": "auto",
    "offers": "A 6-ounce container of plain whole-milk Greek yogurt gives about 15 g of protein, vitamin B12 (about 53% of the reference) and calcium (about 17%).",
@@ -567,13 +588,16 @@
     "vite": 0.19,
     "vitd": 0.4,
     "vitk": 2.3,
-    "kcal": 299
+    "kcal": 299,
+    "na": 486
    },
    "keys": "auto",
    "offers": "An ounce of whole-milk mozzarella gives about 6 g of protein, calcium (about 14% of the reference) and vitamin B12 for about 85 calories.",
    "how": "Melt on pizza and baked pasta, tear fresh mozzarella over tomatoes and basil, or add to sandwiches and salads.",
-   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce supplies about 143 mg, about 14% of that.",
-   "cautions": [],
+   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). An ounce supplies about 143 mg, about 14% of that. No phase-specific claim is made.",
+   "cautions": [
+    "pasteurised-cheese"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Mozzarella"
   },
@@ -602,12 +626,13 @@
     "vite": 0.6,
     "vitd": 0,
     "vitk": 1.4,
-    "kcal": 393
+    "kcal": 393,
+    "na": 187
    },
    "keys": "auto",
    "offers": "A slice of Swiss cheese gives calcium (about 25% of the reference), vitamin B12 and zinc, with about 7.6 g of protein for about 110 calories.",
    "how": "Melt into sandwiches, quiche and gratins, or slice with fruit and bread.",
-   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A slice supplies about 249 mg, about 25% of that.",
+   "cycle": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS). A slice supplies about 249 mg, about 25% of that. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Swiss cheese"
@@ -637,7 +662,8 @@
     "vite": 0.01,
     "vitd": 0,
     "vitk": 29.3,
-    "kcal": 198
+    "kcal": 198,
+    "na": 3730.0
    },
    "keys": "auto",
    "offers": "Miso is a salty, savoury fermented soybean paste. A tablespoon gives protein, fibre and a little zinc and iron for about 34 calories, mainly as flavour.",
@@ -673,7 +699,8 @@
     "vite": 0.14,
     "vitd": 0,
     "vitk": 13,
-    "kcal": 19
+    "kcal": 19,
+    "na": 661
    },
    "keys": "auto",
    "offers": "Canned sauerkraut is salty, tangy fermented cabbage with vitamin C (about 14% of the reference in half a cup), some iron and fibre, for only about 13 calories.",
@@ -709,7 +736,8 @@
     "vite": 0.03,
     "vitd": 0,
     "vitk": 17.3,
-    "kcal": 12
+    "kcal": 12,
+    "na": 809
    },
    "keys": "auto",
    "offers": "A dill pickle spear is a very low-energy, salty condiment with little else nutritionally: a small spear is about 4 calories.",
@@ -745,7 +773,8 @@
     "vite": 0.11,
     "vitd": 0,
     "vitk": 43.6,
-    "kcal": 15
+    "kcal": 15,
+    "na": 498
    },
    "keys": "auto",
    "offers": "Kimchi is spicy fermented cabbage. Half a cup gives folate and iron (about 10% each), vitamin K and a little fibre for only about 11 calories.",

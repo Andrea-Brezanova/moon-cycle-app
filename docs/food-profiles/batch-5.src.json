@@ -27,12 +27,13 @@
     "folate": 86,
     "vite": 0.87,
     "vitk": 3.3,
-    "kcal": 130
+    "kcal": 130,
+    "na": 3
    },
    "keys": "auto",
    "offers": "Black turtle beans are small, dense, earthy beans. Half a cup gives about 7.7 g of protein and 7.7 g of fibre, with folate (20% of the reference), potassium and plant iron.",
    "how": "Simmer into soups, stews and chilli, mash for burritos and tacos, or add to rice and salads. Canned beans, rinsed, are a shortcut.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Black beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Black beans add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Black beans"
@@ -59,12 +60,13 @@
     "folate": 130,
     "vite": 0.03,
     "vitk": 8.4,
-    "kcal": 127
+    "kcal": 127,
+    "na": 1
    },
    "keys": "auto",
    "offers": "Kidney beans are large, meaty beans with folate (about 29% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 5.7 g of fibre.",
    "how": "Use in chilli, curries, salads and stews. Dried kidney beans must be soaked and boiled hard before eating (see the caution); canned beans are already cooked.",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans are a good source. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externally sourced).",
@@ -92,12 +94,13 @@
     "folate": 81,
     "vite": 0.94,
     "vitk": 3.5,
-    "kcal": 139
+    "kcal": 139,
+    "na": 6
    },
    "keys": "auto",
    "offers": "White beans are creamy, mild beans that give potassium (about 19% of the adequate intake in half a cup), iron and magnesium, with 8.7 g of protein and 5.6 g of fibre.",
    "how": "Simmer into soups and stews, mash into dips, or toss with olive oil, lemon and herbs for a salad.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). White beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). White beans add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "The catalogue entry \"white beans\" covers cannellini, navy and great northern; this is the USDA \"white\" record.",
@@ -126,12 +129,13 @@
     "vita": 1,
     "vite": 0.28,
     "vitk": 1.7,
-    "kcal": 116
+    "kcal": 116,
+    "na": 4
    },
    "keys": "auto",
    "offers": "Black-eyed peas are small, savoury beans with a lot of folate (about 44% of the reference in half a cup), plus magnesium, zinc, 6.6 g of protein and 5.6 g of fibre.",
    "how": "Simmer with onion and spices, add to salads and grain bowls, or stew with greens.",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Black-eyed peas is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Black-eyed peas are a good source. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Black-eyed pea"
@@ -159,7 +163,8 @@
     "vita": 1,
     "vite": 1.54,
     "vitk": 22.8,
-    "kcal": 237
+    "kcal": 237,
+    "na": 426
    },
    "keys": "auto",
    "offers": "Hummus is a chickpea and sesame dip. Two tablespoons give about 71 calories, a little magnesium and zinc, and some fibre, mostly from the chickpeas. It also contains oil and usually salt.",
@@ -193,12 +198,13 @@
     "vita": 0,
     "vite": 0.18,
     "vitk": 2,
-    "kcal": 115
+    "kcal": 115,
+    "na": 2
    },
    "keys": "auto",
    "offers": "Lima beans are buttery, starchy beans with potassium (about 18% of the adequate intake in half a cup), folate and magnesium, plus 7.3 g of protein and 6.6 g of fibre.",
    "how": "Simmer until very tender and add to soups, succotash and stews, or mash with herbs. They must always be cooked thoroughly (see the caution).",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Lima beans is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Lima beans are a good source. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Lima bean"
@@ -225,12 +231,13 @@
     "folate": 65,
     "vite": 0.03,
     "vitk": 5,
-    "kcal": 118
+    "kcal": 118,
+    "na": 2
    },
    "keys": "auto",
    "offers": "Split peas break down into a thick, creamy texture when cooked. Half a cup has 8.2 g of protein and 8.1 g of fibre, with folate, potassium and zinc.",
    "how": "Simmer into soup or dal with onion and spices; they cook without soaking.",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Split peas is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Split peas are a good source. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Split pea"
@@ -256,12 +263,13 @@
     "vitc": 1.7,
     "folate": 204,
     "vita": 3,
-    "kcal": 358
+    "kcal": 358,
+    "na": 7
    },
    "keys": "auto",
    "offers": "Red lentils are quick-cooking, split lentils. The figures here are for the dry lentils: a quarter cup before cooking gives 11.5 g of protein and 5.2 g of fibre, with folate, zinc and iron (20% of the reference).",
    "how": "Simmer for about 15–20 minutes into soups and dals, where they dissolve into a soft purée. They roughly triple in weight when cooked, so a cooked portion has about a third of these amounts.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Red lentils adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Red lentils add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "USDA has no cooked red-lentil record, so amounts are for the DRY lentils; red lentils roughly triple in weight when cooked. The profile says so.",
@@ -290,7 +298,8 @@
     "vita": 15,
     "vite": 0.68,
     "vitk": 26.7,
-    "kcal": 121
+    "kcal": 121,
+    "na": 6
    },
    "keys": "auto",
    "offers": "Edamame are young soybeans, a plant source of complete protein: half a cup of shelled beans has 9.2 g, along with a lot of folate (about 60% of the reference), magnesium and zinc.",
@@ -322,12 +331,13 @@
     "folate": 172,
     "vite": 0.94,
     "vitk": 3.5,
-    "kcal": 143
+    "kcal": 143,
+    "na": 1
    },
    "keys": "auto",
    "offers": "Pinto beans are mild, creamy beans with folate (about 37% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 7.7 g of fibre.",
    "how": "Simmer for refried beans, chilli and burritos, or serve whole with rice.",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Pinto beans is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Pinto beans are a good source. No phase-specific claim is made.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "name": "Pinto beans"
@@ -354,7 +364,8 @@
     "folate": 26,
     "vite": 0.24,
     "vitk": 0.5,
-    "kcal": 101
+    "kcal": 101,
+    "na": 3
    },
    "keys": "auto",
    "offers": "Wild rice is the seed of an aquatic grass, nutty and chewy. Half a cup cooked gives zinc and magnesium for about 83 calories, with about 3.3 g of protein.",
@@ -382,7 +393,8 @@
     "mg": 119,
     "k": 385,
     "zn": 3.97,
-    "kcal": 367
+    "kcal": 367,
+    "na": 1
    },
    "keys": "auto",
    "offers": "Farro is a chewy ancient wheat grain. The figures here are for the dry, pearled grain: 45 g before cooking gives zinc (22% of the reference), magnesium, 5.7 g of protein and 3.3 g of fibre.",
@@ -413,7 +425,8 @@
     "zn": 0.53,
     "vitc": 0,
     "folate": 6,
-    "kcal": 40
+    "kcal": 40,
+    "na": 1
    },
    "keys": "auto",
    "offers": "Oat bran is the fibre-rich outer layer of the oat. Half a cup of cooked oat bran gives magnesium and some zinc and fibre for only about 44 calories.",
@@ -445,7 +458,8 @@
     "folate": 14,
     "vite": 0.09,
     "vitk": 1.9,
-    "kcal": 92
+    "kcal": 92,
+    "na": 4
    },
    "keys": "auto",
    "offers": "Buckwheat is a gluten-free seed eaten like a grain, with a toasty flavour. Half a cup of cooked roasted groats (kasha) gives magnesium and some zinc and protein.",
@@ -477,7 +491,8 @@
     "folate": 16,
     "vite": 0.01,
     "vitk": 0.8,
-    "kcal": 123
+    "kcal": 123,
+    "na": 3
    },
    "keys": "auto",
    "offers": "Pearled barley is a chewy grain with fibre (about 3 g in half a cup), plus some zinc and iron.",
@@ -510,7 +525,8 @@
     "folate": 18,
     "vite": 0.01,
     "vitk": 0.5,
-    "kcal": 83
+    "kcal": 83,
+    "na": 5
    },
    "keys": "auto",
    "offers": "Bulgur is cracked, pre-cooked wheat. Half a cup cooked gives about 4.1 g of fibre and some magnesium and zinc for about 76 calories.",
@@ -542,7 +558,8 @@
     "folate": 42,
     "vite": 2.66,
     "vitk": 7.8,
-    "kcal": 252
+    "kcal": 252,
+    "na": 455
    },
    "keys": "auto",
    "offers": "A slice of whole-wheat bread gives about 2 g of fibre with some magnesium and zinc and about 81 calories. Brands vary a lot in fibre, salt and added nutrients.",
@@ -575,7 +592,8 @@
     "folate": 97,
     "vite": 0.25,
     "vitk": 0,
-    "kcal": 573
+    "kcal": 573,
+    "na": 11
    },
    "keys": "auto",
    "offers": "Sesame seeds are very small, so a tablespoon is a typical serving: it gives about 88 mg of calcium and 32 mg of magnesium, with some iron and fibre.",
@@ -607,12 +625,13 @@
     "folate": 25,
     "vite": 0.9,
     "vitk": 34.1,
-    "kcal": 553
+    "kcal": 553,
+    "na": 12
    },
    "keys": "auto",
    "offers": "Cashews are buttery tree nuts with magnesium (about 27% of the reference in an ounce), zinc, iron and 5.2 g of protein. They are energy dense.",
    "how": "Eat as a snack, blend soaked cashews into creamy sauces and dressings, or add to stir-fries and curries.",
-   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Cashews adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps.",
+   "cycle": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Cashews add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made.",
    "cautions": [
     "oxalate-nuts"
    ],
@@ -641,7 +660,8 @@
     "folate": 22,
     "vite": 5.65,
     "vitk": 0,
-    "kcal": 659
+    "kcal": 659,
+    "na": 3
    },
    "keys": "auto",
    "offers": "Brazil nuts are large, rich tree nuts. Two kernels give magnesium and some zinc and fibre for about 66 calories. They are also extremely rich in selenium, which is why only 1–2 a day is suggested.",
@@ -677,7 +697,8 @@
     "vita": 3,
     "vite": 1.4,
     "vitk": 3.5,
-    "kcal": 691
+    "kcal": 691,
+    "na": 0
    },
    "keys": "auto",
    "offers": "Pecans are rich, sweet tree nuts with zinc (about 16% of the reference in an ounce), magnesium and 2.7 g of fibre. They are very energy dense, at about 196 calories an ounce.",
@@ -711,7 +732,8 @@
     "folate": 51,
     "vita": 26,
     "vite": 2.86,
-    "kcal": 560
+    "kcal": 560,
+    "na": 1
    },
    "keys": "auto",
    "offers": "Pistachios are green tree nuts with potassium (about 11% of the adequate intake in an ounce), magnesium, 5.7 g of protein and 3 g of fibre.",
@@ -746,7 +768,8 @@
     "vita": 1,
     "vite": 15,
     "vitk": 14.2,
-    "kcal": 628
+    "kcal": 628,
+    "na": 0
    },
    "keys": "auto",
    "offers": "Hazelnuts are sweet tree nuts that are an especially good source of vitamin E (about 28% of the reference in an ounce), with magnesium and folate.",
@@ -781,7 +804,8 @@
     "vita": 3,
     "vite": 35.2,
     "vitk": 0,
-    "kcal": 584
+    "kcal": 584,
+    "na": 9
    },
    "keys": "auto",
    "offers": "Sunflower seed kernels are mild, nutty seeds that are exceptionally rich in vitamin E (about 82% of the reference in a quarter cup), with magnesium (about 37%), zinc, 7.3 g of protein and 3 g of fibre.",
@@ -814,7 +838,8 @@
     "vita": 0,
     "vite": 9.1,
     "vitk": 0.3,
-    "kcal": 598
+    "kcal": 598,
+    "na": 17
    },
    "keys": "auto",
    "offers": "Two tablespoons of peanut butter give 7.1 g of protein, vitamin E (about 19% of the reference) and magnesium (about 17%). It is energy dense, at about 191 calories.",
@@ -850,7 +875,8 @@
     "vita": 0,
     "vite": 6.13,
     "vitk": 12,
-    "kcal": 607
+    "kcal": 607,
+    "na": 4
    },
    "keys": "auto",
    "offers": "Mixed nuts give magnesium (about 21% of the reference in an ounce), zinc, vitamin E and 5.5 g of protein, depending on the blend. They are energy dense, at about 172 calories an ounce.",
@@ -885,12 +911,13 @@
     "folate": 240,
     "vite": 8.33,
     "vitk": 0,
-    "kcal": 567
+    "kcal": 567,
+    "na": 18
    },
    "keys": "auto",
    "offers": "Peanuts are legumes eaten like nuts. An ounce of raw peanuts gives 7.3 g of protein, folate (about 17% of the reference), vitamin E and magnesium.",
    "how": "Eat as a snack, add to stir-fries and salads, or blend into sauces and butters.",
-   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Peanuts is a good source. No phase-specific claim is made.",
+   "cycle": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Peanuts are a good source. No phase-specific claim is made.",
    "cautions": [
     "oxalate-nuts"
    ],
