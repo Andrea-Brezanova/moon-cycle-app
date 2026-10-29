@@ -107,22 +107,32 @@
       "cautions": [
         {
           "text": "Cook thoroughly",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Mollusc allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
-        },
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
+        }
+      ],
+      "nutritionNotes": [
         {
-          "text": "About 1,020 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "text": "This serving has about 1,020 mg of sodium, 44% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [
+        {
+          "kind": "resolved",
+          "text": "Sodium of 1,200 mg per 100 g (cooked, moist heat) compares with 601 mg in USDA's raw mixed-species clam record (174214), a 2 times rise; the figures are USDA's own."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -233,18 +243,22 @@
       "cautions": [
         {
           "text": "Cook thoroughly",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Mollusc allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -353,22 +367,27 @@
       "cautions": [
         {
           "text": "Mollusc allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         },
         {
           "text": "Raw oysters: food-safety risk",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28) (supports the existing caution)",
+          "status": "partly-sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -482,14 +501,17 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -588,19 +610,23 @@
       "mayContainAllergens": [],
       "cautions": [
         {
-          "text": "About 734 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
-        },
-        {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [
+        {
+          "text": "This serving has about 734 mg of sodium, 32% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -709,22 +735,32 @@
       "cautions": [
         {
           "text": "Mollusc allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "Existing MoonCycle catalogue caution (no external source recorded)",
+          "status": "unverified-inherited"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
-        },
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
+        }
+      ],
+      "nutritionNotes": [
         {
-          "text": "About 567 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "text": "This serving has about 567 mg of sodium, 25% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [
+        {
+          "kind": "resolved",
+          "text": "Sodium of 667 mg per 100 g (steamed) compares with 392 mg in the raw record (174220)."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "1 inherited caution(s) without a verified source",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -838,18 +874,22 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -963,14 +1003,17 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1065,14 +1108,22 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Light tuna in water; albacore (white) tuna differs in mercury."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1167,18 +1218,22 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1296,18 +1351,22 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1425,22 +1484,32 @@
       "cautions": [
         {
           "text": "Crustacean allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
-        },
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
+        }
+      ],
+      "nutritionNotes": [
         {
-          "text": "About 910 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "text": "This serving has about 910 mg of sodium, 40% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [
+        {
+          "kind": "resolved",
+          "text": "Sodium of 1,070 mg per 100 g (cooked) compares with 836 mg in USDA's raw Alaska king crab record (175164)."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1450,7 +1519,7 @@
       "catalogueId": "shrimp",
       "name": "Shrimp",
       "sections": {
-        "whatItOffers": "Cooked shrimp are a lean shellfish: 3 ounces give about 19 g of protein, vitamin B12, zinc and vitamin E for about 101 calories.",
+        "whatItOffers": "Cooked shrimp are a lean shellfish: 3 ounces give about 19 g of protein, vitamin B12, zinc and vitamin E for about 101 calories. The USDA record notes that shrimp may contain additives that retain moisture.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g), about 12 large",
         "howToEatIt": "Sauté, grill or steam briefly until just pink and firm, then add to stir-fries, pasta, salads and curries. They overcook quickly.",
         "cycleRelevance": "No cycle-phase claim is made for shrimp."
@@ -1549,22 +1618,36 @@
       "cautions": [
         {
           "text": "Crustacean allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
+        }
+      ],
+      "nutritionNotes": [
+        {
+          "text": "This serving has about 805 mg of sodium, 35% of the 2,300 mg Daily Value. The FDA treats 20% or more of the Daily Value as high.",
+          "source": "FDA, How to Understand and Use the Nutrition Facts Label (5% DV or less is low, 20% DV or more is high; content current as of 03/05/2024; read 2026-10-28)"
+        }
+      ],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "The USDA record 'may contain additives to retain moisture', which raises its sodium."
         },
         {
-          "text": "About 805 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
-          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+          "kind": "resolved",
+          "text": "Sodium of 947 mg per 100 g (cooked) compares with 566 mg in the raw record (174210); both records carry the moisture-retention additives note."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1682,18 +1765,27 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Mixed-species USDA record; species differ in mercury (the caution says so)."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1807,18 +1899,22 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1920,18 +2016,22 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2031,18 +2131,22 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2151,22 +2255,27 @@
       "cautions": [
         {
           "text": "Fish allergen",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "source": "FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Moderate mercury: about 1 serving a week if pregnant",
-          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024) (supports the existing caution)"
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024) (supports the existing caution)",
+          "status": "sourced"
         },
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2284,22 +2393,27 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "This profile is Atlantic mackerel, a \"Best Choice\" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it.",
-          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2309,7 +2423,7 @@
       "catalogueId": "red-snapper",
       "name": "Snapper",
       "sections": {
-        "whatItOffers": "Cooked snapper is a lean, mildly sweet fish with about 22 g of protein, potassium (17% of the adequate intake), vitamin B12 and some magnesium in 3 ounces.",
+        "whatItOffers": "Cooked snapper (the USDA record covers mixed species) is a lean, mildly sweet fish with about 22 g of protein, potassium (17% of the adequate intake), vitamin B12 and some magnesium in 3 ounces.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Bake or grill whole or in fillets with herbs and citrus, or pan-fry the fillets skin-side down.",
         "cycleRelevance": "No cycle-phase claim is made for snapper. FDA and EPA list snapper as a \"Good Choice\" for mercury (see the caution)."
@@ -2417,22 +2531,36 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "Mercury: the FDA and EPA list Snapper as a \"Good Choice\", with more mercury than their \"Best Choices\". For people who are or might become pregnant, or who are breastfeeding, the advice is 2 to 3 servings a week from the Best Choices or 1 serving from the Good Choices.",
-          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+          "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
+        }
+      ],
+      "nutritionNotes": [],
+      "recordNotes": [
+        {
+          "kind": "identity",
+          "text": "Mixed-species USDA record; species differ in mercury."
+        },
+        {
+          "kind": "resolved",
+          "text": "Opening line now says the USDA record covers mixed species."
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -2541,18 +2669,22 @@
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
-          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+          "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)",
+          "status": "sourced"
         },
         {
           "text": "Fish allergen",
-          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)",
+          "status": "catalogue-tag"
         }
       ],
+      "nutritionNotes": [],
+      "recordNotes": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "verified against the cited page",
+        "cautions": "all cautions sourced or catalogue tags",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
