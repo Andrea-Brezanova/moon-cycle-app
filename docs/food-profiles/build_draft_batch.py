@@ -34,6 +34,7 @@ REF = {
 # Shown as an amount only: no population reference is quoted for these.
 AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': ('g', 'Omega-3 (EPA + DHA)')}
 DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
+FDA_RISK = 'FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)'
 FSIS = 'USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)'
 CAUTIONS = {
     'vitk': dict(text='{n} contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.',
@@ -50,6 +51,20 @@ CAUTIONS = {
     'temp-eggs': dict(text='Cook eggs to 160 °F (71.1 °C).', source=FSIS),
     'oxalate-list': dict(text='{n} is high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how much to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists rhubarb among foods to reduce for calcium oxalate stones)'),
+    'sprouts': dict(text="Raw sprouts (alfalfa, bean or any other sprout) are on the FDA's list of foods to avoid if you are at greater risk of foodborne illness, for example during pregnancy, in older age or with a weakened immune system.",
+                    source=FDA_RISK),
+    'smoked-fish': dict(text="Smoked fish is on the FDA's list of foods to avoid if you are at greater risk of foodborne illness (for example during pregnancy), unless it is reheated until steaming hot.",
+                        source=FDA_RISK),
+    'deli-meat': dict(text="Sliced deli-style meats such as ham are on the FDA's list of foods to avoid if you are at greater risk of foodborne illness (for example during pregnancy), unless they are reheated until steaming hot.",
+                      source=FDA_RISK),
+    'pasteurised-cheese': dict(text="The FDA advises people at greater risk of foodborne illness (for example during pregnancy) to avoid cheese made from unpasteurised milk, and queso fresco-type cheeses even when pasteurised. Check the label for pasteurised milk.",
+                               source=FDA_RISK),
+    'honey-infant': dict(text='Do not give honey to a child younger than 1 year old: it can contain the bacteria that cause infant botulism.',
+                         source='CDC, Botulism Prevention (read 2026-10-28)'),
+    'fava-g6pd': dict(text='People with glucose-6-phosphate dehydrogenase (G6PD) deficiency can develop hemolytic anemia (favism) after eating fava beans. If you have G6PD deficiency, ask a health professional before eating them.',
+                      source='NIH MedlinePlus Genetics, Glucose-6-phosphate dehydrogenase deficiency (last updated 12 April 2023; read 2026-10-28)'),
+    'iodine-ods': dict(text='Seaweed such as kelp and wakame is one of the best food sources of iodine, and the tolerable upper intake level for adults is 1,100 µg of iodine a day.',
+                       source='NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)'),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
@@ -86,7 +101,19 @@ def auto_keys(f):
 
 CATALOGUE = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
 EXISTING = 'Existing MoonCycle catalogue caution (no external source recorded)'
+ALLERGEN_SOURCE = 'MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)'
 # A sourced caution is skipped when the catalogue already carries one on the same topic.
+SODIUM_SOURCE = 'FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)'
+SODIUM_LIMIT_MG = 2300
+# A serving at or above 15% of the daily limit is called out.
+SODIUM_NOTE_MG = 345
+# Allergen tags in the catalogue (assets/content/foods.json) and the wording that already covers each.
+ALLERGENS = {
+    'tree-nut': ('Tree-nut allergen', ['tree-nut', 'tree nut']), 'peanut': ('Peanut allergen', ['peanut']),
+    'fish': ('Fish allergen', ['fish allergen']), 'shellfish': ('Shellfish allergen', ['crustacean', 'mollusc', 'shellfish']),
+    'gluten': ('Contains gluten', ['gluten', 'wheat']), 'dairy': ('Dairy allergen', ['dairy']),
+    'soy': ('Soy allergen', ['soy']), 'egg': ('Egg allergen', ['egg allergen']), 'sesame': ('Sesame allergen', ['sesame']),
+}
 TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
           'temp-fish': 'cook', 'temp-poultry': 'cook', 'temp-meat': 'cook', 'temp-eggs': 'cook'}
 
@@ -94,18 +121,32 @@ def short_portion(portion):
     return portion.split(' (USDA')[0]
 
 
+STATE_WORDS = ('raw', 'cooked', 'dried', 'dry', 'canned', 'roasted', 'baked', 'boiled', 'steamed', 'frozen',
+               'smoked', 'pickled', 'fermented', 'sprouted')
+
+
+def lead(f):
+    """The food's name, with its preparation (cooked, raw, dried...) in brackets when the name doesn't say it."""
+    low = f['name'].lower()
+    for part in f['state'].split(','):
+        for w in part.split():
+            if w in STATE_WORDS and w not in low:
+                return f"{f['name']} ({w})"
+    return f['name']
+
+
 def offers_text(f, keys, kcal):
     """Plain sentence built only from the recomputed numbers (no claims)."""
     bits = []
     for e in keys:
+        name = 'fibre' if e['name'] == 'Fiber' else e['name'][0].lower() + e['name'][1:]
         if e.get('reference'):
-            bits.append(f"{e['name'][0].lower() + e['name'][1:]} (about {e['reference'][0]['percent']}%)")
+            bits.append(f"{name} (about {e['reference'][0]['percent']}%)")
         elif e['name'] == 'Vitamin K':
             bits.append(f"{e['amount']} µg of vitamin K")
         else:
-            bits.append(f"{e['amount']} {e['unit']} of {e['name'][0].lower() + e['name'][1:]}")
-    label = f['name'] if f['name'].lower() in f['state'].lower() else f"{f['name']}, {f['state']}"
-    base = f"{label}: {short_portion(f['portion'])} gives about {kcal} calories"
+            bits.append(f"{e['amount']} {e['unit']} of {name}")
+    base = f"{lead(f)}: {short_portion(f['portion'])} gives about {kcal} {'calorie' if kcal == 1 else 'calories'}"
     if not bits:
         return base + ' and supplies little of the vitamins and minerals tracked here.'
     pct = ' Percentages are of the NIH reference intake for adult women.' if any(e.get('reference') for e in keys) else ''
@@ -114,8 +155,11 @@ def offers_text(f, keys, kcal):
 
 def cycle_text(f, keys):
     low = f['name'].lower()
-    out = f"No cycle-phase claim is made for {low}; this profile covers what it provides nutritionally, as part of a varied diet."
+    out = f"No cycle-phase claim is made for {low}."
     for e in keys:
+        # Only when the serving supplies a meaningful share (10% or more) of the reference.
+        if not e.get('reference') or e['reference'][0]['percent'] < 10:
+            continue
         if e['name'] == 'Iron':
             out += f" Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about {e['amount']} mg."
         if e['name'] == 'Calcium':
@@ -170,6 +214,22 @@ for fid, f in src['foods'].items():
             continue
         cautions.append(dict(text=CAUTIONS[c]['text'].format(n=f['name']), source=CAUTIONS[c]['source']))
     assert all(f.get(x, '').strip() for x in ('offers', 'how', 'cycle')), f"{fid}: prose missing"
+    # Sodium: called out at 15% of the 2,300 mg daily limit or more (a catalogue "salt" caution is kept and sourced instead).
+    sodium = rhu(amt('na')) if 'na' in f['per100'] else None
+    if sodium is not None and sodium >= SODIUM_NOTE_MG:
+        text = f"About {sodium:,} mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than {SODIUM_LIMIT_MG:,} mg a day."
+        same = [x for x in cautions if 'salt' in x['text'].lower() or 'sodium' in x['text'].lower()]
+        if same:
+            same[0]['source'] = SODIUM_SOURCE + ' (supports the existing caution)'
+            same[0]['text'] = same[0]['text'].rstrip('.') + '. ' + text
+        else:
+            cautions.append(dict(text=text, source=SODIUM_SOURCE))
+    # Allergen tags from the catalogue must be visible in the caution list too.
+    allergens = list(CATALOGUE[fid].get('allergens', []))
+    for a in allergens:
+        label, words = ALLERGENS[a]
+        if not any(w in ' '.join(x['text'].lower() for x in cautions) for w in words):
+            cautions.append(dict(text=label, source=ALLERGEN_SOURCE))
     out['profiles'][fid] = {
         'catalogueId': fid, 'name': f['name'],
         'sections': {'whatItOffers': f['offers'], 'practicalServing': f['portion'], 'howToEatIt': f['how'], 'cycleRelevance': f['cycle']},
@@ -177,7 +237,9 @@ for fid, f in src['foods'].items():
                    'preparationState': f['state'], 'portionGrams': f['grams'], 'portion': f['portion'], 'per100g': f['per100']},
         'perServing': {'energyKcal': rhu(amt('kcal')), 'proteinG': rhu(amt('protein'), 1), 'fatG': rhu(amt('fat'), 1),
                        'carbohydrateG': rhu(amt('carb'), 1), 'fiberG': rhu(amt('fiber'), 1) if 'fiber' in f['per100'] else None,
+                       'sodiumMg': sodium,
                        'keyNutrients': keys},
+        'allergens': allergens, 'mayContainAllergens': list(CATALOGUE[fid].get('mayContainAllergens', [])),
         'cautions': cautions, 'evidence': f['evidence'],
         'review': {'composition': 'copied from USDA FoodData Central; recomputed by script', 'referenceIntakes': 'NIH ODS values',
                    'cautions': 'verified against the cited page' if cautions else 'none recorded',

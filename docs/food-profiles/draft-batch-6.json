@@ -14,7 +14,7 @@
         "whatItOffers": "Cooked clams are an exceptional source of vitamin B12 (about 84 µg in 3 ounces, many times the 2.4 µg reference), with zinc, vitamin C and about 22 g of protein for 126 calories.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Steam in their shells with garlic, wine or broth, or add shucked clams to chowder, pasta and rice dishes. Discard any that stay closed after cooking.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Clams provide iron too (about 2.4 mg in this serving), in a form that is absorbed more readily than plant iron."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Clams provide iron too (about 2.4 mg in this serving), in a form that is absorbed more readily than plant iron. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 171975,
@@ -39,7 +39,8 @@
           "b12": 98.9,
           "vita": 171,
           "kcal": 148,
-          "omega3": 0.284
+          "omega3": 0.284,
+          "na": 1200.0
         }
       },
       "perServing": {
@@ -48,6 +49,7 @@
         "fatG": 1.7,
         "carbohydrateG": 4.4,
         "fiberG": 0.0,
+        "sodiumMg": 1020,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -98,6 +100,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook thoroughly",
@@ -106,6 +112,10 @@
         {
           "text": "Mollusc allergen",
           "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+        },
+        {
+          "text": "About 1,020 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -125,7 +135,7 @@
         "whatItOffers": "Mussels are rich in vitamin B12 (about 20 µg in 3 ounces), iron (about 32% of the reference), zinc and protein (about 20 g), with some omega-3 fats.",
         "practicalServing": "3 ounces cooked (USDA: 3 oz = 85 g)",
         "howToEatIt": "Steam in a covered pot with garlic, wine or tomato until the shells open, then serve with the broth. Discard any that stay closed.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Three ounces of mussels supply about 5.7 mg."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Three ounces of mussels supply about 5.7 mg. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 174217,
@@ -150,7 +160,8 @@
           "b12": 24,
           "vita": 91,
           "kcal": 172,
-          "omega3": 0.782
+          "omega3": 0.782,
+          "na": 369
         }
       },
       "perServing": {
@@ -159,6 +170,7 @@
         "fatG": 3.8,
         "carbohydrateG": 6.3,
         "fiberG": 0.0,
+        "sodiumMg": 314,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -214,6 +226,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook thoroughly",
@@ -269,7 +285,8 @@
           "vitd": 0,
           "vitk": 2,
           "kcal": 102,
-          "omega3": 0.624
+          "omega3": 0.624,
+          "na": 166
         }
       },
       "perServing": {
@@ -278,6 +295,7 @@
         "fatG": 1.4,
         "carbohydrateG": 2.3,
         "fiberG": 0.0,
+        "sodiumMg": 70,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -328,6 +346,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Mollusc allergen",
@@ -359,7 +381,7 @@
         "whatItOffers": "Canned sardines, eaten with their soft bones, are rich in calcium (about 35% of the reference in one small can), vitamin B12 and vitamin D, with about 0.9 g of omega-3 fats and 23 g of protein.",
         "practicalServing": "1 small can, drained (USDA: 1 can, 3.75 oz = 92 g)",
         "howToEatIt": "Mash on toast with lemon, toss into pasta or salads, or eat straight from the can with bread. The bones are soft and edible.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); sardines eaten with their bones are one of the few non-dairy foods that give a substantial amount."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); sardines eaten with their bones are one of the few non-dairy foods that give a substantial amount. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 175139,
@@ -387,7 +409,8 @@
           "vitd": 4.8,
           "vitk": 2.6,
           "kcal": 208,
-          "omega3": 0.982
+          "omega3": 0.982,
+          "na": 307
         }
       },
       "perServing": {
@@ -396,6 +419,7 @@
         "fatG": 10.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 282,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -451,6 +475,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -502,7 +530,8 @@
           "vitd": 1.7,
           "vitk": 12.1,
           "kcal": 210,
-          "omega3": 2.053
+          "omega3": 2.053,
+          "na": 3670.0
         }
       },
       "perServing": {
@@ -511,6 +540,7 @@
         "fatG": 1.9,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 734,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -552,12 +582,25 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "About 734 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -598,7 +641,8 @@
           "vitd": 0,
           "vitk": 0,
           "kcal": 111,
-          "omega3": 0.176
+          "omega3": 0.176,
+          "na": 667
         }
       },
       "perServing": {
@@ -607,6 +651,7 @@
         "fatG": 0.7,
         "carbohydrateG": 4.6,
         "fiberG": 0.0,
+        "sodiumMg": 567,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -657,6 +702,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Mollusc allergen",
@@ -665,6 +714,10 @@
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "About 567 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -684,7 +737,7 @@
         "whatItOffers": "A cooked rainbow trout fillet is one of the richest foods in vitamin D (about 13.5 µg, 90% of the reference) and gives vitamin B12, vitamin E, about 17 g of protein and 0.6 g of omega-3 fats.",
         "practicalServing": "1 fillet, cooked (USDA: 1 fillet = 71 g)",
         "howToEatIt": "Pan-fry, bake whole or in fillets with lemon and herbs, or poach. The skin crisps well.",
-        "cycleRelevance": "Few foods contain much vitamin D. The reference for women 19 to 50 is 15 µg a day (NIH ODS), and a trout fillet supplies about 90% of it."
+        "cycleRelevance": "Few foods contain much vitamin D. The reference for women 19 to 50 is 15 µg a day (NIH ODS), and a trout fillet supplies about 90% of it. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 173718,
@@ -712,7 +765,8 @@
           "vitd": 19,
           "vitk": 0.1,
           "kcal": 168,
-          "omega3": 0.875
+          "omega3": 0.875,
+          "na": 61
         }
       },
       "perServing": {
@@ -721,6 +775,7 @@
         "fatG": 5.2,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 43,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -776,6 +831,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -803,7 +862,7 @@
         "whatItOffers": "Canned pink salmon, eaten with its soft bones, gives vitamin B12, vitamin D (about 82% of the reference), calcium (about 24%) and 0.9 g of omega-3 fats, with about 20 g of protein in 3 ounces.",
         "practicalServing": "3 ounces drained (USDA: 3 oz = 85 g)",
         "howToEatIt": "Flake into salads, sandwiches, fish cakes and pasta, or mix with yoghurt and herbs. The soft bones can be mashed in.",
-        "cycleRelevance": "Calcium needs are 1,000 mg a day, and vitamin D 15 µg a day, for women aged 19 to 50 (NIH ODS). Canned salmon with the bones supplies a good share of both."
+        "cycleRelevance": "Calcium needs are 1,000 mg a day, and vitamin D 15 µg a day, for women aged 19 to 50 (NIH ODS). Canned salmon with the bones supplies a good share of both. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 175175,
@@ -831,7 +890,8 @@
           "vitd": 14.5,
           "vitk": 0.1,
           "kcal": 138,
-          "omega3": 1.077
+          "omega3": 1.077,
+          "na": 381
         }
       },
       "perServing": {
@@ -840,6 +900,7 @@
         "fatG": 4.3,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 324,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -895,12 +956,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -941,7 +1011,8 @@
           "vitd": 1.2,
           "vitk": 0.2,
           "kcal": 86,
-          "omega3": 0.224
+          "omega3": 0.224,
+          "na": 247
         }
       },
       "perServing": {
@@ -950,6 +1021,7 @@
         "fatG": 0.8,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 210,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -986,12 +1058,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1032,7 +1113,8 @@
           "vitd": 0.6,
           "vitk": 0.1,
           "kcal": 90,
-          "omega3": 0.16
+          "omega3": 0.16,
+          "na": 261
         }
       },
       "perServing": {
@@ -1041,6 +1123,7 @@
         "fatG": 0.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 222,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1077,10 +1160,18 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1125,7 +1216,8 @@
           "b12": 3.68,
           "vita": 12,
           "kcal": 118,
-          "omega3": 0.542
+          "omega3": 0.542,
+          "na": 110
         }
       },
       "perServing": {
@@ -1134,6 +1226,7 @@
         "fatG": 1.1,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 94,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1196,10 +1289,18 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1244,7 +1345,8 @@
           "b12": 11.5,
           "vita": 9,
           "kcal": 97,
-          "omega3": 0.413
+          "omega3": 0.413,
+          "na": 1070.0
         }
       },
       "perServing": {
@@ -1253,6 +1355,7 @@
         "fatG": 1.3,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 910,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1315,6 +1418,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Crustacean allergen",
@@ -1323,6 +1430,10 @@
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "About 910 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1370,7 +1481,8 @@
           "vitd": 0.1,
           "vitk": 0.4,
           "kcal": 119,
-          "omega3": 0.276
+          "omega3": 0.276,
+          "na": 947
         }
       },
       "perServing": {
@@ -1379,6 +1491,7 @@
         "fatG": 1.4,
         "carbohydrateG": 1.3,
         "fiberG": 0.0,
+        "sodiumMg": 805,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1429,6 +1542,10 @@
           }
         ]
       },
+      "allergens": [
+        "shellfish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Crustacean allergen",
@@ -1437,6 +1554,10 @@
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "About 805 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1481,7 +1602,8 @@
           "b12": 0.3,
           "vita": 64,
           "kcal": 124,
-          "omega3": 0.762
+          "omega3": 0.762,
+          "na": 87
         }
       },
       "perServing": {
@@ -1490,6 +1612,7 @@
         "fatG": 2.2,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 74,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1552,10 +1675,18 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -1603,7 +1734,8 @@
           "vitd": 13.1,
           "vitk": 0.1,
           "kcal": 206,
-          "omega3": 2.15
+          "omega3": 2.15,
+          "na": 61
         }
       },
       "perServing": {
@@ -1612,6 +1744,7 @@
         "fatG": 10.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 52,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1667,6 +1800,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -1722,7 +1859,8 @@
           "vitd": 1.2,
           "vitk": 0.1,
           "kcal": 105,
-          "omega3": 0.158
+          "omega3": 0.158,
+          "na": 78
         }
       },
       "perServing": {
@@ -1731,6 +1869,7 @@
         "fatG": 0.7,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 66,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1774,6 +1913,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -1829,7 +1972,8 @@
           "vitd": 3.5,
           "vitk": 0.1,
           "kcal": 86,
-          "omega3": 0.3
+          "omega3": 0.3,
+          "na": 363
         }
       },
       "perServing": {
@@ -1838,6 +1982,7 @@
         "fatG": 2.0,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 309,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1879,6 +2024,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -1934,7 +2083,8 @@
           "vitd": 5.8,
           "vitk": 0,
           "kcal": 111,
-          "omega3": 0.235
+          "omega3": 0.235,
+          "na": 82
         }
       },
       "perServing": {
@@ -1943,6 +2093,7 @@
         "fatG": 1.4,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 70,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -1993,6 +2144,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Fish allergen",
@@ -2049,7 +2204,8 @@
           "b12": 19,
           "vita": 54,
           "kcal": 262,
-          "omega3": 1.203
+          "omega3": 1.203,
+          "na": 83
         }
       },
       "perServing": {
@@ -2058,6 +2214,7 @@
         "fatG": 15.1,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 71,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -2120,6 +2277,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
@@ -2128,6 +2289,10 @@
         {
           "text": "This profile is Atlantic mackerel, a \"Best Choice\" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it.",
           "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -2172,7 +2337,8 @@
           "b12": 3.5,
           "vita": 35,
           "kcal": 128,
-          "omega3": 0.321
+          "omega3": 0.321,
+          "na": 57
         }
       },
       "perServing": {
@@ -2181,6 +2347,7 @@
         "fatG": 1.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 48,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -2243,6 +2410,10 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
@@ -2251,6 +2422,10 @@
         {
           "text": "Mercury: the FDA and EPA list Snapper as a \"Good Choice\", with more mercury than their \"Best Choices\". For people who are or might become pregnant, or who are breastfeeding, the advice is 2 to 3 servings a week from the Best Choices or 1 serving from the Good Choices.",
           "source": "FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -2298,7 +2473,8 @@
           "vitd": 3.7,
           "vitk": 0.9,
           "kcal": 128,
-          "omega3": 0.135
+          "omega3": 0.135,
+          "na": 56
         }
       },
       "perServing": {
@@ -2307,6 +2483,7 @@
         "fatG": 2.3,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 49,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -2357,10 +2534,18 @@
           }
         ]
       },
+      "allergens": [
+        "fish"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cook fish and shellfish to an internal temperature of 145 °F (62.8 °C).",
           "source": "USDA FSIS, Safe Minimum Internal Temperature Chart (read 2026-10-27)"
+        },
+        {
+          "text": "Fish allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",

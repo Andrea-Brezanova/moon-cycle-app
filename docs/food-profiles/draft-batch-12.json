@@ -14,7 +14,7 @@
         "whatItOffers": "Vinegar: 1 tablespoon gives about 3 calories and supplies little of the vitamins and minerals tracked here.",
         "practicalServing": "1 tablespoon (USDA: 14.9 g)",
         "howToEatIt": "Use in dressings, marinades and quick pickles, or splash over cooked vegetables and beans.",
-        "cycleRelevance": "No cycle-phase claim is made for vinegar; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for vinegar."
       },
       "source": {
         "usdaFdcId": 173469,
@@ -36,7 +36,8 @@
           "zn": 0.04,
           "vitc": 0,
           "folate": 0,
-          "kcal": 21
+          "kcal": 21,
+          "na": 5
         }
       },
       "perServing": {
@@ -45,8 +46,11 @@
         "fatG": 0.0,
         "carbohydrateG": 0.1,
         "fiberG": 0.0,
+        "sodiumMg": 1,
         "keyNutrients": []
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -62,10 +66,10 @@
       "catalogueId": "chocolate",
       "name": "Chocolate",
       "sections": {
-        "whatItOffers": "Chocolate, dark, 70–85% cacao solids: 1 oz gives about 170 calories, with magnesium (about 21%), iron (about 19%), zinc (about 12%) and 3.1 g of fiber. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Chocolate: 1 oz gives about 170 calories, with magnesium (about 21%), iron (about 19%), zinc (about 12%) and 3.1 g of fibre. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 oz (USDA: 28.35 g)",
         "howToEatIt": "Eat a small piece on its own, or chop into porridge, yoghurt and baking.",
-        "cycleRelevance": "No cycle-phase claim is made for chocolate; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 3.4 mg."
+        "cycleRelevance": "No cycle-phase claim is made for chocolate. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 3.4 mg."
       },
       "source": {
         "usdaFdcId": 170273,
@@ -89,7 +93,8 @@
           "vita": 2,
           "vite": 0.59,
           "vitk": 7.3,
-          "kcal": 598
+          "kcal": 598,
+          "na": 20
         }
       },
       "perServing": {
@@ -98,6 +103,7 @@
         "fatG": 12.1,
         "carbohydrateG": 13.0,
         "fiberG": 3.1,
+        "sodiumMg": 6,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -155,12 +161,26 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy",
+        "soy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        },
+        {
+          "text": "Soy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -173,7 +193,7 @@
         "whatItOffers": "Ketchup: 1 tablespoon gives about 17 calories, with potassium (about 2%) and vitamin E (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 17 g)",
         "howToEatIt": "Use as a condiment; a little goes a long way.",
-        "cycleRelevance": "No cycle-phase claim is made for ketchup; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for ketchup."
       },
       "source": {
         "usdaFdcId": 168556,
@@ -198,7 +218,8 @@
           "vita": 26,
           "vite": 1.46,
           "vitk": 3,
-          "kcal": 101
+          "kcal": 101,
+          "na": 907
         }
       },
       "perServing": {
@@ -207,6 +228,7 @@
         "fatG": 0.0,
         "carbohydrateG": 4.7,
         "fiberG": 0.1,
+        "sodiumMg": 154,
         "keyNutrients": [
           {
             "name": "Potassium",
@@ -238,6 +260,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "High in sugar and salt",
@@ -258,10 +282,10 @@
       "catalogueId": "turmeric",
       "name": "Turmeric",
       "sections": {
-        "whatItOffers": "Turmeric, ground spice: 1 teaspoon gives about 9 calories, with iron (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Turmeric: 1 teaspoon gives about 9 calories, with iron (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 teaspoon (USDA: 3 g)",
         "howToEatIt": "Add ground turmeric to curries, rice, soups and roasted vegetables; it stains, and a little black pepper is a common pairing in cooking.",
-        "cycleRelevance": "No cycle-phase claim is made for turmeric; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 1.7 mg."
+        "cycleRelevance": "No cycle-phase claim is made for turmeric."
       },
       "source": {
         "usdaFdcId": 172231,
@@ -286,7 +310,8 @@
           "vita": 0,
           "vite": 4.43,
           "vitk": 13.4,
-          "kcal": 312
+          "kcal": 312,
+          "na": 27
         }
       },
       "perServing": {
@@ -295,6 +320,7 @@
         "fatG": 0.1,
         "carbohydrateG": 2.0,
         "fiberG": 0.7,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Iron",
@@ -312,6 +338,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -327,10 +355,10 @@
       "catalogueId": "spirulina",
       "name": "Spirulina",
       "sections": {
-        "whatItOffers": "Spirulina, dried powder: 1 tablespoon gives about 20 calories, with iron (about 11%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Spirulina (dried): 1 tablespoon gives about 20 calories, with iron (about 11%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 7 g)",
         "howToEatIt": "Stir a small amount into smoothies, juices or dressings; it has a strong, earthy taste.",
-        "cycleRelevance": "No cycle-phase claim is made for spirulina; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
+        "cycleRelevance": "No cycle-phase claim is made for spirulina. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 2.0 mg."
       },
       "source": {
         "usdaFdcId": 170495,
@@ -355,7 +383,8 @@
           "vita": 29,
           "vite": 5,
           "vitk": 25.5,
-          "kcal": 290
+          "kcal": 290,
+          "na": 1050.0
         }
       },
       "perServing": {
@@ -364,6 +393,7 @@
         "fatG": 0.5,
         "carbohydrateG": 1.7,
         "fiberG": 0.3,
+        "sodiumMg": 74,
         "keyNutrients": [
           {
             "name": "Iron",
@@ -381,6 +411,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Contamination risk: tested brands only",
@@ -408,7 +440,7 @@
         "whatItOffers": "Avocado oil: 1 tablespoon gives about 124 calories and supplies little of the vitamins and minerals tracked here.",
         "practicalServing": "1 tablespoon (USDA: 14 g)",
         "howToEatIt": "Use for roasting, sautéing and dressings.",
-        "cycleRelevance": "No cycle-phase claim is made for avocado oil; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for avocado oil."
       },
       "source": {
         "usdaFdcId": 173573,
@@ -430,7 +462,8 @@
           "zn": 0,
           "vitc": 0,
           "folate": 0,
-          "kcal": 884
+          "kcal": 884,
+          "na": 0
         }
       },
       "perServing": {
@@ -439,8 +472,11 @@
         "fatG": 14.0,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 0,
         "keyNutrients": []
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -459,7 +495,7 @@
         "whatItOffers": "Coconut oil: 1 tablespoon gives about 121 calories and supplies little of the vitamins and minerals tracked here.",
         "practicalServing": "1 tablespoon (USDA: 13.6 g)",
         "howToEatIt": "Use for sautéing and baking where a coconut flavour is welcome.",
-        "cycleRelevance": "No cycle-phase claim is made for coconut oil; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for coconut oil."
       },
       "source": {
         "usdaFdcId": 171412,
@@ -483,7 +519,8 @@
           "folate": 0,
           "vite": 0.11,
           "vitk": 0.6,
-          "kcal": 892
+          "kcal": 892,
+          "na": 0
         }
       },
       "perServing": {
@@ -492,8 +529,11 @@
         "fatG": 13.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 0,
         "keyNutrients": []
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -512,7 +552,7 @@
         "whatItOffers": "Olive oil: 1 tablespoon gives about 119 calories, with vitamin E (about 13%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 13.5 g)",
         "howToEatIt": "Use for sautéing, roasting and dressing salads and vegetables.",
-        "cycleRelevance": "No cycle-phase claim is made for olive oil; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for olive oil."
       },
       "source": {
         "usdaFdcId": 171413,
@@ -536,7 +576,8 @@
           "folate": 0,
           "vite": 14.4,
           "vitk": 60.2,
-          "kcal": 884
+          "kcal": 884,
+          "na": 2
         }
       },
       "perServing": {
@@ -545,6 +586,7 @@
         "fatG": 13.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -562,6 +604,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -580,7 +624,7 @@
         "whatItOffers": "Honey: 1 tablespoon gives about 64 calories and supplies little of the vitamins and minerals tracked here.",
         "practicalServing": "1 tablespoon (USDA: 21 g)",
         "howToEatIt": "Stir into tea, yoghurt or porridge, or use in dressings and marinades.",
-        "cycleRelevance": "No cycle-phase claim is made for honey; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for honey."
       },
       "source": {
         "usdaFdcId": 169640,
@@ -602,7 +646,8 @@
           "zn": 0.22,
           "vitc": 0.5,
           "folate": 2,
-          "kcal": 304
+          "kcal": 304,
+          "na": 4
         }
       },
       "perServing": {
@@ -611,14 +656,22 @@
         "fatG": 0.0,
         "carbohydrateG": 17.3,
         "fiberG": 0.0,
+        "sodiumMg": 1,
         "keyNutrients": []
       },
-      "cautions": [],
+      "allergens": [],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Do not give honey to a child younger than 1 year old: it can contain the bacteria that cause infant botulism.",
+          "source": "CDC, Botulism Prevention (read 2026-10-28)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -631,7 +684,7 @@
         "whatItOffers": "Maple syrup: 1 tablespoon gives about 52 calories, with zinc (about 4%) and calcium (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 20 g)",
         "howToEatIt": "Drizzle over porridge and yoghurt, or use in baking and dressings.",
-        "cycleRelevance": "No cycle-phase claim is made for maple syrup; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 20 mg."
+        "cycleRelevance": "No cycle-phase claim is made for maple syrup."
       },
       "source": {
         "usdaFdcId": 169661,
@@ -653,7 +706,8 @@
           "zn": 1.47,
           "vitc": 0,
           "folate": 0,
-          "kcal": 260
+          "kcal": 260,
+          "na": 12
         }
       },
       "perServing": {
@@ -662,6 +716,7 @@
         "fatG": 0.0,
         "carbohydrateG": 13.4,
         "fiberG": 0.0,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -693,6 +748,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -711,7 +768,7 @@
         "whatItOffers": "Tamari: 1 tablespoon gives about 11 calories, with iron (about 2%) and magnesium (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 18 g)",
         "howToEatIt": "Use in stir-fries, marinades and dipping sauces; start with a small amount since it is salty.",
-        "cycleRelevance": "No cycle-phase claim is made for tamari; this profile covers what it provides nutritionally, as part of a varied diet. Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS); this serving has about 0.4 mg."
+        "cycleRelevance": "No cycle-phase claim is made for tamari."
       },
       "source": {
         "usdaFdcId": 174278,
@@ -733,7 +790,8 @@
           "zn": 0.43,
           "vitc": 0,
           "folate": 18,
-          "kcal": 60
+          "kcal": 60,
+          "na": 5590.0
         }
       },
       "perServing": {
@@ -742,6 +800,7 @@
         "fatG": 0.0,
         "carbohydrateG": 1.0,
         "fiberG": 0.1,
+        "sodiumMg": 1006,
         "keyNutrients": [
           {
             "name": "Iron",
@@ -780,14 +839,19 @@
           }
         ]
       },
+      "allergens": [
+        "gluten",
+        "soy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Check gluten-free label",
           "source": "Existing MoonCycle catalogue caution (no external source recorded)"
         },
         {
-          "text": "High in salt",
-          "source": "Existing MoonCycle catalogue caution (no external source recorded)"
+          "text": "High in salt. About 1,006 mg of sodium in this serving. The Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day.",
+          "source": "FDA, Sodium in Your Diet (the Dietary Guidelines for Americans advise adults to limit sodium to less than 2,300 mg a day; content current as of 03/05/2024; read 2026-10-28) (supports the existing caution)"
         },
         {
           "text": "Soy allergen",

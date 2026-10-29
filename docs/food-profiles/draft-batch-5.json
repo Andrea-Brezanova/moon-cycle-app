@@ -14,7 +14,7 @@
         "whatItOffers": "Black turtle beans are small, dense, earthy beans. Half a cup gives about 7.7 g of protein and 7.7 g of fibre, with folate (20% of the reference), potassium and plant iron.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 185 g)",
         "howToEatIt": "Simmer into soups, stews and chilli, mash for burritos and tacos, or add to rice and salads. Canned beans, rinsed, are a shortcut.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Black beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Black beans add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 175187,
@@ -38,7 +38,8 @@
           "folate": 86,
           "vite": 0.87,
           "vitk": 3.3,
-          "kcal": 130
+          "kcal": 130,
+          "na": 3
         }
       },
       "perServing": {
@@ -47,6 +48,7 @@
         "fatG": 0.3,
         "carbohydrateG": 22.6,
         "fiberG": 7.7,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -102,6 +104,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -120,7 +124,7 @@
         "whatItOffers": "Kidney beans are large, meaty beans with folate (about 29% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 5.7 g of fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 177 g)",
         "howToEatIt": "Use in chilli, curries, salads and stews. Dried kidney beans must be soaked and boiled hard before eating (see the caution); canned beans are already cooked.",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 173740,
@@ -144,7 +148,8 @@
           "folate": 130,
           "vite": 0.03,
           "vitk": 8.4,
-          "kcal": 127
+          "kcal": 127,
+          "na": 1
         }
       },
       "perServing": {
@@ -153,6 +158,7 @@
         "fatG": 0.4,
         "carbohydrateG": 20.2,
         "fiberG": 5.7,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -215,6 +221,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Dried beans: boil hard for 10 minutes; don't slow-cook from raw",
@@ -238,7 +246,7 @@
         "whatItOffers": "White beans are creamy, mild beans that give potassium (about 19% of the adequate intake in half a cup), iron and magnesium, with 8.7 g of protein and 5.6 g of fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 179 g)",
         "howToEatIt": "Simmer into soups and stews, mash into dips, or toss with olive oil, lemon and herbs for a salad.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). White beans adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). White beans add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 175203,
@@ -262,7 +270,8 @@
           "folate": 81,
           "vite": 0.94,
           "vitk": 3.5,
-          "kcal": 139
+          "kcal": 139,
+          "na": 6
         }
       },
       "perServing": {
@@ -271,6 +280,7 @@
         "fatG": 0.3,
         "carbohydrateG": 22.5,
         "fiberG": 5.6,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Potassium",
@@ -333,6 +343,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -351,7 +363,7 @@
         "whatItOffers": "Black-eyed peas are small, savoury beans with a lot of folate (about 44% of the reference in half a cup), plus magnesium, zinc, 6.6 g of protein and 5.6 g of fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 171 g)",
         "howToEatIt": "Simmer with onion and spices, add to salads and grain bowls, or stew with greens.",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Black-eyed peas is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Black-eyed peas are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 173759,
@@ -376,7 +388,8 @@
           "vita": 1,
           "vite": 0.28,
           "vitk": 1.7,
-          "kcal": 116
+          "kcal": 116,
+          "na": 4
         }
       },
       "perServing": {
@@ -385,6 +398,7 @@
         "fatG": 0.5,
         "carbohydrateG": 17.8,
         "fiberG": 5.6,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -447,6 +461,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -490,7 +506,8 @@
           "vita": 1,
           "vite": 1.54,
           "vitk": 22.8,
-          "kcal": 237
+          "kcal": 237,
+          "na": 426
         }
       },
       "perServing": {
@@ -499,6 +516,7 @@
         "fatG": 5.3,
         "carbohydrateG": 4.5,
         "fiberG": 1.7,
+        "sodiumMg": 128,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -537,12 +555,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "sesame"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Sesame allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -555,7 +582,7 @@
         "whatItOffers": "Lima beans are buttery, starchy beans with potassium (about 18% of the adequate intake in half a cup), folate and magnesium, plus 7.3 g of protein and 6.6 g of fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 188 g)",
         "howToEatIt": "Simmer until very tender and add to soups, succotash and stews, or mash with herbs. They must always be cooked thoroughly (see the caution).",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Lima beans is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Lima beans are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 174253,
@@ -580,7 +607,8 @@
           "vita": 0,
           "vite": 0.18,
           "vitk": 2,
-          "kcal": 115
+          "kcal": 115,
+          "na": 2
         }
       },
       "perServing": {
@@ -589,6 +617,7 @@
         "fatG": 0.4,
         "carbohydrateG": 19.6,
         "fiberG": 6.6,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -651,6 +680,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Always cook thoroughly",
@@ -674,7 +705,7 @@
         "whatItOffers": "Split peas break down into a thick, creamy texture when cooked. Half a cup has 8.2 g of protein and 8.1 g of fibre, with folate, potassium and zinc.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 196 g)",
         "howToEatIt": "Simmer into soup or dal with onion and spices; they cook without soaking.",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Split peas is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Split peas are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 172429,
@@ -698,7 +729,8 @@
           "folate": 65,
           "vite": 0.03,
           "vitk": 5,
-          "kcal": 118
+          "kcal": 118,
+          "na": 2
         }
       },
       "perServing": {
@@ -707,6 +739,7 @@
         "fatG": 0.4,
         "carbohydrateG": 20.7,
         "fiberG": 8.1,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -762,6 +795,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -780,7 +815,7 @@
         "whatItOffers": "Red lentils are quick-cooking, split lentils. The figures here are for the dry lentils: a quarter cup before cooking gives 11.5 g of protein and 5.2 g of fibre, with folate, zinc and iron (20% of the reference).",
         "practicalServing": "¼ cup dry, before cooking (USDA: 1 cup = 192 g)",
         "howToEatIt": "Simmer for about 15–20 minutes into soups and dals, where they dissolve into a soft purée. They roughly triple in weight when cooked, so a cooked portion has about a third of these amounts.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Red lentils adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Red lentils add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 174284,
@@ -803,7 +838,8 @@
           "vitc": 1.7,
           "folate": 204,
           "vita": 3,
-          "kcal": 358
+          "kcal": 358,
+          "na": 7
         }
       },
       "perServing": {
@@ -812,6 +848,7 @@
         "fatG": 1.0,
         "carbohydrateG": 30.3,
         "fiberG": 5.2,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -867,6 +904,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -910,7 +949,8 @@
           "vita": 15,
           "vite": 0.68,
           "vitk": 26.7,
-          "kcal": 121
+          "kcal": 121,
+          "na": 6
         }
       },
       "perServing": {
@@ -919,6 +959,7 @@
         "fatG": 4.0,
         "carbohydrateG": 6.9,
         "fiberG": 4.0,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -982,6 +1023,10 @@
           }
         ]
       },
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Soy allergen",
@@ -1005,7 +1050,7 @@
         "whatItOffers": "Pinto beans are mild, creamy beans with folate (about 37% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 7.7 g of fibre.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 171 g)",
         "howToEatIt": "Simmer for refried beans, chilli and burritos, or serve whole with rice.",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Pinto beans is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Pinto beans are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 175200,
@@ -1029,7 +1074,8 @@
           "folate": 172,
           "vite": 0.94,
           "vitk": 3.5,
-          "kcal": 143
+          "kcal": 143,
+          "na": 1
         }
       },
       "perServing": {
@@ -1038,6 +1084,7 @@
         "fatG": 0.6,
         "carbohydrateG": 22.4,
         "fiberG": 7.7,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1100,6 +1147,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1142,7 +1191,8 @@
           "folate": 26,
           "vite": 0.24,
           "vitk": 0.5,
-          "kcal": 101
+          "kcal": 101,
+          "na": 3
         }
       },
       "perServing": {
@@ -1151,6 +1201,7 @@
         "fatG": 0.3,
         "carbohydrateG": 17.5,
         "fiberG": 1.5,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1189,6 +1240,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1227,7 +1280,8 @@
           "mg": 119,
           "k": 385,
           "zn": 3.97,
-          "kcal": 367
+          "kcal": 367,
+          "na": 1
         }
       },
       "perServing": {
@@ -1236,6 +1290,7 @@
         "fatG": 1.4,
         "carbohydrateG": 32.4,
         "fiberG": 3.3,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1284,12 +1339,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1324,7 +1388,8 @@
           "zn": 0.53,
           "vitc": 0,
           "folate": 6,
-          "kcal": 40
+          "kcal": 40,
+          "na": 1
         }
       },
       "perServing": {
@@ -1333,6 +1398,7 @@
         "fatG": 0.9,
         "carbohydrateG": 12.5,
         "fiberG": 2.8,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1371,6 +1437,10 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [
+        "gluten"
+      ],
       "cautions": [
         {
           "text": "Choose certified gluten-free oats if avoiding gluten.",
@@ -1418,7 +1488,8 @@
           "folate": 14,
           "vite": 0.09,
           "vitk": 1.9,
-          "kcal": 92
+          "kcal": 92,
+          "na": 4
         }
       },
       "perServing": {
@@ -1427,6 +1498,7 @@
         "fatG": 0.5,
         "carbohydrateG": 16.7,
         "fiberG": 2.3,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1465,6 +1537,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -1507,7 +1581,8 @@
           "folate": 16,
           "vite": 0.01,
           "vitk": 0.8,
-          "kcal": 123
+          "kcal": 123,
+          "na": 3
         }
       },
       "perServing": {
@@ -1516,6 +1591,7 @@
         "fatG": 0.3,
         "carbohydrateG": 22.1,
         "fiberG": 3.0,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -1547,6 +1623,10 @@
           }
         ]
       },
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Contains gluten",
@@ -1594,7 +1674,8 @@
           "folate": 18,
           "vite": 0.01,
           "vitk": 0.5,
-          "kcal": 83
+          "kcal": 83,
+          "na": 5
         }
       },
       "perServing": {
@@ -1603,6 +1684,7 @@
         "fatG": 0.2,
         "carbohydrateG": 16.9,
         "fiberG": 4.1,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1646,12 +1728,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Contains gluten",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -1688,7 +1779,8 @@
           "folate": 42,
           "vite": 2.66,
           "vitk": 7.8,
-          "kcal": 252
+          "kcal": 252,
+          "na": 455
         }
       },
       "perServing": {
@@ -1697,6 +1789,7 @@
         "fatG": 1.1,
         "carbohydrateG": 13.7,
         "fiberG": 1.9,
+        "sodiumMg": 146,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1735,6 +1828,10 @@
           }
         ]
       },
+      "allergens": [
+        "gluten"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Contains wheat (gluten)",
@@ -1786,7 +1883,8 @@
           "folate": 97,
           "vite": 0.25,
           "vitk": 0,
-          "kcal": 573
+          "kcal": 573,
+          "na": 11
         }
       },
       "perServing": {
@@ -1795,6 +1893,7 @@
         "fatG": 4.5,
         "carbohydrateG": 2.1,
         "fiberG": 1.1,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1833,6 +1932,10 @@
           }
         ]
       },
+      "allergens": [
+        "sesame"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Sesame allergen",
@@ -1856,7 +1959,7 @@
         "whatItOffers": "Cashews are buttery tree nuts with magnesium (about 27% of the reference in an ounce), zinc, iron and 5.2 g of protein. They are energy dense.",
         "practicalServing": "1 ounce (28 g), about 18 nuts (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Eat as a snack, blend soaked cashews into creamy sauces and dressings, or add to stir-fries and curries.",
-        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Cashews adds plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps."
+        "cycleRelevance": "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS). Cashews add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 170162,
@@ -1880,7 +1983,8 @@
           "folate": 25,
           "vite": 0.9,
           "vitk": 34.1,
-          "kcal": 553
+          "kcal": 553,
+          "na": 12
         }
       },
       "perServing": {
@@ -1889,6 +1993,7 @@
         "fatG": 12.4,
         "carbohydrateG": 8.6,
         "fiberG": 0.9,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -1946,6 +2051,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut allergen",
@@ -1997,7 +2106,8 @@
           "folate": 22,
           "vite": 5.65,
           "vitk": 0,
-          "kcal": 659
+          "kcal": 659,
+          "na": 3
         }
       },
       "perServing": {
@@ -2006,6 +2116,7 @@
         "fatG": 6.7,
         "carbohydrateG": 1.2,
         "fiberG": 0.8,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -2044,6 +2155,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Limit to 1–2 nuts a day",
@@ -2100,7 +2215,8 @@
           "vita": 3,
           "vite": 1.4,
           "vitk": 3.5,
-          "kcal": 691
+          "kcal": 691,
+          "na": 0
         }
       },
       "perServing": {
@@ -2109,6 +2225,7 @@
         "fatG": 20.4,
         "carbohydrateG": 3.9,
         "fiberG": 2.7,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Zinc",
@@ -2147,6 +2264,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut allergen",
@@ -2198,7 +2319,8 @@
           "folate": 51,
           "vita": 26,
           "vite": 2.86,
-          "kcal": 560
+          "kcal": 560,
+          "na": 1
         }
       },
       "perServing": {
@@ -2207,6 +2329,7 @@
         "fatG": 12.8,
         "carbohydrateG": 7.7,
         "fiberG": 3.0,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Potassium",
@@ -2255,6 +2378,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut allergen",
@@ -2307,7 +2434,8 @@
           "vita": 1,
           "vite": 15,
           "vitk": 14.2,
-          "kcal": 628
+          "kcal": 628,
+          "na": 0
         }
       },
       "perServing": {
@@ -2316,6 +2444,7 @@
         "fatG": 17.2,
         "carbohydrateG": 4.7,
         "fiberG": 2.7,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -2354,10 +2483,18 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
           "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        },
+        {
+          "text": "Tree-nut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -2402,7 +2539,8 @@
           "vita": 3,
           "vite": 35.2,
           "vitk": 0,
-          "kcal": 584
+          "kcal": 584,
+          "na": 9
         }
       },
       "perServing": {
@@ -2411,6 +2549,7 @@
         "fatG": 18.0,
         "carbohydrateG": 7.0,
         "fiberG": 3.0,
+        "sodiumMg": 3,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -2473,6 +2612,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
@@ -2516,7 +2657,8 @@
           "vita": 0,
           "vite": 9.1,
           "vitk": 0.3,
-          "kcal": 598
+          "kcal": 598,
+          "na": 17
         }
       },
       "perServing": {
@@ -2525,6 +2667,7 @@
         "fatG": 16.4,
         "carbohydrateG": 7.1,
         "fiberG": 1.6,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -2582,6 +2725,11 @@
           }
         ]
       },
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut or peanut allergen, depending on type",
@@ -2634,7 +2782,8 @@
           "vita": 0,
           "vite": 6.13,
           "vitk": 12,
-          "kcal": 607
+          "kcal": 607,
+          "na": 4
         }
       },
       "perServing": {
@@ -2643,6 +2792,7 @@
         "fatG": 15.2,
         "carbohydrateG": 6.4,
         "fiberG": 1.8,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -2700,10 +2850,23 @@
           }
         ]
       },
+      "allergens": [
+        "peanut",
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
           "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        },
+        {
+          "text": "Peanut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        },
+        {
+          "text": "Tree-nut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
@@ -2723,7 +2886,7 @@
         "whatItOffers": "Peanuts are legumes eaten like nuts. An ounce of raw peanuts gives 7.3 g of protein, folate (about 17% of the reference), vitamin E and magnesium.",
         "practicalServing": "1 ounce (28 g) (USDA: 1 oz = 28.35 g)",
         "howToEatIt": "Eat as a snack, add to stir-fries and salads, or blend into sauces and butters.",
-        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Peanuts is a good source. No phase-specific claim is made."
+        "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Peanuts are a good source. No phase-specific claim is made."
       },
       "source": {
         "usdaFdcId": 172430,
@@ -2747,7 +2910,8 @@
           "folate": 240,
           "vite": 8.33,
           "vitk": 0,
-          "kcal": 567
+          "kcal": 567,
+          "na": 18
         }
       },
       "perServing": {
@@ -2756,6 +2920,7 @@
         "fatG": 13.9,
         "carbohydrateG": 4.6,
         "fiberG": 2.4,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -2813,10 +2978,18 @@
           }
         ]
       },
+      "allergens": [
+        "peanut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.",
           "source": "NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)"
+        },
+        {
+          "text": "Peanut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
         }
       ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",

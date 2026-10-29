@@ -11,10 +11,10 @@
       "catalogueId": "almond-milk",
       "name": "Almond milk",
       "sections": {
-        "whatItOffers": "Almond milk, unsweetened, shelf-stable, fortified: 1 cup gives about 39 calories, with vitamin E (about 111%), calcium (about 48%) and vitamin D (about 17%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Almond milk: 1 cup gives about 39 calories, with vitamin E (about 111%), calcium (about 48%) and vitamin D (about 17%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup (USDA: 262 g)",
         "howToEatIt": "Pour over cereal, blend into smoothies, or use in baking and coffee.",
-        "cycleRelevance": "No cycle-phase claim is made for almond milk; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 482 mg."
+        "cycleRelevance": "No cycle-phase claim is made for almond milk. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 482 mg."
       },
       "source": {
         "usdaFdcId": 174832,
@@ -40,7 +40,8 @@
           "vite": 6.33,
           "vitd": 1,
           "vitk": 0,
-          "kcal": 15
+          "kcal": 15,
+          "na": 72
         }
       },
       "perServing": {
@@ -49,6 +50,7 @@
         "fatG": 2.5,
         "carbohydrateG": 3.4,
         "fiberG": 0.5,
+        "sodiumMg": 189,
         "keyNutrients": [
           {
             "name": "Vitamin E",
@@ -94,12 +96,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Tree-nut allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -112,7 +123,7 @@
         "whatItOffers": "Butter: 1 tablespoon gives about 102 calories, with vitamin A (about 14%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 14.2 g)",
         "howToEatIt": "Spread thinly on bread, melt over vegetables, or use in cooking and baking.",
-        "cycleRelevance": "No cycle-phase claim is made for butter; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for butter."
       },
       "source": {
         "usdaFdcId": 173410,
@@ -138,7 +149,8 @@
           "vita": 684,
           "vite": 2.32,
           "vitk": 7,
-          "kcal": 717
+          "kcal": 717,
+          "na": 643
         }
       },
       "perServing": {
@@ -147,6 +159,7 @@
         "fatG": 11.5,
         "carbohydrateG": 0.0,
         "fiberG": 0.0,
+        "sodiumMg": 91,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -164,12 +177,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -179,10 +201,10 @@
       "catalogueId": "cheddar",
       "name": "Cheddar cheese",
       "sections": {
-        "whatItOffers": "Cheddar cheese, sharp cheddar, sliced: 1 slice, 1 oz gives about 115 calories, with calcium (about 20%), zinc (about 13%), vitamin A (about 11%) and 6.8 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Cheddar cheese: 1 slice, 1 oz gives about 115 calories, with calcium (about 20%), zinc (about 13%), vitamin A (about 11%) and 6.8 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 slice, 1 oz (USDA: 28 g)",
         "howToEatIt": "Slice into sandwiches, grate over vegetables, eggs and baked potatoes, or melt into sauces.",
-        "cycleRelevance": "No cycle-phase claim is made for cheddar cheese; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 199 mg."
+        "cycleRelevance": "No cycle-phase claim is made for cheddar cheese. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 199 mg."
       },
       "source": {
         "usdaFdcId": 170899,
@@ -209,7 +231,8 @@
           "vite": 0.78,
           "vitd": 1,
           "vitk": 2.4,
-          "kcal": 410
+          "kcal": 410,
+          "na": 644
         }
       },
       "perServing": {
@@ -218,6 +241,7 @@
         "fatG": 9.5,
         "carbohydrateG": 0.6,
         "fiberG": 0.0,
+        "sodiumMg": 180,
         "keyNutrients": [
           {
             "name": "Calcium",
@@ -268,12 +292,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -286,7 +319,7 @@
         "whatItOffers": "Cream cheese: 2 tablespoons, 1 oz gives about 102 calories, with vitamin A (about 13%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons, 1 oz (USDA: 1 oz = 28.35 g; 1 tbsp = 14.5 g)",
         "howToEatIt": "Spread on bread or bagels, stir into sauces and soups, or use in dips and baking.",
-        "cycleRelevance": "No cycle-phase claim is made for cream cheese; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for cream cheese."
       },
       "source": {
         "usdaFdcId": 173418,
@@ -313,7 +346,8 @@
           "vite": 0.86,
           "vitd": 0,
           "vitk": 2.1,
-          "kcal": 350
+          "kcal": 350,
+          "na": 314
         }
       },
       "perServing": {
@@ -322,6 +356,7 @@
         "fatG": 10.0,
         "carbohydrateG": 1.6,
         "fiberG": 0.0,
+        "sodiumMg": 91,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -339,12 +374,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -357,7 +401,7 @@
         "whatItOffers": "Milk: 1 cup gives about 149 calories, with vitamin B12 (about 46%), calcium (about 28%), vitamin D (about 21%) and 7.7 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup (USDA: 244 g)",
         "howToEatIt": "Drink it, pour over cereal, or use in porridge, soups, sauces and baking.",
-        "cycleRelevance": "No cycle-phase claim is made for milk; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 276 mg."
+        "cycleRelevance": "No cycle-phase claim is made for milk. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 276 mg."
       },
       "source": {
         "usdaFdcId": 171265,
@@ -384,7 +428,8 @@
           "vite": 0.07,
           "vitd": 1.3,
           "vitk": 0.3,
-          "kcal": 61
+          "kcal": 61,
+          "na": 43
         }
       },
       "perServing": {
@@ -393,6 +438,7 @@
         "fatG": 7.9,
         "carbohydrateG": 11.7,
         "fiberG": 0.0,
+        "sodiumMg": 105,
         "keyNutrients": [
           {
             "name": "Vitamin B12",
@@ -443,12 +489,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -461,7 +516,7 @@
         "whatItOffers": "Parmesan: 2 tablespoons grated gives about 42 calories, with calcium (about 9%) and vitamin B12 (about 6%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons grated (USDA: 1 tbsp = 5 g)",
         "howToEatIt": "Grate over pasta, soups, salads and roasted vegetables; a little adds a lot of flavour.",
-        "cycleRelevance": "No cycle-phase claim is made for parmesan; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 85 mg."
+        "cycleRelevance": "No cycle-phase claim is made for parmesan."
       },
       "source": {
         "usdaFdcId": 171247,
@@ -488,7 +543,8 @@
           "vite": 0.53,
           "vitd": 0.5,
           "vitk": 1.7,
-          "kcal": 420
+          "kcal": 420,
+          "na": 1800.0
         }
       },
       "perServing": {
@@ -497,6 +553,7 @@
         "fatG": 2.8,
         "carbohydrateG": 1.4,
         "fiberG": 0.0,
+        "sodiumMg": 180,
         "keyNutrients": [
           {
             "name": "Calcium",
@@ -528,12 +585,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -546,7 +612,7 @@
         "whatItOffers": "Sour cream: 2 tablespoons gives about 48 calories, with vitamin A (about 4%) and calcium (about 2%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "2 tablespoons (USDA: 1 tbsp = 12 g)",
         "howToEatIt": "Dollop onto soups, baked potatoes, tacos and chilli, or mix into dips.",
-        "cycleRelevance": "No cycle-phase claim is made for sour cream; this profile covers what it provides nutritionally, as part of a varied diet. Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about 24 mg."
+        "cycleRelevance": "No cycle-phase claim is made for sour cream."
       },
       "source": {
         "usdaFdcId": 171257,
@@ -573,7 +639,8 @@
           "vite": 0.38,
           "vitd": 0,
           "vitk": 1.5,
-          "kcal": 198
+          "kcal": 198,
+          "na": 31
         }
       },
       "perServing": {
@@ -582,6 +649,7 @@
         "fatG": 4.7,
         "carbohydrateG": 1.1,
         "fiberG": 0.0,
+        "sodiumMg": 7,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -613,12 +681,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -628,10 +705,10 @@
       "catalogueId": "soy-milk",
       "name": "Soy milk",
       "sections": {
-        "whatItOffers": "Soy milk, original, unfortified: 1 cup gives about 131 calories, with magnesium (about 20%), potassium (about 11%), folate (about 11%) and 7.9 g of protein. Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Soy milk: 1 cup gives about 131 calories, with magnesium (about 20%), potassium (about 11%), folate (about 11%) and 7.9 g of protein. Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 cup (USDA: 243 g)",
         "howToEatIt": "Drink it, use on cereal, or use in smoothies and baking; check whether the carton is fortified and unsweetened.",
-        "cycleRelevance": "No cycle-phase claim is made for soy milk; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for soy milk."
       },
       "source": {
         "usdaFdcId": 172446,
@@ -658,7 +735,8 @@
           "vite": 0.11,
           "vitd": 0,
           "vitk": 3,
-          "kcal": 54
+          "kcal": 54,
+          "na": 51
         }
       },
       "perServing": {
@@ -667,6 +745,7 @@
         "fatG": 4.3,
         "carbohydrateG": 15.3,
         "fiberG": 1.5,
+        "sodiumMg": 124,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -724,12 +803,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "soy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Soy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false
@@ -739,10 +827,10 @@
       "catalogueId": "heavy-cream",
       "name": "Heavy cream",
       "sections": {
-        "whatItOffers": "Heavy cream, heavy whipping cream: 1 tablespoon gives about 51 calories, with vitamin A (about 9%). Percentages are of the NIH reference intake for adult women.",
+        "whatItOffers": "Heavy cream: 1 tablespoon gives about 51 calories, with vitamin A (about 9%). Percentages are of the NIH reference intake for adult women.",
         "practicalServing": "1 tablespoon (USDA: 15 g)",
         "howToEatIt": "Whip for desserts or stir a little into soups and sauces.",
-        "cycleRelevance": "No cycle-phase claim is made for heavy cream; this profile covers what it provides nutritionally, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for heavy cream."
       },
       "source": {
         "usdaFdcId": 170859,
@@ -769,7 +857,8 @@
           "vite": 0.92,
           "vitd": 1.6,
           "vitk": 3.2,
-          "kcal": 340
+          "kcal": 340,
+          "na": 27
         }
       },
       "perServing": {
@@ -778,6 +867,7 @@
         "fatG": 5.4,
         "carbohydrateG": 0.4,
         "fiberG": 0.0,
+        "sodiumMg": 4,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -795,12 +885,21 @@
           }
         ]
       },
-      "cautions": [],
+      "allergens": [
+        "dairy"
+      ],
+      "mayContainAllergens": [],
+      "cautions": [
+        {
+          "text": "Dairy allergen",
+          "source": "MoonCycle catalogue allergen tag (assets/content/foods.json; no external source recorded)"
+        }
+      ],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
       "review": {
         "composition": "copied from USDA FoodData Central; recomputed by script",
         "referenceIntakes": "NIH ODS values",
-        "cautions": "none recorded",
+        "cautions": "verified against the cited page",
         "editorial": "draft; awaiting editorial review",
         "clinical": "not clinically reviewed",
         "publishable": false

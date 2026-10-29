@@ -27,7 +27,8 @@
     "vitc": 4.6,
     "folate": 3,
     "vita": 3,
-    "vitk": 2.2
+    "vitk": 2.2,
+    "na": 1
    },
    "keys": [
     [
@@ -41,7 +42,7 @@
    ],
    "offers": "An apple is a crunchy, portable fruit with fibre (more of it in the skin) and a little vitamin C.",
    "how": "Eat whole with the skin on, slice into salads or porridge, or bake or stew with cinnamon. Pair with nut butter for a more filling snack.",
-   "cycle": "This profile makes no claim linking apple to a cycle phase or to period symptoms; it is here as one source of vitamin C and fibre, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for apple.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -67,7 +68,8 @@
     "vitc": 8.7,
     "folate": 20,
     "vita": 3,
-    "vitk": 0.5
+    "vitk": 0.5,
+    "na": 1
    },
    "keys": [
     [
@@ -85,7 +87,7 @@
    ],
    "offers": "A banana is an easy, filling fruit with potassium, some magnesium and vitamin C.",
    "how": "Eat as it is, slice over porridge or yoghurt, blend into smoothies, or mash into pancakes and baking. Riper bananas are softer and sweeter.",
-   "cycle": "This profile makes no claim linking banana to a cycle phase or to period symptoms; it is here as one source of potassium and vitamin C, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for banana.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -111,7 +113,8 @@
     "vitc": 10,
     "folate": 81,
     "vita": 7,
-    "vitk": 21
+    "vitk": 21,
+    "na": 7
    },
    "keys": [
     [
@@ -129,7 +132,7 @@
    ],
    "offers": "Avocado is a creamy, energy-dense fruit rich in unsaturated fat, with fibre, folate and potassium.",
    "how": "Mash onto toast, slice into salads and bowls, blend into dressings or smoothies, or eat with a squeeze of lime. A third of a fruit is a typical serving.",
-   "cycle": "This profile makes no claim linking avocado to a cycle phase or to period symptoms; it is here as one source of folate, potassium and fibre, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for avocado.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -151,7 +154,8 @@
     "mg": 12.5,
     "k": 161,
     "zn": 0.11,
-    "vitc": 59.6
+    "vitc": 59.6,
+    "na": 0
    },
    "keys": [
     [
@@ -165,7 +169,7 @@
    ],
    "offers": "Strawberries are sweet, juicy berries that are an excellent source of vitamin C.",
    "how": "Eat fresh, slice over yoghurt or porridge, blend into smoothies, or toss into salads. Frozen berries work well for cooking and smoothies.",
-   "cycle": "This profile makes no claim linking strawberry to a cycle phase or to period symptoms; it is here as one source of vitamin C, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for strawberry.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -191,7 +195,8 @@
     "vitc": 44.3,
     "folate": 44,
     "vita": 1,
-    "vitk": 13.8
+    "vitk": 13.8,
+    "na": 15
    },
    "keys": [
     [
@@ -209,7 +214,7 @@
    ],
    "offers": "Cauliflower is a mild, versatile vegetable with vitamin C, folate and fibre.",
    "how": "Roast until golden, steam, blend into soups, or break into rice-like crumbs. Curry spices and lemon suit it well.",
-   "cycle": "This profile makes no claim linking cauliflower to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for cauliflower.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -235,7 +240,8 @@
     "vitc": 37.5,
     "folate": 30,
     "vita": 4,
-    "vitk": 109
+    "vitk": 109,
+    "na": 8
    },
    "keys": [
     [
@@ -253,7 +259,7 @@
    ],
    "offers": "Cabbage is a hardy, inexpensive vegetable with vitamin C, folate and plenty of vitamin K.",
    "how": "Shred raw into slaws, sauté or braise until soft, simmer into soups, or ferment into sauerkraut. Cooking softens its sharpness.",
-   "cycle": "This profile makes no claim linking cabbage to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for cabbage.",
    "cautions": [
     "vitk"
    ],
@@ -281,7 +287,8 @@
     "vitc": 4.7,
     "folate": 9,
     "vita": 288,
-    "vitk": 0.8
+    "vitk": 0.8,
+    "na": 1
    },
    "keys": [
     [
@@ -295,7 +302,7 @@
    ],
    "offers": "Pumpkin is a soft, mildly sweet squash and a good source of vitamin A (from beta-carotene) with some potassium.",
    "how": "Roast in wedges, simmer into soup, mash into curries and stews, or fold into porridge and baking.",
-   "cycle": "This profile makes no claim linking pumpkin to a cycle phase or to period symptoms; it is here as one source of vitamin A and potassium, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for pumpkin.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -318,7 +325,8 @@
     "mg": 142,
     "k": 424,
     "zn": 2.76,
-    "vitk": 1.7
+    "vitk": 1.7,
+    "na": 0
    },
    "keys": [
     [
@@ -336,7 +344,7 @@
    ],
    "offers": "Walnuts are a rich, slightly bitter tree nut with plant fats, protein and fibre, plus magnesium, iron and zinc. They are energy dense, so a small handful is a typical serving.",
    "how": "Eat as a snack, chop over porridge, yoghurt or salads, or bake into bread and cakes. Store in a cool place as the oils can turn rancid.",
-   "cycle": "This profile makes no claim linking walnut to a cycle phase or to period symptoms; it is here as one source of magnesium, iron and zinc, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for walnut.",
    "cautions": [
     "oxalate-nuts"
    ],
@@ -364,7 +372,8 @@
     "vitc": 0,
     "folate": 9,
     "vita": 0,
-    "vitk": 0.2
+    "vitk": 0.2,
+    "na": 4
    },
    "keys": [
     [
@@ -378,7 +387,7 @@
    ],
    "offers": "Brown rice is a whole grain that keeps its bran, which means more fibre and magnesium than white rice.",
    "how": "Rinse and simmer until tender, then use as a base for bowls, stir-fries and curries. Cook extra and chill for quick meals.",
-   "cycle": "This profile makes no claim linking brown rice to a cycle phase or to period symptoms; it is here as one source of magnesium and fibre, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for brown rice.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -390,7 +399,7 @@
    "desc": "Cucumber, with peel, raw",
    "state": "raw, with peel",
    "grams": 85,
-   "portion": "85 g, about a third of a cucumber (USDA: 1 = 85 g)",
+   "portion": "85 g, about a third of a cucumber",
    "per100": {
     "kcal": 16,
     "protein": 0.62,
@@ -399,7 +408,8 @@
     "mg": 10.1,
     "k": 170,
     "zn": 0.2,
-    "vitk": 24
+    "vitk": 24,
+    "na": 2
    },
    "keys": [
     [
@@ -413,7 +423,7 @@
    ],
    "offers": "Cucumber is a crisp, watery vegetable that is very low in energy, with some potassium and vitamin K.",
    "how": "Slice into salads, sandwiches and bowls, dip in hummus or yoghurt sauce, or pickle thinly. Keep the peel on for extra crunch and fibre.",
-   "cycle": "This profile makes no claim linking cucumber to a cycle phase or to period symptoms; it is here as one source of potassium, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for cucumber.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -439,7 +449,8 @@
     "vitc": 128,
     "folate": 46,
     "vita": 157,
-    "vitk": 4.9
+    "vitk": 4.9,
+    "na": 4
    },
    "keys": [
     [
@@ -457,7 +468,7 @@
    ],
    "offers": "A red bell pepper is a sweet, crunchy vegetable that is an exceptional source of vitamin C, with vitamin A and folate.",
    "how": "Eat raw in strips with dips, roast until soft and sweet, or stir-fry and stuff. Having it with beans or lentils adds vitamin C, which helps your body absorb plant iron.",
-   "cycle": "This profile makes no claim linking red bell pepper to a cycle phase or to period symptoms; it is here as one source of vitamin C, vitamin A and folate, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for red bell pepper.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   },
@@ -483,7 +494,8 @@
     "vitc": 14.2,
     "folate": 63,
     "vita": 40,
-    "vitk": 25.9
+    "vitk": 25.9,
+    "na": 3
    },
    "keys": [
     [
@@ -501,7 +513,7 @@
    ],
    "offers": "Green peas are a sweet little legume with plant protein, fibre, folate and some iron and vitamin C.",
    "how": "Stir into risottos, soups, pasta and curries, mash with mint, or eat from the freezer, lightly cooked. Frozen peas are a handy staple.",
-   "cycle": "This profile makes no claim linking green pea to a cycle phase or to period symptoms; it is here as one source of folate, fibre and iron, as part of a varied diet.",
+   "cycle": "No cycle-phase claim is made for green pea.",
    "cautions": [],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made."
   }

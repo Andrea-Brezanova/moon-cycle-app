@@ -31,7 +31,8 @@
     "vitd": 0.3,
     "vitk": 2.5,
     "kcal": 144,
-    "omega3": 0.089
+    "omega3": 0.089,
+    "na": 119
    },
    "keys": "auto",
    "offers": "TBD",
@@ -70,7 +71,8 @@
     "vitd": 0,
     "vitk": 0,
     "kcal": 89,
-    "omega3": 0.195
+    "omega3": 0.195,
+    "na": 486
    },
    "keys": "auto",
    "offers": "TBD",
@@ -108,7 +110,8 @@
     "vitd": 0,
     "vitk": 0.1,
     "kcal": 164,
-    "omega3": 0.314
+    "omega3": 0.314,
+    "na": 460
    },
    "keys": "auto",
    "offers": "TBD",
@@ -147,7 +150,8 @@
     "vitd": 0,
     "vitk": 0,
     "kcal": 92,
-    "omega3": 0.488
+    "omega3": 0.488,
+    "na": 44
    },
    "keys": "auto",
    "offers": "TBD",
@@ -182,7 +186,8 @@
     "folate": 4,
     "b12": 2.99,
     "kcal": 116,
-    "omega3": 0.27
+    "omega3": 0.27,
+    "na": 50
    },
    "keys": "auto",
    "offers": "TBD",
@@ -219,7 +224,8 @@
     "vitd": 5.4,
     "vitk": 0.1,
     "kcal": 203,
-    "omega3": 2.009
+    "omega3": 2.009,
+    "na": 115
    },
    "keys": "auto",
    "offers": "TBD",
@@ -255,13 +261,16 @@
     "b12": 3.26,
     "vita": 26,
     "kcal": 117,
-    "omega3": 0.45
+    "omega3": 0.45,
+    "na": 2000.0
    },
    "keys": "auto",
    "offers": "TBD",
    "how": "Serve on toast or bagels, with eggs, or in salads and pasta.",
    "cycle": "TBD",
-   "cautions": [],
+   "cautions": [
+    "smoked-fish"
+   ],
    "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
    "reviewNote": "Cold-smoked chinook (lox). Vitamin D, E and K are not given in the lox record (the other smoked chinook record, 173687, gives vitamin D 17.1 µg per 100 g). It is a salty, cured food (sodium not shown), and the catalogue lists no caution; preparation and pregnancy cautions for smoked fish were not looked up for this draft.",
    "name": "Smoked salmon"

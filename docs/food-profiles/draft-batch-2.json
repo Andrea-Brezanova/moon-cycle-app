@@ -14,7 +14,7 @@
         "whatItOffers": "An apple is a crunchy, portable fruit with fibre (more of it in the skin) and a little vitamin C.",
         "practicalServing": "1 medium apple (USDA: 1 medium, 3 in across = 182 g)",
         "howToEatIt": "Eat whole with the skin on, slice into salads or porridge, or bake or stew with cinnamon. Pair with nut butter for a more filling snack.",
-        "cycleRelevance": "This profile makes no claim linking apple to a cycle phase or to period symptoms; it is here as one source of vitamin C and fibre, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for apple."
       },
       "source": {
         "usdaFdcId": 171688,
@@ -37,7 +37,8 @@
           "vitc": 4.6,
           "folate": 3,
           "vita": 3,
-          "vitk": 2.2
+          "vitk": 2.2,
+          "na": 1
         }
       },
       "perServing": {
@@ -46,6 +47,7 @@
         "fatG": 0.3,
         "carbohydrateG": 25.1,
         "fiberG": 4.4,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -77,6 +79,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -95,7 +99,7 @@
         "whatItOffers": "A banana is an easy, filling fruit with potassium, some magnesium and vitamin C.",
         "practicalServing": "1 medium banana (USDA: 1 medium, 7 to 7-7/8 in long = 118 g)",
         "howToEatIt": "Eat as it is, slice over porridge or yoghurt, blend into smoothies, or mash into pancakes and baking. Riper bananas are softer and sweeter.",
-        "cycleRelevance": "This profile makes no claim linking banana to a cycle phase or to period symptoms; it is here as one source of potassium and vitamin C, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for banana."
       },
       "source": {
         "usdaFdcId": 173944,
@@ -118,7 +122,8 @@
           "vitc": 8.7,
           "folate": 20,
           "vita": 3,
-          "vitk": 0.5
+          "vitk": 0.5,
+          "na": 1
         }
       },
       "perServing": {
@@ -127,6 +132,7 @@
         "fatG": 0.4,
         "carbohydrateG": 26.9,
         "fiberG": 3.1,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Potassium",
@@ -179,6 +185,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -197,7 +205,7 @@
         "whatItOffers": "Avocado is a creamy, energy-dense fruit rich in unsaturated fat, with fibre, folate and potassium.",
         "practicalServing": "about 1/3 of an avocado (USDA NLEA serving = 50 g)",
         "howToEatIt": "Mash onto toast, slice into salads and bowls, blend into dressings or smoothies, or eat with a squeeze of lime. A third of a fruit is a typical serving.",
-        "cycleRelevance": "This profile makes no claim linking avocado to a cycle phase or to period symptoms; it is here as one source of folate, potassium and fibre, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for avocado."
       },
       "source": {
         "usdaFdcId": 171705,
@@ -220,7 +228,8 @@
           "vitc": 10,
           "folate": 81,
           "vita": 7,
-          "vitk": 21
+          "vitk": 21,
+          "na": 7
         }
       },
       "perServing": {
@@ -229,6 +238,7 @@
         "fatG": 7.4,
         "carbohydrateG": 4.3,
         "fiberG": 3.4,
+        "sodiumMg": 4,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -281,6 +291,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -299,7 +311,7 @@
         "whatItOffers": "Strawberries are sweet, juicy berries that are an excellent source of vitamin C.",
         "practicalServing": "140 g (USDA reference amount), about a generous handful",
         "howToEatIt": "Eat fresh, slice over yoghurt or porridge, blend into smoothies, or toss into salads. Frozen berries work well for cooking and smoothies.",
-        "cycleRelevance": "This profile makes no claim linking strawberry to a cycle phase or to period symptoms; it is here as one source of vitamin C, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for strawberry."
       },
       "source": {
         "usdaFdcId": 2346409,
@@ -318,7 +330,8 @@
           "mg": 12.5,
           "k": 161,
           "zn": 0.11,
-          "vitc": 59.6
+          "vitc": 59.6,
+          "na": 0
         }
       },
       "perServing": {
@@ -327,6 +340,7 @@
         "fatG": 0.3,
         "carbohydrateG": 11.1,
         "fiberG": null,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -358,6 +372,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -376,7 +392,7 @@
         "whatItOffers": "Cauliflower is a mild, versatile vegetable with vitamin C, folate and fibre.",
         "practicalServing": "½ cup cooked, 1 in pieces (USDA: 0.5 cup = 62 g)",
         "howToEatIt": "Roast until golden, steam, blend into soups, or break into rice-like crumbs. Curry spices and lemon suit it well.",
-        "cycleRelevance": "This profile makes no claim linking cauliflower to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for cauliflower."
       },
       "source": {
         "usdaFdcId": 170397,
@@ -399,7 +415,8 @@
           "vitc": 44.3,
           "folate": 44,
           "vita": 1,
-          "vitk": 13.8
+          "vitk": 13.8,
+          "na": 15
         }
       },
       "perServing": {
@@ -408,6 +425,7 @@
         "fatG": 0.3,
         "carbohydrateG": 2.5,
         "fiberG": 1.4,
+        "sodiumMg": 9,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -453,6 +471,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -471,7 +491,7 @@
         "whatItOffers": "Cabbage is a hardy, inexpensive vegetable with vitamin C, folate and plenty of vitamin K.",
         "practicalServing": "½ cup shredded, cooked (USDA: 0.5 cup = 75 g)",
         "howToEatIt": "Shred raw into slaws, sauté or braise until soft, simmer into soups, or ferment into sauerkraut. Cooking softens its sharpness.",
-        "cycleRelevance": "This profile makes no claim linking cabbage to a cycle phase or to period symptoms; it is here as one source of vitamin C and folate, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for cabbage."
       },
       "source": {
         "usdaFdcId": 169976,
@@ -494,7 +514,8 @@
           "vitc": 37.5,
           "folate": 30,
           "vita": 4,
-          "vitk": 109
+          "vitk": 109,
+          "na": 8
         }
       },
       "perServing": {
@@ -503,6 +524,7 @@
         "fatG": 0.0,
         "carbohydrateG": 4.1,
         "fiberG": 1.4,
+        "sodiumMg": 6,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -540,6 +562,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Cabbage contains vitamin K. If you take warfarin or a similar blood thinner, keep your intake steady and tell your clinician.",
@@ -563,7 +587,7 @@
         "whatItOffers": "Pumpkin is a soft, mildly sweet squash and a good source of vitamin A (from beta-carotene) with some potassium.",
         "practicalServing": "½ cup mashed, cooked (USDA: 1 cup mashed = 245 g)",
         "howToEatIt": "Roast in wedges, simmer into soup, mash into curries and stews, or fold into porridge and baking.",
-        "cycleRelevance": "This profile makes no claim linking pumpkin to a cycle phase or to period symptoms; it is here as one source of vitamin A and potassium, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for pumpkin."
       },
       "source": {
         "usdaFdcId": 168449,
@@ -586,7 +610,8 @@
           "vitc": 4.7,
           "folate": 9,
           "vita": 288,
-          "vitk": 0.8
+          "vitk": 0.8,
+          "na": 1
         }
       },
       "perServing": {
@@ -595,6 +620,7 @@
         "fatG": 0.1,
         "carbohydrateG": 6.0,
         "fiberG": 1.3,
+        "sodiumMg": 1,
         "keyNutrients": [
           {
             "name": "Vitamin A",
@@ -626,6 +652,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -644,7 +672,7 @@
         "whatItOffers": "Walnuts are a rich, slightly bitter tree nut with plant fats, protein and fibre, plus magnesium, iron and zinc. They are energy dense, so a small handful is a typical serving.",
         "practicalServing": "30 g (USDA reference amount), about a small handful",
         "howToEatIt": "Eat as a snack, chop over porridge, yoghurt or salads, or bake into bread and cakes. Store in a cool place as the oils can turn rancid.",
-        "cycleRelevance": "This profile makes no claim linking walnut to a cycle phase or to period symptoms; it is here as one source of magnesium, iron and zinc, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for walnut."
       },
       "source": {
         "usdaFdcId": 2346394,
@@ -664,7 +692,8 @@
           "mg": 142,
           "k": 424,
           "zn": 2.76,
-          "vitk": 1.7
+          "vitk": 1.7,
+          "na": 0
         }
       },
       "perServing": {
@@ -673,6 +702,7 @@
         "fatG": 20.9,
         "carbohydrateG": 3.3,
         "fiberG": 1.6,
+        "sodiumMg": 0,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -725,6 +755,10 @@
           }
         ]
       },
+      "allergens": [
+        "tree-nut"
+      ],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Tree-nut allergen",
@@ -752,7 +786,7 @@
         "whatItOffers": "Brown rice is a whole grain that keeps its bran, which means more fibre and magnesium than white rice.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 202 g)",
         "howToEatIt": "Rinse and simmer until tender, then use as a base for bowls, stir-fries and curries. Cook extra and chill for quick meals.",
-        "cycleRelevance": "This profile makes no claim linking brown rice to a cycle phase or to period symptoms; it is here as one source of magnesium and fibre, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for brown rice."
       },
       "source": {
         "usdaFdcId": 169704,
@@ -775,7 +809,8 @@
           "vitc": 0,
           "folate": 9,
           "vita": 0,
-          "vitk": 0.2
+          "vitk": 0.2,
+          "na": 4
         }
       },
       "perServing": {
@@ -784,6 +819,7 @@
         "fatG": 1.0,
         "carbohydrateG": 25.9,
         "fiberG": 1.6,
+        "sodiumMg": 4,
         "keyNutrients": [
           {
             "name": "Magnesium",
@@ -822,6 +858,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [
         {
           "text": "Vary grains (arsenic in rice)",
@@ -843,9 +881,9 @@
       "name": "Cucumber",
       "sections": {
         "whatItOffers": "Cucumber is a crisp, watery vegetable that is very low in energy, with some potassium and vitamin K.",
-        "practicalServing": "85 g, about a third of a cucumber (USDA: 1 = 85 g)",
+        "practicalServing": "85 g, about a third of a cucumber",
         "howToEatIt": "Slice into salads, sandwiches and bowls, dip in hummus or yoghurt sauce, or pickle thinly. Keep the peel on for extra crunch and fibre.",
-        "cycleRelevance": "This profile makes no claim linking cucumber to a cycle phase or to period symptoms; it is here as one source of potassium, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for cucumber."
       },
       "source": {
         "usdaFdcId": 2346406,
@@ -854,7 +892,7 @@
         "published": "10/28/2022",
         "preparationState": "raw, with peel",
         "portionGrams": 85,
-        "portion": "85 g, about a third of a cucumber (USDA: 1 = 85 g)",
+        "portion": "85 g, about a third of a cucumber",
         "per100g": {
           "kcal": 16,
           "protein": 0.62,
@@ -863,7 +901,8 @@
           "mg": 10.1,
           "k": 170,
           "zn": 0.2,
-          "vitk": 24
+          "vitk": 24,
+          "na": 2
         }
       },
       "perServing": {
@@ -872,6 +911,7 @@
         "fatG": 0.2,
         "carbohydrateG": 2.5,
         "fiberG": null,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Potassium",
@@ -895,6 +935,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -913,7 +955,7 @@
         "whatItOffers": "A red bell pepper is a sweet, crunchy vegetable that is an exceptional source of vitamin C, with vitamin A and folate.",
         "practicalServing": "1 medium pepper (USDA: 1 medium = 119 g)",
         "howToEatIt": "Eat raw in strips with dips, roast until soft and sweet, or stir-fry and stuff. Having it with beans or lentils adds vitamin C, which helps your body absorb plant iron.",
-        "cycleRelevance": "This profile makes no claim linking red bell pepper to a cycle phase or to period symptoms; it is here as one source of vitamin C, vitamin A and folate, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for red bell pepper."
       },
       "source": {
         "usdaFdcId": 170108,
@@ -936,7 +978,8 @@
           "vitc": 128,
           "folate": 46,
           "vita": 157,
-          "vitk": 4.9
+          "vitk": 4.9,
+          "na": 4
         }
       },
       "perServing": {
@@ -945,6 +988,7 @@
         "fatG": 0.4,
         "carbohydrateG": 7.2,
         "fiberG": 2.5,
+        "sodiumMg": 5,
         "keyNutrients": [
           {
             "name": "Vitamin C",
@@ -990,6 +1034,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
@@ -1008,7 +1054,7 @@
         "whatItOffers": "Green peas are a sweet little legume with plant protein, fibre, folate and some iron and vitamin C.",
         "practicalServing": "½ cup cooked (USDA: 1 cup = 160 g)",
         "howToEatIt": "Stir into risottos, soups, pasta and curries, mash with mint, or eat from the freezer, lightly cooked. Frozen peas are a handy staple.",
-        "cycleRelevance": "This profile makes no claim linking green pea to a cycle phase or to period symptoms; it is here as one source of folate, fibre and iron, as part of a varied diet."
+        "cycleRelevance": "No cycle-phase claim is made for green pea."
       },
       "source": {
         "usdaFdcId": 170420,
@@ -1031,7 +1077,8 @@
           "vitc": 14.2,
           "folate": 63,
           "vita": 40,
-          "vitk": 25.9
+          "vitk": 25.9,
+          "na": 3
         }
       },
       "perServing": {
@@ -1040,6 +1087,7 @@
         "fatG": 0.2,
         "carbohydrateG": 12.5,
         "fiberG": 4.4,
+        "sodiumMg": 2,
         "keyNutrients": [
           {
             "name": "Folate",
@@ -1085,6 +1133,8 @@
           }
         ]
       },
+      "allergens": [],
+      "mayContainAllergens": [],
       "cautions": [],
       "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS). No cycle-specific claim is made.",
       "review": {
