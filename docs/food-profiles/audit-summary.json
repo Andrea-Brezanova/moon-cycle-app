@@ -7,17 +7,17 @@
  "auditedAgainstLiveUsda": 251,
  "openDataFindings": 0,
  "correctedInFirstAudit": 193,
- "resolvedInReadinessPass": 15,
- "decisionsForOwner": 13,
- "profilesAffectedByADecision": 47,
+ "resolvedInReadinessPass": 16,
+ "decisionsForOwner": 12,
+ "profilesAffectedByADecision": 46,
  "cautionStatus": {
-  "sourced": 120,
+  "sourced": 122,
   "catalogue-tag": 56,
   "partly-sourced": 10,
-  "unverified-inherited": 19
+  "unverified-inherited": 18
  },
- "profilesWithUnverifiedInheritedCaution": 18,
+ "profilesWithUnverifiedInheritedCaution": 17,
  "profilesWithSodiumNote": 11,
- "validatedWithoutSubstantiveConcerns": 196,
+ "validatedWithoutSubstantiveConcerns": 197,
  "publishable": 0
 }

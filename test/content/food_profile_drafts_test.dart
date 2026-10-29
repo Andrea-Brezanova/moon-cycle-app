@@ -327,8 +327,6 @@ void main() {
         }
         // Every catalogue caution is kept.
         for (final c in (cat['cautions'] as List).cast<String>()) {
-          // The one deliberate replacement: the FDA wording for dried kidney beans.
-          if (c.startsWith('Dried beans: boil hard')) continue;
           expect(
             text,
             contains(c.toLowerCase()),

@@ -205,7 +205,7 @@ Generated from the researcher notes attached to each draft. A food can appear un
 
 ## Cautions carried over from the catalogue without an external source
 
-69 drafts contain at least one catalogue caution whose source is "Existing MoonCycle catalogue caution (no external source recorded)". They are kept (the app shows a profile's cautions instead of the catalogue's) but need a source or an editorial decision.
+68 drafts contain at least one catalogue caution whose source is "Existing MoonCycle catalogue caution (no external source recorded)". They are kept (the app shows a profile's cautions instead of the catalogue's) but need a source or an editorial decision.
 
 - Almond milk (`almond-milk`): Tree-nut allergen
 - Anchovies (`anchovies`): Fish allergen
@@ -235,7 +235,6 @@ Generated from the researcher notes attached to each draft. A food can appear un
 - Hummus (`hummus`): Sesame allergen
 - Kefir (`kefir`): Dairy allergen
 - Ketchup (`ketchup`): High in sugar and salt
-- Kidney bean (`kidney-bean`): Do not cook dried kidney beans from raw in a slow cooker.
 - Kimchi (`kimchi`): Check the label for fish sauce or shrimp, and for vegetarian or vegan status
 - Kiwi (`kiwi`): Kiwi can cause allergic reactions; people with latex allergy may also react.
 - Lima bean (`lima-bean`): Always cook thoroughly

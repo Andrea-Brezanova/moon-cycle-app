@@ -60,7 +60,8 @@
   "mint": "Opening line now says spearmint.",
   "granola": "Opening line now says homemade granola.",
   "salsa": "Opening line now says ready-to-serve salsa with salt.",
-  "red-snapper": "Opening line now says the USDA record covers mixed species."
+  "red-snapper": "Opening line now says the USDA record covers mixed species.",
+  "kidney-bean": "Safety correction made: the catalogue and the draft now use the FDA wording (soak at least 5 hours, boil in fresh water at least 30 minutes; no slow cookers; canned beans are already cooked), replacing the inherited '10 minutes'. Sources: FDA Natural Toxins in Food (09/26/2024) and the FDA Bad Bug Book, 2nd edition."
  },
  "decisions": [
   {
@@ -214,15 +215,6 @@
    ],
    "question": "Coconut counted as a tree nut; tamari and miso gluten (many tamari are wheat-free); chocolate dairy and soy (product-dependent); sesame in bagels; celery and molluscs (EU lists, not on the US list of nine). Keep every tag (protective) or refine?",
    "recommendation": "Keep all tags; refine wording only with an allergist or label source."
-  },
-  {
-   "id": "D13",
-   "title": "Kidney bean boiling time",
-   "foods": [
-    "kidney-bean"
-   ],
-   "question": "The inherited caution says \"boil hard for 10 minutes\". The FDA says soak at least 5 hours and boil in fresh water at least 30 minutes. The draft now uses the FDA wording. The app's own catalogue caution still has the 10-minute wording. Update the catalogue?",
-   "recommendation": "Yes, as a safety correction (outside this audit; not changed)."
   }
  ]
 }

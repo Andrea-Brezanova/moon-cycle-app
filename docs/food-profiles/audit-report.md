@@ -34,7 +34,7 @@ Nothing here is published. All 251 drafts remain unreviewed and outside the app;
 
 No nutrient number was changed: every number matched USDA.
 
-## 2. Resolved in the readiness pass (15)
+## 2. Resolved in the readiness pass (16)
 
 Straightforward issues closed with a traceable source or an explicit wording fix:
 
@@ -53,10 +53,11 @@ Straightforward issues closed with a traceable source or an explicit wording fix
 - **Granola** (`granola`): Opening line now says homemade granola.
 - **Salsa** (`salsa`): Opening line now says ready-to-serve salsa with salt.
 - **Snapper** (`red-snapper`): Opening line now says the USDA record covers mixed species.
+- **Kidney bean** (`kidney-bean`): Safety correction made: the catalogue and the draft now use the FDA wording (soak at least 5 hours, boil in fresh water at least 30 minutes; no slow cookers; canned beans are already cooked), replacing the inherited '10 minutes'. Sources: FDA Natural Toxins in Food (09/26/2024) and the FDA Bad Bug Book, 2nd edition.
 
-Also: sodium no longer appears as a caution. It is stored as data for every profile; a calm nutrition note appears only at 460 mg or more per serving (the FDA's 20%-of-Daily-Value "high" line) and is not worded as a warning. The kidney bean caution was corrected to the FDA wording (see decision D13). Vitamin E was dropped from the key nutrients of bagel and granola because the USDA value looks unreliable (D5).
+Also: sodium no longer appears as a caution. It is stored as data for every profile; a calm nutrition note appears only at 460 mg or more per serving (the FDA's 20%-of-Daily-Value "high" line) and is not worded as a warning. The kidney bean caution was corrected to the FDA wording in both the catalogue and the draft (soak 5 hours, boil 30 minutes, no slow cooker, canned beans already cooked). Vitamin E was dropped from the key nutrients of bagel and granola because the USDA value looks unreliable (D5).
 
-## 3. Decisions for you (13 decisions, 47 profiles)
+## 3. Decisions for you (12 decisions, 46 profiles)
 
 **D1. Dry-weight servings** (Oat, Farro, Rye, Wheat, Polenta / cornmeal, Wheat flour (whole-grain), Red lentil)  
 These servings are for the dry food (USDA has no cooked record for most). Accept dry servings, clearly labelled, or switch to cooked records where they exist?  
@@ -106,27 +107,22 @@ Sodium is stored as data for every profile. A calm "nutrition note" appears only
 Coconut counted as a tree nut; tamari and miso gluten (many tamari are wheat-free); chocolate dairy and soy (product-dependent); sesame in bagels; celery and molluscs (EU lists, not on the US list of nine). Keep every tag (protective) or refine?  
 *Recommendation:* Keep all tags; refine wording only with an allergist or label source.
 
-**D13. Kidney bean boiling time** (Kidney bean)  
-The inherited caution says "boil hard for 10 minutes". The FDA says soak at least 5 hours and boil in fresh water at least 30 minutes. The draft now uses the FDA wording. The app's own catalogue caution still has the 10-minute wording. Update the catalogue?  
-*Recommendation:* Yes, as a safety correction (outside this audit; not changed).
-
 ## 4. Inherited cautions: verification status
 
 | Status | Cautions |
 |---|---|
-| sourced | 120 |
+| sourced | 122 |
 | partly-sourced | 10 |
 | catalogue-tag | 56 |
-| unverified-inherited | 19 |
+| unverified-inherited | 18 |
 
-The earlier audit counted 59 profiles carrying an inherited caution with no recorded source. After reading authoritative pages (FDA, NIDDK, NIH ODS, MedlinePlus), allergen categories, gluten, oats, brown rice, cantaloupe, rhubarb, kelp and tuna cautions now carry sources. **18 profiles still carry an inherited caution I could not source** (kept, labelled `unverified-inherited`, not described as verified):
+The earlier audit counted 59 profiles carrying an inherited caution with no recorded source. After reading authoritative pages (FDA, NIDDK, NIH ODS, MedlinePlus), allergen categories, gluten, oats, brown rice, cantaloupe, rhubarb, kelp and tuna cautions now carry sources. **17 profiles still carry an inherited caution I could not source** (kept, labelled `unverified-inherited`, not described as verified):
 
 - Celery: Celery allergen (EU)
 - Chard: High in oxalate
 - Chia seeds: Soak before eating: dry seeds swell when wet
 - Clam: Mollusc allergen
 - Ketchup: High in sugar and salt
-- Kidney bean: Do not cook dried kidney beans from raw in a slow cooker.
 - Kimchi: Check the label for fish sauce or shrimp, and for vegetarian or vegan status
 - Kiwi: Kiwi can cause allergic reactions; people with latex allergy may also react.
 - Lima bean: Always cook thoroughly
@@ -166,9 +162,9 @@ Sources that did not support an inherited caution: NIDDK's kidney-stone page lis
 
 Rule applied: no average-recipe or generic record stands in for an exact ingredient unless the limitation is stated in the profile. Nothing is substituted in this pass.
 
-## 6. Validated without substantive concerns (196 profiles)
+## 6. Validated without substantive concerns (197 profiles)
 
 Data matches USDA, prose read, every caution sourced or a catalogue tag, and no open decision. Still **unreviewed and unpublished**.
 
-Adzuki bean, Almond, Almond milk, Amaranth, Apple, Apricot, Artichoke, Arugula (rocket), Avocado, Avocado oil, Banana, Barley, Basil, Bean sprouts, Beef, Beets, Black-eyed pea, Black beans, Blackberry, Blueberry, Bok choy, Brazil nut, Brown rice, Brussels sprouts, Buckwheat (kasha), Bulgur, Burdock, Cabbage, Canned salmon, Canned tomatoes, Cantaloupe, Carrot, Cashew, Catfish, Cauliflower, Celeriac, Cheddar cheese, Chestnut, Chicken, Chickpea, Chicory, Chili pepper, Chive, Cilantro (coriander), Cod, Collard, Concord grape, Corn, Cottage cheese, Couscous, Cranberry, Cream cheese, Cucumber, Daikon, Dandelion, Date, Dill, Dried apricots, Duck, Edamame, Egg noodles, Eggplant, Endive, Escarole, Fava (broad) beans, Feta, Fig, Flaxseeds, Flounder, Garlic, Ginger, Goat cheese, Grapefruit, Grapes, Great northern bean, Greek yogurt, Green bell pepper, Green pea, Guava, Haddock, Halibut, Hazelnuts, Hemp seeds, Herring, Hickory, Honey, Honeydew melon, Hummus, Kale, Kefir, Kelp, Kohlrabi, Lamb, Leek, Lemon, Lettuce (Bibb, Boston, romaine), Lime, Lychee, Macadamia nuts, Mackerel, Mandarin / tangerine, Mango, Maple syrup, Millet, Mixed nuts, Mozzarella, Mung bean, Mushrooms (button, shiitake), Mustard greens, Napa cabbage, Navy bean, Nectarine, Nut butter, Oat bran, Okra, Olive oil, Onion, Papaya, Parmesan, Parsley, Parsnip, Pasta, Peach, Peanuts, Pear, Pecan, Peppermint, Persimmon, Pickles, Pine nut, Pineapple, Pinto beans, Pistachio, Pita bread (whole-wheat), Plain yogurt, Plantain, Plum, Pollock, Pomegranate, Popcorn (plain), Pork, Prunes (dried plums), Pumpkin, Quinoa, Radicchio, Radish, Raisin, Raspberry, Red bell pepper, Red cabbage, Rhubarb, Rice cakes, Rice noodles, Ricotta, Rye bread, Salmon, Salsa, Sardine, Scallion, Sesame seeds, Shallot, Soba noodles, Sour cherry, Sour cream, Soy milk, Split pea, Squash, Strawberry, String bean, Sugar snap peas, Sunflower seeds, Sweet cherry, Sweet potato, Swiss cheese, Tahini, Tilapia, Tofu, Tomato, Tomato paste, Trout, Turkey, Turmeric, Turnip, Vinegar, Wakame, Walnut, Water chestnut, Watercress, Watermelon, White beans, White potato, White rice, Whole-wheat pasta, Wild rice, Yellow bell pepper, Zucchini
+Adzuki bean, Almond, Almond milk, Amaranth, Apple, Apricot, Artichoke, Arugula (rocket), Avocado, Avocado oil, Banana, Barley, Basil, Bean sprouts, Beef, Beets, Black-eyed pea, Black beans, Blackberry, Blueberry, Bok choy, Brazil nut, Brown rice, Brussels sprouts, Buckwheat (kasha), Bulgur, Burdock, Cabbage, Canned salmon, Canned tomatoes, Cantaloupe, Carrot, Cashew, Catfish, Cauliflower, Celeriac, Cheddar cheese, Chestnut, Chicken, Chickpea, Chicory, Chili pepper, Chive, Cilantro (coriander), Cod, Collard, Concord grape, Corn, Cottage cheese, Couscous, Cranberry, Cream cheese, Cucumber, Daikon, Dandelion, Date, Dill, Dried apricots, Duck, Edamame, Egg noodles, Eggplant, Endive, Escarole, Fava (broad) beans, Feta, Fig, Flaxseeds, Flounder, Garlic, Ginger, Goat cheese, Grapefruit, Grapes, Great northern bean, Greek yogurt, Green bell pepper, Green pea, Guava, Haddock, Halibut, Hazelnuts, Hemp seeds, Herring, Hickory, Honey, Honeydew melon, Hummus, Kale, Kefir, Kelp, Kidney bean, Kohlrabi, Lamb, Leek, Lemon, Lettuce (Bibb, Boston, romaine), Lime, Lychee, Macadamia nuts, Mackerel, Mandarin / tangerine, Mango, Maple syrup, Millet, Mixed nuts, Mozzarella, Mung bean, Mushrooms (button, shiitake), Mustard greens, Napa cabbage, Navy bean, Nectarine, Nut butter, Oat bran, Okra, Olive oil, Onion, Papaya, Parmesan, Parsley, Parsnip, Pasta, Peach, Peanuts, Pear, Pecan, Peppermint, Persimmon, Pickles, Pine nut, Pineapple, Pinto beans, Pistachio, Pita bread (whole-wheat), Plain yogurt, Plantain, Plum, Pollock, Pomegranate, Popcorn (plain), Pork, Prunes (dried plums), Pumpkin, Quinoa, Radicchio, Radish, Raisin, Raspberry, Red bell pepper, Red cabbage, Rhubarb, Rice cakes, Rice noodles, Ricotta, Rye bread, Salmon, Salsa, Sardine, Scallion, Sesame seeds, Shallot, Soba noodles, Sour cherry, Sour cream, Soy milk, Split pea, Squash, Strawberry, String bean, Sugar snap peas, Sunflower seeds, Sweet cherry, Sweet potato, Swiss cheese, Tahini, Tilapia, Tofu, Tomato, Tomato paste, Trout, Turkey, Turmeric, Turnip, Vinegar, Wakame, Walnut, Water chestnut, Watercress, Watermelon, White beans, White potato, White rice, Whole-wheat pasta, Wild rice, Yellow bell pepper, Zucchini
 

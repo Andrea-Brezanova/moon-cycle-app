@@ -31,7 +31,7 @@ Order: (1) blocked foods needing an owner decision, (2) categories with the high
 | other | 10 | 3.7 | 5 |
 | grains | 32 | 3.6 | 7 |
 | nuts-seeds | 20 | 3.0 | 6 |
-| legumes | 17 | 2.1 | 5 |
+| legumes | 17 | 2.0 | 5 |
 | vegetables | 72 | 1.5 | 11 |
 | fruit | 38 | 1.1 | 7 |
 
@@ -117,8 +117,8 @@ For each food, tick: [ ] food identity matches the catalogue; [ ] USDA record an
 | Food | Batch | FDC id | Preparation | Serving | Risk | Why sampled |
 |---|---|---|---|---|---|---|
 | Fava (broad) beans (`fava-beans`) | 10 | 173753 | cooked, boiled, no salt | ½ cup cooked | 6 | Dried fava beans, cooked. Fresh young fava pods are a different food. |
-| Kidney bean (`kidney-bean`) | 5 | 173740 | cooked, boiled, no salt | ½ cup cooked | 6 | Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externall |
 | Baked beans (`baked-beans`) | 10 | 175182 | canned, plain or vegetarian | ½ cup | 5 | Canned baked beans in sauce, which usually contains added sugar and salt (not shown in this nutrient set); var |
+| Kidney bean (`kidney-bean`) | 5 | 173740 | cooked, boiled, no salt | ½ cup cooked | 5 | Dried kidney beans must be boiled hard for 10 minutes (existing catalogue caution, carried over; not externall |
 | Mung bean (`mung-bean`) | 10 | 174257 | cooked, boiled, no salt | ½ cup cooked | 4 | Whole mung beans; sprouted mung beans have their own record. |
 | Lima bean (`lima-bean`) | 5 | 174253 | cooked, boiled, no salt | ½ cup cooked | 1 | no note |
 

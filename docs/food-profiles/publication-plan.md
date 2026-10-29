@@ -7,10 +7,10 @@
 | Group | Foods | Meaning |
 |---|---|---|
 | Already approved and published | 5 | Spinach, lentils, pumpkin seeds, broccoli, orange. Unchanged. |
-| **Wave 1: recommended first group** | **100** | Ready, featured in a phase, every caution sourced or an allergen tag, no sodium note, no open question. |
+| **Wave 1: recommended first group** | **101** | Ready, featured in a phase, every caution sourced or an allergen tag, no sodium note, no open question. |
 | Ready, but not in Wave 1 | 96 | Also clean, held back for a reason listed below (not featured in a phase, sodium note, record note). Can follow in Wave 2. |
-| Requires source work | 8 | Carry an inherited caution I could not source (10 more profiles also carry one but are counted under decisions). Publishable only if you accept it labelled as inherited, or after a source is found. |
-| Requires your decision | 47 | Affected by one of the 13 decisions in `audit-report.md` section 3. |
+| Requires source work | 8 | Carry an inherited caution I could not source (9 more profiles also carry one but are counted under decisions). Publishable only if you accept it labelled as inherited, or after a source is found. |
+| Requires your decision | 46 | Affected by one of the 12 decisions in `audit-report.md` section 3. |
 | Blocked | 15 | Decision table in `audit-report.md` section 5. |
 | **Total** | **271** | |
 
@@ -26,9 +26,9 @@ These five decisions cover every Wave 1 profile; none needs a per-food judgment.
 
 Safe default if you approve nothing: no profile appears; Food Detail looks exactly as it does today.
 
-## Wave 1 (100 profiles)
+## Wave 1 (101 profiles)
 
-- **menstrual** (19): Beef, Beets, Black beans, Blueberry, Brussels sprouts, Cashew, Collard, Eggplant, Grapefruit, Grapes, Green bell pepper, Kale, Papaya, Quinoa, Sardine, Sesame seeds, White beans, Wild rice, Yellow bell pepper
+- **menstrual** (20): Beef, Beets, Black beans, Blueberry, Brussels sprouts, Cashew, Collard, Eggplant, Grapefruit, Grapes, Green bell pepper, Kale, Kidney bean, Papaya, Quinoa, Sardine, Sesame seeds, White beans, Wild rice, Yellow bell pepper
 - **follicular** (24): Arugula (rocket), Avocado, Black-eyed pea, Bok choy, Cabbage, Canned salmon, Carrot, Chicken, Feta, Flaxseeds, Green pea, Haddock, Napa cabbage, Nectarine, Oat bran, Pecan, Plain yogurt, Plum, Pollock, Pomegranate, String bean, Trout, Turnip, Zucchini
 - **ovulatory** (23): Almond, Apricot, Bean sprouts, Cantaloupe, Cottage cheese, Cucumber, Hazelnuts, Honeydew melon, Mandarin / tangerine, Mango, Peach, Pineapple, Pistachio, Radish, Raspberry, Red bell pepper, Red cabbage, Ricotta, Strawberry, Sugar snap peas, Sweet cherry, Tomato, Watermelon
 - **luteal** (34): Apple, Artichoke, Banana, Barley, Blackberry, Buckwheat (kasha), Bulgur, Cauliflower, Chickpea, Cod, Edamame, Fig, Flounder, Goat cheese, Greek yogurt, Halibut, Lamb, Mackerel, Mixed nuts, Mozzarella, Parsnip, Peanuts, Pear, Pinto beans, Pork, Pumpkin, Salmon, Split pea, Sunflower seeds, Sweet potato, Swiss cheese, Tilapia, Turkey, Walnut
@@ -143,7 +143,7 @@ Safe default if you approve nothing: no profile appears; Food Detail looks exact
 - Tempeh: Check the label for gluten-containing grains
 - Whole-grain bread: Check the label for soy, dairy or sesame
 
-## Requires your decision (47 profiles)
+## Requires your decision (46 profiles)
 
 - **D1 Dry-weight servings**: Oat, Farro, Rye, Wheat, Polenta / cornmeal, Wheat flour (whole-grain), Red lentil
 - **D2 Raw squid record**: Squid
@@ -157,7 +157,6 @@ Safe default if you approve nothing: no profile appears; Food Detail looks exact
 - **D10 Raw handling of milk and eggs**: Milk, Eggs
 - **D11 How sodium appears**: Anchovies, Bacon, Bagel, Baked beans, Clam, Crab, Ham, Miso, Sauerkraut, Scallop, Shrimp, Smoked salmon, Tamari, Octopus, Naan, Lobster, Kimchi, Tortillas (wheat)
 - **D12 Allergen tags broader or narrower than the food**: Coconut, Tamari, Miso, Chocolate, Granola, Bagel, Celery, Clam, Mussel, Oyster, Octopus, Scallop, Squid
-- **D13 Kidney bean boiling time**: Kidney bean
 
 ## Blocked (15)
 
