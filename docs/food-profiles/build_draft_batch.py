@@ -36,6 +36,7 @@ AMOUNT_ONLY = {'protein': ('g', 'Protein'), 'fiber': ('g', 'Fiber'), 'omega3': (
 DECIMALS = {'iron': 1, 'zn': 1, 'vite': 1, 'b12': 1, 'vitd': 1, 'protein': 1, 'fiber': 1, 'omega3': 2}
 FDA_RISK = 'FDA, People at Risk of Foodborne Illness (Foods to Avoid; content current as of 01/16/2025; read 2026-10-28)'
 ARSENIC = 'FDA, What You Can Do to Limit Exposure to Arsenic (content current as of 04/27/2022; read 2026-10-28)'
+BAD_BUG = 'FDA, Bad Bug Book, 2nd edition: Phytohaemagglutinin (kidney bean lectin) (read 2026-10-29)'
 NATURAL_TOXINS = 'FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28)'
 FDA_ALLERGENS = 'FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28)'
 NIDDK_CELIAC = 'NIDDK, Celiac Disease: Eating, Diet & Nutrition (last reviewed October 2020; read 2026-10-28)'
@@ -77,8 +78,6 @@ CAUTIONS = {
                        source='NIH ODS, Iodine fact sheet for health professionals (read 2026-10-28)'),
     'rice-arsenic': dict(text='Rice tends to absorb more arsenic than other crops. The FDA says people can still eat rice as part of a well-balanced diet.',
                          source=ARSENIC),
-    'kidney-bean-fda': dict(text='Dried kidney beans contain a natural toxin (phytohaemagglutinin). Soak them for at least 5 hours, then boil in fresh water for at least 30 minutes. Canned beans are already cooked.',
-                            source=NATURAL_TOXINS),
     'oxalate-nuts': dict(text='Nuts are high in oxalate. If you have had calcium oxalate kidney stones, ask a health professional how many to eat.',
                          source='NIDDK, Eating, Diet & Nutrition for Kidney Stones (lists nuts and nut products among foods to reduce for calcium oxalate stones)'),
 }
@@ -148,10 +147,11 @@ VERIFIED = {
     'Thyroid conditions: check with a doctor': (ODS_IODINE, 'sourced'),
     'Iodine: normal portions': (ODS_IODINE, 'partly-sourced'),
     'Raw sprouts: food-safety risk': (FDA_RISK, 'sourced'),
+    'Dried kidney beans contain a natural toxin that raw or undercooked beans can release. Soak them for at least 5 hours, pour the water away, then boil in fresh water for at least 30 minutes.': (NATURAL_TOXINS + '; ' + BAD_BUG, 'sourced'),
+    'Do not cook dried kidney beans in a slow cooker: it may not get hot enough to destroy the toxin.': (BAD_BUG, 'sourced'),
+    'Canned kidney beans are already cooked and contain only low levels of the toxin.': (NATURAL_TOXINS, 'sourced'),
     'Raw oysters: food-safety risk': (FDA_RISK, 'partly-sourced'),
 }
-# Replaced because the page read this session contradicts the inherited wording.
-REPLACED = {'Dried beans: boil hard for 10 minutes; don\'t slow-cook from raw': ['kidney-bean-fda']}
 AUDIT_NOTES = json.load(open('docs/food-profiles/audit-notes.json'))
 SODIUM_HIGH_MG = 460   # 20% of the 2,300 mg Daily Value: the FDA's "high" line
 TOPICS = {'vitk': 'vitamin k', 'oxalate-nuts': 'oxalate', 'oxalate-list': 'oxalate', 'grapefruit-meds': 'medicine', 'mercury-good': 'mercury',
@@ -251,13 +251,7 @@ for fid, f in src['foods'].items():
     existing = CATALOGUE[fid].get('cautions', [])
     cautions = []
     for t in existing:
-        if t in REPLACED:
-            for c in REPLACED[t]:
-                cautions.append(dict(text=CAUTIONS[c]['text'], source=CAUTIONS[c]['source'], status='sourced',
-                                     replaces=f'Inherited catalogue wording "{t}" (the FDA page gives a longer boil)'))
-            if 'slow-cook' in t:
-                cautions.append(dict(text="Do not cook dried kidney beans from raw in a slow cooker.", source=EXISTING, status='unverified-inherited'))
-        elif t in VERIFIED:
+        if t in VERIFIED:
             cautions.append(dict(text=t, source=VERIFIED[t][0] + ' (supports the existing caution)', status=VERIFIED[t][1]))
         else:
             cautions.append(dict(text=t, source=EXISTING, status='unverified-inherited'))

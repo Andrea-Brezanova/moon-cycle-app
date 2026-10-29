@@ -4754,6 +4754,133 @@
     "publishable": false
    }
   },
+  "kidney-bean": {
+   "catalogueId": "kidney-bean",
+   "name": "Kidney bean",
+   "sections": {
+    "whatItOffers": "Kidney beans are large, meaty beans with folate (about 29% of the reference in half a cup), potassium and magnesium, plus 7.7 g of protein and 5.7 g of fibre.",
+    "practicalServing": "½ cup cooked (USDA: 1 cup = 177 g)",
+    "howToEatIt": "Use in chilli, curries, salads and stews. Dried kidney beans must be soaked and boiled hard before eating (see the caution); canned beans are already cooked.",
+    "cycleRelevance": "Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); Kidney beans are a good source. No phase-specific claim is made."
+   },
+   "source": {
+    "usdaFdcId": 173740,
+    "usdaDescription": "Beans, kidney, all types, mature seeds, cooked, boiled, without salt",
+    "dataType": "SR Legacy",
+    "published": "4/1/2019",
+    "preparationState": "cooked, boiled, no salt",
+    "portionGrams": 88.5,
+    "portion": "½ cup cooked (USDA: 1 cup = 177 g)",
+    "per100g": {
+     "protein": 8.67,
+     "fat": 0.5,
+     "carb": 22.8,
+     "fiber": 6.4,
+     "ca": 35,
+     "iron": 2.22,
+     "mg": 42,
+     "k": 405,
+     "zn": 1,
+     "vitc": 1.2,
+     "folate": 130,
+     "vite": 0.03,
+     "vitk": 8.4,
+     "kcal": 127,
+     "na": 1
+    }
+   },
+   "perServing": {
+    "energyKcal": 112,
+    "proteinG": 7.7,
+    "fatG": 0.4,
+    "carbohydrateG": 20.2,
+    "fiberG": 5.7,
+    "keyNutrients": [
+     {
+      "name": "Folate",
+      "amount": 115,
+      "unit": "µg DFE",
+      "reference": [
+       {
+        "group": "19–50 y",
+        "kind": "RDA",
+        "value": 400,
+        "unit": "µg DFE",
+        "percent": 29
+       }
+      ]
+     },
+     {
+      "name": "Potassium",
+      "amount": 358,
+      "unit": "mg",
+      "reference": [
+       {
+        "group": "19–50 y",
+        "kind": "AI",
+        "value": 2600,
+        "unit": "mg",
+        "percent": 14
+       }
+      ]
+     },
+     {
+      "name": "Magnesium",
+      "amount": 37,
+      "unit": "mg",
+      "reference": [
+       {
+        "group": "19–30 y",
+        "kind": "RDA",
+        "value": 310,
+        "unit": "mg",
+        "percent": 12
+       },
+       {
+        "group": "31–50 y",
+        "kind": "RDA",
+        "value": 320,
+        "unit": "mg",
+        "percent": 12
+       }
+      ]
+     },
+     {
+      "name": "Protein",
+      "amount": 7.7,
+      "unit": "g"
+     },
+     {
+      "name": "Fiber",
+      "amount": 5.7,
+      "unit": "g"
+     }
+    ]
+   },
+   "cautions": [
+    {
+     "text": "Dried kidney beans contain a natural toxin that raw or undercooked beans can release. Soak them for at least 5 hours, pour the water away, then boil in fresh water for at least 30 minutes.",
+     "source": "FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28); FDA, Bad Bug Book, 2nd edition: Phytohaemagglutinin (kidney bean lectin) (read 2026-10-29) (supports the existing caution)"
+    },
+    {
+     "text": "Do not cook dried kidney beans in a slow cooker: it may not get hot enough to destroy the toxin.",
+     "source": "FDA, Bad Bug Book, 2nd edition: Phytohaemagglutinin (kidney bean lectin) (read 2026-10-29) (supports the existing caution)"
+    },
+    {
+     "text": "Canned kidney beans are already cooked and contain only low levels of the toxin.",
+     "source": "FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28) (supports the existing caution)"
+    }
+   ],
+   "evidence": "Nutrient amounts and reference intakes only (USDA FoodData Central, NIH ODS).",
+   "review": {
+    "composition": "verified against USDA FoodData Central (re-checked in the audit)",
+    "referenceIntakes": "verified against NIH ODS",
+    "cautions": "sourced or catalogue allergen tags",
+    "editorial": "awaiting owner approval",
+    "clinical": "not clinically reviewed",
+    "publishable": false
+   }
+  },
   "lamb": {
    "catalogueId": "lamb",
    "name": "Lamb",

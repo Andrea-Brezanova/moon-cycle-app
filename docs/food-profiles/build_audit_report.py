@@ -73,7 +73,7 @@ w('## 2. Resolved in the readiness pass (%d)\n' % len(notes['resolved']))
 w('Straightforward issues closed with a traceable source or an explicit wording fix:\n')
 for i, n in notes['resolved'].items():
     w(f'- **{name(i)}** (`{i}`): {n}')
-w('\nAlso: sodium no longer appears as a caution. It is stored as data for every profile; a calm nutrition note appears only at 460 mg or more per serving (the FDA\'s 20%-of-Daily-Value "high" line) and is not worded as a warning. The kidney bean caution was corrected to the FDA wording (see decision D13). Vitamin E was dropped from the key nutrients of bagel and granola because the USDA value looks unreliable (D5).\n')
+w('\nAlso: sodium no longer appears as a caution. It is stored as data for every profile; a calm nutrition note appears only at 460 mg or more per serving (the FDA\'s 20%-of-Daily-Value "high" line) and is not worded as a warning. The kidney bean caution was corrected to the FDA wording in both the catalogue and the draft (soak 5 hours, boil 30 minutes, no slow cooker, canned beans already cooked). Vitamin E was dropped from the key nutrients of bagel and granola because the USDA value looks unreliable (D5).\n')
 
 w('## 3. Decisions for you (%d decisions, %d profiles)\n' % (len(notes['decisions']), len(decision_foods & set(profiles))))
 for d in notes['decisions']:

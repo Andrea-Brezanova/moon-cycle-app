@@ -12044,15 +12044,19 @@
    "mayContainAllergens": [],
    "cautions": [
     {
-     "text": "Dried kidney beans contain a natural toxin (phytohaemagglutinin). Soak them for at least 5 hours, then boil in fresh water for at least 30 minutes. Canned beans are already cooked.",
-     "source": "FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28)",
-     "status": "sourced",
-     "replaces": "Inherited catalogue wording \"Dried beans: boil hard for 10 minutes; don't slow-cook from raw\" (the FDA page gives a longer boil)"
+     "text": "Dried kidney beans contain a natural toxin that raw or undercooked beans can release. Soak them for at least 5 hours, pour the water away, then boil in fresh water for at least 30 minutes.",
+     "source": "FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28); FDA, Bad Bug Book, 2nd edition: Phytohaemagglutinin (kidney bean lectin) (read 2026-10-29) (supports the existing caution)",
+     "status": "sourced"
     },
     {
-     "text": "Do not cook dried kidney beans from raw in a slow cooker.",
-     "source": "Existing MoonCycle catalogue caution (no external source recorded)",
-     "status": "unverified-inherited"
+     "text": "Do not cook dried kidney beans in a slow cooker: it may not get hot enough to destroy the toxin.",
+     "source": "FDA, Bad Bug Book, 2nd edition: Phytohaemagglutinin (kidney bean lectin) (read 2026-10-29) (supports the existing caution)",
+     "status": "sourced"
+    },
+    {
+     "text": "Canned kidney beans are already cooked and contain only low levels of the toxin.",
+     "source": "FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28) (supports the existing caution)",
+     "status": "sourced"
     }
    ],
    "nutritionNotes": [],
@@ -12061,7 +12065,7 @@
    "review": {
     "composition": "copied from USDA FoodData Central; recomputed by script",
     "referenceIntakes": "NIH ODS values",
-    "cautions": "1 inherited caution(s) without a verified source",
+    "cautions": "all cautions sourced or catalogue tags",
     "editorial": "draft; awaiting editorial review",
     "clinical": "not clinically reviewed",
     "publishable": false
