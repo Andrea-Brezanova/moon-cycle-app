@@ -1,0 +1,197 @@
+{
+ "stages": {
+  "56e981d": {
+   "commit": "56e981d",
+   "date": "2026-10-11",
+   "subject": "docs: add architecture, decisions, plan and Editorial v3 design reference",
+   "file": "design/content/ingredients.json",
+   "label": "Design package: Emergent baseline, \"placement preserved exactly\"",
+   "assignedFoods": 157,
+   "perPhase": {
+    "menstrual": 40,
+    "luteal": 40,
+    "follicular": 41,
+    "ovulatory": 40
+   }
+  },
+  "8828f98": {
+   "commit": "8828f98",
+   "date": "2026-10-11",
+   "subject": "feat(content): bundled catalogue and diet/avoidance filter",
+   "file": "assets/content/foods.json",
+   "label": "First bundled catalogue, \"verbatim from the handoff\"",
+   "assignedFoods": 154,
+   "perPhase": {
+    "menstrual": 38,
+    "luteal": 40,
+    "follicular": 41,
+    "ovulatory": 39
+   }
+  },
+  "b2c071f": {
+   "commit": "b2c071f",
+   "date": "2026-10-13",
+   "subject": "feat(content): integrate Foods v2 catalogue and phase content",
+   "file": "assets/content/foods.json",
+   "label": "Foods v2 integration (25 foods per phase)",
+   "assignedFoods": 65,
+   "perPhase": {
+    "luteal": 25,
+    "menstrual": 25,
+    "follicular": 25,
+    "ovulatory": 25
+   }
+  },
+  "f9c0241": {
+   "commit": "f9c0241",
+   "date": "2026-10-14",
+   "subject": "feat: finalize Foods v2 and phase browsing for v1",
+   "file": "assets/content/foods.json",
+   "label": "Foods v2 frozen: 142 featured foods",
+   "assignedFoods": 142,
+   "perPhase": {
+    "luteal": 44,
+    "menstrual": 35,
+    "ovulatory": 31,
+    "follicular": 32
+   }
+  },
+  "HEAD": {
+   "commit": "df7d9b3",
+   "date": "2026-10-28",
+   "subject": "Merge pull request #62 from Andrea-Brezanova/docs/food-profile-audit",
+   "file": "assets/content/foods.json",
+   "label": "Current main",
+   "assignedFoods": 142,
+   "perPhase": {
+    "luteal": 44,
+    "menstrual": 35,
+    "ovulatory": 31,
+    "follicular": 32
+   }
+  }
+ },
+ "phaseAssignedFoodsNow": 142,
+ "classificationCounts": {
+  "B": 53,
+  "D": 53,
+  "E": 36,
+  "A": 0,
+  "C": 0
+ },
+ "scientificSupportCounts": {
+  "general-nutrition-only": 124,
+  "traditional-or-theoretical": 4,
+  "menstruating-adult-nutrient": 14
+ },
+ "reviewPriorityCounts": {
+  "high": 92,
+  "medium": 45,
+  "low": 5
+ },
+ "perPhaseNow": {
+  "follicular": 32,
+  "luteal": 44,
+  "menstrual": 35,
+  "ovulatory": 31
+ },
+ "perPhaseByClass": {
+  "menstrual": {
+   "D": 9,
+   "E": 13,
+   "B": 13
+  },
+  "follicular": {
+   "D": 14,
+   "B": 15,
+   "E": 3
+  },
+  "ovulatory": {
+   "B": 10,
+   "D": 14,
+   "E": 7
+  },
+  "luteal": {
+   "B": 15,
+   "E": 13,
+   "D": 16
+  }
+ },
+ "baselineFoodsNoLongerPhaseAssigned": [
+  "adzuki-bean",
+  "alcohol",
+  "amaranth",
+  "bancha-tea",
+  "black-soybean",
+  "burdock",
+  "catfish",
+  "chestnut",
+  "chicory",
+  "chive",
+  "chocolate",
+  "coconut",
+  "coffee",
+  "concord-grape",
+  "corn",
+  "daikon",
+  "dandelion",
+  "date",
+  "decaf-coffee",
+  "duck",
+  "dulse",
+  "endive",
+  "escarole",
+  "fresh-water-clam",
+  "garlic",
+  "ginger",
+  "great-northern-bean",
+  "guava",
+  "hickory",
+  "hijiki",
+  "kelp",
+  "ketchup",
+  "kombu",
+  "leek",
+  "lemon",
+  "lime",
+  "lobster",
+  "lychee",
+  "millet",
+  "mint",
+  "mung-bean",
+  "mustard-greens",
+  "navy-bean",
+  "octopus",
+  "okra",
+  "olives",
+  "onion",
+  "parsley",
+  "peppermint",
+  "persimmon",
+  "pine-nut",
+  "raisin",
+  "rhubarb",
+  "rye",
+  "salt",
+  "scallion",
+  "soft-shell-crab",
+  "sour-cherry",
+  "spirulina",
+  "squid",
+  "tamari",
+  "tuna",
+  "turmeric",
+  "vinegar",
+  "wakame",
+  "water-chestnut",
+  "watercress",
+  "wheat"
+ ],
+ "baselineFoodsNoLongerAssignedCount": 68,
+ "conventionLinked": [
+  "flaxseeds",
+  "pumpkin-seeds",
+  "sesame-seeds",
+  "sunflower-seeds"
+ ]
+}
