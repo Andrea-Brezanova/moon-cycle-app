@@ -31,9 +31,10 @@ print(f\"{p['Name']}: created {p['CreationDate']} UTC, expires {e} UTC ({left:.1
 cert_info() {
   security find-identity -v -p codesigning | sed -n 1,2p
 }
-data_listing() { # names and sizes only (never contents) of the app's data folder on the phone
+data_listing() { # names and sizes only (never contents) of the app's data folder on the phone; the system's
+  # caches and launch snapshots are left out because iOS rebuilds them on every install
   xcrun devicectl device info files --device "$DEVICE" --domain-type appDataContainer \
-    --domain-identifier "$BUNDLE" 2>/dev/null | grep -v '^SystemData/\|^tmp\|^[0-9][0-9]:\|^[[:space:]]*$' || true
+    --domain-identifier "$BUNDLE" 2>/dev/null | grep -v '^SystemData/\|^tmp\|^Library/Caches\|^Library/SplashBoard\|^[0-9][0-9]:\|^[[:space:]]*$' || true
 }
 
 echo "== signing status"; profile_info || true; cert_info
