@@ -1432,7 +1432,7 @@
       "id": "egg-noodles",
       "name": "Egg noodles",
       "category": "grains",
-      "animalSource": "none",
+      "animalSource": "egg",
       "allergens": [
         "egg",
         "gluten"
@@ -1729,7 +1729,7 @@
       "id": "naan",
       "name": "Naan",
       "category": "grains",
-      "animalSource": "none",
+      "animalSource": "dairy",
       "allergens": [
         "dairy",
         "gluten"

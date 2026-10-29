@@ -214,9 +214,11 @@ void main() {
 
   test('every dairy food is on the dairy aisle; kefir stays fermented', () {
     for (final f in testCatalogue.foods) {
-      // Chocolate is a pantry item that is marked dairy; everything else
-      // dairy lives on the dairy aisle (kefir is fermented).
-      if (f.animalSource.name == 'dairy' && f.id != 'chocolate') {
+      // Chocolate and naan are pantry/bakery items that are marked dairy (so
+      // vegans never see them); everything else dairy lives on the dairy
+      // aisle (kefir is fermented).
+      if (f.animalSource.name == 'dairy' &&
+          !{'chocolate', 'naan'}.contains(f.id)) {
         expect(
           f.aisleId,
           anyOf('dairy-alternatives', 'fermented'),
