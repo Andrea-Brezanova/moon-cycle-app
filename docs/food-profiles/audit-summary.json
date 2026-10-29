@@ -8,8 +8,8 @@
  "openDataFindings": 0,
  "correctedInFirstAudit": 193,
  "resolvedInReadinessPass": 16,
- "decisionsForOwner": 12,
- "profilesAffectedByADecision": 46,
+ "decisionsForOwner": 13,
+ "profilesAffectedByADecision": 49,
  "cautionStatus": {
   "sourced": 122,
   "catalogue-tag": 56,
@@ -18,6 +18,6 @@
  },
  "profilesWithUnverifiedInheritedCaution": 17,
  "profilesWithSodiumNote": 11,
- "validatedWithoutSubstantiveConcerns": 197,
+ "validatedWithoutSubstantiveConcerns": 194,
  "publishable": 0
 }

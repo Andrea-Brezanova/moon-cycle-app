@@ -215,6 +215,17 @@
    ],
    "question": "Coconut counted as a tree nut; tamari and miso gluten (many tamari are wheat-free); chocolate dairy and soy (product-dependent); sesame in bagels; celery and molluscs (EU lists, not on the US list of nine). Keep every tag (protective) or refine?",
    "recommendation": "Keep all tags; refine wording only with an allergist or label source."
+  },
+  {
+   "id": "D13",
+   "title": "Seed foods (flax, sesame, sunflower)",
+   "foods": [
+    "flaxseeds",
+    "sesame-seeds",
+    "sunflower-seeds"
+   ],
+   "question": "Small, mixed studies exist on seeds (or their components) in PMS and PCOS populations, and a 1993 crossover trial found flaxseed lengthened the luteal phase. The standard line \"We found no reliable research linking this food to a particular phase\" would be too blunt for these. Hold them back, write a seed-specific note, or publish with the standard wording? Pumpkin seeds (already approved) use older wording.",
+   "recommendation": "Hold these three out of Wave 1 until you decide."
   }
  ]
 }
