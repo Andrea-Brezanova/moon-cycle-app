@@ -24,10 +24,10 @@ def foods_at(commit):
 
 
 # The stages, oldest first. Dates and subjects are read from Git, not typed.
-STAGES = [('56e981d', 'design/content/ingredients.json', 'Design package: Emergent baseline, "placement preserved exactly"'),
-          ('8828f98', 'assets/content/foods.json', 'First bundled catalogue, "verbatim from the handoff"'),
-          ('b2c071f', 'assets/content/foods.json', 'Foods v2 integration (25 foods per phase)'),
-          ('f9c0241', 'assets/content/foods.json', 'Foods v2 frozen: 142 featured foods'),
+STAGES = [('56e981d', 'design/content/ingredients.json', 'Design package: earlier list, placement preserved'),
+          ('8828f98', 'assets/content/foods.json', 'First bundled catalogue'),
+          ('b2c071f', 'assets/content/foods.json', 'Catalogue revision: 25 foods per phase'),
+          ('f9c0241', 'assets/content/foods.json', 'Catalogue revision frozen: 142 featured foods'),
           ('HEAD', 'assets/content/foods.json', 'Current main')]
 design = json.loads(sh('git', 'show', '56e981d:design/content/ingredients.json'))
 by_stage = {'56e981d': {i['id']: list(i['recommendedPhases']) for i in design['ingredients'] if i['recommendedPhases']}}
@@ -45,10 +45,9 @@ audit = {i['id']: i for i in design['ingredients']}
 drafts = json.load(open(ROOT + 'complete-draft-dataset.json'))['profiles']
 approved = json.load(open('assets/content/food_profiles.json'))['profiles']
 SEEDS = {'sesame-seeds', 'sunflower-seeds', 'flaxseeds', 'pumpkin-seeds'}  # named "seed-cycling convention" in the design package
-EMERGENT = ('Emergent app export: private repo Andrea-Brezanova/moon-cycle, frontend/src/data/phases.ts @374f27f '
-            '(the recipe data in that file is labelled "SAMPLE CONTENT"), as copied into design/content/ingredients.json (56e981d). Origin of that list: UNKNOWN.')
-V2 = ('Foods v2 "production candidate (Moon Cycle Research)", chosen by the owner (b2c071f commit message, docs/decisions.md). '
-      'Its rationale labels and USDA provenance live in a research project that is not in this repository: UNKNOWN.')
+EMERGENT = ('An earlier list that pre-dates this repository, preserved in the design package (design/content/ingredients.json, 56e981d). '
+            'Its own source is not established.')
+V2 = 'Added in the owner\'s catalogue revision (b2c071f, f9c0241). The rationale is not recorded in this repository.'
 
 
 def cycle_text(fid):
@@ -57,9 +56,9 @@ def cycle_text(fid):
     return approved.get(fid, {}).get('sections', {}).get('cycleRelevance', '')
 
 
-LABELS = {'B': 'Retained from the original list; underlying sources not identified (not independently established)',
-          'D': 'Source unknown: not in the original list, no rationale in this repository',
-          'E': 'Changed after the original list; reason not documented in this repository'}
+LABELS = {'B': 'Retained from the earlier list; sources not established',
+          'D': 'Not in the earlier list; no rationale recorded here',
+          'E': 'Changed from the earlier list; reason not recorded here'}
 matrix, counts = [], collections.Counter()
 for fid, ph in sorted(by_stage['HEAD'].items(), key=lambda x: (x[1][0], x[0])):
     cur = ph[0]
@@ -71,9 +70,9 @@ for fid, ph in sorted(by_stage['HEAD'].items(), key=lambda x: (x[1][0], x[0])):
     if base is None:
         cls, origin, conf = 'D', V2, 'Low'
     elif cur not in base:
-        cls, origin, conf = 'E', EMERGENT + ' Phase later changed in Foods v2.', 'Low'
+        cls, origin, conf = 'E', EMERGENT + ' The phase was later changed.', 'Low'
     else:
-        cls, origin, conf = 'B', EMERGENT + ' Retained in Foods v2 owner curation.', 'Medium'
+        cls, origin, conf = 'B', EMERGENT + ' The phase was retained in the later revision.', 'Low'
     changes = []
     seq = [(h['commit'], h['phases']) for h in hist]
     for (c0, p0), (c1, p1) in zip(seq, seq[1:]):
@@ -102,7 +101,7 @@ for fid, ph in sorted(by_stage['HEAD'].items(), key=lambda x: (x[1][0], x[0])):
         baselinePhases=base, phaseHistory=hist, subsequentChanges=changes,
         supportingResearchInRepo=dict(
             designAuditSources=link.get('sources', []), designAuditPhaseLink=link.get('phaseLink'),
-            designAuditNote=link.get('phaseLinkNote'), draftProfileCycleSentence=cycle_text(fid)[:220] or None),
+            draftProfileCycleSentence=cycle_text(fid)[:220] or None),
         scientificSupport=dict(
             primaryClass=support,
             generalNutritionalBenefit=bool(link or fid in drafts or fid in approved),

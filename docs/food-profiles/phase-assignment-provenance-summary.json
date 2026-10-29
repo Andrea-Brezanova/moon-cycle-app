@@ -5,7 +5,7 @@
    "date": "2026-10-11",
    "subject": "docs: add architecture, decisions, plan and Editorial v3 design reference",
    "file": "design/content/ingredients.json",
-   "label": "Design package: Emergent baseline, \"placement preserved exactly\"",
+   "label": "Design package: earlier list, placement preserved",
    "assignedFoods": 157,
    "perPhase": {
     "menstrual": 40,
@@ -19,7 +19,7 @@
    "date": "2026-10-11",
    "subject": "feat(content): bundled catalogue and diet/avoidance filter",
    "file": "assets/content/foods.json",
-   "label": "First bundled catalogue, \"verbatim from the handoff\"",
+   "label": "First bundled catalogue",
    "assignedFoods": 154,
    "perPhase": {
     "menstrual": 38,
@@ -33,7 +33,7 @@
    "date": "2026-10-13",
    "subject": "feat(content): integrate Foods v2 catalogue and phase content",
    "file": "assets/content/foods.json",
-   "label": "Foods v2 integration (25 foods per phase)",
+   "label": "Catalogue revision: 25 foods per phase",
    "assignedFoods": 65,
    "perPhase": {
     "luteal": 25,
@@ -47,7 +47,7 @@
    "date": "2026-10-14",
    "subject": "feat: finalize Foods v2 and phase browsing for v1",
    "file": "assets/content/foods.json",
-   "label": "Foods v2 frozen: 142 featured foods",
+   "label": "Catalogue revision frozen: 142 featured foods",
    "assignedFoods": 142,
    "perPhase": {
     "luteal": 44,
@@ -57,9 +57,9 @@
    }
   },
   "HEAD": {
-   "commit": "4f77426",
+   "commit": "c37aad3",
    "date": "2026-10-28",
-   "subject": "docs(foods): food-to-phase assignment provenance audit (documentation only; no mapping or app change)",
+   "subject": "Merge origin/main into docs/phase-assignment-provenance-audit",
    "file": "assets/content/foods.json",
    "label": "Current main",
    "assignedFoods": 142,
