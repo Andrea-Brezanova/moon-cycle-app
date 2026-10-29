@@ -10,7 +10,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// hold no health data and need no schema change. "Delete my data" removes
 /// them (see [UiPrefsStore.deleteAll]).
 final class UiPrefs {
-  const UiPrefs({this.collectionOrder = const [], this.meHero});
+  const UiPrefs({
+    this.collectionOrder = const [],
+    this.meHero,
+    this.detailedReminders = false,
+  });
 
   /// Keys of the My Collections tiles, in the user's order (may be partial).
   final List<String> collectionOrder;
@@ -19,20 +23,29 @@ final class UiPrefs {
   /// default.
   final String? meHero;
 
+  /// Whether reminders may say what they are about (the phase, the period).
+  /// Off by default: a reminder then only says that there is one, so nothing
+  /// about the cycle shows on a lock screen. A missing or damaged settings
+  /// file also means off.
+  final bool detailedReminders;
+
   static const empty = UiPrefs();
 
   UiPrefs copyWith({
     List<String>? collectionOrder,
     String? meHero,
     bool clearMeHero = false,
+    bool? detailedReminders,
   }) => UiPrefs(
     collectionOrder: collectionOrder ?? this.collectionOrder,
     meHero: clearMeHero ? null : (meHero ?? this.meHero),
+    detailedReminders: detailedReminders ?? this.detailedReminders,
   );
 
   Map<String, Object?> toJson() => {
     'collectionOrder': collectionOrder,
     'meHero': meHero,
+    'detailedReminders': detailedReminders,
   };
 
   factory UiPrefs.fromJson(Object? json) {
@@ -46,6 +59,7 @@ final class UiPrefs {
             if (k is String) k,
       ],
       meHero: hero is String ? hero : null,
+      detailedReminders: json['detailedReminders'] == true,
     );
   }
 }

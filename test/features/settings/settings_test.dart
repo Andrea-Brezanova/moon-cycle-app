@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moon_cycle/core/database/app_database.dart';
+import 'package:moon_cycle/core/storage/ui_prefs.dart';
 import 'package:moon_cycle/core/time/today.dart';
 import 'package:moon_cycle/features/content/application/content_providers.dart';
 import 'package:moon_cycle/features/cycle/application/cycle_providers.dart';
@@ -11,6 +12,7 @@ import 'package:moon_cycle/features/preferences/data/preferences_repository.dart
 import 'package:moon_cycle/features/preferences/domain/diet.dart';
 import 'package:moon_cycle/features/preferences/domain/food_avoidance.dart';
 import 'package:moon_cycle/features/preferences/domain/reminder_settings.dart';
+import 'package:moon_cycle/features/reminders/domain/reminder_copy.dart';
 import 'package:moon_cycle/features/reminders/domain/reminder_plan.dart';
 
 import '../../helpers/fake_reminders.dart';
@@ -258,6 +260,48 @@ void main() {
     );
     expect(find.textContaining('Notifications are off'), findsOneWidget);
     expect(reminders.scheduled, isEmpty);
+  });
+
+  testWidgets('Notifications: reminders are discreet unless the user opts in', (
+    tester,
+  ) async {
+    final reminders = FakeReminderScheduler();
+    final (container, _) = await pumpSettings(tester, reminders: reminders);
+    await open(tester, 'Notifications');
+    expect(find.text('Show details in reminders'), findsOneWidget);
+    expect(container.read(uiPrefsProvider).detailedReminders, isFalse);
+
+    // Reminders off: the detail switch can't be changed and nothing is planned.
+    await tapAndSave(tester, find.text('Show details in reminders'));
+    expect(container.read(uiPrefsProvider).detailedReminders, isFalse);
+    expect(reminders.scheduled, isEmpty);
+
+    // Reminders on: neutral text by default.
+    await tapAndSave(tester, find.text('Reminders'));
+    expect(reminders.scheduled, isNotEmpty);
+    for (final r in reminders.scheduled) {
+      expect(reminderText(r), discreetReminderText);
+    }
+
+    // Opt in: the same reminders, now with details.
+    final count = reminders.scheduled.length;
+    await tapAndSave(tester, find.text('Show details in reminders'));
+    expect(container.read(uiPrefsProvider).detailedReminders, isTrue);
+    expect(reminders.scheduled, hasLength(count));
+    expect(reminders.scheduled.every((r) => r.detailed), isTrue);
+    expect(
+      reminderText(reminders.scheduled.first),
+      isNot(discreetReminderText),
+    );
+    expect(
+      container.read(reminderSettingsProvider).value,
+      const ReminderSettings(enabled: true),
+    );
+
+    // And back to discreet.
+    await tapAndSave(tester, find.text('Show details in reminders'));
+    expect(container.read(uiPrefsProvider).detailedReminders, isFalse);
+    expect(reminders.scheduled.every((r) => !r.detailed), isTrue);
   });
 
   testWidgets('Subscription: the launch promo, with the date placeholder', (

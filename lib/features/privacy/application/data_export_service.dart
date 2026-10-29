@@ -24,6 +24,22 @@ import '../domain/data_export.dart';
 
 /// "Export my data": builds the export on the phone and hands it to the
 /// share sheet. Nothing is uploaded.
+/// The folder inside the temporary directory that an export is written to.
+const exportFolderName = 'export';
+
+/// Deletes any export left in [temporaryDirectory], for example because the
+/// app was closed while the share sheet was open. The files hold the user's
+/// whole history in plain text, so they must not outlive the share. Called at
+/// start-up; leaves everything else in the temporary directory alone.
+Future<void> deleteStaleExports(Directory temporaryDirectory) async {
+  try {
+    final folder = Directory('${temporaryDirectory.path}/$exportFolderName');
+    if (folder.existsSync()) await folder.delete(recursive: true);
+  } on FileSystemException {
+    // Nothing more can be done here; the next start-up tries again.
+  }
+}
+
 class DataExportService {
   DataExportService(this._ref);
 
@@ -67,7 +83,7 @@ class DataExportService {
     );
     final date = _ref.read(todayProvider);
     final dir = await Directory(
-      '${(await getTemporaryDirectory()).path}/export',
+      '${(await getTemporaryDirectory()).path}/$exportFolderName',
     ).create(recursive: true);
     final jsonFile = File('${dir.path}/moon-cycle-data-$date.json');
     final csvFile = File('${dir.path}/moon-cycle-periods-$date.csv');

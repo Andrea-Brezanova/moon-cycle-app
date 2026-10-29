@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/design/widgets/moon_controls.dart';
 import '../../../core/design/widgets/moon_list.dart';
+import '../../../core/storage/ui_prefs.dart';
 import '../../preferences/application/preference_providers.dart';
 import '../../preferences/data/preferences_repository.dart';
 import '../../preferences/domain/reminder_settings.dart';
@@ -20,6 +21,7 @@ class NotificationsPage extends ConsumerWidget {
     final settings =
         ref.watch(reminderSettingsProvider).value ?? const ReminderSettings();
     final repository = ref.read(preferencesRepositoryProvider);
+    final prefs = ref.watch(uiPrefsProvider);
 
     Widget toggle({
       required String label,
@@ -91,6 +93,19 @@ class NotificationsPage extends ConsumerWidget {
                   ? (v) => repository.saveReminders(
                       settings.copyWith(beforePeriod: v),
                     )
+                  : null,
+            ),
+            toggle(
+              label: 'Show details in reminders',
+              subtitle: prefs.detailedReminders
+                  ? 'Reminders name the phase or the period'
+                  : 'Reminders only say you have one, so nothing about your '
+                        'cycle shows on your lock screen',
+              value: prefs.detailedReminders,
+              onChanged: settings.enabled
+                  ? (v) => ref
+                        .read(uiPrefsProvider.notifier)
+                        .update(prefs.copyWith(detailedReminders: v))
                   : null,
             ),
           ],

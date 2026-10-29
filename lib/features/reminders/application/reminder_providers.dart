@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/storage/ui_prefs.dart';
 import '../../cycle/application/cycle_providers.dart';
 import '../../preferences/application/preference_providers.dart';
 import '../data/reminder_scheduler.dart';
@@ -14,6 +15,9 @@ final reminderSchedulerProvider = Provider<ReminderScheduler>(
 final reminderPlanProvider = Provider<List<PlannedReminder>?>((ref) {
   final cycle = ref.watch(cycleStateProvider);
   final settings = ref.watch(reminderSettingsProvider);
+  final detailed = ref.watch(
+    uiPrefsProvider.select((p) => p.detailedReminders),
+  );
   if (cycle.isLoading || !settings.hasValue) return null;
   final state = cycle.value;
   final s = settings.value!;
@@ -23,6 +27,7 @@ final reminderPlanProvider = Provider<List<PlannedReminder>?>((ref) {
     lengths: state.lengths,
     today: state.today,
     settings: s,
+    detailed: detailed,
   );
 });
 

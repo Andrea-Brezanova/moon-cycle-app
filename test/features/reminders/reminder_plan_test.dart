@@ -19,11 +19,13 @@ void main() {
     ReminderSettings settings = on,
     LocalDate? on_,
     CycleLengths? l,
+    bool detailed = false,
   }) => planReminders(
     lastPeriodStart: start,
     lengths: l ?? lengths,
     today: on_ ?? today,
     settings: settings,
+    detailed: detailed,
   );
 
   test('reminders off: nothing', () {
@@ -98,8 +100,8 @@ void main() {
     expect(p.every((r) => r.id > 0 && r.id < 0x7fffffff), isTrue);
   });
 
-  test('copy says "estimated"', () {
-    final p = plan();
+  test('detailed copy says "estimated" (only when the user opted in)', () {
+    final p = plan(detailed: true);
     expect(reminderText(p.first), (
       title: 'Your ovulatory phase',
       body:
@@ -110,5 +112,61 @@ void main() {
       title: 'Period due in 2 days',
       body: 'Estimated for Sunday 26 October, based on your dates.',
     ));
+  });
+
+  group('discreet reminders (the default)', () {
+    test('every reminder says the same neutral thing', () {
+      final p = plan();
+      expect(p, isNotEmpty);
+      expect(p.every((r) => !r.detailed), isTrue);
+      for (final r in p) {
+        expect(reminderText(r), discreetReminderText);
+      }
+    });
+
+    test('nothing about the cycle, a phase, a date or the period', () {
+      // The app's own name in the title is not about the user's cycle.
+      final text =
+          '${discreetReminderText.title.replaceAll('Moon Cycle', '')} '
+                  '${discreetReminderText.body}'
+              .toLowerCase();
+      for (final word in [
+        'period',
+        'phase',
+        'menstrual',
+        'follicular',
+        'ovulatory',
+        'luteal',
+        'estimated',
+        'cycle',
+        'day',
+        'monday',
+        'october',
+      ]) {
+        expect(text, isNot(contains(word)), reason: word);
+      }
+    });
+
+    test('opting in changes the text only, never the dates or the count', () {
+      final quiet = plan();
+      final loud = plan(detailed: true);
+      expect(loud.map((r) => r.date), quiet.map((r) => r.date));
+      expect(loud.map((r) => r.kind), quiet.map((r) => r.kind));
+      expect(loud.map((r) => r.id), quiet.map((r) => r.id));
+      expect(loud.length, quiet.length);
+      expect(loud.every((r) => r.detailed), isTrue);
+    });
+
+    test('with reminders off, detail makes no difference: nothing planned', () {
+      expect(plan(settings: const ReminderSettings(), detailed: true), isEmpty);
+      expect(
+        plan(settings: const ReminderSettings(), detailed: false),
+        isEmpty,
+      );
+    });
+
+    test('detailed and discreet reminders are different values', () {
+      expect(plan().first, isNot(plan(detailed: true).first));
+    });
   });
 }
