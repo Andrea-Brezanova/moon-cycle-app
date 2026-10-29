@@ -30,17 +30,17 @@ Static review of how MoonCycle stores and handles personal data, on `main` after
 
 | # | Finding | Severity | Action |
 |---|---|---|---|
-| P1 | **Lock-screen notifications state period information** ("Period due in 2 days", with an estimated date) when reminders are on. Anyone who can see the lock screen sees it, subject to the user's notification-preview setting | Medium (privacy, user-visible) | Proposal: an optional "discreet reminders" setting with neutral wording. Needs your approval (UI and copy) |
+| P1 | **Lock-screen notifications stated period and phase information** ("Period due in 2 days", with an estimated date) when reminders were on | Medium (privacy, user-visible) | **Fixed (29 Oct):** reminders are now discreet by default ("Moon Cycle: You have a reminder."). Details are an explicit opt-in in Settings › Notifications › Show details in reminders. Cycle calculations, saved reminder settings and scheduled dates are unchanged. Android notifications are also marked private on a locked screen |
 | P2 | Cloud recipe generation would send the current cycle phase together with an account token. The in-app copy says nothing is sent | Medium if enabled, none today | Keep it unwired until consent and copy exist. A new test now fails if the UI starts using it |
-| P3 | SQLite may write temporary files (large sorts) to the temp folder. SQLite3 Multiple Ciphers encrypts the database and journal; temporary spill files are a separate case | Low | Proposal: `PRAGMA temp_store = MEMORY` on open. Not a demonstrated defect, so not changed |
-| P4 | An export file could remain in the temp folder if the app is killed while the share sheet is open | Low | Proposal: sweep the export folder at launch |
-| P5 | The app snapshot shown in the iOS app switcher may show cycle data | Low | Proposal: blur on backgrounding. Product decision |
+| P3 | SQLite may write temporary files (large sorts) to the temp folder | Low | **Assessed, not changed.** On the app's own SQLite build `temp_store` is 0 (files allowed). A forced spill left no visible temporary file (SQLite deletes it on open) and the encrypted database file contained no plaintext. Nothing demonstrates exposure. Optional hardening if you want it: `PRAGMA temp_store = MEMORY` on open |
+| P4 | An export file could remain in the temp folder if the app is killed while the share sheet is open | Low | **Fixed (29 Oct):** the export folder is deleted at every start-up (`deleteStaleExports`), with tests. Nothing else in the temp folder is touched |
+| P5 | The app snapshot shown in the iOS app switcher may show cycle data | Low | **Proposal only.** A blur on backgrounding is a platform-level behaviour change that affects every screen and can flicker when the notification centre is pulled down; it needs your decision and a device test |
 | P6 | If Sentry is enabled, the vendor sees device and IP metadata and stack traces even with the scrubbing in place | Low | Update the privacy copy at that point |
 
-No clearly demonstrated, low-risk security defect was found, so **no code was changed**. Tests now lock the current posture (`test/privacy/privacy_posture_test.dart`): no backups, the exact permission list, only two iOS prompts, ignored environment files, an allow-list of network code, cloud generation unwired, external lookups debug-only, crash-report settings, export cleanup, and no logging of user content.
+P1 and P4 were then implemented with tests (see the table); P3 and P5 remain proposals. Tests now lock the current posture (`test/privacy/privacy_posture_test.dart`): no backups, the exact permission list, only two iOS prompts, ignored environment files, an allow-list of network code, cloud generation unwired, external lookups debug-only, crash-report settings, export cleanup, and no logging of user content.
 
 ## Decisions for you
-1. P1 discreet reminders (recommended).
-2. P3, P4: harden the temp-file handling (small, safe changes; say yes and I will do them with tests).
-3. P5: whether to blur the app in the app switcher.
+1. P3: whether to add `PRAGMA temp_store = MEMORY` (optional; no exposure was demonstrated).
+2. P5: whether to blur the app in the app switcher (needs a device test).
+3. Whether the detailed-reminder wording needs a content review (the notification copy has an open TODO).
 4. Before any cloud feature ships: consent, copy, Android INTERNET permission, vendor terms.

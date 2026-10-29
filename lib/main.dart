@@ -23,6 +23,7 @@ import 'features/onboarding/application/onboarding_status.dart';
 import 'features/onboarding/data/app_state_repository.dart';
 import 'features/preferences/application/preference_providers.dart';
 import 'features/preferences/data/preferences_repository.dart';
+import 'features/privacy/application/data_export_service.dart';
 import 'features/privacy/data/local_data_wiper.dart';
 
 Future<void> main() async {
@@ -31,7 +32,10 @@ Future<void> main() async {
   final config = AppConfig.fromBuild();
 
   // SQLite can't find a temporary directory on its own on Android.
-  sqlite3.tempDirectory = (await getTemporaryDirectory()).path;
+  final temporary = await getTemporaryDirectory();
+  sqlite3.tempDirectory = temporary.path;
+  // An export interrupted before it was deleted must not linger in plain text.
+  await deleteStaleExports(temporary);
   final directory = await getApplicationSupportDirectory();
   final keys = EncryptionKeyStore();
   final uiPrefsStore = FileUiPrefsStore(directory);
