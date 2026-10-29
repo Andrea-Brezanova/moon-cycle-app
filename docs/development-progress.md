@@ -36,19 +36,19 @@ Last updated: 29 Oct 2026. App code on `main` last changed in `20e0dee` (PR #65,
 
 ## Content and research (nothing new is published)
 
-PRs: #63 (food-to-phase provenance audit) is **open and not merged**: it holds findings that need your editorial and legal review, and the repository is public. Wave 1 editorial approval package: `docs/food-profiles/wave-1-review-package.md`. Wave 1 stays unpublished.
+PRs: #63 (food-to-phase provenance audit) is **open and not merged**: it holds findings that need your editorial and legal review, and the repository is public. Wave 1 (98 profiles after holding the three seed foods back) editorial approval package: `docs/food-profiles/wave-1-approval-summary.md` (short), `wave-1-review-package.md` and `wave-1-qa-report.md`. Wave 1 stays unpublished.
 
 | Item | Status |
 |---|---|
 | Food Detail profiles | **5 approved and published (unchanged).** **251 drafted**, all audited (below), **unreviewed and not in the app**. **15 blocked**, each with a decision-table entry (`docs/food-profiles/blocked-decisions.json`). Missing: 0. Files: `coverage-report.md`, `complete-draft-dataset.json`, `editorial-review-report.md`, `review-list.md` and the audit package `audit-report.md` (`audit-summary.json`). No profile is "clinically reviewed"; **drafted is not implemented**. |
-| Food profile quality audit and publication readiness | All 251 drafts re-compared with live USDA records: **0 open data findings, no number needed correcting**. Prose of all 251 read and corrected (193 profiles in the first audit). Readiness pass: caution statuses (`sourced` 120, `partly-sourced` 10, `catalogue-tag` 56, `unverified-inherited` 19 cautions on 18 profiles; nothing unverified is called verified), allergen lines from the catalogue, sodium kept as data with a calm note only at the FDA 'high' line (460 mg), 15 flagged items resolved with sources, and **12 decisions for the owner** (`audit-report.md` section 3). Safety correction: the kidney bean caution said 'boil 10 minutes'; the FDA (Natural Toxins in Food; Bad Bug Book) says soak at least 5 hours and boil at least 30 minutes, no slow cookers, canned beans already cooked. **Corrected in the app catalogue and the draft; regression tests added.** **Publication plan** (`publication-plan.md`): Wave 1 of 100 profiles recommended for approval, 96 more ready, 8 need source work, 47 need a decision, 15 blocked. `wave-1-candidate.json` is a docs-only candidate with `publishable: false`. **Nothing is published; no profile is in the app.** |
+| Food profile quality audit and publication readiness | All 251 drafts re-compared with live USDA records: **0 open data findings, no number needed correcting**. Prose of all 251 read and corrected (193 profiles in the first audit). Readiness pass: caution statuses (`sourced` 120, `partly-sourced` 10, `catalogue-tag` 56, `unverified-inherited` 19 cautions on 18 profiles; nothing unverified is called verified), allergen lines from the catalogue, sodium kept as data with a calm note only at the FDA 'high' line (460 mg), 15 flagged items resolved with sources, and **13 decisions for the owner** (`audit-report.md` section 3). Safety correction: the kidney bean caution said 'boil 10 minutes'; the FDA (Natural Toxins in Food; Bad Bug Book) says soak at least 5 hours and boil at least 30 minutes, no slow cookers, canned beans already cooked. **Corrected in the app catalogue and the draft; regression tests added.** **Publication plan** (`publication-plan.md`): Wave 1 of 98 profiles recommended for approval, 96 more ready, 8 need source work, 49 need a decision, 15 blocked. `wave-1-candidate.json` is a docs-only candidate with `publishable: false`. **Nothing is published; no profile is in the app.** |
 | Move and Relax content | 13 original draft items in `docs/content-drafts/` (not bundled); need professional or editorial review. |
 | Sounds | Concepts only. **Blocked**: no audio with confirmed rights and no audio plugin. |
 | Food photography | **Blocked, not started**: no authorised image source in this environment. Manifest in `docs/food-photo-manifest.json`. |
 
 ## Needs your approval or input
 
-1. Food profiles: decide the five Wave 1 approvals and the 13 decisions in `docs/food-profiles/publication-plan.md` and `audit-report.md`. Also the Move and Relax drafts.
+1. Food profiles: decide the Wave 1 approvals and the 13 decisions in `docs/food-profiles/publication-plan.md` and `audit-report.md`. Also the Move and Relax drafts.
 2. Decisions on the 15 blocked foods.
 3. Hero photographs for Move, Relax and Eat; food photographs.
 4. Audio with confirmed rights if you want Sounds.
@@ -63,3 +63,10 @@ Any food photograph beyond the original 3; any Move or Relax library content; So
 `main` requires three checks (Format, analyze, layers, tests; Golden screenshots (macOS);
 Android build (dev, debug)) and an up-to-date branch. Run `tool/precheck.sh` before pushing;
 see the CI section of the pull request that added it for what changed.
+
+## Independent methodology, filtering audit, privacy audit and signing (29 Oct 2026)
+
+- **Independent phase methodology** (`docs/food-profiles/independent-phase-methodology.md`, PR #67, merged): four evidence classes, evidence matrix with sources read, suggestion algorithm and explanation templates, unresolved questions, responsible use of the 142 assignments. **No phase mapping changed.** Per-food assessment: `phase-independent-assessment.md`.
+- **Build a Meal and filtering audit** (PR #68): fixed a vegan-filter data defect (egg noodles and naan carried no animal source); added whole-catalogue diet and allergen property tests. Recommendation logic, UI and flow unchanged. Legumes appear in both Protein and Base sections (documented, not changed).
+- **Privacy audit** (`docs/privacy-and-data-audit.md`, PR #69): no demonstrated defect; posture locked by tests; proposals for discreet reminders, temp-file hardening and app-switcher blur await approval.
+- **iOS signing:** the development provisioning profile was renewed on 29 Oct (new profile created 2026-10-29 03:17 UTC, expires 2026-11-05 03:17 UTC; certificate valid to 2027-10-13). Free-account profiles last 7 days: renew again before 5 Nov by removing the cached profile in `~/Library/Developer/Xcode/UserData/Provisioning Profiles` (keep a copy) and rebuilding with `tool/build_ios.sh`, then install in place with `devicectl` (never `flutter install`).

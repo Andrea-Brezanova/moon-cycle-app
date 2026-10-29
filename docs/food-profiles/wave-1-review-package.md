@@ -1,6 +1,6 @@
 # Wave 1 editorial review package
 
-**Status: for your review. Nothing is published.** `wave-1-candidate.json` (101 profiles) stays unpublished with `publishable: false`; none is in `assets/content/food_profiles.json` or unlocked in Food Detail, and the 15 blocked foods stay blocked. Approval of this package is not approval to publish.
+**Status: for your review. Nothing is published.** `wave-1-candidate.json` (98 profiles) stays unpublished with `publishable: false`; none is in `assets/content/food_profiles.json` or unlocked in Food Detail, and the 15 blocked foods stay blocked. Approval of this package is not approval to publish.
 
 How to read it: part 1 shows twelve complete profiles; parts 2 to 5 give the exact wording of every repeated element; part 6 lists what is still open. Nutritional facts (sourced) are kept apart from the editorial "featured phase" (no phase-specific evidence) throughout.
 
@@ -238,14 +238,14 @@ Chosen to span the four phases and the main food groups. Each shows exactly what
 
 ## 2. The exact wording used for cycle relevance
 
-Across the 101 Wave 1 profiles the cycle-relevance text falls into 59 wordings once numbers and food names are masked (`#`, `{food}`), which group into the kinds below. Every one says that no cycle-phase claim is made; none claims a hormone, fertility, PMS, mood or phase benefit (a test enforces this).
+Across the 98 Wave 1 profiles the cycle-relevance text falls into 57 wordings once numbers and food names are masked (`#`, `{food}`), which group into the kinds below. Every one says that no cycle-phase claim is made; none claims a hormone, fertility, PMS, mood or phase benefit (a test enforces this).
 
 | Kind | Profiles | Example wording |
 |---|---|---|
-| Only the statement that no claim is made. | 37 | No cycle-phase claim is made for {food}. |
-| Other food-specific fact (for example vitamin D, a mercury or gluten note, a short description); see the profile. | 27 | No cycle-phase claim is made for {food}; it is mainly a lean protein source. |
-| Calcium: a nutrient fact, sourced to NIH ODS. | 11 | Calcium needs are # mg a day for women aged # to # (NIH ODS). Cooked {food} has about # mg of calcium per # g, so it is a modest contributor rather than a major source. No phase-specific claim is made. |
+| Only the statement that no claim is made. | 36 | No cycle-phase claim is made for {food}. |
+| Other food-specific fact (for example vitamin D, a mercury or gluten note, a short description); see the profile. | 26 | No cycle-phase claim is made for {food}; it is mainly a lean protein source. |
 | Folate: a nutrient fact, sourced to NIH ODS. | 10 | Folate is a nutrient some women of childbearing age do not get enough of (NIH ODS); {food}s are a good source. No phase-specific claim is made. |
+| Calcium: a nutrient fact, sourced to NIH ODS. | 10 | Calcium needs are # mg a day for women aged # to # (NIH ODS). Cooked {food} has about # mg of calcium per # g, so it is a modest contributor rather than a major source. No phase-specific claim is made. |
 | Vitamin C and plant-iron absorption: a nutrient fact, sourced to NIH ODS. | 10 | Vitamin C helps your body absorb plant iron from the same meal (NIH ODS), so a piece of {food} alongside beans, lentils or greens is a useful pairing. No phase-specific claim is made. |
 | Iron: a nutrient fact for people who menstruate, sourced to NIH ODS. True all month; not a phase claim. | 6 | Iron needs are higher for women aged # to # (# mg a day, against # mg for men), partly because of menstrual blood loss (NIH ODS). {food} add plant iron, which is absorbed less readily than iron from meat; vitamin C in the same meal helps. No phase-specific claim is made. |
 
@@ -253,7 +253,7 @@ Every wording ends with, or consists of, a statement that no cycle-phase (or pha
 
 ## 3. Representative food-safety and allergen cautions
 
-Wave 1 carries 29 distinct caution texts. Every one is `sourced` (an authoritative page named in the profile) or a `catalogue-tag` allergen line taken from the catalogue. None is `unverified-inherited`; none is a sodium warning.
+Wave 1 carries 28 distinct caution texts. Every one is `sourced` (an authoritative page named in the profile) or a `catalogue-tag` allergen line taken from the catalogue. None is `unverified-inherited`; none is a sodium warning.
 
 | Profiles | Caution | Status | Source |
 |---|---|---|---|
@@ -285,7 +285,6 @@ Wave 1 carries 29 distinct caution texts. Every one is `sourced` (an authoritati
 | 1 | Canned kidney beans are already cooked and contain only low levels of the toxin. | sourced | FDA, Natural Toxins in Food (content current as of 09/26/2024; read 2026-10-28) (supports the existing caution) |
 | 1 | This profile is Atlantic mackerel, a "Best Choice" for mercury. King mackerel is a different fish with the highest mercury levels, and the FDA and EPA advise avoiding it. | sourced | FDA and EPA, Advice about Eating Fish (lists read 2026-10-27; content current as of 03/05/2024) |
 | 1 | Choose certified gluten-free oats if avoiding gluten. | sourced | NIDDK, Celiac Disease: Eating, Diet & Nutrition (last reviewed October 2020; read 2026-10-28) (supports the existing caution) |
-| 1 | Sesame allergen | sourced | FDA, Food Allergies (the nine major food allergens; content current as of 03/11/2026; read 2026-10-28) (supports the existing caution) |
 
 ## 4. Proposed review and attribution labels
 
@@ -305,7 +304,7 @@ Wave 1 carries 29 distinct caution texts. Every one is `sourced` (an authoritati
 - The product principle (`docs` in the research project, and the in-app note) is that a featured phase is where Moon Cycle chooses to introduce a food for nutritional fit, meal style and monthly variety, "not a claim that the food should only be eaten during that phase".
 - I found **no** phase-specific nutritional requirement for any Wave 1 food. The design review rated almost all original phase links "editorial", and even its strongest case (iron) says eating iron-rich food during the period "hasn't been shown to matter more than at other times".
 - Where origin is concerned, see the provenance audit (PR #63): the original phase lists have no identified independent source.
-- Wave 1 foods by featured phase: menstrual 20, follicular 24, ovulatory 23, luteal 34.
+- Wave 1 foods by featured phase: menstrual 19, follicular 23, ovulatory 23, luteal 33.
 
 | Kind of statement | Where it appears | Evidence |
 |---|---|---|
