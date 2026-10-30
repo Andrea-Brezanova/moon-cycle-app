@@ -1,0 +1,293 @@
+{
+ "data": [
+  {
+   "id": "e6fb72cf-7845-5429-bd4e-88a2dc0d3061",
+   "name": "Synthetic Chicken and Spinach Skillet",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Gluten-Free"
+    ],
+    "not_suitable_for": [
+     "Individuals with dairy allergies (contains parmesan)"
+    ]
+   }
+  },
+  {
+   "id": "191902ce-1cc4-5dba-855a-fd370003f155",
+   "name": "Synthetic Garden Omelette",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT15M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Gluten-Free",
+     "Dairy-Free",
+     "Nut-Free"
+    ],
+    "not_suitable_for": [
+     "Individuals with egg allergies"
+    ]
+   }
+  },
+  {
+   "id": "e7bccf19-ad4f-517d-b6a9-537df1a30b79",
+   "name": "Synthetic Veal and Spinach Plate",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Gluten-Free"
+    ],
+    "not_suitable_for": [
+     "x"
+    ]
+   }
+  },
+  {
+   "id": "ac6b116b-3dd1-5a20-b348-05c0fcbf234c",
+   "name": "Synthetic Spinach Salad",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Dairy-Free"
+    ],
+    "not_suitable_for": [
+     "x"
+    ]
+   }
+  },
+  {
+   "id": "8522ba8c-b8f3-59ed-844a-b380df8a5da8",
+   "name": "Synthetic Herb Rice",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Vegan",
+     "Dairy-Free"
+    ],
+    "not_suitable_for": []
+   }
+  },
+  {
+   "id": "4ff8f50f-f63c-5deb-8508-fdd6c775cc29",
+   "name": "Synthetic Minestrone",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian"
+    ],
+    "not_suitable_for": [
+     "x"
+    ]
+   }
+  },
+  {
+   "id": "a558f83e-7496-53f0-b288-592520bbcfdb",
+   "name": "Synthetic Tomato Spaghetti",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian"
+    ],
+    "not_suitable_for": []
+   }
+  },
+  {
+   "id": "b426c807-fed4-5df4-8e2a-eb458e390ff0",
+   "name": "Synthetic Savoury Pancakes",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegetarian",
+     "Nut-Free"
+    ],
+    "not_suitable_for": [
+     "x"
+    ]
+   }
+  },
+  {
+   "id": "c7e4e3c3-c602-5b19-b98a-cf84d5ff6593",
+   "name": "Synthetic Crispy Tofu Bowl",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegan",
+     "Vegetarian",
+     "Dairy-Free"
+    ],
+    "not_suitable_for": []
+   }
+  },
+  {
+   "id": "b5f3f271-9164-5938-bdde-a3236e6276fc",
+   "name": "Synthetic Roasted Mushrooms",
+   "description": "Invented description for tests.",
+   "category": "Dinner",
+   "cuisine": "Testland",
+   "difficulty": "Easy",
+   "tags": [
+    "Synthetic"
+   ],
+   "meta": {
+    "active_time": "PT15M",
+    "passive_time": "PT15M",
+    "total_time": "PT30M",
+    "overnight_required": false,
+    "yields": "4 servings",
+    "yield_count": 4,
+    "serving_size_g": 280
+   },
+   "dietary": {
+    "flags": [
+     "Vegan",
+     "Vegetarian",
+     "Gluten-Free"
+    ],
+    "not_suitable_for": []
+   }
+  }
+ ],
+ "meta": {
+  "total": 10,
+  "page": 1,
+  "per_page": 10,
+  "total_capped": false
+ }
+}

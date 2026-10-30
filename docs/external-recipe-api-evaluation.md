@@ -238,7 +238,7 @@ detail lookups; all HTTP 200. The provider's own counter, returned with every
 detail, reads `detail_used` 4 of `detail_limit` 50 (the evaluation account; it
 counted a first probe run too), so the probe's cap of 40 is the stricter one.
 Captures are in git-ignored `tool/captures/`; trimmed copies without usage or
-account data are the `recipeapi_real_*` test fixtures.
+account data are the `recipeapi_synth_*` synthetic test fixtures (shaped like the real responses; no captured provider text).
 
 **Matches the adapter:** `data[]` envelopes; list items with `meta.total_time`
 (ISO), `yields`, `dietary.flags`, `dietary.not_suitable_for`; detail

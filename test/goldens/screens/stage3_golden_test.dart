@@ -106,7 +106,7 @@ void main() {
     testWidgets('an external recipe in full, $theme', (tester) async {
       await pumpScreen(
         tester,
-        const RecipeDetailPage(recipeId: 'x-themealdb-53282'),
+        const RecipeDetailPage(recipeId: 'x-themealdb-90001'),
         dark: dark,
         height: 2200,
         overrides: overrides,

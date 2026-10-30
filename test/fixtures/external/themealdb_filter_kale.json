@@ -1,46 +1,46 @@
 {
  "meals": [
   {
-   "strMeal": "Callaloo Jamaican Style",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/ussyxw1515364536.jpg",
-   "idMeal": "52939",
-   "strArea": "Jamaican",
-   "strCountry": "Jamaica"
+   "strMeal": "Synthetic Carrot Side",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90001.jpg",
+   "idMeal": "90001",
+   "strArea": "Testland",
+   "strCountry": "Testland"
   },
   {
-   "strMeal": "Crispy Sausages and Greens",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/st1ifa1583267248.jpg",
-   "idMeal": "52999",
-   "strArea": "Irish",
-   "strCountry": "Ireland"
+   "strMeal": "Synthetic Plain Plate 3",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90102.jpg",
+   "idMeal": "90102",
+   "strArea": "Testland",
+   "strCountry": "Testland"
   },
   {
-   "strMeal": "Ribollita",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/xrrwpx1487347049.jpg",
-   "idMeal": "52811",
-   "strArea": "Italian",
-   "strCountry": "Italy"
+   "strMeal": "Synthetic Test Meal 5",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90204.jpg",
+   "idMeal": "90204",
+   "strArea": "Testland",
+   "strCountry": "Testland"
   },
   {
-   "strMeal": "Stamppot",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg",
-   "idMeal": "52980",
-   "strArea": "Netherlands",
-   "strCountry": "Netherlands"
+   "strMeal": "Synthetic Test Meal 6",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90205.jpg",
+   "idMeal": "90205",
+   "strArea": "Examplia",
+   "strCountry": "Examplia"
   },
   {
-   "strMeal": "Sukuma Wiki",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/60o82j1762341177.jpg",
-   "idMeal": "53113",
-   "strArea": "Kenyan",
-   "strCountry": "Kenya"
+   "strMeal": "Synthetic Test Meal 7",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90206.jpg",
+   "idMeal": "90206",
+   "strArea": "Testland",
+   "strCountry": "Testland"
   },
   {
-   "strMeal": "Tahini Lentils",
-   "strMealThumb": "https://www.themealdb.com/images/media/meals/vpxyqt1511464175.jpg",
-   "idMeal": "52869",
-   "strArea": "Moroccan",
-   "strCountry": "Morocco"
+   "strMeal": "Synthetic Test Meal 8",
+   "strMealThumb": "https://www.themealdb.com/images/media/meals/synthetic-90207.jpg",
+   "idMeal": "90207",
+   "strArea": "Sampleshire",
+   "strCountry": "Sampleshire"
   }
  ]
 }

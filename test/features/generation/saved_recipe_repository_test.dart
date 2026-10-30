@@ -20,12 +20,12 @@ void main() {
       providerId: 'themealdb',
       refId: 'x-themealdb-1',
       externalId: '1',
-      title: 'Algerian Carrots',
+      title: 'Synthetic Carrot Side',
       sourceUrl: 'https://example.com/r',
     );
     final r = (await repo.all()).single;
     expect(r.isExternal, isTrue);
-    expect(r.title, 'Algerian Carrots');
+    expect(r.title, 'Synthetic Carrot Side');
     expect(r.sourceUrl, 'https://example.com/r');
     // There is nowhere to keep ingredients or a method: the table has no such
     // column.
