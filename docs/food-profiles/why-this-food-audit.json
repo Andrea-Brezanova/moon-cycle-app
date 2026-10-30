@@ -1,0 +1,1492 @@
+{
+ "_about": "Audit of the production \"Why this food?\" copy. Nothing is changed; replacements are proposals.",
+ "counts": {
+  "meal-style": 91,
+  "nutrient-fact": 45,
+  "phase-link": 5,
+  "traditional": 1
+ },
+ "flagged": 9,
+ "foods": [
+  {
+   "id": "buckwheat",
+   "name": "Buckwheat (kasha)",
+   "phase": "luteal",
+   "text": "Buckwheat has a warm, nutty flavour and makes a comforting porridge or pilaf.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "wild-rice",
+   "name": "Wild rice",
+   "phase": "menstrual",
+   "text": "Wild rice has a nutty, chewy bite that suits warm soups, pilafs and stuffings.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "beets",
+   "name": "Beets",
+   "phase": "menstrual",
+   "text": "Beets are earthy and sweet, lovely roasted, grated into salads or blended into soups.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "kale",
+   "name": "Kale",
+   "phase": "menstrual",
+   "text": "Kale is a good source of vitamin C, which helps your body absorb iron from plant foods. Add it to soups and bean dishes.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms (button, shiitake)",
+   "phase": "menstrual",
+   "text": "Mushrooms are savoury and meaty, good in soups, stews and stir-fries.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "blackberry",
+   "name": "Blackberry",
+   "phase": "luteal",
+   "text": "Blackberries bring fibre and a tart juiciness to oats, yogurt and baking.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "blueberry",
+   "name": "Blueberry",
+   "phase": "menstrual",
+   "text": "Blueberries bring some vitamin C, which helps your body absorb iron from plant foods. Stir them into porridge or yogurt.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "watermelon",
+   "name": "Watermelon",
+   "phase": "ovulatory",
+   "text": "Watermelon is juicy and refreshing, a simple snack or salad addition.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "black-turtle-bean",
+   "name": "Black beans",
+   "phase": "menstrual",
+   "text": "Black beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and bowls.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "kidney-bean",
+   "name": "Kidney bean",
+   "phase": "menstrual",
+   "text": "Kidney beans are a good source of plant-based iron, with protein and fibre too. They suit warm chilli and stews.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sesame-seeds",
+   "name": "Sesame seeds",
+   "phase": "menstrual",
+   "text": "Sesame seeds add a nutty crunch to warm bowls and dressings.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sunflower-seeds",
+   "name": "Sunflower seeds",
+   "phase": "luteal",
+   "text": "Sunflower seeds provide protein and a little fibre, good over salads, porridge and bread.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pork",
+   "name": "Pork",
+   "phase": "luteal",
+   "text": "Pork is a savoury meat that provides protein and suits roasts, stir-fries and slow cooking.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "clam",
+   "name": "Clam",
+   "phase": "menstrual",
+   "text": "Clams provide iron (about 13% of the daily value per serving) and are lovely in warm soups and pasta.",
+   "kind": "nutrient-fact",
+   "figureCheck": {
+    "statedPercent": 13,
+    "profileIronPercent": 13,
+    "profileServing": "3 ounces cooked",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "crab",
+   "name": "Crab",
+   "phase": "ovulatory",
+   "text": "Crab is sweet and delicate, good in light salads, cakes and chilled pasta.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mussel",
+   "name": "Mussel",
+   "phase": "menstrual",
+   "text": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation.",
+   "kind": "phase-link",
+   "figureCheck": {
+    "statedPercent": 32,
+    "profileIronPercent": 32,
+    "profileServing": "3 ounces cooked",
+    "agrees": true
+   },
+   "needsChange": true,
+   "proposedReplacement": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein."
+  },
+  {
+   "id": "oyster",
+   "name": "Oyster",
+   "phase": "menstrual",
+   "text": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation.",
+   "kind": "phase-link",
+   "figureCheck": {
+    "statedPercent": 37,
+    "profileIronPercent": 21,
+    "profileServing": "6 medium oysters, cooked",
+    "agrees": false
+   },
+   "needsChange": true,
+   "proposedReplacement": "Oysters are a rich source of iron (about 21% of the daily value in six oysters)."
+  },
+  {
+   "id": "sardine",
+   "name": "Sardine",
+   "phase": "menstrual",
+   "text": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta.",
+   "kind": "meal-style",
+   "figureCheck": {
+    "statedPercent": 11,
+    "profileIronPercent": 15,
+    "profileServing": "1 small can, drained",
+    "agrees": false
+   },
+   "needsChange": true,
+   "proposedReplacement": "Sardines add iron (about 15% of the daily value in one small can)."
+  },
+  {
+   "id": "scallop",
+   "name": "Scallop",
+   "phase": "follicular",
+   "text": "Scallops sear quickly and have a sweet, delicate flavour, good for a light, fast meal.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "miso",
+   "name": "Miso",
+   "phase": "menstrual",
+   "text": "Miso adds a savoury, umami depth to soups, dressings and marinades. A spoonful goes a long way.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "barley",
+   "name": "Barley",
+   "phase": "luteal",
+   "text": "Barley is a fibre-rich whole grain (about 5 g per serving) that digests slowly and makes soups and bowls more filling.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "oat",
+   "name": "Oat",
+   "phase": "luteal",
+   "text": "Oats make a warm, filling porridge or baked oatmeal for hearty breakfasts.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "artichoke",
+   "name": "Artichoke",
+   "phase": "luteal",
+   "text": "Artichokes provide fibre and have a tender, savoury heart that suits dips, bakes and salads.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "phase": "menstrual",
+   "text": "Broccoli is rich in vitamin C, which helps your body absorb iron from plant foods. Pair it with beans or lentils.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "carrot",
+   "name": "Carrot",
+   "phase": "follicular",
+   "text": "Carrots are easy to grate, roast or snack on raw.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "lettuce",
+   "name": "Lettuce (Bibb, Boston, romaine)",
+   "phase": "follicular",
+   "text": "Crisp lettuce makes a fresh base for salads and wraps.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "green-pea",
+   "name": "Green pea",
+   "phase": "follicular",
+   "text": "Green peas are sweet, fresh-tasting and quick to add to soups, pasta and salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "string-bean",
+   "name": "String bean",
+   "phase": "follicular",
+   "text": "String beans are crisp-tender steamed, blanched into salads or sautéed with garlic.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "zucchini",
+   "name": "Zucchini",
+   "phase": "follicular",
+   "text": "Zucchini is mild and quick to cook, easy to add to sautés and noodle dishes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "phase": "follicular",
+   "text": "Avocado adds creaminess to toast, salads and bowls.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "grapefruit",
+   "name": "Grapefruit",
+   "phase": "menstrual",
+   "text": "Grapefruit is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it with breakfast or alongside an iron-rich meal.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "orange",
+   "name": "Orange",
+   "phase": "menstrual",
+   "text": "Oranges are rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy one alongside an iron-rich meal.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "plum",
+   "name": "Plum",
+   "phase": "follicular",
+   "text": "Plums are juicy and slightly tart, easy to slice into yogurt or enjoy as a snack.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pomegranate",
+   "name": "Pomegranate",
+   "phase": "follicular",
+   "text": "Pomegranate seeds add colour and crunch to salads and bowls.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "black-eyed-pea",
+   "name": "Black-eyed pea",
+   "phase": "follicular",
+   "text": "Black-eyed peas are a mild, quick-cooking bean for salads and stews.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "green-lentil",
+   "name": "Lentils",
+   "phase": "menstrual",
+   "text": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation.",
+   "kind": "phase-link",
+   "figureCheck": null,
+   "needsChange": true,
+   "proposedReplacement": "Lentils provide plant-based iron, protein and fibre."
+  },
+  {
+   "id": "lima-bean",
+   "name": "Lima bean",
+   "phase": "luteal",
+   "text": "Lima beans are a creamy, filling legume with protein and fibre, lovely in soups, stews and warm salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "split-pea",
+   "name": "Split pea",
+   "phase": "luteal",
+   "text": "Split peas simmer into a thick, comforting soup and provide protein and fibre.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "brazil-nut",
+   "name": "Brazil nut",
+   "phase": "follicular",
+   "text": "Brazil nuts are rich and creamy, good chopped over porridge or eaten as a small snack.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cashew",
+   "name": "Cashew",
+   "phase": "menstrual",
+   "text": "Cashews add some plant-based iron (about 10% of the daily value per serving) and a creamy richness to stir-fries and curries.",
+   "kind": "meal-style",
+   "figureCheck": {
+    "statedPercent": 10,
+    "profileIronPercent": 11,
+    "profileServing": "1 ounce (28 g), about 18 nuts",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "flaxseeds",
+   "name": "Flaxseeds",
+   "phase": "follicular",
+   "text": "Ground flaxseed stirs easily into porridge, yogurt and smoothies.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pumpkin-seeds",
+   "name": "Pumpkin seeds",
+   "phase": "menstrual",
+   "text": "A small handful of pumpkin seeds adds iron (about 14% of the daily value). Sprinkle them on porridge, soups or salads.",
+   "kind": "meal-style",
+   "figureCheck": {
+    "statedPercent": 14,
+    "profileIronPercent": 14,
+    "profileServing": "1 ounce (28 g) of kernels",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "chicken",
+   "name": "Chicken",
+   "phase": "follicular",
+   "text": "Chicken is a quick-cooking protein for stir-fries, salads and sheet-pan meals.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "eggs",
+   "name": "Eggs",
+   "phase": "follicular",
+   "text": "Eggs cook in minutes and make a light meal with vegetables.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "trout",
+   "name": "Trout",
+   "phase": "follicular",
+   "text": "Trout is a mild fish that cooks in minutes, baked or pan-fried.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "nut-butter",
+   "name": "Nut butter",
+   "phase": "luteal",
+   "text": "Nut butter provides protein and a creamy richness, good on toast, oats and fruit.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pickles",
+   "name": "Pickles",
+   "phase": "ovulatory",
+   "text": "Pickles add a tangy crunch to sandwiches and salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sauerkraut",
+   "name": "Sauerkraut",
+   "phase": "follicular",
+   "text": "Sauerkraut adds a tangy crunch to sandwiches, bowls and salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "quinoa",
+   "name": "Quinoa",
+   "phase": "menstrual",
+   "text": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls.",
+   "kind": "meal-style",
+   "figureCheck": {
+    "statedPercent": 12,
+    "profileIronPercent": 8,
+    "profileServing": "½ cup cooked",
+    "agrees": false
+   },
+   "needsChange": true,
+   "proposedReplacement": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked)."
+  },
+  {
+   "id": "asparagus",
+   "name": "Asparagus",
+   "phase": "ovulatory",
+   "text": "Asparagus is fresh and quick to cook, lovely in salads and light dishes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "red-bell-pepper",
+   "name": "Red bell pepper",
+   "phase": "ovulatory",
+   "text": "Red peppers add colour and crunch to salads, wraps and stir-fries.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "brussels-sprouts",
+   "name": "Brussels sprouts",
+   "phase": "menstrual",
+   "text": "Brussels sprouts are rich in vitamin C, which helps your body absorb iron from plant foods. Roast them alongside beans or lentils.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "chard",
+   "name": "Chard",
+   "phase": "menstrual",
+   "text": "Chard provides iron (about 11% of the daily value per serving) along with some vitamin C, which helps your body absorb iron from plant foods.",
+   "kind": "nutrient-fact",
+   "figureCheck": {
+    "statedPercent": 11,
+    "profileIronPercent": 11,
+    "profileServing": "½ cup chopped, cooked",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "eggplant",
+   "name": "Eggplant",
+   "phase": "menstrual",
+   "text": "Eggplant turns soft and silky when baked or braised, and soaks up warm spices well.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "phase": "menstrual",
+   "text": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation.",
+   "kind": "phase-link",
+   "figureCheck": {
+    "statedPercent": 18,
+    "profileIronPercent": 18,
+    "profileServing": "½ cup cooked",
+    "agrees": true
+   },
+   "needsChange": true,
+   "proposedReplacement": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate."
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "phase": "ovulatory",
+   "text": "Ripe tomatoes bring juicy colour to salads and light sauces.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "apricot",
+   "name": "Apricot",
+   "phase": "ovulatory",
+   "text": "Apricots are sweet and gently tart, lovely fresh in season or sliced over yogurt.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cantaloupe",
+   "name": "Cantaloupe",
+   "phase": "ovulatory",
+   "text": "Cantaloupe is sweet and refreshing, lovely on its own or in fruit salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "fig",
+   "name": "Fig",
+   "phase": "luteal",
+   "text": "Figs are soft and honeyed and bring fibre; lovely with yogurt, cheese or oats.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "raspberry",
+   "name": "Raspberry",
+   "phase": "ovulatory",
+   "text": "Raspberries are a bright, fresh topping for yogurt and breakfasts.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "strawberry",
+   "name": "Strawberry",
+   "phase": "ovulatory",
+   "text": "Strawberries are sweet, juicy and easy to add to bowls and salads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "red-lentil",
+   "name": "Red lentil",
+   "phase": "luteal",
+   "text": "Red lentils cook down in minutes and provide protein and fibre, for soft, filling soups and dals.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "almond",
+   "name": "Almond",
+   "phase": "ovulatory",
+   "text": "Almonds are an easy crunchy topping for salads and bowls.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pecan",
+   "name": "Pecan",
+   "phase": "follicular",
+   "text": "Pecans are buttery and slightly sweet, good toasted over salads, oats and yogurt.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pistachio",
+   "name": "Pistachio",
+   "phase": "ovulatory",
+   "text": "Pistachios add a little crunch to salads and snacks.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "lamb",
+   "name": "Lamb",
+   "phase": "luteal",
+   "text": "Lamb is a rich, savoury meat that provides protein and suits slow roasts and stews.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "salmon",
+   "name": "Salmon",
+   "phase": "luteal",
+   "text": "Salmon provides protein (about 20 g per serving) for satisfying meals.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "shrimp",
+   "name": "Shrimp",
+   "phase": "ovulatory",
+   "text": "Shrimp cooks in minutes and suits light salads, tacos and stir-fries.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "brown-rice",
+   "name": "Brown rice",
+   "phase": "luteal",
+   "text": "Brown rice is a hearty, filling base for bowls and one-pot dishes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cabbage",
+   "name": "Cabbage",
+   "phase": "follicular",
+   "text": "Cabbage is crunchy raw in slaws and sweet and tender when sautéed or braised.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cauliflower",
+   "name": "Cauliflower",
+   "phase": "luteal",
+   "text": "Cauliflower roasts into a hearty side or blends into creamy soups.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "celery",
+   "name": "Celery",
+   "phase": "ovulatory",
+   "text": "Celery adds fresh crunch to salads, soups and snacks.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "collard",
+   "name": "Collard",
+   "phase": "menstrual",
+   "text": "Collard greens bring some vitamin C, which helps your body absorb iron from plant foods.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cucumber",
+   "name": "Cucumber",
+   "phase": "ovulatory",
+   "text": "Cucumber is crisp and hydrating, great in salads and wraps.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "parsnip",
+   "name": "Parsnip",
+   "phase": "luteal",
+   "text": "Parsnips turn sweet and tender when roasted and blend into warming soups.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pumpkin",
+   "name": "Pumpkin",
+   "phase": "luteal",
+   "text": "Pumpkin makes warming soups and roasted dishes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "radish",
+   "name": "Radish",
+   "phase": "ovulatory",
+   "text": "Radishes add a peppery crunch and bright colour to salads and tacos.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "squash",
+   "name": "Squash",
+   "phase": "luteal",
+   "text": "Squash roasts into sweet, tender wedges and blends into warming soups and stews.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sweet-potato",
+   "name": "Sweet potato",
+   "phase": "luteal",
+   "text": "Sweet potato is naturally sweet and filling when roasted or mashed.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "apple",
+   "name": "Apple",
+   "phase": "luteal",
+   "text": "Apples are an easy snack that also bake well with oats and cinnamon.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "peach",
+   "name": "Peach",
+   "phase": "ovulatory",
+   "text": "Peaches are juicy and fragrant in season, lovely sliced into salads or yogurt.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pear",
+   "name": "Pear",
+   "phase": "luteal",
+   "text": "Pears add fibre (about 4 g per serving) to snacks and breakfasts.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "chickpea",
+   "name": "Chickpea",
+   "phase": "luteal",
+   "text": "Chickpeas provide protein and fibre (about 12 g and 10 g per serving) and slower-digesting carbohydrates, so they make meals filling.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "walnut",
+   "name": "Walnut",
+   "phase": "luteal",
+   "text": "Walnuts add richness and crunch to oats, salads and baking.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "beef",
+   "name": "Beef",
+   "phase": "menstrual",
+   "text": "Beef provides iron (about 13% of the daily value per serving) and suits slow-cooked stews.",
+   "kind": "nutrient-fact",
+   "figureCheck": {
+    "statedPercent": 13,
+    "profileIronPercent": 13,
+    "profileServing": "3 ounces cooked",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "phase": "luteal",
+   "text": "Turkey is a lean, versatile meat that provides protein for roasts, soups and sandwiches.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cod",
+   "name": "Cod",
+   "phase": "luteal",
+   "text": "Cod is a mild, flaky white fish that provides protein for quick, satisfying meals.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "flounder",
+   "name": "Flounder",
+   "phase": "luteal",
+   "text": "Flounder is a delicate, quick-cooking white fish that provides protein.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "phase": "luteal",
+   "text": "Halibut is a firm, meaty white fish that provides protein and bakes or grills well.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "anchovies",
+   "name": "Anchovies",
+   "phase": "menstrual",
+   "text": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein.",
+   "kind": "nutrient-fact",
+   "figureCheck": {
+    "statedPercent": 22,
+    "profileIronPercent": 5,
+    "profileServing": "5 anchovies",
+    "agrees": false
+   },
+   "needsChange": true,
+   "proposedReplacement": "Anchovies are a concentrated source of iron, but a typical serving is small (five anchovies give about 5% of the daily value)."
+  },
+  {
+   "id": "arugula",
+   "name": "Arugula (rocket)",
+   "phase": "follicular",
+   "text": "Arugula adds a peppery bite to salads, pizzas and warm pasta.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "phase": "luteal",
+   "text": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase.",
+   "kind": "phase-link",
+   "figureCheck": null,
+   "needsChange": true,
+   "proposedReplacement": "Bananas are an easy addition to filling breakfasts and snacks."
+  },
+  {
+   "id": "bean-sprouts",
+   "name": "Bean sprouts",
+   "phase": "ovulatory",
+   "text": "Bean sprouts add a light, crisp crunch to stir-fries, noodle bowls and fresh rolls.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "bok-choy",
+   "name": "Bok choy",
+   "phase": "follicular",
+   "text": "Bok choy cooks in minutes and is crisp-tender in stir-fries and light soups.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "bulgur",
+   "name": "Bulgur",
+   "phase": "luteal",
+   "text": "Bulgur is a quick-cooking whole grain with fibre, good for salads, pilafs and stuffed vegetables.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "canned-salmon",
+   "name": "Canned salmon",
+   "phase": "follicular",
+   "text": "Canned salmon is a ready-to-use pantry staple for salads, patties and sandwiches.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "canned-tuna",
+   "name": "Canned tuna",
+   "phase": "follicular",
+   "text": "Canned tuna is an easy pantry staple for sandwiches, salads and pasta.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "chia-seeds",
+   "name": "Chia seeds",
+   "phase": "luteal",
+   "text": "Chia seeds add fibre (about 5 g per serving) to puddings, porridge and smoothies.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "cottage-cheese",
+   "name": "Cottage cheese",
+   "phase": "ovulatory",
+   "text": "Cottage cheese is a fresh, creamy topping for toast, bowls and fruit.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "phase": "luteal",
+   "text": "Edamame provides protein (about 11 g per serving) and fibre for filling bowls and snacks.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "farro",
+   "name": "Farro",
+   "phase": "follicular",
+   "text": "Farro is a chewy, nutty grain that suits salads, soups and grain bowls.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "feta",
+   "name": "Feta",
+   "phase": "follicular",
+   "text": "Feta is salty and tangy, good crumbled over salads, roasted vegetables and eggs.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "goat-cheese",
+   "name": "Goat cheese",
+   "phase": "luteal",
+   "text": "Goat cheese is tangy and creamy and provides some protein, lovely crumbled over roasted vegetables and salads.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "grapes",
+   "name": "Grapes",
+   "phase": "menstrual",
+   "text": "Grapes bring a little vitamin C and are an easy, no-prep fruit to have alongside a meal.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "greek-yogurt",
+   "name": "Greek yogurt",
+   "phase": "luteal",
+   "text": "Greek yogurt is high in protein (about 17 g per serving), making breakfasts and snacks more filling.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "green-bell-pepper",
+   "name": "Green bell pepper",
+   "phase": "menstrual",
+   "text": "Green peppers are rich in vitamin C, which helps your body absorb iron from plant foods. Slice them into bean salads or stir-fries.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "haddock",
+   "name": "Haddock",
+   "phase": "follicular",
+   "text": "Haddock is a mild, flaky white fish that bakes or pan-fries in minutes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "hazelnuts",
+   "name": "Hazelnuts",
+   "phase": "ovulatory",
+   "text": "Hazelnuts are rich and toasty, good chopped over salads and fruit or blended into spreads.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "honeydew",
+   "name": "Honeydew melon",
+   "phase": "ovulatory",
+   "text": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack.",
+   "kind": "traditional",
+   "figureCheck": null,
+   "needsChange": true,
+   "proposedReplacement": "Honeydew is soft and sweet, an easy fruit salad or snack."
+  },
+  {
+   "id": "hummus",
+   "name": "Hummus",
+   "phase": "follicular",
+   "text": "Hummus is a creamy dip or spread for vegetables, wraps and toast.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "kefir",
+   "name": "Kefir",
+   "phase": "ovulatory",
+   "text": "Kefir is a tangy, drinkable yogurt that works in smoothies or poured over fruit and muesli.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "kimchi",
+   "name": "Kimchi",
+   "phase": "luteal",
+   "text": "Kimchi adds tangy, spicy flavour to rice bowls and eggs.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "kiwi",
+   "name": "Kiwi",
+   "phase": "menstrual",
+   "text": "Kiwi is rich in vitamin C, which helps your body absorb iron from plant foods. Enjoy it alongside an iron-rich meal.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mackerel",
+   "name": "Mackerel",
+   "phase": "luteal",
+   "text": "Mackerel is a rich, flavourful fish that provides protein; it is great grilled or flaked into salads.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mandarin",
+   "name": "Mandarin / tangerine",
+   "phase": "ovulatory",
+   "text": "Mandarins are easy to peel and segment into salads or lunchboxes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mango",
+   "name": "Mango",
+   "phase": "ovulatory",
+   "text": "Mango adds juicy sweetness to salads, salsas and smoothies.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mixed-nuts",
+   "name": "Mixed nuts",
+   "phase": "luteal",
+   "text": "Mixed nuts provide protein and fibre in a small handful, handy for snacks, porridge and baking.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "mozzarella",
+   "name": "Mozzarella",
+   "phase": "luteal",
+   "text": "Mozzarella is mild and melty and provides protein, suiting baked pasta, pizza and salads.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "napa-cabbage",
+   "name": "Napa cabbage",
+   "phase": "follicular",
+   "text": "Napa cabbage is tender and mild, good in stir-fries, soups and fresh slaws.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "nectarine",
+   "name": "Nectarine",
+   "phase": "follicular",
+   "text": "Nectarines are juicy and sweet in season, lovely sliced onto yogurt or eaten as they are.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "oat-bran",
+   "name": "Oat bran",
+   "phase": "follicular",
+   "text": "Oat bran cooks into a quick, creamy porridge or stirs into yogurt and baking.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "papaya",
+   "name": "Papaya",
+   "phase": "menstrual",
+   "text": "Papaya is rich in vitamin C, which helps your body absorb iron from plant foods. Lovely with lime or in fruit salads.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "peanuts",
+   "name": "Peanuts",
+   "phase": "luteal",
+   "text": "Peanuts provide protein and a satisfying crunch, good in stir-fries, sauces and snacks.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pineapple",
+   "name": "Pineapple",
+   "phase": "ovulatory",
+   "text": "Pineapple is bright and juicy, good fresh, grilled or in a salsa.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pinto-beans",
+   "name": "Pinto beans",
+   "phase": "luteal",
+   "text": "Pinto beans provide protein and fibre and make hearty, filling chilli, burritos and bowls.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "plain-yogurt",
+   "name": "Plain yogurt",
+   "phase": "follicular",
+   "text": "Plain yogurt is a fresh, tangy base for breakfast bowls, sauces and dressings.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "pollock",
+   "name": "Pollock",
+   "phase": "follicular",
+   "text": "Pollock is a mild white fish that suits fish tacos, baking and fish cakes.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "red-cabbage",
+   "name": "Red cabbage",
+   "phase": "ovulatory",
+   "text": "Red cabbage brings vivid colour and crunch to slaws, tacos and quick pickles.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "red-snapper",
+   "name": "Snapper",
+   "phase": "luteal",
+   "text": "Snapper is a mild, firm fish that provides protein and bakes whole or as fillets.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "ricotta",
+   "name": "Ricotta",
+   "phase": "ovulatory",
+   "text": "Ricotta is soft and mild, good on toast with fruit or folded into pasta.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sea-bass",
+   "name": "Sea bass",
+   "phase": "ovulatory",
+   "text": "Sea bass is a mild, delicate white fish that bakes or pan-fries quickly.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sugar-snap-peas",
+   "name": "Sugar snap peas",
+   "phase": "ovulatory",
+   "text": "Sugar snap peas are sweet and crunchy, great raw, in salads or quickly stir-fried.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "sweet-cherry",
+   "name": "Sweet cherry",
+   "phase": "ovulatory",
+   "text": "Sweet cherries are juicy in season, an easy snack or topping for yogurt.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "swiss-cheese",
+   "name": "Swiss cheese",
+   "phase": "luteal",
+   "text": "Swiss cheese is nutty and melts well; it provides protein and suits sandwiches and bakes.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "tempeh",
+   "name": "Tempeh",
+   "phase": "menstrual",
+   "text": "Tempeh adds plant-based iron (about 10% of the daily value per serving) with a firm, nutty bite for warm bowls.",
+   "kind": "meal-style",
+   "figureCheck": {
+    "statedPercent": 10,
+    "profileIronPercent": 12,
+    "profileServing": "½ cup",
+    "agrees": true
+   },
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "tilapia",
+   "name": "Tilapia",
+   "phase": "luteal",
+   "text": "Tilapia is a mild, quick-cooking fish that provides protein and suits baking and tacos.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "tofu",
+   "name": "Tofu",
+   "phase": "ovulatory",
+   "text": "Tofu is light and quick to add to cold noodle dishes, salads and stir-fries.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "turnip",
+   "name": "Turnip",
+   "phase": "follicular",
+   "text": "Turnips are mild and slightly peppery, lovely roasted, mashed or sliced into soups.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "white-beans",
+   "name": "White beans",
+   "phase": "menstrual",
+   "text": "White beans are a rich source of plant-based iron, with protein and fibre. Lovely in soups and stews.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "white-potato",
+   "name": "White potato",
+   "phase": "menstrual",
+   "text": "Potatoes provide some vitamin C and make hearty, comforting meals when baked or mashed.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "whole-grain-bread",
+   "name": "Whole-grain bread",
+   "phase": "luteal",
+   "text": "Whole-grain bread makes sturdy, satisfying toast and sandwiches.",
+   "kind": "meal-style",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  },
+  {
+   "id": "yellow-bell-pepper",
+   "name": "Yellow bell pepper",
+   "phase": "menstrual",
+   "text": "Yellow peppers are very rich in vitamin C, which helps your body absorb iron from plant foods.",
+   "kind": "nutrient-fact",
+   "figureCheck": null,
+   "needsChange": false,
+   "proposedReplacement": null
+  }
+ ]
+}

@@ -53,11 +53,19 @@ void main() {
           cycleStateProvider.overrideWithValue(stateOnDay(7)),
           foodProfilesProvider.overrideWithValue({id: profile}),
           profileCycleHeadingProvider.overrideWithValue(heading),
+          phaseBadgeTemplateProvider.overrideWithValue(
+            'Featured for variety in the {phase} phase',
+          ),
         ],
       );
       await tester.pumpAndSettle();
       expect(find.text(heading.toUpperCase()), findsOneWidget);
       expect(find.text('CYCLE RELEVANCE'), findsNothing);
+      expect(find.textContaining('Recommended for your'), findsNothing);
+      expect(
+        find.textContaining('Featured for variety in the'),
+        findsOneWidget,
+      );
       await expectLater(
         find.byType(FoodDetailPage),
         matchesGoldenFile('../../docs/food-profiles/wave-1-screens/$id.png'),
