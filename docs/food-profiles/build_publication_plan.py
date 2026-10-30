@@ -45,7 +45,7 @@ def why_not_wave1(k):
 cand = {}
 for k in wave1:
     p = profiles[k]
-    sections = dict(p['sections'], cycleRelevance=proposed_cycle_note(p['name'], p['sections']['cycleRelevance']))
+    sections = dict(p['sections'], cycleRelevance=proposed_cycle_note(p))
     cand[k] = {'catalogueId': k, 'name': p['name'], 'sections': sections,
                'source': {x: p['source'][x] for x in ('usdaFdcId', 'usdaDescription', 'dataType', 'published', 'preparationState', 'portionGrams', 'portion', 'per100g')},
                'perServing': {x: v for x, v in p['perServing'].items() if x != 'sodiumMg'},
@@ -53,7 +53,10 @@ for k in wave1:
                'evidence': p['evidence'],
                'review': {'composition': 'verified against USDA FoodData Central (re-checked in the audit)', 'referenceIntakes': 'verified against NIH ODS',
                           'cautions': 'sourced or catalogue allergen tags', 'editorial': 'awaiting owner approval',
-                          'clinical': 'not clinically reviewed', 'publishable': False}}
+                          'clinical': 'not clinically reviewed', 'publishable': False,
+                          # Filled in only when a real review takes place: the reviewer's own name, the actual date,
+                          # and a professional credential only if it has been verified. Never invented.
+                          'approval': {'reviewedBy': None, 'reviewedOn': None, 'professionalCredential': None}}}
 json.dump({'_status': 'CANDIDATE for owner approval. Not bundled, not published. publishable is false for every profile. The cycleRelevance text is the PROPOSED final wording.', 'cycleHeading': HEADING, 'profiles': cand},
           open(ROOT + 'wave-1-candidate.json', 'w'), indent=1, ensure_ascii=False)
 

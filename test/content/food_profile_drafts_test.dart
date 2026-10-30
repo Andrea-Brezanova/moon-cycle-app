@@ -609,32 +609,83 @@ void main() {
       ) as Map<String, Object?>;
       expect(doc['cycleHeading'], 'Nutrition & your cycle');
       final cand = (doc['profiles']! as Map).cast<String, Object?>();
+      const evidence =
+          'There is currently insufficient evidence to recommend eating this '
+          'food during one particular menstrual phase.';
+      const nutrients =
+          'This food provides nutrients that support general health. ';
+      // The same rule as wave1_wording.py: "provides nutrients" only when a
+      // serving gives a meaningful share of something.
+      bool providesNutrients(Map<String, Object?> profile) {
+        for (final n
+            in ((profile['perServing']! as Map)['keyNutrients']! as List)
+                .cast<Map<String, Object?>>()) {
+          final ref = n['reference'] as List?;
+          final amount = (n['amount']! as num).toDouble();
+          final name = n['name']! as String;
+          if (ref != null && ref.isNotEmpty) {
+            if (((ref.first as Map)['percent']! as num) >= 10) return true;
+          }
+          if (name == 'Protein' && amount >= 5) return true;
+          if (name == 'Fiber' && amount >= 3) return true;
+          if (name == 'Vitamin K' && amount >= 20) return true;
+          if (name.startsWith('Omega-3') && amount >= 0.25) return true;
+        }
+        return false;
+      }
+
       // The three seed foods are on hold.
       for (final id in ['flaxseeds', 'sesame-seeds', 'sunflower-seeds']) {
         expect(cand.containsKey(id), isFalse, reason: '$id is on hold');
       }
+      final all = <String, Map<String, Object?>>{
+        for (final f in files)
+          ...((jsonDecode(f.readAsStringSync()) as Map)['profiles'] as Map)
+              .cast<String, Map<String, Object?>>(),
+      };
       for (final MapEntry(key: id, value: p) in cand.entries) {
         final text =
             (((p! as Map)['sections']! as Map)['cycleRelevance']!) as String;
+        expect(text, endsWith(evidence), reason: id);
         expect(
-          text,
-          contains('We found no reliable research linking'),
-          reason: id,
+          text.contains(nutrients),
+          providesNutrients(all[id]!),
+          reason: '$id: "provides nutrients" only where a serving does',
         );
-        expect(text, isNot(contains('No cycle-phase claim')), reason: id);
-        expect(text, isNot(contains('No phase-specific claim')), reason: id);
+        for (final old in [
+          'No cycle-phase claim',
+          'No phase-specific claim',
+          'We found no reliable research',
+        ]) {
+          expect(text, isNot(contains(old)), reason: id);
+        }
         if (text.contains('menstrual blood loss')) {
+          expect(text, contains('(NIH ODS)'), reason: '$id keeps the source');
           expect(
             text,
-            contains('that need applies every day of the month'),
+            contains('That need applies every day of the month'),
             reason: '$id: the iron need is not tied to the period',
           );
+          expect(text, matches(RegExp(r'has about \d+(\.\d)? mg')), reason: id);
         }
         expect(
           text.toLowerCase(),
           isNot(contains('clinically reviewed')),
           reason: id,
         );
+        // No reviewer, date or professional credential is recorded until a
+        // real review takes place; none may be invented.
+        final review =
+            (p as Map<String, Object?>)['review']! as Map<String, Object?>;
+        expect(review['publishable'], isFalse, reason: id);
+        expect(
+          (review['approval']! as Map<String, Object?>).values,
+          everyElement(isNull),
+          reason: '$id: reviewer details are filled in only by a real review',
+        );
+        for (final w in ['hormone', 'fertil', 'ovulat', 'pms', 'mood']) {
+          expect(text.toLowerCase(), isNot(contains(w)), reason: '$id $w');
+        }
       }
     });
   });

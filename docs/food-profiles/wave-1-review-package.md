@@ -1,5 +1,7 @@
 # Wave 1 editorial review package
 
+> **Superseded for the cycle wording:** the cycle text in this longer package is the earlier draft. The final proposed wording, heading and previews are in `wave-1-approval-summary.md`.
+
 **Status: for your review. Nothing is published.** `wave-1-candidate.json` (98 profiles) stays unpublished with `publishable: false`; none is in `assets/content/food_profiles.json` or unlocked in Food Detail, and the 15 blocked foods stay blocked. Approval of this package is not approval to publish.
 
 How to read it: part 1 shows twelve complete profiles; parts 2 to 5 give the exact wording of every repeated element; part 6 lists what is still open. Nutritional facts (sourced) are kept apart from the editorial "featured phase" (no phase-specific evidence) throughout.

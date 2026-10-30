@@ -457,6 +457,13 @@ final profileCycleHeadingProvider = Provider<String>(
   (ref) => 'Cycle relevance',
 );
 
+/// The label on the phase pill of a food that a phase features, with
+/// `{phase}` for the phase name. Null means the catalogue's own label
+/// ("Recommended for your {phase} phase"). An approval preview overrides it
+/// with wording that matches the evidence ("Featured for variety in the
+/// {phase} phase").
+final phaseBadgeTemplateProvider = Provider<String?>((ref) => null);
+
 /// The standard profile for a food, or null. Only a profile marked
 /// publishable is ever shown. Tests and previews may override it.
 final foodProfileProvider = Provider.family<FoodProfile?, String>(

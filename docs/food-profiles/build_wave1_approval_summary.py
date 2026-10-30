@@ -20,7 +20,7 @@ CHOSEN = [k for k in CHOSEN if k in wave1][:6]
 
 
 def proposed(fid):
-    return proposed_cycle_note(profiles[fid]['name'], profiles[fid]['sections']['cycleRelevance'])
+    return proposed_cycle_note(profiles[fid])
 
 
 L = ['# Wave 1: final approval package (short)\n',
@@ -29,16 +29,17 @@ L = ['# Wave 1: final approval package (short)\n',
      '- Every figure re-checked against the live USDA record; serving text matches the source; sodium, allergens and calculations tested.',
      '- Every caution is sourced (FDA, NIH ODS, NIDDK, MedlinePlus, CDC) or a catalogue allergen tag; none is unverified. Kidney bean guidance was corrected to the FDA wording first.',
      '- Format, readability, repeated text, overstatement and hormone/phase-claim checks pass (a handful of flags were read and accepted, listed in the QA report).',
-     '- **Remaining issue found:** the iron sentence ("partly because of menstrual blood loss") appears on foods featured in non-menstrual phases (lamb, pork), which could read as "for your period". The wording below fixes this.\n',
-     '## Proposed cycle-relevance wording (exact)\n',
-     'The section is built from up to three parts, in this order. Nothing else is allowed in it.\n',
-     '1. **Sourced nutrient fact (only where it applies).** One of:',
-     '   - Iron (serving gives 10% or more of the reference): "Iron needs are higher for women aged 19 to 50 (18 mg a day, against 8 mg for men), partly because of menstrual blood loss (NIH ODS), **and that need applies every day of the month**; this serving has about {x} mg."',
-     '   - Calcium (10% or more): "Calcium needs are 1,000 mg a day for women aged 19 to 50 (NIH ODS); this serving has about {x} mg."',
-     '   - Folate or vitamin C with plant iron: the existing NIH ODS sentences, unchanged.',
-     '2. **A plain statement that the cycle is not claimed (always):** "We found no reliable research linking {food} to a particular phase of the cycle."',
-     '3. Nothing about hormones, fertility, PMS, mood, energy, "balance" or "support".\n',
-     'Replaces the current closing line "No cycle-phase claim is made for {food}." (clearer: it says what was looked for and not found). **Heading (your preference): "Nutrition & your cycle".** It is used in the previews below only; the app still shows "Cycle relevance" until you approve publication, and the five already-published profiles are not changed.\n',
+     '- **Issue found and fixed in the proposal:** the old iron sentence also appeared on foods featured in other phases (lamb, pork), which could read as "for your period". The new iron sentence says the need applies every day of the month.\n',
+     '- Real Food Detail renderings of the proposed wording, heading and badge: `wave-1-screens/` (beef, kale, almond, arugula, sardine, strawberry).\n',
+     '## Proposed wording for "Nutrition & your cycle" (exact)\n',
+     'Heading: **Nutrition & your cycle** (your choice). The note is built from up to three parts, in this order, and nothing else is allowed in it:\n',
+     '1. **Iron (only where a serving gives 10% or more of the iron reference).** Simplified, with its source and the measured amount: "Women aged 19 to 50 need 18 mg of iron a day (men: 8 mg), partly because of menstrual blood loss (NIH ODS). That need applies every day of the month, not only during a period. A serving of this food has about {x} mg."',
+     '2. **Any other sourced or descriptive fact already in the profile**, kept as written (calcium, folate, vitamin C with plant iron, a mercury, gluten or product note).',
+     '3. **Closing statement, always.** Your wording, with "it" written as "this food" so it reads correctly for plural foods such as sardines or eggs: "This food provides nutrients that support general health. There is currently insufficient evidence to recommend eating this food during one particular menstrual phase."',
+     '   - **Used only where it is accurate.** The first sentence ("provides nutrients that support general health") appears only where a serving gives at least 10% of a reference nutrient, 5 g of protein, 3 g of fibre, 20 µg of vitamin K or 0.25 g of omega-3. For the remaining foods (barley, bean sprouts, eggplant, fig and plum) the closing is only the second sentence. The second sentence is consistent with the research register (`independent-phase-methodology.md`): no reliable research ties any of these foods to one phase.',
+     '   - **Optional plainer wording** (your call; the fixed sentence reads at a difficult level, Flesch 33): "There isn\'t enough evidence to recommend eating this food in one particular phase of your cycle."\n',
+     '**Badge.** The existing pill "Recommended for your {phase} phase" contradicts the evidence, so the previews show **"Featured for variety in the {phase} phase"** instead (the principle already says "featured", never "recommended"). The production app still has the old pill until you approve the change.\n',
+     '**"Why this food?" copy.** Audited in `why-this-food-audit.md`: 9 of the 142 production lines need changing (5 tie a food to a phase: mussel, oyster, lentils and spinach "highlight during menstruation" and banana "during the luteal phase"; 1 calls honeydew "cooling"; 3 more, sardine, quinoa and anchovies, state an iron percentage that does not match the verified serving, as does oyster). Proposed replacements are listed there; production is unchanged.\n',
      '## Representative complete profiles with the proposed wording\n']
 for k in CHOSEN:
     p = profiles[k]
