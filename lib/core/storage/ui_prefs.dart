@@ -5,6 +5,8 @@ import 'dart:typed_data';
 import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../privacy/privacy_shield.dart';
+
 /// Small interface settings kept on the phone, outside the encrypted database:
 /// the order of the My Collections tiles and the choice of Me hero image. They
 /// hold no health data and need no schema change. "Delete my data" removes
@@ -14,6 +16,7 @@ final class UiPrefs {
     this.collectionOrder = const [],
     this.meHero,
     this.detailedReminders = false,
+    this.privacyShield = false,
   });
 
   /// Keys of the My Collections tiles, in the user's order (may be partial).
@@ -29,6 +32,10 @@ final class UiPrefs {
   /// file also means off.
   final bool detailedReminders;
 
+  /// Whether the app hides its contents in the app switcher. Off by default;
+  /// a missing or damaged settings file also means off.
+  final bool privacyShield;
+
   static const empty = UiPrefs();
 
   UiPrefs copyWith({
@@ -36,16 +43,19 @@ final class UiPrefs {
     String? meHero,
     bool clearMeHero = false,
     bool? detailedReminders,
+    bool? privacyShield,
   }) => UiPrefs(
     collectionOrder: collectionOrder ?? this.collectionOrder,
     meHero: clearMeHero ? null : (meHero ?? this.meHero),
     detailedReminders: detailedReminders ?? this.detailedReminders,
+    privacyShield: privacyShield ?? this.privacyShield,
   );
 
   Map<String, Object?> toJson() => {
     'collectionOrder': collectionOrder,
     'meHero': meHero,
     'detailedReminders': detailedReminders,
+    'privacyShield': privacyShield,
   };
 
   factory UiPrefs.fromJson(Object? json) {
@@ -60,6 +70,7 @@ final class UiPrefs {
       ],
       meHero: hero is String ? hero : null,
       detailedReminders: json['detailedReminders'] == true,
+      privacyShield: json['privacyShield'] == true,
     );
   }
 }
@@ -203,10 +214,20 @@ final uiPrefsProvider = NotifierProvider<UiPrefsController, UiPrefs>(
 
 class UiPrefsController extends Notifier<UiPrefs> {
   @override
-  UiPrefs build() => ref.read(initialUiPrefsProvider);
+  UiPrefs build() {
+    final prefs = ref.read(initialUiPrefsProvider);
+    // "Delete my data" starts a new scope with the defaults, which switches
+    // the shield off again.
+    ref.read(privacyShieldProvider).setEnabled(prefs.privacyShield);
+    return prefs;
+  }
 
   Future<void> update(UiPrefs next) async {
+    final changed = next.privacyShield != state.privacyShield;
     state = next;
+    if (changed) {
+      await ref.read(privacyShieldProvider).setEnabled(next.privacyShield);
+    }
     await ref.read(uiPrefsStoreProvider).save(next);
   }
 }

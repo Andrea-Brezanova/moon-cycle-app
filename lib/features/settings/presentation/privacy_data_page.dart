@@ -4,9 +4,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/config/app_links.dart';
 import '../../../core/design/moon_theme.dart';
+import '../../../core/design/widgets/moon_controls.dart';
 import '../../../core/design/widgets/moon_icon.dart';
 import '../../../core/design/widgets/moon_list.dart';
 import '../../../core/design/widgets/moon_surfaces.dart';
+import '../../../core/storage/ui_prefs.dart';
 import 'widgets/export_action.dart';
 import 'widgets/settings_widgets.dart';
 
@@ -18,6 +20,10 @@ class PrivacyDataPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.moon;
     final links = ref.watch(appLinksProvider);
+    final prefs = ref.watch(uiPrefsProvider);
+    void setShield(bool v) => ref
+        .read(uiPrefsProvider.notifier)
+        .update(prefs.copyWith(privacyShield: v));
 
     // TODO(open-question): the policy pages. A row without an address
     // can't be tapped yet.
@@ -60,6 +66,29 @@ class PrivacyDataPage extends ConsumerWidget {
                     'A file with your cycle history, preferences, diary, '
                     'activities, Notes and saved links',
                 onTap: () => exportMyData(context, ref),
+              ),
+            ),
+          ],
+        ),
+        MoonListGroup(
+          title: 'On your screen',
+          children: [
+            GestureDetector(
+              // The whole row toggles; the switch carries the screen-reader state.
+              behavior: HitTestBehavior.opaque,
+              excludeFromSemantics: true,
+              onTap: () => setShield(!prefs.privacyShield),
+              child: MoonListRow(
+                label: 'Hide app in app switcher',
+                subtitle: prefs.privacyShield
+                    ? 'Moon Cycle shows a blank screen when you switch apps'
+                    : 'Moon Cycle’s screens show in the app switcher '
+                          '(on Android this also blocks screenshots)',
+                trailing: MoonToggle(
+                  value: prefs.privacyShield,
+                  semanticLabel: 'Hide app in app switcher',
+                  onChanged: setShield,
+                ),
               ),
             ),
           ],

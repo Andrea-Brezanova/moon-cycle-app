@@ -78,3 +78,7 @@ see the CI section of the pull request that added it for what changed.
 - **Wave 1 (98 profiles) stays unpublished.** Heading chosen: "Nutrition & your cycle" (previews only; the app still shows "Cycle relevance"). Clarified iron wording (the need applies every day of the month). Seed foods held. Exact wording, six rendered Food Detail previews (`docs/food-profiles/wave-1-screens/`) and `wave-1-candidate.json` (now carrying the proposed text, `publishable: false`) await approval. No credential is assigned to the reviewer.
 - **Discreet reminders** (PR #71): neutral notification text by default; details are an explicit opt-in. Stale export files are deleted at start-up. SQLite temp files assessed (nothing demonstrated; optional hardening listed) and the app-switcher blur remains a proposal.
 - **iOS signing:** `tool/renew_ios_signing.sh` and `docs/ios-signing.md` document a repeatable check/renew/install-in-place procedure.
+
+## 30 Oct: third-party fixtures and privacy shield
+- PR #75: recipe-provider test fixtures replaced with synthetic, deterministic data (`tool/make_synthetic_fixtures.py`); scenarios preserved; four goldens re-recorded. Git history is not rewritten. The full inventory is kept privately.
+- Privacy shield (opt-in, off by default): Settings › Privacy & Data › "Hide app in app switcher". iOS cover on `willResignActive`; Android `FLAG_SECURE`. Simulator-verified (on = blank card, off = visible, same page after return). Awaiting a physical-iPhone test before merge.
