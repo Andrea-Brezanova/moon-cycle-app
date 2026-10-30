@@ -54,18 +54,18 @@ void main() {
     final c = client(mealDbNetwork());
 
     test('title, namespaced id, image, source and full method', () {
-      final e = c.parseMeal(meal('53282'))!; // Algerian Carrots
-      expect(e.recipe.id, 'x-themealdb-53282');
+      final e = c.parseMeal(meal('90001'))!; // Synthetic Carrot Side
+      expect(e.recipe.id, 'x-themealdb-90001');
       expect(e.providerId, 'themealdb');
-      expect(e.externalId, '53282');
-      expect(e.recipe.title, 'Algerian Carrots');
+      expect(e.externalId, '90001');
+      expect(e.recipe.title, 'Synthetic Carrot Side');
       expect(e.recipe.imageUrl, startsWith('https://www.themealdb.com/'));
       expect(e.recipe.steps, isNotEmpty);
       expect(e.recipe.intro, contains('Side'));
     });
 
     test('rights: shown in full with credit, never stored or published', () {
-      final r = c.parseMeal(meal('53282'))!.rights;
+      final r = c.parseMeal(meal('90001'))!.rights;
       expect(r.mayDisplayFull, isTrue);
       expect(r.mayStore, isFalse);
       expect(r.mayPublish, isFalse);
@@ -77,7 +77,7 @@ void main() {
 
     test('ingredients keep their wording and map to food ids only when '
         'reliable', () {
-      final e = c.parseMeal(meal('53282'))!; // Water, Carrots, Olive Oil, Salt…
+      final e = c.parseMeal(meal('90001'))!; // Water, Carrots, Olive Oil, Salt…
       final byLabel = {for (final l in e.recipe.ingredients) l.label: l};
       expect(byLabel['Carrots']!.foodId, 'carrot');
       expect(byLabel['Olive Oil']!.foodId, 'olive-oil');
@@ -88,7 +88,9 @@ void main() {
     });
 
     test('plurals and capitals map, near-misses do not', () {
-      final e = c.parseMeal(meal('53483'))!; // Black Eyed Peas, Garlic…
+      final e = c.parseMeal(
+        meal('90002'),
+      )!; // Black Eyed Peas, Garlic, Plain Flour…
       final ids = {for (final l in e.recipe.ingredients) l.label: l.foodId};
       expect(ids['Black Eyed Peas'], 'black-eyed-pea');
       expect(ids['Garlic'], 'garlic');
@@ -102,13 +104,13 @@ void main() {
     });
 
     test('no times or servings are invented', () {
-      final r = c.parseMeal(meal('53282'))!.recipe;
+      final r = c.parseMeal(meal('90001'))!.recipe;
       expect(r.minutes, 0);
       expect(r.serves, 0);
     });
 
     test('missing title, method or ingredients: not shown', () {
-      final m = {...meal('53282')};
+      final m = {...meal('90001')};
       expect(c.parseMeal({...m, 'strInstructions': null}), isNull);
       expect(c.parseMeal({...m, 'strInstructions': '  '}), isNull);
       expect(c.parseMeal({...m, 'strMeal': ''}), isNull);
@@ -122,16 +124,16 @@ void main() {
     });
 
     test('missing picture and source are handled', () {
-      final m = {...meal('53282'), 'strMealThumb': null, 'strSource': null};
+      final m = {...meal('90001'), 'strMealThumb': null, 'strSource': null};
       final e = c.parseMeal(m)!;
       expect(e.recipe.imageUrl, isNull);
-      expect(e.rights.sourceUrl, 'https://www.themealdb.com/meal/53282');
+      expect(e.rights.sourceUrl, 'https://www.themealdb.com/meal/90001');
       expect(e.rights.attribution, 'Recipe from TheMealDB');
     });
 
     test('blank measures and gaps in the numbered fields are fine', () {
       final m = {
-        ...meal('53282'),
+        ...meal('90001'),
         'strMeasure2': '',
         'strIngredient3': null,
         'strIngredient4': '   ',
@@ -184,17 +186,17 @@ void main() {
     test(
       'meals listed for more of the chosen foods are fetched first',
       () async {
-        // Meal 53282 is listed for both foods; the others for one.
+        // Meal 90001 is listed for both foods; the others for one.
         final both = {
           'meals': [
-            {'idMeal': '53282', 'strMeal': 'Algerian Carrots'},
-            {'idMeal': '53288', 'strMeal': 'Algerian Flafla'},
+            {'idMeal': '90001', 'strMeal': 'Synthetic Carrot Side'},
+            {'idMeal': '90003', 'strMeal': 'Synthetic Pepper Salad'},
           ],
         };
         final one = {
           'meals': [
-            {'idMeal': '53282', 'strMeal': 'Algerian Carrots'},
-            {'idMeal': '53281', 'strMeal': 'Algerian Kefta'},
+            {'idMeal': '90001', 'strMeal': 'Synthetic Carrot Side'},
+            {'idMeal': '90004', 'strMeal': 'Synthetic Spiced Meatballs'},
           ],
         };
         final net = mealDbNetwork(filters: {'carrot': both, 'garlic': one});
@@ -202,7 +204,7 @@ void main() {
           net,
           p: policy(details: 1),
         ).search(MealChoice(['carrot', 'garlic']), FoodFilter.none);
-        expect(found.single.externalId, '53282');
+        expect(found.single.externalId, '90001');
       },
     );
 
@@ -282,19 +284,19 @@ void main() {
       var t = DateTime(2026, 10, 5, 9);
       final net = mealDbNetwork();
       final c = client(net, now: () => t);
-      await c.byId('53282');
-      await c.byId('53282');
+      await c.byId('90001');
+      await c.byId('90001');
       expect(net.calls.length, 1);
       t = t.add(const Duration(minutes: 11));
-      await c.byId('53282');
+      await c.byId('90001');
       expect(net.calls.length, 2);
     });
 
     test('with a zero cache time nothing is reused', () async {
       final net = mealDbNetwork();
       final c = client(net, p: policy().copyWith(cacheTtl: Duration.zero));
-      await c.byId('53282');
-      await c.byId('53282');
+      await c.byId('90001');
+      await c.byId('90001');
       expect(net.calls.length, 2);
     });
 

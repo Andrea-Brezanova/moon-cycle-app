@@ -1,0 +1,64 @@
+{
+ "data": [
+  {
+   "id": "0d8984f1-7224-581a-be9f-81ec9e667a29",
+   "name": "spinach",
+   "category": "Vegetables",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "75c1d157-8581-560f-96f7-95a950c01fff",
+   "name": "baby spinach",
+   "category": "Vegetables",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "63f34759-a788-5cae-b5c8-bfcc795182f9",
+   "name": "fresh spinach leaves",
+   "category": "Vegetables",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "a0b6cf2f-eee9-5896-8959-01abfdac6039",
+   "name": "large leaf spinach",
+   "category": "Vegetables",
+   "source": "Aggregated Public Sources"
+  },
+  {
+   "id": "79c1d749-dcd2-5270-9eaf-2a96e2a01c19",
+   "name": "Spinach, cooked, boiled, drained, without salt",
+   "category": "Vegetables",
+   "source": "USDA"
+  },
+  {
+   "id": "d684ac0f-3ef2-59c2-82e1-fdc9ebd2f9ba",
+   "name": "Spinach, raw",
+   "category": "Vegetables",
+   "source": "USDA"
+  },
+  {
+   "id": "a9ec3d54-81da-5de9-9ccb-10dcd3fa4b91",
+   "name": "Noodles, egg, spinach, enriched, cooked",
+   "category": "Grains & Pasta",
+   "source": "USDA"
+  },
+  {
+   "id": "3c2c6af5-01dc-5aab-8277-b13f75eeafb5",
+   "name": "Spaghetti, spinach, dry",
+   "category": "Grains & Pasta",
+   "source": "USDA"
+  },
+  {
+   "id": "55d5840b-624b-5b0e-8209-f62b03cd0c82",
+   "name": "Malabar spinach, cooked",
+   "category": "Vegetables",
+   "source": "USDA"
+  },
+  {
+   "id": "fa86630a-693c-5979-9516-4e1c738a81c5",
+   "name": "spinach pesto",
+   "category": "Sauces",
+   "source": "Aggregated Public Sources"
+  }
+ ]
+}

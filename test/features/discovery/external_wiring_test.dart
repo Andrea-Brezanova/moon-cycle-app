@@ -137,9 +137,9 @@ void main() {
         final net = mealDbNetwork();
         final c = make(net: net);
         final e = await c.read(
-          externalRecipeProvider('x-themealdb-53282').future,
+          externalRecipeProvider('x-themealdb-90001').future,
         );
-        expect(e!.recipe.title, 'Algerian Carrots');
+        expect(e!.recipe.title, 'Synthetic Carrot Side');
         expect(
           await c.read(externalRecipeProvider('x-nobody-1').future),
           isNull,
@@ -153,7 +153,7 @@ void main() {
       () async {
         final c = make(debugBuild: false);
         expect(
-          await c.read(externalRecipeProvider('x-themealdb-53282').future),
+          await c.read(externalRecipeProvider('x-themealdb-90001').future),
           isNull,
         );
       },

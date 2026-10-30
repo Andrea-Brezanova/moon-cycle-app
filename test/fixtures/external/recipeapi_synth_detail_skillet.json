@@ -1,0 +1,164 @@
+{
+ "data": {
+  "id": "e6fb72cf-7845-5429-bd4e-88a2dc0d3061",
+  "name": "Synthetic Chicken and Spinach Skillet",
+  "description": "Invented description for tests.",
+  "category": "Dinner",
+  "cuisine": "Testland",
+  "difficulty": "Easy",
+  "tags": [
+   "Synthetic"
+  ],
+  "meta": {
+   "active_time": "PT15M",
+   "passive_time": "PT15M",
+   "total_time": "PT30M",
+   "overnight_required": false,
+   "yields": "4 servings",
+   "yield_count": 4,
+   "serving_size_g": 280
+  },
+  "dietary": {
+   "flags": [
+    "Gluten-Free"
+   ],
+   "not_suitable_for": [
+    "Individuals with dairy allergies (contains parmesan)"
+   ]
+  },
+  "ingredients": [
+   {
+    "group_name": "Main",
+    "items": [
+     {
+      "name": "chicken breast",
+      "quantity": 600,
+      "unit": "g",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "0c3ee448-740a-5f80-8626-516706898948",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "olive oil",
+      "quantity": 30,
+      "unit": "ml",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "c774d285-47a2-51a7-bb98-229f12303340",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "garlic",
+      "quantity": 4,
+      "unit": null,
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "3fe56acc-2e5d-54bc-8a95-e95c3781921e",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "baby spinach",
+      "quantity": 150,
+      "unit": "g",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "75c1d157-8581-560f-96f7-95a950c01fff",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "parmesan",
+      "quantity": 40,
+      "unit": "g",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "eccd38e8-2ca6-57a5-a778-969f8d60d2e6",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "canned tomatoes",
+      "quantity": 200,
+      "unit": "g",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "3077c2a3-b2aa-5221-90bf-2332068f0183",
+      "nutrition_source": "invented"
+     },
+     {
+      "name": "fine sea salt",
+      "quantity": 2,
+      "unit": "g",
+      "preparation": null,
+      "notes": null,
+      "substitutions": [],
+      "ingredient_id": "f640f1c3-2184-5926-aefd-3c26cd00cd7e",
+      "nutrition_source": "invented"
+     }
+    ]
+   }
+  ],
+  "instructions": [
+   {
+    "step_number": 1,
+    "phase": "prep",
+    "text": "Invented step 1: do the next thing for the test."
+   },
+   {
+    "step_number": 2,
+    "phase": "prep",
+    "text": "Invented step 2: do the next thing for the test."
+   },
+   {
+    "step_number": 3,
+    "phase": "prep",
+    "text": "Invented step 3: do the next thing for the test."
+   },
+   {
+    "step_number": 4,
+    "phase": "cook",
+    "text": "Invented step 4: do the next thing for the test."
+   },
+   {
+    "step_number": 5,
+    "phase": "cook",
+    "text": "Invented step 5: do the next thing for the test."
+   },
+   {
+    "step_number": 6,
+    "phase": "cook",
+    "text": "Invented step 6: do the next thing for the test."
+   },
+   {
+    "step_number": 7,
+    "phase": "cook",
+    "text": "Invented step 7: do the next thing for the test."
+   },
+   {
+    "step_number": 8,
+    "phase": "finish",
+    "text": "Invented step 8: do the next thing for the test."
+   },
+   {
+    "step_number": 9,
+    "phase": "finish",
+    "text": "Invented step 9: do the next thing for the test."
+   },
+   {
+    "step_number": 10,
+    "phase": "finish",
+    "text": "Invented step 10: do the next thing for the test."
+   },
+   {
+    "step_number": 11,
+    "phase": "finish",
+    "text": "Invented step 11: do the next thing for the test."
+   }
+  ]
+ }
+}
