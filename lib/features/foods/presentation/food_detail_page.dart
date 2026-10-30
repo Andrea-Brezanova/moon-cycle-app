@@ -180,7 +180,9 @@ class FoodDetailPage extends ConsumerWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: MoonPill(
-                        catalogue.sheetLabel.replaceAll('{phase}', shown.name),
+                        (ref.watch(phaseBadgeTemplateProvider) ??
+                                catalogue.sheetLabel)
+                            .replaceAll('{phase}', shown.name),
                         background: palette.tint,
                       ),
                     ),

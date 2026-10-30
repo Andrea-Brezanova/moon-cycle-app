@@ -81,4 +81,9 @@ see the CI section of the pull request that added it for what changed.
 
 ## 30 Oct: third-party fixtures and privacy shield
 - PR #75: recipe-provider test fixtures replaced with synthetic, deterministic data (`tool/make_synthetic_fixtures.py`); scenarios preserved; four goldens re-recorded. Git history is not rewritten. The full inventory is kept privately.
-- Privacy shield (opt-in, off by default): Settings › Privacy & Data › "Hide app in app switcher". iOS cover on `willResignActive`; Android `FLAG_SECURE`. Simulator-verified (on = blank card, off = visible, same page after return). Awaiting a physical-iPhone test before merge.
+- Privacy shield (opt-in, off by default): Settings › Privacy & Data › "Hide app in app switcher". iOS cover on `willResignActive`; Android `FLAG_SECURE`. Verified on the Simulator and on the physical iPhone (30 Oct): on = blank app-switcher card, off = page visible, same page after return; saved snapshots uniform; data intact.
+
+## Wave 1 wording v2 and copy audit (30 Oct 2026)
+
+- Wave 1 stays unpublished (98 profiles; seed foods held). Heading "Nutrition & your cycle". Iron sentence simplified (source and measured iron kept; the need applies every day of the month). Closing statement per your wording, used in full only where a serving provides nutrients. Preview-only badge "Featured for variety in the {phase} phase" replaces "Recommended for your {phase} phase" (production unchanged). Six real Food Detail previews: `docs/food-profiles/wave-1-screens/`. Reviewer, date and credential fields in `wave-1-candidate.json` are empty until a real review.
+- `docs/food-profiles/why-this-food-audit.md`: 9 of the 142 production "Why this food?" lines need changing (5 phase-linked, 1 "cooling", 3 more with iron percentages that do not match the verified serving, oyster included in the 5). Production is unchanged; a guard test stops new mismatches.

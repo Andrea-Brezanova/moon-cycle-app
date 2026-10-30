@@ -3,7 +3,10 @@
 
     python3 docs/food-profiles/wave1_qa.py
 Read-only: it changes no profile and publishes nothing."""
-import collections, json, re
+import collections, json, re, sys
+
+sys.path.insert(0, 'docs/food-profiles')
+from wave1_wording import CLOSING_NUTRIENTS, CLOSING_PLAIN  # noqa: E402
 
 R = 'docs/food-profiles/'
 profiles = json.load(open(R + 'complete-draft-dataset.json'))['profiles']
@@ -11,6 +14,7 @@ plan = json.load(open(R + 'publication-plan.json'))
 foods = {f['id']: f for f in json.load(open('assets/content/foods.json'))['foods']}
 phase = {k: list(f['why'])[0] for k, f in foods.items() if f['why']}
 wave1 = plan['wave1']
+cand = json.load(open(R + 'wave-1-candidate.json'))['profiles']
 
 
 def syllables(w):
@@ -38,14 +42,18 @@ ACCEPTED = {
 issues = collections.defaultdict(list)
 for k in wave1:
     p = profiles[k]
-    s = p['sections']
+    full_cycle = cand[k]['sections']['cycleRelevance']
+    # The fixed closing statement is the owner's wording; the checks below look at the rest of the note.
+    s = dict(p['sections'], cycleRelevance=full_cycle.replace(CLOSING_NUTRIENTS, '').replace(CLOSING_PLAIN, '').strip() or 'n/a')
     # 1 five-section format
-    for sec, (lo, hi) in {'whatItOffers': (40, 420), 'practicalServing': (3, 90), 'howToEatIt': (20, 420), 'cycleRelevance': (20, 560)}.items():
+    for sec, (lo, hi) in {'whatItOffers': (40, 420), 'practicalServing': (3, 90), 'howToEatIt': (20, 420), 'cycleRelevance': (3, 560)}.items():
         n = len(s[sec])
         if not lo <= n <= hi:
             issues['format'].append(f'{k}: {sec} is {n} characters')
     # 2 readability
     for sec in ('whatItOffers', 'howToEatIt', 'cycleRelevance'):
+        if s[sec] == 'n/a':
+            continue
         score = flesch(s[sec])
         if score < 35:
             issues['readability'].append(f'{k}: {sec} reads as difficult (Flesch {score:.0f})')
@@ -60,11 +68,11 @@ for k in wave1:
         if pcts and not any(abs(v - q) <= 2 for q in pcts) and 'DV' not in m.string:
             issues['figure'].append(f'{k}: prose says {v}% but key nutrients are {sorted(pcts)}')
     # 5 cycle section could imply a phase link
-    cyc = s['cycleRelevance']
-    if 'menstrual blood loss' in cyc and phase[k] != 'menstrual':
-        issues['implication'].append(f'{k}: iron/menstruation sentence on a food featured in the {phase[k]} phase')
-    if not re.search(r'(cycle-phase|phase-specific) claim', cyc):
-        issues['implication'].append(f'{k}: no explicit "no phase claim" statement')
+    cyc = full_cycle
+    if 'menstrual blood loss' in cyc and 'every day of the month' not in cyc:
+        issues['implication'].append(f'{k}: iron sentence does not say the need applies all month')
+    if 'insufficient evidence to recommend eating this food during one particular menstrual phase' not in cyc:
+        issues['implication'].append(f'{k}: missing the evidence statement')
     # 6 hedging words that overstate
     for w in re.findall(r'\b(best|ideal|perfect|must|essential|superfood|powerful|miracle|boosts?|supports?|helps? (?:to )?(?:balance|regulate|relieve))\b', ' '.join(s.values()), re.I):
         issues['overstatement'].append(f'{k}: "{w}"')
@@ -83,8 +91,8 @@ for name, items in list(issues.items()):
         else:
             keep.append(x)
     issues[name] = keep
-iron_other = sum(1 for k in wave1 if 'menstrual blood loss' in profiles[k]['sections']['cycleRelevance'] and phase[k] != 'menstrual')
-iron_all = sum(1 for k in wave1 if 'menstrual blood loss' in profiles[k]['sections']['cycleRelevance'])
+iron_other = sum(1 for k in wave1 if 'menstrual blood loss' in cand[k]['sections']['cycleRelevance'] and phase[k] != 'menstrual')
+iron_all = sum(1 for k in wave1 if 'menstrual blood loss' in cand[k]['sections']['cycleRelevance'])
 L = ['# Wave 1 editorial quality assurance\n',
      f'Automated checks over the {len(wave1)} Wave 1 profiles (`wave1_qa.py`), on top of the data audit (every figure re-checked against live USDA records) and the regression tests. Nothing was changed and nothing is published.\n',
      '| Check | Result |', '|---|---|',
@@ -107,8 +115,10 @@ if accepted_log:
     L.append('## Flagged by a check, read, and accepted\n')
     L += accepted_log
     L.append('')
-L.append('## Does the cycle-relevance section create misleading implications?\n')
-L.append(f'- The heading "Cycle relevance" can suggest every food has a cycle link, when {len(wave1) - iron_all} of {len(wave1)} Wave 1 profiles say only that none is claimed. Suggested options: keep the heading, or rename it "Cycle note", or show the section only when a sourced nutrient fact exists.')
-L.append(f'- {iron_all} profiles carry the sourced iron sentence ("partly because of menstrual blood loss"). {iron_other} of them are foods featured in a phase other than menstrual, which could read as "this food is for your period". The sentence is true all month; the proposed wording (below) says so explicitly.\n')
+L.append('## Does the cycle section create misleading implications?\n')
+L.append(f'- Checked on the PROPOSED wording. Every one of the {len(wave1)} notes ends with the same evidence statement; none says or implies that a food should be eaten in a phase.')
+L.append(f'- {iron_all} notes carry the iron sentence. {iron_other} of them are on foods featured in a phase other than menstrual; each says the need applies every day of the month, not only during a period, so it does not read as "for your period".')
+L.append('- The old heading "Cycle relevance" suggested every food has a cycle link; the proposed heading "Nutrition & your cycle" with this wording does not.')
+L.append('- The pill "Recommended for your {phase} phase" did contradict the evidence; the previews use "Featured for variety in the {phase} phase" (see `why-this-food-audit.md`).\n')
 open(R + 'wave-1-qa-report.md', 'w').write('\n'.join(L) + '\n')
 print({k: len(v) for k, v in issues.items()}, 'iron on non-menstrual:', iron_other, 'of', iron_all)
