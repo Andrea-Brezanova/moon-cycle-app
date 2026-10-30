@@ -34,13 +34,27 @@ Static review of how MoonCycle stores and handles personal data, on `main` after
 | P2 | Cloud recipe generation would send the current cycle phase together with an account token. The in-app copy says nothing is sent | Medium if enabled, none today | Keep it unwired until consent and copy exist. A new test now fails if the UI starts using it |
 | P3 | SQLite may write temporary files (large sorts) to the temp folder | Low | **Assessed, not changed.** On the app's own SQLite build `temp_store` is 0 (files allowed). A forced spill left no visible temporary file (SQLite deletes it on open) and the encrypted database file contained no plaintext. Nothing demonstrates exposure. Optional hardening if you want it: `PRAGMA temp_store = MEMORY` on open |
 | P4 | An export file could remain in the temp folder if the app is killed while the share sheet is open | Low | **Fixed (29 Oct):** the export folder is deleted at every start-up (`deleteStaleExports`), with tests. Nothing else in the temp folder is touched |
-| P5 | The app snapshot shown in the iOS app switcher may show cycle data. iOS keeps these launch snapshots (about 3 MB) in the app's own data folder (`Library/SplashBoard`) and replaces them on reinstall | Low | **Proposal only.** A blur on backgrounding is a platform-level behaviour change that affects every screen and can flicker when the notification centre is pulled down; it needs your decision and a device test |
+| P5 | The app snapshot shown in the iOS app switcher may show cycle data. iOS keeps these launch snapshots (about 3 MB) in the app's own data folder (`Library/SplashBoard`) and replaces them on reinstall | Low | **Implemented as an opt-in (30 Oct), tested on the iPhone 30 Oct.** Settings › Privacy & Data › "Hide app in app switcher" (off by default). iOS puts an opaque cover over the window the moment the app stops being active and removes it when active again; Android sets `FLAG_SECURE` (which also blocks screenshots, and the copy says so). The setting lives in the UI preferences file, is sent to the native shell on change and at start, and "Delete my data" resets it. Simulator check: with it on the app-switcher card is blank, with it off the page shows; returning shows the same page. The cover also appears briefly when the notification centre or Control Center is pulled down (the app becomes inactive then). Tested on the physical iPhone on 30 Oct (blank card with it on, page visible with it off, same page after return) |
 | P6 | If Sentry is enabled, the vendor sees device and IP metadata and stack traces even with the scrubbing in place | Low | Update the privacy copy at that point |
 
-P1 and P4 were then implemented with tests (see the table); P3 and P5 remain proposals. Tests now lock the current posture (`test/privacy/privacy_posture_test.dart`): no backups, the exact permission list, only two iOS prompts, ignored environment files, an allow-list of network code, cloud generation unwired, external lookups debug-only, crash-report settings, export cleanup, and no logging of user content.
+P1 and P4 were implemented with tests (see the table); P5 is implemented as an opt-in awaiting the device test; P3 remains a proposal. Tests now lock the current posture (`test/privacy/privacy_posture_test.dart`): no backups, the exact permission list, only two iOS prompts, ignored environment files, an allow-list of network code, cloud generation unwired, external lookups debug-only, crash-report settings, export cleanup, and no logging of user content.
 
 ## Decisions for you
 1. P3: whether to add `PRAGMA temp_store = MEMORY` (optional; no exposure was demonstrated).
-2. P5: whether to blur the app in the app switcher (needs a device test).
-3. Whether the detailed-reminder wording needs a content review (the notification copy has an open TODO).
+2. P5: the device test on the iPhone, then merge.
+3. Detailed reminders (opt-in): see "Lock-screen exposure with details on" below; whether to soften the wording.
 4. Before any cloud feature ships: consent, copy, Android INTERNET permission, vendor terms.
+
+## Lock-screen exposure with details on (reviewed 30 Oct)
+
+Only when the user turns on Settings › Notifications › Show details in reminders. By default every reminder reads "Moon Cycle: You have a reminder."
+
+| Reminder | Title | Body | What a bystander could learn |
+|---|---|---|---|
+| Phase start | "Your {phase} phase" | "It's estimated to start today. See the foods for this phase in Moon Cycle." | That the user tracks a cycle, and which phase she is in today (a menstrual or ovulatory phase reveals period or fertile-window timing) |
+| Period soon | "Period due in 2 days" | "Estimated for {weekday, date}, based on your dates." | That a period is expected and the exact predicted date |
+
+- Both also say "Moon Cycle" as the sender, so they reveal that the app is installed.
+- iOS shows or hides previews according to the phone's own "Show Previews" setting; Moon Cycle does not control it. Android notifications are marked private, so a locked screen hides the content.
+- Notifications can also appear on a paired watch and in Notification Center.
+- The wording already says "estimated" and does not state certainty. Possible softer wording, **not applied, needs your decision**: drop the date from the period reminder ("Period due soon") and drop the phase name from the title ("Moon Cycle: A new phase starts today").
