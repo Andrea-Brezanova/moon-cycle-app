@@ -176,7 +176,7 @@
     "agrees": true
    },
    "needsChange": true,
-   "proposedReplacement": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein."
+   "proposedReplacement": "Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein."
   },
   {
    "id": "oyster",
@@ -386,7 +386,7 @@
    "kind": "phase-link",
    "figureCheck": null,
    "needsChange": true,
-   "proposedReplacement": "Lentils provide plant-based iron, protein and fibre."
+   "proposedReplacement": "Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre."
   },
   {
    "id": "lima-bean",
@@ -601,7 +601,7 @@
     "agrees": true
    },
    "needsChange": true,
-   "proposedReplacement": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate."
+   "proposedReplacement": "Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate."
   },
   {
    "id": "tomato",
