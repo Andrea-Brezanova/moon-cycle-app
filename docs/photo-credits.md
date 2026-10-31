@@ -22,3 +22,6 @@ Supplied by the app owner (`v2-assets`); free Unsplash photos, shown on Home and
 | `home_move_yoga_mat.jpg` | Louise Vildmark / Unsplash (free licence) |
 | `home_relax_tea.jpg` | Olena Bohovyk / Unsplash (free licence) |
 | `quick_my_diary.jpg`, `quick_shopping_list.jpg` | AI-generated with ChatGPT (supplied by the app owner), cropped for the Quick access cards |
+
+## Recipe images (`assets/images/recipes/`)
+The 40 recipe images are AI-generated illustrations of the dishes (made with ChatGPT and supplied by the app owner), resized to 1200 px wide. They are not photographs of the recipes as cooked and may differ from a recipe in small details. No people, brands or third-party photographs are used. Whether the in-app Credits page should say "AI-generated" is an open owner decision.

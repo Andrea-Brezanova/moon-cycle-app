@@ -21,7 +21,7 @@ The design package for building Moon Cycle in Flutter (repository `moon-cycle-ap
 | `assets/ui/` | Moon-hero reference SVGs for each phase, light and dark |
 | `assets/shapes/` | Organic shapes, used on the onboarding welcome screen only |
 | `assets/sample-images/` | Mock-up photos (not licensed for release) |
-| `content/` | Ingredient-sheet copy and audit, recipe classification, sample content, **`recovered/emergent-recipes.json`** (all 12 recipes, recovered), the filled-in recipe CSVs and **`RECIPE-DATA-NEEDED.md`** (open flags and what's still missing) |
+| `content/` | Ingredient-sheet copy and audit, recipe classification, sample content, `recovered/README.md` (the 12 sample recipes and their CSVs were removed on 31 Oct 2026: unverified wording) and **`RECIPE-DATA-NEEDED.md`** (historical notes) |
 
 ## Screen index (`screens/light-NN-*.png`, `screens/dark-NN-*.png`)
 - **01–05:** onboarding.

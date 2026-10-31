@@ -1,5 +1,7 @@
 # Recipe and food data: recovered, and what's still open
 
+> **Historical (31 Oct 2026):** the recovered recipe files this note describes were removed from the tree because the wording of the AI-generated sample recipes has no recorded licence; see `recovered/README.md`. Nothing here is used by the app.
+
 **Status:** 11 October 2026. Recipe data recovered from the Emergent repository.
 **Source:** `github.com/Andrea-Brezanova/moon-cycle` (private), `frontend/src/data/phases.ts`, commit `374f27f`. That file labels this data **"SAMPLE CONTENT"**: Emergent generated it as sample recipes, so it needs an editorial review and a test-cook before release.
 
