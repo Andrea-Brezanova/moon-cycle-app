@@ -17,9 +17,9 @@ NUTRIENT = re.compile(r'\b(source of|provides?|rich in|bring|brings|contains?)\b
 PCT = re.compile(r'about (\d+)% of the daily value')
 
 REWRITES = {
-    'mussel': 'Mussels are a rich source of iron (about 32% of the daily value per serving) and protein.',
-    'green-lentil': 'Lentils provide plant-based iron, protein and fibre.',
-    'spinach': 'Cooked spinach provides iron (about 18% of the daily value per serving) along with folate.',
+    'mussel': 'Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein.',
+    'green-lentil': 'Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre.',
+    'spinach': 'Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate.',
     'banana': 'Bananas are an easy addition to filling breakfasts and snacks.',
     'honeydew': 'Honeydew is soft and sweet, an easy fruit salad or snack.',
     # Stated percentage does not match the serving in the verified profile.
