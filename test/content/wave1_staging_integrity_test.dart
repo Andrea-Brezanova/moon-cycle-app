@@ -66,7 +66,7 @@ void main() {
         );
       }
       for (final c in (p['cautions']! as List).cast<Map<String, Object?>>()) {
-        expect((c['source'] as String?)?.isNotEmpty, isTrue, reason: '$id');
+        expect((c['source'] as String?)?.isNotEmpty, isTrue, reason: id);
       }
     }
   });
