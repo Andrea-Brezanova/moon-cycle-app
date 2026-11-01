@@ -1,6 +1,6 @@
 # App quality, accessibility, data-integrity and privacy audit (1 Nov 2026)
 
-Method: code reading of the current `main` (80ada44 plus later merges), the existing 1,100+ tests and goldens, new automated checks (below), and a live walk through Eat › Foods › Food Detail on the iOS Simulator. **Implemented** = merged or in an open PR; **Proposal** = needs your decision; **Not verified** = not checked here.
+Method: code reading of the current `main` (80ada44 plus later merges), the existing automated test suite and goldens, new automated checks (below), and a live walk through Eat › Foods › Food Detail on the iOS Simulator. **Implemented** = merged or in an open PR; **Proposal** = needs your decision; **Not verified** = not checked here.
 
 ## 1. Defects found and corrected
 | Finding | Where | Action |
