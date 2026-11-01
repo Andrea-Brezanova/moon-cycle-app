@@ -40,7 +40,7 @@ There are no accounts, so Apple's in-app account-deletion rule does not apply. *
 
 ## 6. Accessibility
 
-Verified by tests: iOS tap-target size, labelled tap targets and text contrast on 45+ screens (light), no overflow at 320 pt and 1.5× text. **Not done:** a manual VoiceOver and Dynamic Type walk-through on the phone, dark-mode contrast tests on every screen, Switch Control. No looping animations exist, so reduced-motion exposure is small (toggle and press-fade only).
+Verified by tests: iOS tap-target size, labelled tap targets and text contrast on 40+ screens (light), no overflow at 320 pt and 1.5× text. **Not done:** a manual VoiceOver and Dynamic Type walk-through on the phone, dark-mode contrast tests on every screen, Switch Control. No looping animations exist, so reduced-motion exposure is small (toggle and press-fade only).
 
 ## 7. Reliability and crash reporting
 
