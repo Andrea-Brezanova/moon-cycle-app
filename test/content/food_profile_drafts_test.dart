@@ -610,10 +610,10 @@ void main() {
       expect(doc['cycleHeading'], 'Nutrition & your cycle');
       final cand = (doc['profiles']! as Map).cast<String, Object?>();
       const evidence =
-          'There is currently insufficient evidence to recommend eating this '
-          'food during one particular menstrual phase.';
+          'There isn’t enough evidence to recommend eating this food in one '
+          'particular phase of your cycle.';
       const nutrients =
-          'This food provides nutrients that support general health. ';
+          'This food provides nutrients that support general health.';
       // The same rule as wave1_wording.py: "provides nutrients" only when a
       // serving gives a meaningful share of something.
       bool providesNutrients(Map<String, Object?> profile) {
@@ -678,11 +678,17 @@ void main() {
         final review =
             (p as Map<String, Object?>)['review']! as Map<String, Object?>;
         expect(review['publishable'], isFalse, reason: id);
-        expect(
-          (review['approval']! as Map<String, Object?>).values,
-          everyElement(isNull),
-          reason: '$id: reviewer details are filled in only by a real review',
-        );
+        final approval = review['approval']! as Map<String, Object?>;
+        for (final k in [
+          'reviewedBy',
+          'reviewedOn',
+          'professionalCredential',
+        ]) {
+          expect(approval[k], isNull, reason: '$id: $k only by a real review');
+        }
+        expect(approval['finalMaterialReviewed'], isFalse, reason: id);
+        // The role is recorded without implying clinical credentials.
+        expect(approval['editorialRole'], contains('not a clinician'));
         for (final w in ['hormone', 'fertil', 'ovulat', 'pms', 'mood']) {
           expect(text.toLowerCase(), isNot(contains(w)), reason: '$id $w');
         }

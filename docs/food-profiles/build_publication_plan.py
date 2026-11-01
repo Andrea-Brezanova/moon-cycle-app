@@ -56,7 +56,10 @@ for k in wave1:
                           'clinical': 'not clinically reviewed', 'publishable': False,
                           # Filled in only when a real review takes place: the reviewer's own name, the actual date,
                           # and a professional credential only if it has been verified. Never invented.
-                          'approval': {'reviewedBy': None, 'reviewedOn': None, 'professionalCredential': None}}}
+                          'approval': {'reviewedBy': None, 'reviewedOn': None, 'professionalCredential': None,
+                                       # The real editorial role, stated without implying clinical credentials.
+                                       'editorialRole': 'App owner (editorial owner; not a clinician)',
+                                       'finalMaterialReviewed': False}}}
 json.dump({'_status': 'CANDIDATE for owner approval. Not bundled, not published. publishable is false for every profile. The cycleRelevance text is the PROPOSED final wording.', 'cycleHeading': HEADING, 'profiles': cand},
           open(ROOT + 'wave-1-candidate.json', 'w'), indent=1, ensure_ascii=False)
 

@@ -155,7 +155,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsOneWidget);
-    expect(find.text('Recommended for your follicular phase'), findsOneWidget);
+    expect(find.text('Explore this food'), findsOneWidget);
     expect(find.text(todays.why[Phase.follicular]!.short), findsWidgets);
   });
 
@@ -175,7 +175,7 @@ void main() {
     expect(find.textContaining('Featured in the '), findsOneWidget);
     // No phase-specific rationale without phase context.
     expect(find.text('WHY THIS FOOD?'), findsNothing);
-    expect(find.textContaining('Recommended for your'), findsNothing);
+    expect(find.text('Explore this food'), findsNothing);
   });
 
   testWidgets('All foods: a general food on no phase list still appears', (
@@ -190,7 +190,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsNothing);
-    expect(find.textContaining('Recommended for your'), findsNothing);
+    expect(find.text('Explore this food'), findsNothing);
     expect(find.textContaining('Featured in'), findsNothing);
   });
 
@@ -282,7 +282,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(FoodDetailPage), findsOneWidget);
     expect(find.text('SEAFOOD'), findsOneWidget);
-    expect(find.text('Recommended for your luteal phase'), findsOneWidget);
+    expect(find.text('Explore this food'), findsOneWidget);
     expect(find.text('WHY THIS FOOD?'), findsOneWidget);
     final salmon = testCatalogue.food('salmon')!;
     expect(find.text(salmon.why[Phase.luteal]!.short), findsOneWidget);

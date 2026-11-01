@@ -1,0 +1,312 @@
+{
+ "_about": "Verification of the nine rewritten sentences against live USDA FoodData Central records (31 Oct / 1 Nov 2026).",
+ "reference": "18 mg iron (NIH ODS Iron fact sheet, updated 4 Sep 2025, Table 1: RDA women 19-50 = 18 mg, men 8 mg; read 1 Nov 2026)",
+ "note": "NIH ODS Table 2 rounds iron to whole mg (lentils and spinach, half a cup: 3 mg = 17%); the sentences use the unrounded USDA value (3.30 and 3.21 mg = 18%).",
+ "allOk": true,
+ "rows": [
+  {
+   "id": "mussel",
+   "phase": "menstrual",
+   "before": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation.",
+   "after": "Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein.",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "3 oz = 85.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 32%, computed 32% (5.71 mg of 18 mg)",
+     true
+    ],
+    [
+     "protein present in serving",
+     "20.2 g",
+     true
+    ],
+    [
+     "\"rich source\" means 20% or more of the Daily Value (FDA)",
+     "32%",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 174217,
+    "description": "Mollusks, mussel, blue, cooked, moist heat",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 85.0,
+   "ironPer100g": 6.72,
+   "ironMgInServing": 5.71,
+   "computedPercent": 32,
+   "ok": true
+  },
+  {
+   "id": "oyster",
+   "phase": "menstrual",
+   "before": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation.",
+   "after": "Oysters are a rich source of iron (about 21% of the daily value in six medium oysters).",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "6 medium = 42.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 21%, computed 21% (3.87 mg of 18 mg)",
+     true
+    ],
+    [
+     "\"rich source\" means 20% or more of the Daily Value (FDA)",
+     "21%",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 171980,
+    "description": "Mollusks, oyster, eastern, wild, cooked, moist heat",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 42.0,
+   "ironPer100g": 9.21,
+   "ironMgInServing": 3.87,
+   "computedPercent": 21,
+   "ok": true
+  },
+  {
+   "id": "sardine",
+   "phase": "menstrual",
+   "before": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta.",
+   "after": "Sardines add iron (about 15% of the daily value in one 3.75-ounce can, drained) and are easy to put on toast or in pasta.",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "1 can (3.75 oz) = 92.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 15%, computed 15% (2.69 mg of 18 mg)",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 175139,
+    "description": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 92.0,
+   "ironPer100g": 2.92,
+   "ironMgInServing": 2.69,
+   "computedPercent": 15,
+   "ok": true
+  },
+  {
+   "id": "green-lentil",
+   "phase": "menstrual",
+   "before": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation.",
+   "after": "Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre.",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "1 cup = 198.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 18%, computed 18% (3.30 mg of 18 mg)",
+     true
+    ],
+    [
+     "protein present in serving",
+     "8.9 g",
+     true
+    ],
+    [
+     "fibre present in serving",
+     "7.8 g",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 172421,
+    "description": "Lentils, mature seeds, cooked, boiled, without salt",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 99.0,
+   "ironPer100g": 3.33,
+   "ironMgInServing": 3.3,
+   "computedPercent": 18,
+   "ok": true
+  },
+  {
+   "id": "quinoa",
+   "phase": "menstrual",
+   "before": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls.",
+   "after": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked) and is lovely in warm bowls.",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "1 cup = 185.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 8%, computed 8% (1.38 mg of 18 mg)",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 168917,
+    "description": "Quinoa, cooked",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 92.5,
+   "ironPer100g": 1.49,
+   "ironMgInServing": 1.38,
+   "computedPercent": 8,
+   "ok": true
+  },
+  {
+   "id": "spinach",
+   "phase": "menstrual",
+   "before": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation.",
+   "after": "Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate.",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "1 cup = 180.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 18%, computed 18% (3.21 mg of 18 mg)",
+     true
+    ],
+    [
+     "folate present in serving",
+     "131.4 µg",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 168463,
+    "description": "Spinach, cooked, boiled, drained, without salt",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 90.0,
+   "ironPer100g": 3.57,
+   "ironMgInServing": 3.21,
+   "computedPercent": 18,
+   "ok": true
+  },
+  {
+   "id": "anchovies",
+   "phase": "menstrual",
+   "before": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein.",
+   "after": "Anchovies are a concentrated source of iron, but a typical serving is small (five anchovies give about 5% of the daily value).",
+   "checks": [
+    [
+     "USDA household measure exists",
+     "5 anchovies = 20.0 g",
+     true
+    ],
+    [
+     "stated iron percent = iron in serving / 18 mg",
+     "stated 5%, computed 5% (0.93 mg of 18 mg)",
+     true
+    ],
+    [
+     "\"concentrated\" is per weight; sentence also states the small serving",
+     "4.63 mg per 100 g, 5% in the serving",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "usda": {
+    "fdcId": 174183,
+    "description": "Fish, anchovy, european, canned in oil, drained solids",
+    "lastUpdated": "4/1/2019"
+   },
+   "servingGrams": 20.0,
+   "ironPer100g": 4.63,
+   "ironMgInServing": 0.93,
+   "computedPercent": 5,
+   "ok": true
+  },
+  {
+   "id": "banana",
+   "phase": "luteal",
+   "before": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase.",
+   "after": "Bananas are an easy addition to breakfasts and snacks.",
+   "checks": [
+    [
+     "no figure or nutrient claim in the sentence",
+     "meal-style wording only",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "ok": true
+  },
+  {
+   "id": "honeydew",
+   "phase": "ovulatory",
+   "before": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack.",
+   "after": "Honeydew is soft and sweet, an easy fruit salad or snack.",
+   "checks": [
+    [
+     "no figure or nutrient claim in the sentence",
+     "meal-style wording only",
+     true
+    ],
+    [
+     "no phase, hormone, \"cooling\" or \"highlight\" wording",
+     "none",
+     true
+    ]
+   ],
+   "ok": true
+  }
+ ]
+}

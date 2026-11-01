@@ -28,7 +28,8 @@ final class Catalogue {
   /// In the order of the allergen chips.
   final List<Allergen> allergens;
 
-  /// "Recommended for your {phase} phase".
+  /// The label on the pill above a food's reason ("Explore this food"). It
+  /// says nothing about a phase being best for the food.
   final String sheetLabel;
 
   final Map<Phase, PhaseContent> phases;

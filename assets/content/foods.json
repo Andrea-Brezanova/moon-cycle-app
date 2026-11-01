@@ -506,8 +506,8 @@
       ],
       "why": {
         "menstrual": {
-          "short": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation.",
-          "detail": "Mussels are a rich source of iron (about 32% of the daily value per serving) and protein, so we highlight them during menstruation."
+          "short": "Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein.",
+          "detail": "Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein."
         }
       },
       "category": "seafood"
@@ -544,8 +544,8 @@
       ],
       "why": {
         "menstrual": {
-          "short": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation.",
-          "detail": "Oysters are a rich source of iron (about 37% of the daily value per serving), which is why we highlight them during menstruation."
+          "short": "Oysters are a rich source of iron (about 21% of the daily value in six medium oysters).",
+          "detail": "Oysters are a rich source of iron (about 21% of the daily value in six medium oysters)."
         }
       },
       "category": "seafood"
@@ -565,8 +565,8 @@
       ],
       "why": {
         "menstrual": {
-          "short": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta.",
-          "detail": "Sardines add iron (about 11% of the daily value per serving) and are easy to put on toast or in pasta."
+          "short": "Sardines add iron (about 15% of the daily value in one 3.75-ounce can, drained) and are easy to put on toast or in pasta.",
+          "detail": "Sardines add iron (about 15% of the daily value in one 3.75-ounce can, drained) and are easy to put on toast or in pasta."
         }
       },
       "category": "seafood"
@@ -1089,8 +1089,8 @@
       "cautions": [],
       "why": {
         "menstrual": {
-          "short": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation.",
-          "detail": "Lentils provide plant-based iron, protein and fibre, which is why we highlight them during menstruation."
+          "short": "Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre.",
+          "detail": "Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre."
         }
       },
       "category": "legumes"
@@ -1456,8 +1456,8 @@
       "cautions": [],
       "why": {
         "menstrual": {
-          "short": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls.",
-          "detail": "Quinoa adds some plant-based iron (about 12% of the daily value per serving) and is lovely in warm bowls."
+          "short": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked) and is lovely in warm bowls.",
+          "detail": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked) and is lovely in warm bowls."
         }
       },
       "category": "grains"
@@ -1662,8 +1662,8 @@
       ],
       "why": {
         "menstrual": {
-          "short": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation.",
-          "detail": "Cooked spinach provides iron (about 18% of the daily value per serving) along with folate, which is why we highlight it during menstruation."
+          "short": "Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate.",
+          "detail": "Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate."
         }
       },
       "category": "vegetables"
@@ -2686,8 +2686,8 @@
       "cautions": [],
       "why": {
         "menstrual": {
-          "short": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein.",
-          "detail": "Anchovies are a concentrated source of iron (about 22% of the daily value per serving) and protein. A few go a long way in pasta, salads or on toast."
+          "short": "Anchovies are a concentrated source of iron, but a typical serving is small (five anchovies give about 5% of the daily value).",
+          "detail": "Anchovies are a concentrated source of iron, but a typical serving is small (five anchovies give about 5% of the daily value). A few go a long way in pasta, salads or on toast."
         }
       },
       "category": "seafood"
@@ -2770,8 +2770,8 @@
       "cautions": [],
       "why": {
         "luteal": {
-          "short": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase.",
-          "detail": "Bananas are an easy addition to filling breakfasts and snacks during the luteal phase."
+          "short": "Bananas are an easy addition to breakfasts and snacks.",
+          "detail": "Bananas are an easy addition to breakfasts and snacks."
         }
       },
       "category": "fruit"
@@ -3333,8 +3333,8 @@
       "cautions": [],
       "why": {
         "ovulatory": {
-          "short": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack.",
-          "detail": "Honeydew is soft, sweet and cooling, an easy fruit salad or snack."
+          "short": "Honeydew is soft and sweet, an easy fruit salad or snack.",
+          "detail": "Honeydew is soft and sweet, an easy fruit salad or snack."
         }
       },
       "category": "fruit"
