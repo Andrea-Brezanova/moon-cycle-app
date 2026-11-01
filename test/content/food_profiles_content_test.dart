@@ -174,7 +174,7 @@ void main() {
           'KEY NUTRIENTS',
           'A PRACTICAL SERVING',
           'HOW TO EAT IT',
-          'CYCLE RELEVANCE',
+          'NUTRITION & YOUR CYCLE',
         ]) {
           await tester.scrollUntilVisible(
             find.text(t),

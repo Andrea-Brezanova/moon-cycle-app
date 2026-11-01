@@ -209,10 +209,7 @@ class _GalleryContentState extends State<GalleryContent> {
           spacing: 8,
           runSpacing: 8,
           children: [
-            MoonPill(
-              'Recommended for your ${_phase.name} phase',
-              background: c.phase(_phase).tint,
-            ),
+            MoonPill('Explore this food', background: c.phase(_phase).tint),
             MoonPill(
               _label(_phase),
               background: c.phase(_phase).tint,
@@ -374,7 +371,7 @@ class _GalleryContentState extends State<GalleryContent> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: MoonPill(
-                      'Recommended for your follicular phase',
+                      'Explore this food',
                       background: c.phase(Phase.follicular).tint,
                     ),
                   ),

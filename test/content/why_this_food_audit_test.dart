@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Guards the "Why this food?" catalogue copy while its wording is under review
-/// (docs/food-profiles/why-this-food-audit.md). Production copy is unchanged.
+/// (docs/food-profiles/why-this-food-audit.md). The nine flagged lines were
+/// rewritten on 1 Nov 2026 (docs/food-profiles/why-this-food-rewrites.json).
 void main() {
   final foods =
       (jsonDecode(File('assets/content/foods.json').readAsStringSync())
@@ -21,33 +22,28 @@ void main() {
           ) as Map)['profiles']
           as Map);
 
-  // Stated "about N% of the daily value per serving" figures that do not match
-  // the verified serving. Listed in the audit with proposed replacements; no
-  // new one may appear.
-  const knownMismatches = {'oyster', 'sardine', 'quinoa', 'anchovies'};
+  // Stated "about N% of the daily value" figures must match the verified
+  // serving. The four that did not were corrected; none may appear again.
 
-  test(
-    'stated iron percentages match the verified serving, except the known',
-    () {
-      final mismatched = <String>{};
-      for (final f in foods.cast<Map<String, Object?>>()) {
-        final id = f['id'] as String;
-        final profile = (approved[id] ?? drafts[id]) as Map<String, Object?>?;
-        for (final w
-            in ((f['why']! as Map).values).cast<Map<String, Object?>>()) {
-          final m = RegExp(r'(\d+)% of the daily value')
-              .firstMatch(w['short'] as String);
-          if (m == null) continue;
-          expect(profile, isNotNull, reason: '$id has a figure but no profile');
-          final src = profile!['source']! as Map<String, Object?>;
-          final iron = (((src['per100g']! as Map)['iron']!) as num).toDouble();
-          final pct = 100 * iron * (src['portionGrams'] as num) / 100 / 18;
-          if ((pct - int.parse(m.group(1)!)).abs() > 2.5) mismatched.add(id);
-        }
+  test('stated iron percentages match the verified serving', () {
+    final mismatched = <String>{};
+    for (final f in foods.cast<Map<String, Object?>>()) {
+      final id = f['id'] as String;
+      final profile = (approved[id] ?? drafts[id]) as Map<String, Object?>?;
+      for (final w
+          in ((f['why']! as Map).values).cast<Map<String, Object?>>()) {
+        final m = RegExp(r'(\d+)% of the daily value')
+            .firstMatch(w['short'] as String);
+        if (m == null) continue;
+        expect(profile, isNotNull, reason: '$id has a figure but no profile');
+        final src = profile!['source']! as Map<String, Object?>;
+        final iron = (((src['per100g']! as Map)['iron']!) as num).toDouble();
+        final pct = 100 * iron * (src['portionGrams'] as num) / 100 / 18;
+        if ((pct - int.parse(m.group(1)!)).abs() > 2.5) mismatched.add(id);
       }
-      expect(mismatched, knownMismatches);
-    },
-  );
+    }
+    expect(mismatched, isEmpty);
+  });
 
   test('no why-copy promises a hormonal, fertility, PMS or mood effect', () {
     final claim = RegExp(
@@ -71,24 +67,53 @@ void main() {
     }
   });
 
-  test('the audit lists every phase-linked line with a replacement', () {
-    final audit = jsonDecode(
-      File('docs/food-profiles/why-this-food-audit.json').readAsStringSync(),
-    ) as Map<String, Object?>;
-    final flagged = (audit['foods']! as List)
-        .cast<Map<String, Object?>>()
-        .where((r) => r['needsChange'] == true);
-    expect(flagged, isNotEmpty);
-    for (final r in flagged) {
-      expect(r['proposedReplacement'], isNotNull, reason: '${r['id']}');
-      expect(
-        r['proposedReplacement'] as String,
-        isNot(contains('menstruation')),
-      );
-      expect(r['proposedReplacement'] as String, isNot(contains('luteal')));
+  test('the nine rewrites are in production and phases are unchanged', () {
+    final rewrites =
+        (jsonDecode(
+              File('docs/food-profiles/why-this-food-rewrites.json')
+                  .readAsStringSync(),
+            ) as Map<String, Object?>)['rewrites']!
+            as List;
+    expect(rewrites, hasLength(9));
+    final byId = {
+      for (final f in foods.cast<Map<String, Object?>>()) f['id']: f,
+    };
+    for (final r in rewrites.cast<Map<String, Object?>>()) {
+      final why = (byId[r['id']]!['why']! as Map)[r['phase']] as Map?;
+      expect(why, isNotNull, reason: '${r['id']} keeps its featured phase');
+      expect(why!['short'], r['shortAfter'], reason: '${r['id']}');
+      expect(why['detail'], r['detailAfter'], reason: '${r['id']}');
     }
-    // The proposals are in the audit only: production still has the old lines.
     final text = File('assets/content/foods.json').readAsStringSync();
-    expect(text, contains('highlight them during menstruation'));
+    for (final old in [
+      'highlight them during menstruation',
+      'highlight it during menstruation',
+      'during the luteal phase',
+      'soft, sweet and cooling',
+    ]) {
+      expect(text, isNot(contains(old)), reason: old);
+    }
+  });
+
+  test('no why-copy ties a food to a phase or says "cooling"', () {
+    final phaseLink = RegExp(
+      r'we highlight|which is why we|during (the )?(luteal|menstru|follic|ovulat)|\bcooling\b',
+      caseSensitive: false,
+    );
+    for (final f in foods.cast<Map<String, Object?>>()) {
+      for (final w
+          in ((f['why']! as Map).values).cast<Map<String, Object?>>()) {
+        expect(
+          phaseLink.hasMatch(w['short'] as String),
+          isFalse,
+          reason: '${f['id']}: ${w['short']}',
+        );
+        expect(
+          phaseLink.hasMatch(w['detail'] as String),
+          isFalse,
+          reason: '${f['id']}: ${w['detail']}',
+        );
+      }
+    }
   });
 }

@@ -11,9 +11,12 @@ import re
 
 HEADING = 'Nutrition & your cycle'
 
-CLOSING_NUTRIENTS = ('This food provides nutrients that support general health. '
-                     'There is currently insufficient evidence to recommend eating this food during one particular menstrual phase.')
-CLOSING_PLAIN = 'There is currently insufficient evidence to recommend eating this food during one particular menstrual phase.'
+# Owner-approved (1 Nov 2026): plainer, evidence-calibrated. The nutrient sentence is a fact about the food and is
+# used only where a serving gives a meaningful amount; the second sentence is the evidence statement about phases.
+EVIDENCE_STATEMENT = 'There isn’t enough evidence to recommend eating this food in one particular phase of your cycle.'
+NUTRIENT_SENTENCE = 'This food provides nutrients that support general health.'
+CLOSING_NUTRIENTS = NUTRIENT_SENTENCE + '\n\n' + EVIDENCE_STATEMENT
+CLOSING_PLAIN = EVIDENCE_STATEMENT
 
 
 def provides_nutrients(profile):
@@ -77,5 +80,6 @@ def proposed_cycle_note(profile):
         k = re.sub(r'\(NIH ODS\); ([A-Z])([a-z])', lambda m: f'(NIH ODS); {m.group(1).lower()}{m.group(2)}', k)
         fixed.append(k)
     keep = fixed
-    closing = CLOSING_NUTRIENTS if provides_nutrients(profile) else CLOSING_PLAIN
-    return ' '.join(keep + [closing])
+    # Nutrient facts first, in one paragraph; the evidence statement about phases stands apart below them.
+    facts = ' '.join(keep + ([NUTRIENT_SENTENCE] if provides_nutrients(profile) else []))
+    return facts + '\n\n' + EVIDENCE_STATEMENT if facts else EVIDENCE_STATEMENT

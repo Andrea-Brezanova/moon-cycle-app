@@ -20,13 +20,13 @@ REWRITES = {
     'mussel': 'Mussels are a rich source of iron (about 32% of the daily value in 3 ounces cooked) and protein.',
     'green-lentil': 'Lentils provide plant-based iron (about 18% of the daily value in half a cup cooked), protein and fibre.',
     'spinach': 'Cooked spinach provides iron (about 18% of the daily value in half a cup cooked) along with folate.',
-    'banana': 'Bananas are an easy addition to filling breakfasts and snacks.',
+    'banana': 'Bananas are an easy addition to breakfasts and snacks.',
     'honeydew': 'Honeydew is soft and sweet, an easy fruit salad or snack.',
     # Stated percentage does not match the serving in the verified profile.
-    'oyster': 'Oysters are a rich source of iron (about 21% of the daily value in six oysters).',
-    'quinoa': 'Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked).',
+    'oyster': 'Oysters are a rich source of iron (about 21% of the daily value in six medium oysters).',
+    'quinoa': 'Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked) and is lovely in warm bowls.',
     'anchovies': 'Anchovies are a concentrated source of iron, but a typical serving is small (five anchovies give about 5% of the daily value).',
-    'sardine': 'Sardines add iron (about 15% of the daily value in one small can).',
+    'sardine': 'Sardines add iron (about 15% of the daily value in one 3.75-ounce can, drained) and are easy to put on toast or in pasta.',
 }
 
 

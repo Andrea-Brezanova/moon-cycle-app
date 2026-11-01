@@ -16,6 +16,12 @@ import '../../home/presentation/widgets/plant_photos.dart';
 class CreditsPage extends StatelessWidget {
   const CreditsPage({super.key});
 
+  /// Shown on Credits & Sources: some artwork is AI-generated.
+  static const aiDisclosure =
+      'Some food and lifestyle illustrations in Moon Cycle, including the '
+      'recipe images, were generated using AI. They show the idea of a dish and '
+      'may differ from a recipe in small details.';
+
   static const _providers = [
     (
       'TheMealDB',
@@ -82,6 +88,13 @@ class CreditsPage extends StatelessWidget {
                   const SizedBox(height: 8),
                   for (final (name, text) in _providers)
                     _Line(title: name, detail: text),
+                  const SizedBox(height: 30),
+                  const Overline('Illustrations'),
+                  const SizedBox(height: 8),
+                  Text(
+                    aiDisclosure,
+                    style: dmSans(15, height: 1.5, color: c.textMuted),
+                  ),
                   const SizedBox(height: 30),
                   const Overline('Moon Cycle'),
                   const SizedBox(height: 8),

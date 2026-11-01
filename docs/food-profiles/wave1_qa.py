@@ -6,7 +6,7 @@ Read-only: it changes no profile and publishes nothing."""
 import collections, json, re, sys
 
 sys.path.insert(0, 'docs/food-profiles')
-from wave1_wording import CLOSING_NUTRIENTS, CLOSING_PLAIN  # noqa: E402
+from wave1_wording import CLOSING_NUTRIENTS, CLOSING_PLAIN, EVIDENCE_STATEMENT, NUTRIENT_SENTENCE  # noqa: E402
 
 R = 'docs/food-profiles/'
 profiles = json.load(open(R + 'complete-draft-dataset.json'))['profiles']
@@ -71,7 +71,7 @@ for k in wave1:
     cyc = full_cycle
     if 'menstrual blood loss' in cyc and 'every day of the month' not in cyc:
         issues['implication'].append(f'{k}: iron sentence does not say the need applies all month')
-    if 'insufficient evidence to recommend eating this food during one particular menstrual phase' not in cyc:
+    if 'enough evidence to recommend eating this food in one particular phase of your cycle' not in cyc:
         issues['implication'].append(f'{k}: missing the evidence statement')
     # 6 hedging words that overstate
     for w in re.findall(r'\b(best|ideal|perfect|must|essential|superfood|powerful|miracle|boosts?|supports?|helps? (?:to )?(?:balance|regulate|relieve))\b', ' '.join(s.values()), re.I):

@@ -191,7 +191,7 @@
     "agrees": false
    },
    "needsChange": true,
-   "proposedReplacement": "Oysters are a rich source of iron (about 21% of the daily value in six oysters)."
+   "proposedReplacement": "Oysters are a rich source of iron (about 21% of the daily value in six medium oysters)."
   },
   {
    "id": "sardine",
@@ -206,7 +206,7 @@
     "agrees": false
    },
    "needsChange": true,
-   "proposedReplacement": "Sardines add iron (about 15% of the daily value in one small can)."
+   "proposedReplacement": "Sardines add iron (about 15% of the daily value in one 3.75-ounce can, drained) and are easy to put on toast or in pasta."
   },
   {
    "id": "scallop",
@@ -531,7 +531,7 @@
     "agrees": false
    },
    "needsChange": true,
-   "proposedReplacement": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked)."
+   "proposedReplacement": "Quinoa adds some plant-based iron (about 8% of the daily value in half a cup cooked) and is lovely in warm bowls."
   },
   {
    "id": "asparagus",
@@ -981,7 +981,7 @@
    "kind": "phase-link",
    "figureCheck": null,
    "needsChange": true,
-   "proposedReplacement": "Bananas are an easy addition to filling breakfasts and snacks."
+   "proposedReplacement": "Bananas are an easy addition to breakfasts and snacks."
   },
   {
    "id": "bean-sprouts",

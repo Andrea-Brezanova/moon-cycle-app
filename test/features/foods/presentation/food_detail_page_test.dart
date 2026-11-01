@@ -135,10 +135,7 @@ void main() {
         await pumpDetail(tester, food.id, phase: phase);
         expect(find.text(food.why[phase]!.short), findsOneWidget);
         expect(find.text('WHY THIS FOOD?'), findsOneWidget);
-        expect(
-          find.text('Recommended for your ${phase.name} phase'),
-          findsOneWidget,
-        );
+        expect(find.text('Explore this food'), findsOneWidget);
       });
     }
   }
@@ -148,7 +145,7 @@ void main() {
   ) async {
     await pumpDetail(tester, 'cucumber', phase: Phase.luteal, general: true);
     expect(find.text('WHY THIS FOOD?'), findsNothing);
-    expect(find.textContaining('Recommended for your'), findsNothing);
+    expect(find.text('Explore this food'), findsNothing);
     expect(find.text('ABOUT THIS FOOD'), findsOneWidget);
   });
 

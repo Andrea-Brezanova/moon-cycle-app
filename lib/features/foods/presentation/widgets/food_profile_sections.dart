@@ -14,7 +14,7 @@ class FoodProfileSections extends StatelessWidget {
   const FoodProfileSections({
     super.key,
     required this.profile,
-    this.cycleHeading = 'Cycle relevance',
+    this.cycleHeading = 'Nutrition & your cycle',
   });
 
   final FoodProfile profile;

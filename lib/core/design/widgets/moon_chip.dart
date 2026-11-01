@@ -239,7 +239,7 @@ class MoonRemovableChip extends StatelessWidget {
   }
 }
 
-/// A small label pill, e.g. "Recommended for your follicular phase", the
+/// A small label pill, e.g. "Explore this food", the
 /// phase and meal pills on recipe detail, "Free at launch".
 class MoonPill extends StatelessWidget {
   const MoonPill(this.label, {super.key, required this.background, this.dot});
