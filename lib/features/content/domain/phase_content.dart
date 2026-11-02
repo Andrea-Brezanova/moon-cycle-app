@@ -48,7 +48,7 @@ final class PhaseContent {
   /// "Inner spring".
   final String season;
 
-  /// "Fresh, light and energising"; the last word is set in italic.
+  /// "Fresh, light and lively"; the last word is set in italic.
   final String tagline;
 
   /// The first sentence of the focus copy (Home hero, reveal).

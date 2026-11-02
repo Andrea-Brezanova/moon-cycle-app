@@ -93,15 +93,15 @@ class EatPage extends ConsumerWidget {
                 asset: heroAsset,
                 heading: 'Nourish your cycle',
                 body:
-                    'Seasonal foods, simple recipes and meal ideas to support '
-                    'your current phase.',
+                    'Seasonal foods, simple recipes and meal ideas, '
+                    'featured for your current phase.',
               ),
               const SizedBox(height: 16),
               HubCard(
                 icon: MoonIconName.apple,
                 phase: phase,
                 title: 'Foods',
-                body: 'Browse foods by phase and benefit.',
+                body: 'Browse foods by phase and category.',
                 onTap: () => context.push(Routes.eatFoods),
               ),
               const SizedBox(height: 12),

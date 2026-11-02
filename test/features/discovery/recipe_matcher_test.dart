@@ -129,21 +129,32 @@ void main() {
       expect([...order]..sort(), order);
     });
 
-    test('the current phase only orders; it never decides a match', () {
-      final recipe = testCatalogue.recipe(bowlId)!;
+    test('a recipe’s own phase has no effect on its score or rank', () {
       final choice = MealChoice(['quinoa']);
-      final here = matcher().matchOne(
-        recipe,
-        choice,
-        currentPhase: recipe.phase,
-      )!;
-      final other = matcher().matchOne(
-        recipe,
-        choice,
-        currentPhase: Phase.values.firstWhere((p) => p != recipe.phase),
-      )!;
-      expect(here.level, other.level);
-      expect(here.score - other.score, MatchConfig.defaults.phaseBonus);
+      final all = matcher().match(choice, FoodFilter.none);
+      expect(all, isNotEmpty);
+      // Re-label every recipe with each phase in turn: scores and order
+      // must not move, because phase is not a ranking input.
+      for (final phase in Phase.values) {
+        final relabelled = [
+          for (final m in all) m.recipe.copyWith(phase: phase),
+        ];
+        final again = matcher().match(
+          choice,
+          FoodFilter.none,
+          recipes: relabelled,
+        );
+        expect(
+          [for (final m in again) m.recipe.id],
+          [for (final m in all) m.recipe.id],
+          reason: phase.name,
+        );
+        expect(
+          [for (final m in again) m.score],
+          [for (final m in all) m.score],
+          reason: phase.name,
+        );
+      }
     });
 
     test('of two recipes using the same foods, the simpler ranks first', () {

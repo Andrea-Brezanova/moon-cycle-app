@@ -78,7 +78,7 @@ On the Build a Meal page, below the chosen-food chips: a section **"Goes well wi
 | Offline | Works: pure, local. |
 Acceptance: deterministic output; zero disallowed foods; every suggestion has at least one reason with a source; no reason text mentions a phase, hormone, detox or health outcome; unit tests above pass; production goldens unchanged.
 
-**Review item (existing code, not changed):** `proteinIdeasProvider` demotes "heavy meats" in the follicular and ovulatory phases and lists phase-featured foods first, and `RecipeMatcher` adds a phase bonus. Neither states a claim, but both order food by phase with no supporting research. The owner may want the "light" meat demotion removed or the phase bonus kept strictly as a tie-break.
+**Review item (resolved 2026-11-01 by owner decision):** the demotion and phase bonus described next were removed. Original note: `proteinIdeasProvider` demotes "heavy meats" in the follicular and ovulatory phases and lists phase-featured foods first, and `RecipeMatcher` adds a phase bonus. Neither states a claim, but both order food by phase with no supporting research. The owner may want the "light" meat demotion removed or the phase bonus kept strictly as a tie-break.
 
 ## 8. Testing strategy
 

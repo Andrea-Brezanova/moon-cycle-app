@@ -153,20 +153,14 @@ const _commonProteins = [
   'pistachio',
 ];
 
-/// Rich or festive meats that sit awkwardly with the lighter phases' meal
-/// style; ranked down there when familiar alternatives exist.
-const _heavyMeats = {'duck', 'lamb', 'pork', 'bacon', 'ham'};
-
 /// Near-duplicates: when one is already suggested, skip the other.
 const _twins = {'green-lentil': 'red-lentil', 'red-lentil': 'green-lentil'};
 
 /// Ranks [food] for suggestions: lower is better.
-int _proteinRank(Food food, Phase phase) {
+int _proteinRank(Food food) {
   if (food.id == 'soy-milk') return 2000;
   var rank = _commonProteins.indexOf(food.id);
   if (rank < 0) rank = 1000;
-  final light = phase == Phase.follicular || phase == Phase.ovulatory;
-  if (light && _heavyMeats.contains(food.id)) rank += 500;
   return rank;
 }
 
@@ -228,7 +222,7 @@ final proteinIdeasProvider = Provider.family<FoodIdeas, Phase>((ref, phase) {
       final fa = featuredIds.contains(a.id) ? 0 : 1;
       final fb = featuredIds.contains(b.id) ? 0 : 1;
       if (fa != fb) return fa - fb;
-      final r = _proteinRank(a, phase) - _proteinRank(b, phase);
+      final r = _proteinRank(a) - _proteinRank(b);
       if (r != 0) return r;
       return order[a.id]! - order[b.id]!;
     });

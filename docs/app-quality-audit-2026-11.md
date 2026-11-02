@@ -10,8 +10,8 @@ Method: code reading of the current `main` (80ada44 plus later merges), the exis
 | The Wave 1 checker could not catch a regex precedence bug and a rounding artifact | my own new script | Fixed before use; mutation-tested. |
 No other reproducible functional defect was found in the audited flows. **Not verified:** a full manual VoiceOver pass, long-running soak behaviour, and every dark-mode screen.
 
-## 2. Confusing or unsupported claims still in the UI (Proposal, not changed)
-These are production microcopy; they read as phase-support claims. Proposed neutral wording keeps the brand voice.
+## 2. Unsupported claims in the UI (**Implemented** in the neutral-ranking PR, 2026-11-01)
+These were production microcopy that read as phase-support claims. The owner approved the neutral wording below; it is now live. The table shows the former text and the new text.
 | Text | File | Proposed |
 |---|---|---|
 | "Seasonal foods, simple recipes and meal ideas to support your current phase." | `eat_page.dart` | "…meal ideas featured for your current phase." |
@@ -20,7 +20,7 @@ These are production microcopy; they read as phase-support claims. Proposed neut
 | "How to eat this phase" (a cooking-style note) | `phase_intro.dart` | "Cooking ideas for this phase" |
 | Phase taglines "energising", "restorative" | `phases.json` | Keep or soften (editorial mood words, no nutrition claim). |
 | Detailed reminder: "See the foods for this phase in Moon Cycle." | `reminder_copy.dart` | Acceptable; it only points to featured foods. |
-Also: `proteinIdeasProvider` demotes "heavy meats" in the follicular and ovulatory phases and lists featured foods first, and `RecipeMatcher` adds a phase bonus. Neither shows a claim, but both order food by phase with no research behind it (see `docs/build-a-meal-2.md`, section 7).
+*Before the change:* `proteinIdeasProvider` demoted "heavy meats" in the follicular and ovulatory phases and lists featured foods first, and `RecipeMatcher` adds a phase bonus. **Implemented:** the heavy-meat demotion and the recipe `phaseBonus` are removed (a recipe's phase no longer affects its score or rank; regression tests relabel every recipe with each phase and assert identical scores and order). Phase-featured foods still list first on the phase-browsing protein ideas, because that list is the phase browsing feature the owner chose to keep. The taglines are now "Fresh, curious & lively" and "Grounded, steady & calm". The 142 food-to-phase assignments are unchanged.
 
 ## 3. Accessibility
 Existing and new automated checks (iOS tap targets, labelled targets, text contrast, 320 pt at 1.5× text) now cover **40+ screens** including Food Detail with and without a reviewed profile, Foods, Build a Meal, Eat recipes, the collections and the diary sub-pages (PR #82). No defects. Reduced motion: the app has no looping or auto-playing animation (a toggle and a press-fade only), so exposure is minimal. **Proposals / not verified:** a manual VoiceOver and Dynamic Type pass on the phone; dark-mode contrast tests per screen; the Food Detail page is long at large text sizes (consider section jump links); the Home orbit hero's semantic description should be checked by a screen-reader user.
