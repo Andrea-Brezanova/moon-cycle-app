@@ -71,4 +71,43 @@ void main() {
       expect(await db.select(db.foodAvoidances).get(), hasLength(2));
     });
   });
+
+  group('dislikes', () {
+    test('add, de-duplicate, remove and add again', () async {
+      expect(await repo.dislikedFoodIds(), isEmpty);
+      await repo.dislikeFood('cilantro');
+      await repo.dislikeFood('cilantro');
+      await repo.dislikeFood('beets');
+      expect(await repo.dislikedFoodIds(), {'cilantro', 'beets'});
+      expect(await db.select(db.foodDislikes).get(), hasLength(2));
+
+      await repo.undislikeFood('cilantro');
+      expect(await repo.dislikedFoodIds(), {'beets'});
+      // The row is a tombstone, not gone, so it can sync later.
+      expect(await db.select(db.foodDislikes).get(), hasLength(2));
+
+      await repo.dislikeFood('cilantro');
+      expect(await repo.dislikedFoodIds(), {'cilantro', 'beets'});
+      expect(await db.select(db.foodDislikes).get(), hasLength(3));
+    });
+
+    test('a dislike never touches avoidances, diet or allergies', () async {
+      await repo.avoidAllergen('peanut');
+      await repo.dislikeFood('peanuts');
+      expect(await repo.avoidances(), hasLength(1));
+      await repo.undislikeFood('peanuts');
+      expect(await repo.avoidances(), hasLength(1));
+      expect(await repo.watchDiet().first, Diet.omnivore);
+    });
+
+    test('the live list streams changes', () async {
+      final seen = <Set<String>>[];
+      final sub = repo.watchDislikedFoodIds().listen(seen.add);
+      await pumpEventQueue();
+      await repo.dislikeFood('beets');
+      await pumpEventQueue();
+      await sub.cancel();
+      expect(seen.last, {'beets'});
+    });
+  });
 }

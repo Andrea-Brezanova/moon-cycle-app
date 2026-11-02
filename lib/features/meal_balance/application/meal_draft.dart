@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../content/application/content_providers.dart';
 import '../../content/domain/food.dart';
+import '../../preferences/application/preference_providers.dart';
 import '../domain/complement_ranker.dart';
 
 /// Build a Meal 2.0, application layer (docs/build-a-meal-2.md). NOT shown in
@@ -15,9 +16,11 @@ const mealDraftMaxFoods = 8;
 /// it never blocks choosing that food on purpose, and it is not a safety
 /// filter (allergies and diet are, through [foodFilterProvider]).
 ///
-/// Empty until the dislikes preference exists (a separate, schema-approved
-/// change; see docs/build-a-meal-2-data-model.md).
-final dislikedFoodIdsProvider = Provider<Set<String>>((ref) => const {});
+/// Stored in `food_dislikes` (docs/build-a-meal-2-data-model.md); empty while
+/// loading.
+final dislikedFoodIdsProvider = Provider<Set<String>>(
+  (ref) => ref.watch(foodDislikesProvider).value ?? const {},
+);
 
 enum AddResult { added, alreadyChosen, full, notAllowed, unknownFood }
 
