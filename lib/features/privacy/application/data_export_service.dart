@@ -57,6 +57,7 @@ class DataExportService {
       periods: await cycle.periodLogs(),
       diet: await preferences.watchDiet().first,
       avoidances: await preferences.avoidances(),
+      dislikedFoodIds: await preferences.dislikedFoodIds(),
       reminders: await preferences.watchReminders().first,
       shoppingList: await _ref.read(shoppingRepositoryProvider).items(),
       savedRecipes: await _ref.read(savedRecipeRepositoryProvider).all(),

@@ -2173,6 +2173,371 @@ class FoodAvoidancesCompanion extends UpdateCompanion<FoodAvoidanceRow> {
   }
 }
 
+class $FoodDislikesTable extends FoodDislikes
+    with TableInfo<$FoodDislikesTable, FoodDislikeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FoodDislikesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _foodIdMeta = const VerificationMeta('foodId');
+  @override
+  late final GeneratedColumn<String> foodId = GeneratedColumn<String>(
+    'food_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    createdAt,
+    updatedAt,
+    deletedAt,
+    foodId,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'food_dislikes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FoodDislikeRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('food_id')) {
+      context.handle(
+        _foodIdMeta,
+        foodId.isAcceptableOrUnknown(data['food_id']!, _foodIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_foodIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FoodDislikeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FoodDislikeRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      foodId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}food_id'],
+      )!,
+    );
+  }
+
+  @override
+  $FoodDislikesTable createAlias(String alias) {
+    return $FoodDislikesTable(attachedDatabase, alias);
+  }
+}
+
+class FoodDislikeRow extends DataClass implements Insertable<FoodDislikeRow> {
+  final String id;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  /// Set instead of deleting the row (a tombstone).
+  final DateTime? deletedAt;
+
+  /// A catalogue food id, e.g. `cilantro`.
+  final String foodId;
+  const FoodDislikeRow({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+    required this.foodId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    map['food_id'] = Variable<String>(foodId);
+    return map;
+  }
+
+  FoodDislikesCompanion toCompanion(bool nullToAbsent) {
+    return FoodDislikesCompanion(
+      id: Value(id),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      foodId: Value(foodId),
+    );
+  }
+
+  factory FoodDislikeRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FoodDislikeRow(
+      id: serializer.fromJson<String>(json['id']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      foodId: serializer.fromJson<String>(json['foodId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'foodId': serializer.toJson<String>(foodId),
+    };
+  }
+
+  FoodDislikeRow copyWith({
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    String? foodId,
+  }) => FoodDislikeRow(
+    id: id ?? this.id,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    foodId: foodId ?? this.foodId,
+  );
+  FoodDislikeRow copyWithCompanion(FoodDislikesCompanion data) {
+    return FoodDislikeRow(
+      id: data.id.present ? data.id.value : this.id,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      foodId: data.foodId.present ? data.foodId.value : this.foodId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FoodDislikeRow(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('foodId: $foodId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, createdAt, updatedAt, deletedAt, foodId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FoodDislikeRow &&
+          other.id == this.id &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt &&
+          other.foodId == this.foodId);
+}
+
+class FoodDislikesCompanion extends UpdateCompanion<FoodDislikeRow> {
+  final Value<String> id;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<String> foodId;
+  final Value<int> rowid;
+  const FoodDislikesCompanion({
+    this.id = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.foodId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FoodDislikesCompanion.insert({
+    required String id,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    required String foodId,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt),
+       foodId = Value(foodId);
+  static Insertable<FoodDislikeRow> custom({
+    Expression<String>? id,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<String>? foodId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (foodId != null) 'food_id': foodId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FoodDislikesCompanion copyWith({
+    Value<String>? id,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<String>? foodId,
+    Value<int>? rowid,
+  }) {
+    return FoodDislikesCompanion(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      foodId: foodId ?? this.foodId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (foodId.present) {
+      map['food_id'] = Variable<String>(foodId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FoodDislikesCompanion(')
+          ..write('id: $id, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('foodId: $foodId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $ShoppingItemsTable extends ShoppingItems
     with TableInfo<$ShoppingItemsTable, ShoppingItemRow> {
   @override
@@ -9467,6 +9832,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $FoodAvoidancesTable foodAvoidances = $FoodAvoidancesTable(this);
+  late final $FoodDislikesTable foodDislikes = $FoodDislikesTable(this);
   late final $ShoppingItemsTable shoppingItems = $ShoppingItemsTable(this);
   late final $ShoppingSourcesTable shoppingSources = $ShoppingSourcesTable(
     this,
@@ -9495,6 +9861,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final Index periodLogsStartLive = Index(
     'period_logs_start_live',
     'CREATE UNIQUE INDEX period_logs_start_live ON period_logs (start_date) WHERE deleted_at IS NULL',
+  );
+  late final Index foodDislikesLive = Index(
+    'food_dislikes_live',
+    'CREATE UNIQUE INDEX food_dislikes_live ON food_dislikes (food_id) WHERE deleted_at IS NULL',
   );
   late final Index shoppingItemsKeyLive = Index(
     'shopping_items_key_live',
@@ -9541,6 +9911,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     periodLogs,
     userPreferences,
     foodAvoidances,
+    foodDislikes,
     shoppingItems,
     shoppingSources,
     appStates,
@@ -9555,6 +9926,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     routines,
     routineSteps,
     periodLogsStartLive,
+    foodDislikesLive,
     shoppingItemsKeyLive,
     personalRecipesOwnerKey,
     diaryEntriesItemLive,
@@ -10685,6 +11057,215 @@ typedef $$FoodAvoidancesTableProcessedTableManager =
         BaseReferences<_$AppDatabase, $FoodAvoidancesTable, FoodAvoidanceRow>,
       ),
       FoodAvoidanceRow,
+      PrefetchHooks Function()
+    >;
+typedef $$FoodDislikesTableCreateCompanionBuilder =
+    FoodDislikesCompanion Function({
+      required String id,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      required String foodId,
+      Value<int> rowid,
+    });
+typedef $$FoodDislikesTableUpdateCompanionBuilder =
+    FoodDislikesCompanion Function({
+      Value<String> id,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<String> foodId,
+      Value<int> rowid,
+    });
+
+class $$FoodDislikesTableFilterComposer
+    extends Composer<_$AppDatabase, $FoodDislikesTable> {
+  $$FoodDislikesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get foodId => $composableBuilder(
+    column: $table.foodId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FoodDislikesTableOrderingComposer
+    extends Composer<_$AppDatabase, $FoodDislikesTable> {
+  $$FoodDislikesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get foodId => $composableBuilder(
+    column: $table.foodId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FoodDislikesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FoodDislikesTable> {
+  $$FoodDislikesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get foodId =>
+      $composableBuilder(column: $table.foodId, builder: (column) => column);
+}
+
+class $$FoodDislikesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FoodDislikesTable,
+          FoodDislikeRow,
+          $$FoodDislikesTableFilterComposer,
+          $$FoodDislikesTableOrderingComposer,
+          $$FoodDislikesTableAnnotationComposer,
+          $$FoodDislikesTableCreateCompanionBuilder,
+          $$FoodDislikesTableUpdateCompanionBuilder,
+          (
+            FoodDislikeRow,
+            BaseReferences<_$AppDatabase, $FoodDislikesTable, FoodDislikeRow>,
+          ),
+          FoodDislikeRow,
+          PrefetchHooks Function()
+        > {
+  $$FoodDislikesTableTableManager(_$AppDatabase db, $FoodDislikesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FoodDislikesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FoodDislikesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FoodDislikesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<String> foodId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FoodDislikesCompanion(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                foodId: foodId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                required String foodId,
+                Value<int> rowid = const Value.absent(),
+              }) => FoodDislikesCompanion.insert(
+                id: id,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                foodId: foodId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FoodDislikesTable, FoodDislikeRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $FoodDislikesTable,
+                    FoodDislikeRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FoodDislikesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FoodDislikesTable,
+      FoodDislikeRow,
+      $$FoodDislikesTableFilterComposer,
+      $$FoodDislikesTableOrderingComposer,
+      $$FoodDislikesTableAnnotationComposer,
+      $$FoodDislikesTableCreateCompanionBuilder,
+      $$FoodDislikesTableUpdateCompanionBuilder,
+      (
+        FoodDislikeRow,
+        BaseReferences<_$AppDatabase, $FoodDislikesTable, FoodDislikeRow>,
+      ),
+      FoodDislikeRow,
       PrefetchHooks Function()
     >;
 typedef $$ShoppingItemsTableCreateCompanionBuilder =
@@ -14852,6 +15433,8 @@ class $AppDatabaseManager {
       $$UserPreferencesTableTableManager(_db, _db.userPreferences);
   $$FoodAvoidancesTableTableManager get foodAvoidances =>
       $$FoodAvoidancesTableTableManager(_db, _db.foodAvoidances);
+  $$FoodDislikesTableTableManager get foodDislikes =>
+      $$FoodDislikesTableTableManager(_db, _db.foodDislikes);
   $$ShoppingItemsTableTableManager get shoppingItems =>
       $$ShoppingItemsTableTableManager(_db, _db.shoppingItems);
   $$ShoppingSourcesTableTableManager get shoppingSources =>
