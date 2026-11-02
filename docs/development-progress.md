@@ -94,3 +94,7 @@ see the CI section of the pull request that added it for what changed.
 - Nine "Why this food?" lines rewritten after checking each sentence, serving and figure against the live USDA records (`nine-rewrites-verification.md`); phase assignments unchanged.
 - `phases.json`: unsupported "highlights during this phase" and "support" wording softened; physiology kept.
 - Credits & Sources: AI-illustration statement. Wave 1 reviewer role recorded without name, date or credential. Wave 1 stays unpublished.
+
+## 2026-11-01: neutral ranking and softer phase wording
+- Six production lines softened ("featured for your current phase", "Three plants featured in your phase today", "Browse foods by phase and category", "Cooking ideas for this phase"; taglines "lively" and "calm").
+- Recipe ranking no longer uses the recipe's phase (`phaseBonus` removed); the protein-ideas "heavy meat" demotion is removed. Safety filters, allergies, preferences and relevance are unchanged. Regression tests relabel recipes by phase and assert identical scores and order. Phase browsing and the 142 phase assignments are unchanged.

@@ -169,11 +169,58 @@ void main() {
   });
 
   group('ranking of general suggestions', () {
-    test('Duck is not an early Ovulatory fallback for an omnivore', () {
-      final i = ideas(Phase.ovulatory, const FoodFilter());
-      final ids = i.all.map((f) => f.id).toList();
-      expect(ids, isNot(contains('duck')));
-      expect(i.general.map((f) => f.id), containsAll(['eggs', 'chicken']));
+    test('uncommon meats rank behind familiar proteins in every phase', () {
+      for (final phase in Phase.values) {
+        final ids = ideas(phase, const FoodFilter()).all.map((f) => f.id);
+        final list = ids.toList();
+        if (list.contains('duck')) {
+          expect(list.indexOf('duck'), greaterThan(list.indexOf('chicken')));
+        }
+      }
+    });
+
+    test('phase does not change the order of foods no phase features', () {
+      final featuredAnywhere = {
+        for (final p in Phase.values) ...testCatalogue.phase(p).foodIds,
+      };
+      final orders = <Phase, List<String>>{
+        for (final p in Phase.values)
+          p: [
+            for (final f in ideas(p, const FoodFilter()).general)
+              if (!featuredAnywhere.contains(f.id)) f.id,
+          ],
+      };
+      for (final a in Phase.values) {
+        for (final b in Phase.values) {
+          final common = orders[a]!.where(orders[b]!.contains).toList();
+          final other = orders[b]!.where(orders[a]!.contains).toList();
+          expect(common, other, reason: '${a.name} vs ${b.name}');
+        }
+      }
+    });
+
+    test('rich meats are not demoted in follicular or ovulatory', () {
+      // Same filter, same food: its place among the unfeatured foods is a
+      // property of the food (how familiar it is), never of the phase.
+      int? rankIn(Phase p, String id) {
+        final l = [for (final f in ideas(p, const FoodFilter()).general) f.id];
+        final i = l.indexOf(id);
+        return i < 0 ? null : i;
+      }
+
+      for (final id in ['lamb', 'pork', 'duck']) {
+        final featured = {
+          for (final p in Phase.values)
+            if (testCatalogue.phase(p).foodIds.contains(id)) p,
+        };
+        final ranks = {
+          for (final p in Phase.values)
+            if (!featured.contains(p)) p: rankIn(p, id) != null,
+        };
+        // Present or absent identically in every phase that does not feature
+        // it (before: absent in follicular and ovulatory only).
+        expect(ranks.values.toSet().length, lessThanOrEqualTo(1), reason: id);
+      }
     });
 
     test('familiar proteins come before uncommon ones', () {

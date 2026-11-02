@@ -79,7 +79,7 @@ class HomePage extends ConsumerWidget {
                   label: 'EAT',
                   labelColor: c.phase(Phase.follicular).text,
                   title: '3 plants',
-                  body: 'Three plants chosen for your phase today.',
+                  body: 'Three plants featured in your phase today.',
                   link: 'See the plants',
                   onTap: () => context.push(Routes.threePlants),
                 ),

@@ -1,4 +1,3 @@
-import '../../../core/domain/phase.dart';
 import '../../content/domain/catalogue.dart';
 import '../../content/domain/food_filter.dart';
 import '../../content/domain/recipe.dart';
@@ -85,13 +84,12 @@ final class RecipeMatcher {
   List<RecipeMatch> match(
     MealChoice choice,
     FoodFilter filter, {
-    Phase? currentPhase,
     Iterable<Recipe>? recipes,
   }) {
     final matches = <RecipeMatch>[];
     for (final recipe in recipes ?? catalogue.recipes) {
       if (!filter.allowsRecipe(recipe, catalogue)) continue;
-      final m = matchOne(recipe, choice, currentPhase: currentPhase);
+      final m = matchOne(recipe, choice);
       if (m != null) matches.add(m);
     }
     matches.sort(compareMatches);
@@ -99,11 +97,7 @@ final class RecipeMatcher {
   }
 
   /// The match of [recipe], or null if it uses none of the chosen foods.
-  RecipeMatch? matchOne(
-    Recipe recipe,
-    MealChoice choice, {
-    Phase? currentPhase,
-  }) {
+  RecipeMatch? matchOne(Recipe recipe, MealChoice choice) {
     if (choice.ids.isEmpty) return null;
     final present = {
       for (final l in recipe.ingredients) ?l.foodId,
@@ -133,7 +127,6 @@ final class RecipeMatcher {
         recipe.ingredients.isNotEmpty;
     final score =
         matched.length * 100.0 +
-        (currentPhase == recipe.phase ? config.phaseBonus : 0) +
         (wellWritten ? config.qualityBonus : 0) -
         extras.length * config.extraFoodPenalty;
     return RecipeMatch(

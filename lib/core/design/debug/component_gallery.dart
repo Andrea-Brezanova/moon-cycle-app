@@ -666,7 +666,7 @@ class _GalleryContentState extends State<GalleryContent> {
       ),
       const SizedBox(height: 10),
       EditorialHeading(
-        'Fresh, light and *energising*',
+        'Fresh, light and *lively*',
         style: fraunces(30, height: 1.12),
       ),
     ];
