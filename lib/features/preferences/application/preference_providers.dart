@@ -14,6 +14,11 @@ final avoidancesProvider = StreamProvider<List<FoodAvoidance>>(
   (ref) => ref.watch(preferencesRepositoryProvider).watchAvoidances(),
 );
 
+/// Foods disliked for Build a Meal suggestions (not an allergy or avoidance).
+final foodDislikesProvider = StreamProvider<Set<String>>(
+  (ref) => ref.watch(preferencesRepositoryProvider).watchDislikedFoodIds(),
+);
+
 final reminderSettingsProvider = StreamProvider<ReminderSettings>(
   (ref) => ref.watch(preferencesRepositoryProvider).watchReminders(),
 );

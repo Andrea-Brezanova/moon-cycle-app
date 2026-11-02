@@ -3,6 +3,9 @@ import 'meal_balance.dart';
 import 'pairing_rules.dart';
 import 'plate_group.dart';
 
+/// Near-duplicates: when one is chosen or already suggested, skip the other.
+const mealTwins = {'green-lentil': 'red-lentil', 'red-lentil': 'green-lentil'};
+
 /// A food suggested to go with the foods already chosen.
 final class Suggestion {
   const Suggestion({
@@ -63,18 +66,17 @@ final class RankerConfig {
 /// 3. Herbs, fermented sides and "other" foods are not suggested as a part of
 ///    the plate (they can still be chosen by the user).
 /// 4. Score = fills a missing plate part + a documented pairing + variety −
-///    repeating a covered part. Ties break on [featuredIds] (optional, and
-///    only ever a tie-break, never a reason shown), then name, then id.
+///    repeating a covered part. Ties break on name, then id.
+/// 5. Near-duplicates ([mealTwins], green and red lentils) are not both
+///    suggested, and a twin of a chosen food is not suggested.
 ///
-/// The cycle is not an input to the score. [featuredIds] exists so a caller
-/// that already features foods for the phase can order otherwise identical
-/// suggestions the same way; it never adds a reason or a claim.
+/// The cycle is not an input: there is no phase parameter and ordering never
+/// depends on it (owner decision, 2026-11-01).
 List<Suggestion> suggestComplements({
   required Iterable<Food> chosen,
   required Iterable<Food> candidates,
   bool Function(Food food)? allows,
   Set<String> dislikedIds = const {},
-  Set<String> featuredIds = const {},
   RankerConfig config = RankerConfig.defaults,
 }) {
   final chosenList = [...chosen];
@@ -85,6 +87,7 @@ List<Suggestion> suggestComplements({
   final scored = <Suggestion>[];
   for (final food in candidates) {
     if (chosenIds.contains(food.id) || dislikedIds.contains(food.id)) continue;
+    if (chosenIds.contains(mealTwins[food.id])) continue;
     if (allows != null && !allows(food)) continue;
     final group = plateGroupOf(food);
     if (!group.countsTowardBalance) continue;
@@ -146,13 +149,17 @@ List<Suggestion> suggestComplements({
   scored.sort((a, b) {
     final byScore = b.score.compareTo(a.score);
     if (byScore != 0) return byScore;
-    final fa = featuredIds.contains(a.food.id) ? 0 : 1;
-    final fb = featuredIds.contains(b.food.id) ? 0 : 1;
-    if (fa != fb) return fa - fb;
     final byName = a.food.displayName.toLowerCase().compareTo(
       b.food.displayName.toLowerCase(),
     );
     return byName != 0 ? byName : a.food.id.compareTo(b.food.id);
   });
-  return scored.take(config.limit).toList();
+  final picked = <Suggestion>[];
+  for (final s in scored) {
+    final twin = mealTwins[s.food.id];
+    if (twin != null && picked.any((p) => p.food.id == twin)) continue;
+    picked.add(s);
+    if (picked.length == config.limit) break;
+  }
+  return picked;
 }

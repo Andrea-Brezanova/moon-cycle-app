@@ -57,3 +57,8 @@ Screenshots can be produced from the existing golden renders (6.7" and 6.1" size
 ## 10. Legal and trademark (needs a qualified adviser)
 
 The brand is under review. I make no clearance statement. Needs you: a trademark search and opinion in the intended markets before the name is used publicly, domain decisions, terms of use, and the privacy policy. Private evidence files exist and are kept out of the repository.
+
+## Drafts added 1 Nov 2026 (not published, for the owner and a legal adviser)
+- `docs/legal-drafts/privacy-policy-draft.md` and `terms-of-use-draft.md`: written from the app's verified data practices; bracketed items are the owner's decisions.
+- `docs/legal-drafts/apple-privacy-manifest-and-export-compliance.md`: audit of a fresh release build. Findings: no app-level privacy manifest; `sqlite3mc` uses `statfs` and has no manifest (possible disk-space reason needed, unverified); Sentry is linked and its manifest declares collected data although it is off; export-compliance key absent and a legal decision.
+- `docs/accessibility-manual-checklist.md`: what the 89 automated tests cover and the manual VoiceOver, Dynamic Type and display checks still needed.

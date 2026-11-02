@@ -33,6 +33,7 @@ Map<String, Object?> buildDataExport({
   required List<PeriodLog> periods,
   required Diet diet,
   required List<FoodAvoidance> avoidances,
+  Set<String> dislikedFoodIds = const {},
   required ReminderSettings reminders,
   required List<ShoppingItem> shoppingList,
   List<PersonalRecipe> personalRecipes = const [],
@@ -83,6 +84,10 @@ Map<String, Object?> buildDataExport({
           },
           CustomAvoidance(:final label) => {'type': 'custom', 'name': label},
         },
+    ],
+    'dislikedFoods': [
+      for (final id in [...dislikedFoodIds]..sort())
+        {'id': id, 'name': foodName(id)},
     ],
     'reminders': {
       'enabled': reminders.enabled,

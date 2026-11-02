@@ -9,7 +9,7 @@ Static review of how MoonCycle stores and handles personal data, on `main` after
 | Cycle dates and history, preferences, diary, symptoms, notes, activities, saved recipes, shopping list, collections, routines | One SQLCipher-encrypted database (`moon_cycle.db`) in the app's private support folder | 256-bit random key, held in the iOS Keychain / Android Keystore (`first_unlock`). A database that cannot be opened is moved aside, never sent anywhere |
 | Interface choices, collection order, Me hero choice | `UiPrefs` JSON file, not encrypted | Holds no cycle or diary data. The personal Me hero photo is re-encoded (max 1,600 px, quality 85, no full metadata request) and stored in the app's private folder, not the photo library |
 | Export | JSON and CSV written to a temporary folder, shared, then deleted in a `finally` block | The files are plain text while the share sheet is open |
-| Delete my data | Cancels reminders, deletes the database, journal files, any moved-aside copy and the key, and the UI preferences and hero image | Covers the moved-aside copies |
+| Delete my data | (also removes disliked foods, which live in the database) Cancels reminders, deletes the database, journal files, any moved-aside copy and the key, and the UI preferences and hero image | Covers the moved-aside copies |
 
 ## What leaves the phone
 
