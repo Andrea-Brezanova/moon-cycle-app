@@ -87,8 +87,8 @@ Pure unit tests with the real catalogue (done: `test/features/meal_balance/`); p
 ## 9. Implementation plan: small, reviewable PRs
 
 1. **(done in this PR)** Pure foundations and tests; this document.
-2. Dislikes preference (data and Settings row), with persistence and deletion tests. Needs schema approval.
-3. Application layer: `mealSuggestionsProvider` wired to filters, dislikes and twins; provider tests; still not shown.
+2. Dislikes preference (data and Settings row), with persistence and deletion tests. **Schema approved by the owner 2026-11-01; documented in `docs/build-a-meal-2-data-model.md`.**
+3. **(done, unwired)** Application layer: `mealDraftProvider` (kept alive, strict diet and allergy enforcement) and `mealSuggestionsProvider` wired to filters, dislikes and twins; provider tests; still not shown. The ranker no longer takes `featuredIds`: the cycle is not an input at all.
 4. UI section behind a debug-only flag; widget and golden tests.
 5. Owner review of the flag build on the iPhone; then enable.
 6. Nutrient-aware rules from published profiles (after Wave 1 is approved).
