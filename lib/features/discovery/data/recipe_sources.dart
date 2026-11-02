@@ -33,7 +33,7 @@ class InternalRecipeSource implements RecipeSourceProvider {
     FoodFilter filter, {
     Phase? currentPhase,
   }) async => [
-    for (final m in _matcher.match(choice, filter, currentPhase: currentPhase))
+    for (final m in _matcher.match(choice, filter))
       RecipeCandidate(
         recipe: m.recipe,
         source: RecipeSource.internal,
@@ -210,7 +210,6 @@ class ExternalRecipeSource implements RecipeSourceProvider {
     final matches = _matcher.match(
       choice,
       filter,
-      currentPhase: currentPhase,
       recipes: [for (final e in found) e.recipe],
     );
     final out = <RecipeCandidate>[];

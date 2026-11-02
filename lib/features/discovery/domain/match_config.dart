@@ -3,7 +3,6 @@
 final class MatchConfig {
   const MatchConfig({
     this.goodMinCoverage = 0.6,
-    this.phaseBonus = 8,
     this.completeMinSteps = 3,
     this.qualityBonus = 4,
     this.extraFoodPenalty = 0.5,
@@ -16,10 +15,6 @@ final class MatchConfig {
   /// three, one of two, two of four, it is a *partial* match. Using every
   /// chosen food is always a *complete* match.
   final double goodMinCoverage;
-
-  /// Added to a recipe written for the user's current phase. It only orders
-  /// results; it never decides whether a recipe matches.
-  final double phaseBonus;
 
   /// A recipe with fewer steps than this has an incomplete method and gets no
   /// [qualityBonus].

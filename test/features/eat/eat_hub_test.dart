@@ -69,14 +69,14 @@ void main() {
     expect(find.text('Nourish your cycle'), findsOneWidget);
     expect(
       find.text(
-        'Seasonal foods, simple recipes and meal ideas to support your '
+        'Seasonal foods, simple recipes and meal ideas, featured for your '
         'current phase.',
       ),
       findsOneWidget,
     );
     for (final t in [
       'Foods',
-      'Browse foods by phase and benefit.',
+      'Browse foods by phase and category.',
       'Recipes',
       'Find nourishing recipes for every phase.',
       'Build a Meal',

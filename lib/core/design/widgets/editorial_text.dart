@@ -5,7 +5,7 @@ import '../tokens/moon_typography.dart';
 import 'text_link.dart';
 
 /// A Fraunces heading where words between `*asterisks*` are set in italic,
-/// e.g. `'Fresh, light and *energising*'` (spec §4: one italic accent per
+/// e.g. `'Fresh, light and *lively*'` (spec §4: one italic accent per
 /// heading at most).
 ///
 /// Headings grow with the system text size up to 1.3× (spec §10).
@@ -98,7 +98,7 @@ class SectionHead extends StatelessWidget {
   }
 }
 
-/// "Fresh, light and energising" → "Fresh, light and *energising*".
+/// "Fresh, light and lively" → "Fresh, light and *lively*".
 String italicLastWord(String text) {
   final i = text.lastIndexOf(' ');
   return i < 0
