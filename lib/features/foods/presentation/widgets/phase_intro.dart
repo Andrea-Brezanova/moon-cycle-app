@@ -63,7 +63,7 @@ class PhaseIntro extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         block('What your body may need', copy.need),
-        block('How to eat this phase', copy.how),
+        block('Cooking ideas for this phase', copy.how),
         Text(
           foodsUniversalNote,
           style: dmSans(14, height: 1.4, color: c.textMuted),

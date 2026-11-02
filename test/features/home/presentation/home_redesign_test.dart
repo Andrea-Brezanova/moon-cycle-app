@@ -98,7 +98,7 @@ void main() {
     tester.view.physicalSize = const Size(390, 2600) * 3;
     await tester.pumpAndSettle();
     for (final t in [
-      'Three plants chosen for your phase today.',
+      'Three plants featured in your phase today.',
       'Three movement ideas. Pick what feels right.',
       'A short breathing or mindfulness pause.',
     ]) {
@@ -117,7 +117,7 @@ void main() {
     expect(paragraphs, hasLength(1));
     expect(c.read(viewingPhaseProvider), Phase.follicular);
     // The headline stays; only the body changed.
-    expect(find.text('Fresh, curious & energising'), findsOneWidget);
+    expect(find.text('Fresh, curious & lively'), findsOneWidget);
     for (final p in paragraphs) {
       await scrollTo(tester, find.text(p));
       expect(find.text(p), findsOneWidget);
@@ -206,7 +206,7 @@ void main() {
     expect(find.text('YOUR FOCUS · LUTEAL'), findsOneWidget);
     expect(find.text('WHAT YOUR BODY MAY NEED'), findsOneWidget);
     expect(find.text('WHY THESE FOODS'), findsNothing);
-    expect(find.text('HOW TO EAT THIS PHASE'), findsOneWidget);
+    expect(find.text('COOKING IDEAS FOR THIS PHASE'), findsOneWidget);
     expect(find.textContaining('Appetite and energy intake'), findsOneWidget);
     expect(
       find.textContaining('These are suggestions, not rules'),
