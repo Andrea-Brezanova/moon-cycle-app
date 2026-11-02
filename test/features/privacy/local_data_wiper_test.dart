@@ -6,6 +6,7 @@ import 'package:moon_cycle/features/collections/data/collection_link_repository.
 import 'package:moon_cycle/features/collections/domain/collection_link.dart';
 import 'package:moon_cycle/features/cycle/data/cycle_repository.dart';
 import 'package:moon_cycle/features/cycle/domain/cycle_profile.dart';
+import 'package:moon_cycle/features/preferences/data/preferences_repository.dart';
 import 'package:moon_cycle/features/privacy/data/local_data_wiper.dart';
 import 'package:moon_cycle/features/routines/data/routine_repository.dart';
 
@@ -83,5 +84,15 @@ void main() {
     addTearDown(fresh.close);
     expect(await fresh.select(fresh.routines).get(), isEmpty);
     expect(await fresh.select(fresh.routineSteps).get(), isEmpty);
+  });
+
+  test('dislikes do not survive a wipe', () async {
+    final db = await openAppDatabase(directory: dir, keys: keys);
+    await PreferencesRepository(db).dislikeFood('beets');
+    await LocalDataWiper(database: db, directory: dir, keys: keys).wipe();
+    final fresh = await openAppDatabase(directory: dir, keys: keys);
+    addTearDown(fresh.close);
+    expect(await PreferencesRepository(fresh).dislikedFoodIds(), isEmpty);
+    expect(await fresh.select(fresh.foodDislikes).get(), isEmpty);
   });
 }

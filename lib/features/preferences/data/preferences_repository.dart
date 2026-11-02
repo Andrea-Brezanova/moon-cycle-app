@@ -89,6 +89,49 @@ class PreferencesRepository {
         ),
       );
 
+  /// Foods the user does not want suggested in Build a Meal (a taste
+  /// preference, separate from avoidances). Never blocks choosing a food.
+  Stream<Set<String>> watchDislikedFoodIds() =>
+      _liveDislikes().watch().map((rows) => {for (final r in rows) r.foodId});
+
+  Future<Set<String>> dislikedFoodIds() async => {
+    for (final r in await _liveDislikes().get()) r.foodId,
+  };
+
+  Future<void> dislikeFood(String foodId) => _db.transaction(() async {
+    final already = await (_db.select(
+      _db.foodDislikes,
+    )..where((t) => t.foodId.equals(foodId) & t.deletedAt.isNull())).get();
+    if (already.isNotEmpty) return;
+    final now = _stamp.now();
+    await _db
+        .into(_db.foodDislikes)
+        .insert(
+          FoodDislikesCompanion.insert(
+            id: _stamp.newId(),
+            createdAt: now,
+            updatedAt: now,
+            foodId: foodId,
+          ),
+        );
+  });
+
+  /// Stops disliking a food (a tombstone, so it can sync later).
+  Future<void> undislikeFood(String foodId) =>
+      (_db.update(
+        _db.foodDislikes,
+      )..where((t) => t.foodId.equals(foodId) & t.deletedAt.isNull())).write(
+        FoodDislikesCompanion(
+          deletedAt: Value(_stamp.now()),
+          updatedAt: Value(_stamp.now()),
+        ),
+      );
+
+  SimpleSelectStatement<$FoodDislikesTable, FoodDislikeRow> _liveDislikes() =>
+      _db.select(_db.foodDislikes)
+        ..where((t) => t.deletedAt.isNull())
+        ..orderBy([(t) => OrderingTerm.asc(t.createdAt)]);
+
   Future<void> _addAvoidance({
     required String kind,
     Value<String?> allergenId = const Value(null),

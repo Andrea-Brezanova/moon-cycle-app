@@ -77,6 +77,20 @@ class FoodAvoidances extends Table with UserRow {
   TextColumn get customLabel => text().nullable()();
 }
 
+/// Foods the user would rather not be *suggested* in Build a Meal. A taste
+/// preference only: allergies, diet and avoided foods live in
+/// [FoodAvoidances] and are enforced everywhere. Rows that name a food no
+/// longer in the catalogue are ignored, not deleted.
+@TableIndex.sql(
+  'CREATE UNIQUE INDEX food_dislikes_live '
+  'ON food_dislikes (food_id) WHERE deleted_at IS NULL',
+)
+@DataClassName('FoodDislikeRow')
+class FoodDislikes extends Table with UserRow {
+  /// A catalogue food id, e.g. `cilantro`.
+  TextColumn get foodId => text()();
+}
+
 @TableIndex.sql(
   'CREATE UNIQUE INDEX shopping_items_key_live '
   'ON shopping_items ("key") WHERE deleted_at IS NULL',

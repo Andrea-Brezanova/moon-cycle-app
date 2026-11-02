@@ -114,6 +114,7 @@ void main() {
         {'type': 'food', 'id': 'mushrooms', 'name': 'Mushrooms'},
         {'type': 'custom', 'name': 'Coriander'},
       ],
+      'dislikedFoods': <Object?>[],
       'reminders': {'enabled': true, 'phaseChange': true, 'beforePeriod': true},
     });
     expect(json['shoppingList'], [
@@ -364,6 +365,25 @@ void main() {
         'createdAt': '2026-10-10T08:00:00.000Z',
         'updatedAt': '2026-10-11T08:00:00.000Z',
       },
+    ]);
+  });
+
+  test('disliked foods are exported by id and name, sorted', () {
+    final out = buildDataExport(
+      exportedAt: DateTime.utc(2026, 10, 12, 9),
+      appVersion: '1.0.0',
+      profile: null,
+      periods: const [],
+      diet: Diet.omnivore,
+      avoidances: const [],
+      dislikedFoodIds: {'mushrooms', 'beets'},
+      reminders: const ReminderSettings(),
+      shoppingList: const [],
+      foodName: (id) => id == 'mushrooms' ? 'Mushrooms' : null,
+    );
+    expect((out['preferences']! as Map<String, Object?>)['dislikedFoods'], [
+      {'id': 'beets', 'name': null},
+      {'id': 'mushrooms', 'name': 'Mushrooms'},
     ]);
   });
 }

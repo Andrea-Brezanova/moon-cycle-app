@@ -19,6 +19,7 @@ part 'app_database.g.dart';
     PeriodLogs,
     UserPreferences,
     FoodAvoidances,
+    FoodDislikes,
     ShoppingItems,
     ShoppingSources,
     AppStates,
@@ -38,7 +39,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -105,6 +106,13 @@ class AppDatabase extends _$AppDatabase {
       // routine stays a routine and nothing is rewritten.
       from10To11: (m, schema) async {
         await m.addColumn(schema.routines, schema.routines.kind);
+      },
+      // 12: foods the user would rather not be suggested in Build a Meal.
+      // Additive: a new table and index; nothing existing changes. See
+      // docs/build-a-meal-2-data-model.md.
+      from11To12: (m, schema) async {
+        await m.createTable(schema.foodDislikes);
+        await m.createIndex(schema.foodDislikesLive);
       },
     ),
     beforeOpen: (details) => customStatement('PRAGMA foreign_keys = ON'),
