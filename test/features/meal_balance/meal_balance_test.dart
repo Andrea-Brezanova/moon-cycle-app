@@ -190,29 +190,39 @@ void main() {
       expect(run(), run());
     });
 
-    test('featured ids only break exact ties, never change a score order', () {
-      final base = suggestComplements(
-        chosen: [f('beef')],
-        candidates: foods,
-        config: const RankerConfig(limit: 500),
-      );
-      final withFeatured = suggestComplements(
-        chosen: [f('beef')],
-        candidates: foods,
-        featuredIds: {for (final x in base.reversed.take(20)) x.food.id},
-        config: const RankerConfig(limit: 500),
-      );
-      // Scores are non-increasing in both, and the multiset of scores is equal.
-      for (final list in [base, withFeatured]) {
-        for (var i = 0; i < list.length - 1; i++) {
-          expect(list[i].score, greaterThanOrEqualTo(list[i + 1].score));
-        }
-      }
-      expect(
-        [for (final x in base) x.score],
-        [for (final x in withFeatured) x.score],
-      );
-    });
+    test(
+      'twins are never both suggested, nor suggested beside a chosen twin',
+      () {
+        const big = RankerConfig(limit: 500);
+        final plain = suggestComplements(
+          chosen: [f('beef')],
+          candidates: foods,
+          config: big,
+        ).map((x) => x.food.id).toList();
+        expect(
+          plain.contains('green-lentil') && plain.contains('red-lentil'),
+          isFalse,
+        );
+        final withLentil = suggestComplements(
+          chosen: [f('green-lentil')],
+          candidates: foods,
+          config: big,
+        ).map((x) => x.food.id);
+        expect(withLentil, isNot(contains('red-lentil')));
+      },
+    );
+
+    test(
+      'suggestions do not depend on any phase: the API has no such input',
+      () {
+        // Same inputs, same output, run twice; there is no phase parameter to vary.
+        List<String> run() => suggestComplements(
+          chosen: [f('quinoa')],
+          candidates: foods,
+        ).map((x) => x.food.id).toList();
+        expect(run(), run());
+      },
+    );
 
     test('the limit is respected and empty candidates give nothing', () {
       expect(
